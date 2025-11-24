@@ -1,0 +1,42 @@
+import type { Metadata } from "next";
+import { Inter, Noto_Sans_Khmer } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const notoSansKhmer = Noto_Sans_Khmer({
+  subsets: ["khmer"],
+  variable: "--font-noto-sans-khmer",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "FinTech Consulting Cambodia",
+  description: "Architecting Cambodia's Digital Financial Future",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="light">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          rel="stylesheet"
+        />
+      </head>
+      <body
+        className={`${inter.variable} ${notoSansKhmer.variable} bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark`}
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
