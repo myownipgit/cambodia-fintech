@@ -67,21 +67,35 @@ export default function Home() {
               </h2>
               <p className={`max-w-3xl text-lg text-text-light/80 dark:text-text-dark/80 ${language === "km" ? "font-khmer" : ""}`}>
                 {language === "en"
-                  ? "A short introductory paragraph about the company's mission and vision, followed by more detailed content presented in two columns below."
-                  : "កថាខណ្ឌណែនាំខ្លីៗអំពីបេសកកម្ម និងចក្ខុវិស័យរបស់ក្រុមហ៊ុន បន្ទាប់មកដោយខ្លឹមសារលម្អិតបន្ថែមដែលបង្ហាញក្នុងជួរឈរពីរខាងក្រោម។"}
+                  ? "We are strategic advisors and technical architects specializing in Cambodia's emerging digital financial infrastructure. Our expertise lies at the intersection of regulatory compliance, government technology platforms, and enterprise integration."
+                  : "យើងជាទីប្រឹក្សាយុទ្ធសាស្ត្រ និងស្ថាបត្យករបច្ចេកទេសដែលមានជំនាញពិសេសក្នុងហេដ្ឋារចនាសម្ព័ន្ធហិរញ្ញវត្ថុឌីជីថលកំពុងរីកចម្រើនរបស់កម្ពុជា។ ជំនាញរបស់យើងស្ថិតនៅចំណុចប្រសព្វនៃការអនុលោមតាមបទប្បញ្ញត្តិ វេទិកាបច្ចេកវិទ្យារដ្ឋាភិបាល និងការរួមបញ្ចូលសហគ្រាស។"}
               </p>
             </div>
             <div className={`mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 ${language === "km" ? "font-khmer" : ""}`}>
-              <p className="leading-relaxed">
-                {language === "en"
-                  ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat."
-                  : "អត្ថបទជាភាសាខ្មែរសម្រាប់ជួរឈរទីមួយ។ ខ្លឹមសារនេះរៀបរាប់លម្អិតអំពីប្រវត្តិ និងគោលដៅរបស់ក្រុមហ៊ុន ដោយផ្តោតលើការប្តេជ្ញាចិត្តរបស់យើងក្នុងការជំរុញនវានុវត្តន៍ផ្នែកហិរញ្ញវត្ថុក្នុងប្រទេសកម្ពុជា។ យើងខិតខំផ្តល់នូវដំណោះស្រាយដ៏ល្អបំផុត។"}
-              </p>
-              <p className="leading-relaxed">
-                {language === "en"
-                  ? "Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh."
-                  : "អត្ថបទជាភាសាខ្មែរសម្រាប់ជួរឈរទីពីរ។ នៅទីនេះ យើងពន្យល់ពីទស្សនវិជ្ជារបស់យើង និងរបៀបដែលយើងសហការជាមួយដៃគូដើម្បីបង្កើតប្រព័ន្ធអេកូឡូស៊ីហិរញ្ញវត្ថុឌីជីថលដែលរឹងមាំ និងប្រកបដោយបរិយាប័ន្នសម្រាប់ទាំងអស់គ្នា។"}
-              </p>
+              <div className="space-y-4">
+                <p className="leading-relaxed">
+                  {language === "en"
+                    ? "We understand Cambodia's unique position as one of the few countries implementing a comprehensive Government-as-a-Platform model. Our team has deep expertise in working with national digital infrastructure layers including CamDigiKey (digital identity), Bakong (instant payments), CamDX (data exchange), and the mandatory CamInvoice system."
+                    : "យើងយល់ពីទីតាំងពិសេសរបស់កម្ពុជាជាប្រទេសមួយក្នុងចំណោមប្រទេសមួយចំនួនតែប៉ុណ្ណោះដែលអនុវត្តគំរូ «រដ្ឋាភិបាលជាវេទិកា» ដ៏ទូលំទូលាយ។ ក្រុមរបស់យើងមានជំនាញជ្រាលជ្រៅក្នុងការធ្វើការជាមួយស្រទាប់ហេដ្ឋារចនាសម្ព័ន្ធឌីជីថលជាតិ រួមទាំង CamDigiKey (អត្តសញ្ញាណឌីជីថល), បាគង (ការទូទាត់ភ្លាមៗ), CamDX (ការផ្លាស់ប្តូរទិន្នន័យ), និងប្រព័ន្ធ CamInvoice ដែលមានលក្ខណៈបង្ខិតបង្ខំ។"}
+                </p>
+                <p className="leading-relaxed">
+                  {language === "en"
+                    ? "Our approach combines technical implementation with strategic business advisory. We help enterprises navigate the complexities of integrating with government APIs, ensuring regulatory compliance, and building solutions that leverage Cambodia's unique digital infrastructure advantages."
+                    : "វិធីសាស្រ្តរបស់យើងរួមបញ្ចូលការអនុវត្តបច្ចេកទេសជាមួយការប្រឹក្សាអាជីវកម្មយុទ្ធសាស្ត្រ។ យើងជួយសហគ្រាសក្នុងការដោះស្រាយភាពស្មុគស្មាញនៃការរួមបញ្ចូលជាមួយ API របស់រដ្ឋាភិបាល ធានាការអនុលោមតាមបទប្បញ្ញត្តិ និងបង្កើតដំណោះស្រាយដែលប្រើប្រាស់គុណសម្បត្តិហេដ្ឋារចនាសម្ព័ន្ធឌីជីថលពិសេសរបស់កម្ពុជា។"}
+                </p>
+              </div>
+              <div className="space-y-4">
+                <p className="leading-relaxed">
+                  {language === "en"
+                    ? "What sets us apart is our understanding that Cambodia's digital transformation is not organic market evolution—it's deliberate architectural planning. We specialize in identifying and capitalizing on the strategic opportunities that emerge at the intersection of these mandatory government platforms."
+                    : "អ្វីដែលធ្វើឱ្យយើងខុសគ្នាគឺការយល់ដឹងរបស់យើងថាការផ្លាស់ប្តូរឌីជីថលរបស់កម្ពុជាមិនមែនជាការវិវត្តទីផ្សារធម្មជាតិទេ—វាជាការរៀបចំស្ថាបត្យកម្មដោយចេតនា។ យើងមានជំនាញពិសេសក្នុងការកំណត់ និងទាញយកប្រយោជន៍ពីឱកាសយុទ្ធសាស្ត្រដែលកើតឡើងនៅចំណុចប្រសព្វនៃវេទិការដ្ឋាភិបាលដែលមានលក្ខណៈបង្ខិតបង្ខំទាំងនេះ។"}
+                </p>
+                <p className="leading-relaxed">
+                  {language === "en"
+                    ? "From automated supply chain finance leveraging CamInvoice data, to embedded micro-insurance through KHQR payment flows, to compliance-as-a-service for SMEs—we help businesses build on Cambodia's digital rails rather than around them. Our mission is to empower enterprises to thrive in Cambodia's Government-as-a-Platform ecosystem."
+                    : "ពីហិរញ្ញវត្ថុខ្សែសង្វាក់ផ្គត់ផ្គង់ស្វ័យប្រវត្តិដែលប្រើប្រាស់ទិន្នន័យ CamInvoice ទៅធានារ៉ាប់រងខ្នាតតូចដែលដាក់បញ្ចូលតាមរយៈលំហូរទូទាត់ KHQR ដល់អនុលោមភាព-ជា-សេវាកម្មសម្រាប់សហគ្រាសធុនតូច និងមធ្យម—យើងជួយអាជីវកម្មក្នុងការសាងសង់នៅលើបណ្តាញឌីជីថលរបស់កម្ពុជាជាជាងជុំវិញពួកវា។ បេសកកម្មរបស់យើងគឺផ្តល់អំណាចដល់សហគ្រាសឱ្យរីកចម្រើនក្នុងប្រព័ន្ធអេកូឡូស៊ី «រដ្ឋាភិបាលជាវេទិកា» របស់កម្ពុជា។"}
+                </p>
+              </div>
             </div>
           </section>
 
