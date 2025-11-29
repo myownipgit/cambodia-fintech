@@ -18,6 +18,9 @@ const notoSansKhmer = Noto_Sans_Khmer({
 export const metadata: Metadata = {
   title: "FinTech Consulting Cambodia",
   description: "Architecting Cambodia's Digital Financial Future",
+  other: {
+    'facebook-domain-verification': '9x1qhej2nne7tyd5t4w7t8hjk8wg4a',
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +31,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <head>
-        <meta name="facebook-domain-verification" content="9x1qhej2nne7tyd5t4w7t8hjk8wg4a" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
           rel="stylesheet"
