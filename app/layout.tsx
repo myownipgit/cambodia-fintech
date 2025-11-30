@@ -18,8 +18,10 @@ const notoSansKhmer = Noto_Sans_Khmer({
 export const metadata: Metadata = {
   title: "FinTech Consulting Cambodia",
   description: "Architecting Cambodia's Digital Financial Future",
-  other: {
-    'facebook-domain-verification': '9x1qhej2nne7tyd5t4w7t8hjk8wg4a',
+  verification: {
+    other: {
+      'facebook-domain-verification': '9x1qhej2nne7tyd5t4w7t8hjk8wg4a',
+    },
   },
 };
 
