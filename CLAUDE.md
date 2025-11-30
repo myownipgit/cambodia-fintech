@@ -55,6 +55,92 @@ The website emphasizes:
 3. Strategic investment opportunities at infrastructure intersections (SCF, compliance-as-a-service, embedded insurance)
 4. Technical consulting for enterprises to integrate with government APIs
 
+## Git Workflow & Deployment Automation
+
+### Repository Information
+- **GitHub Repo**: https://github.com/myownipgit/cambodia-fintech
+- **Production Branch**: `feature/update-homepage` (configured in Vercel)
+- **Main Branch**: `main`
+- **Vercel Project**: cambodia-fintech (prj_nPOSlaQ6IskxhY65Ysp6EloAtzFq)
+- **Production URL**: www.camfintech.com
+
+### Standard Workflow for Changes
+
+When making changes to the codebase, follow this workflow:
+
+```bash
+# 1. Make your code changes (edit files as needed)
+
+# 2. Commit changes to the current branch (usually feature/update-homepage)
+git add .
+git commit -m "$(cat <<'EOF'
+Your commit message here
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+EOF
+)"
+
+# 3. Push to GitHub
+git push origin feature/update-homepage
+
+# 4. Trigger Vercel deployment via webhook
+curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_nPOSlaQ6IskxhY65Ysp6EloAtzFq/IWAkYBIAKI
+
+# 5. (Optional) Merge to main branch when ready
+git checkout main
+git merge feature/update-homepage
+git push origin main
+git checkout feature/update-homepage
+```
+
+### Automated Deployment Script
+
+For convenience, you can run all steps in a single command:
+
+```bash
+# After making code changes, run this to commit, push, and deploy:
+git add . && \
+git commit -m "$(cat <<'EOF'
+[Your commit message]
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+EOF
+)" && \
+git push origin feature/update-homepage && \
+curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_nPOSlaQ6IskxhY65Ysp6EloAtzFq/IWAkYBIAKI && \
+echo "✓ Changes pushed and deployment triggered!"
+```
+
+### Verification Steps
+
+After deployment (wait 1-2 minutes for build to complete):
+
+1. **Check Deployment Status**: Visit [Vercel Dashboard](https://vercel.com/myownipgit/cambodia-fintech)
+2. **Verify Production**: Visit www.camfintech.com
+3. **Check Meta Tags**: Right-click → View Page Source, search for verification tags
+4. **Check Analytics**: Google Analytics should be tracking with ID: G-QDZ83JQWVC
+5. **Check Facebook Verification**: Look for `<meta name="facebook-domain-verification" content="9x1qhej2nne7tyd5t4w7t8hjk8wg4a" />`
+
+### Deployment Notes
+
+- **Deploy Hook**: The Vercel deploy hook automatically triggers builds from `feature/update-homepage` branch
+- **Preview vs Production**: Deployments may initially show as "Preview" but are accessible via production URL
+- **Build Time**: Typical build takes 25-35 seconds
+- **Ignored Build Step**: Set to "Automatic" - Vercel decides when to rebuild based on file changes
+- **Manual Redeploy**: If webhook fails, use Vercel dashboard → Click deployment → "Redeploy" button
+
+### Troubleshooting
+
+If deployment doesn't appear:
+1. Check GitHub push was successful: `git log --oneline -1`
+2. Verify webhook response shows `"state":"PENDING"` with a job ID
+3. Check Vercel dashboard for new deployment (may take 30-60 seconds to appear)
+4. Ensure changes were pushed to `feature/update-homepage` branch (not main)
+
 ## Important Notes
 
 - The main page is a single-page application with anchor links for navigation
