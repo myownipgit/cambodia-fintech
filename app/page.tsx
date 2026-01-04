@@ -15,6 +15,15 @@ export default function Home() {
     setLanguage((prev) => (prev === "en" ? "km" : "en"));
   };
 
+  const openChat = (message?: string) => {
+    if (typeof window !== "undefined" && window.OmniDM) {
+      window.OmniDM.open();
+      if (message) {
+        window.OmniDM.sendMessage(message);
+      }
+    }
+  };
+
   useEffect(() => {
     document.documentElement.lang = language;
   }, [language]);
@@ -40,12 +49,18 @@ export default function Home() {
                     : "យើងបង្កើតដំណោះស្រាយបច្ចេកវិទ្យាហិរញ្ញវត្ថុ (FinTech) ដែលអនុលោមតាមបទប្បញ្ញត្តិ និងមានអន្តរប្រតិបត្តិការ ដែលផ្ដល់អំណាចដល់សហគ្រាសនានាឱ្យរីកចម្រើនលើហេដ្ឋារចនាសម្ព័ន្ធឌីជីថលជាតិរបស់កម្ពុជា ដោយស្របតាមគំរូ «រដ្ឋាភិបាលជាវេទិកា» (Government-as-a-Platform)។"}
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button className={`flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold tracking-[0.015em] text-text-light transition-transform hover:scale-105 ${language === "km" ? "font-khmer" : ""}`}>
+                  <button
+                    onClick={() => openChat("I'd like to book a consultation")}
+                    className={`flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold tracking-[0.015em] text-text-light transition-transform hover:scale-105 ${language === "km" ? "font-khmer" : ""}`}
+                  >
                     <span className="truncate">
                       {language === "en" ? "Book Consultation" : "កក់ការពិគ្រោះយោបល់"}
                     </span>
                   </button>
-                  <button className={`flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary/20 px-5 text-base font-bold tracking-[0.015em] text-text-light dark:text-text-dark transition-transform hover:scale-105 ${language === "km" ? "font-khmer" : ""}`}>
+                  <button
+                    onClick={() => openChat()}
+                    className={`flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary/20 px-5 text-base font-bold tracking-[0.015em] text-text-light dark:text-text-dark transition-transform hover:scale-105 ${language === "km" ? "font-khmer" : ""}`}
+                  >
                     <span className="truncate">
                       {language === "en" ? "Contact Us" : "ទំនាក់ទំនងមកយើង"}
                     </span>
@@ -459,7 +474,10 @@ export default function Home() {
                 កសាងអនាគតរបស់អ្នកនៅលើហេដ្ឋារចនាសម្ព័ន្ធឌីជីថលរបស់កម្ពុជា
               </p>
               <div className="mt-8">
-                <button className="flex mx-auto h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold tracking-[0.015em] text-text-light transition-transform hover:scale-105">
+                <button
+                  onClick={() => openChat("I'd like to book a free consultation")}
+                  className="flex mx-auto h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold tracking-[0.015em] text-text-light transition-transform hover:scale-105"
+                >
                   <span className="truncate">Book a Free Consultation</span>
                 </button>
               </div>

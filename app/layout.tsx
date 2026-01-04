@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Noto_Sans_Khmer } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import OmniDMChat from "./components/OmniDMChat";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -74,6 +75,7 @@ export default function RootLayout({
           `}
         </Script>
         {children}
+        <OmniDMChat />
       </body>
     </html>
   );
