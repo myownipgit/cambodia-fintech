@@ -81,7 +81,15 @@ export default function RootLayout({
             baseUrl: 'https://automation.omnidm.ai',
             position: 'bottom-right',
             title: 'CamFinTech Assistant',
-            welcomeMessage: 'Welcome to CamFinTech! How can we help you?'
+            welcomeMessage: 'សួស្តី! Welcome to CamFinTech. How can we help you with your FinTech integration today?',
+            theme: {
+              primaryColor: '#1B4D4D',
+              accentColor: '#D4A84B',
+              fontFamily: "'Inter', sans-serif",
+              botBubbleColor: '#F5F5F5',
+              textColor: '#1A1A1A',
+              userTextColor: '#FFFFFF'
+            }
           };`}
         </Script>
         <Script
