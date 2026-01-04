@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Noto_Sans_Khmer } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import OmniDMChat from "./components/OmniDMChat";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -75,7 +74,20 @@ export default function RootLayout({
           `}
         </Script>
         {children}
-        <OmniDMChat />
+        {/* OmniDM Chat Widget */}
+        <Script id="omnidm-config" strategy="beforeInteractive">
+          {`window.OmniDMConfig = {
+            token: 'camfintech-embed-2026',
+            baseUrl: 'https://automation.omnidm.ai',
+            position: 'bottom-right',
+            title: 'CamFinTech Assistant',
+            welcomeMessage: 'Welcome to CamFinTech! How can we help you?'
+          };`}
+        </Script>
+        <Script
+          src="https://automation.omnidm.ai/static/widget/v1/omnidm-chat.min.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
