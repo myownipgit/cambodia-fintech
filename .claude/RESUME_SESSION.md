@@ -9,9 +9,9 @@ This file tracks the current session state to enable seamless recovery if Claude
 `feature/update-homepage`
 
 ## Last Commit
-- **Hash**: Pending (deploy skill created)
+- **Hash**: `0d117cf`
 - **Message**: Add custom deploy skill for Claude Code
-- **Status**: Not yet committed
+- **Status**: Pushed to remote, deployment triggered
 
 ## Recent Work Summary
 
@@ -45,7 +45,7 @@ This file tracks the current session state to enable seamless recovery if Claude
    - Updated CLAUDE.md with session recovery instructions
    - Updated documentation to reflect current project state
 
-6. **Custom Deploy Skill** (Commit: pending)
+6. **Custom Deploy Skill** (Commit: `0d117cf`)
    - Created .claude/skills/deploy/SKILL.md
    - Automates: build check, commit, push, Vercel webhook, session update
 
@@ -58,6 +58,7 @@ This file tracks the current session state to enable seamless recovery if Claude
 ## Project State
 
 ### Files Recently Modified
+- `.claude/skills/deploy/SKILL.md` - Custom deploy skill for Claude Code
 - `.claude/RESUME_SESSION.md` - Session recovery state (this file)
 - `CLAUDE.md` - Updated with session recovery instructions
 - `app/components/Header.tsx` - Mobile menu + dark mode toggle
