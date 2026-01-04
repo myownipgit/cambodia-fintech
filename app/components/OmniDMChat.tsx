@@ -31,7 +31,7 @@ export default function OmniDMChat() {
       baseUrl: 'https://automation.omnidm.ai',
       position: 'bottom-right',
       title: 'CamFinTech Assistant',
-      welcomeMessage: 'សួស្តី! Welcome to CamFinTech. How can we help you with your FinTech integration today?'
+      welcomeMessage: 'Welcome to CamFinTech! How can we help you with your FinTech integration today?'
     };
 
     // Load the widget script
