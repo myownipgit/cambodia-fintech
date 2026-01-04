@@ -56,10 +56,6 @@ npm i -g vercel
 vercel
 ```
 
-## Token
-
-Token: JEm4WCFG17kDdxepVOFIPTl0
-
 ## Project Structure
 
 ```

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Image from "next/image";
@@ -13,6 +13,10 @@ export default function Home() {
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "en" ? "km" : "en"));
   };
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   return (
     <div className="relative flex min-h-screen w-full flex-col">
@@ -472,7 +476,7 @@ export default function Home() {
                   </a>
                   <a
                     className="flex items-center gap-2 transition-colors hover:text-primary"
-                    href="tel:+85576277565"
+                    href="tel:+855762775645"
                   >
                     <span className="material-symbols-outlined text-xl">call</span>
                     <span>+855 76 277 5645</span>
@@ -482,11 +486,11 @@ export default function Home() {
               <div>
                 <h3 className="text-xl font-bold">Messaging</h3>
                 <div className="mt-4 flex flex-col items-center gap-2 md:items-start">
-                  <a className="flex items-center gap-2 transition-colors hover:text-primary" href="https://wa.me/85576277565">
+                  <a className="flex items-center gap-2 transition-colors hover:text-primary" href="https://wa.me/855762775645">
                     <span className="material-symbols-outlined text-xl">chat</span>
                     <span>WhatsApp</span>
                   </a>
-                  <a className="flex items-center gap-2 transition-colors hover:text-primary" href="#">
+                  <a className="flex items-center gap-2 transition-colors hover:text-primary" href="https://t.me/+855762775645">
                     <span className="material-symbols-outlined text-xl">send</span>
                     <span>Telegram</span>
                   </a>
