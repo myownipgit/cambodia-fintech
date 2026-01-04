@@ -1,11 +1,24 @@
 "use client";
 
+import { useState } from "react";
+
 interface HeaderProps {
   language: "en" | "km";
   onLanguageToggle: () => void;
 }
 
 export default function Header({ language, onLanguageToggle }: HeaderProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#home", en: "Home", km: "ទំព័រដើម" },
+    { href: "#about", en: "About", km: "អំពីយើង" },
+    { href: "#services", en: "Services", km: "សេវាកម្ម" },
+    { href: "#why-us", en: "Why Choose Us", km: "ហេតុអ្វីជ្រើសរើសយើង" },
+    { href: "#use-cases", en: "Use Cases", km: "ករណីសិក្សា" },
+    { href: "#contact", en: "Contact", km: "ទំនាក់ទំនង" },
+  ];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border-light dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -19,35 +32,67 @@ export default function Header({ language, onLanguageToggle }: HeaderProps) {
             FinTech Consulting Cambodia
           </h2>
         </div>
+
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
-          <a className="text-sm font-medium transition-colors hover:text-primary" href="#home">
-            {language === "en" ? "Home" : "ទំព័រដើម"}
-          </a>
-          <a className="text-sm font-medium transition-colors hover:text-primary" href="#about">
-            {language === "en" ? "About" : "អំពីយើង"}
-          </a>
-          <a className="text-sm font-medium transition-colors hover:text-primary" href="#services">
-            {language === "en" ? "Services" : "សេវាកម្ម"}
-          </a>
-          <a className="text-sm font-medium transition-colors hover:text-primary" href="#why-us">
-            {language === "en" ? "Why Choose Us" : "ហេតុអ្វីជ្រើសរើសយើង"}
-          </a>
-          <a className="text-sm font-medium transition-colors hover:text-primary" href="#use-cases">
-            {language === "en" ? "Use Cases" : "ករណីសិក្សា"}
-          </a>
-          <a className="text-sm font-medium transition-colors hover:text-primary" href="#contact">
-            {language === "en" ? "Contact" : "ទំនាក់ទំនង"}
-          </a>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              className={`text-sm font-medium transition-colors hover:text-primary ${language === "km" ? "font-khmer" : ""}`}
+              href={link.href}
+            >
+              {language === "en" ? link.en : link.km}
+            </a>
+          ))}
         </nav>
-        <div className="flex items-center">
+
+        <div className="flex items-center gap-2">
+          {/* Language Toggle */}
           <button
             onClick={onLanguageToggle}
             className="flex h-10 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold tracking-[0.015em] text-text-light"
           >
             <span className="truncate">EN | ខ្មែរ</span>
           </button>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-text-light dark:text-text-dark md:hidden"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <nav className="border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark md:hidden">
+          <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+            <div className="flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  className={`text-base font-medium transition-colors hover:text-primary ${language === "km" ? "font-khmer" : ""}`}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {language === "en" ? link.en : link.km}
+                </a>
+              ))}
+            </div>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

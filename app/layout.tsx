@@ -17,7 +17,26 @@ const notoSansKhmer = Noto_Sans_Khmer({
 
 export const metadata: Metadata = {
   title: "FinTech Consulting Cambodia",
-  description: "Architecting Cambodia's Digital Financial Future",
+  description: "Architecting Cambodia's Digital Financial Future. Strategic advisors and technical architects specializing in Cambodia's emerging digital financial infrastructure.",
+  keywords: ["FinTech", "Cambodia", "Bakong", "CamDigiKey", "CamDX", "CamInvoice", "digital payments", "consulting"],
+  authors: [{ name: "CamFinTech" }],
+  openGraph: {
+    title: "FinTech Consulting Cambodia",
+    description: "Architecting Cambodia's Digital Financial Future. We build compliant, interoperable FinTech solutions aligned with the Government-as-a-Platform model.",
+    url: "https://www.camfintech.com",
+    siteName: "CamFinTech",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FinTech Consulting Cambodia",
+    description: "Architecting Cambodia's Digital Financial Future",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   verification: {
     other: {
       'facebook-domain-verification': '9x1qhej2nne7tyd5t4w7t8hjk8wg4a',
