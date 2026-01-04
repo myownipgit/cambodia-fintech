@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ServiceCard from "./components/ServiceCard";
+import UseCaseCard from "./components/UseCaseCard";
 import Image from "next/image";
-
-type Language = "en" | "km";
+import type { Language } from "./types";
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>("en");
@@ -524,46 +525,6 @@ export default function Home() {
       </main>
 
       <Footer />
-    </div>
-  );
-}
-
-interface ServiceCardProps {
-  title: string;
-  description: string;
-}
-
-function ServiceCard({ title, description }: ServiceCardProps) {
-  return (
-    <div className="rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6">
-      <h3 className="text-xl font-bold">{title}</h3>
-      <p className="mt-2 text-text-light/80 dark:text-text-dark/80">{description}</p>
-    </div>
-  );
-}
-
-interface UseCaseCardProps {
-  title: string;
-  challenge: string;
-  solution: string;
-  impact: string;
-}
-
-function UseCaseCard({ title, challenge, solution, impact }: UseCaseCardProps) {
-  return (
-    <div className="flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6">
-      <h3 className="text-xl font-bold">{title}</h3>
-      <div className="flex flex-col gap-2">
-        <p>
-          <strong className="text-primary">Challenge:</strong> {challenge}
-        </p>
-        <p>
-          <strong className="text-primary">Solution:</strong> {solution}
-        </p>
-        <p>
-          <strong className="text-primary">Impact:</strong> {impact}
-        </p>
-      </div>
     </div>
   );
 }
