@@ -74,7 +74,7 @@ export default function RootLayout({
           `}
         </Script>
         {children}
-        {/* OmniDM Chat Widget - DISABLED: widget script has syntax error
+        {/* OmniDM Chat Widget */}
         <Script id="omnidm-config" strategy="beforeInteractive">
           {`window.OmniDMConfig = {
             token: 'camfintech-embed-2026',
@@ -88,7 +88,6 @@ export default function RootLayout({
           src="https://automation.omnidm.ai/static/widget/v1/omnidm-chat.min.js"
           strategy="afterInteractive"
         />
-        */}
       </body>
     </html>
   );
