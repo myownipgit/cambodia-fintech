@@ -3,15 +3,15 @@
 This file tracks the current session state to enable seamless recovery if Claude Code or the IDE fails.
 
 ## Last Updated
-2025-01-04 15:25 UTC
+2026-01-04 16:45 UTC
 
 ## Current Branch
 `feature/update-homepage`
 
 ## Last Commit
-- **Hash**: `26cb2b8`
-- **Message**: Update RESUME_SESSION.md with deploy skill commit
-- **Status**: Pushed to remote, merged to main
+- **Hash**: `c056181`
+- **Message**: Add Sentry error tracking and OmniDM chat widget
+- **Status**: Pushed to remote, deployment triggered
 
 ## Recent Work Summary
 
@@ -49,8 +49,15 @@ This file tracks the current session state to enable seamless recovery if Claude
    - Created .claude/skills/deploy/SKILL.md
    - Automates: build check, commit, push, Vercel webhook, session update
 
+7. **Sentry + OmniDM Chat Widget** (Commit: `c056181`)
+   - Integrated @sentry/nextjs for error monitoring
+   - Added Session Replay (10% sessions, 100% on error)
+   - Created OmniDMChat component with CamFinTech config
+   - Updated hero buttons to trigger chat widget
+   - Added Sentry MCP to Claude Code
+
 ### Pending Tasks
-- None currently
+- Set SENTRY_AUTH_TOKEN in Vercel for source map uploads (optional)
 
 ### Known Issues
 - None currently
@@ -58,24 +65,20 @@ This file tracks the current session state to enable seamless recovery if Claude
 ## Project State
 
 ### Files Recently Modified
-- `.claude/skills/deploy/SKILL.md` - Custom deploy skill for Claude Code
-- `.claude/RESUME_SESSION.md` - Session recovery state (this file)
-- `CLAUDE.md` - Updated with session recovery instructions
-- `app/components/Header.tsx` - Mobile menu + dark mode toggle
-- `app/components/ServiceCard.tsx` - Extracted component
-- `app/components/UseCaseCard.tsx` - Extracted component
-- `app/types/index.ts` - Centralized types
-- `app/layout.tsx` - Enhanced metadata
-- `app/page.tsx` - Refactored imports
-- `app/error.tsx` - New error boundary
-- `app/not-found.tsx` - New 404 page
-- `app/loading.tsx` - New loading skeleton
-- `public/sitemap.xml` - SEO
-- `public/robots.txt` - SEO
-- `eslint.config.mjs` - ESLint v9 config
+- `app/components/OmniDMChat.tsx` - Chat widget loader component
+- `sentry.client.config.ts` - Client-side Sentry config
+- `sentry.server.config.ts` - Server-side Sentry config
+- `sentry.edge.config.ts` - Edge runtime Sentry config
+- `instrumentation.ts` - Next.js instrumentation hook
+- `app/error.tsx` - Updated with Sentry error capture
+- `app/global-error.tsx` - Root layout error boundary
+- `app/layout.tsx` - Added OmniDMChat component
+- `app/page.tsx` - Updated buttons to trigger chat
+- `next.config.js` - Wrapped with withSentryConfig
+- `CAMFINTECH_INTEGRATION.md` - Chat widget integration guide
 
 ### Deployment Status
-- **Last Deploy**: Successful
+- **Last Deploy**: In progress (Job ID: ez4R9TfcOQeFn5ATdFFv)
 - **Production URL**: https://www.camfintech.com
 - **Vercel Project**: cambodia-fintech
 
@@ -88,6 +91,7 @@ If starting a new session, you can:
 4. Run `git status` to check for uncommitted changes
 
 ## Notes for Claude
-- Contact buttons will be replaced by OmniDM.ai chatbot (user mentioned)
-- Dark mode is now enabled and persists to localStorage
-- All improvements from the review have been completed
+- OmniDM chat widget is now integrated (replaced contact buttons)
+- Sentry is configured with DSN for error tracking
+- Dark mode is enabled and persists to localStorage
+- All hero buttons now trigger the chat widget
