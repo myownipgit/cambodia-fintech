@@ -27,16 +27,16 @@ npm run lint         # Run Next.js linter
 
 ### Component Structure
 - **Client Components**: `app/page.tsx`, `Header.tsx` marked with `"use client"` for interactivity
-- **Server Components**: `layout.tsx`, `Footer.tsx` are server components by default
+- **Server Components**: `layout.tsx`, `Footer.tsx`, `ServiceCard.tsx`, `UseCaseCard.tsx` are server components by default
 - **Component Organization**: Shared components live in `app/components/`
-- **Inline Components**: `ServiceCard` and `UseCaseCard` are defined in `page.tsx` as they're page-specific
+- **Type Definitions**: Centralized in `app/types/index.ts`
 
 ### Styling System
 - **Tailwind Configuration**: Custom color palette defined in `tailwind.config.ts`:
   - Primary: `#f4af25` (golden/yellow accent)
   - Light mode: `#f8f7f5` background, `#1c170d` text
   - Dark mode: `#221c10` background, `#f8f7f5` text
-- **Dark Mode**: Uses class-based strategy (`darkMode: "class"`) but currently fixed to light mode
+- **Dark Mode**: Uses class-based strategy (`darkMode: "class"`) with toggle in Header, persists to localStorage
 - **Font Setup**: Inter (Latin) and Noto Sans Khmer fonts loaded via next/font/google in `layout.tsx`
 - **Material Symbols**: Icon font loaded from Google Fonts CDN in layout head
 
@@ -141,9 +141,51 @@ If deployment doesn't appear:
 3. Check Vercel dashboard for new deployment (may take 30-60 seconds to appear)
 4. Ensure changes were pushed to `feature/update-homepage` branch (not main)
 
+## Session Recovery
+
+### RESUME_SESSION.md
+A session state file is maintained at `.claude/RESUME_SESSION.md` to enable seamless recovery if Claude Code or the IDE crashes.
+
+**Claude MUST update this file:**
+1. After completing any significant task or milestone
+2. Before ending a session
+3. After each commit/deployment
+4. When switching between major tasks
+
+**Update the file with:**
+- Current branch and last commit hash
+- Summary of completed work
+- Any pending tasks or known issues
+- Recently modified files
+- Notes for future context
+
+**To update, include:**
+```markdown
+## Last Updated
+[Current date/time UTC]
+
+## Current Branch
+[branch name]
+
+## Last Commit
+- **Hash**: [commit hash]
+- **Message**: [commit message]
+- **Status**: [pushed/unpushed, merged/unmerged]
+
+## Recent Work Summary
+[What was accomplished]
+
+## Pending Tasks
+[What remains to be done]
+```
+
 ## Important Notes
 
 - The main page is a single-page application with anchor links for navigation
 - All sections are contained in `app/page.tsx` (no separate route pages yet)
 - TypeScript is in strict mode
 - The project uses the Next.js 14 App Router (not Pages Router)
+- ServiceCard and UseCaseCard are now in separate files under `app/components/`
+- Types are centralized in `app/types/index.ts`
+- Dark mode is enabled with localStorage persistence
+- Mobile hamburger menu is implemented in Header.tsx
