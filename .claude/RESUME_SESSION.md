@@ -3,15 +3,15 @@
 This file tracks the current session state to enable seamless recovery if Claude Code or the IDE fails.
 
 ## Last Updated
-2025-01-04 15:00 UTC
+2025-01-04 15:15 UTC
 
 ## Current Branch
 `feature/update-homepage`
 
 ## Last Commit
-- **Hash**: `f1ba14c`
-- **Message**: Add session recovery system for Claude Code
-- **Status**: Pushed to remote, not yet merged to main
+- **Hash**: Pending (deploy skill created)
+- **Message**: Add custom deploy skill for Claude Code
+- **Status**: Not yet committed
 
 ## Recent Work Summary
 
@@ -45,8 +45,12 @@ This file tracks the current session state to enable seamless recovery if Claude
    - Updated CLAUDE.md with session recovery instructions
    - Updated documentation to reflect current project state
 
+6. **Custom Deploy Skill** (Commit: pending)
+   - Created .claude/skills/deploy/SKILL.md
+   - Automates: build check, commit, push, Vercel webhook, session update
+
 ### Pending Tasks
-- Merge latest changes to main branch
+- None currently
 
 ### Known Issues
 - None currently
