@@ -62,6 +62,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   verification: {
+    google: '7o0E2d5vZxbjOuA08U2_OIENGsjeHYYrns52JZzcyzo',
     other: {
       'facebook-domain-verification': '9x1qhej2nne7tyd5t4w7t8hjk8wg4a',
       'msvalidate.01': '61A73473688C2DD7458E7449EB54FE91',
