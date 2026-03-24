@@ -35,6 +35,21 @@ CamFinTech has identified three high-value opportunities at the intersection of 
 - **Automated Tax Compliance**: Developed middleware connecting enterprise systems to the General Department of Taxation (GDT) API. Achieved 100% automated and accurate tax filing.
 - **SME Lending Acceleration**: Deployed digital lending platform with automated credit scoring for microfinance institutions. Reduced loan approval time from weeks to days.
 
+## Learn — Cambodia FinTech Guides
+
+- [How Does Bakong Work in Cambodia?](https://www.camfintech.com/learn/how-bakong-works): Blockchain architecture, dual-currency settlement, KHQR integration, cross-border corridors.
+- [What is CamDigiKey and Why Does It Matter?](https://www.camfintech.com/learn/what-is-camdigikey): eKYC process, facial recognition, OAuth 2.0 SSO, financial onboarding.
+- [How Does CamDX Enable Data Exchange?](https://www.camfintech.com/learn/how-camdx-works): X-Road architecture, government-private APIs, security model.
+- [What is CamInvoice and Who Must Comply?](https://www.camfintech.com/learn/what-is-caminvoice): GDT mandate, UBL XML, clearance model, 2025-2027 rollout.
+- [How to Accept KHQR Payments](https://www.camfintech.com/learn/how-to-accept-khqr): EMVCo standard, merchant registration, POS and e-commerce integration.
+- [What is Cambodia's Government-as-a-Platform?](https://www.camfintech.com/learn/what-is-cambodia-gaap): Deliberate digital architecture, 4 infrastructure layers, comparison to Estonia/Singapore.
+- [Cambodia's FinTech Landscape in 2026](https://www.camfintech.com/learn/cambodia-fintech-landscape): Market size, key players, mobile money adoption, investment trends.
+- [Supply Chain Finance in Cambodia](https://www.camfintech.com/learn/supply-chain-finance-cambodia): CamInvoice verified data for invoice financing, trade finance gaps.
+- [Compliance-as-a-Service for Cambodia](https://www.camfintech.com/learn/compliance-as-a-service): SME tax compliance, CamInvoice API integration, automated bookkeeping.
+- [How to Get a FinTech License](https://www.camfintech.com/learn/fintech-license-cambodia): NBC licensing categories, capital requirements, regulatory sandbox.
+- [Cambodia's AML Requirements](https://www.camfintech.com/learn/cambodia-aml-requirements): AML/CFT law, CAFIU, CDD/EDD, CamDigiKey for KYC.
+- [Cross-Border Payments via Bakong](https://www.camfintech.com/learn/cross-border-payments-bakong): Bilateral QR corridors, remittance flows, tourist payments.
+
 ## Glossary — Cambodia FinTech Key Terms
 
 - [Bakong](https://www.camfintech.com/glossary/bakong): Cambodia's CBDC and real-time payment system operated by the National Bank of Cambodia.
