@@ -50,6 +50,33 @@ CamFinTech has identified three high-value opportunities at the intersection of 
 - [Cambodia's AML Requirements](https://www.camfintech.com/learn/cambodia-aml-requirements): AML/CFT law, CAFIU, CDD/EDD, CamDigiKey for KYC.
 - [Cross-Border Payments via Bakong](https://www.camfintech.com/learn/cross-border-payments-bakong): Bilateral QR corridors, remittance flows, tourist payments.
 
+## Knowledge Base — Technical Deep Dives
+
+- [Cambodia GaaP Architecture](https://www.camfintech.com/knowledge/cambodia-gaap-architecture): Technical deep dive into Cambodia's Government-as-a-Platform model.
+- [Bakong Technical Integration Guide](https://www.camfintech.com/knowledge/bakong-technical-integration): Developer guide for Bakong Open API and KHQR SDK integration.
+- [Cambodia FinTech Regulation Framework](https://www.camfintech.com/knowledge/cambodia-fintech-regulation): Complete licensing and compliance framework from NBC and GDT.
+- [Supply Chain Finance Opportunity](https://www.camfintech.com/knowledge/cambodia-scf-opportunity): Market sizing and technical architecture for SCF in Cambodia.
+- [CamInvoice Technical Compliance](https://www.camfintech.com/knowledge/caminvoice-technical-compliance): API specifications, UBL XML schema, and GDT integration guide.
+- [Cambodia Digital Identity Infrastructure](https://www.camfintech.com/knowledge/cambodia-digital-identity): CamDigiKey eKYC, CamDX integration, and identity verification.
+- [Cambodia Payment Ecosystem Map](https://www.camfintech.com/knowledge/cambodia-payment-ecosystem): Complete map of banks, wallets, and payment infrastructure.
+- [ASEAN Digital Economy Comparison](https://www.camfintech.com/knowledge/asean-digital-economy-comparison): Where Cambodia stands vs ASEAN peers in 2026.
+
+## Insights — Data & Analysis
+
+- [Digital Payment Growth 2020-2026](https://www.camfintech.com/insights/cambodia-digital-payment-growth): Bakong, KHQR, and mobile money transaction trends.
+- [SME Digital Readiness Assessment](https://www.camfintech.com/insights/sme-digital-readiness): Gaps and opportunities for Cambodia's 43,970+ SMEs.
+- [ASEAN FinTech Investment Comparison](https://www.camfintech.com/insights/asean-fintech-investment): Cambodia's emerging position in regional FinTech funding.
+- [Bakong Adoption Metrics](https://www.camfintech.com/insights/bakong-adoption-metrics): Transaction volume, user growth, and market impact analysis.
+- [CamInvoice Rollout Impact](https://www.camfintech.com/insights/caminvoice-rollout-impact): Tax revenue, SME compliance, and digital transformation effects.
+- [Cambodia vs Vietnam vs Thailand FinTech](https://www.camfintech.com/insights/cambodia-vs-regional-fintech): Three-way ecosystem comparison.
+
+## Use Cases — CamFinTech Implementations
+
+- [SME Compliance Automation](https://www.camfintech.com/use-cases/sme-compliance-automation): CamInvoice integration middleware for small businesses.
+- [Cross-Border Payment Optimization](https://www.camfintech.com/use-cases/cross-border-payment-optimization): Leveraging Bakong's ASEAN corridors for real-time settlement.
+- [Digital Lending Platform](https://www.camfintech.com/use-cases/digital-lending-platform): Automated credit scoring using CamDigiKey and CamInvoice data.
+- [Enterprise Bakong Integration](https://www.camfintech.com/use-cases/enterprise-bakong-integration): Multi-channel payment platform with unified reconciliation.
+
 ## Glossary — Cambodia FinTech Key Terms
 
 - [Bakong](https://www.camfintech.com/glossary/bakong): Cambodia's CBDC and real-time payment system operated by the National Bank of Cambodia.

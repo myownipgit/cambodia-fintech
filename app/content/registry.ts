@@ -34,6 +34,11 @@ import { caminvoiceTechnicalCompliance } from './knowledge/caminvoice-technical-
 import { cambodiaDigitalIdentity } from './knowledge/cambodia-digital-identity';
 import { cambodiaPaymentEcosystem } from './knowledge/cambodia-payment-ecosystem';
 import { aseanDigitalEconomyComparison } from './knowledge/asean-digital-economy-comparison';
+// Use Cases
+import { smeComplianceAutomation } from './use-cases/sme-compliance-automation';
+import { crossBorderPaymentOptimization } from './use-cases/cross-border-payment-optimization';
+import { digitalLendingPlatform } from './use-cases/digital-lending-platform';
+import { enterpriseBakongIntegration } from './use-cases/enterprise-bakong-integration';
 // Insights
 import { cambodiaDigitalPaymentGrowth } from './insights/cambodia-digital-payment-growth';
 import { smeDigitalReadiness } from './insights/sme-digital-readiness';
@@ -83,6 +88,11 @@ const allArticles: ArticleContent[] = [
   bakongAdoptionMetrics,
   caminvoiceRolloutImpact,
   cambodiaVsRegionalFintech,
+  // Use Cases
+  smeComplianceAutomation,
+  crossBorderPaymentOptimization,
+  digitalLendingPlatform,
+  enterpriseBakongIntegration,
 ];
 
 export function getAllArticles() {
