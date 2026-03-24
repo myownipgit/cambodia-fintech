@@ -9,19 +9,20 @@ import Image from "next/image";
 import type { Language } from "./types";
 
 export default function Home() {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("lang") === "km" ? "km" : "en";
+    }
+    return "en";
+  });
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "en" ? "km" : "en"));
   };
 
-  const openChat = (message?: string) => {
-    if (typeof window !== "undefined" && window.OmniDM) {
-      window.OmniDM.open();
-      if (message) {
-        window.OmniDM.sendMessage(message);
-      }
-    }
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -45,12 +46,12 @@ export default function Home() {
                 </h1>
                 <p className={`text-base font-normal leading-normal sm:text-lg ${language === "km" ? "font-khmer leading-relaxed" : ""}`}>
                   {language === "en"
-                    ? "We build compliant, interoperable FinTech solutions that empower enterprises to thrive on Cambodia's national digital infrastructure, fully aligned with the Government-as-a-Platform model."
-                    : "យើងបង្កើតដំណោះស្រាយបច្ចេកវិទ្យាហិរញ្ញវត្ថុ (FinTech) ដែលអនុលោមតាមបទប្បញ្ញត្តិ និងមានអន្តរប្រតិបត្តិការ ដែលផ្ដល់អំណាចដល់សហគ្រាសនានាឱ្យរីកចម្រើនលើហេដ្ឋារចនាសម្ព័ន្ធឌីជីថលជាតិរបស់កម្ពុជា ដោយស្របតាមគំរូ «រដ្ឋាភិបាលជាវេទិកា» (Government-as-a-Platform)។"}
+                    ? "CamFinTech builds compliant, interoperable FinTech solutions that empower enterprises to thrive on Cambodia's national digital infrastructure — Bakong instant payments, CamDigiKey digital identity, CamDX data exchange, and CamInvoice — fully aligned with the Government-as-a-Platform (GaaP) model."
+                    : "CamFinTech បង្កើតដំណោះស្រាយបច្ចេកវិទ្យាហិរញ្ញវត្ថុ (FinTech) ដែលអនុលោមតាមបទប្បញ្ញត្តិ និងមានអន្តរប្រតិបត្តិការ ដែលផ្ដល់អំណាចដល់សហគ្រាសនានាឱ្យរីកចម្រើនលើហេដ្ឋារចនាសម្ព័ន្ធឌីជីថលជាតិរបស់កម្ពុជា — បាគង CamDigiKey CamDX និង CamInvoice — ដោយស្របតាមគំរូ «រដ្ឋាភិបាលជាវេទិកា» (GaaP)។"}
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <button
-                    onClick={() => openChat("I'd like to book a consultation")}
+                    onClick={() => scrollToContact()}
                     className={`flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold tracking-[0.015em] text-text-light transition-transform hover:scale-105 ${language === "km" ? "font-khmer" : ""}`}
                   >
                     <span className="truncate">
@@ -58,7 +59,7 @@ export default function Home() {
                     </span>
                   </button>
                   <button
-                    onClick={() => openChat()}
+                    onClick={() => scrollToContact()}
                     className={`flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary/20 px-5 text-base font-bold tracking-[0.015em] text-text-light dark:text-text-dark transition-transform hover:scale-105 ${language === "km" ? "font-khmer" : ""}`}
                   >
                     <span className="truncate">
@@ -69,7 +70,7 @@ export default function Home() {
               </div>
               <div className="aspect-square w-full rounded-xl bg-primary/10 lg:aspect-[4/3] relative">
                 <Image
-                  alt="Abstract illustration of digital infrastructure"
+                  alt="Architecture diagram representing Cambodia's integrated digital financial infrastructure including Bakong CBDC payments, CamDigiKey digital identity, CamDX data exchange, and CamInvoice electronic invoicing"
                   className="h-full w-full object-cover rounded-xl"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrnMQy_ZbJSdDGCvJiIuqttn3BMYDq0zDfOdRRtj9WtFsjJGb_6ou3sSUF3MVhKT2EOlt82mn1h4J5A5lildJaVg6Y5J9sWtaUe-99pjzomToDSZp7mbSvOzOi-Y57W4mDdoZ3VNL5AVBvWtkmHSR_CBMKvsEMDP34yiKqYa9qyM3mQqueepPnkdHFGYmJjAxViVbmnUJF_8pMWANBGrEU5ljVpzQu84xfgw1-TnDkkXM4V2SVqJhDZkGrLYlshrpv3A5GrPKCnuc"
                   fill
@@ -87,33 +88,33 @@ export default function Home() {
               </h2>
               <p className={`max-w-3xl text-lg text-text-light/80 dark:text-text-dark/80 ${language === "km" ? "font-khmer" : ""}`}>
                 {language === "en"
-                  ? "We are strategic advisors and technical architects specializing in Cambodia's emerging digital financial infrastructure. Our expertise lies at the intersection of regulatory compliance, government technology platforms, and enterprise integration."
-                  : "យើងជាទីប្រឹក្សាយុទ្ធសាស្ត្រ និងស្ថាបត្យករបច្ចេកទេសដែលមានជំនាញពិសេសក្នុងហេដ្ឋារចនាសម្ព័ន្ធហិរញ្ញវត្ថុឌីជីថលកំពុងរីកចម្រើនរបស់កម្ពុជា។ ជំនាញរបស់យើងស្ថិតនៅចំណុចប្រសព្វនៃការអនុលោមតាមបទប្បញ្ញត្តិ វេទិកាបច្ចេកវិទ្យារដ្ឋាភិបាល និងការរួមបញ្ចូលសហគ្រាស។"}
+                  ? "CamFinTech is a Siem Reap-based FinTech consulting firm providing strategic advisory and technical architecture for enterprises integrating with Cambodia's Government-as-a-Platform (GaaP) digital infrastructure, including Bakong instant payments, CamDigiKey digital identity, CamDX data exchange, and the mandatory CamInvoice electronic invoicing system."
+                  : "CamFinTech គឺជាក្រុមហ៊ុនប្រឹក្សាបច្ចេកវិទ្យាហិរញ្ញវត្ថុមានមូលដ្ឋាននៅសៀមរាប ដែលផ្តល់សេវាប្រឹក្សាយុទ្ធសាស្ត្រ និងស្ថាបត្យកម្មបច្ចេកទេសសម្រាប់សហគ្រាសដែលរួមបញ្ចូលជាមួយហេដ្ឋារចនាសម្ព័ន្ធឌីជីថល GaaP របស់កម្ពុជា រួមទាំងបាគង CamDigiKey CamDX និង CamInvoice។"}
               </p>
             </div>
             <div className={`mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 ${language === "km" ? "font-khmer" : ""}`}>
               <div className="space-y-4">
                 <p className="leading-relaxed">
                   {language === "en"
-                    ? "We understand Cambodia's unique position as one of the few countries implementing a comprehensive Government-as-a-Platform model. Our team has deep expertise in working with national digital infrastructure layers including CamDigiKey (digital identity), Bakong (instant payments), CamDX (data exchange), and the mandatory CamInvoice system."
-                    : "យើងយល់ពីទីតាំងពិសេសរបស់កម្ពុជាជាប្រទេសមួយក្នុងចំណោមប្រទេសមួយចំនួនតែប៉ុណ្ណោះដែលអនុវត្តគំរូ «រដ្ឋាភិបាលជាវេទិកា» ដ៏ទូលំទូលាយ។ ក្រុមរបស់យើងមានជំនាញជ្រាលជ្រៅក្នុងការធ្វើការជាមួយស្រទាប់ហេដ្ឋារចនាសម្ព័ន្ធឌីជីថលជាតិ រួមទាំង CamDigiKey (អត្តសញ្ញាណឌីជីថល), បាគង (ការទូទាត់ភ្លាមៗ), CamDX (ការផ្លាស់ប្តូរទិន្នន័យ), និងប្រព័ន្ធ CamInvoice ដែលមានលក្ខណៈបង្ខិតបង្ខំ។"}
+                    ? "CamFinTech understands Cambodia's unique position as one of the few countries implementing a comprehensive Government-as-a-Platform model. CamFinTech's team has deep expertise in working with national digital infrastructure layers including CamDigiKey (eKYC digital identity), Bakong (National Bank of Cambodia instant payments and CBDC), CamDX (government-private sector data exchange), and the mandatory CamInvoice system administered by the General Department of Taxation (GDT)."
+                    : "CamFinTech យល់ពីទីតាំងពិសេសរបស់កម្ពុជាជាប្រទេសមួយក្នុងចំណោមប្រទេសមួយចំនួនតែប៉ុណ្ណោះដែលអនុវត្តគំរូ «រដ្ឋាភិបាលជាវេទិកា» ដ៏ទូលំទូលាយ។ ក្រុម CamFinTech មានជំនាញជ្រាលជ្រៅក្នុងការធ្វើការជាមួយស្រទាប់ហេដ្ឋារចនាសម្ព័ន្ធឌីជីថលជាតិ រួមទាំង CamDigiKey (អត្តសញ្ញាណឌីជីថល eKYC), បាគង (ការទូទាត់ភ្លាមៗ CBDC របស់ធនាគារជាតិ), CamDX (ការផ្លាស់ប្តូរទិន្នន័យ), និងប្រព័ន្ធ CamInvoice ដែលគ្រប់គ្រងដោយអគ្គនាយកដ្ឋានពន្ធដារ (GDT)។"}
                 </p>
                 <p className="leading-relaxed">
                   {language === "en"
-                    ? "Our approach combines technical implementation with strategic business advisory. We help enterprises navigate the complexities of integrating with government APIs, ensuring regulatory compliance, and building solutions that leverage Cambodia's unique digital infrastructure advantages."
-                    : "វិធីសាស្រ្តរបស់យើងរួមបញ្ចូលការអនុវត្តបច្ចេកទេសជាមួយការប្រឹក្សាអាជីវកម្មយុទ្ធសាស្ត្រ។ យើងជួយសហគ្រាសក្នុងការដោះស្រាយភាពស្មុគស្មាញនៃការរួមបញ្ចូលជាមួយ API របស់រដ្ឋាភិបាល ធានាការអនុលោមតាមបទប្បញ្ញត្តិ និងបង្កើតដំណោះស្រាយដែលប្រើប្រាស់គុណសម្បត្តិហេដ្ឋារចនាសម្ព័ន្ធឌីជីថលពិសេសរបស់កម្ពុជា។"}
+                    ? "CamFinTech's approach combines technical implementation with strategic business advisory. CamFinTech helps enterprises navigate the complexities of integrating with government APIs — including CamDX endpoints, Bakong settlement rails, and CamDigiKey eKYC — ensuring regulatory compliance and building solutions that leverage Cambodia's unique digital infrastructure advantages."
+                    : "វិធីសាស្រ្ត CamFinTech រួមបញ្ចូលការអនុវត្តបច្ចេកទេសជាមួយការប្រឹក្សាអាជីវកម្មយុទ្ធសាស្ត្រ។ CamFinTech ជួយសហគ្រាសក្នុងការដោះស្រាយភាពស្មុគស្មាញនៃការរួមបញ្ចូលជាមួយ API រដ្ឋាភិបាល — រួមទាំង CamDX បាគង និង CamDigiKey eKYC — ធានាការអនុលោមតាមបទប្បញ្ញត្តិ។"}
                 </p>
               </div>
               <div className="space-y-4">
                 <p className="leading-relaxed">
                   {language === "en"
-                    ? "What sets us apart is our understanding that Cambodia's digital transformation is not organic market evolution—it's deliberate architectural planning. We specialize in identifying and capitalizing on the strategic opportunities that emerge at the intersection of these mandatory government platforms."
-                    : "អ្វីដែលធ្វើឱ្យយើងខុសគ្នាគឺការយល់ដឹងរបស់យើងថាការផ្លាស់ប្តូរឌីជីថលរបស់កម្ពុជាមិនមែនជាការវិវត្តទីផ្សារធម្មជាតិទេ—វាជាការរៀបចំស្ថាបត្យកម្មដោយចេតនា។ យើងមានជំនាញពិសេសក្នុងការកំណត់ និងទាញយកប្រយោជន៍ពីឱកាសយុទ្ធសាស្ត្រដែលកើតឡើងនៅចំណុចប្រសព្វនៃវេទិការដ្ឋាភិបាលដែលមានលក្ខណៈបង្ខិតបង្ខំទាំងនេះ។"}
+                    ? "What sets CamFinTech apart is the understanding that Cambodia's digital transformation is not organic market evolution — it is deliberate architectural planning by the Royal Government of Cambodia. CamFinTech specializes in identifying and capitalizing on the strategic opportunities that emerge at the intersection of these mandatory government platforms, from Bakong CBDC payment rails to CamInvoice tax compliance."
+                    : "អ្វីដែលធ្វើឱ្យ CamFinTech ខុសគ្នាគឺការយល់ដឹងថាការផ្លាស់ប្តូរឌីជីថលរបស់កម្ពុជាមិនមែនជាការវិវត្តទីផ្សារធម្មជាតិទេ — វាជាការរៀបចំស្ថាបត្យកម្មដោយចេតនាដោយរាជរដ្ឋាភិបាលកម្ពុជា។ CamFinTech មានជំនាញពិសេសក្នុងការកំណត់ និងទាញយកប្រយោជន៍ពីឱកាសយុទ្ធសាស្ត្រនៅចំណុចប្រសព្វនៃវេទិការដ្ឋាភិបាល ពីបាគង CBDC ដល់ CamInvoice។"}
                 </p>
                 <p className="leading-relaxed">
                   {language === "en"
-                    ? "From automated supply chain finance leveraging CamInvoice data, to embedded micro-insurance through KHQR payment flows, to compliance-as-a-service for SMEs—we help businesses build on Cambodia's digital rails rather than around them. Our mission is to empower enterprises to thrive in Cambodia's Government-as-a-Platform ecosystem."
-                    : "ពីហិរញ្ញវត្ថុខ្សែសង្វាក់ផ្គត់ផ្គង់ស្វ័យប្រវត្តិដែលប្រើប្រាស់ទិន្នន័យ CamInvoice ទៅធានារ៉ាប់រងខ្នាតតូចដែលដាក់បញ្ចូលតាមរយៈលំហូរទូទាត់ KHQR ដល់អនុលោមភាព-ជា-សេវាកម្មសម្រាប់សហគ្រាសធុនតូច និងមធ្យម—យើងជួយអាជីវកម្មក្នុងការសាងសង់នៅលើបណ្តាញឌីជីថលរបស់កម្ពុជាជាជាងជុំវិញពួកវា។ បេសកកម្មរបស់យើងគឺផ្តល់អំណាចដល់សហគ្រាសឱ្យរីកចម្រើនក្នុងប្រព័ន្ធអេកូឡូស៊ី «រដ្ឋាភិបាលជាវេទិកា» របស់កម្ពុជា។"}
+                    ? "From automated supply chain finance leveraging CamInvoice data, to embedded micro-insurance through KHQR payment flows, to compliance-as-a-service for Cambodia's 43,970+ SMEs — CamFinTech helps businesses build on Cambodia's digital rails rather than around them. CamFinTech's mission is to empower enterprises to thrive in Cambodia's Government-as-a-Platform ecosystem."
+                    : "ពីហិរញ្ញវត្ថុខ្សែសង្វាក់ផ្គត់ផ្គង់ស្វ័យប្រវត្តិដែលប្រើប្រាស់ទិន្នន័យ CamInvoice ទៅធានារ៉ាប់រងខ្នាតតូចដែលដាក់បញ្ចូលតាមរយៈលំហូរទូទាត់ KHQR ដល់អនុលោមភាព-ជា-សេវាកម្មសម្រាប់សហគ្រាសធុនតូច និងមធ្យមជាង ៤៣,៩៧០+ របស់កម្ពុជា — CamFinTech ជួយអាជីវកម្មក្នុងការសាងសង់នៅលើបណ្តាញឌីជីថលរបស់កម្ពុជា។ បេសកកម្មរបស់ CamFinTech គឺផ្តល់អំណាចដល់សហគ្រាសឱ្យរីកចម្រើនក្នុងប្រព័ន្ធអេកូឡូស៊ី GaaP របស់កម្ពុជា។"}
                 </p>
               </div>
             </div>
@@ -127,8 +128,8 @@ export default function Home() {
               </h2>
               <p className={`max-w-3xl text-lg text-text-light/80 dark:text-text-dark/80 ${language === "km" ? "font-khmer" : ""}`}>
                 {language === "en"
-                  ? "We offer a comprehensive suite of services designed to accelerate your FinTech journey in Cambodia."
-                  : "យើងផ្តល់ជូននូវសេវាកម្មគ្រប់ជ្រុងជ្រោយ ដែលត្រូវបានរៀបចំឡើងដើម្បីជំរុញដំណើរការ FinTech របស់អ្នកនៅក្នុងប្រទេសកម្ពុជា។"}
+                  ? "CamFinTech offers six core consulting services spanning regulatory compliance, Bakong and KHQR payment integration, core banking modernization, automated lending, API development for government platforms, and cybersecurity — all tailored for Cambodia's Government-as-a-Platform ecosystem."
+                  : "CamFinTech ផ្តល់សេវាកម្មប្រឹក្សាស្នូល ៦ រួមទាំងអនុលោមភាពបទប្បញ្ញត្តិ ការរួមបញ្ចូលបាគង និង KHQR ទំនើបកម្មធនាគារស្នូល ការផ្តល់ប្រាក់កម្ចីស្វ័យប្រវត្តិ ការអភិវឌ្ឍន៍ API សម្រាប់វេទិការដ្ឋាភិបាល និងសន្តិសុខតាមអ៊ីនធឺណិត — ទាំងអស់សម្រាប់ប្រព័ន្ធ GaaP របស់កម្ពុជា។"}
               </p>
             </div>
             <div className={`mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 ${language === "km" ? "font-khmer" : ""}`}>
@@ -136,27 +137,27 @@ export default function Home() {
                 <>
                   <ServiceCard
                     title="Compliance as a Service"
-                    description="Navigate Cambodia's regulatory landscape with confidence."
+                    description="Navigate Cambodia's regulatory landscape including CamInvoice mandate compliance, General Department of Taxation (GDT) reporting, and AML requirements aligned with National Bank of Cambodia guidelines."
                   />
                   <ServiceCard
                     title="Digital Payment Gateway Integration"
-                    description="Connect to national payment systems like KHQR and Bakong."
+                    description="Connect to Cambodia's national payment systems — KHQR standardized QR payments, Bakong instant settlement (NBC's CBDC rail), and ABA PayWay merchant processing."
                   />
                   <ServiceCard
                     title="Core Banking System Modernization"
-                    description="Upgrade legacy systems for the digital age."
+                    description="Upgrade legacy banking systems to microservices-based platforms that integrate natively with Bakong, CamDX, and CamDigiKey government APIs."
                   />
                   <ServiceCard
                     title="Lending & Credit Scoring Solutions"
-                    description="Automate and enhance your lending processes."
+                    description="Deploy automated lending platforms leveraging CamInvoice verified transaction data and CamDigiKey identity verification for faster, data-driven loan approvals."
                   />
                   <ServiceCard
                     title="API Development & Management"
-                    description="Build secure and scalable APIs for your financial services."
+                    description="Build secure, scalable APIs connecting enterprises to Cambodia's government platform ecosystem — CamDX data exchange, CamDigiKey eKYC, and Bakong settlement endpoints."
                   />
                   <ServiceCard
                     title="Cybersecurity & Data Privacy"
-                    description="Protect your assets and customer data."
+                    description="Enterprise cybersecurity aligned with Cambodian regulatory requirements for financial institutions operating on the Government-as-a-Platform infrastructure."
                   />
                 </>
               ) : (
@@ -191,7 +192,7 @@ export default function Home() {
           </section>
 
           {/* Digital Infrastructure Section */}
-          <section className="mt-24 w-full">
+          <section className="mt-24 w-full" id="digital-infrastructure">
             <div className="flex flex-col items-center gap-6 text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 {language === "en" ? "A Deliberate Design, Not Organic Growth" : "ការរចនាដោយចេតនា មិនមែនការរីកចម្រើនធម្មជាតិ"}
@@ -252,7 +253,7 @@ export default function Home() {
           </section>
 
           {/* Investment Opportunities Section */}
-          <section className="mt-24 w-full">
+          <section className="mt-24 w-full" id="investment-opportunities">
             <div className="flex flex-col items-center gap-6 text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 {language === "en" ? "The Next Frontier: Strategic Investment Opportunities" : "ព្រំដែនបន្ទាប់: ឱកាសវិនិយោគយុទ្ធសាស្ត្រ"}
@@ -366,8 +367,8 @@ export default function Home() {
                 </h2>
                 <p className="text-lg text-text-light/80 dark:text-text-dark/80">
                   {language === "en"
-                    ? "We are more than consultants; we are your strategic partners in navigating the complexities of Cambodia's FinTech ecosystem."
-                    : "យើងមិនមែនត្រឹមតែជាអ្នកប្រឹក្សាទេ។ យើងជាដៃគូយុទ្ធសាស្ត្ររបស់អ្នកក្នុងការដោះស្រាយភាពស្មុគស្មាញនៃប្រព័ន្ធអេកូឡូស៊ី FinTech របស់កម្ពុជា។"}
+                    ? "CamFinTech is more than a consultancy — CamFinTech serves as a strategic partner for enterprises navigating the complexities of Cambodia's FinTech ecosystem, from Bakong payment integration to CamInvoice compliance."
+                    : "CamFinTech មិនមែនត្រឹមតែជាក្រុមហ៊ុនប្រឹក្សាទេ — CamFinTech បម្រើជាដៃគូយុទ្ធសាស្ត្រសម្រាប់សហគ្រាសក្នុងការដោះស្រាយភាពស្មុគស្មាញនៃប្រព័ន្ធអេកូឡូស៊ី FinTech របស់កម្ពុជា ពីបាគងដល់ CamInvoice។"}
                 </p>
               </div>
               <div className="flex flex-col gap-6">
@@ -377,8 +378,8 @@ export default function Home() {
                   </h3>
                   <p className="mt-2 text-text-light/80 dark:text-text-dark/80">
                     {language === "en"
-                      ? "Our team possesses unparalleled understanding of the local regulatory, cultural, and business landscape."
-                      : "ក្រុមការងាររបស់យើងមានការយល់ដឹងដែលមិនអាចប្រៀបផ្ទឹមបានអំពីបទប្បញ្ញត្តិ វប្បធម៌ និងបរិយាកាសអាជីវកម្មក្នុងស្រុក។"}
+                      ? "CamFinTech's team possesses unparalleled understanding of Cambodia's regulatory, cultural, and business landscape, including direct experience with NBC, GDT, and CamDX integration requirements."
+                      : "ក្រុម CamFinTech មានការយល់ដឹងដែលមិនអាចប្រៀបផ្ទឹមបានអំពីបទប្បញ្ញត្តិ វប្បធម៌ និងបរិយាកាសអាជីវកម្មកម្ពុជា រួមទាំង NBC GDT និង CamDX។"}
                   </p>
                 </div>
                 <div>
@@ -387,8 +388,8 @@ export default function Home() {
                   </h3>
                   <p className="mt-2 text-text-light/80 dark:text-text-dark/80">
                     {language === "en"
-                      ? "We design scalable and interoperable systems built to last and adapt to future technological advancements."
-                      : "យើងរចនាប្រព័ន្ធដែលអាចធ្វើមាត្រដ្ឋានបាន និងមានអន្តរប្រតិបត្តិការ ដែលត្រូវបានបង្កើតឡើងដើម្បីស្ថិតស្ថេរ និងសម្របខ្លួនទៅនឹងការវិវត្តបច្ចេកវិទ្យានាពេលអនាគត។"}
+                      ? "CamFinTech designs scalable and interoperable systems built to adapt as Cambodia's GaaP infrastructure evolves, ensuring clients are positioned to adopt new government platform capabilities as they launch."
+                      : "CamFinTech រចនាប្រព័ន្ធដែលអាចធ្វើមាត្រដ្ឋានបាន និងមានអន្តរប្រតិបត្តិការ ដែលសម្របខ្លួនតាមការវិវត្តហេដ្ឋារចនាសម្ព័ន្ធ GaaP របស់កម្ពុជា ធានាថាអតិថិជនត្រៀមខ្លួនសម្រាប់វេទិការដ្ឋាភិបាលថ្មី។"}
                   </p>
                 </div>
                 <div>
@@ -397,8 +398,8 @@ export default function Home() {
                   </h3>
                   <p className="mt-2 text-text-light/80 dark:text-text-dark/80">
                     {language === "en"
-                      ? "We have a history of successful project delivery for leading financial institutions and enterprises in Cambodia."
-                      : "យើងមានប្រវត្តិជោគជ័យក្នុងការផ្តល់គម្រោងសម្រាប់គ្រឹះស្ថានហិរញ្ញវត្ថុ និងសហគ្រាសឈានមុខគេនៅក្នុងប្រទេសកម្ពុជា។"}
+                      ? "CamFinTech has a history of successful project delivery for leading financial institutions and enterprises in Cambodia, with demonstrated results in Bakong payment automation, GDT tax compliance, and MFI lending acceleration."
+                      : "CamFinTech មានប្រវត្តិជោគជ័យក្នុងការផ្តល់គម្រោងសម្រាប់គ្រឹះស្ថានហិរញ្ញវត្ថុ និងសហគ្រាសឈានមុខគេនៅកម្ពុជា ជាមួយលទ្ធផលក្នុងបាគង ការអនុលោមពន្ធ GDT និងការផ្តល់ប្រាក់កម្ចី MFI។"}
                   </p>
                 </div>
               </div>
@@ -475,7 +476,7 @@ export default function Home() {
               </p>
               <div className="mt-8">
                 <button
-                  onClick={() => openChat("I'd like to book a free consultation")}
+                  onClick={() => scrollToContact()}
                   className="flex mx-auto h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold tracking-[0.015em] text-text-light transition-transform hover:scale-105"
                 >
                   <span className="truncate">Book a Free Consultation</span>

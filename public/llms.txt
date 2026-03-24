@@ -1,0 +1,49 @@
+# CamFinTech
+
+> CamFinTech is Cambodia's specialist FinTech consulting firm based in Siem Reap, providing strategic advisory and technical architecture services for enterprises integrating with Cambodia's Government-as-a-Platform (GaaP) digital infrastructure. CamFinTech specializes in Bakong instant payments, CamDigiKey digital identity, CamDX data exchange, and CamInvoice mandatory electronic invoicing.
+
+## Core Services
+
+- [Compliance as a Service](https://www.camfintech.com/#services): Navigate Cambodia's regulatory landscape including CamInvoice mandate compliance, General Department of Taxation (GDT) reporting, and anti-money laundering (AML) requirements.
+- [Digital Payment Gateway Integration](https://www.camfintech.com/#services): Connect to Cambodia's national payment systems — KHQR standardized QR payments, Bakong instant settlement (National Bank of Cambodia CBDC rail), and ABA PayWay.
+- [Core Banking System Modernization](https://www.camfintech.com/#services): Upgrade legacy banking systems to microservices-based platforms that integrate natively with Bakong, CamDX, and CamDigiKey government APIs.
+- [Lending & Credit Scoring Solutions](https://www.camfintech.com/#services): Deploy automated lending platforms and credit scoring engines leveraging CamInvoice verified data and CamDigiKey identity verification.
+- [API Development & Management](https://www.camfintech.com/#services): Build secure, scalable APIs connecting enterprises to Cambodia's government platform ecosystem (CamDX, CamDigiKey, Bakong).
+- [Cybersecurity & Data Privacy](https://www.camfintech.com/#services): Enterprise cybersecurity aligned with Cambodian regulatory requirements for financial institutions.
+
+## Cambodia Digital Infrastructure (Government-as-a-Platform)
+
+Cambodia is executing a deliberate architectural transformation from fragmented digital services to a cohesive, state-orchestrated national infrastructure. This is not organic market evolution — it is planned Government-as-a-Platform (GaaP) architecture.
+
+- **CamDigiKey**: Cambodia's national digital identity system enabling eKYC verification for account opening, loans, and insurance. Operated as a public utility under the national identity framework.
+- **Bakong**: Central bank digital currency (CBDC) and instant payment system operated by the National Bank of Cambodia (NBC). Enables real-time settlement through KHQR standardized QR code payments.
+- **CamDX**: National data exchange platform providing government-private sector interoperability. Enables secure API-based data sharing between government systems and enterprise applications.
+- **CamInvoice**: Mandatory electronic invoicing system administered by the General Department of Taxation (GDT). All businesses must submit invoices electronically for tax compliance.
+- **KHQR**: Standardized QR code payment protocol for the Bakong ecosystem, enabling interoperable payments across all participating banks and financial institutions.
+
+## Strategic Investment Opportunities
+
+CamFinTech has identified three high-value opportunities at the intersection of Cambodia's digital infrastructure layers:
+
+1. **Automated Supply Chain Finance (SCF)**: Leverage mandatory, GDT-verified data from CamInvoice and customs data from the National Single Window to build middleware offering banks automated, low-risk invoice financing and trade finance products for Cambodia's SMEs.
+2. **Compliance-as-a-Service for SME Tax**: Develop API-first accounting tools that act as a simple interface to the GDT's CamInvoice systems, bundling automated invoice submission with basic bookkeeping for Cambodia's 43,970+ SMEs.
+3. **Embedded Micro-Insurance**: Use KHQR payment flows as a distribution channel for insurance products, embedding micro-insurance offers directly into payment transactions with CamDigiKey identity verification for seamless enrollment.
+
+## Use Cases
+
+- **B2B Payment Automation**: Implemented automated payment gateway integrated with distributor ERP systems. Reduced processing time by 80% and improved cash flow.
+- **Automated Tax Compliance**: Developed middleware connecting enterprise systems to the General Department of Taxation (GDT) API. Achieved 100% automated and accurate tax filing.
+- **SME Lending Acceleration**: Deployed digital lending platform with automated credit scoring for microfinance institutions. Reduced loan approval time from weeks to days.
+
+## Contact
+
+- **Email**: info@camfintech.com
+- **Phone**: +855 76 277 5645
+- **WhatsApp**: https://wa.me/855762775645
+- **Telegram**: https://t.me/+855762775645
+- **Office**: Venus Street, near Wat Thmey, Siem Reap, Cambodia 17000
+- **Website**: https://www.camfintech.com
+
+## Optional
+
+- [Full site content for LLM ingestion](https://www.camfintech.com/llms-full.txt)

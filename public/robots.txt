@@ -1,5 +1,29 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-
 Sitemap: https://www.camfintech.com/sitemap.xml
+
+# AI Search Crawlers — Explicitly Permitted
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# LLM Navigation
+# See also: https://www.camfintech.com/llms.txt

@@ -101,28 +101,6 @@ export default function RootLayout({
           `}
         </Script>
         {children}
-        {/* OmniDM Chat Widget */}
-        <Script id="omnidm-config" strategy="beforeInteractive">
-          {`window.OmniDMConfig = {
-            token: 'camfintech-embed-2026',
-            baseUrl: 'https://automation.omnidm.ai',
-            position: 'bottom-right',
-            title: 'CamFinTech Assistant',
-            welcomeMessage: 'សួស្តី! Welcome to CamFinTech. How can we help you with your FinTech integration today?',
-            theme: {
-              primaryColor: '#1B4D4D',
-              accentColor: '#D4A84B',
-              fontFamily: "'Inter', sans-serif",
-              botBubbleColor: '#F5F5F5',
-              textColor: '#1A1A1A',
-              userTextColor: '#FFFFFF'
-            }
-          };`}
-        </Script>
-        <Script
-          src="https://automation.omnidm.ai/static/widget/v1/omnidm-chat.min.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );
