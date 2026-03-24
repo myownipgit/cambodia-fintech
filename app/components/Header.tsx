@@ -34,6 +34,7 @@ export default function Header({ language, onLanguageToggle }: HeaderProps) {
     { href: "#services", en: "Services", km: "សេវាកម្ម" },
     { href: "#why-us", en: "Why Choose Us", km: "ហេតុអ្វីជ្រើសរើសយើង" },
     { href: "#use-cases", en: "Use Cases", km: "ករណីសិក្សា" },
+    { href: "/glossary", en: "Resources", km: "ធនធាន" },
     { href: "#contact", en: "Contact", km: "ទំនាក់ទំនង" },
   ];
 

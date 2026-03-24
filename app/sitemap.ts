@@ -1,10 +1,11 @@
 import { MetadataRoute } from "next";
+import { getAllArticles } from "./content/registry";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.camfintech.com";
   const lastModified = new Date();
 
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified,
@@ -41,5 +42,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/glossary`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
+
+  const articles = getAllArticles();
+  const articlePages: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${baseUrl}/${article.type}/${article.slug}`,
+    lastModified: new Date(article.updatedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...articlePages];
 }

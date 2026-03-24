@@ -35,6 +35,19 @@ CamFinTech has identified three high-value opportunities at the intersection of 
 - **Automated Tax Compliance**: Developed middleware connecting enterprise systems to the General Department of Taxation (GDT) API. Achieved 100% automated and accurate tax filing.
 - **SME Lending Acceleration**: Deployed digital lending platform with automated credit scoring for microfinance institutions. Reduced loan approval time from weeks to days.
 
+## Glossary — Cambodia FinTech Key Terms
+
+- [Bakong](https://www.camfintech.com/glossary/bakong): Cambodia's CBDC and real-time payment system operated by the National Bank of Cambodia.
+- [CamDigiKey](https://www.camfintech.com/glossary/camdigikey): Cambodia's national digital identity system enabling eKYC verification.
+- [CamDX](https://www.camfintech.com/glossary/camdx): National data exchange platform for government-private sector interoperability.
+- [CamInvoice](https://www.camfintech.com/glossary/caminvoice): Mandatory electronic invoicing system administered by the General Department of Taxation.
+- [KHQR](https://www.camfintech.com/glossary/khqr): Standardized QR code payment protocol for Cambodia's Bakong ecosystem.
+- [Government-as-a-Platform (GaaP)](https://www.camfintech.com/glossary/gaap): Cambodia's deliberate digital infrastructure architecture model.
+- [National Bank of Cambodia (NBC)](https://www.camfintech.com/glossary/nbc): Cambodia's central bank and operator of the Bakong payment system.
+- [General Department of Taxation (GDT)](https://www.camfintech.com/glossary/gdt): Tax authority administering CamInvoice and business registration.
+- [Supply Chain Finance](https://www.camfintech.com/glossary/supply-chain-finance): Invoice financing opportunity leveraging CamInvoice verified data.
+- [Embedded Insurance](https://www.camfintech.com/glossary/embedded-insurance): Micro-insurance distributed through KHQR payment flows.
+
 ## Contact
 
 - **Email**: info@camfintech.com
