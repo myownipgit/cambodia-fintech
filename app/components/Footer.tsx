@@ -10,8 +10,21 @@ export default function Footer() {
           <span className="font-khmer mx-2">|</span>
           <span className="font-khmer">ផ្តល់អំណាចដល់សេដ្ឋកិច្ចឌីជីថលរបស់កម្ពុជា។</span>
         </p>
-        <p className="mt-2 text-xs text-text-light/40 dark:text-text-dark/40">
-          Last updated: March 2026 · Siem Reap, Cambodia
+        <nav className="mt-3 flex items-center justify-center gap-4 text-xs text-text-light/60 dark:text-text-dark/60">
+          <a href="/privacy" className="hover:text-primary transition-colors">
+            Privacy
+          </a>
+          <span className="text-text-light/30 dark:text-text-dark/30">·</span>
+          <a href="/terms" className="hover:text-primary transition-colors">
+            Terms
+          </a>
+          <span className="text-text-light/30 dark:text-text-dark/30">·</span>
+          <a href="/glossary" className="hover:text-primary transition-colors">
+            Glossary
+          </a>
+        </nav>
+        <p className="mt-3 text-xs text-text-light/40 dark:text-text-dark/40">
+          Last updated: May 2026 · Siem Reap, Cambodia
         </p>
       </div>
     </footer>
