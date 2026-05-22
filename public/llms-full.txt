@@ -1,6 +1,6 @@
 # CamFinTech — Architecting Cambodia's Digital Financial Future
 
-CamFinTech is a FinTech consulting firm based in Siem Reap, Cambodia, specializing in enterprise integration with Cambodia's Government-as-a-Platform (GaaP) digital infrastructure. CamFinTech provides strategic advisory and technical architecture services for organizations connecting to Bakong instant payments, CamDigiKey digital identity, CamDX data exchange, and the mandatory CamInvoice electronic invoicing system.
+CamFinTech is a FinTech consulting firm based in Phnom Penh, Cambodia, specializing in enterprise integration with Cambodia's Government-as-a-Platform (GaaP) digital infrastructure. CamFinTech provides strategic advisory and technical architecture services for organizations connecting to Bakong instant payments, CamDigiKey digital identity, CamDX data exchange, and the mandatory CamInvoice electronic invoicing system.
 
 ---
 
@@ -138,6 +138,5 @@ CamFinTech has a history of successful project delivery for leading financial in
 - **Phone**: +855 76 277 5645
 - **WhatsApp**: https://wa.me/855762775645
 - **Telegram**: https://t.me/+855762775645
-- **Office**: Venus Street, near Wat Thmey, Krong Siem Reap, Cambodia 17000
-- **Postal**: PO Box 93101, 54 Pokambor Avenue, Siem Reap Post Office, Krong Cambodia
+- **Office**: 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia 12210
 - **Website**: https://www.camfintech.com

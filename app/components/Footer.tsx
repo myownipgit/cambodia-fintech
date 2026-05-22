@@ -24,7 +24,7 @@ export default function Footer() {
           </a>
         </nav>
         <p className="mt-3 text-xs text-text-light/40 dark:text-text-dark/40">
-          Last updated: May 2026 · Siem Reap, Cambodia
+          Last updated: May 2026 · Phnom Penh, Cambodia
         </p>
       </div>
     </footer>

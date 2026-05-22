@@ -88,8 +88,8 @@ export default function Home() {
               </h2>
               <p className={`max-w-3xl text-lg text-text-light/80 dark:text-text-dark/80 ${language === "km" ? "font-khmer" : ""}`}>
                 {language === "en"
-                  ? "CamFinTech is a Siem Reap-based FinTech consulting firm providing strategic advisory and technical architecture for enterprises integrating with Cambodia's Government-as-a-Platform (GaaP) digital infrastructure, including Bakong instant payments, CamDigiKey digital identity, CamDX data exchange, and the mandatory CamInvoice electronic invoicing system."
-                  : "CamFinTech គឺជាក្រុមហ៊ុនប្រឹក្សាបច្ចេកវិទ្យាហិរញ្ញវត្ថុមានមូលដ្ឋាននៅសៀមរាប ដែលផ្តល់សេវាប្រឹក្សាយុទ្ធសាស្ត្រ និងស្ថាបត្យកម្មបច្ចេកទេសសម្រាប់សហគ្រាសដែលរួមបញ្ចូលជាមួយហេដ្ឋារចនាសម្ព័ន្ធឌីជីថល GaaP របស់កម្ពុជា រួមទាំងបាគង CamDigiKey CamDX និង CamInvoice។"}
+                  ? "CamFinTech is a Phnom Penh-based FinTech consulting firm providing strategic advisory and technical architecture for enterprises integrating with Cambodia's Government-as-a-Platform (GaaP) digital infrastructure, including Bakong instant payments, CamDigiKey digital identity, CamDX data exchange, and the mandatory CamInvoice electronic invoicing system."
+                  : "CamFinTech គឺជាក្រុមហ៊ុនប្រឹក្សាបច្ចេកវិទ្យាហិរញ្ញវត្ថុមានមូលដ្ឋាននៅភ្នំពេញ ដែលផ្តល់សេវាប្រឹក្សាយុទ្ធសាស្ត្រ និងស្ថាបត្យកម្មបច្ចេកទេសសម្រាប់សហគ្រាសដែលរួមបញ្ចូលជាមួយហេដ្ឋារចនាសម្ព័ន្ធឌីជីថល GaaP របស់កម្ពុជា រួមទាំងបាគង CamDigiKey CamDX និង CamInvoice។"}
               </p>
             </div>
             <div className={`mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 ${language === "km" ? "font-khmer" : ""}`}>
@@ -483,7 +483,7 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <div className="mt-12 grid grid-cols-1 gap-8 text-center md:grid-cols-2 lg:grid-cols-4 md:text-left">
+            <div className="mt-12 grid grid-cols-1 gap-8 text-center md:grid-cols-2 lg:grid-cols-3 md:text-left">
               <div>
                 <h3 className="text-xl font-bold">Contact Us</h3>
                 <div className="mt-4 flex flex-col items-center gap-2 md:items-start">
@@ -519,23 +519,11 @@ export default function Home() {
               <div>
                 <h3 className="text-xl font-bold">Office Location</h3>
                 <p className="mt-4 leading-relaxed">
-                  វត្ត​ថ្មី, Venus street,
+                  30 Preah Norodom Boulevard
                   <br />
-                  near Wat thmey,
+                  Khan Daun Penh
                   <br />
-                  Krong Siem Reap, 17000
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Postal Address</h3>
-                <p className="mt-4 leading-relaxed">
-                  PO Box 93101
-                  <br />
-                  54 Pokambor Avenue
-                  <br />
-                  Siem Reap Post Office
-                  <br />
-                  Krong Cambodia
+                  Phnom Penh, Kingdom of Cambodia
                 </p>
               </div>
             </div>

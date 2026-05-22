@@ -6,6 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a bilingual (English/Khmer) FinTech consulting website for Cambodia, built with Next.js 14 using the App Router architecture. The site focuses on Cambodia's unique Government-as-a-Platform digital infrastructure, including CamDigiKey (digital identity), Bakong (instant payments), CamDX (data exchange), and CamInvoice (mandatory invoicing system).
 
+## Legal Entity & Corporate HQ
+
+- **Trading name (used publicly)**: CamFinTech
+- **Legal name (pending registration, NOT yet used on public site)**: CAMFINTECH CO., LTD
+- **Corporate HQ — abbreviated form (used on public site until registration finalises)**: 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia
+- **Corporate HQ — full form (internal docs only)**: 30 Preah Norodom Boulevard, 3rd floor, BRED Bank Building, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Cambodia
+- **Status**: Cambodian business registration in progress. Until registration is finalised, refer to the practice as "CamFinTech" (trading name) on public materials. Do not use "Co., Ltd" suffix publicly.
+
 ## Development Commands
 
 ### Local Development

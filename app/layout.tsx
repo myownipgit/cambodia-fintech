@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "FinTech", "Cambodia", "Bakong", "CamDigiKey", "CamDX", "CamInvoice",
     "digital payments", "consulting", "KHQR", "Government-as-a-Platform",
     "Cambodia digital infrastructure", "Bakong CBDC", "NBC payment rail",
-    "CamInvoice compliance", "Siem Reap", "fintech consulting Cambodia",
+    "CamInvoice compliance", "Phnom Penh", "fintech consulting Cambodia",
     "បាគង", "បច្ចេកវិទ្យាហិរញ្ញវត្ថុ", "កម្ពុជា",
   ],
   authors: [{ name: "CamFinTech" }],
