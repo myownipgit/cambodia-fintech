@@ -30,7 +30,7 @@ export default function Header({ language, onLanguageToggle }: HeaderProps) {
 
   const navLinks = [
     { href: "#home", en: "Home", km: "ទំព័រដើម" },
-    { href: "#about", en: "About", km: "អំពីយើង" },
+    { href: "/about", en: "About", km: "អំពីយើង" },
     { href: "#services", en: "Services", km: "សេវាកម្ម" },
     { href: "#why-us", en: "Why Choose Us", km: "ហេតុអ្វីជ្រើសរើសយើង" },
     { href: "#use-cases", en: "Use Cases", km: "ករណីសិក្សា" },

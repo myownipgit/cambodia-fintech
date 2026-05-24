@@ -46,6 +46,26 @@ export default function JsonLd() {
           "email": "info@camfintech.com",
           "availableLanguage": ["English", "Khmer"],
         },
+        "founder": {
+          "@id": "https://www.camfintech.com/about#person",
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/118224010/",
+        ],
+      },
+      // Person (Founder)
+      {
+        "@type": "Person",
+        "@id": "https://www.camfintech.com/about#person",
+        "name": "William Mallett",
+        "jobTitle": "Founder & Managing Director",
+        "worksFor": {
+          "@id": "https://www.camfintech.com/#organization",
+        },
+        "url": "https://www.camfintech.com/about",
+        "sameAs": [
+          "https://www.linkedin.com/in/william-mall/",
+        ],
       },
       // ProfessionalService (LocalBusiness)
       {
