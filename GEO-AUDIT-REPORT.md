@@ -36,7 +36,7 @@ The 30-day target of ~68 from the prior audit remains intact but unmoved. The pa
 
 2. **`/privacy` and `/terms` schema blocks added on 2026-05-22 are NOT in the rendered HTML.** Live fetch shows only the inherited root `@graph`. Either the per-page Script tag didn't deploy or it's stripped at build. Needs investigation.
 
-3. **Aston Hill is publicly identifiable as "General Manager at Camfintech" on LinkedIn** ([kh.linkedin.com/in/aston-hill-469944322](https://kh.linkedin.com/in/aston-hill-469944322)). A named human exists in public — just nowhere on the website. This is the cheapest E-E-A-T fix on the audit.
+3. **No named human is publicly associated with CamFinTech.** The Brand & Platform agent initially surfaced a LinkedIn profile self-describing as "General Manager at Camfintech" and treated it as a positive signal — that association has been confirmed incorrect by the project principal. The website remains fully anonymous, and there is no public-domain candidate for `/about`. (See Errata.)
 
 4. **The address `30 Preah Norodom Boulevard` resolves to the BRED Bank Tower** which also houses EuroCham and CCI France Cambodge. No Google Business Profile for CamFinTech at that address.
 
@@ -54,8 +54,8 @@ None at the literal "site is broken" level. The site is up, indexable, served vi
 
 ### H1. `/about` returns 404 — zero named humans anywhere on the site
 - **Impact:** Largest single E-E-A-T deduction. Required for `Person` schema, founder bio, institutional-partner due diligence.
-- **Aggravating factor:** A named human (Aston Hill, General Manager) is already publicly identifiable on LinkedIn. The website hides what LinkedIn discloses.
-- **Fix:** Create `app/about/page.tsx` with: named founder, photo, ~200-word bio, prior employers/affiliations, LinkedIn link. Emit `Person` JSON-LD with `worksFor` referencing the Organization. Update `JsonLd.tsx` to add `founder: { @id: …#founder }` on the Organization node.
+- **Aggravating factor:** No named human is publicly associated with the practice (the audit's initial LinkedIn match was a misidentification — see Errata). The principal needs to decide on the named founder / team to surface before this can be implemented.
+- **Fix:** Once the principal identifies a named founder/team, create `app/about/page.tsx` with: name, photo, ~200-word bio, prior employers/affiliations, LinkedIn link. Emit `Person` JSON-LD with `worksFor` referencing the Organization. Update `JsonLd.tsx` to add `founder: { @id: …#founder }` on the Organization node.
 - **Fix complexity:** S — content + one component.
 
 ### H2. Brand entity collision: AI search returns Cámara Argentina de Fintech, not CamFinTech (KH)
@@ -77,9 +77,9 @@ None at the literal "site is broken" level. The site is up, indexable, served vi
 - **Fix complexity:** S — debug and re-deploy.
 
 ### H5. No LinkedIn company page for CamFinTech (Cambodia)
-- **Evidence:** `site:linkedin.com/company camfintech Cambodia` returns nothing. Aston Hill's personal profile lists "General Manager at Camfintech" but the company text doesn't link to a real LinkedIn page.
+- **Evidence:** `site:linkedin.com/company camfintech Cambodia` returns nothing.
 - **Why it matters:** LinkedIn is the #1 entity source for B2B AI citations (Perplexity, ChatGPT, Gemini weight it heavily).
-- **Fix:** Claim `linkedin.com/company/camfintech` (or `/camfintech-cambodia` if taken). Add Aston Hill as admin; backfill posts; cross-link from his personal profile.
+- **Fix:** Claim `linkedin.com/company/camfintech` (or `/camfintech-cambodia` if taken). Add the principal as admin; publish initial posts; cross-link from any named team members' personal profiles once `/about` exists.
 - **Fix complexity:** S — 30 minutes.
 
 ### H6. No Google Business Profile at the Phnom Penh address
@@ -210,7 +210,7 @@ The audit's primary leverage point and its lowest score. Bullet summary of prese
 | Industry directories (TechBehemoths, Consultancy.org KH, D&B, Lusha) | **Missing** |
 | AI-search proxy tests (3 queries) | **All fail** — camfintech.com appears in 0/3 top-10 result sets |
 
-The one positive: a personal LinkedIn profile lists Aston Hill as "General Manager at Camfintech" — a named human exists in the public record, just not linked from the website.
+There is no positive: the audit initially surfaced a LinkedIn profile self-describing as "General Manager at Camfintech" but the principal has confirmed no such association exists. The Cambodia entity is fully anonymous in the public record. (See Errata.)
 
 ### Content E-E-A-T — 42/100 (+4)
 
@@ -283,9 +283,9 @@ Same data as Brand Authority. CamFinTech is essentially absent from every platfo
 
 ## Quick Wins (Implement This Week)
 
-1. **Ship `/about`** with a named founder (Aston Hill, per public LinkedIn), photo, bio, LinkedIn link, Person JSON-LD. Single-handedly moves E-E-A-T from 42 → ~55 and the composite from 50 → ~54.
+1. **Decide on the named founder/team to publish, then ship `/about`** with name, photo, bio, LinkedIn link, Person JSON-LD. Single-handedly moves E-E-A-T from 42 → ~55 and the composite from 50 → ~54. **Blocked on a name from the principal.**
 2. **Make the GitHub repo public** (or create a new public reference repo under a new `camfintech` org). Restores a free authority signal.
-3. **Claim `linkedin.com/company/camfintech`** and link from Aston Hill's personal profile. ~30 minutes; major entity-disambiguation value.
+3. **Claim `linkedin.com/company/camfintech`** and admin it with the principal's account. ~30 minutes; major entity-disambiguation value.
 4. **Drop sitemap anchor URLs** in `app/sitemap.ts`. One-line fix; closes a prior-audit finding that wasn't addressed.
 5. **Debug `/privacy` and `/terms` JSON-LD** — they're committed but not rendering. Investigate `app/privacy/page.tsx` and `app/terms/page.tsx`.
 
@@ -299,7 +299,7 @@ These five collectively should move the composite from 50 → ~57 in a single sp
 
 - [ ] Ship `/about` with named founder, photo, bio, Person JSON-LD, sameAs LinkedIn (H1)
 - [ ] Make GitHub repo public OR publish a new public reference repo (H3)
-- [ ] Claim `linkedin.com/company/camfintech`; add admins; cross-link Aston Hill's profile (H5)
+- [ ] Claim `linkedin.com/company/camfintech`; add admins (H5)
 - [ ] Add `Organization.sameAs` array to `JsonLd.tsx` with LinkedIn + GitHub URLs (H2)
 - [ ] Drop sitemap anchor URLs (H7)
 - [ ] Debug why `/privacy` and `/terms` JSON-LD blocks aren't rendering; redeploy (H4)
@@ -372,4 +372,10 @@ The "Article schema broken" finding from the prior audit was incorrect; that con
 
 ---
 
-*Audit generated 2026-05-24 by `/geo-audit` orchestration skill. Five specialist agents ran in parallel against live production HTML.*
+## Errata (corrections issued post-audit)
+
+- **2026-05-24** — The Brand & Platform agent initially surfaced [kh.linkedin.com/in/aston-hill-469944322](https://kh.linkedin.com/in/aston-hill-469944322) as "Aston Hill, General Manager at Camfintech" and treated it as a positive E-E-A-T signal (a named human publicly associated with the practice). **The project principal has confirmed this association does not exist** — the LinkedIn profile self-describes against a different "Camfintech" entity, not the Cambodia consulting firm at camfintech.com. All references to Aston Hill have been removed from this report. The original finding stands: no named human is publicly associated with CamFinTech, and `/about` cannot be shipped until the principal identifies the named founder/team. Future audit runs should ignore any LinkedIn match against the literal string "Camfintech" without explicit confirmation from the principal — the entity collision risk (with Cámara Argentina de Fintech and other "camfintech"-shaped entities) extends to personal-profile self-descriptions, not just organisation-level matches.
+
+---
+
+*Audit generated 2026-05-24 by `/geo-audit` orchestration skill. Five specialist agents ran in parallel against live production HTML. Errata applied post-audit.*
