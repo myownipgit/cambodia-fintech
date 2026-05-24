@@ -2,6 +2,21 @@
 
 A modern, bilingual (English/Khmer) website for a FinTech consulting company in Cambodia, built with Next.js, TypeScript, and Tailwind CSS.
 
+**Production:** https://www.camfintech.com
+
+## About the practice
+
+**CamFinTech** is a Phnom Penh-based specialist consulting practice focused on Cambodia's Government-as-a-Platform (GaaP) digital financial infrastructure — Bakong, CamDigiKey, CamDX, and CamInvoice.
+
+| | |
+|---|---|
+| **Founder & Managing Director** | William Mallett ([LinkedIn](https://www.linkedin.com/in/william-mall/)) |
+| **Trading name** | CamFinTech |
+| **Legal entity** | CAMFINTECH CO., LTD (registration pending) |
+| **Corporate HQ** | 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia |
+| **Contact** | info@camfintech.com · +855 76 277 5645 |
+| **LinkedIn (company)** | https://www.linkedin.com/company/118224010/ |
+
 ## Features
 
 - **Bilingual Support**: Toggle between English and Khmer languages
@@ -83,4 +98,4 @@ cambodia-fintech/
 
 ## License
 
-© 2024 FinTech Consulting Cambodia. All Rights Reserved.
+© 2024–2026 CamFinTech — FinTech Consulting Cambodia. All Rights Reserved.

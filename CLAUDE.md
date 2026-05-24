@@ -8,10 +8,13 @@ This is a bilingual (English/Khmer) FinTech consulting website for Cambodia, bui
 
 ## Legal Entity & Corporate HQ
 
+- **Founder & Managing Director**: William Mallett — LinkedIn: https://www.linkedin.com/in/william-mall/ — surfaced on https://www.camfintech.com/about and referenced via `Organization.founder` in the homepage JSON-LD
 - **Trading name (used publicly)**: CamFinTech
 - **Legal name (pending registration, NOT yet used on public site)**: CAMFINTECH CO., LTD
 - **Corporate HQ — abbreviated form (used on public site until registration finalises)**: 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia
 - **Corporate HQ — full form (internal docs only)**: 30 Preah Norodom Boulevard, 3rd floor, BRED Bank Building, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Cambodia
+- **LinkedIn (company)**: https://www.linkedin.com/company/118224010/ — listed in `Organization.sameAs` in the homepage JSON-LD
+- **Naming convention**: founder's LinkedIn slug is `william-mall` (short form); the public website name is `William Mallett` (full surname). The slug-name mismatch is intentional — do not "fix" by changing one to match the other.
 - **Status**: Cambodian business registration in progress. Until registration is finalised, refer to the practice as "CamFinTech" (trading name) on public materials. Do not use "Co., Ltd" suffix publicly.
 
 ## Development Commands
