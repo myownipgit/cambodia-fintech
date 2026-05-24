@@ -67,22 +67,33 @@ The website emphasizes:
 
 ### Repository Information
 - **GitHub Repo**: https://github.com/myownipgit/cambodia-fintech
-- **Production Branch**: `feature/update-homepage` (configured in Vercel)
-- **Main Branch**: `main`
-- **Vercel Project**: cambodia-fintech (prj_nPOSlaQ6IskxhY65Ysp6EloAtzFq)
-- **Production URL**: www.camfintech.com
+- **Production Branch**: `main` (configured in Vercel dashboard as "push to deploy")
+- **Working Branch**: `feature/update-homepage` — where in-flight work lands; merge to `main` periodically (fast-forward) to keep the GitHub default branch current
+- **Vercel Project**: `cambodia-fintech`, team `fin-tec-consulting-cambodia` (Hobby plan)
+- **Project ID**: `prj_nPOSlaQ6IskxhY65Ysp6EloAtzFq`
+- **Dashboard URL**: https://vercel.com/fin-tec-consulting-cambodia/cambodia-fintech
+- **Production URL**: https://www.camfintech.com
 
-### Standard Workflow for Changes
+### Deploy method: `vercel --prod` CLI (not Git auto-deploy)
 
-When making changes to the codebase, follow this workflow:
+The Vercel Git integration is configured against `main` and theoretically deploys on push. **In practice, the Hobby plan blocks deploys when the commit author isn't a team member** — and the linked GitHub account (`myownipgit`) shows up as a non-team author, so pushes silently no-op for deploys. The CLI deploy bypasses this because it uses the local Vercel OAuth token as the identity, not the git commit author.
+
+There was historically a Vercel deploy webhook documented here — it is dead and has been removed from this doc. Do not attempt to use webhook-based deploys.
+
+### Standard workflow
 
 ```bash
-# 1. Make your code changes (edit files as needed)
+# 1. Make your code changes
 
-# 2. Commit changes to the current branch (usually feature/update-homepage)
-git add .
+# 2. Verify the build before deploying
+npm run build
+
+# 3. Commit (on whichever branch you are working — main or feature/update-homepage)
+git add <specific-files>
 git commit -m "$(cat <<'EOF'
-Your commit message here
+Concise subject line
+
+Body explaining the why.
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
@@ -90,64 +101,52 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 EOF
 )"
 
-# 3. Push to GitHub
-git push origin feature/update-homepage
+# 4. Push (history hygiene — does NOT trigger a deploy)
+git push origin <current-branch>
 
-# 4. Trigger Vercel deployment via webhook
-curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_nPOSlaQ6IskxhY65Ysp6EloAtzFq/IWAkYBIAKI
+# 5. Deploy from the local working directory
+vercel --prod --yes
+```
 
-# 5. (Optional) Merge to main branch when ready
+`vercel --prod` deploys whatever is on disk in the working directory — it does not read git state, so the branch you're on does not affect what gets deployed.
+
+### Working branch → main hygiene
+
+When working on `feature/update-homepage`, periodically fast-forward `main` so the GitHub default branch reflects what's deployed:
+
+```bash
 git checkout main
-git merge feature/update-homepage
+git merge feature/update-homepage --ff-only
 git push origin main
 git checkout feature/update-homepage
 ```
 
-### Automated Deployment Script
-
-For convenience, you can run all steps in a single command:
+### Verification after deploy
 
 ```bash
-# After making code changes, run this to commit, push, and deploy:
-git add . && \
-git commit -m "$(cat <<'EOF'
-[Your commit message]
+# 1. Confirm the deploy is the new commit
+curl -sS -I https://www.camfintech.com | grep -i x-vercel-id
 
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
+# 2. Spot-check a changed page
+curl -sS https://www.camfintech.com/<your-changed-route>
 
-Co-Authored-By: Claude <noreply@anthropic.com>
-EOF
-)" && \
-git push origin feature/update-homepage && \
-curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_nPOSlaQ6IskxhY65Ysp6EloAtzFq/IWAkYBIAKI && \
-echo "✓ Changes pushed and deployment triggered!"
+# 3. Confirm GA tag still loads (measurement ID: G-QDZ83JQWVC)
+curl -sS https://www.camfintech.com | grep -oE 'G-QDZ83JQWVC'
+
+# 4. Confirm Facebook domain verification still present
+curl -sS https://www.camfintech.com | grep -oE 'facebook-domain-verification[^>]*'
 ```
 
-### Verification Steps
-
-After deployment (wait 1-2 minutes for build to complete):
-
-1. **Check Deployment Status**: Visit [Vercel Dashboard](https://vercel.com/myownipgit/cambodia-fintech)
-2. **Verify Production**: Visit www.camfintech.com
-3. **Check Meta Tags**: Right-click → View Page Source, search for verification tags
-4. **Check Analytics**: Google Analytics should be tracking with ID: G-QDZ83JQWVC
-5. **Check Facebook Verification**: Look for `<meta name="facebook-domain-verification" content="9x1qhej2nne7tyd5t4w7t8hjk8wg4a" />`
-
-### Deployment Notes
-
-- **Deploy Hook**: The Vercel deploy hook automatically triggers builds from `feature/update-homepage` branch
-- **Preview vs Production**: Deployments may initially show as "Preview" but are accessible via production URL
-- **Build Time**: Typical build takes 25-35 seconds
-- **Ignored Build Step**: Set to "Automatic" - Vercel decides when to rebuild based on file changes
-- **Manual Redeploy**: If webhook fails, use Vercel dashboard → Click deployment → "Redeploy" button
+For UI changes, open the page in a browser — `curl` won't catch visual regressions.
 
 ### Troubleshooting
 
-If deployment doesn't appear:
-1. Check GitHub push was successful: `git log --oneline -1`
-2. Verify webhook response shows `"state":"PENDING"` with a job ID
-3. Check Vercel dashboard for new deployment (may take 30-60 seconds to appear)
-4. Ensure changes were pushed to `feature/update-homepage` branch (not main)
+If `vercel --prod` fails with a token error, run `vercel login` interactively (browser OAuth) and re-deploy.
+
+If the deploy succeeds but the change doesn't appear on the live site, check:
+1. `vercel inspect <deployment-url>` — verify the deployment is `READY` and aliased to `www.camfintech.com`
+2. Browser cache or CDN cache — try a hard refresh or `?nocache=1` query param
+3. `curl -sS https://www.camfintech.com/<route>` — confirm the change is in the raw HTML, not just hidden by client-side JS
 
 ## Session Recovery
 
