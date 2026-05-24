@@ -9,7 +9,7 @@ export const cambodiaGaapArchitecture: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 10,
-  schema: 'ScholarlyArticle',
+  schema: 'TechArticle',
   relatedSlugs: ['gaap', 'bakong', 'camdigikey', 'camdx', 'caminvoice'],
   lead: 'Cambodia\'s Government-as-a-Platform (GaaP) architecture represents one of the most deliberate and structurally coherent digital infrastructure programs in Southeast Asia. Unlike organic fintech ecosystems that emerged from market competition in Singapore, Indonesia, or Vietnam, Cambodia\'s stack was designed top-down by the Royal Government of Cambodia in partnership with the National Bank of Cambodia, the General Department of Taxation, and the Ministry of Economy and Finance. The result is a unified, interoperable platform comprising four foundational layers: CamDigiKey for digital identity, Bakong for real-time payments, CamDX for government data exchange, and CamInvoice for tax-compliant invoicing. Together, these layers form a mandatory integration surface that every enterprise operating in Cambodia must engage with by 2027. This article provides a technical deep dive into the architecture, protocols, data flows, and strategic implications of Cambodia\'s GaaP model.',
   claims: [

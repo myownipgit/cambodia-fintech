@@ -9,7 +9,7 @@ export const caminvoiceTechnicalCompliance: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 9,
-  schema: 'ScholarlyArticle',
+  schema: 'TechArticle',
   relatedSlugs: ['caminvoice', 'gdt', 'what-is-caminvoice'],
   lead: 'CamInvoice is the General Department of Taxation\'s mandatory electronic invoicing system that requires all businesses operating in Cambodia to generate, transmit, and archive commercial invoices through a centralized government platform. Built on the Universal Business Language (UBL) 2.1 international standard, CamInvoice transforms tax compliance from a periodic filing exercise into a continuous, real-time data stream between businesses and the GDT. The system validates every invoice against a comprehensive set of business rules, applies a unique digital tax stamp confirming government registration, and stores the invoice in the national tax database for audit and analytics purposes. As of January 2025, large enterprises with annual revenue above KHR 1 billion (approximately USD 250,000) are required to comply, with medium enterprises following by January 2026 and all remaining registered businesses by January 2027. This article provides the complete technical reference for enterprise developers integrating their billing, ERP, and accounting systems with the CamInvoice API.',
   claims: [

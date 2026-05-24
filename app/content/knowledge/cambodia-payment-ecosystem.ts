@@ -9,7 +9,7 @@ export const cambodiaPaymentEcosystem: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 10,
-  schema: 'ScholarlyArticle',
+  schema: 'TechArticle',
   relatedSlugs: ['bakong', 'khqr', 'nbc', 'how-to-accept-khqr'],
   lead: 'Cambodia\'s payment ecosystem has undergone a remarkable transformation in the past five years, evolving from a predominantly cash-based economy into one of Southeast Asia\'s most digitally advanced payment landscapes. At the center of this transformation is the National Bank of Cambodia\'s (NBC) Bakong system, a central bank digital currency (CBDC) built on Hyperledger Iroha blockchain technology that serves as the real-time gross settlement (RTGS) backbone connecting over 60 financial institutions. The KHQR standardized QR code protocol has achieved ubiquitous merchant acceptance, with over 400,000 registered merchant codes nationwide. Around this core infrastructure, a diverse ecosystem of commercial banks, microfinance institutions (MFIs), mobile wallet operators, payment aggregators, and fintech startups has emerged, collectively serving over 12 million digital payment users. This article provides a comprehensive map of Cambodia\'s payment ecosystem, analyzing the role, capabilities, and market position of each participant category, and identifying the strategic opportunities and gaps that define the competitive landscape.',
   claims: [

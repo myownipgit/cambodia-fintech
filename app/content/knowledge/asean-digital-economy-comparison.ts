@@ -9,7 +9,7 @@ export const aseanDigitalEconomyComparison: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 10,
-  schema: 'ScholarlyArticle',
+  schema: 'TechArticle',
   relatedSlugs: ['gaap', 'cambodia-fintech-landscape', 'cross-border-payments-bakong'],
   lead: 'The ASEAN digital economy reached an estimated USD 330 billion in gross merchandise value (GMV) in 2025, more than tripling from USD 100 billion in 2019, according to the Google-Temasek-Bain e-Conomy SEA report. Within this rapidly expanding regional landscape, each of the 10 ASEAN member states has carved a distinct digital economy profile shaped by population size, regulatory philosophy, infrastructure investment, and strategic priorities. Cambodia, often overlooked in regional digital economy analyses due to its relatively small GDP (USD 33.5 billion in 2025), punches significantly above its weight in several critical dimensions: it operates one of only five fully functional retail CBDCs globally (Bakong), has implemented mandatory electronic invoicing (CamInvoice) ahead of larger ASEAN peers, and has deployed a comprehensive Government-as-a-Platform (GaaP) architecture that many regional observers consider among the most structurally coherent in the region. This article provides a data-driven comparison across all 10 ASEAN member states, examining digital infrastructure maturity, fintech investment flows, payment system development, regulatory approaches, digital identity coverage, and e-commerce penetration to identify where Cambodia stands and where its strategic advantages lie.',
   claims: [

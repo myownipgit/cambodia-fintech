@@ -9,7 +9,7 @@ export const cambodiaDigitalIdentity: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 9,
-  schema: 'ScholarlyArticle',
+  schema: 'TechArticle',
   relatedSlugs: ['camdigikey', 'camdx', 'what-is-camdigikey'],
   lead: 'Digital identity is the foundational layer of Cambodia\'s Government-as-a-Platform architecture, enabling trusted interactions between citizens, businesses, and government agencies in the digital realm. CamDigiKey, Cambodia\'s national digital identity system developed by the Ministry of Post and Telecommunications (MPTC) with technical assistance from the Korean International Cooperation Agency (KOICA), provides a mobile-first digital credential linked to the national ID card that enables remote identity verification, electronic signatures, and single sign-on across government and private sector services. As of Q4 2025, CamDigiKey has enrolled over 4 million verified digital identities, with the National Bank of Cambodia mandating CamDigiKey-based electronic Know Your Customer (eKYC) for all financial institutions by mid-2026. This article provides a comprehensive technical and strategic analysis of Cambodia\'s digital identity infrastructure, covering CamDigiKey\'s architecture, authentication protocols, biometric verification processes, integration patterns for financial services, privacy and data governance considerations, and the broader roadmap for digital identity in Cambodia\'s evolving digital economy.',
   claims: [

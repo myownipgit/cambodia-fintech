@@ -9,7 +9,7 @@ export const aseanFintechInvestment: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 8,
-  schema: 'ScholarlyArticle',
+  schema: 'Article',
   relatedSlugs: ['cambodia-fintech-landscape', 'asean-digital-economy-comparison'],
   lead: 'ASEAN fintech investment surpassed USD 5.4 billion in cumulative deal value between 2020 and 2024, with Singapore, Indonesia, and Vietnam capturing 87% of the total. Cambodia, despite having one of the region\'s most advanced government-built digital payment infrastructures, attracted less than 1% of ASEAN fintech investment during this period. This disparity between infrastructure readiness and capital allocation presents both a puzzle and an opportunity. This analysis compares fintech investment patterns across six ASEAN markets, identifies the structural factors driving Cambodia\'s underweight position, and quantifies the sectors where early-mover investors could capture outsized returns as the market matures.',
   claims: [

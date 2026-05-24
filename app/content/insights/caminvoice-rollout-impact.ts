@@ -9,7 +9,7 @@ export const caminvoiceRolloutImpact: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 7,
-  schema: 'ScholarlyArticle',
+  schema: 'Article',
   relatedSlugs: ['caminvoice', 'gdt', 'what-is-caminvoice'],
   lead: 'CamInvoice, Cambodia\'s mandatory electronic invoicing system operated by the General Department of Taxation (GDT), represents one of the most ambitious tax digitization initiatives in Southeast Asia. Launched in phases beginning in 2024, CamInvoice aims to bring the estimated 55-65% of commercial transactions that previously escaped formal documentation into a structured digital record. The system\'s impact extends far beyond tax collection: by creating a comprehensive digital paper trail, CamInvoice enables data-driven credit scoring, supply chain transparency, and integration with Bakong payment infrastructure. This analysis examines the quantifiable impact of CamInvoice\'s rollout across tax revenue, compliance rates, SME digitization, and broader economic transformation.',
   claims: [

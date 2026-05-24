@@ -9,7 +9,7 @@ export const cambodiaVsRegionalFintech: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 8,
-  schema: 'ScholarlyArticle',
+  schema: 'Article',
   relatedSlugs: ['gaap', 'asean-digital-economy-comparison', 'cambodia-fintech-landscape'],
   lead: 'Cambodia, Vietnam, and Thailand represent three distinct models of fintech ecosystem development in mainland Southeast Asia. Thailand has pursued a bank-led modernization strategy, building PromptPay on top of established banking infrastructure. Vietnam has followed a market-driven approach, with private fintech companies like MoMo and ZaloPay driving digital payment adoption ahead of regulatory frameworks. Cambodia has taken the most distinctive path: a government-as-a-platform (GaaP) model where the central bank builds the core digital infrastructure (Bakong, KHQR, CamDigiKey) and private companies build applications on top. This comparative analysis examines how these three models have performed across payment adoption, financial inclusion, investment attraction, and regulatory innovation, with implications for investors and enterprises choosing where to allocate resources in mainland ASEAN.',
   claims: [

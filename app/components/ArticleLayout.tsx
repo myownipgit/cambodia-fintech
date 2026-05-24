@@ -99,8 +99,9 @@ export default function ArticleLayout({ article }: { article: ArticleContent }) 
           <p className="text-lg text-text-light/80 dark:text-text-dark/80 leading-relaxed font-medium">
             {article.lead}
           </p>
-          <div className="flex items-center gap-4 mt-4 text-xs text-text-light/50 dark:text-text-dark/50">
+          <div className="flex flex-wrap items-center gap-x-2 mt-4 text-xs text-text-light/50 dark:text-text-dark/50">
             <span>Updated {new Date(article.updatedAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
+            <span aria-hidden="true">·</span>
             <span>{article.readingTime} min read</span>
           </div>
         </header>

@@ -9,7 +9,7 @@ export const smeDigitalReadiness: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 8,
-  schema: 'ScholarlyArticle',
+  schema: 'Article',
   relatedSlugs: ['caminvoice', 'supply-chain-finance', 'compliance-as-a-service'],
   lead: 'Small and medium enterprises (SMEs) account for 99.8% of all businesses in Cambodia and contribute approximately 58% of GDP, yet their digital readiness varies dramatically. While urban SMEs in Phnom Penh increasingly accept KHQR payments and use social media for commerce, the vast majority still rely on paper-based accounting, cash transactions, and informal bookkeeping. As the General Department of Taxation (GDT) rolls out CamInvoice to mandatory compliance tiers and digital payment infrastructure matures, the gap between digitally prepared and unprepared SMEs is becoming a defining competitive divide. This analysis quantifies that gap across five dimensions: payment digitization, accounting and invoicing systems, e-commerce participation, access to digital credit, and workforce digital skills.',
   claims: [

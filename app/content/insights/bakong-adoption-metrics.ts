@@ -9,7 +9,7 @@ export const bakongAdoptionMetrics: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 8,
-  schema: 'ScholarlyArticle',
+  schema: 'Article',
   relatedSlugs: ['bakong', 'how-bakong-works', 'nbc'],
   lead: 'Bakong is frequently cited as one of the world\'s most successful retail CBDC deployments, yet granular adoption metrics have been difficult to access outside NBC publications. This analysis consolidates available data on Bakong\'s growth trajectory from its October 2020 launch through early 2026, covering registered users, monthly active users, transaction volumes by type and currency, institutional participation, and cross-border corridor performance. The data reveals a system that has moved beyond pilot phase into genuine economic infrastructure: with over 10 million registered wallets, 60+ participating financial institutions, and monthly transaction values exceeding USD 2.5 billion, Bakong has achieved adoption metrics that most CBDC projects globally have not reached.',
   claims: [

@@ -9,7 +9,7 @@ export const cambodiaDigitalPaymentGrowth: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 8,
-  schema: 'ScholarlyArticle',
+  schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'cambodia-payment-ecosystem'],
   lead: 'Cambodia\'s digital payment landscape has undergone a structural transformation since the National Bank of Cambodia (NBC) launched Bakong in October 2020. What began as a CBDC experiment has grown into a comprehensive payment infrastructure processing over USD 30 billion annually by 2025. This analysis examines the data behind Cambodia\'s digital payment acceleration, tracking transaction volumes, user adoption curves, merchant penetration, and mobile money trends across the 2020-2026 period. The findings reveal that Cambodia\'s government-led approach has produced adoption rates that rival or exceed those of wealthier ASEAN neighbors, driven by KHQR interoperability mandates and aggressive cross-border corridor development.',
   claims: [

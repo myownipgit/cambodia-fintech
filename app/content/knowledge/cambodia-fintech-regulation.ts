@@ -9,7 +9,7 @@ export const cambodiaFintechRegulation: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 10,
-  schema: 'ScholarlyArticle',
+  schema: 'TechArticle',
   relatedSlugs: ['nbc', 'gdt', 'fintech-license-cambodia', 'cambodia-aml-requirements'],
   lead: 'Cambodia\'s fintech regulatory landscape has transformed dramatically since the National Bank of Cambodia (NBC) issued the landmark Prakas on Payment Service Providers in 2019, establishing a dedicated licensing framework for non-bank financial technology companies. As of 2026, the Kingdom operates one of ASEAN\'s most structured fintech regulatory environments, with clear licensing categories, defined capital requirements, mandatory technology standards, and increasingly rigorous anti-money laundering and combating the financing of terrorism (AML/CFT) obligations. The regulatory framework is primarily governed by the NBC for payments and financial services, the General Department of Taxation (GDT) for tax compliance, the Securities and Exchange Regulator of Cambodia (SERC) for capital markets activities, and the Insurance Regulator of Cambodia (IRC) for insurtech operations. This article provides a complete reference to the licensing requirements, compliance obligations, and regulatory processes that fintech companies must navigate to operate legally in Cambodia.',
   claims: [

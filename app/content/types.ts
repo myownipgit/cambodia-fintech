@@ -1,6 +1,6 @@
 export type ContentType = 'learn' | 'knowledge' | 'glossary' | 'insights' | 'use-cases';
 export type ContentCluster = 'infrastructure' | 'investment' | 'compliance';
-export type SchemaType = 'Article' | 'ScholarlyArticle' | 'DefinedTerm';
+export type SchemaType = 'Article' | 'TechArticle' | 'ScholarlyArticle' | 'DefinedTerm';
 
 export interface FAQ {
   question: string;

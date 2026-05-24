@@ -9,7 +9,7 @@ export const cambodiaScfOpportunity: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 10,
-  schema: 'ScholarlyArticle',
+  schema: 'TechArticle',
   relatedSlugs: ['supply-chain-finance', 'caminvoice', 'bakong'],
   lead: 'Cambodia\'s supply chain finance (SCF) market represents one of the most compelling fintech investment opportunities in Southeast Asia, driven by a convergence of structural factors: a USD 4.2 billion SME financing gap identified by the International Finance Corporation, mandatory electronic invoicing through CamInvoice creating a digital audit trail for receivables, real-time payment settlement on Bakong rails enabling instant disbursement, and a garment and agriculture export sector worth USD 22 billion annually that generates massive volumes of trade receivables. Unlike mature markets where SCF platforms must build data connectivity from scratch, Cambodia\'s Government-as-a-Platform infrastructure provides the foundational data layer — verified invoices, real-time payment rails, and digital identity verification — upon which SCF products can be built natively. This article provides a comprehensive analysis of the market opportunity, technical architecture requirements, regulatory landscape, and investment thesis for supply chain finance in Cambodia.',
   claims: [

@@ -9,7 +9,7 @@ export const bakongTechnicalIntegration: ArticleContent = {
   publishedAt: '2026-03-25',
   updatedAt: '2026-03-25',
   readingTime: 10,
-  schema: 'ScholarlyArticle',
+  schema: 'TechArticle',
   relatedSlugs: ['bakong', 'khqr', 'how-bakong-works'],
   lead: 'Integrating with Cambodia\'s Bakong payment system is a mandatory requirement for any enterprise operating digital payment services in the Kingdom. The National Bank of Cambodia (NBC) operates Bakong as the sole authorized real-time gross settlement (RTGS) infrastructure for retail and wholesale payments, connecting over 60 financial institutions through a permissioned Hyperledger Iroha blockchain network. For enterprise developers, integration means engaging with a tiered API architecture where access levels, capabilities, and authentication requirements vary based on institutional licensing. This guide provides a comprehensive technical reference covering the Bakong Open API specification, KHQR QR code generation, payment lifecycle management, webhook-based settlement notifications, error handling patterns, reconciliation workflows, and cross-border corridor integration. Whether you are building a merchant payment acceptance system, an enterprise treasury platform, or a cross-border remittance service, this article provides the technical foundation for production-grade Bakong integration.',
   claims: [
