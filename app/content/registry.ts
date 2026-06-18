@@ -1,5 +1,5 @@
 import { ArticleContent } from './types';
-// Glossary
+// Glossary (retained per D2 Option E — definitional content survives positioning change)
 import { bakong } from './glossary/bakong';
 import { camdigikey } from './glossary/camdigikey';
 import { camdx } from './glossary/camdx';
@@ -10,42 +10,21 @@ import { nbc } from './glossary/nbc';
 import { gdt } from './glossary/gdt';
 import { supplyChainFinance } from './glossary/supply-chain-finance';
 import { embeddedInsurance } from './glossary/embedded-insurance';
-// Learn — Infrastructure
+// Learn — retained factual pages per D2 Option E
 import { howBakongWorks } from './learn/how-bakong-works';
 import { whatIsCamDigiKey } from './learn/what-is-camdigikey';
 import { howCamDXWorks } from './learn/how-camdx-works';
 import { whatIsCamInvoice } from './learn/what-is-caminvoice';
 import { howToAcceptKHQR } from './learn/how-to-accept-khqr';
 import { whatIsCambodiaGaaP } from './learn/what-is-cambodia-gaap';
-// Learn — Investment
-import { cambodiaFintechLandscape } from './learn/cambodia-fintech-landscape';
-import { supplyChainFinanceCambodia } from './learn/supply-chain-finance-cambodia';
-import { complianceAsAService } from './learn/compliance-as-a-service';
-// Learn — Compliance
-import { fintechLicenseCambodia } from './learn/fintech-license-cambodia';
-import { cambodiaAmlRequirements } from './learn/cambodia-aml-requirements';
-import { crossBorderPaymentsBakong } from './learn/cross-border-payments-bakong';
-// Knowledge Base
-import { cambodiaGaapArchitecture } from './knowledge/cambodia-gaap-architecture';
-import { bakongTechnicalIntegration } from './knowledge/bakong-technical-integration';
-import { cambodiaFintechRegulation } from './knowledge/cambodia-fintech-regulation';
-import { cambodiaScfOpportunity } from './knowledge/cambodia-scf-opportunity';
-import { caminvoiceTechnicalCompliance } from './knowledge/caminvoice-technical-compliance';
-import { cambodiaDigitalIdentity } from './knowledge/cambodia-digital-identity';
-import { cambodiaPaymentEcosystem } from './knowledge/cambodia-payment-ecosystem';
-import { aseanDigitalEconomyComparison } from './knowledge/asean-digital-economy-comparison';
-// Use Cases
-import { smeComplianceAutomation } from './use-cases/sme-compliance-automation';
-import { crossBorderPaymentOptimization } from './use-cases/cross-border-payment-optimization';
-import { digitalLendingPlatform } from './use-cases/digital-lending-platform';
-import { enterpriseBakongIntegration } from './use-cases/enterprise-bakong-integration';
-// Insights
-import { cambodiaDigitalPaymentGrowth } from './insights/cambodia-digital-payment-growth';
-import { smeDigitalReadiness } from './insights/sme-digital-readiness';
-import { aseanFintechInvestment } from './insights/asean-fintech-investment';
-import { bakongAdoptionMetrics } from './insights/bakong-adoption-metrics';
-import { caminvoiceRolloutImpact } from './insights/caminvoice-rollout-impact';
-import { cambodiaVsRegionalFintech } from './insights/cambodia-vs-regional-fintech';
+
+// Retired 2026-06-18 (DPI repositioning per D2 Option E):
+//   /knowledge/*  (8 articles)  — 301 selected to /products/dasp; others → /
+//   /insights/*   (6 articles)  — 410/404 (Phase 7 follow-up: migrate to riel.report)
+//   /use-cases/*  (4 articles)  — 410/404 (pre-logo discipline per DPI vault 57)
+//   /learn/cambodia-fintech-landscape, supply-chain-finance-cambodia, compliance-as-a-service,
+//     fintech-license-cambodia, cambodia-aml-requirements, cross-border-payments-bakong (6)
+// 301 redirects configured in next.config.js.
 
 const allArticles: ArticleContent[] = [
   // Glossary
@@ -59,40 +38,13 @@ const allArticles: ArticleContent[] = [
   gdt,
   supplyChainFinance,
   embeddedInsurance,
-  // Learn
+  // Learn (factual / educational — retained)
   howBakongWorks,
   whatIsCamDigiKey,
   howCamDXWorks,
   whatIsCamInvoice,
   howToAcceptKHQR,
   whatIsCambodiaGaaP,
-  cambodiaFintechLandscape,
-  supplyChainFinanceCambodia,
-  complianceAsAService,
-  fintechLicenseCambodia,
-  cambodiaAmlRequirements,
-  crossBorderPaymentsBakong,
-  // Knowledge Base
-  cambodiaGaapArchitecture,
-  bakongTechnicalIntegration,
-  cambodiaFintechRegulation,
-  cambodiaScfOpportunity,
-  caminvoiceTechnicalCompliance,
-  cambodiaDigitalIdentity,
-  cambodiaPaymentEcosystem,
-  aseanDigitalEconomyComparison,
-  // Insights
-  cambodiaDigitalPaymentGrowth,
-  smeDigitalReadiness,
-  aseanFintechInvestment,
-  bakongAdoptionMetrics,
-  caminvoiceRolloutImpact,
-  cambodiaVsRegionalFintech,
-  // Use Cases
-  smeComplianceAutomation,
-  crossBorderPaymentOptimization,
-  digitalLendingPlatform,
-  enterpriseBakongIntegration,
 ];
 
 export function getAllArticles() {
