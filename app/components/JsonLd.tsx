@@ -76,6 +76,7 @@ export default function JsonLd() {
         },
         "sameAs": [
           "https://www.linkedin.com/company/118224010/",
+          "https://www.wikidata.org/wiki/Q140279044",
         ],
       },
       // Person (Founder) — unchanged
