@@ -2,12 +2,12 @@ import { ArticleContent } from '../types';
 
 export const nbc: ArticleContent = {
   slug: 'nbc',
-  title: 'National Bank of Cambodia: Central Bank, Bakong Operator, and FinTech Regulator',
+  title: 'What is the National Bank of Cambodia?',
   description: 'The National Bank of Cambodia (NBC) is Cambodia\'s central bank, operating the Bakong CBDC, regulating financial institutions, and managing the FinTech regulatory sandbox.',
   type: 'glossary',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'khqr', 'gdt'],
@@ -20,7 +20,7 @@ export const nbc: ArticleContent = {
   faqs: [
     { question: 'What does the National Bank of Cambodia regulate?', answer: 'The NBC regulates all financial institutions in Cambodia including commercial banks, specialized banks, microfinance deposit-taking institutions, microfinance institutions, payment service providers, and electronic money issuers. It also regulates the Bakong payment system, sets KHQR technical standards, administers the FinTech regulatory sandbox, and manages Cambodia\'s monetary policy including the exchange rate stability between KHR and USD.' },
     { question: 'What is the NBC FinTech regulatory sandbox?', answer: 'The NBC FinTech Regulatory Sandbox is a controlled testing environment where innovative financial service providers can trial new products under NBC supervision with relaxed regulatory requirements. Companies accepted into the sandbox operate under temporary conditions that allow them to test business models, technology, and consumer response before applying for a full license. The sandbox covers areas including digital lending, insurance technology, and payment innovations.' },
-    { question: 'How does NBC licensing affect foreign fintech companies?', answer: 'Foreign fintech companies must obtain appropriate NBC licenses to operate financial services in Cambodia. License categories include Payment Service Provider, Electronic Money Issuer, and Specialized Bank licenses. The sandbox provides an entry pathway for testing before full licensing. CamFinTech assists foreign fintech firms with NBC licensing strategy, regulatory compliance architecture, and sandbox application preparation.' },
+    { question: 'How does NBC licensing affect foreign fintech companies?', answer: 'Foreign fintech companies must obtain appropriate NBC licenses to operate financial services in Cambodia. License categories include Payment Service Provider, Electronic Money Issuer, and Specialized Bank licenses. The sandbox provides an entry pathway for testing before full licensing. CamFinTech navigates the NBC licensing pathway for foreign fintech firms — licensing strategy, the compliance programme that underwrites the application, and sandbox preparation — and coordinates any technical build with accredited Service Providers. We never apply for or hold a licence on a client\'s behalf.' },
   ],
   sections: [
     {
@@ -47,8 +47,8 @@ export const nbc: ArticleContent = {
       content: 'The NBC FinTech Regulatory Sandbox represents Cambodia\'s commitment to balancing innovation with financial stability. Launched to provide a structured pathway for new financial technologies, the sandbox allows companies to operate under tailored regulatory conditions for a defined testing period, typically 12 to 24 months.\n\nSandbox participants benefit from direct NBC mentorship, reduced initial capital requirements, and flexibility on certain regulatory provisions. In return, they must provide detailed reporting on operations, consumer outcomes, and risk metrics. Successful sandbox graduates receive expedited consideration for full licensing. The sandbox has been particularly active in evaluating digital lending platforms, cross-border payment solutions, and insurtech products.',
     },
     {
-      heading: 'Regulatory Compliance with CamFinTech',
-      content: 'CamFinTech provides specialized regulatory consulting for enterprises navigating NBC requirements. Our services include license strategy assessment, compliance architecture design, sandbox application preparation, and ongoing regulatory reporting system implementation.\n\nFor banks and financial institutions, CamFinTech designs technology systems that satisfy NBC prudential reporting requirements, Bakong integration mandates, and AML/CFT compliance standards. For fintech companies, we provide end-to-end support from sandbox application through full license acquisition. CamFinTech\'s regulatory expertise ensures clients meet NBC expectations efficiently while minimizing compliance costs and timeline risks.',
+      heading: 'Regulatory Approval-Navigation with CamFinTech',
+      content: 'CamFinTech provides fee-only regulatory approval-navigation for enterprises working through NBC requirements. Our services include license strategy assessment, the compliance architecture that the application must satisfy, sandbox application preparation, and ongoing programme delivery for regulatory reporting once approved.\n\nFor banks and financial institutions, we scope what NBC prudential reporting, Bakong integration mandates, and AML/CFT standards require — and coordinate the technical build with accredited Service Providers. For fintech firms, we navigate the path from sandbox application through full license acquisition; the licence itself is always held by the client, never by CamFinTech. We never hold client funds and never operate a regulated rail.',
     },
   ],
 };

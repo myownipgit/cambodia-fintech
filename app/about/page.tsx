@@ -2,14 +2,14 @@ import { Metadata } from "next";
 import AboutContent from "./AboutContent";
 
 export const metadata: Metadata = {
-  title: "About William Mallett — Founder & Managing Director, CamFinTech",
+  title: "About — William Mallett, Founder & Managing Director, CamFinTech",
   description:
-    "William Mallett is the Founder and Managing Director of CamFinTech, a Phnom Penh-based specialist consulting practice focused on Cambodia's Government-as-a-Platform digital financial infrastructure — Bakong, CamDigiKey, CamDX, and CamInvoice.",
+    "William Mallett founded CamFinTech to do the regulatory approval-navigation and compliance work that getting onto Cambodia's Digital Public Infrastructure rails actually requires — Bakong/KHQR, CamDX/CamDigiKey, CamInvoice. Fee-only. Never holds client funds. Never operates a rail.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About William Mallett — Founder & Managing Director, CamFinTech",
+    title: "About — William Mallett, Founder & Managing Director, CamFinTech",
     description:
-      "William Mallett is the Founder and Managing Director of CamFinTech, a Phnom Penh-based consulting practice for Cambodia's GaaP digital financial infrastructure.",
+      "Fee-only regulatory approval-navigation and compliance firm in Phnom Penh. Founder William Mallett. Process competence, never access.",
     url: "https://www.camfintech.com/about",
     type: "profile",
   },
@@ -17,10 +17,54 @@ export const metadata: Metadata = {
     card: "summary",
     title: "About William Mallett — CamFinTech",
     description:
-      "Founder and Managing Director of CamFinTech, Phnom Penh.",
+      "Founder & Managing Director, CamFinTech. Phnom Penh. Cambodia DPI approval-navigation & compliance.",
   },
 };
 
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.camfintech.com/about#webpage",
+      "url": "https://www.camfintech.com/about",
+      "name": "About — William Mallett, Founder & Managing Director, CamFinTech",
+      "isPartOf": { "@id": "https://www.camfintech.com/#website" },
+      "about": { "@id": "https://www.camfintech.com/about#person" },
+      "mainEntity": { "@id": "https://www.camfintech.com/about#person" },
+      "datePublished": "2026-05-24",
+      "dateModified": "2026-06-18",
+      "inLanguage": "en",
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.camfintech.com/about#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "CamFinTech",
+          "item": "https://www.camfintech.com",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://www.camfintech.com/about",
+        },
+      ],
+    },
+  ],
+};
+
 export default function AboutPage() {
-  return <AboutContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
+      <AboutContent />
+    </>
+  );
 }

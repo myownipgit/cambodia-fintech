@@ -7,7 +7,7 @@ export const howCamDXWorks: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['camdx', 'camdigikey', 'gaap'],
@@ -19,7 +19,7 @@ export const howCamDXWorks: ArticleContent = {
   ],
   faqs: [
     { question: 'What is the difference between CamDX and CamDigiKey?', answer: 'CamDigiKey is the digital identity and eKYC platform. CamDX is the data exchange infrastructure. CamDigiKey verifies who a person is; CamDX enables authorized parties to query government databases about that person or entity. CamDigiKey is a data provider ON CamDX, meaning a KYC query flows through CamDX to reach CamDigiKey identity services.' },
-    { question: 'Can private companies connect directly to CamDX?', answer: 'Licensed financial institutions and authorized private-sector entities can connect to CamDX through the official onboarding process. This requires registration with the Digital Government Committee, deployment of a CamDX security server, and compliance with the CamDX data governance framework. CamFinTech guides enterprises through this onboarding.' },
+    { question: 'Can private companies connect directly to CamDX?', answer: 'Licensed financial institutions and authorized private-sector entities can connect to CamDX through the official onboarding process. This requires registration with the Digital Government Committee, deployment of a CamDX security server, and compliance with the CamDX data governance framework. CamFinTech navigates the approval for enterprises to onboard with CamDX; the security-server deployment itself is coordinated with accredited Service Providers.' },
     { question: 'Is CamDX data exchange encrypted?', answer: 'Yes. CamDX uses end-to-end encryption for all data in transit, mutual TLS authentication between security servers, and digital signatures on every message. All queries and responses are logged in a tamper-proof audit trail. The architecture ensures that even CamDX operators cannot read the content of data exchanges between parties.' },
   ],
   sections: [
@@ -85,8 +85,8 @@ export const howCamDXWorks: ArticleContent = {
       content: 'Cambodia\'s decision to adopt X-Road places CamDX in the same technology family as Estonia\'s original X-Road, Finland\'s Suomi.fi, and Iceland\'s Straumurinn. Within ASEAN, Singapore\'s APEX (Application Programming Interface Exchange) serves a similar function, though it uses a centralized API gateway architecture rather than X-Road\'s federated model.\n\nThe federated approach has a key advantage: no single point of failure and no central repository of all citizens\' data. Each ministry retains control of its own data and decides how to expose it. CamDX simply provides the secure transport and access control layer. This architecture is particularly well-suited to Cambodia\'s governance structure, where ministries operate with significant autonomy.',
     },
     {
-      heading: 'CamFinTech Integration Services',
-      content: 'CamFinTech provides comprehensive CamDX integration consulting for financial institutions and FinTech companies entering or expanding in Cambodia. Our services include technical architecture for security server deployment, API mapping to identify which CamDX services align with your business workflows, and compliance documentation for the Digital Government Committee onboarding process.\n\nWe also provide ongoing integration support as the CamDX service catalog expands. New government services become available regularly, and each one represents an opportunity to automate a manual process, reduce compliance costs, or unlock a new product capability. CamFinTech monitors the CamDX roadmap and proactively advises clients on integration opportunities aligned with their strategic priorities.',
+      heading: 'CamFinTech Approval-Navigation for CamDX',
+      content: 'CamFinTech provides fee-only approval-navigation and compliance programme delivery for financial institutions and FinTech companies onboarding with CamDX. Our services include API-service scoping (mapping which CamDX services align with your business workflows), compliance documentation for the Digital Government Committee onboarding process, and the data-governance programme that keeps you approved.\n\nThe technical build — security-server deployment, integration code, monitoring infrastructure — is coordinated with accredited Service Providers. As the CamDX service catalog expands, we proactively advise clients on which new services warrant integration. CamFinTech is fee-only, never operates the rail, and never holds client funds.',
     },
   ],
 };

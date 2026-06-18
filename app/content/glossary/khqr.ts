@@ -2,12 +2,12 @@ import { ArticleContent } from '../types';
 
 export const khqr: ArticleContent = {
   slug: 'khqr',
-  title: 'KHQR: Cambodia\'s Standardized QR Payment Protocol for Instant Payments',
+  title: 'What is KHQR?',
   description: 'KHQR is Cambodia\'s standardized QR code payment protocol based on EMVCo specifications, enabling interoperable instant payments across all Bakong-connected institutions.',
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'nbc', 'camdigikey'],
@@ -46,8 +46,8 @@ export const khqr: ArticleContent = {
       content: 'Beyond basic payments, KHQR is emerging as a distribution channel for embedded financial products. The ubiquity of KHQR acceptance creates an infrastructure layer through which insurance products, lending offers, loyalty rewards, and other financial services can be delivered at the moment of transaction.\n\nFor example, a micro-insurance product could be offered at KHQR checkout, or a merchant financing offer triggered based on KHQR transaction volume. This positions KHQR not just as a payment tool but as a platform for financial product distribution in a market where traditional distribution channels remain limited.',
     },
     {
-      heading: 'Enterprise Integration with CamFinTech',
-      content: 'CamFinTech provides KHQR integration services for enterprises across multiple use cases. For merchants, we implement KHQR acceptance at point-of-sale terminals, e-commerce platforms, and self-service kiosks. For financial institutions, we develop KHQR-based payment products and merchant acquiring solutions.\n\nCamFinTech also consults on advanced KHQR use cases including embedded financial product distribution via KHQR transaction flows, cross-border QR payment acceptance for tourism and trade businesses, and KHQR data analytics for merchant intelligence. Our integration approach ensures full compliance with NBC technical specifications and security requirements.',
+      heading: 'Enterprise Approval-Navigation with CamFinTech',
+      content: 'CamFinTech navigates the approval for businesses to accept KHQR and runs the compliance programme that keeps them approved. For merchants, that means coordinating onboarding through a participant bank or PSP; for financial institutions, it means scoping the regulatory readiness for KHQR-based product launches and merchant-acquiring programmes.\n\nThe technical build itself — POS terminal integration, e-commerce gateways, self-service kiosks, embedded product distribution flows, cross-border QR acceptance, merchant analytics — is coordinated with accredited Service Providers. CamFinTech is fee-only, never operates the rail, and never holds client funds.',
     },
   ],
 };

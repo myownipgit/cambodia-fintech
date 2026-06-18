@@ -7,7 +7,7 @@ export const howBakongWorks: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'nbc'],
@@ -21,7 +21,7 @@ export const howBakongWorks: ArticleContent = {
   faqs: [
     { question: 'Is Bakong a cryptocurrency?', answer: 'No. Bakong is a central bank digital currency (CBDC), not a cryptocurrency. It is issued and fully backed by the National Bank of Cambodia, operates on a permissioned Hyperledger Iroha blockchain, and maintains a stable 1:1 peg to fiat KHR and USD. Unlike cryptocurrencies, Bakong has no speculative value and is designed purely for payment settlement.' },
     { question: 'Do I need a bank account to use Bakong?', answer: 'No. Bakong supports both bank-linked wallets and standalone e-wallets. Users can open a Bakong wallet by completing KYC through a participating institution. This design deliberately targets financial inclusion for Cambodia\'s unbanked population, which the World Bank estimates at approximately 27% of adults.' },
-    { question: 'Can foreign businesses accept Bakong payments?', answer: 'Yes. Any business registered in Cambodia can accept Bakong payments through a participating bank. Foreign enterprises should engage a licensed payment service provider or directly integrate with the Bakong Open API via their bank partner. CamFinTech provides full technical consulting for enterprise Bakong integration.' },
+    { question: 'Can foreign businesses accept Bakong payments?', answer: 'Yes. Any business registered in Cambodia can accept Bakong payments through a participating bank. Foreign enterprises should engage a licensed payment service provider or directly integrate with the Bakong Open API via their bank partner. CamFinTech navigates the approval for enterprises to accept Bakong and coordinates the technical build with accredited Service Providers — we never operate the rail or hold client funds.' },
   ],
   sections: [
     {
@@ -67,7 +67,7 @@ export const howBakongWorks: ArticleContent = {
     },
     {
       heading: 'Developer APIs and Integration Patterns',
-      content: 'The Bakong Open API provides a RESTful interface for financial institutions and licensed fintech companies to integrate with the payment network. The API supports account lookup, payment initiation, transaction status queries, and webhook-based notifications for real-time settlement confirmation.\n\nIntegration follows a tiered model. Banks and licensed payment service providers connect directly to the Bakong API gateway. Merchants and enterprises access Bakong through their bank\'s API layer or through licensed payment aggregators. Authentication uses OAuth 2.0 with mutual TLS for transport security. CamFinTech assists enterprises in designing their integration architecture, mapping business workflows to Bakong API endpoints, and building reconciliation pipelines.',
+      content: 'The Bakong Open API provides a RESTful interface for financial institutions and licensed fintech companies to integrate with the payment network. The API supports account lookup, payment initiation, transaction status queries, and webhook-based notifications for real-time settlement confirmation.\n\nIntegration follows a tiered model. Banks and licensed payment service providers connect directly to the Bakong API gateway. Merchants and enterprises access Bakong through their bank\'s API layer or through licensed payment aggregators. Authentication uses OAuth 2.0 with mutual TLS for transport security. CamFinTech helps enterprises scope their integration approach and map business workflows to Bakong API endpoints; the integration architecture and reconciliation pipelines themselves are coordinated with accredited Service Providers.',
       table: {
         caption: 'Bakong API Integration Tiers',
         headers: ['Tier', 'Entity Type', 'Access Method', 'Capabilities'],
@@ -85,7 +85,7 @@ export const howBakongWorks: ArticleContent = {
     },
     {
       heading: 'Strategic Implications for Enterprise FinTech',
-      content: 'For enterprises evaluating Cambodia\'s digital payment landscape, Bakong represents mandatory infrastructure rather than an optional channel. The NBC\'s strategy is to route all domestic retail payments through Bakong rails over time, making direct integration a strategic imperative.\n\nCamFinTech advises enterprises on three integration horizons: immediate KHQR acceptance for retail operations, medium-term API integration for automated B2B payments and reconciliation, and long-term positioning for cross-border payment corridors as ASEAN linkages mature. Companies that build Bakong-native payment systems now will have a structural advantage as Cambodia\'s digital economy scales toward the government\'s 2035 Digital Economy Framework targets.',
+      content: 'For enterprises evaluating Cambodia\'s digital payment landscape, Bakong represents mandatory infrastructure rather than an optional channel. The NBC\'s strategy is to route all domestic retail payments through Bakong rails over time, making direct integration a strategic imperative.\n\nCamFinTech navigates the approval for businesses to integrate with Bakong across three horizons: immediate KHQR acceptance for retail operations, medium-term API integration for automated B2B payments and reconciliation, and long-term positioning for cross-border payment corridors as ASEAN linkages mature. The technical build is coordinated with accredited Service Providers; CamFinTech is fee-only, never operates the rail, and never holds client funds.',
     },
   ],
 };

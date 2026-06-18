@@ -7,7 +7,7 @@ export const whatIsCamInvoice: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['caminvoice', 'gdt', 'supply-chain-finance'],
@@ -20,7 +20,7 @@ export const whatIsCamInvoice: ArticleContent = {
   faqs: [
     { question: 'When does CamInvoice become mandatory for my business?', answer: 'CamInvoice compliance follows a phased timeline based on annual turnover. Phase 1 (2025) covers large taxpayers with annual turnover above KHR 2 billion. Phase 2 (2026) extends to medium taxpayers with turnover above KHR 500 million. Phase 3 (2027) covers all registered taxpayers. Check with the GDT or consult CamFinTech to confirm your specific compliance deadline.' },
     { question: 'What are the penalties for non-compliance with CamInvoice?', answer: 'Non-compliance penalties include fines of 10-25% of the invoice value for failure to issue compliant e-invoices, suspension of VAT refund claims, and potential business license revocation for repeat offenders. Additionally, non-compliant invoices cannot be used as tax deductions by the buyer, creating commercial pressure from trading partners.' },
-    { question: 'Can I use my existing accounting software with CamInvoice?', answer: 'Yes, if your accounting software supports UBL 2.1 XML export and API integration. Most major ERP systems including SAP, Oracle, and QuickBooks can be configured to generate CamInvoice-compliant XML. For systems without native support, middleware or API gateway solutions can bridge the gap. CamFinTech provides integration consulting for all major platforms.' },
+    { question: 'Can I use my existing accounting software with CamInvoice?', answer: 'Yes, if your accounting software supports UBL 2.1 XML export and API integration. Most major ERP systems including SAP, Oracle, and QuickBooks can be configured to generate CamInvoice-compliant XML. For systems without native support, middleware or API gateway solutions can bridge the gap. CamFinTech scopes the readiness assessment and coordinates the technical integration with accredited Service Providers.' },
   ],
   sections: [
     {
@@ -67,7 +67,7 @@ export const whatIsCamInvoice: ArticleContent = {
     },
     {
       heading: 'API Integration and Technical Architecture',
-      content: 'The CamInvoice platform exposes RESTful APIs for invoice submission, status queries, and clearance code retrieval. Businesses can integrate directly using the GDT-published API specification or through certified middleware providers. The API supports both synchronous submission with immediate clearance response and asynchronous batch submission for high-volume invoicers.\n\nAuthentication uses OAuth 2.0 with API keys issued by the GDT during the onboarding process. All API communication is encrypted with TLS 1.3. For enterprises using ERP systems, integration typically involves building an adapter layer that transforms internal invoice data into UBL 2.1 XML and calls the CamInvoice API. CamFinTech provides pre-built adapter templates for SAP, Oracle, and popular Cambodian accounting software packages.',
+      content: 'The CamInvoice platform exposes RESTful APIs for invoice submission, status queries, and clearance code retrieval. Businesses can integrate directly using the GDT-published API specification or through certified middleware providers. The API supports both synchronous submission with immediate clearance response and asynchronous batch submission for high-volume invoicers.\n\nAuthentication uses OAuth 2.0 with API keys issued by the GDT during the onboarding process. All API communication is encrypted with TLS 1.3. For enterprises using ERP systems, integration typically involves building an adapter layer that transforms internal invoice data into UBL 2.1 XML and calls the CamInvoice API. CamFinTech scopes the adapter requirements for SAP, Oracle, and popular Cambodian accounting packages — the build itself is delivered by accredited Service Providers.',
     },
     {
       heading: 'Penalties and Enforcement Mechanisms',
@@ -75,7 +75,7 @@ export const whatIsCamInvoice: ArticleContent = {
     },
     {
       heading: 'SME Impact and CamFinTech Advisory',
-      content: 'Small and medium enterprises face the greatest compliance challenge because many lack accounting software, ERP systems, or dedicated IT staff. The GDT has committed to providing a free web portal for manual invoice entry, but this is impractical for businesses processing more than a handful of invoices per day.\n\nCamFinTech addresses the SME compliance gap through affordable integration solutions, including lightweight API connectors for popular Cambodian accounting tools, cloud-based UBL conversion services, and training programs for finance teams. We also advise SMEs on the supply chain finance opportunities that CamInvoice creates: verified electronic invoices become bankable assets that can be discounted or used as collateral for working capital facilities, turning a compliance burden into a financing advantage.',
+      content: 'Small and medium enterprises face the greatest compliance challenge because many lack accounting software, ERP systems, or dedicated IT staff. The GDT has committed to providing a free web portal for manual invoice entry, but this is impractical for businesses processing more than a handful of invoices per day.\n\nCamFinTech addresses the SME readiness gap by scoping the appropriate integration path (lightweight API connectors for popular Cambodian accounting tools, cloud-based UBL conversion services, training programmes for finance teams) and coordinating delivery with accredited Service Providers. We also advise SMEs on the supply chain finance opportunities that CamInvoice creates: verified electronic invoices become bankable assets that can be discounted or used as collateral for working capital facilities, turning a compliance burden into a financing advantage. CamFinTech is fee-only and never holds client funds.',
     },
   ],
 };

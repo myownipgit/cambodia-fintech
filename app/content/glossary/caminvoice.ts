@@ -2,12 +2,12 @@ import { ArticleContent } from '../types';
 
 export const caminvoice: ArticleContent = {
   slug: 'caminvoice',
-  title: 'CamInvoice: Cambodia\'s Mandatory E-Invoicing System for Tax Compliance',
+  title: 'What is CamInvoice?',
   description: 'CamInvoice is Cambodia\'s mandatory electronic invoicing system administered by the GDT, requiring businesses to submit UBL XML invoices through a clearance model.',
   type: 'glossary',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['gdt', 'gaap', 'supply-chain-finance'],
@@ -45,8 +45,8 @@ export const caminvoice: ArticleContent = {
       content: 'CamInvoice creates a transformative opportunity for supply chain finance in Cambodia. Because every invoice is validated and timestamped by the GDT, cleared CamInvoice records serve as trusted, tamper-proof proof of trade. Financial institutions can use these verified invoices as the basis for invoice financing, factoring, and supply chain credit products.\n\nThis is particularly significant for Cambodian SMEs that traditionally lack the documentation and credit history needed to access trade finance. A GDT-cleared CamInvoice record provides the verifiable receivable data that banks need to extend working capital financing, potentially unlocking billions in previously inaccessible credit for small businesses.',
     },
     {
-      heading: 'Enterprise Integration with CamFinTech',
-      content: 'CamFinTech provides comprehensive CamInvoice readiness and integration services. Our consulting covers ERP system assessment, UBL XML mapping, API integration development, testing and certification with the GDT platform, and staff training programs for the transition to electronic invoicing.\n\nFor enterprises with existing accounting systems, CamFinTech develops middleware solutions that automatically convert invoice data to UBL XML format and manage the clearance workflow. For businesses exploring supply chain finance opportunities enabled by CamInvoice data, CamFinTech designs the technical architecture connecting CamInvoice records to lending platforms via CamDX.',
+      heading: 'Enterprise Approval-Navigation with CamFinTech',
+      content: 'CamFinTech navigates the SP-accreditation pathway and CamInvoice readiness assessment, and runs the compliance programme that keeps enterprises approved. Our work covers ERP-system gap assessment, UBL XML mapping requirements, GDT-side certification sequencing, and staff training for the transition to mandatory e-invoicing.\n\nThe technical build itself — middleware that converts internal invoice data to UBL XML, API integration with the CamInvoice platform, lending-platform architecture that consumes verified CamInvoice records via CamDX for supply-chain finance — is coordinated with accredited Service Providers. CamFinTech is fee-only and never holds client funds.',
     },
   ],
 };

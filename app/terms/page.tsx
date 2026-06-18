@@ -21,6 +21,39 @@ export const metadata: Metadata = {
   },
 };
 
+const termsSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TermsOfService",
+      "@id": "https://www.camfintech.com/terms#webpage",
+      "url": "https://www.camfintech.com/terms",
+      "name": "Terms of Use — CamFinTech",
+      "isPartOf": { "@id": "https://www.camfintech.com/#website" },
+      "publisher": { "@id": "https://www.camfintech.com/#organization" },
+      "datePublished": "2026-05-22",
+      "dateModified": "2026-05-22",
+      "inLanguage": "en",
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.camfintech.com/terms#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "CamFinTech", "item": "https://www.camfintech.com" },
+        { "@type": "ListItem", "position": 2, "name": "Terms", "item": "https://www.camfintech.com/terms" },
+      ],
+    },
+  ],
+};
+
 export default function TermsPage() {
-  return <TermsContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(termsSchema) }}
+      />
+      <TermsContent />
+    </>
+  );
 }

@@ -1,45 +1,8 @@
-"use client";
-
-import { useState } from "react";
-
-type Lang = "en" | "km";
-
 const FOUNDER_NAME = "William Mallett";
-const FOUNDER_TITLE_EN = "Founder & Managing Director";
-const FOUNDER_TITLE_KM = "ស្ថាបនិក និងនាយកគ្រប់គ្រង";
+const FOUNDER_TITLE = "Founder & Managing Director";
 const FOUNDER_LINKEDIN = "https://www.linkedin.com/in/william-mall/";
 const COMPANY_LINKEDIN = "https://www.linkedin.com/company/118224010/";
 const CONTACT_EMAIL = "info@camfintech.com";
-
-const T = {
-  title: { en: `About ${FOUNDER_NAME}`, km: `អំពី ${FOUNDER_NAME}` },
-  role: { en: `${FOUNDER_TITLE_EN}, CamFinTech`, km: `${FOUNDER_TITLE_KM}, CamFinTech` },
-  lead: {
-    en: `${FOUNDER_NAME} founded CamFinTech to help enterprises, investors, and partners engage with Cambodia's deliberately-planned Government-as-a-Platform (GaaP) digital infrastructure — Bakong payments, CamDigiKey identity, CamDX data exchange, and CamInvoice compliance.`,
-    km: `${FOUNDER_NAME} បានបង្កើត CamFinTech ដើម្បីជួយដល់សហគ្រាស វិនិយោគិន និងដៃគូក្នុងការចូលរួមជាមួយហេដ្ឋារចនាសម្ព័ន្ធឌីជីថល Government-as-a-Platform (GaaP) ដែលបានកំណត់ផែនការច្បាស់លាស់របស់កម្ពុជា — បាគង CamDigiKey CamDX និង CamInvoice។`,
-  },
-  bioHeading: { en: "Background", km: "ប្រវត្តិរូប" },
-  bioPlaceholder: {
-    en: "[Bio in progress. Coming soon: William's professional background, prior engagements in Cambodian and ASEAN FinTech, and the specific expertise he brings to GaaP integration work.]",
-    km: "[ប្រវត្តិរូបកំពុងរៀបចំ។ មកដល់ឆាប់ៗ៖ ប្រវត្តិអាជីព ការងារពីមុនក្នុងវិស័យ FinTech កម្ពុជា និងអាស៊ាន និងជំនាញជាក់លាក់ដែលគាត់នាំមកក្នុងការងាររួមបញ្ចូល GaaP។]",
-  },
-  practiceHeading: { en: "About the practice", km: "អំពីការងារប្រឹក្សា" },
-  practiceBody: {
-    en: "CamFinTech is a Phnom Penh–based specialist consulting practice (trading name; CAMFINTECH CO., LTD pending registration). The practice publishes deep research and structured technical content across five clusters — glossary, learn, knowledge, insights, and use cases — covering the architecture, regulation, and investment opportunities of Cambodia's digital financial infrastructure. Direct engagements with enterprises focus on Bakong integration, CamDigiKey identity flows, CamDX data-exchange compliance, and CamInvoice readiness for the 2025–2027 phased mandate.",
-    km: "CamFinTech គឺជាការងារប្រឹក្សាឯកទេសដែលមានមូលដ្ឋាននៅភ្នំពេញ (ឈ្មោះពាណិជ្ជកម្ម; CAMFINTECH CO., LTD កំពុងរង់ចាំការចុះបញ្ជី)។ ការងារនេះបោះពុម្ពផ្សាយការស្រាវជ្រាវយ៉ាងស៊ីជម្រៅ និងខ្លឹមសារបច្ចេកទេសរចនាសម្ព័ន្ធនៅទូទាំងក្រុមចំនួនប្រាំ — វាក្យសព្ទ ការសិក្សា មូលដ្ឋានចំណេះដឹង ការយល់ដឹង និងករណីសិក្សា — ដែលគ្របដណ្តប់លើស្ថាបត្យកម្ម បទប្បញ្ញត្តិ និងឱកាសវិនិយោគនៃហេដ្ឋារចនាសម្ព័ន្ធហិរញ្ញវត្ថុឌីជីថលរបស់កម្ពុជា។",
-  },
-  connectHeading: { en: "Connect", km: "ទាក់ទង" },
-  linkedinPersonal: { en: "LinkedIn — personal profile", km: "LinkedIn — ប្រវត្តិរូបផ្ទាល់ខ្លួន" },
-  linkedinCompany: { en: "LinkedIn — CamFinTech company page", km: "LinkedIn — ទំព័រក្រុមហ៊ុន CamFinTech" },
-  emailLink: { en: `Email: ${CONTACT_EMAIL}`, km: `អ៊ីមែល៖ ${CONTACT_EMAIL}` },
-  breadcrumb: { en: "About", km: "អំពី" },
-  back: { en: "Back to CamFinTech", km: "ត្រឡប់ទៅ CamFinTech" },
-  toggle: { en: "ខ្មែរ", km: "English" },
-  langNote: {
-    en: "If there is any inconsistency between the English and Khmer versions of this page, the English version prevails.",
-    km: "ប្រសិនបើមានភាពមិនស៊ីសង្វាក់រវាងទំព័រនេះជាភាសាអង់គ្លេស និងជាភាសាខ្មែរ ឯកសារភាសាអង់គ្លេសត្រូវយកជាការ។",
-  },
-};
 
 function FounderAvatar() {
   return (
@@ -53,25 +16,16 @@ function FounderAvatar() {
 }
 
 export default function AboutContent() {
-  const [lang, setLang] = useState<Lang>("en");
-  const isKm = lang === "km";
-
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      {/* Breadcrumb + lang toggle */}
+      {/* Breadcrumb */}
       <div className="max-w-3xl mx-auto px-4 pt-6 flex items-center justify-between text-sm text-text-light/60 dark:text-text-dark/60">
         <nav>
           <a href="/" className="hover:text-primary">CamFinTech</a>
           <span className="mx-1">/</span>
-          <span className={isKm ? "font-khmer" : ""}>{T.breadcrumb[lang]}</span>
+          <span>About</span>
         </nav>
-        <button
-          onClick={() => setLang(isKm ? "en" : "km")}
-          className={`px-3 py-1 rounded-md border border-border-light dark:border-border-dark hover:border-primary hover:text-primary transition-colors text-xs font-medium ${isKm ? "" : "font-khmer"}`}
-          aria-label={isKm ? "Switch to English" : "ប្តូរទៅភាសាខ្មែរ"}
-        >
-          {T.toggle[lang]}
-        </button>
+        <span className="text-xs">ភាសាខ្មែរ — Khmer edition pending native editorial hire</span>
       </div>
 
       <main className="max-w-3xl mx-auto px-4 py-8">
@@ -79,79 +33,97 @@ export default function AboutContent() {
           <div className="flex items-center gap-5">
             <FounderAvatar />
             <div>
-              <h1 className={`text-3xl md:text-4xl font-bold text-text-light dark:text-text-dark leading-tight ${isKm ? "font-khmer" : ""}`}>
-                {T.title[lang]}
+              <h1 className="text-3xl md:text-4xl font-bold text-text-light dark:text-text-dark leading-tight">
+                About {FOUNDER_NAME}
               </h1>
-              <p className={`mt-2 text-primary font-medium ${isKm ? "font-khmer" : ""}`}>
-                {T.role[lang]}
-              </p>
+              <p className="mt-2 text-primary font-medium">{FOUNDER_TITLE}, CamFinTech</p>
             </div>
           </div>
-          <p className={`mt-6 text-lg text-text-light/80 dark:text-text-dark/80 leading-relaxed ${isKm ? "font-khmer" : ""}`}>
-            {T.lead[lang]}
+          <p className="mt-6 text-lg text-text-light/85 dark:text-text-dark/85 leading-relaxed">
+            {FOUNDER_NAME} founded CamFinTech to do the regulatory approval-navigation and compliance work that getting onto Cambodia&apos;s Digital Public Infrastructure rails actually requires — the layer that&apos;s unowned by law firms, system integrators, and the rails&apos; own DIY channels.
           </p>
         </header>
 
         <section className="mb-10">
-          <h2 className={`text-xl font-semibold text-text-light dark:text-text-dark mb-3 ${isKm ? "font-khmer" : ""}`}>
-            {T.bioHeading[lang]}
-          </h2>
-          <p className={`text-text-light/80 dark:text-text-dark/80 leading-relaxed italic text-text-light/60 dark:text-text-dark/60 ${isKm ? "font-khmer" : ""}`}>
-            {T.bioPlaceholder[lang]}
+          <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-3">About the practice</h2>
+          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed">
+            <strong>CamFinTech is a fee-only regulatory approval-navigation and compliance firm</strong> based in Phnom Penh. We get Cambodian and foreign FinTechs <em>approved</em> onto Cambodia&apos;s national rails — Bakong/KHQR (payments, NBC), CamDX/CamDigiKey (identity/data exchange, TSC), CamInvoice (e-invoicing, GDT) — and run the AML/CFT and governance programmes that keep them compliant. Trading as CamFinTech (legal entity CAMFINTECH CO., LTD pending registration).
+          </p>
+          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed mt-4">
+            We&apos;re structurally different from the firms most prospects compare us against:
+          </p>
+          <ul className="mt-3 space-y-2 text-text-light/85 dark:text-text-dark/85 text-sm leading-relaxed">
+            <li><strong>We are not a law firm.</strong> Reserved legal work (opinions, regulator representation) routes to a Bar lawyer we coordinate; we run the surrounding programme.</li>
+            <li><strong>We are not a system integrator.</strong> The technical build is delivered by accredited Service Providers (BanhJi, Innolab/Odoo, MAQSU, SAP/Crimson, KOSIGN, Metfone, GK-Smart); we coordinate the build and own the regulatory approval.</li>
+            <li><strong>We are not a licensed financial operator.</strong> Fee-only. We never hold client funds and never operate a rail.</li>
+          </ul>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-3">The moat — ex-regulator talent</h2>
+          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed">
+            CamFinTech&apos;s defensible space is the layer between &quot;the regulator&quot; and &quot;the build.&quot; Applications fail on AML/CFT, governance, capital planning, and documentation — not code. Most FinTechs put engineers on regulatory problems they were never trained for. The fix isn&apos;t more engineering — it&apos;s people who&apos;ve worked the regulator&apos;s side of the desk.
+          </p>
+          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed mt-3">
+            Our people have hands-on NBC, NBFSA, TSC, SERC, and GDT experience — a competency NBFSA&apos;s own 2024–2028 FinTech plan documents as scarce in Cambodia. We hire from the regulated-private side (mid-tier banks, MFIs, PSPs, accredited SPs) and from former-regulator advisors after a self-imposed cooling-off; we never engage current officials.
           </p>
         </section>
 
         <section className="mb-10">
-          <h2 className={`text-xl font-semibold text-text-light dark:text-text-dark mb-3 ${isKm ? "font-khmer" : ""}`}>
-            {T.practiceHeading[lang]}
-          </h2>
-          <p className={`text-text-light/80 dark:text-text-dark/80 leading-relaxed ${isKm ? "font-khmer" : ""}`}>
-            {T.practiceBody[lang]}
+          <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Operating discipline</h2>
+          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed mb-3">
+            Five rules that hold across every engagement, regardless of client or rail:
+          </p>
+          <ul className="space-y-2 text-text-light/85 dark:text-text-dark/85 text-sm leading-relaxed">
+            <li><strong>Fee-only.</strong> Professional fees for advisory and programme delivery — never commissions, never markups on partner invoices.</li>
+            <li><strong>Never hold client funds.</strong> Funds flow through the licensed operator (the client&apos;s member bank, the licensed PSP), never us.</li>
+            <li><strong>Never operate the rail.</strong> The client (or their sponsor) remains the licensed operator. We stay in the &quot;assist&quot; ring; reserved work routes to licensed partners.</li>
+            <li><strong>Process competence, never access.</strong> Post-Huione, any hint of selling relationships is a reputational risk. We market our process; we don&apos;t market our contacts.</li>
+            <li><strong>Pricing indicative.</strong> Every figure on our materials is a planning estimate, validated by quote at engagement scoping.</li>
+          </ul>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Voluntary TCRMG-2026 alignment</h2>
+          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed">
+            We hold our own operations to NBC&apos;s Technology and Cyber Risk Management Guidelines (TCRMG 2026) standards — voluntarily, as a non-BFI. Process competence isn&apos;t just what we sell. The compliance posture documentation set is available on request for BFI procurement conversations.
           </p>
         </section>
 
         <section className="mb-10">
-          <h2 className={`text-xl font-semibold text-text-light dark:text-text-dark mb-3 ${isKm ? "font-khmer" : ""}`}>
-            {T.connectHeading[lang]}
-          </h2>
+          <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Background</h2>
+          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed italic text-text-light/60 dark:text-text-dark/60">
+            [Bio in progress. Coming soon: William&apos;s professional background, prior engagements in Cambodian and ASEAN FinTech, and the specific regulatory expertise he brings to DPI approval-navigation work.]
+          </p>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Connect</h2>
           <ul className="space-y-2 text-text-light/80 dark:text-text-dark/80">
             <li>
-              <a
-                href={FOUNDER_LINKEDIN}
-                target="_blank"
-                rel="noopener noreferrer me"
-                className="text-primary hover:underline"
-              >
-                {T.linkedinPersonal[lang]}
+              <a href={FOUNDER_LINKEDIN} target="_blank" rel="noopener noreferrer me" className="text-primary hover:underline">
+                LinkedIn — personal profile (William Mallett)
               </a>
             </li>
             <li>
-              <a
-                href={COMPANY_LINKEDIN}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                {T.linkedinCompany[lang]}
+              <a href={COMPANY_LINKEDIN} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                LinkedIn — CamFinTech company page
               </a>
             </li>
             <li>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="text-primary hover:underline"
-              >
-                {T.emailLink[lang]}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary hover:underline">
+                Email: {CONTACT_EMAIL}
               </a>
+            </li>
+            <li className="pt-2 text-sm">
+              See also: <a href="/privacy" className="text-primary hover:underline">Privacy</a> · <a href="/terms" className="text-primary hover:underline">Terms</a> · <a href="/publication" className="text-primary hover:underline">Publication (The Riel Report)</a>
             </li>
           </ul>
         </section>
 
         <div className="mt-10 pt-6 border-t border-border-light dark:border-border-dark">
-          <p className={`text-xs text-text-light/50 dark:text-text-dark/50 mb-4 ${isKm ? "font-khmer" : ""}`}>
-            {T.langNote[lang]}
-          </p>
           <a href="/" className="text-primary hover:underline text-sm">
-            &larr; {T.back[lang]}
+            &larr; Back to CamFinTech
           </a>
         </div>
       </main>

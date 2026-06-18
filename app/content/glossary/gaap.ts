@@ -2,12 +2,12 @@ import { ArticleContent } from '../types';
 
 export const gaap: ArticleContent = {
   slug: 'gaap',
-  title: 'Government-as-a-Platform: Cambodia\'s Deliberate Digital Infrastructure Model',
+  title: 'What is Government-as-a-Platform in Cambodia?',
   description: 'Cambodia\'s Government-as-a-Platform (GaaP) model integrates CamDigiKey, Bakong, CamDX, and CamInvoice into a unified national digital infrastructure stack.',
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'camdigikey', 'camdx', 'caminvoice'],
@@ -20,7 +20,7 @@ export const gaap: ArticleContent = {
   faqs: [
     { question: 'What is Government-as-a-Platform in the Cambodia context?', answer: 'Government-as-a-Platform (GaaP) in Cambodia refers to the deliberate strategy of building interconnected government digital infrastructure that functions as a platform for private sector innovation. Rather than each ministry building isolated IT systems, Cambodia has created four foundational layers: CamDigiKey for identity, Bakong for payments, CamDX for data exchange, and CamInvoice for invoicing. Private businesses build products and services on top of these government-provided platforms.' },
     { question: 'How is Cambodia\'s GaaP approach different from other countries?', answer: 'Cambodia\'s GaaP model is distinctive because the infrastructure was designed as an integrated stack from the outset rather than evolving organically. CamDigiKey, Bakong, CamDX, and CamInvoice were planned to interoperate. This contrasts with countries where digital identity, payments, and data exchange evolved separately and require complex retrofitting to work together. Cambodia\'s deliberate approach creates compounding network effects.' },
-    { question: 'What investment opportunities does GaaP create?', answer: 'Cambodia\'s GaaP infrastructure creates three major investment categories: supply chain finance enabled by CamInvoice\'s verified trade data and Bakong settlement, compliance-as-a-service platforms built on CamDX and CamInvoice integration, and embedded financial products distributed through KHQR payment rails and authenticated via CamDigiKey. CamFinTech provides strategic consulting for investors evaluating these infrastructure intersection opportunities.' },
+    { question: 'What investment opportunities does GaaP create?', answer: 'Cambodia\'s GaaP infrastructure creates three major investment categories: supply chain finance enabled by CamInvoice\'s verified trade data and Bakong settlement, compliance-as-a-service platforms built on CamDX and CamInvoice integration, and embedded financial products distributed through KHQR payment rails and authenticated via CamDigiKey. CamFinTech navigates the regulatory approvals and compliance programmes that let investors and operators participate in these opportunities — we never operate the rails or hold client funds.' },
   ],
   sections: [
     {
@@ -46,8 +46,8 @@ export const gaap: ArticleContent = {
       content: 'The most valuable opportunities in Cambodia\'s digital economy emerge at the intersections of GaaP platforms rather than within any single layer. Supply chain finance becomes viable when CamInvoice provides verified receivables data and Bakong enables instant disbursement. Embedded insurance becomes distributable when KHQR provides the payment touchpoint and CamDigiKey provides the identity verification.\n\nCompliance-as-a-service platforms emerge when CamDX connects tax data, identity records, and business registrations into automated compliance workflows. For strategic investors, understanding these platform intersections is essential to identifying the highest-value opportunities in Cambodia\'s rapidly maturing digital economy.',
     },
     {
-      heading: 'Strategic Consulting with CamFinTech',
-      content: 'CamFinTech is Cambodia\'s specialist consulting firm for enterprises and investors navigating the GaaP ecosystem. Our services span three domains: technical integration consulting for enterprises connecting to GaaP platforms, strategic advisory for investors evaluating digital economy opportunities, and compliance architecture for regulated businesses meeting NBC and GDT requirements.\n\nCamFinTech\'s unique value lies in understanding how the four GaaP layers interact and where the compounding opportunities exist. Whether you are a bank integrating with Bakong and CamDigiKey, an enterprise preparing for CamInvoice compliance, or an investor assessing supply chain finance opportunities, CamFinTech provides the expertise to navigate Cambodia\'s digital infrastructure.',
+      heading: 'Approval-Navigation and Compliance with CamFinTech',
+      content: 'CamFinTech is Cambodia\'s fee-only regulatory approval-navigation and compliance firm for enterprises and investors operating across the GaaP ecosystem. Our services span three domains: approval-navigation for enterprises seeking to integrate with GaaP platforms, strategic advisory for investors evaluating digital economy opportunities, and compliance programme delivery for regulated businesses meeting NBC and GDT requirements.\n\nThe technical build itself is always coordinated with accredited Service Providers. CamFinTech never builds, never operates a rail, and never holds client funds. Our value is process competence — understanding how the four GaaP layers interact, where the approval pathways live, and how to keep an operator compliant once live — not access to the rails.',
     },
   ],
 };

@@ -2,12 +2,12 @@ import { ArticleContent } from '../types';
 
 export const camdigikey: ArticleContent = {
   slug: 'camdigikey',
-  title: 'CamDigiKey: Cambodia\'s National Digital Identity and eKYC Platform',
+  title: 'What is CamDigiKey?',
   description: 'CamDigiKey is Cambodia\'s national digital identity system enabling eKYC verification, facial recognition authentication, and secure access to government and financial services.',
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'camdx', 'gaap'],
@@ -20,7 +20,7 @@ export const camdigikey: ArticleContent = {
   faqs: [
     { question: 'What is CamDigiKey and how does it work?', answer: 'CamDigiKey is Cambodia\'s national digital identity system operated by the Ministry of Economy and Finance. It works by registering citizens\' biometric data (facial recognition and fingerprints) linked to their national ID. Users can then authenticate their identity digitally for government services, banking, and commercial transactions through the CamDigiKey mobile app or integrated third-party applications.' },
     { question: 'Is CamDigiKey mandatory for businesses in Cambodia?', answer: 'CamDigiKey integration is increasingly required for businesses interacting with government platforms including CamDX, CamInvoice, and certain NBC-regulated financial services. While not yet mandatory for all private sector activities, businesses that process government transactions or provide regulated financial services must support CamDigiKey authentication.' },
-    { question: 'How can enterprises integrate with CamDigiKey?', answer: 'Enterprises integrate with CamDigiKey through the CamDX data exchange platform, which provides standardized APIs for identity verification. CamFinTech offers technical consulting for CamDigiKey integration, including eKYC workflow design, API implementation, and compliance architecture for financial institutions and commercial platforms.' },
+    { question: 'How can enterprises integrate with CamDigiKey?', answer: 'Enterprises integrate with CamDigiKey through the CamDX data exchange platform, which provides standardized APIs for identity verification. CamFinTech navigates the approval to integrate with CamDigiKey and coordinates the technical build (eKYC workflow design, API implementation, compliance architecture) with accredited Service Providers — we never operate the identity rail or hold customer data.' },
   ],
   sections: [
     {
@@ -46,8 +46,8 @@ export const camdigikey: ArticleContent = {
       },
     },
     {
-      heading: 'Enterprise Integration with CamFinTech',
-      content: 'CamFinTech provides comprehensive CamDigiKey integration services for enterprises operating in Cambodia. Our consulting covers the full implementation lifecycle: from regulatory requirement assessment and API architecture design to production deployment and ongoing compliance monitoring.\n\nFor financial institutions, CamFinTech designs eKYC workflows that meet NBC anti-money laundering requirements while minimizing customer friction. For commercial enterprises, we implement CamDigiKey authentication flows that enable secure digital onboarding. CamFinTech\'s deep expertise in Cambodia\'s Government-as-a-Platform ecosystem ensures seamless interoperability between CamDigiKey, Bakong, and CamDX.',
+      heading: 'Enterprise Approval-Navigation with CamFinTech',
+      content: 'CamFinTech navigates the approval for enterprises to integrate with CamDigiKey, and runs the compliance programme that keeps them approved. Our work covers the full readiness lifecycle: regulatory requirement assessment, the compliance architecture that eKYC workflows must satisfy under NBC AML rules, and ongoing programme delivery once live.\n\nThe technical build itself — API architecture, authentication flows, production deployment — is coordinated with accredited Service Providers. CamFinTech is fee-only, never operates the identity rail, and never holds client funds. Our value is process competence across the four-layer GaaP stack (CamDigiKey, Bakong, CamDX, CamInvoice), not access to it.',
     },
   ],
 };

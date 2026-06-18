@@ -7,7 +7,7 @@ export const whatIsCamDigiKey: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['camdigikey', 'camdx', 'gaap'],
@@ -74,8 +74,8 @@ export const whatIsCamDigiKey: ArticleContent = {
       content: 'CamDigiKey operates under a consent-based architecture aligned with international privacy principles. Biometric templates are stored as encrypted mathematical representations, not raw images, on government infrastructure. These templates cannot be reverse-engineered into photographs.\n\nData sharing follows a strict minimization principle. When a FinTech company requests verification, CamDigiKey shares only the specific fields the user consents to release. A payment wallet might only need verified name and date of birth, while a bank loan application might require full address and employment verification. Cambodia\'s draft Personal Data Protection Law, expected to be enacted by 2027, will codify these protections into statute, aligning Cambodia with ASEAN data protection standards.',
     },
     {
-      heading: 'Strategic Integration Advisory from CamFinTech',
-      content: 'CamFinTech provides end-to-end consulting for enterprises integrating CamDigiKey into their customer onboarding workflows. This includes OAuth 2.0 technical architecture, CamDX API mapping, compliance workflow design, and user experience optimization for Cambodian market conditions.\n\nOur approach recognizes that CamDigiKey integration is not merely a technical project but a strategic positioning decision. Financial institutions that build CamDigiKey-native onboarding now will benefit from lower customer acquisition costs, faster time-to-revenue on new accounts, and regulatory goodwill as the government expands the digital identity mandate. CamFinTech helps clients navigate the technical, regulatory, and operational dimensions of this transition.',
+      heading: 'Strategic Approval-Navigation from CamFinTech',
+      content: 'CamFinTech provides fee-only approval-navigation and compliance programme delivery for enterprises adopting CamDigiKey in their customer onboarding workflows. We scope the compliance workflow, the OAuth 2.0 / CamDX integration requirements, and the user-experience constraints that Cambodian market conditions impose — then coordinate the technical build with accredited Service Providers.\n\nOur approach recognizes that CamDigiKey adoption is not merely a technical project but a strategic positioning decision. Financial institutions that move to CamDigiKey-native onboarding now will benefit from lower customer acquisition costs, faster time-to-revenue on new accounts, and regulatory goodwill as the government expands the digital identity mandate. CamFinTech navigates the approval and runs the compliance programme; the build itself sits with accredited partners. We never operate an identity rail or hold customer data.',
     },
   ],
 };

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "CamFinTech — Cambodia FinTech Consulting for Bakong, CamDigiKey, CamDX, and CamInvoice Integration";
+  "CamFinTech — Cambodia DPI Approval-Navigation & Compliance. Fee-only. Never hold client funds. Never operate a rail.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -50,15 +50,15 @@ export default async function Image() {
         {/* Headline */}
         <div
           style={{
-            fontSize: "52px",
+            fontSize: "48px",
             fontWeight: 800,
             color: "#f8f7f5",
             lineHeight: 1.15,
-            maxWidth: "900px",
+            maxWidth: "1000px",
             marginBottom: "24px",
           }}
         >
-          Architecting Cambodia&apos;s Digital Financial Future
+          We get Cambodian and foreign FinTechs approved onto the government rails — and keep them compliant.
         </div>
 
         {/* Subtext */}
@@ -67,13 +67,31 @@ export default async function Image() {
             fontSize: "22px",
             fontWeight: 400,
             color: "#f8f7f5",
-            opacity: 0.8,
-            maxWidth: "800px",
+            opacity: 0.85,
+            maxWidth: "900px",
             lineHeight: 1.5,
-            marginBottom: "40px",
+            marginBottom: "32px",
           }}
         >
-          Bakong · CamDigiKey · CamDX · CamInvoice · KHQR
+          Bakong/KHQR · CamDX/CamDigiKey · CamInvoice · DASP / SERC Prakas 093
+        </div>
+
+        {/* Trust strip */}
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+            fontSize: "16px",
+            color: "#f4af25",
+            opacity: 0.8,
+            marginBottom: "16px",
+          }}
+        >
+          <span>Fee-only</span>
+          <span>·</span>
+          <span>Never hold client funds</span>
+          <span>·</span>
+          <span>Never operate a rail</span>
         </div>
 
         {/* URL */}

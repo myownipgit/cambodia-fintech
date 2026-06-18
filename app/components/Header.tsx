@@ -2,12 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-interface HeaderProps {
-  language: "en" | "km";
-  onLanguageToggle: () => void;
-}
-
-export default function Header({ language, onLanguageToggle }: HeaderProps) {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
@@ -29,38 +24,37 @@ export default function Header({ language, onLanguageToggle }: HeaderProps) {
   };
 
   const navLinks = [
-    { href: "#home", en: "Home", km: "ទំព័រដើម" },
-    { href: "/about", en: "About", km: "អំពីយើង" },
-    { href: "#services", en: "Services", km: "សេវាកម្ម" },
-    { href: "#why-us", en: "Why Choose Us", km: "ហេតុអ្វីជ្រើសរើសយើង" },
-    { href: "#use-cases", en: "Use Cases", km: "ករណីសិក្សា" },
-    { href: "/glossary", en: "Resources", km: "ធនធាន" },
-    { href: "#contact", en: "Contact", km: "ទំនាក់ទំនង" },
+    { href: "/", label: "Home" },
+    { href: "/#services", label: "Services" },
+    { href: "/products/dasp", label: "DASP" },
+    { href: "/about", label: "About" },
+    { href: "/publication", label: "Publication" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border-light dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-4 py-3">
+        <a href="/" className="flex items-center gap-3 py-3" aria-label="CamFinTech home">
           <div className="size-6 text-text-light dark:text-text-dark">
             <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
               <path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"></path>
             </svg>
           </div>
           <h2 className="hidden text-lg font-bold leading-tight tracking-[-0.015em] sm:block">
-            FinTech Consulting Cambodia
+            CamFinTech
           </h2>
-        </div>
+        </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
-              className={`text-sm font-medium transition-colors hover:text-primary ${language === "km" ? "font-khmer" : ""}`}
+              className="text-sm font-medium transition-colors hover:text-primary"
               href={link.href}
             >
-              {language === "en" ? link.en : link.km}
+              {link.label}
             </a>
           ))}
         </nav>
@@ -83,13 +77,13 @@ export default function Header({ language, onLanguageToggle }: HeaderProps) {
             )}
           </button>
 
-          {/* Language Toggle */}
-          <button
-            onClick={onLanguageToggle}
-            className="flex h-10 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold tracking-[0.015em] text-text-light"
+          {/* Book a call CTA — replaces the EN/KM toggle (Khmer pending native editorial hire) */}
+          <a
+            href="/#contact"
+            className="hidden sm:flex h-10 min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold tracking-[0.015em] text-text-light hover:scale-105 transition-transform"
           >
-            <span className="truncate">EN | ខ្មែរ</span>
-          </button>
+            <span className="truncate">Book a call</span>
+          </a>
 
           {/* Mobile Menu Button */}
           <button
@@ -118,11 +112,11 @@ export default function Header({ language, onLanguageToggle }: HeaderProps) {
               {navLinks.map((link) => (
                 <a
                   key={link.href}
-                  className={`text-base font-medium transition-colors hover:text-primary ${language === "km" ? "font-khmer" : ""}`}
+                  className="text-base font-medium transition-colors hover:text-primary"
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {language === "en" ? link.en : link.km}
+                  {link.label}
                 </a>
               ))}
             </div>

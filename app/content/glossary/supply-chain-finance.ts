@@ -2,12 +2,12 @@ import { ArticleContent } from '../types';
 
 export const supplyChainFinance: ArticleContent = {
   slug: 'supply-chain-finance',
-  title: 'Supply Chain Finance in Cambodia: CamInvoice-Enabled Trade Finance Opportunity',
+  title: 'What is Supply Chain Finance in Cambodia?',
   description: 'Supply chain finance in Cambodia is being transformed by CamInvoice verified invoice data and Bakong instant settlement, creating new trade finance opportunities for SMEs.',
   type: 'glossary',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['caminvoice', 'bakong', 'embedded-insurance'],
@@ -20,7 +20,7 @@ export const supplyChainFinance: ArticleContent = {
   faqs: [
     { question: 'What is supply chain finance and how does it work in Cambodia?', answer: 'Supply chain finance is a set of financing techniques that optimize cash flow within supply chains. In Cambodia, a supplier delivers goods to a buyer and issues an invoice through CamInvoice. A financial institution can then advance payment to the supplier at a discount, using the GDT-verified CamInvoice record as proof of the receivable. When the buyer pays at invoice maturity, the financial institution collects the full amount. The CamInvoice verification eliminates the document fraud risk that previously made this type of lending prohibitively risky in Cambodia.' },
     { question: 'Why does CamInvoice make supply chain finance viable in Cambodia?', answer: 'Before CamInvoice, invoice-based financing in Cambodia was limited because lenders could not reliably verify that invoices were genuine, unaltered, and not already pledged to another lender. CamInvoice solves all three problems: the GDT clears every invoice in real-time (proving authenticity), assigns a unique cryptographic reference (preventing alteration), and creates a central registry (enabling duplicate detection). This trusted data layer transforms previously unfinanceable receivables into bankable assets.' },
-    { question: 'What returns can investors expect from Cambodia supply chain finance?', answer: 'Supply chain finance in Cambodia offers attractive risk-adjusted returns due to the combination of high SME financing demand, relatively high interest rate environment (12-18% for SME lending), and the new risk mitigation provided by CamInvoice verification. Early movers building platforms at the intersection of CamInvoice data and Bakong settlement infrastructure are positioned to capture significant market share. CamFinTech provides investor advisory on market sizing, risk analysis, and platform strategy.' },
+    { question: 'What returns can investors expect from Cambodia supply chain finance?', answer: 'Supply chain finance in Cambodia offers attractive risk-adjusted returns due to the combination of high SME financing demand, relatively high interest rate environment (12-18% for SME lending), and the new risk mitigation provided by CamInvoice verification. Early movers building platforms at the intersection of CamInvoice data and Bakong settlement infrastructure are positioned to capture significant market share. CamFinTech provides fee-only investor advisory on market sizing, risk analysis, and the regulatory approval-navigation a platform operator faces — we never operate a lending rail or hold client funds.' },
   ],
   sections: [
     {
@@ -47,7 +47,7 @@ export const supplyChainFinance: ArticleContent = {
     },
     {
       heading: 'Strategic Advisory with CamFinTech',
-      content: 'CamFinTech provides strategic advisory services for investors and financial institutions entering Cambodia\'s supply chain finance market. Our services include market sizing and opportunity assessment, platform technology architecture design connecting CamInvoice data to lending decisioning, regulatory strategy for NBC lending license requirements, and partnership facilitation with Cambodian banks and anchor buyers.\n\nFor existing financial institutions, CamFinTech designs SCF product programs that leverage CamInvoice and Bakong infrastructure to offer invoice financing at competitive rates. For technology investors, we provide due diligence on SCF platform opportunities and technical feasibility assessments. CamFinTech\'s position at the intersection of Cambodia\'s GaaP infrastructure and financial services markets provides unique insight into this emerging opportunity.',
+      content: 'CamFinTech provides fee-only strategic advisory for investors and financial institutions entering Cambodia\'s supply chain finance market. Our services include market sizing and opportunity assessment, regulatory approval-navigation for NBC lending licence requirements, the compliance architecture that an SCF programme must satisfy, and partnership facilitation with Cambodian banks and anchor buyers.\n\nFor existing financial institutions, we scope SCF programme design that leverages CamInvoice-verified receivables and Bakong settlement, and coordinate the technical build with accredited Service Providers. For technology investors, we provide due diligence on SCF platform opportunities. CamFinTech never operates a lending rail, never holds client funds, and never advances credit on our own balance sheet.',
     },
   ],
 };

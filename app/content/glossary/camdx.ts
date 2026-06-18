@@ -2,12 +2,12 @@ import { ArticleContent } from '../types';
 
 export const camdx: ArticleContent = {
   slug: 'camdx',
-  title: 'CamDX: Cambodia\'s National Data Exchange Platform Based on X-Road',
+  title: 'What is CamDX?',
   description: 'CamDX is Cambodia\'s government data exchange platform built on Estonia\'s X-Road technology, enabling secure data sharing between government agencies and private sector.',
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['camdigikey', 'gaap', 'caminvoice'],
@@ -20,7 +20,7 @@ export const camdx: ArticleContent = {
   faqs: [
     { question: 'What is CamDX and what technology does it use?', answer: 'CamDX (Cambodia Data Exchange) is Cambodia\'s national data exchange platform that enables secure, real-time data sharing between government agencies and authorized private sector organizations. It is built on Estonia\'s X-Road technology, a proven open-source data exchange layer used by over 20 countries worldwide. X-Road ensures data integrity through cryptographic signatures and provides a complete audit trail of all data transactions.' },
     { question: 'How does CamDX connect to other Cambodia digital infrastructure?', answer: 'CamDX serves as the data backbone connecting Cambodia\'s Government-as-a-Platform components. CamDigiKey identity verifications flow through CamDX. CamInvoice e-invoicing data is shared via CamDX. Bakong payment confirmations can be validated through CamDX connections. This interoperability creates a unified digital ecosystem where identity, payments, invoicing, and data exchange work together seamlessly.' },
-    { question: 'Can private companies access CamDX?', answer: 'Yes. Authorized private sector organizations, particularly financial institutions and regulated businesses, can connect to CamDX to access government data services. This includes identity verification via CamDigiKey, business registration data, tax compliance status, and more. CamFinTech assists enterprises with the technical and regulatory requirements for CamDX onboarding.' },
+    { question: 'Can private companies access CamDX?', answer: 'Yes. Authorized private sector organizations, particularly financial institutions and regulated businesses, can connect to CamDX to access government data services. This includes identity verification via CamDigiKey, business registration data, tax compliance status, and more. CamFinTech navigates the approval for enterprises to onboard with CamDX and coordinates the technical work with accredited Service Providers.' },
   ],
   sections: [
     {
@@ -47,8 +47,8 @@ export const camdx: ArticleContent = {
       content: 'CamDX enforces strict security protocols inherited from the X-Road framework. All data exchanges use TLS encryption, and every transaction is signed with the sending organization\'s digital certificate. The platform maintains immutable audit logs that satisfy both domestic regulatory requirements and international data protection standards.\n\nAccess control operates on a consent and authorization model. Private sector participants must register with CamDX, demonstrate a legitimate business need, and receive explicit authorization for each data service they access. This ensures data minimization principles are upheld while still enabling the data fluidity that Cambodia\'s digital economy requires.',
     },
     {
-      heading: 'Enterprise Integration with CamFinTech',
-      content: 'CamFinTech provides end-to-end CamDX integration consulting for enterprises. Our services cover the complete onboarding process: security server provisioning, API integration development, data service registration, and compliance documentation preparation for MEF approval.\n\nFor financial institutions, CamFinTech designs data architectures that leverage CamDX for real-time identity verification, credit assessment, and regulatory reporting. For commercial enterprises, we implement CamDX connections that streamline vendor verification, tax compliance checks, and supply chain due diligence. CamFinTech\'s expertise in Cambodia\'s GaaP ecosystem ensures clients maximize the value of CamDX integration.',
+      heading: 'Enterprise Approval-Navigation with CamFinTech',
+      content: 'CamFinTech navigates the approval for enterprises to onboard with CamDX, and runs the compliance programme that keeps them approved. Our services cover the regulatory side of the onboarding process: data service scoping, compliance documentation preparation for MEF approval, and ongoing governance to satisfy CamDX data-minimization and consent rules.\n\nThe technical build itself — security server provisioning, API integration development, data architecture for real-time identity verification, credit assessment, and regulatory reporting — is coordinated with accredited Service Providers. CamFinTech is fee-only, never operates the rail, and never holds client funds. Our position across the GaaP ecosystem (CamDigiKey, Bakong, CamDX, CamInvoice) lets clients sequence integrations efficiently.',
     },
   ],
 };

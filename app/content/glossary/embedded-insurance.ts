@@ -2,12 +2,12 @@ import { ArticleContent } from '../types';
 
 export const embeddedInsurance: ArticleContent = {
   slug: 'embedded-insurance',
-  title: 'Embedded Insurance in Cambodia: KHQR Distribution and CamDigiKey Identity',
+  title: 'What is Embedded Insurance in Cambodia?',
   description: 'Embedded insurance in Cambodia leverages KHQR payment rails and CamDigiKey identity verification to distribute micro-insurance products in a market with under 2% penetration.',
   type: 'glossary',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-06-18',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['khqr', 'camdigikey', 'supply-chain-finance'],
@@ -20,7 +20,7 @@ export const embeddedInsurance: ArticleContent = {
   faqs: [
     { question: 'What is embedded insurance and why is it relevant to Cambodia?', answer: 'Embedded insurance is the integration of insurance products into non-insurance platforms and transactions. Instead of buying insurance separately, customers receive offers at contextually relevant moments: travel insurance when booking a bus ticket, device insurance when purchasing a phone, or health insurance when making a healthcare payment. This model is particularly relevant to Cambodia because traditional insurance distribution (agents, brokers, branches) has failed to achieve meaningful penetration. Embedding insurance into existing KHQR payment flows and digital platforms removes the distribution barrier.' },
     { question: 'How does KHQR enable embedded insurance distribution?', answer: 'KHQR provides the payment rails that make micro-insurance economically viable. When a customer makes a KHQR payment, an insurance offer can be presented and the premium collected in the same transaction flow. Claims can be paid back instantly via Bakong. The low transaction costs of KHQR mean that even micro-premiums of $0.50-$2.00 per month are commercially sustainable, enabling products that serve Cambodia\'s mass market rather than only affluent consumers.' },
-    { question: 'What types of embedded insurance products work in Cambodia?', answer: 'The most promising embedded insurance products for Cambodia include personal accident micro-insurance embedded in ride-hailing and transport payments, hospital cash products triggered by KHQR healthcare payments, crop insurance for agricultural supply chain participants, device protection embedded in electronics purchases, and SME property insurance offered through business banking platforms. CamFinTech helps insurers and distribution partners design and launch these products.' },
+    { question: 'What types of embedded insurance products work in Cambodia?', answer: 'The most promising embedded insurance products for Cambodia include personal accident micro-insurance embedded in ride-hailing and transport payments, hospital cash products triggered by KHQR healthcare payments, crop insurance for agricultural supply chain participants, device protection embedded in electronics purchases, and SME property insurance offered through business banking platforms. CamFinTech navigates the IAC approval and the distribution-partnership compliance programme that insurers and distribution partners need to launch these products — the build itself sits with accredited Service Providers.' },
   ],
   sections: [
     {
@@ -47,8 +47,8 @@ export const embeddedInsurance: ArticleContent = {
       content: 'The embedded insurance opportunity in Cambodia is driven by a unique convergence: extremely low current penetration (below 2%), high unmet demand for protection products, a young digitally-connected population, and government-built digital infrastructure that solves distribution and payment challenges. This combination does not exist in most other developing markets, where digital infrastructure is fragmented or absent.\n\nConservative estimates suggest embedded insurance could reach $100-200 million in annual gross written premiums within five years of scaled deployment, representing 20-40% of Cambodia\'s current total insurance market. First movers who build distribution partnerships with KHQR-enabled platforms and secure Insurance Authority of Cambodia (IAC) regulatory approval will capture disproportionate market share.',
     },
     {
-      heading: 'Insurance Strategy with CamFinTech',
-      content: 'CamFinTech provides strategic consulting for insurers, insurtechs, and distribution partners developing embedded insurance products for Cambodia. Our services span market opportunity assessment, product design incorporating KHQR and CamDigiKey integration, regulatory strategy for Insurance Authority of Cambodia licensing, and technology architecture for embedded insurance platforms.\n\nFor international insurers, CamFinTech provides market entry advisory covering partner identification, regulatory requirements, and product localization. For distribution platforms such as e-commerce, ride-hailing, and banking apps, CamFinTech designs the technical integration that embeds insurance offers seamlessly into existing user flows. Our expertise in Cambodia\'s GaaP ecosystem ensures that embedded insurance products leverage the full infrastructure stack effectively.',
+      heading: 'Insurance Approval-Navigation with CamFinTech',
+      content: 'CamFinTech provides fee-only approval-navigation and compliance programme delivery for insurers, insurtechs, and distribution partners developing embedded insurance products for Cambodia. Our services span market opportunity assessment, product-design scoping around KHQR and CamDigiKey touchpoints, IAC licensing strategy, and the compliance architecture that an embedded-insurance programme must satisfy.\n\nFor international insurers, we navigate market entry — partner identification, regulatory requirements, product localization. For distribution platforms (e-commerce, ride-hailing, banking apps), we scope the integration requirements and coordinate the technical build with accredited Service Providers. CamFinTech is fee-only and never holds premiums, claims funds, or any client funds.',
     },
   ],
 };

@@ -19,36 +19,88 @@ const typeLabels = {
 function buildSchema(article: ArticleContent) {
   const url = `${BASE_URL}/${article.type}/${article.slug}`;
 
+  // Per-page WebPage node closes audit C2 (WebPage @id collapse) for content pages.
+  const webPageNode = {
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    url,
+    name: article.title,
+    isPartOf: { '@id': `${BASE_URL}/#website` },
+    datePublished: article.publishedAt,
+    dateModified: article.updatedAt,
+    inLanguage: 'en',
+  };
+
+  // BreadcrumbList closes audit H3 across every deep page.
+  const typeLabel = typeLabels[article.type];
+  const breadcrumbNode = {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumb`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'CamFinTech',
+        item: BASE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: typeLabel,
+        item: `${BASE_URL}/${article.type}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: article.title,
+        item: url,
+      },
+    ],
+  };
+
   if (article.schema === 'DefinedTerm') {
     return {
       '@context': 'https://schema.org',
-      '@type': 'DefinedTerm',
-      '@id': `${url}#term`,
-      name: article.title,
-      description: article.lead,
-      url,
-      inDefinedTermSet: {
-        '@type': 'DefinedTermSet',
-        name: 'CamFinTech Glossary',
-        url: `${BASE_URL}/glossary`,
-      },
+      '@graph': [
+        webPageNode,
+        breadcrumbNode,
+        {
+          '@type': 'DefinedTerm',
+          '@id': `${url}#term`,
+          name: article.title,
+          description: article.lead,
+          url,
+          inDefinedTermSet: {
+            '@type': 'DefinedTermSet',
+            name: 'CamFinTech Glossary',
+            url: `${BASE_URL}/glossary`,
+          },
+        },
+      ],
     };
   }
 
   return {
     '@context': 'https://schema.org',
-    '@type': article.schema,
-    '@id': `${url}#article`,
-    headline: article.title,
-    description: article.description,
-    url,
-    datePublished: article.publishedAt,
-    dateModified: article.updatedAt,
-    author: { '@id': `${BASE_URL}/#organization` },
-    publisher: { '@id': `${BASE_URL}/#organization` },
-    isPartOf: { '@id': `${BASE_URL}/#website` },
-    inLanguage: 'en',
-    mainEntityOfPage: url,
+    '@graph': [
+      webPageNode,
+      breadcrumbNode,
+      {
+        '@type': article.schema,
+        '@id': `${url}#article`,
+        headline: article.title,
+        description: article.description,
+        url,
+        datePublished: article.publishedAt,
+        dateModified: article.updatedAt,
+        // Author flip Org → Person (closes audit H2). Person node defined globally in JsonLd.tsx.
+        author: { '@id': `${BASE_URL}/about#person` },
+        publisher: { '@id': `${BASE_URL}/#organization` },
+        isPartOf: { '@id': `${BASE_URL}/#website` },
+        inLanguage: 'en',
+        mainEntityOfPage: { '@id': `${url}#webpage` },
+      },
+    ],
   };
 }
 
