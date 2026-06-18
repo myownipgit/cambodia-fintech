@@ -1,104 +1,120 @@
 # CamFinTech
 
-> CamFinTech is Cambodia's specialist FinTech consulting firm based in Phnom Penh, providing strategic advisory and technical architecture services for enterprises integrating with Cambodia's Government-as-a-Platform (GaaP) digital infrastructure. CamFinTech specializes in Bakong instant payments, CamDigiKey digital identity, CamDX data exchange, and CamInvoice mandatory electronic invoicing.
+> CamFinTech is a Phnom Penh–based **fee-only regulatory approval-navigation and compliance firm**. We get Cambodian and foreign FinTechs **approved** onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. Technical build is delivered by accredited Service Providers we coordinate; we never hold client funds and never operate a rail. Our moat is ex-NBC, NBFSA, TSC, SERC, and GDT regulator talent — not engineering capacity.
 
-## Core Services
+## Operating discipline
 
-- [Compliance as a Service](https://www.camfintech.com/#services): Navigate Cambodia's regulatory landscape including CamInvoice mandate compliance, General Department of Taxation (GDT) reporting, and anti-money laundering (AML) requirements.
-- [Digital Payment Gateway Integration](https://www.camfintech.com/#services): Connect to Cambodia's national payment systems — KHQR standardized QR payments, Bakong instant settlement (National Bank of Cambodia CBDC rail), and ABA PayWay.
-- [Core Banking System Modernization](https://www.camfintech.com/#services): Upgrade legacy banking systems to microservices-based platforms that integrate natively with Bakong, CamDX, and CamDigiKey government APIs.
-- [Lending & Credit Scoring Solutions](https://www.camfintech.com/#services): Deploy automated lending platforms and credit scoring engines leveraging CamInvoice verified data and CamDigiKey identity verification.
-- [API Development & Management](https://www.camfintech.com/#services): Build secure, scalable APIs connecting enterprises to Cambodia's government platform ecosystem (CamDX, CamDigiKey, Bakong).
-- [Cybersecurity & Data Privacy](https://www.camfintech.com/#services): Enterprise cybersecurity aligned with Cambodian regulatory requirements for financial institutions.
+- **Fee-only** — professional fees only; no commissions, no transaction cuts, no markups on partner invoices.
+- **Never hold client funds** — funds flow through the licensed operator (member bank, licensed PSP), never CamFinTech.
+- **Never operate a rail** — the client (or sponsor) remains the licensed operator; we stay in the "assist" ring.
+- **Reserved work to licensed partners** — Bar lawyers, GDT tax agents, accredited Service Providers.
+- **Process competence, never access** — we market process competence; we don't market relationships.
 
-## Cambodia Digital Infrastructure (Government-as-a-Platform)
+## Service catalogue (SRV-01 through SRV-11)
 
-Cambodia is executing a deliberate architectural transformation from fragmented digital services to a cohesive, state-orchestrated national infrastructure. This is not organic market evolution — it is planned Government-as-a-Platform (GaaP) architecture.
+CamFinTech offers eleven productised service vectors across four areas, applied across regulated FinTechs (banks, MFIs, PSPs, insurers, securities/crypto, alt-lenders) and rail-using enterprises. Pricing is indicative — every engagement is validated by quote.
 
-- **CamDigiKey**: Cambodia's national digital identity system enabling eKYC verification for account opening, loans, and insurance. Operated as a public utility under the national identity framework.
-- **Bakong**: Central bank digital currency (CBDC) and instant payment system operated by the National Bank of Cambodia (NBC). Enables real-time settlement through KHQR standardized QR code payments.
-- **CamDX**: National data exchange platform providing government-private sector interoperability. Enables secure API-based data sharing between government systems and enterprise applications.
-- **CamInvoice**: Mandatory electronic invoicing system administered by the General Department of Taxation (GDT). All businesses must submit invoices electronically for tax compliance.
-- **KHQR**: Standardized QR code payment protocol for the Bakong ecosystem, enabling interoperable payments across all participating banks and financial institutions.
+### Core Rail Integrations
+- [SRV-01 — CamDX / eKYC Enablement](https://www.camfintech.com/#services): Navigate the approval to connect to Cambodia's national identity system; coordinate the integration build with an accredited partner.
+- [SRV-02 — Bakong / KHQR Integration](https://www.camfintech.com/#services): Navigate PSP licensing (or member-bank sponsorship); coordinate the technical build for accepting and sending payments on Cambodia's national rails.
+- [SRV-03 — CamInvoice Readiness](https://www.camfintech.com/#services): Gap assessment + costed plan against the GDT's CamInvoice rules ahead of the phased B2B mandate.
+- [SRV-04 — CamInvoice SP-Enablement](https://www.camfintech.com/#services): Coordinate an accredited Service Provider to connect your ERP/accounting system to CamInvoice.
 
-## Strategic Investment Opportunities
+### Strategic Services
+- [SRV-05 — Licensing-Readiness](https://www.camfintech.com/#services): NBC / NBFSA / SERC licence mapping, eligibility gap analysis, application preparation.
+- [SRV-06 — Market-Entry Consulting](https://www.camfintech.com/#services): For foreign FinTechs entering Cambodia — entity setup, licensing strategy, end-to-end route onto the government rails.
 
-CamFinTech has identified three high-value opportunities at the intersection of Cambodia's digital infrastructure layers:
+### Risk & Security
+- [SRV-07 — AML-Programme Design](https://www.camfintech.com/#services): CDD/EDD, transaction monitoring, CAFIU reporting, MLRO function design. The named MLRO stays client-side; we run the function around them.
+- [SRV-08 — Security / Pentesting](https://www.camfintech.com/#services): Security reviews and penetration tests aligned to NBC's TCRMG expectations — routed to an accredited security firm we coordinate.
+- [SRV-09 — Data-Protection Protocols](https://www.camfintech.com/#services): Consent, retention, processor governance, DPO-support ahead of Cambodia's Personal Data Protection Law.
+- [SRV-11 — DASP Approval-Readiness](https://www.camfintech.com/products/dasp): **Flagship.** End-to-end readiness for SERC's Prakas 093 digital-asset licensing regime (in force 30 December 2025). Productised as DASP-DX/BUILD/RUN/TRAIN.
 
-1. **Automated Supply Chain Finance (SCF)**: Leverage mandatory, GDT-verified data from CamInvoice and customs data from the National Single Window to build middleware offering banks automated, low-risk invoice financing and trade finance products for Cambodia's SMEs.
-2. **Compliance-as-a-Service for SME Tax**: Develop API-first accounting tools that act as a simple interface to the GDT's CamInvoice systems, bundling automated invoice submission with basic bookkeeping for Cambodia's 43,970+ SMEs.
-3. **Embedded Micro-Insurance**: Use KHQR payment flows as a distribution channel for insurance products, embedding micro-insurance offers directly into payment transactions with CamDigiKey identity verification for seamless enrollment.
+### Enablement
+- [SRV-10 — Operational Training](https://www.camfintech.com/#services): Hands-on training so your team can operate the rails, follow the compliance steps, and run the programme after handover.
 
-## Use Cases
+## Flagship product — DASP Approval-Readiness
 
-- **B2B Payment Automation**: Implemented automated payment gateway integrated with distributor ERP systems. Reduced processing time by 80% and improved cash flow.
-- **Automated Tax Compliance**: Developed middleware connecting enterprise systems to the General Department of Taxation (GDT) API. Achieved 100% automated and accurate tax filing.
-- **SME Lending Acceleration**: Deployed digital lending platform with automated credit scoring for microfinance institutions. Reduced loan approval time from weeks to days.
+- **DASP-DX** (Diagnostic) — paid readiness diagnostic + integrity STOP-gate qualifier. Indicative: US$8k–25k, 2–3 weeks.
+- **DASP-BUILD** (Flagship) — AML/CFT programme + governance + sandbox-readiness + full application pack. Indicative: US$45k–75k (wallet) / US$90k–160k+ (full exchange/custody), 4–8 months.
+- **DASP-RUN** (Managed compliance) — post-approval retainer. Indicative: US$2k–8k/month.
+- **DASP-TRAIN** (Capability transfer) — operational training cohorts. Indicative: US$5k–15k per cohort.
 
-## Learn — Cambodia FinTech Guides
+Full product detail: https://www.camfintech.com/products/dasp
 
-- [How Does Bakong Work in Cambodia?](https://www.camfintech.com/learn/how-bakong-works): Blockchain architecture, dual-currency settlement, KHQR integration, cross-border corridors.
-- [What is CamDigiKey and Why Does It Matter?](https://www.camfintech.com/learn/what-is-camdigikey): eKYC process, facial recognition, OAuth 2.0 SSO, financial onboarding.
-- [How Does CamDX Enable Data Exchange?](https://www.camfintech.com/learn/how-camdx-works): X-Road architecture, government-private APIs, security model.
-- [What is CamInvoice and Who Must Comply?](https://www.camfintech.com/learn/what-is-caminvoice): GDT mandate, UBL XML, clearance model, 2025-2027 rollout.
-- [How to Accept KHQR Payments](https://www.camfintech.com/learn/how-to-accept-khqr): EMVCo standard, merchant registration, POS and e-commerce integration.
-- [What is Cambodia's Government-as-a-Platform?](https://www.camfintech.com/learn/what-is-cambodia-gaap): Deliberate digital architecture, 4 infrastructure layers, comparison to Estonia/Singapore.
-- [Cambodia's FinTech Landscape in 2026](https://www.camfintech.com/learn/cambodia-fintech-landscape): Market size, key players, mobile money adoption, investment trends.
-- [Supply Chain Finance in Cambodia](https://www.camfintech.com/learn/supply-chain-finance-cambodia): CamInvoice verified data for invoice financing, trade finance gaps.
-- [Compliance-as-a-Service for Cambodia](https://www.camfintech.com/learn/compliance-as-a-service): SME tax compliance, CamInvoice API integration, automated bookkeeping.
-- [How to Get a FinTech License](https://www.camfintech.com/learn/fintech-license-cambodia): NBC licensing categories, capital requirements, regulatory sandbox.
-- [Cambodia's AML Requirements](https://www.camfintech.com/learn/cambodia-aml-requirements): AML/CFT law, CAFIU, CDD/EDD, CamDigiKey for KYC.
-- [Cross-Border Payments via Bakong](https://www.camfintech.com/learn/cross-border-payments-bakong): Bilateral QR corridors, remittance flows, tourist payments.
+## What CamFinTech does NOT do
 
-## Knowledge Base — Technical Deep Dives
+- Hold client funds or operate any rail
+- Write the integration code — that's our accredited partners (BanhJi, Innolab/Odoo, MAQSU, SAP/Crimson, KOSIGN, Metfone, GK-Smart)
+- Lobby, trade on contacts, or sell "access"
+- Take a cut of your transactions
+- Promise an outcome we can't control
+- Operate as a named MLRO (must be a board-appointed individual of the licensed entity)
+- File submissions on the client's behalf (the licensed operator is the applicant of record)
 
-- [Cambodia GaaP Architecture](https://www.camfintech.com/knowledge/cambodia-gaap-architecture): Technical deep dive into Cambodia's Government-as-a-Platform model.
-- [Bakong Technical Integration Guide](https://www.camfintech.com/knowledge/bakong-technical-integration): Developer guide for Bakong Open API and KHQR SDK integration.
-- [Cambodia FinTech Regulation Framework](https://www.camfintech.com/knowledge/cambodia-fintech-regulation): Complete licensing and compliance framework from NBC and GDT.
-- [Supply Chain Finance Opportunity](https://www.camfintech.com/knowledge/cambodia-scf-opportunity): Market sizing and technical architecture for SCF in Cambodia.
-- [CamInvoice Technical Compliance](https://www.camfintech.com/knowledge/caminvoice-technical-compliance): API specifications, UBL XML schema, and GDT integration guide.
-- [Cambodia Digital Identity Infrastructure](https://www.camfintech.com/knowledge/cambodia-digital-identity): CamDigiKey eKYC, CamDX integration, and identity verification.
-- [Cambodia Payment Ecosystem Map](https://www.camfintech.com/knowledge/cambodia-payment-ecosystem): Complete map of banks, wallets, and payment infrastructure.
-- [ASEAN Digital Economy Comparison](https://www.camfintech.com/knowledge/asean-digital-economy-comparison): Where Cambodia stands vs ASEAN peers in 2026.
+## The Cambodian DPI rails CamFinTech navigates
 
-## Insights — Data & Analysis
+- **Bakong** — Cambodia's central bank digital currency (CBDC) and instant payment system operated by the National Bank of Cambodia (NBC). Real-time settlement via the KHQR QR code standard.
+- **KHQR** — Standardized QR payment protocol for the Bakong ecosystem, enabling interoperable payments.
+- **CamDigiKey** — Cambodia's national digital identity system enabling eKYC verification.
+- **CamDX** — National data exchange platform providing government-private sector interoperability (operated by TSC under Sub-Decree 207).
+- **CamInvoice** — Mandatory electronic invoicing system administered by the General Department of Taxation (GDT).
+- **CamDL** — Back-end attestation dependency (NOT a sellable rail; out of scope for direct integration).
 
-- [Digital Payment Growth 2020-2026](https://www.camfintech.com/insights/cambodia-digital-payment-growth): Bakong, KHQR, and mobile money transaction trends.
-- [SME Digital Readiness Assessment](https://www.camfintech.com/insights/sme-digital-readiness): Gaps and opportunities for Cambodia's 43,970+ SMEs.
-- [ASEAN FinTech Investment Comparison](https://www.camfintech.com/insights/asean-fintech-investment): Cambodia's emerging position in regional FinTech funding.
-- [Bakong Adoption Metrics](https://www.camfintech.com/insights/bakong-adoption-metrics): Transaction volume, user growth, and market impact analysis.
-- [CamInvoice Rollout Impact](https://www.camfintech.com/insights/caminvoice-rollout-impact): Tax revenue, SME compliance, and digital transformation effects.
-- [Cambodia vs Vietnam vs Thailand FinTech](https://www.camfintech.com/insights/cambodia-vs-regional-fintech): Three-way ecosystem comparison.
+## Regulator landscape
 
-## Use Cases — CamFinTech Implementations
+- **NBC** (National Bank of Cambodia) — banking, payment system, AML/CFT, foreign exchange.
+- **NBFSA** (Non-Bank Financial Services Authority) — non-bank financial institutions, MFIs, leasing, securities (some overlap with SERC).
+- **TSC** (Techo Startup Center) — CamDX / CamDigiKey operator.
+- **SERC** (Securities and Exchange Regulator of Cambodia) — digital assets (Prakas 093), securities.
+- **GDT** (General Department of Taxation) — CamInvoice, tax compliance.
+- **MEF** (Ministry of Economy and Finance) — fiscal, oversight.
+- **MPTC** (Ministry of Post and Telecommunications) — telecoms, root-CA / PKI.
+- **CAFIU** (Cambodia Financial Intelligence Unit) — FIU reporting destination.
 
-- [SME Compliance Automation](https://www.camfintech.com/use-cases/sme-compliance-automation): CamInvoice integration middleware for small businesses.
-- [Cross-Border Payment Optimization](https://www.camfintech.com/use-cases/cross-border-payment-optimization): Leveraging Bakong's ASEAN corridors for real-time settlement.
-- [Digital Lending Platform](https://www.camfintech.com/use-cases/digital-lending-platform): Automated credit scoring using CamDigiKey and CamInvoice data.
-- [Enterprise Bakong Integration](https://www.camfintech.com/use-cases/enterprise-bakong-integration): Multi-channel payment platform with unified reconciliation.
+## Honesty discipline
 
-## Glossary — Cambodia FinTech Key Terms
+- **Pricing is indicative.** Every figure is a planning estimate, validated by quote at engagement scoping.
+- **Some mandates are anticipatory.** CamInvoice B2B is phased (~2026–2027, announced but not gazetted) and the Personal Data Protection Law is not yet promulgated. We help clients get *ahead* of these; we never claim they're already in breach.
+- **No fabricated case studies.** CamFinTech is pre-revenue and early. Pre-logo proof discipline: founder track record, methodology walk-throughs, and conspicuously-labelled illustrative scenarios. Real consented case studies are surfaced only when they exist.
+- **Every regulatory claim graded [S] sourced / [A] assumption / [V] verify** internally.
+- **No grace window claimed for Prakas 093.** No published grace period exists; we will not manufacture urgency.
 
-- [Bakong](https://www.camfintech.com/glossary/bakong): Cambodia's CBDC and real-time payment system operated by the National Bank of Cambodia.
-- [CamDigiKey](https://www.camfintech.com/glossary/camdigikey): Cambodia's national digital identity system enabling eKYC verification.
-- [CamDX](https://www.camfintech.com/glossary/camdx): National data exchange platform for government-private sector interoperability.
-- [CamInvoice](https://www.camfintech.com/glossary/caminvoice): Mandatory electronic invoicing system administered by the General Department of Taxation.
-- [KHQR](https://www.camfintech.com/glossary/khqr): Standardized QR code payment protocol for Cambodia's Bakong ecosystem.
-- [Government-as-a-Platform (GaaP)](https://www.camfintech.com/glossary/gaap): Cambodia's deliberate digital infrastructure architecture model.
-- [National Bank of Cambodia (NBC)](https://www.camfintech.com/glossary/nbc): Cambodia's central bank and operator of the Bakong payment system.
-- [General Department of Taxation (GDT)](https://www.camfintech.com/glossary/gdt): Tax authority administering CamInvoice and business registration.
-- [Supply Chain Finance](https://www.camfintech.com/glossary/supply-chain-finance): Invoice financing opportunity leveraging CamInvoice verified data.
-- [Embedded Insurance](https://www.camfintech.com/glossary/embedded-insurance): Micro-insurance distributed through KHQR payment flows.
+## About William Mallett
+
+- **Founder & Managing Director** of CamFinTech.
+- LinkedIn: https://www.linkedin.com/in/william-mall/
+- Background: see https://www.camfintech.com/about
+- Bio currently placeholder; real bio + headshot pending.
+
+## Reference content
+
+- [Glossary](https://www.camfintech.com/glossary) — definitional pages for Bakong, CamDigiKey, CamDX, CamInvoice, KHQR, GaaP, NBC, GDT, supply chain finance, embedded insurance.
+- [Learn](https://www.camfintech.com/learn) — factual explainers: how Bakong works, what CamDigiKey is, how CamDX works, what CamInvoice is, how to accept KHQR, what Cambodia's GaaP is.
+
+## Sibling publication — The Riel Report
+
+CamFinTech is also the publisher of [The Riel Report](https://riel.report) — Cambodia FinTech intelligence read by the financial-services industry, regulators, and multilateral analysts. Separate brand at its own domain. No replicated content on camfintech.com; cross-reference at [/publication](https://www.camfintech.com/publication).
+
+## Voluntary TCRMG-2026 compliance posture
+
+CamFinTech voluntarily holds its own operations to NBC's Technology and Cyber Risk Management Guidelines (TCRMG 2026) standards — even as a non-BFI. Posture documentation available on request for BFI procurement conversations.
 
 ## Contact
 
-- **Email**: info@camfintech.com
+- **General inquiries**: info@camfintech.com
+- **DASP / Prakas 093**: dasp@camfintech.com
+- **Partner / subcontract (compliance-inside)**: partners@camfintech.com
 - **Phone**: +855 76 277 5645
 - **WhatsApp**: https://wa.me/855762775645
 - **Telegram**: https://t.me/+855762775645
 - **Office**: 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia 12210
 - **Website**: https://www.camfintech.com
+- **LinkedIn**: https://www.linkedin.com/company/118224010/
 
 ## Optional
 
 - [Full site content for LLM ingestion](https://www.camfintech.com/llms-full.txt)
+- [About William Mallett](https://www.camfintech.com/about)
+- [DASP product spec](https://www.camfintech.com/products/dasp)
+- [Publication — The Riel Report](https://www.camfintech.com/publication)
