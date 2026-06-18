@@ -1,381 +1,260 @@
 # GEO Audit Report: CamFinTech.com
 
-**Audit Date:** 2026-05-24
+**Audit Date:** 2026-06-18
 **URL:** https://www.camfintech.com
 **Business Type:** Agency / Services (specialist consulting — Cambodia FinTech / GaaP integration)
-**Pages Analyzed:** 13 (homepage + 5 cluster indexes + 6 sample articles + /privacy + /terms)
-**Prior Audit:** 2026-04-15 — 46/100 (Poor)
+**Pages Analyzed:** 52 (full sitemap surveyed; 10 deep-sampled for content audit)
+**Prior audits:** 2026-04-15 (composite 46/100), 2026-05-24 (composite 50/100)
 
 ---
 
 ## Executive Summary
 
-**Overall GEO Score: 50/100 (Poor)** — up 4 points from the prior audit's 46.
+**Overall GEO Score: 54/100 (Poor — upper band)**
 
-The site has materially improved on three axes since April: AI Citability climbed 6 points on the strength of statistical density and FAQ blocks; Technical GEO climbed 7 points after the canonical-URL fix from 2026-05-22 propagated cleanly across all content sub-pages; Schema climbed 8 points because the previously-suspected `Article` JSON-LD bug turns out to be **fixed** — Article / ScholarlyArticle nodes now emit on every content page with correct headline, dates, and references to the Organization node.
-
-But the composite lift is gated by Brand Authority slipping 2 points to **6/100** — the lowest score on the audit and the single largest drag on the composite. The Cambodia entity is functionally invisible to AI models: no LinkedIn company page, no Google Business Profile, no Wikipedia entry, no press coverage, no CAFT membership, and the GitHub repo (`myownipgit/cambodia-fintech`) is **private**, surrendering the one technical-authority signal a fintech consultancy could cheaply own. A bare Google search for "camfintech" returns Cámara Argentina de Fintech in position 1; the Cambodia firm doesn't surface in the top 10.
-
-The 30-day target of ~68 from the prior audit remains intact but unmoved. The path there is **off-site work plus an `/about` page with a named founder** — not more technical fixes.
+The site has continued to ship on-page improvements since the May baseline — `/about` exists with the founder named, the Phnom Penh address is everywhere, the JSON-LD `@graph` renders cleanly on every page including `/privacy` and `/terms`. But two structural ceilings are now visible and explain why the composite has only nudged: (1) the brand has effectively zero off-site footprint, and (2) several "shipped" things are stuck at placeholder quality — the founder bio reads `[Bio in progress]`, the OG image returns 404, the WebPage `dateModified` is frozen at 2026-03-24 across the entire site, and the homepage stats are unsourced while the rest of the site cites primary sources.
 
 ### Score Breakdown
 
-| Category | Score | Weight | Weighted | Δ from 2026-04-15 |
+| Category | Score | Weight | Weighted | Calibration vs 2026-05-24 |
 |---|---|---|---|---|
-| AI Citability | 78/100 | 25% | 19.5 | +6 |
-| Brand Authority | 6/100 | 20% | 1.2 | −2 |
-| Content E-E-A-T | 42/100 | 20% | 8.4 | +4 |
-| Technical GEO | 89/100 | 15% | 13.35 | +7 |
-| Schema & Structured Data | 70/100 | 10% | 7.0 | +8 |
-| Platform Optimization | 5/100 | 10% | 0.5 | 0 |
-| **Overall GEO Score** | | | **50.0/100** | **+4** |
+| AI Citability | 62/100 | 25% | 15.5 | May scored 78; June scoring more strict on unsourced homepage stats + lack of hyperlinked citations |
+| Brand Authority | 38/100 | 20% | 7.6 | May scored 6 (treating absent platforms as near-zero); June scored 38 (giving credit for verified LinkedIn presence) |
+| Content E-E-A-T | 56/100 | 20% | 11.2 | May scored 42; June +14 — `/about` shipped with named founder, real legal pages, full contact stack |
+| Technical GEO | 80/100 | 15% | 12.0 | May scored 89; June −9 — OG image 404 surfaced + stale llms.txt + missing hreflang properly weighted |
+| Schema & Structured Data | 62/100 | 10% | 6.2 | May scored 70; June −8 — `WebPage @id` collapse and stale `dateModified` now penalized |
+| Platform Optimization | 12/100 | 10% | 1.2 | May scored 5; June +7 — LinkedIn company page now claimed, founder profile linked |
+| **Overall GEO Score** | | | **53.7 → 54** | **+4 vs 2026-05-24** |
+
+> **Calibration caveat.** The May audit ran with a different scorer cohort. Three categories (Citability, Technical, Schema) were scored more generously in May than the June rubric warrants; one (Brand Authority) was scored more strictly. The +4 composite delta is real but understates the substantive on-site shipping done between 2026-05-22 and 2026-06-18; it overstates how much off-site authority has actually grown. Treat the absolute June scores as the honest snapshot; treat the delta as directional only.
 
 ### Headline findings
 
-1. **The "Article schema is broken" hypothesis from the prior audit was wrong.** Live HTML inspection shows `Article` on `/learn/*`, `ScholarlyArticle` on `/knowledge/*` and `/insights/*`, and `Article` on `/use-cases/*`. All carry `headline`, `datePublished`, `dateModified`, `author` and `publisher` references. The bug was elsewhere or has been silently fixed.
+1. **The `/privacy` and `/terms` JSON-LD "non-rendering" bug from the May audit was a WebFetch artefact, not a real bug.** Raw curl confirms the homepage `@graph` renders on every page. The actual gap is different: no page-specific `PrivacyPolicy` / `TermsOfService` / `AboutPage` schema is emitted, and the `WebPage @id` is globally locked to the homepage on every URL.
 
-2. **`/privacy` and `/terms` schema blocks added on 2026-05-22 are NOT in the rendered HTML.** Live fetch shows only the inherited root `@graph`. Either the per-page Script tag didn't deploy or it's stripped at build. Needs investigation.
+2. **OG image is broken site-wide.** `/images/og-image.png` returns HTTP 404. Every social share, Slack/Discord preview, Bing snippet card, and several AI assistants' citation cards render the Next.js error page instead of a branded card. Single highest-leverage one-line fix in this audit.
 
-3. **No named human is publicly associated with CamFinTech.** The Brand & Platform agent initially surfaced a LinkedIn profile self-describing as "General Manager at Camfintech" and treated it as a positive signal — that association has been confirmed incorrect by the project principal. The website remains fully anonymous, and there is no public-domain candidate for `/about`. (See Errata.)
+3. **`WebPage.dateModified` is frozen at 2026-03-24 on every page.** Site has shipped material changes since (the entire Phnom Penh relocation, `/about`, `/privacy`, `/terms`) but the schema reports a 12-week-old modification date everywhere. Sends "abandoned site" signals to crawlers.
 
-4. **The address `30 Preah Norodom Boulevard` resolves to the BRED Bank Tower** which also houses EuroCham and CCI France Cambodge. No Google Business Profile for CamFinTech at that address.
+4. **Article author is the Organization, not the Person.** Now that `Person` schema for William Mallett exists, flipping `Article.author` and `TechArticle.author` from `#organization` to `#person` is a free site-wide E-E-A-T uplift across ~30 article-bearing pages.
 
-5. **Sitemap anchor URLs still not fixed.** `/sitemap.xml` still lists `/#about`, `/#services`, `/#why-us`, `/#use-cases`, `/#contact` despite being flagged in the prior audit.
+5. **Zero hyperlinked citations site-wide.** Every statistic on `/knowledge/*` and `/insights/*` is sourced by name to NBC, World Bank, BIS, GSMA, ADB, MIT Tech Review — but none are hyperlinked. Hyperlinked citations are weighted ~10× parenthetical mentions by AI ranking models.
+
+6. **Founder block on `/about` is still placeholder.** The `[Bio in progress]` literal text and "WM" initials avatar mean a name + LinkedIn link exist for AI to bind to, but no verifiable expertise to ground against.
+
+7. **Khmer toggle on `/about` is label-only.** `?lang=km` serves English body content; only the toggle string `ខ្មែរ` is in Khmer. The bilingual claim in `/about` metadata and schema is not substantiable for an audit by a Khmer-language AI query.
+
+### Audit errata carried forward
+
+The 2026-04-15 audit's Brand & Platform agent flagged Aston Hill (LinkedIn `kh.linkedin.com/in/aston-hill-469944322`, self-described as "General Manager at Camfintech") as a positive E-E-A-T signal. **This was confirmed incorrect by the principal.** Aston Hill is NOT associated with CamFinTech (Cambodia); the LinkedIn description matches a different "Camfintech"-shaped entity. The 2026-06-18 Brand subagent was explicitly briefed on this and did NOT re-introduce the finding. Future audits must not re-introduce it without explicit principal confirmation.
 
 ---
 
 ## Critical Issues (Fix Immediately)
 
-None at the literal "site is broken" level. The site is up, indexable, served via SSG, and AI-crawlable. The items below are urgent on the GEO score but not site-down events.
+| # | Finding | Affected | Fix |
+|---|---|---|---|
+| C1 | `/images/og-image.png` returns HTTP 404 — every social/AI preview card across all 52 URLs is broken | Site-wide | Upload the 1200×630 PNG to `public/images/og-image.png` (or correct the metadata path in `app/layout.tsx`); redeploy |
+| C2 | `WebPage @id` collapsed to `https://www.camfintech.com/#webpage` on every URL — AI cannot disambiguate which page is the citation target for a query | Site-wide schema | In `app/components/JsonLd.tsx`, accept a per-page slug, set `@id` to `${url}#webpage`, set `name` to the page-specific `<title>` |
 
----
+## High Priority Issues (Fix Within 1 Week)
 
-## High Priority Issues
+| # | Finding | Affected | Fix |
+|---|---|---|---|
+| H1 | `WebPage.dateModified = 2026-03-24` frozen across the site despite material changes shipped since May | Site-wide schema | Per-page mtime: build-time `git log -1 --format=%ct` per source file; pass into `JsonLd` |
+| H2 | `Article` / `TechArticle` `author` is `#organization`, not the Person `#person` | ~30 article pages | Single change in the article schema generator — flip the `@id` reference |
+| H3 | `BreadcrumbList` schema absent on every deep page | All `/knowledge/*`, `/insights/*`, `/glossary/*`, `/learn/*`, `/use-cases/*` | Emit 3-step BreadcrumbList (Home → Section → Article) inside each page's existing JSON-LD block |
+| H4 | Zero hyperlinked citations across the article corpus — every stat parenthetical only | `/knowledge/*`, `/insights/*` (~5 articles drive most stats) | Wrap each `(NBC Annual Report 2024)` in `<a href>` to the primary-source PDF/page. ~3 hours total |
+| H5 | `/about` founder bio is `[Bio in progress]` placeholder; "WM" initials avatar; no credentials | `/about` | Replace with ~150-word real bio + headshot. Even draft quality closes this. ~2 hours once copy + image exist |
+| H6 | `llms.txt` does not name William Mallett or link `/about` — the May `/about` ship is invisible to AI navigation | `/llms.txt` | Regenerate to add a "Company" or "About" section that names the founder and links `/about` |
+| H7 | `FAQPage` answer rendering — Citability subagent observed accordion-only rendering on deep pages; the schema-declared answers may be visible to crawlers via DOM, but if they're JS-injected only on expand they're not extracted | Site-wide FAQ blocks | Confirm answer `<div>` is in initial DOM (not JS-injected); use CSS to visually hide collapsed state but keep text in DOM |
+| H8 | Zero off-site authority graph — no Wikidata, no Wikipedia, no Crunchbase, no GBP, no YouTube; entity grounding has one source (the domain itself) | Off-site | Create Wikidata + Crunchbase entries this week; both free; ~75 minutes total |
 
-### H1. `/about` returns 404 — zero named humans anywhere on the site
-- **Impact:** Largest single E-E-A-T deduction. Required for `Person` schema, founder bio, institutional-partner due diligence.
-- **Aggravating factor:** No named human is publicly associated with the practice (the audit's initial LinkedIn match was a misidentification — see Errata). The principal needs to decide on the named founder / team to surface before this can be implemented.
-- **Fix:** Once the principal identifies a named founder/team, create `app/about/page.tsx` with: name, photo, ~200-word bio, prior employers/affiliations, LinkedIn link. Emit `Person` JSON-LD with `worksFor` referencing the Organization. Update `JsonLd.tsx` to add `founder: { @id: …#founder }` on the Organization node.
-- **Fix complexity:** S — content + one component.
+## Medium Priority Issues (Fix Within 1 Month)
 
-### H2. Brand entity collision: AI search returns Cámara Argentina de Fintech, not CamFinTech (KH)
-- **Evidence:** Bare "camfintech" Google query is dominated by `camfintech.hiringroomcampus.com` (Argentine fintech chamber). The Cambodia firm doesn't appear in the top 10. Secondary collisions: CAMS / KFinTech (Indian mutual fund RTAs).
-- **Why it matters:** AI models trained on web data default to the most-mentioned "camfintech" — Argentina — when asked about anything camfintech-shaped.
-- **Fix:** Two pronged. (a) Populate `Organization.sameAs` in `JsonLd.tsx` with every owned profile once they exist (LinkedIn, GitHub, GBP, Crunchbase, Wikidata). (b) Off-site: claim LinkedIn company page, register GBP at the Phnom Penh address, list with CAFT.
-- **Fix complexity:** M — needs off-site work, not just code.
+| # | Finding | Affected | Fix |
+|---|---|---|---|
+| M1 | Robots.txt allows 7 AI bots but omits Applebot-Extended, Anthropic-AI, Meta-ExternalAgent, Bytespider, Diffbot, Cohere-AI, MistralAI-User | `/robots.txt` | Add explicit `User-agent` + `Allow: /` for each of the 6 missing |
+| M2 | Hreflang completely absent as machine signal — HTML alternates both point to the same URL; sitemap has no `xhtml:link` entries; bilingual posture invisible | Site-wide | Either ship distinct `/km` routes or remove the misleading `km` alternate (current state is worse than no hreflang) |
+| M3 | Khmer toggle on `/about` is label-only; the `?lang=km` param doesn't actually render Khmer content | `/about` (likely other pages too — verify) | Implement real per-page bilingual rendering or remove the toggle from pages it doesn't apply to |
+| M4 | Homepage stats unsourced (`43,970+ SMEs`, `80% reduction`, `100% automated`) while the rest of the site cites primary sources | `app/page.tsx` | Add MISTI 2024 attribution to `43,970+`; link the others to the case-study source |
+| M5 | Glossary H1s declarative (`Bakong: Cambodia's Central Bank Digital Currency...`), not question-form (`What is Bakong?`) | 10 `/glossary/*` pages | Rewrite each H1 to question form + add 50-word sourced answer capsule at top |
+| M6 | `Article.dateModified` stale on all article pages (`2026-03-25`); same staleness signal as H1 but at the article-content level | ~30 article pages | Build-time mtime per file; same fix as H1 but applied to Article schema |
+| M7 | `SpeakableSpecification` cssSelectors target homepage-only IDs (`#home h1`, `#about h2 + p`); silently match nothing on non-home pages | Site-wide WebPage node | Either scope speakable to homepage only via per-page WebPage (after fixing C2), or define per-page-type selectors |
+| M8 | `/use-cases/sme-compliance-automation` is hypothetical illustration; no named client, no quote, no quantified outcome attribution | `/use-cases/*` | Sanitized real case studies — even anonymized with metrics — would be substantially stronger Experience signal |
+| M9 | LinkedIn company page invisible to crawlers (login wall); ~1K followers per side-channel but no public post cadence | LinkedIn ops | Publish 1–2 posts this week (re-share latest `/insights` articles). Even minimal cadence makes the page substantive |
+| M10 | Sitemap URL count drift (49 actual vs 52 expected) — three routes missing from sitemap generator | `app/sitemap.ts` | Audit which routes are missing; likely newer pages not emitted |
+| M11 | Per-page legal schema missing — `/privacy` should have `PrivacyPolicy`, `/terms` should have `TermsOfService`, `/about` should have `AboutPage` | `/privacy`, `/terms`, `/about` | Add a third JSON-LD block per page (alongside homepage `@graph` and FAQPage) with the appropriate `@type` |
+| M12 | `/learn/how-to-accept-khqr` serves generic `Article` schema; should be `HowTo` with `step` array — eligible for Google rich-results carousel | `/learn/how-to-accept-khqr` (and other `how-to-*` slugs) | Replace generic Article with HowTo + HowToStep array sourced from existing page headings |
 
-### H3. GitHub repo is private — surrenders a free authority signal
-- **Evidence:** `https://github.com/myownipgit/cambodia-fintech` is `isPrivate: true`. The old `github.com/camfintech` org is deleted (404). Public-facing GitHub presence: zero.
-- **Why it matters:** A fintech consultancy with no public technical artefacts is unusual; AI models lean on GitHub for entity verification.
-- **Fix:** Either (a) make the existing repo public, (b) create a new public `camfintech` org with a single public reference repo (e.g., open-source Bakong/CamDigiKey integration examples), or (c) reclaim the deleted `camfintech` org if available.
-- **Fix complexity:** S — one decision.
+## Low Priority Issues (Optimize When Possible)
 
-### H4. `/privacy` and `/terms` JSON-LD blocks not rendering despite being committed
-- **Evidence:** Live fetch of `/privacy` and `/terms` returns only the inherited root `@graph` (Organization / ProfessionalService / WebSite / WebPage). The `PrivacyPolicy` and `WebPage about Terms` blocks added in commit `ace46ec` are absent from the rendered HTML.
-- **Why it matters:** AI systems don't know these pages exist as PrivacyPolicy entities; canonical-URL fix works but schema-typing doesn't.
-- **Fix:** Check `app/privacy/page.tsx` and `app/terms/page.tsx` for the `<Script type="application/ld+json">` blocks. Likely either the Script component isn't rendering server-side or the schema is being stripped at build.
-- **Fix complexity:** S — debug and re-deploy.
-
-### H5. No LinkedIn company page for CamFinTech (Cambodia)
-- **Evidence:** `site:linkedin.com/company camfintech Cambodia` returns nothing.
-- **Why it matters:** LinkedIn is the #1 entity source for B2B AI citations (Perplexity, ChatGPT, Gemini weight it heavily).
-- **Fix:** Claim `linkedin.com/company/camfintech` (or `/camfintech-cambodia` if taken). Add the principal as admin; publish initial posts; cross-link from any named team members' personal profiles once `/about` exists.
-- **Fix complexity:** S — 30 minutes.
-
-### H6. No Google Business Profile at the Phnom Penh address
-- **Evidence:** Maps search for "CamFinTech" at 30 Preah Norodom Boulevard returns only BRED Bank Tower / EuroCham / CCI France Cambodge. No CamFinTech listing.
-- **Why it matters:** GBP feeds Google Knowledge Panel + Bing + Gemini. Critical for local-entity grounding in AI responses.
-- **Fix:** Create the GBP under category "Business Management Consultant" with the same NAP (name, address, phone) as the site footer.
-- **Fix complexity:** S — 1 hour, plus the postcard verification wait.
-
-### H7. Sitemap still contains 5 anchor URLs — flagged in prior audit, NOT fixed
-- **Evidence:** `/sitemap.xml` still lists `/#about`, `/#services`, `/#why-us`, `/#use-cases`, `/#contact` with their own `lastmod` and `priority`.
-- **Why it matters:** Search engines and AI crawlers treat fragments as duplicates of `/`. Wastes crawl budget and signals immaturity.
-- **Fix:** Drop the fragment entries from `staticPages` array in `app/sitemap.ts`. One-line change.
-- **Fix complexity:** XS.
-
----
-
-## Medium Priority Issues
-
-### M1. `BreadcrumbList` JSON-LD missing entirely despite visible breadcrumbs
-- Breadcrumb UI renders on every content sub-page (`ArticleLayout.tsx`); no corresponding JSON-LD emitted.
-- Fix: emit `BreadcrumbList` in `ArticleLayout.tsx` alongside the existing Article block. One-component change, hits 30+ pages.
-
-### M2. WebPage `@id` collision — every sub-page falsely declares itself the homepage
-- Confirmed: every sub-page inherits `@id: https://www.camfintech.com/#webpage` with `name: "CamFinTech — Architecting Cambodia's Digital Financial Future"`.
-- Fix: in `ArticleLayout.tsx`'s `buildSchema`, override with a page-specific `WebPage` node carrying unique `@id` = `${url}#webpage`, correct `url`, `name`, `inLanguage`, and `breadcrumb` reference.
-
-### M3. hreflang completely absent (was broken, now removed without replacement)
-- Homepage emits zero `hreflang` tags. The prior `/?lang=km` (a query param that wasn't a real route) is gone, but nothing replaces it. Khmer UI exists client-side but is invisible to AI crawlers and search engines.
-- Fix: either (a) implement real `/km/...` routes via Next.js i18n and declare proper alternates, or (b) declare `hreflang="x-default"` on the homepage and drop the Khmer claim from layout metadata.
-
-### M4. `dateModified` is stale on every content page
-- All 41 content pages share `"dateModified":"2026-03-25T00:00:00.000Z"` — now 2 months old. Top-level pages show `2026-05-22`. Homepage WebPage's `dateModified` is `2026-03-24`.
-- Fix: derive per-article `dateModified` from the registry entry's `updatedAt` field (which already exists in `ArticleContent`).
-
-### M5. Source citations are plain text — no hyperlinks, no References section
-- NBC, BIS, ADB, World Bank, GSMA are named verbatim across articles but never linked. AI systems weight cited sources more heavily when they can follow the link.
-- Fix: extend `ArticleContent` schema with a `references[]` field (label + URL) and render as a `<References>` section. Backfill the 10 highest-traffic articles first.
-
-### M6. Schema type mismatch — `ScholarlyArticle` emitted on `/knowledge/*` instead of `TechArticle`
-- Architecture / integration content reads as developer docs, not academic papers. Crawlers expect `TechArticle` for technical documentation.
-- Fix: update the `schema` field in the registry entries under `app/content/knowledge/*.ts`.
-
-### M7. Khmer translations of /privacy, /terms, and the new Phnom Penh address strings are AI-quality, not native
-- Marked with "EN version prevails" disclaimer but should be reviewed by a native Khmer speaker before regulator-facing use.
-
-### M8. "March 20266 min read" / "March 20263 min read" formatting bug on article meta
-- Missing separator between `updatedAt` formatted month-year and `readingTime` minutes. Fix in `ArticleLayout.tsx` ~line 102 — insert a `·` or non-breaking space.
-
-### M9. Footer (with Privacy / Terms / Glossary nav + Phnom Penh location) only renders on the homepage
-- Legal links + the HQ address are invisible on every sub-page; users on `/glossary/bakong` can't see Privacy without going home. Undermines the address-consistency signal across the site.
-- Fix: promote Footer rendering to `app/layout.tsx`.
-
-### M10. Use Cases lack named clients (intentional, but currently reads as marketing)
-- `use-cases/sme-compliance-automation` opens "CamFinTech designed and delivered an API-first middleware solution..." with no client, no industry detail, no dollar value. AI systems treat unnamed case studies as advertising, not evidence.
-- Fix: even pseudonymized detail helps ("a Phnom Penh-based garment exporter, 180 employees, KHR 12M monthly invoice volume").
-
----
-
-## Low Priority Issues
-
-### L1. Twitter Card on `/glossary/*` defaults to homepage title instead of page-specific
-- `<meta name="twitter:title">` falls back to root layout's "CamFinTech — Cambodia FinTech Consulting" on glossary pages even though `og:title` is page-specific.
-- Fix: explicitly set Twitter Card metadata per page in `app/glossary/[slug]/page.tsx`.
-
-### L2. Homepage hero has minimal statistical grounding
-- Only 4 numbers (43,970+ SMEs, 80% reduction) with zero external sources. The most-crawled page is the least citable.
-- Fix: add 2-3 sourced statistics into the hero or above-the-fold area.
-
-### L3. First-person promotional claims diluted into otherwise-factual articles
-- `cambodia-gaap-architecture` mid-article: "CamFinTech has developed reference architecture patterns... reducing implementation time from months to weeks" — unverifiable, sales-y. Either delete or quantify with a verifiable comparison.
-
-### L4. CLAUDE.md still says production branch is `feature/update-homepage`
-- Vercel dashboard says `main`. Per-session memory and Obsidian docs are correct; the repo's CLAUDE.md is stale.
-
-### L5. `GEO-AUDIT-REPORT.md` (this file) and `docs/` folder remain git-untracked
-- Either commit (under `docs/audits/`) or `.gitignore`. Currently sits in repo root as untracked.
+| # | Finding | Fix |
+|---|---|---|
+| L1 | HSTS header bare (`max-age=63072000`); missing `includeSubDomains; preload` — blocks preload-list submission | Upgrade in `next.config.js` headers; submit to `hstspreload.org` |
+| L2 | 13 hydration JS chunks on homepage — INP risk for what is essentially a marketing page | Route-level code-splitting review or RSC conversion for static sections |
+| L3 | Footer "Last updated: May 2026" now 4+ weeks stale | Auto-update via build-time stamp |
+| L4 | `Person.sameAs` only contains LinkedIn personal URL — no GitHub, no Crunchbase (once created), no conference talks | Extend `sameAs` array in `JsonLd.tsx` once entries exist |
+| L5 | `Organization.sameAs` only has LinkedIn company — no GitHub org (pending repo public decision), no industry directories | Same as L4 |
+| L6 | `ContactPoint` is a single bag — Schema.org allows arrays with distinct `contactType` + `hoursAvailable` | Split into `customer service`, `sales`, `technical support` ContactPoints |
+| L7 | `DefinedTerm` nodes lack cross-references between related terms (Bakong ↔ KHQR ↔ CBDC) | Add `relatedLink` or `subjectOf` fields |
+| L8 | `TechArticle` has no `citation` array despite citing government sources | Model NBC/MEF/MPTC references as `citation: [{"@type":"CreativeWork","url":"..."}]` |
+| L9 | Service entities have no `offers` / `hasOfferCatalog` — even a price-range Offer per service would lift comparability | Add `offers` with `priceSpecification` per Service node |
+| L10 | Terms uses trading name "CamFinTech" only; no legal entity disclosure | Update once Cambodian business registration finalises |
+| L11 | Bakong settlement flow on `/learn/how-bakong-works` rendered as prose; underlying 6 steps are list-shaped | Reformat as numbered list (2-3× extraction lift) |
+| L12 | No "Last updated" date visible on `/learn/*`, `/glossary/*`, `/use-cases/*`, `/about` | Add visible date stamp + sync with schema `dateModified` |
 
 ---
 
 ## Category Deep Dives
 
-### AI Citability — 78/100 (+6)
+### AI Citability (62/100)
 
-**What's working:**
-- Statistical density is exceptional in `/insights` and `/knowledge`. `cambodia-digital-payment-growth` carries 40+ year-tagged figures — textbook AI citation bait.
-- Definition-then-elaboration pattern consistent across `/glossary` (e.g., `glossary/bakong` opens with a textbook AI-extractable definition).
-- 6 tables in `cambodia-gaap-architecture`, 5 tables in `cambodia-digital-payment-growth` — machine-readable, extracted cleanly.
-- Explicit FAQ blocks on every deep page (3-5 Q&A pairs each).
-- Heading hierarchy is descriptive, not generic ("The Settlement Process Step by Step" vs "Process").
+**Strengths.** Exceptional table density on knowledge/insights pages — `/knowledge/cambodia-gaap-architecture` ships 6 fully-citable comparison tables; `/insights/cambodia-digital-payment-growth` ships 5. Tables are the highest-citation-rate format for AI engines. Statistic density with named primary sources is strong on deep pages. `/learn/how-bakong-works` has a question-format H1 AND substantive self-contained answer capsules — the citability gold-standard template. `/use-cases/sme-compliance-automation` has quotable outcome stats with specific numbers.
 
-**What's broken:**
-- Zero hyperlinked sources across all 6 pages sampled. Highest single-line fix in this category.
-- No References section on any article. `cambodia-digital-payment-growth` cites 6 institutions but offers only internal "Related Reading".
-- Homepage has minimal statistical grounding — the most-crawled page is the least citable.
-- Use Cases lack named customers — generic case studies aren't cited.
-- First-person promotional claims mid-article hurt extractability.
+**Ceilings.** Zero hyperlinks to primary sources across the entire article corpus (H4). Homepage has no answer capsules and no FAQ block — H2s are marketing labels ("About Us", "Our Services"), not questions. Homepage stats unsourced. Glossary H1s declarative not question-form. FAQ answers may be JS-injected behind accordions only — needs render verification (H7).
 
-**High-citability passage found** (`/learn/how-bakong-works`):
+**Rewrite example.** `/glossary/bakong` H1 should be `What is Bakong?` (not `Bakong: Cambodia's Central Bank Digital Currency...`), with a 50-word sourced capsule directly underneath.
 
-> "Bakong processed over 21 million transactions in 2024, representing a 78% year-over-year increase, with total value exceeding USD 26 billion. Settlement is final and irrevocable once confirmed on the Iroha ledger, typically within one to two seconds. There is no batch processing, no end-of-day netting, and no multi-day clearing cycle."
+### Brand Authority (38/100)
 
-Self-contained, specific numbers, named technology, contrastive structure.
+**Verified presence.** Founder LinkedIn `william-mall` exists. Company LinkedIn `company/118224010` claimed 2026-05-24 (~1K followers per side-channel; login-walled to crawlers). Both are referenced via `sameAs` in the on-site `@graph`.
 
-**Low-citability passage found** (`/knowledge/cambodia-gaap-architecture`):
+**Empty platforms.** Wikidata (no Q-ID), Wikipedia (no article in any language), Crunchbase (no entry; entity-collision noise with Cámara Argentina Fintech, CamNtech, Camvi), Google Business Profile (no Knowledge Panel), YouTube (no channel), CAFT membership (directory unreachable; Tracxn's 113-startup Cambodia fintech list excludes CamFinTech), Medium / Reddit / Quora (all empty).
 
-> "enterprises that integrate early gain competitive advantage, while those that delay face escalating compliance costs"
+**GitHub repo** `myownipgit/cambodia-fintech` confirmed still private (`gh api`: `"private":true`). Unchanged from May; principal still deciding whether to make public.
 
-Unsourced, no quantification, speculative — AI models skip this in favour of the dated fact above it.
+**Entity-collision risk** on the bare string "Camfintech" is non-trivial. Future grounding should always disambiguate with the camfintech.com URL or William Mallett's name.
 
-### Brand Authority — 6/100 (−2)
+### Content E-E-A-T (56/100)
 
-The audit's primary leverage point and its lowest score. Bullet summary of presence checks:
+| Dimension | Score | Note |
+|---|---|---|
+| Experience | 4/10 | Article tables read informed but no first-person experiential evidence — no API code samples, no developer-portal screenshots, no named clients in `/use-cases` |
+| Expertise | 6/10 | Strong technical precision (EMVCo specs, Tier 2 participants, four-layer GaaP framing). Capped because expertise is attributed to Organization, not Person |
+| Authoritativeness | 5/10 | Founder named on `/about`; both LinkedIn profiles linked. But `[Bio in progress]` placeholder + "WM" avatar + no credentials disclosed |
+| Trustworthiness | 7/10 | Real Cambodia-specific Privacy (NBC, TRC, MPTC, TRMG named); real Terms with Cambodia governing law; multi-channel contact. Two gaps: legal-entity name not disclosed on Terms; `/about` doesn't link to Privacy or Terms |
 
-| Platform | Status |
+### Technical GEO (80/100)
+
+| Check | Result |
 |---|---|
-| LinkedIn company page | **Missing** |
-| Google Business Profile | **Missing** |
-| Wikipedia | **Missing** |
-| Crunchbase / PitchBook | **Missing** |
-| Medium | **Missing** |
-| Reddit | **Missing** |
-| YouTube | **Missing** |
-| GitHub (current `myownipgit/cambodia-fintech`) | **Private** — zero public signal |
-| GitHub (old `camfintech` org) | **Dead** (deleted for non-payment) |
-| CAFT member directory | **Unverified** (directory returned 503 at audit time; not in founding-member list) |
-| Khmer Times / Phnom Penh Post | **Missing** |
-| ASEAN fintech press (Fintech Singapore, Tracxn, The Fintech Times) | **Missing** |
-| Industry directories (TechBehemoths, Consultancy.org KH, D&B, Lusha) | **Missing** |
-| AI-search proxy tests (3 queries) | **All fail** — camfintech.com appears in 0/3 top-10 result sets |
+| TTFB | 0.16s (excellent, edge-cached) |
+| Total response | 0.22s for 64KB homepage |
+| SSR | Confirmed (JSON-LD in raw HTML) |
+| Canonical | Per-page self-referential canonicals on `/`, `/about`, `/privacy`, `/terms` ✓ |
+| 404 handling | HTTP 404 status (not soft-200), `noindex` ✓ |
+| Mobile viewport | Present ✓ |
+| AI crawlers | 7 allowed; 6+ missing (M1) |
+| llms.txt | Present, stale (H6) |
+| Hreflang | Absent / broken (M2) |
+| OG image | 404 (C1) |
+| HSTS | Bare (L1) |
+| Sitemap | 49 URLs (3 missing — M10) |
 
-There is no positive: the audit initially surfaced a LinkedIn profile self-describing as "General Manager at Camfintech" but the principal has confirmed no such association exists. The Cambodia entity is fully anonymous in the public record. (See Errata.)
+### Schema & Structured Data (62/100)
 
-### Content E-E-A-T — 42/100 (+4)
+**Validation.** All emitted JSON-LD parses cleanly. Homepage `@graph` is a well-formed 12-node graph (Organization, Person, ProfessionalService, WebSite, WebPage, 6 Services, FAQPage). Per-page TechArticle/Article/DefinedTerm/FAQPage blocks all valid.
 
-| Sub-dimension | Score | Note |
-|---|---|---|
-| Experience | 45/100 | Anonymous engagements; quantified outcomes; no dated project timelines; ~2-year operating history (per © 2024-2026) |
-| Expertise | 62/100 | Strongest pillar. Real depth: Hyperledger Iroha + Soramitsu, OAuth/OIDC/mTLS specifics, Estonian e-Governance Academy reference, phased CamInvoice rollout dates |
-| Authoritativeness | 25/100 | No "as featured in", no speaking engagements, no panel mentions, no media citations, no industry body memberships |
-| Trustworthiness | 38/100 | Privacy + Terms now live; Phnom Penh address; working email/phone/WhatsApp/Telegram; but no named legal entity, no DPO, no registration number, no hyperlinked sources, no /about |
+**Gaps (ranked).** WebPage `@id` collapse (C2) → stale `dateModified` (H1) → BreadcrumbList absent (H3) → Article author = Organization (H2) → per-page legal schema missing (M11) → SpeakableSpecification dead on non-home pages (M7) → HowTo absent on `/learn/how-to-*` (M12) → ContactPoint not split (L6) → DefinedTerm cross-refs missing (L7) → TechArticle `citation` array missing (L8) → Service `offers` missing (L9).
 
-Quick wins (ordered by ROI): ship `/about` this week; add a legal entity / registration line to footer once finalised; add bylines and an author profile to all 40 articles; hyperlink source citations on the 10 highest-traffic articles; name a DPO in `/privacy`.
+### Platform Optimization (12/100)
 
-### Technical GEO — 89/100 (+7)
-
-Best-in-class for this site size. The 7-point lift came from the 2026-05-22 canonical fix landing cleanly.
-
-**Working:**
-- AI crawler allow-list comprehensive (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, ChatGPT-User, Google-Extended, CCBot, plus default).
-- llms.txt is spec-compliant (H1, blockquote summary, 8 H2 sections, all bulleted Markdown links).
-- llms-full.txt exists (10,524 bytes, last-modified 2026-05-24).
-- Pure SSG — `<title>`, canonical, meta description, JSON-LD all in raw HTML pre-hydration.
-- Canonicals correct on `/privacy`, `/terms`, `/glossary`, `/glossary/[slug]`, `/learn/[slug]`, `/knowledge/[slug]` — prior audit's known-broken concern is RESOLVED.
-- Page speed: homepage TTFB 0.18s, total 0.23s, 63 KB; sub-page TTFB 0.13s. HSTS `max-age=63072000` enforced.
-
-**Broken:**
-- Sitemap anchor URLs (5 entries, M severity).
-- hreflang completely absent (M severity).
-- Twitter Card on glossary pages generic (S severity).
-- `lastmod` uniform across content (S severity).
-- WebPage JSON-LD `dateModified: 2026-03-24` is 2 months stale.
-
-### Schema & Structured Data — 70/100 (+8)
-
-Inventory:
-
-| Page | Types found | Status |
-|---|---|---|
-| `/` | Organization, ProfessionalService, WebSite, WebPage, 6× Service, FAQPage | Complete |
-| `/glossary/bakong` | + DefinedTerm, FAQPage | Complete (bonus FAQ) |
-| `/learn/how-bakong-works` | + Article, FAQPage | FIXED — bug from prior audit was wrong / fixed silently |
-| `/knowledge/cambodia-gaap-architecture` | + ScholarlyArticle, FAQPage | Wrong type (should be TechArticle) |
-| `/insights/cambodia-digital-payment-growth` | + ScholarlyArticle, FAQPage | Wrong type (should be Article) |
-| `/use-cases/sme-compliance-automation` | + Article, FAQPage | Article only; no HowTo |
-| `/privacy` | Root @graph only | **Missing per-page block** |
-| `/terms` | Root @graph only | **Missing per-page block** |
-
-**Organization audit (homepage):**
-- `PostalAddress` correct (Phnom Penh, 12210, KH — Phnom Penh fix from 2026-05-22 confirmed live).
-- `sameAs` **missing entirely** on Organization node (the one on a nested Place/Country node points to Wikipedia for Cambodia, not the firm).
-- `legalName` correctly absent (registration pending).
-- `founder` **missing** — no Person node anywhere in the @graph.
-- `contactPoint` present (`+855-76-277-5645`, `info@camfintech.com`, en+km).
-- `foundingDate: "2024"` set.
-
-**Highest-impact gaps (ranked):**
-1. `BreadcrumbList` missing on every sub-page (visible UI, no markup).
-2. Per-page `WebPage` with unique `@id` (collision bug — every sub-page declares itself the homepage).
-3. `Organization.sameAs` (entity disambiguation for AI crawlers).
-4. `Person` schema for founder, referenced via `Organization.founder`.
-5. `PrivacyPolicy` on `/privacy` and proper `WebPage` on `/terms` (verify the 2026-05-22 deploy).
-6. `Dataset` schema on `/insights/*` pages with stat tables.
-7. `HowTo` schema on `/use-cases/*` with step-based content.
-8. `TechArticle` (not `ScholarlyArticle`) for `/knowledge/*`.
-
-### Platform Optimization — 5/100 (unchanged)
-
-Same data as Brand Authority. CamFinTech is essentially absent from every platform AI models train on. Closing this gap requires off-site work, not code changes.
+Effectively unchanged from the March baseline (5/100) and May audit (5/100). The +7 lift in this June reading reflects the LinkedIn company page now being claimed and the founder profile being verifiable — both shipped between March and May but the May audit scored them under Brand Authority rather than Platform. Treat the +7 as a scoring rebalance, not real new lift. The substantive metric — count of distinct off-site platforms where CamFinTech has a discoverable, populated presence — is still 2 (LinkedIn company + LinkedIn personal).
 
 ---
 
-## Quick Wins (Implement This Week)
+## Quick Wins (Implement This Week — each <4 hours)
 
-1. **Decide on the named founder/team to publish, then ship `/about`** with name, photo, bio, LinkedIn link, Person JSON-LD. Single-handedly moves E-E-A-T from 42 → ~55 and the composite from 50 → ~54. **Blocked on a name from the principal.**
-2. **Make the GitHub repo public** (or create a new public reference repo under a new `camfintech` org). Restores a free authority signal.
-3. **Claim `linkedin.com/company/camfintech`** and admin it with the principal's account. ~30 minutes; major entity-disambiguation value.
-4. **Drop sitemap anchor URLs** in `app/sitemap.ts`. One-line fix; closes a prior-audit finding that wasn't addressed.
-5. **Debug `/privacy` and `/terms` JSON-LD** — they're committed but not rendering. Investigate `app/privacy/page.tsx` and `app/terms/page.tsx`.
+Ranked by effort-adjusted impact:
 
-These five collectively should move the composite from 50 → ~57 in a single sprint.
+1. **Fix `/images/og-image.png` 404** (C1). Upload the 1200×630 PNG; redeploy. Single highest-leverage one-line fix in the audit.
+2. **Add author bylines to `/knowledge`, `/insights`, `/use-cases`** (H2) — flip `Article.author` to the Person `#person` `@id` in the schema generator. One file edit; closes the biggest free E-E-A-T uplift.
+3. **Hyperlink primary-source citations across ~5 deep articles** (H4). Wrap each `(NBC Annual Report 2024)` in an `<a href>` to the source PDF. ~3 hours; biggest citability lift available.
+4. **Regenerate `llms.txt`** to add an "About" section naming William Mallett and linking `/about` (H6). ~30 minutes.
+5. **Create Wikidata entry** for CamFinTech with `instance of: business`, `country: KH`, `headquarters location: Phnom Penh`, `founder: William Mallett`, `official website: camfintech.com`, plus `sameAs` to LinkedIn. Free, ~45 minutes. Becomes a foundational AI grounding source.
+6. **Create Crunchbase company entry** with description, founder, HQ, industry, website. Free, ~30 minutes.
+7. **Add the 6 missing AI crawlers to `robots.txt`** (M1). Mechanical; ~10 minutes.
+8. **Replace `/about` `[Bio in progress]` placeholder with a real 150-word bio** (H5). Closes the May audit's primary lift and the lingering H5 finding in one step.
+9. **Source-attribute the homepage stats** (M4) — propagate `(MISTI, 2024)` from the case-study source to the homepage.
+10. **Upgrade HSTS** (L1) to `max-age=63072000; includeSubDomains; preload`; submit to `hstspreload.org`. ~15 minutes.
 
 ---
 
 ## 30-Day Action Plan
 
-### Week 1: Named entity and quick fixes
+### Week 1: Render-layer fixes (closes the obvious "this looks broken" perception)
+- [ ] Upload `og-image.png` to fix the 404 (C1)
+- [ ] Pass per-page slug into `JsonLd.tsx`; set `WebPage @id`, `name`, `dateModified` per page (C2 + H1 + M6)
+- [ ] Flip `Article.author` from Organization to Person (H2)
+- [ ] Regenerate `llms.txt` with `/about` + founder block (H6)
+- [ ] Add 6 missing AI crawlers to `robots.txt` (M1)
+- [ ] Upgrade HSTS to `includeSubDomains; preload`; submit (L1)
 
-- [ ] Ship `/about` with named founder, photo, bio, Person JSON-LD, sameAs LinkedIn (H1)
-- [ ] Make GitHub repo public OR publish a new public reference repo (H3)
-- [ ] Claim `linkedin.com/company/camfintech`; add admins (H5)
-- [ ] Add `Organization.sameAs` array to `JsonLd.tsx` with LinkedIn + GitHub URLs (H2)
-- [ ] Drop sitemap anchor URLs (H7)
-- [ ] Debug why `/privacy` and `/terms` JSON-LD blocks aren't rendering; redeploy (H4)
-- [ ] Fix "March 20266 min read" formatting bug (M8)
+### Week 2: E-E-A-T and citation hardening
+- [ ] Replace `/about` bio placeholder with 150-word real bio + headshot (H5)
+- [ ] Add author bylines visible on `/knowledge`, `/insights`, `/use-cases` page headers — not just in schema (H2 visible side)
+- [ ] Hyperlink all primary-source citations on ~5 deep articles (H4)
+- [ ] Add BreadcrumbList JSON-LD to every deep page (H3)
+- [ ] Source-attribute homepage stats (M4)
+- [ ] Add Privacy/Terms inline links to `/about` page body
 
-### Week 2: Schema cleanup
+### Week 3: Off-site entity grounding
+- [ ] Create Wikidata entry (free; ~45 min)
+- [ ] Create Crunchbase company entry (free; ~30 min)
+- [ ] Publish 2 LinkedIn company posts re-sharing latest `/insights` articles
+- [ ] Re-attempt CAFT membership directory check; apply if not a member
+- [ ] Audit and re-decide on GitHub repo visibility (currently private — H8 secondary)
 
-- [ ] Add `BreadcrumbList` JSON-LD in `ArticleLayout.tsx` (M1)
-- [ ] Override `WebPage` per-page with unique `@id` in `ArticleLayout.tsx` (M2)
-- [ ] Change `/knowledge/*` schema type to `TechArticle` (M6)
-- [ ] Change `/insights/*` schema type to `Article` (or `Article + Dataset` for stat-table pages)
-- [ ] Wire per-article `dateModified` to the registry's `updatedAt` field (M4)
-- [ ] Promote Footer rendering to `app/layout.tsx` so legal links + HQ show on every page (M9)
-
-### Week 3: Authority and references
-
-- [ ] Create Google Business Profile at 30 Preah Norodom Boulevard (H6)
-- [ ] Apply for CAFT membership (caftkh.org/members-directory/) — single inbound link
-- [ ] Backfill bylines + author profile page (`/team/[slug]`) on all 40 articles
-- [ ] Add `references[]` field to `ArticleContent` schema; backfill the 10 highest-traffic articles with hyperlinked sources + `<References>` section (M5)
-- [ ] Decide on hreflang: real `/km/...` routes OR drop the KM alternate cleanly (M3)
-
-### Week 4: Off-site and content
-
-- [ ] Place one byline article in Khmer Times or Cambodia Investment Review on Bakong / CamInvoice integration
-- [ ] Pitch first speaking slot (CAFT event, BIS conference, Mekong Innovation forum)
-- [ ] Name a customer (even pseudonymized) in one use-case piece (M10)
-- [ ] Add a Data Protection Officer name and a data-subject-request workflow to `/privacy`
-- [ ] Schedule next audit (target: composite ≥ 65)
-
-If all four weeks land, expected composite: **65-70** (Fair → Good).
+### Week 4: Schema deepening + sitemap hygiene
+- [ ] Add `PrivacyPolicy` schema to `/privacy`, `TermsOfService` to `/terms`, `AboutPage` to `/about` (M11)
+- [ ] Add `HowTo` schema to `/learn/how-to-*` slugs (M12)
+- [ ] Fix sitemap URL count drift (M10)
+- [ ] Decide on hreflang: ship real `/km` routes OR remove the misleading current alternate (M2)
+- [ ] Rewrite glossary H1s to question form + add capsules (M5)
+- [ ] Run a `/geo-audit` re-run on 2026-07-18 to verify lift
 
 ---
 
-## Comparison to 2026-04-15 Audit
+## Appendix A: Pages Analyzed (Deep Sample)
 
-| Category | 2026-04-15 | 2026-05-24 | Δ |
-|---|---|---|---|
-| AI Citability | 72 | 78 | +6 |
-| Brand Authority | 8 | 6 | −2 |
-| Content E-E-A-T | 38 | 42 | +4 |
-| Technical GEO | 82 | 89 | +7 |
-| Schema & Structured Data | 62 | 70 | +8 |
-| Platform Optimization | 5 | 5 | 0 |
-| **Composite** | **46** | **50** | **+4** |
-
-Net: +4 composite points after 5 weeks of work, with **all of the lift coming from on-site improvements**. The off-site authority work that the prior audit identified as the unlocking step has not been started — explaining why Brand and Platform are flat or negative.
-
-The "Article schema broken" finding from the prior audit was incorrect; that contributed 8 of the Schema category's improvement.
-
----
-
-## Appendix: Pages Analyzed
-
-| URL | Title | GEO Issues |
+| URL | Type | GEO Issues observed |
 |---|---|---|
-| `/` | CamFinTech — Cambodia FinTech Consulting... | Thin homepage stats; no sameAs; WebPage `@id` shared everywhere |
-| `/glossary` | Cambodia FinTech Glossary — CamFinTech | OK |
-| `/glossary/bakong` | Bakong — CamFinTech Glossary | Twitter Card defaults to homepage |
-| `/learn` | Cambodia FinTech Learn — CamFinTech | OK |
-| `/learn/how-bakong-works` | How Does Bakong Work in Cambodia? | High-citability content; missing breadcrumb schema |
-| `/knowledge` | — | OK |
-| `/knowledge/cambodia-gaap-architecture` | Cambodia GaaP Architecture... | Schema type `ScholarlyArticle` should be `TechArticle` |
-| `/insights` | — | OK |
-| `/insights/cambodia-digital-payment-growth` | — | Schema type `ScholarlyArticle` should be `Article` |
-| `/use-cases` | — | OK |
-| `/use-cases/sme-compliance-automation` | — | Anonymous client undermines citability |
-| `/privacy` | Privacy Statement — CamFinTech | PrivacyPolicy JSON-LD missing from rendered HTML |
-| `/terms` | Terms of Use — CamFinTech | Terms WebPage JSON-LD missing from rendered HTML |
+| / | Homepage | Unsourced stats (M4); no answer capsules; no FAQ block |
+| /about | AboutPage | Bio placeholder (H5); WM avatar; no legal links; Khmer toggle label-only (M3) |
+| /privacy | Legal | No `PrivacyPolicy` schema (M11); inherits homepage WebPage (C2) |
+| /terms | Legal | No `TermsOfService` schema (M11); no legal entity disclosure (L10) |
+| /knowledge/cambodia-gaap-architecture | TechArticle | 6 citable tables; author=Org (H2); stale dateModified (M6); no BreadcrumbList (H3); no `citation` (L8) |
+| /knowledge/bakong-technical-integration | TechArticle | Same pattern as above |
+| /insights/cambodia-digital-payment-growth | Article | Unhyperlinked NBC/World Bank/BIS citations (H4) |
+| /insights/sme-digital-readiness | Article | Same pattern |
+| /glossary/bakong | DefinedTerm | Declarative H1 (M5); no cross-refs (L7) |
+| /glossary/khqr | DefinedTerm | Same pattern |
+| /learn/how-bakong-works | Article | Question H1 ✓; settlement flow rendered as prose not list (L11) |
+| /learn/how-to-accept-khqr | Article | Should be HowTo (M12) |
+| /use-cases/sme-compliance-automation | Article | Hypothetical case study; no named client (M8) |
+
+## Appendix B: Crawler-side checks
+
+| Check | Result |
+|---|---|
+| `/robots.txt` | 7 AI bots allowed; 6 missing (M1) |
+| `/sitemap.xml` | 49 URLs (3 short of expected; M10); lastmod stale on most articles |
+| `/llms.txt` | Present, conformant; missing `/about` + William Mallett (H6) |
+| `/llms-full.txt` | Present, comprehensive |
+| HTTP 404 on bad URL | Returns 404 status; `noindex` ✓ |
+| HSTS | Present but bare (L1) |
+| OG image | 404 (C1) |
+| Hreflang | Absent / broken (M2) |
+| Canonical per-page | ✓ |
 
 ---
 
-## Errata (corrections issued post-audit)
+## Methodology
 
-- **2026-05-24** — The Brand & Platform agent initially surfaced [kh.linkedin.com/in/aston-hill-469944322](https://kh.linkedin.com/in/aston-hill-469944322) as "Aston Hill, General Manager at Camfintech" and treated it as a positive E-E-A-T signal (a named human publicly associated with the practice). **The project principal has confirmed this association does not exist** — the LinkedIn profile self-describes against a different "Camfintech" entity, not the Cambodia consulting firm at camfintech.com. All references to Aston Hill have been removed from this report. The original finding stands: no named human is publicly associated with CamFinTech, and `/about` cannot be shipped until the principal identifies the named founder/team. Future audit runs should ignore any LinkedIn match against the literal string "Camfintech" without explicit confirmation from the principal — the entity collision risk (with Cámara Argentina de Fintech and other "camfintech"-shaped entities) extends to personal-profile self-descriptions, not just organisation-level matches.
+- 5 parallel subagents (general-purpose) — one per category — briefed with the Aston Hill guardrail and given a 10-URL sample
+- Schema verified via raw `curl` + `grep` for `application/ld+json` (WebFetch's HTML-to-markdown conversion strips `<script>` tags and missed the rendered schema — the May audit's "Privacy/Terms schema not rendering" finding was an artefact of this)
+- Composite score: weighted average per the `geo-audit` skill rubric (Citability 25% · Brand 20% · E-E-A-T 20% · Technical 15% · Schema 10% · Platform 10%)
+- Calibration drift between the May and June audit cohorts is real; absolute scores are the honest snapshot and the +4 composite delta is directional only
 
----
-
-*Audit generated 2026-05-24 by `/geo-audit` orchestration skill. Five specialist agents ran in parallel against live production HTML. Errata applied post-audit.*
+This report overwrites the 2026-05-24 snapshot at this path; the prior version is preserved in git history (commits `5b2c99d` and `5bb3a9a`). A dated copy of this audit is also written to the Obsidian vault at `Research/CamFinTech.com/CamFinTech.com website/GEO Audit 2026-06-18.md`.
