@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 import { getAllArticles } from "./content/registry";
 
+export const revalidate = 86400;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.camfintech.com";
   const lastModified = new Date();

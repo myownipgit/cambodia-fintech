@@ -76,6 +76,7 @@ export default function JsonLd() {
         },
         "sameAs": [
           "https://www.linkedin.com/company/118224010/",
+          "https://github.com/myownipgit/cambodia-fintech",
         ],
       },
       // Person (Founder) — unchanged

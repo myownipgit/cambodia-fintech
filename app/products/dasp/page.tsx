@@ -62,12 +62,6 @@ const daspSchema = {
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Products",
-          "item": "https://www.camfintech.com/products/dasp",
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
           "name": "DASP Approval-Readiness",
           "item": "https://www.camfintech.com/products/dasp",
         },
