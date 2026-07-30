@@ -57,6 +57,9 @@ export default function AboutContent() {
             <li><strong>We are not a system integrator.</strong> The technical build is delivered by accredited Service Providers (BanhJi, Innolab/Odoo, MAQSU, SAP/Crimson, KOSIGN, Metfone, GK-Smart); we coordinate the build and own the regulatory approval.</li>
             <li><strong>We are not a licensed financial operator.</strong> Fee-only. We never hold client funds and never operate a rail.</li>
           </ul>
+          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed mt-4">
+            <strong>Registered activity scope.</strong> CamFinTech is registered in Cambodia under KHNSIC-2015 codes <strong>62020</strong> (computer consultancy, systems integration, regulatory-compliance advisory), <strong>62090</strong> (IT advisory, project management, data &amp; analytics), <strong>70200</strong> (management consultancy, GRC, DPI integration advisory), and <strong>85499</strong> (professional training in FinTech, DPI, cybersecurity, regulatory compliance). All activities are delivered under the fee-only, never-build, reserved-work discipline described below — the registration is scope, not a change to how we work.
+          </p>
         </section>
 
         <section className="mb-10">

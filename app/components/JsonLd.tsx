@@ -44,6 +44,12 @@ export default function JsonLd() {
           "General Department of Taxation (GDT) compliance",
           "Securities and Exchange Regulator of Cambodia (SERC)",
           "Foreign FinTech market entry Cambodia",
+          "Regulatory GRC advisory (governance, risk, compliance)",
+          "DPI systems integration coordination",
+          "IT project management (Cambodian DPI programmes)",
+          "Compliance data and analytics",
+          "Professional training in FinTech regulatory compliance",
+          "KHNSIC 2015 activities 62020, 62090, 70200, 85499",
         ],
         "contactPoint": [
           {
@@ -131,6 +137,10 @@ export default function JsonLd() {
           "MLRO support",
           "DASP licensing readiness",
           "DPI rail integration coordination",
+          "Management consultancy (regulatory)",
+          "Governance, Risk and Compliance (GRC) advisory",
+          "IT systems integration coordination",
+          "Professional training",
         ],
       },
       // WebSite

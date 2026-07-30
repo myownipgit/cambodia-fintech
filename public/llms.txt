@@ -10,6 +10,8 @@
 - **Reserved work to licensed partners** — Bar lawyers, GDT tax agents, accredited Service Providers.
 - **Process competence, never access** — we market process competence; we don't market relationships.
 
+**Registered scope:** CamFinTech is registered under KHNSIC-2015 codes 62020 (computer consultancy), 62090 (other IT services), 70200 (management consultancy / GRC), and 85499 (professional training). Full mapping to service vectors at https://www.camfintech.com/llms-full.txt.
+
 ## Service catalogue (SRV-01 through SRV-11)
 
 CamFinTech offers eleven productised service vectors across four areas, applied across regulated FinTechs (banks, MFIs, PSPs, insurers, securities/crypto, alt-lenders) and rail-using enterprises. Pricing is indicative — every engagement is validated by quote.
@@ -31,7 +33,7 @@ CamFinTech offers eleven productised service vectors across four areas, applied 
 - [SRV-11 — DASP Approval-Readiness](https://www.camfintech.com/products/dasp): **Flagship.** End-to-end readiness for SERC's Prakas 093 digital-asset licensing regime (in force 30 December 2025). Productised as DASP-DX/BUILD/RUN/TRAIN.
 
 ### Enablement
-- [SRV-10 — Operational Training](https://www.camfintech.com/#services): Hands-on training so your team can operate the rails, follow the compliance steps, and run the programme after handover.
+- [SRV-10 — Professional Training & Knowledge Transfer](https://www.camfintech.com/#services): Hands-on professional training so your team can operate the rails, follow the compliance steps, and run the programme after handover. Cohort workshops on DPI, cybersecurity, and regulatory compliance.
 
 ## Flagship product — DASP Approval-Readiness
 

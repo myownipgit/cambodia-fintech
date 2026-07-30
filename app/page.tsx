@@ -177,9 +177,9 @@ export default function Home() {
                 </h3>
                 <ul className="space-y-3 text-sm">
                   <li>Navigate the <strong>approval</strong> for each rail (PSP/Bakong, CamDX/eKYC, CamInvoice, SERC DASP)</li>
-                  <li>Build your <strong>risk &amp; compliance programme</strong> (AML/CFT, governance, MLRO support)</li>
+                  <li>Build your <strong>risk &amp; compliance programme</strong> (AML/CFT, governance, MLRO support, GRC advisory)</li>
                   <li><strong>Represent</strong> Cambodian <em>and</em> foreign FinTechs before the regulators</li>
-                  <li><strong>Coordinate</strong> the accredited Service Provider who delivers the technical build</li>
+                  <li><strong>Coordinate</strong> the accredited Service Provider who delivers the technical build — systems integration and project management across the end-to-end approval + integration programme</li>
                   <li>Route reserved work (legal, tax filing, pen-test) to licensed partners — transparently, never marked up</li>
                 </ul>
               </div>
@@ -249,7 +249,7 @@ export default function Home() {
                   <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
                     <p className="text-xs text-primary font-bold mb-1">SRV-05</p>
                     <h4 className="font-bold mb-2">Licensing-Readiness</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Know exactly which NBC, NBFSA, or SERC licence you need — and be ready to win it. Gap mapping + application preparation.</p>
+                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Know exactly which NBC, NBFSA, or SERC licence you need — and be ready to win it. Management-consultancy-grade gap mapping + application preparation.</p>
                   </div>
                   <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
                     <p className="text-xs text-primary font-bold mb-1">SRV-06</p>
@@ -268,17 +268,17 @@ export default function Home() {
                   <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
                     <p className="text-xs text-primary font-bold mb-1">SRV-07</p>
                     <h4 className="font-bold mb-2">AML-Programme Design</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Build an anti-money-laundering programme regulators trust. CDD/EDD, transaction monitoring, CAFIU reporting, MLRO support.</p>
+                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Build an anti-money-laundering programme regulators trust. GRC-grade design: CDD/EDD, transaction monitoring, CAFIU reporting, MLRO support.</p>
                   </div>
                   <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
                     <p className="text-xs text-primary font-bold mb-1">SRV-08</p>
                     <h4 className="font-bold mb-2">Security / Pentesting</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Pre-launch security reviews and penetration tests aligned to NBC&apos;s TCRMG expectations — routed to an accredited security firm.</p>
+                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Cyber-risk advisory and pre-launch security reviews aligned to NBC&apos;s TCRMG expectations. Penetration testing routed to an accredited security firm we coordinate.</p>
                   </div>
                   <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
                     <p className="text-xs text-primary font-bold mb-1">SRV-09</p>
                     <h4 className="font-bold mb-2">Data-Protection Protocols</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Get ahead of Cambodia&apos;s incoming Personal Data Protection Law. Consent, retention, processor governance, DPO-support.</p>
+                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Get ahead of Cambodia&apos;s incoming Personal Data Protection Law. IT-advisory-grade data governance: consent, retention, processor governance, DPO-support.</p>
                   </div>
                   <div className="rounded-lg border-2 border-primary/40 bg-primary/5 p-5">
                     <p className="text-xs text-primary font-bold mb-1">SRV-11 · Flagship</p>
@@ -296,8 +296,8 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
                     <p className="text-xs text-primary font-bold mb-1">SRV-10</p>
-                    <h4 className="font-bold mb-2">Operational Training</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Hands-on training so your team can operate the rails, follow the compliance steps, and keep everything running after we&apos;ve handed over.</p>
+                    <h4 className="font-bold mb-2">Professional Training &amp; Knowledge Transfer</h4>
+                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Hands-on professional training so your team can operate the rails, follow the compliance steps, and keep everything running after we&apos;ve handed over. Cohort workshops on DPI, cybersecurity, and regulatory compliance.</p>
                   </div>
                 </div>
               </div>
