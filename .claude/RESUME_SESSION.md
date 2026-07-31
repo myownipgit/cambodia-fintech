@@ -3,7 +3,7 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-07-31 (end of 2026-07-30/31 session — GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + vault sweep + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed**)
+2026-07-31 (end of 2026-07-30/31 session — GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + vault sweep + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured for pending pivots**)
 
 ## Current Branch
 `feature/update-homepage` — 3 commits ahead of `main` (main is at `5e5c0da` from 2026-06-18)
@@ -116,6 +116,8 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 | `DPI Integration/00_README.md` | ✅ New OBR section |
 | `DPI Integration/61_CamFinTech_Website_Rewrite_Brief.md` | ✅ Addendum banner |
 | `DPI Integration/63_OBR_Registration_and_KHNSIC_Scope.md` | ✅ NEW canonical doc |
+| `DPI Integration/64_62010_Pivot_Direction_Note.md` | ✅ NEW direction note — 62010 pivot (Bill wants to broaden into DPI-compliant tech building; reverses `086a8ae` decision + "never builds" hard rule). Awaits AskUserQuestion scoping session — 7 tensions. |
+| `DPI Integration/65_Remediation_Engine_Direction_Note.md` | ✅ NEW direction note — Evidence-backed remediation engine (GEO audit findings → persistent Kanban cards → auto-executable / draft-and-stage / human-only / observe-only tiers → branch→PR→human-merge → verification-gated closure). Awaits scoping session — 10 tensions. |
 | `FinTechReport/35 - Brand Architecture...md` | ⚠️ Unchanged — banner-only reconciliation still current; body says "software company" (FU-1) |
 | `FinTechReport/12 - Session Timeline.md` | Unchanged — no new entry needed |
 | `Angkor Skills Academy/` (folder exists, 7 items) | Not touched this session — awaits site launch trigger |
@@ -145,7 +147,8 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 - Founder display name: William Mallett; LinkedIn slug: `william-mall` (mismatch intentional — do NOT "fix")
 - **Aston Hill is NOT associated with CamFinTech** — see GEO Audit errata; do NOT re-introduce
 - DPI positioning is canonical: fee-only · never hold client funds · never operate a rail · reserved work to licensed partners · process competence not access
-- **62010 (software development / SaaS) stays OFF the public site** — OBR-registered but legal-umbrella breadth only; preserves "never build" hard rule
+- **62010 (software development / SaaS) stays OFF the public site** — OBR-registered but legal-umbrella breadth only; preserves "never build" hard rule. **⚠️ UNDER REVERSAL** — see vault [[../DPI Integration/64_62010_Pivot_Direction_Note]]; do NOT make ad hoc changes without scoping session
+- **Remediation engine pending** — GEO audit → Kanban → automated fixes design captured but not built; see vault [[../DPI Integration/65_Remediation_Engine_Direction_Note]]; do NOT extend `daily-audit.sh` or wire Kanban surface without scoping session
 - **Single-brand front door on camfintech.com** — no "CamFinTech Group" umbrella language
 - **No Angkor Skills Academy mention until angkorskillsacademy.com is live** — decided 2026-07-30
 - CamDL is a back-end dependency, NOT a sellable rail
