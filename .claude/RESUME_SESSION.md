@@ -3,7 +3,7 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-07-31 (end of 2026-07-30/31 session — GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + vault sweep)
+2026-07-31 (end of 2026-07-30/31 session — GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + vault sweep + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed**)
 
 ## Current Branch
 `feature/update-homepage` — 3 commits ahead of `main` (main is at `5e5c0da` from 2026-06-18)
@@ -30,6 +30,23 @@ Per-category deltas: Citability 78→77 (−1), Brand 42→43 (+1), E-E-A-T 68�
 - **C1 hotfix** (`ca32875`): Removed dead Wikidata URL from `Organization.sameAs`. Deploy required interactive `vercel login` re-auth (token had expired).
 - **L1+H1+H2+M1 bundle** (`c9e9690`): Added GitHub URL to sameAs (2 anchors restored); overrode 404 robots metadata; added `revalidate = 86400` to sitemap.ts; fixed DASP BreadcrumbList self-loop.
 - **OBR-KHNSIC scope broadening** (`086a8ae`): Bill submitted CamFinTech to Cambodian OBR portal with 5 KHNSIC-2015 codes. Site language broadened to reflect 4 public codes (62020, 62090, 70200, 85499). 62010 (software dev/SaaS) kept OFF public site to preserve "never build" hard rule. Locked via AskUserQuestion: single-brand front door, no CamFinTech Group umbrella, no Angkor Skills Academy mention until angkorskillsacademy.com launches. Plan file: `/Users/myownip/.config/claude/plans/misty-cuddling-gray.md`.
+
+### Continuous monitoring infrastructure deployed (2026-07-31)
+
+**Phase 8 — sameAs Health Check n8n workflow** (`VRga1rFKpoghkWy5` on `automation.camfintech.com`, active): weekly Sundays 09:00 ICT. Fetches production homepage, parses JSON-LD, HEAD-checks every `Organization.sameAs` + `Person.sameAs` URL, alerts Telegram only if any URL returns non-2xx. Would have caught the Wikidata dead-link within 2 days instead of 33. Companion error-alert workflow (`s3oujqs6DMAcnEVs`) fires if the main workflow itself crashes. **Bill-actionable**: wire Gmail credential on both workflows' Gmail nodes in the n8n UI (30 sec each). Alerts won't send until credential is picked.
+
+**Phase 9 — Daily GEO Monitoring Pipeline** (3 Hermes cron jobs, active):
+- `645711088c45` camfintech-daily-audit — DeepSeek V4 Pro daily 09:00 ICT
+- `3ce7e030981c` camfintech-weekly-cross-check — Sonnet 4.7 Sundays 08:00 ICT
+- `f365ca6ac1f5` camfintech-weekly-competitor — DeepSeek Mondays 09:00 ICT (DFDL, Acclime, DAS & Partners)
+
+Tier B locked after Phase 0 empirical model shootout. Estimated cost ~$136/year total. Delivers digest + full report as document to CamFinTech Hermes Telegram group `-1004295083888`.
+
+**Key discovery**: `claude -p /geo-audit URL` FAILS in headless mode (subagent orchestration is incompatible with print mode). Applies to Sonnet + Haiku + Opus. Cron audits MUST use single-context inlined-prompt approach. DeepSeek delivered ~75–85% of Sonnet's quality with verification-discipline addendum (drops false-positive rate from ~30% to near-zero).
+
+**Manual trigger 2026-07-31**: daily-audit ran end-to-end in 27 min, delivered composite 65/100 (Δ −2 vs Sonnet baseline 67), zero false positives. Pipeline validated end-to-end.
+
+Full docs: [[Daily GEO Monitoring Pipeline]] + [[sameAs Health Check Workflow]]. Plan file: `/Users/myownip/.config/claude/plans/misty-cuddling-gray.md`. Shootout: `~/.geo-prospects/shootout/SHOOTOUT-RESULTS.md`.
 
 ### Vault + memory sweep (2026-07-31)
 
