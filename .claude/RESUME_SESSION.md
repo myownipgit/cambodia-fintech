@@ -6,14 +6,18 @@ This file tracks the current session state to enable seamless recovery between s
 2026-07-31 (end of 2026-07-30/31 session — GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + vault sweep + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured for pending pivots** + **Agentic Firm operating thesis captured (new `Firm Operations/` vault folder)**)
 
 ## Current Branch
-`feature/update-homepage` — 3 commits ahead of `main` (main is at `5e5c0da` from 2026-06-18)
+`feature/update-homepage` — **aligned with `main`** at `2f2e70c` (both branches fast-forwarded end of 2026-07-31 session)
 
-## Latest commits (2026-07-30 arc)
-- **`086a8ae`** — "Broaden site language to reflect OBR-registered KHNSIC scope" — deploy `dpl_6pcc9sZ1FJfj2raqN1mirnjEnBsQ` (HEAD)
+## Latest commits (2026-07-30/31 arc — all pushed, main = feature/update-homepage = `2f2e70c`)
+- **`2f2e70c`** — "Add pointer to Agentic Firm operating thesis (new Firm Operations vault folder)" (HEAD) — docs only
+- **`0dbe191`** — "Add pointers to direction notes 64 (62010 pivot) + 65 (remediation engine)" — docs only
+- **`9f82043`** — "Add continuous monitoring pipeline docs (n8n + Hermes cron)" — docs only
+- **`8f37e09`** — "Update RESUME_SESSION for 2026-07-30/31 arc" — docs only
+- **`086a8ae`** — "Broaden site language to reflect OBR-registered KHNSIC scope" — deploy `dpl_6pcc9sZ1FJfj2raqN1mirnjEnBsQ`
 - **`c9e9690`** — "Post-audit hotfix bundle: GitHub sameAs, 404 robots, sitemap freshness, DASP breadcrumb" — deploy `dpl_Cwh1WkcScRg69mmKBY52VB2uwUaN`
 - **`ca32875`** — "Remove dead Wikidata sameAs anchor (Q140279044 was deleted 2026-06-28)" — deploy `dpl_6LPAHGBd6qCcKL9sjcihTZCdPt3N`
 
-All three commits pushed to `feature/update-homepage`. **`main` has NOT been fast-forwarded yet** — pending Bill sign-off.
+**Production**: last deploy remains `dpl_6pcc9sZ1FJfj2raqN1mirnjEnBsQ` from 2026-07-30 (OBR-KHNSIC broadening). No code deploys shipped 2026-07-31 — all four 2026-07-31 commits are docs-only.
 
 ## What just happened (2026-07-30 arc, one session)
 
@@ -47,6 +51,16 @@ Tier B locked after Phase 0 empirical model shootout. Estimated cost ~$136/year 
 **Manual trigger 2026-07-31**: daily-audit ran end-to-end in 27 min, delivered composite 65/100 (Δ −2 vs Sonnet baseline 67), zero false positives. Pipeline validated end-to-end.
 
 Full docs: [[Daily GEO Monitoring Pipeline]] + [[sameAs Health Check Workflow]]. Plan file: `/Users/myownip/.config/claude/plans/misty-cuddling-gray.md`. Shootout: `~/.geo-prospects/shootout/SHOOTOUT-RESULTS.md`.
+
+### Phase 10 — Direction-note capture arc (2026-07-31, late session)
+
+Three strategic framing docs captured in the vault, none executable — all forbid ad-hoc changes without proper scoping sessions:
+
+- **`64_62010_Pivot_Direction_Note.md`** — Bill discovered during OBR registration that 62010 (software dev / SaaS) requires NO additional ministerial certification. Wants CamFinTech.com to broaden offerings to include DPI-compliant technology building — REVERSES the 2026-07-30 `086a8ae` "62010 stays OFF" decision + the "never builds" hard rule stamped on 6 site surfaces. **7 tensions** to resolve before executing (scope, accredited-partner fate, SP status, hard-rule survival, brief revision, disclaimer reversal, timing).
+- **`65_Remediation_Engine_Direction_Note.md`** — Evidence-backed remediation engine spec: daily GEO audit findings → persistent Kanban cards keyed on `domain:rule:template` → four action tiers (`auto-executable` / `draft-and-stage` / `human-only` / `observe-only`) → branch→PR→human-merge automation (never direct-to-prod) → verification-gated closure with `Recurrence` as first-class state. GEO is the pilot; pattern generalizes to sameAs / competitor / security. **10 tensions** to resolve.
+- **`Firm Operations/00_Agentic_Firm_Thesis.md`** — parent thesis behind docs 64+65 in NEW `Firm Operations/` vault folder. Sole-founder consulting firm as 4-layer agentic system: **Sensors → AI Chief of Staff → Human → Specialist Agents**. 9-sensor network mapped for CamFinTech (2 deployed = GEO + competitor; 7 shape-only = compliance / financial / client health / cybersecurity / legal / brand / product-market). Load-bearing insight: AI CoS synthesis at founder-volume is the genuinely-new role (previously priced at ~$150K/yr salary). Coincidentally converges with the 62010 pivot — makes the firm's own operations a **saleable second product** (KHNSIC 62010+62020+70200) and a **Riel Report editorial arc**.
+
+3 commits (all docs-only) pushed and main fast-forwarded to `2f2e70c`. MEMORY.md updated with 3 parallel anchor sections pointing at the vault docs.
 
 ### Vault + memory sweep (2026-07-31)
 
@@ -87,8 +101,20 @@ Priority order for the 30-day target (composite ≥ 72 by 2026-08-30):
 | 7 | **LinkedIn 1-3 posts** re-sharing Riel Report briefings | Bill | Bill only |
 | 8 | **M4/M5/M6**: Small copy polish (homepage "What is CamFinTech?" answer block; /glossary/camdigikey lead sentence; /about full street address) | 30 min Claude | Nothing |
 | 9 | **NEW-M1 cosmetic residue**: 404 page still emits 2 robots meta tags (both agree noindex now — behavior correct, redundancy remains) | 15 min Claude — investigate app/layout.tsx | Nothing |
-| 10 | **`main` fast-forward**: bring `main` up to `086a8ae` for GitHub default-branch hygiene | 2 min | Bill sign-off |
-| 11 | **2-week re-audit** on/after 2026-08-13 | Run `/geo-audit` | Nothing |
+| 10 | **2-week re-audit** on/after 2026-08-13 | Run `/geo-audit` | Nothing |
+| 11 | **Wire Gmail credential** on both sameAs Health Check n8n workflows (main + error-alert) | 30 sec each in n8n UI | Bill — alerts won't send until picked |
+
+**Task 10 completed 2026-07-31**: `main` fast-forwarded to `2f2e70c`.
+
+## Pending scoping sessions (triggered by Bill when ready — do NOT execute without them)
+
+Three strategic direction docs captured this session, all forbid ad-hoc execution:
+
+| # | Session | Tensions to lock | Trigger phrase |
+|---|---|---|---|
+| A | **62010 pivot** — broaden CamFinTech.com to include DPI-compliant technology building; reverses "never builds" hard rule on 6 site surfaces | 7 tensions (scope, accredited-partner fate, SP status, hard-rule survival, brief revision, disclaimer reversal, timing) | "let's plan the 62010 pivot" |
+| B | **Remediation engine** — GEO audit findings → persistent Kanban cards → tiered automation with branch→PR→human-merge | 10 tensions (Kanban tool, YAML store, policy config, grouping-rule authoring, verification trigger, accepted-risk auth, recurrence policy, pilot scope, confidence-to-tier mapping, human-only assignment) | "let's plan the remediation engine" |
+| C | **Agentic firm — sensor #2 selection** — most likely cybersecurity (daily, deterministic) or regulatory compliance calendar (weekly, OBR/Prakas-coupled). Do NOT design CoS synthesis layer until 2–3 sensors exist. | Sensor domain, cadence, cost, format, and how it feeds a future CoS layer | "let's plan sensor 2" |
 
 ## Longer-horizon follow-ups
 
@@ -131,15 +157,19 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 - External Entity IDs: Wikidata marked DELETED with errata + rebuild rule; GitHub now in Organization.sameAs; GBP still pending wire-up; Cámara Argentina Fintech string-collision worsened
 - GEO Audits: 2026-06-18 post-rewrite (63) + 2026-07-30 (67) entries added; Aston Hill guardrail carried; Wikidata rebuild rule added
 - 30-day target updated: composite ≥ 72 by 2026-08-30
+- **Late-2026-07-31 additions**: three parallel anchor sections pointing at vault docs 64 (62010 pivot), 65 (remediation engine), and the new `Firm Operations/` thesis — each with "do NOT execute without scoping session" guardrail
 
 ## How to resume
 
 1. Read this file first
-2. `git log --oneline -10` to see commit history — should show `086a8ae` at HEAD of `feature/update-homepage`, `5e5c0da` at HEAD of `main`
-3. `git status` to check for uncommitted changes (should be clean modulo `.claude/RESUME_SESSION.md`)
-4. Read auto-memory `MEMORY.md` for cross-session state
+2. `git log --oneline -5` to see commit history — HEAD of both `main` and `feature/update-homepage` should be `2f2e70c` (Agentic Firm thesis pointer)
+3. `git status` to check for uncommitted changes (should be clean modulo `.claude/RESUME_SESSION.md` if updates are in progress)
+4. Read auto-memory `MEMORY.md` for cross-session state — includes 3 direction-note anchors from the late-2026-07-31 arc
 5. Check `Research/CamFinTech.com/CamFinTech.com website/Rewrite Project.md` for the live sprint log
-6. Bill's next likely ask: send GBP Maps URL + lat/lng OR run the 2-week re-audit on/after 2026-08-13 OR real founder bio for /about (FU-6)
+6. Bill's next likely ask (in rough priority order):
+   - **Execution work**: send GBP Maps URL + lat/lng (2 min task) · run 2-week re-audit on/after 2026-08-13 · real founder bio for /about (FU-6) · H4 primary-source hyperlinking sweep
+   - **Scoping sessions**: "let's plan the 62010 pivot" (session A) · "let's plan the remediation engine" (session B) · "let's plan sensor 2" (session C)
+   - **First live cron audit**: 2026-08-01 09:00 ICT — daily-audit fires automatically; Bill may want a post-run readout
 
 ## Hard rules to preserve (from CLAUDE.md + DPI Integration vault)
 
