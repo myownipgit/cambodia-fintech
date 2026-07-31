@@ -3,12 +3,17 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-07-31 (end of 2026-07-30/31 session — GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + vault sweep + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured for pending pivots** + **Agentic Firm operating thesis captured (new `Firm Operations/` vault folder)** + **GEO Sensor Pilot pressure-test + Decision Log with ADR-001 Honcho-defer**)
+2026-07-31 (end of 2026-07-30/31 session — GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + vault sweep + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured for pending pivots** + **Agentic Firm operating thesis captured (new `Firm Operations/` vault folder)** + **GEO Sensor Pilot pressure-test + Decision Log with ADR-001 Honcho-defer** + **Phase 11: pilot execution — 3 cards, 2 false-positives, ADR-002 evidence+identity+pause, PR #4 draft awaiting merge**)
 
 ## Current Branch
-`feature/update-homepage` — **aligned with `main`** at `2f2e70c` (both branches fast-forwarded end of 2026-07-31 session)
+`feature/update-homepage` — **aligned with `main`** at `2712591` (both branches fast-forwarded 2026-07-31)
 
-## Latest commits (2026-07-30/31 arc — all pushed, main = feature/update-homepage = `2f2e70c`)
+**Live PR: `p0/itemlist-index-pages` → `feature/update-homepage`** (2 commits ahead of feature branch):
+- `aaacfb5` — PR #4 review-fix (C1 itemListOrder / C3 type consistency / N4 inLanguage / N5 return type)
+- `f8642d0` — ItemList JSON-LD initial commit
+- **Status**: Draft, MERGEABLE. Bill's α checklist: `gh pr ready 4` → `gh pr merge 4 --squash` → local `git pull` + verify HEAD + tree clean → `vercel --prod --yes` → notify with Vercel deployment ID → Claude fires production probe + validator.schema.org check + closes card #31.
+
+## Latest commits (2026-07-30/31 arc — all pushed, main = feature/update-homepage = `2712591`)
 - **`2f2e70c`** — "Add pointer to Agentic Firm operating thesis (new Firm Operations vault folder)" (HEAD) — docs only
 - **`0dbe191`** — "Add pointers to direction notes 64 (62010 pivot) + 65 (remediation engine)" — docs only
 - **`9f82043`** — "Add continuous monitoring pipeline docs (n8n + Hermes cron)" — docs only
@@ -62,6 +67,37 @@ Three strategic framing docs captured in the vault, none executable — all forb
 
 3 commits (all docs-only) pushed and main fast-forwarded to `2f2e70c`. MEMORY.md updated with 3 parallel anchor sections pointing at the vault docs.
 
+### Phase 11 — Agentic-firm pilot execution + PR #4 (2026-07-31, afternoon → evening)
+
+Started with Bill's structured 15-item pressure-test of the agentic-firm thesis at GEO-sensor scope. Ended with the pilot's first real remediation-engine PR queued for merge and multiple pilot principles empirically validated. Full narrative: [[../Firm Operations/03_Session_Log_2026-07-31]].
+
+**Vault docs added (afternoon)**:
+- `Firm Operations/01_GEO_Sensor_Pilot_Pressure_Test.md` — 15-item structured critique; 3 counter-arguments (sample-size-of-1, verifier=implementer, auto-authorization creep); 6-phase pilot P0→P5; 3 pilot cases (reversible-tech / high-consequence / human-only); stop conditions
+- `Firm Operations/02_Decision_Log.md` — append-only ADR ledger. **ADR-001**: defer Honcho memory service until CoS synthesis layer emerges (git-tracked YAML wins for pilot). **ADR-002**: 3-part decision (D1 evidence requirement for Critical/High technical findings + D2 audit artifact identity spec + D3 sensor-quality pause).
+- `Firm Operations/03_Session_Log_2026-07-31.md` — narrative session log covering the full day arc
+
+**Pilot execution (`~/.geo-prospects/` — locally git-tracked, no remote)**:
+- Repo initialized (`git init`) with baseline commit for existing audits + scripts + shootout
+- 3 P0 cards hand-authored in `cards/` (schema-writer + infra-config + brand-copy authority classes exercised)
+- **Cards 1 & 2 closed as FALSE POSITIVE** via empirical HTTP + source-code verification. **2-of-3 P0 cards were FP (66.7%)** — Bill's measurement correction: do NOT extrapolate to overall audit FP rate; sample too small and non-random.
+- **Audit-artifact discrepancy discovered**: Bill-quoted audit and disk audit contained contradictory findings despite sharing logical identity `geo-audit:2026-07-31`. Quarantined the Bill-quoted variant in `quarantine/` with provenance `unknown/manual-input`. Cards 1 & 2 retroactively re-provenanced.
+- **Replacement Card 1 authored (ItemList)** after 5-question empirical screening of 4 candidates. Selected as Medium enhancement (not defect) per Bill's calibration.
+- **Card 3 (founder bio) remains `awaiting-input`** — human-only tier, blocked on Bill's bio content
+
+**PR #4 — first real remediation-engine PR** ([github.com/myownipgit/cambodia-fintech/pull/4](https://github.com/myownipgit/cambodia-fintech/pull/4)):
+- Branch `p0/itemlist-index-pages` (2 commits: `f8642d0` + `aaacfb5`)
+- Adds `ItemList` JSON-LD to `/glossary` + `/learn` index pages via shared helper `app/content/indexItemList.ts`
+- Self-review + independent code-reviewer agent (verifier-separation from ADR-002 applied to review layer itself)
+- Independent reviewer caught **C3** (helper didn't enforce `indexPath`/`article.type` consistency) which self-review missed
+- Fix commit `aaacfb5` addressed C1 (`itemListOrder` dropped) + C3 (type enforcement) + N4 (`inLanguage: 'en'`) + N5 (return type annotation)
+- Local verification: 49/49 + 33/33 structural + 6/6 + 6/6 alignment checks pass on built HTML
+- **Vercel preview verification blocked** by Deployment Protection SSO; 4 API paths to programmatically create bypass secret returned 404 or invalid property. Per Bill's fallback rule, dropping preview validation and running against production URLs post-deploy.
+- **Status**: Draft, MERGEABLE, awaiting Bill's α checklist (merge + `vercel --prod --yes`)
+
+**Recent Milestones Phase 9** entry added in website vault ([[Recent Milestones]]) covering this whole Phase 11 arc. Documentation milestones row added noting new `Firm Operations/` folder + 4-doc set.
+
+**Meta-signal**: the pilot's own principles validated on Day 1 — verifier-separation caught a real gap; false-positive gates held twice; ADR-002 turned an unexpected discovery into structural improvement.
+
 ### Vault + memory sweep (2026-07-31)
 
 - **[[GEO Audit 2026-07-30]]** — new snapshot in website vault
@@ -104,7 +140,37 @@ Priority order for the 30-day target (composite ≥ 72 by 2026-08-30):
 | 10 | **2-week re-audit** on/after 2026-08-13 | Run `/geo-audit` | Nothing |
 | 11 | **Wire Gmail credential** on both sameAs Health Check n8n workflows (main + error-alert) | 30 sec each in n8n UI | Bill — alerts won't send until picked |
 
-**Task 10 completed 2026-07-31**: `main` fast-forwarded to `2f2e70c`.
+**Task 10 completed 2026-07-31**: `main` fast-forwarded to `2f2e70c` (later to `2712591`).
+
+## Live pilot state (Phase 11)
+
+**D3 sensor-quality pause status**: **HOLD**. D1 deployed as geo-prospects `01850f0`; 2 clean scheduled runs required to lift. First cron under D1 fires 2026-08-01 09:00 ICT. Review discipline at vault [[../Firm Operations/04_ADR-002_D3_Clean_Run_Checklist]]; per-audit records at `~/.geo-prospects/reviews/`. Pause blocks P1 (normalize/dedupe/YAML persistence automation).
+
+**Task tracker (this session)**:
+- ✅ **28-30, 32, 33, 35**: setup + review + fix + ADR-002 D1/D2 implementation — all done
+- 🟡 **31 in_progress**: Card + PR + verify (P0 Case A) — waiting on Bill's merge + `vercel --prod --yes`
+- ⏸ **34 blocked-by-31**: Post-deploy production probe + validator.schema.org check
+- ⏸ **36 pending**: Review 2026-08-01 09:00 ICT scheduled daily-audit against D3 checklist (Sections A + B + C — mechanical + substantive + downgrade-abuse)
+- ⏸ **37 blocked-by-36**: Review 2026-08-02 09:00 ICT scheduled daily-audit; if CLEAN, D3 pause LIFTS and P1 unblocks
+
+**Pilot cards** (`~/.geo-prospects/cards/`):
+| Card | Status | Note |
+|---|---|---|
+| `camfintech-article-schema-learn-glossary.yaml` | `false-positive` | Schema already present via `ArticleLayout.tsx:61-104` shipped 2026-06-18 |
+| `camfintech-canonical-domain-redirect.yaml` | `false-positive` | 4 URLs probed 2026-07-31T04:07Z; all redirect correctly with 308 + HSTS |
+| `camfintech-founder-bio-placeholder.yaml` | `awaiting-input` | Only Card 3 exercises the human-only tier; blocked on Bill's bio |
+| `camfintech-itemlist-index-pages.yaml` | `awaiting-approval` | P0 Case A replacement; PR #4 pending Bill's merge |
+
+**PR #4 immediate next actions (Bill's α checklist)**:
+```
+gh pr ready 4
+gh pr merge 4 --squash           # or --merge / --rebase
+git checkout feature/update-homepage && git pull origin feature/update-homepage
+git status                       # should be clean
+git log --oneline -3             # confirm HEAD is the merged commit
+vercel --prod --yes              # from /Users/myownip/workspace/cambodia-fintech
+```
+Then signal "deployed" + Vercel deployment ID → Claude regenerates or locates the one-shot production verifier from Card 31's `verification` specification in `~/.geo-prospects/cards/camfintech-itemlist-index-pages.yaml` (do NOT rely on any ephemeral scratchpad path from a previous session — scratchpad paths are per-session and disappear). Claude preserves the verifier's hash + executed version + raw output in the card's evidence log; runs it against both production URLs; submits both URLs to validator.schema.org and records the zero-error result; records deployment metadata in the card per Bill's α spec (PR#, merge commit, local HEAD before deploy, Vercel deployment ID, production URL, deployment status); then closes card #31 if all criteria pass. Persisting a reusable verifier into `~/.geo-prospects/scripts/` is a follow-up (do NOT do it as part of the deploy commit).
 
 ## Pending scoping sessions (triggered by Bill when ready — do NOT execute without them)
 
@@ -115,6 +181,7 @@ Three strategic direction docs captured this session, all forbid ad-hoc executio
 | A | **62010 pivot** — broaden CamFinTech.com to include DPI-compliant technology building; reverses "never builds" hard rule on 6 site surfaces | 7 tensions (scope, accredited-partner fate, SP status, hard-rule survival, brief revision, disclaimer reversal, timing) | "let's plan the 62010 pivot" |
 | B | **Remediation engine** — GEO audit findings → persistent Kanban cards → tiered automation with branch→PR→human-merge | 10 tensions (Kanban tool, YAML store, policy config, grouping-rule authoring, verification trigger, accepted-risk auth, recurrence policy, pilot scope, confidence-to-tier mapping, human-only assignment) | "let's plan the remediation engine" |
 | C | **Agentic firm — sensor #2 selection** — most likely cybersecurity (daily, deterministic) or regulatory compliance calendar (weekly, OBR/Prakas-coupled). Do NOT design CoS synthesis layer until 2–3 sensors exist. | Sensor domain, cadence, cost, format, and how it feeds a future CoS layer | "let's plan sensor 2" |
+| ~~D~~ | ~~**ADR-002 D1/D2 implementation**~~ | ~~Prompt-append text; metadata JSON shape; retroactive-run-id policy~~ | **✅ COMPLETED 2026-07-31 evening** — shipped as geo-prospects commit `01850f0`. All 4 scoping decisions resolved via AskUserQuestion (YAML frontmatter + structured YAML evidence block + sha256 prompt hash + retroactive backfill). D3 pause-lift condition (2 clean scheduled runs against vault checklist doc 04) is what's now pending; tasks 36 + 37 track those reviews. |
 
 ## Longer-horizon follow-ups
 
@@ -146,7 +213,10 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 | `DPI Integration/65_Remediation_Engine_Direction_Note.md` | ✅ NEW direction note — Evidence-backed remediation engine (GEO audit findings → persistent Kanban cards → auto-executable / draft-and-stage / human-only / observe-only tiers → branch→PR→human-merge → verification-gated closure). Awaits scoping session — 10 tensions. |
 | `Firm Operations/00_Agentic_Firm_Thesis.md` | ✅ NEW parent thesis + NEW folder — 4-layer agentic system (Sensors → AI Chief of Staff → Human → Specialist Agents); 9-sensor network for CamFinTech (2 deployed, 7 shape-only); load-bearing insight = AI-CoS synthesis at founder-volume; second-product implication maps to KHNSIC 62010+62020+70200. Parent context for docs 64+65. |
 | `Firm Operations/01_GEO_Sensor_Pilot_Pressure_Test.md` | ✅ NEW analytical pressure-test — 15-section structured critique of the thesis at GEO-pilot scope; 3 strongest counter-arguments (sample-size-of-1, verifier=implementer, auto-authorization creep); 6-phase pilot P0→P5; 3 pilot cases (reversible-tech / high-consequence / human-only); stop conditions; smallest credible experiment (P0+P1 in ~1 month). Companion to doc 65. |
-| `Firm Operations/02_Decision_Log.md` | ✅ NEW append-only ADR ledger — ADR-001 (Honcho defer): git-tracked YAML wins for pilot; Honcho's peer/session/message primitives fit CoS layer + cross-sensor correlation, not deterministic structured records. Bill's subscription remains valuable, just not yet applied. 5 revisit triggers (all must be true). |
+| `Firm Operations/02_Decision_Log.md` | ✅ NEW append-only ADR ledger — **ADR-001** (Honcho defer): git-tracked YAML wins for pilot; 5 revisit triggers all must be true. **ADR-002** (added late 2026-07-31): 3-part decision — D1 sensor evidence requirement for Critical/High technical findings + D2 audit artifact identity spec (immutable run_id/producer/model/prompt_version/content_hash; logical identity `geo-audit:<date>` forbidden) + D3 sensor-quality pause before P1 automation. Bill-quoted audit variant quarantined at `~/.geo-prospects/quarantine/`. |
+| `Firm Operations/03_Session_Log_2026-07-31.md` | ✅ NEW session log — narrative record of the full 2026-07-31 day arc. 5 sections (morning hotfix → mid-day concept expansion → afternoon pilot execution → PR #4 + verifier-separation → end-of-day state). Artifacts index at bottom (new vault docs, YAML cards, quarantine, deployed infrastructure, all commits). Sets naming pattern `NN_Session_Log_YYYY-MM-DD.md` for future session logs. |
+| `Firm Operations/04_ADR-002_D3_Clean_Run_Checklist.md` | ✅ NEW review instrument — per-audit checklist for the D3 pause-lift condition. Three sections: (A) D2 metadata integrity mechanical checks, (B) D1 evidence discipline substantive checks, (C) **downgrade-abuse detection** per Bill's 2026-07-31 loophole observation that a Critical/High could be rebadged to Medium and stay in the report. Names two triggers for a future ADR-003 amendment but explicitly forbids amending before empirical review evidence exists. Per-audit review records at `~/.geo-prospects/reviews/`. |
+| `CamFinTech.com website/Recent Milestones.md` | ✅ NEW Phase 9 section + Documentation-milestones row for new `Firm Operations/` folder. Phase 9 = agentic firm operating system arc (docs 65 + 00 + 01 + 02, pilot P0 execution, ADR-002, PR #4). |
 | `FinTechReport/35 - Brand Architecture...md` | ⚠️ Unchanged — banner-only reconciliation still current; body says "software company" (FU-1) |
 | `FinTechReport/12 - Session Timeline.md` | Unchanged — no new entry needed |
 | `Angkor Skills Academy/` (folder exists, 7 items) | Not touched this session — awaits site launch trigger |
@@ -164,14 +234,16 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 ## How to resume
 
 1. Read this file first
-2. `git log --oneline -5` to see commit history — HEAD of both `main` and `feature/update-homepage` should be `2f2e70c` (Agentic Firm thesis pointer)
+2. `git log --oneline -5` to see commit history — HEAD of both `main` and `feature/update-homepage` should be `2712591` (or the latest RESUME_SESSION commit). **Live PR: `p0/itemlist-index-pages` @ `aaacfb5`** — check with `gh pr view 4`
 3. `git status` to check for uncommitted changes (should be clean modulo `.claude/RESUME_SESSION.md` if updates are in progress)
-4. Read auto-memory `MEMORY.md` for cross-session state — includes 3 direction-note anchors from the late-2026-07-31 arc
-5. Check `Research/CamFinTech.com/CamFinTech.com website/Rewrite Project.md` for the live sprint log
-6. Bill's next likely ask (in rough priority order):
+4. Read auto-memory `MEMORY.md` for cross-session state — includes anchors for 62010 pivot, remediation engine, agentic firm thesis, ADR-001+ADR-002
+5. Check `Research/CamFinTech.com/Firm Operations/03_Session_Log_2026-07-31.md` for the full narrative of the day
+6. Check `~/.geo-prospects/cards/` for pilot card state (`git log --oneline` inside that dir)
+7. Bill's next likely ask (in rough priority order):
+   - **Immediate**: merge PR #4 + deploy + I run production verification (this is the top-of-queue action)
    - **Execution work**: send GBP Maps URL + lat/lng (2 min task) · run 2-week re-audit on/after 2026-08-13 · real founder bio for /about (FU-6) · H4 primary-source hyperlinking sweep
-   - **Scoping sessions**: "let's plan the 62010 pivot" (session A) · "let's plan the remediation engine" (session B) · "let's plan sensor 2" (session C)
-   - **First live cron audit**: 2026-08-01 09:00 ICT — daily-audit fires automatically; Bill may want a post-run readout
+   - **Scoping sessions**: "let's plan the 62010 pivot" (A) · "let's plan the remediation engine" (B) · "let's plan sensor 2" (C)
+   - **First live cron audit under ADR-002 D1**: 2026-08-01 09:00 ICT — daily-audit fires automatically; **must be reviewed against vault [[../Firm Operations/04_ADR-002_D3_Clean_Run_Checklist]]** per tasks 36 + 37 before it counts toward lifting the D3 sensor-quality pause. Review record goes at `~/.geo-prospects/reviews/2026-08-01-daily-audit-review.md`. Checklist has 3 sections: A (D2 metadata integrity mechanical), B (D1 evidence discipline substantive), C (downgrade-abuse detection per Bill's loophole observation).
 
 ## Hard rules to preserve (from CLAUDE.md + DPI Integration vault)
 
@@ -184,6 +256,10 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 - **Remediation engine pending** — GEO audit → Kanban → automated fixes design captured but not built; see vault [[../DPI Integration/65_Remediation_Engine_Direction_Note]]; do NOT extend `daily-audit.sh` or wire Kanban surface without scoping session
 - **Agentic Firm thesis is thesis-only** — parent framing for docs 64+65 in vault [[../Firm Operations/00_Agentic_Firm_Thesis]]; do NOT begin building sensors 3–9 or the AI Chief of Staff synthesis layer without scoping session; pattern earns its place empirically, one sensor at a time
 - **Honcho deferred per ADR-001** (vault [[../Firm Operations/02_Decision_Log]]) — do NOT adopt Honcho for GEO pilot; use git-tracked YAML in `~/.geo-prospects/cards/` + bounded classifier reads; revisit only when all 5 triggers true (post-Phase-5, sensor #2+ deployed, CoS layer being designed, natural-language query surface required, per-entity peer memory genuinely accumulating)
+- **ADR-002 D1** (**prompt-enforced policy — mechanical enforcement pending P1**): the DeepSeek daily-audit prompt instructs the model that Critical/High technical findings CANNOT be emitted without attached machine-readable evidence from a current production probe. Applies to Technical GEO + Schema/Structured Data categories; does NOT apply to Brand Authority / E-E-A-T (inherently interpretive). **Deployed 2026-07-31** in geo-prospects commit `01850f0` (`daily-audit.sh` + `weekly-cross-check.sh` addendum §2 replaced; `weekly-competitor.sh` D2-only). **Important qualification**: this is a prompt policy the model MAY still violate. Mechanical downstream rejection (the classifier that reads each audit and refuses malformed evidence blocks) is part of the blocked P1 work and does NOT yet exist. **The two scheduled reviews therefore require substantive human inspection** — mere completion of a scheduled cron run does NOT satisfy D3. First scheduled run under D1: 2026-08-01 09:00 ICT. Reviews recorded at `~/.geo-prospects/reviews/` per vault [[../Firm Operations/04_ADR-002_D3_Clean_Run_Checklist]] (Section C: downgrade-abuse detection per Bill's 2026-07-31 loophole observation).
+- **ADR-002 D2**: every audit artifact must carry immutable `run_id` + `producer` + `model` + `prompt_version` + `generated_at` + `input_target` + `content_hash`. Logical identity `geo-audit:<date>` FORBIDDEN — use `geo-audit:<run_id>`. Non-negotiable—an identity scheme that permits collisions is broken by construction.
+- **ADR-002 D3**: no P1 (normalize/dedupe automation) begins until D1 deployed AND 2 subsequent daily-audit runs show zero unattested Critical/High technical findings. Disk audit `~/.geo-prospects/audits/*.md` = operational-source for P0 (NOT universally authoritative). Bill-quoted audit variant of unknown provenance quarantined at `~/.geo-prospects/quarantine/`.
+- **`~/.geo-prospects/` is now a local git repo** (initialized 2026-07-31; no remote). Tracks pilot cards + quarantine + scripts + audits + `reviews/` (D3 clean-run records). Commit anything material — 12MB projected footprint after 6 months is trivial. Head as of end-of-session: `acad582` (reviews scaffolding); prior: `01850f0` (ADR-002 D1/D2), `99fc7b6` (ItemList card review-fix record).
 - **Single-brand front door on camfintech.com** — no "CamFinTech Group" umbrella language
 - **No Angkor Skills Academy mention until angkorskillsacademy.com is live** — decided 2026-07-30
 - CamDL is a back-end dependency, NOT a sellable rail
