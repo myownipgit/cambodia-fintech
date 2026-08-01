@@ -3,18 +3,15 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-07-31 (end of 2026-07-30/31 session — GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + vault sweep + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured for pending pivots** + **Agentic Firm operating thesis captured (new `Firm Operations/` vault folder)** + **GEO Sensor Pilot pressure-test + Decision Log with ADR-001 Honcho-defer** + **Phase 11: pilot execution — 3 cards, 2 false-positives, ADR-002 evidence+identity+pause, PR #4 draft awaiting merge**)
+2026-08-01 (end of 2026-07-30 → 2026-08-01 arc — GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured for pending pivots** + **Agentic Firm operating thesis + pressure-test + Decision Log with ADR-001 Honcho-defer + ADR-002 evidence+identity+pause** + **Phase 11 pilot P0 Case A complete end-to-end: 3 cards → 2 FP + 1 awaiting-input + 1 CLOSED VERIFIED via PR #4 merged & deployed as `dpl_AGjMXv8MhR6Vzb6YJRvvr3a68ukr`**)
 
 ## Current Branch
-`feature/update-homepage` — **aligned with `main`** at `2712591` (both branches fast-forwarded 2026-07-31)
+`feature/update-homepage` — **aligned with `main`** at `e908fb1` (P0 Case A merge commit; both remotes in sync). PR branch `p0/itemlist-index-pages` DELETED after merge (both local + origin) — GitHub PR #4 record preserves the 2 original commits at `f8642d0` + `aaacfb5`.
 
-**Live PR: `p0/itemlist-index-pages` → `feature/update-homepage`** (2 commits ahead of feature branch):
-- `aaacfb5` — PR #4 review-fix (C1 itemListOrder / C3 type consistency / N4 inLanguage / N5 return type)
-- `f8642d0` — ItemList JSON-LD initial commit
-- **Status**: Draft, MERGEABLE. Bill's α checklist: `gh pr ready 4` → `gh pr merge 4 --squash` → local `git pull` + verify HEAD + tree clean → `vercel --prod --yes` → notify with Vercel deployment ID → Claude fires production probe + validator.schema.org check + closes card #31.
-
-## Latest commits (2026-07-30/31 arc — all pushed, main = feature/update-homepage = `2712591`)
-- **`2f2e70c`** — "Add pointer to Agentic Firm operating thesis (new Firm Operations vault folder)" (HEAD) — docs only
+## Latest commits (2026-07-30 → 2026-08-01 arc — all pushed, main = feature/update-homepage = `e908fb1`)
+- **`e908fb1`** — "P0 Case A: Add ItemList JSON-LD to /glossary and /learn index pages (#4)" (HEAD) — squash-merge of PR #4; **deployed as `dpl_AGjMXv8MhR6Vzb6YJRvvr3a68ukr` 2026-08-01T02:19:36Z, aliased to https://www.camfintech.com**
+- **`00b8b8a`** — "Update RESUME_SESSION for Phase 11 + ADR-002 D1/D2 + D3 review discipline" — docs only
+- **`2f2e70c`** — "Add pointer to Agentic Firm operating thesis (new Firm Operations vault folder)" — docs only
 - **`0dbe191`** — "Add pointers to direction notes 64 (62010 pivot) + 65 (remediation engine)" — docs only
 - **`9f82043`** — "Add continuous monitoring pipeline docs (n8n + Hermes cron)" — docs only
 - **`8f37e09`** — "Update RESUME_SESSION for 2026-07-30/31 arc" — docs only
@@ -144,33 +141,26 @@ Priority order for the 30-day target (composite ≥ 72 by 2026-08-30):
 
 ## Live pilot state (Phase 11)
 
-**D3 sensor-quality pause status**: **HOLD**. D1 deployed as geo-prospects `01850f0`; 2 clean scheduled runs required to lift. First cron under D1 fires 2026-08-01 09:00 ICT. Review discipline at vault [[../Firm Operations/04_ADR-002_D3_Clean_Run_Checklist]]; per-audit records at `~/.geo-prospects/reviews/`. Pause blocks P1 (normalize/dedupe/YAML persistence automation).
+**D3 sensor-quality pause status**: **HOLD**. D1 deployed as geo-prospects `01850f0`; 2 clean scheduled runs required to lift. First cron under D1 fires **2026-08-01 09:00 ICT (~7 hours after end-of-session)**. Review discipline at vault [[../Firm Operations/04_ADR-002_D3_Clean_Run_Checklist]]; per-audit records at `~/.geo-prospects/reviews/`. Pause blocks P1 (normalize/dedupe/YAML persistence automation).
 
-**Task tracker (this session)**:
-- ✅ **28-30, 32, 33, 35**: setup + review + fix + ADR-002 D1/D2 implementation — all done
-- 🟡 **31 in_progress**: Card + PR + verify (P0 Case A) — waiting on Bill's merge + `vercel --prod --yes`
-- ⏸ **34 blocked-by-31**: Post-deploy production probe + validator.schema.org check
-- ⏸ **36 pending**: Review 2026-08-01 09:00 ICT scheduled daily-audit against D3 checklist (Sections A + B + C — mechanical + substantive + downgrade-abuse)
+**Task tracker (end state)**:
+- ✅ **28-35** all completed (setup, review, fixes, ADR-002 impl, PR #4 through-line: card + draft + review + fix + merge + deploy + verify + close)
+- ⏸ **36 pending**: Review 2026-08-01 09:00 ICT scheduled daily-audit against D3 checklist (Sections A + B + C — mechanical + substantive + downgrade-abuse) — first D3 clean-run candidate
 - ⏸ **37 blocked-by-36**: Review 2026-08-02 09:00 ICT scheduled daily-audit; if CLEAN, D3 pause LIFTS and P1 unblocks
 
-**Pilot cards** (`~/.geo-prospects/cards/`):
+**Pilot cards** (`~/.geo-prospects/cards/`) — all four resolved:
 | Card | Status | Note |
 |---|---|---|
 | `camfintech-article-schema-learn-glossary.yaml` | `false-positive` | Schema already present via `ArticleLayout.tsx:61-104` shipped 2026-06-18 |
 | `camfintech-canonical-domain-redirect.yaml` | `false-positive` | 4 URLs probed 2026-07-31T04:07Z; all redirect correctly with 308 + HSTS |
-| `camfintech-founder-bio-placeholder.yaml` | `awaiting-input` | Only Card 3 exercises the human-only tier; blocked on Bill's bio |
-| `camfintech-itemlist-index-pages.yaml` | `awaiting-approval` | P0 Case A replacement; PR #4 pending Bill's merge |
+| `camfintech-founder-bio-placeholder.yaml` | `awaiting-input` | Only Card 3 exercises the human-only tier; blocked on Bill's bio content |
+| `camfintech-itemlist-index-pages.yaml` | **`closed`** (verdict `verified-clean`) | P0 Case A complete: PR #4 merged 2026-08-01T02:18Z → deployed `dpl_AGjMXv8MhR6Vzb6YJRvvr3a68ukr` 02:19Z → probed clean 02:22Z → closed 02:25Z. `clean_runs_observed: 2`. Full evidence + validator.schema.org response summary preserved in card (geo-prospects `7be11af`). |
 
-**PR #4 immediate next actions (Bill's α checklist)**:
-```
-gh pr ready 4
-gh pr merge 4 --squash           # or --merge / --rebase
-git checkout feature/update-homepage && git pull origin feature/update-homepage
-git status                       # should be clean
-git log --oneline -3             # confirm HEAD is the merged commit
-vercel --prod --yes              # from /Users/myownip/workspace/cambodia-fintech
-```
-Then signal "deployed" + Vercel deployment ID → Claude regenerates or locates the one-shot production verifier from Card 31's `verification` specification in `~/.geo-prospects/cards/camfintech-itemlist-index-pages.yaml` (do NOT rely on any ephemeral scratchpad path from a previous session — scratchpad paths are per-session and disappear). Claude preserves the verifier's hash + executed version + raw output in the card's evidence log; runs it against both production URLs; submits both URLs to validator.schema.org and records the zero-error result; records deployment metadata in the card per Bill's α spec (PR#, merge commit, local HEAD before deploy, Vercel deployment ID, production URL, deployment status); then closes card #31 if all criteria pass. Persisting a reusable verifier into `~/.geo-prospects/scripts/` is a follow-up (do NOT do it as part of the deploy commit).
+**P0 Case A pipeline demonstrated end-to-end** for the first time: find → classify → gate → PR → review-fix → merge → deploy → verify (deterministic probe + validator.schema.org) → close. Pattern is now proven for future auto-executable cards.
+
+**Observations logged but NOT ticketed** (per §8 anti-bureaucracy discipline):
+- `ProfessionalService.serviceType` triggers 20 SPORE `UNKNOWN_FIELD` WARNINGS per URL in validator.schema.org — pre-existing artifact from `JsonLd.tsx` global schema, unrelated to PR #4 scope. Not opening a card. Worth revisiting only if Google Rich Results reports downstream impact or during a wider structured-data cleanup.
+- PR #4 O1 (richer `item: { @type, @id }` form for ListItem) and Observation 4 (`isPartOf` link from ItemList to `@graph`) deferred at merge time; low-priority citability lifts, not defects.
 
 ## Pending scoping sessions (triggered by Bill when ready — do NOT execute without them)
 
@@ -234,7 +224,7 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 ## How to resume
 
 1. Read this file first
-2. `git log --oneline -5` to see commit history — HEAD of both `main` and `feature/update-homepage` should be `2712591` (or the latest RESUME_SESSION commit). **Live PR: `p0/itemlist-index-pages` @ `aaacfb5`** — check with `gh pr view 4`
+2. `git log --oneline -5` to see commit history — HEAD of both `main` and `feature/update-homepage` should be `e908fb1` (P0 Case A ItemList merge) or the latest RESUME_SESSION commit. PR #4 is **MERGED**; branch `p0/itemlist-index-pages` deleted.
 3. `git status` to check for uncommitted changes (should be clean modulo `.claude/RESUME_SESSION.md` if updates are in progress)
 4. Read auto-memory `MEMORY.md` for cross-session state — includes anchors for 62010 pivot, remediation engine, agentic firm thesis, ADR-001+ADR-002
 5. Check `Research/CamFinTech.com/Firm Operations/03_Session_Log_2026-07-31.md` for the full narrative of the day
@@ -272,7 +262,8 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 ## Deployment status
 
 - **Production URL**: https://www.camfintech.com
-- **Last deploy**: `dpl_6pcc9sZ1FJfj2raqN1mirnjEnBsQ` (2026-07-30) — OBR-KHNSIC scope broadening
+- **Last deploy**: `dpl_AGjMXv8MhR6Vzb6YJRvvr3a68ukr` (2026-08-01T02:19:36Z) — PR #4 P0 Case A ItemList JSON-LD on /glossary + /learn. Aliased to https://www.camfintech.com. Build cache restored; 31s build. Status: Ready.
+- **Prior deploy**: `dpl_6pcc9sZ1FJfj2raqN1mirnjEnBsQ` (2026-07-30) — OBR-KHNSIC scope broadening
 - **Verified live**: knowsAbout + serviceType arrays expanded; KHNSIC section in llms-full.txt renders; prohibited-string sweep clean (no "software development" / "SaaS product" leak); all 5 hard rules intact; Wikidata URL removed from sameAs; sitemap lastmod fresh
 - **Vercel project**: `cambodia-fintech` (team `fin-tec-consulting-cambodia`)
 - **GitHub repo**: https://github.com/myownipgit/cambodia-fintech (PUBLIC since 2026-06-18)
