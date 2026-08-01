@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getArticlesByType } from '@/app/content/registry';
+import { flattenClustersToOrderedList, buildIndexItemList } from '@/app/content/indexItemList';
 
 export const metadata: Metadata = {
   title: 'Learn About Cambodia FinTech — CamFinTech',
@@ -22,8 +23,18 @@ export default function LearnIndex() {
     compliance: 'Regulation & Compliance',
   };
 
+  const itemListSchema = buildIndexItemList(
+    flattenClustersToOrderedList(clusters),
+    '/learn',
+    'Learn About Cambodia FinTech',
+  );
+
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
       <nav className="max-w-3xl mx-auto px-4 pt-6 text-sm text-text-light/60 dark:text-text-dark/60">
         <a href="/" className="hover:text-primary">CamFinTech</a> / Learn
       </nav>
