@@ -3,7 +3,7 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-01 (end of 2026-07-30 → 2026-08-01 arc — GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured for pending pivots** + **Agentic Firm operating thesis + pressure-test + Decision Log with ADR-001 Honcho-defer + ADR-002 evidence+identity+pause** + **Phase 11 pilot P0 Case A complete end-to-end: 3 cards → 2 FP + 1 awaiting-input + 1 CLOSED VERIFIED via PR #4 merged & deployed as `dpl_AGjMXv8MhR6Vzb6YJRvvr3a68ukr`**)
+2026-08-02 EOS (end of 2026-07-30 → 2026-08-02 arc — earlier: GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured** + **Agentic Firm operating thesis + pressure-test + Decision Log ADR-001+ADR-002** + **Phase 11 pilot P0 Case A complete end-to-end via PR #4 → deploy `dpl_AGjMXv8MhR6Vzb6YJRvvr3a68ukr`** · **new 2026-08-01 → 2026-08-02**: first two D3 candidate reviews both **DIRTY** (Article-schema false-Medium claim recurred 3 audits in a row; new BreadcrumbList hallucination 08-02); **ADR-003 trigger #1 emphatically met but Bill electing to wait it out**; **weekly-cross-check.sh first scheduled fire 08-02 exposed 4 bugs — PATH → stdin → sandbox-root → permission-bypass — all patched in geo-prospects `90f10b5` `13f5725` `ffeae34` `0d1dfc1`**; **weekly-competitor.sh threat glyphs swapped to shape-based `▲/●/○` in `cb40213`** ahead of Monday 08-03 first fire; **6 D3 follow-ups filed** (FU-D3-1 through FU-D3-6); Bill ruled 08-02: **manual retries of mid-day-fixed cron scripts do NOT count toward D3** (precedent captured))
 
 ## Current Branch
 `feature/update-homepage` — **aligned with `main`** at `e908fb1` (P0 Case A merge commit; both remotes in sync). PR branch `p0/itemlist-index-pages` DELETED after merge (both local + origin) — GitHub PR #4 record preserves the 2 original commits at `f8642d0` + `aaacfb5`.
@@ -139,14 +139,40 @@ Priority order for the 30-day target (composite ≥ 72 by 2026-08-30):
 
 **Task 10 completed 2026-07-31**: `main` fast-forwarded to `2f2e70c` (later to `2712591`).
 
-## Live pilot state (Phase 11)
+## Live pilot state (Phase 11 → Phase 12)
 
-**D3 sensor-quality pause status**: **HOLD**. D1 deployed as geo-prospects `01850f0`; 2 clean scheduled runs required to lift. First cron under D1 fires **2026-08-01 09:00 ICT (~7 hours after end-of-session)**. Review discipline at vault [[../Firm Operations/04_ADR-002_D3_Clean_Run_Checklist]]; per-audit records at `~/.geo-prospects/reviews/`. Pause blocks P1 (normalize/dedupe/YAML persistence automation).
+**D3 sensor-quality pause status**: **HOLD — counter 0/2**. Both scheduled D1-covered runs reviewed by end 2026-08-02; neither counted toward lift.
 
-**Task tracker (end state)**:
-- ✅ **28-35** all completed (setup, review, fixes, ADR-002 impl, PR #4 through-line: card + draft + review + fix + merge + deploy + verify + close)
-- ⏸ **36 pending**: Review 2026-08-01 09:00 ICT scheduled daily-audit against D3 checklist (Sections A + B + C — mechanical + substantive + downgrade-abuse) — first D3 clean-run candidate
-- ⏸ **37 blocked-by-36**: Review 2026-08-02 09:00 ICT scheduled daily-audit; if CLEAN, D3 pause LIFTS and P1 unblocks
+### D3 review discipline in action (2026-08-01 → 2026-08-02)
+
+| Date | Producer | Verdict | Notes |
+|---|---|---|---|
+| 2026-08-01 09:00 ICT | daily-audit (DeepSeek) | **DIRTY** | 4 refuted false Medium findings (M1 heading · M2 OG-inherited · M3 Article-schema-missing · L4 DefinedTerm-missing). Downgrade-abuse loophole Bill flagged during ADR-002 scoping observed concretely — DeepSeek probed schema only on homepage, then made unattested Medium claims about Learn/Glossary schema state that failed empirical probes. Review: `~/.geo-prospects/reviews/2026-08-01-daily-audit-review.md`. Flow artifact: https://claude.ai/code/artifact/9b0c98e2-f13a-46bb-9eee-589603c091ef |
+| 2026-08-02 08:00 ICT | weekly-cross-check (Sonnet) | **CLEAN — NOT COUNTING** | Scheduled cron failed exit 127 (PATH bug); after 4 script fixes to geo-prospects (`90f10b5` PATH → `13f5725` stdin → `ffeae34` sandbox-root → `0d1dfc1` `--dangerously-skip-permissions` — Bill-authorized), manual retry succeeded and reviewed CLEAN. Bill ruled 2026-08-02: **manual retries of mid-day-fixed cron scripts do NOT earn D3 credit** (protects against fix-and-declare-success slippery slope; only unattended scheduled runs count). Review: `~/.geo-prospects/reviews/2026-08-02-sonnet-cross-check-review.md` |
+| 2026-08-02 09:00 ICT | daily-audit (DeepSeek) | **DIRTY** | 2 refuted false Medium findings — MED-1 Article-schema-missing (**3rd consecutive occurrence** across audit artifacts, downgrade-abuse pattern now entrenched) + MED-3 BreadcrumbList-schema-missing (**NEW hallucination** contradicted by DeepSeek's own probe elsewhere in the same audit). Cron exit 1 was Telegram delivery parse-error, NOT audit failure — audit body intact. Review: `~/.geo-prospects/reviews/2026-08-02-daily-audit-review.md` |
+
+**ADR-003 stance (as of 2026-08-02 EOS)**: trigger #1 (recurring downgrade-abuse) emphatically met — Article-schema false claim now spans 3 audit artifacts and a new false-Medium claim (BreadcrumbList) emerged at a different site element. Sonnet's 08-02 cross-check also caught DeepSeek missing an Aston Hill unverified LinkedIn profile (false negative in Brand Authority — third distinct failure mode). Bill's standing decision: **wait it out** — position revisited only if a subsequent audit adds a fourth distinct pattern.
+
+### Six D3 follow-ups filed (all await Bill authorization — none actioned)
+
+- **FU-D3-1**: Checklist item A4 wording — reviewers need to know to strip the `echo ""` blank line that `write-audit-metadata.sh` inserts between frontmatter and body, OR drop the `echo ""` from the helper
+- **FU-D3-2**: Add template note that "no Critical/High findings" does NOT satisfy D3 — Section C is load-bearing whenever severity distribution skews Medium/Low
+- **FU-D3-3**: A5 time-sensitivity — `$DEEPSEEK_LATEST` embedded in weekly-cross-check.sh PROMPT is resolved by `ls -t` at audit runtime; reviewer at different time gets different hash. Fix: record resolved cross-check-input path into D2 metadata as new field
+- **FU-D3-4**: Hermes misclassifies script exit-1 as "provider rate limit" when actual cause is a downstream failure (e.g. `telegram-send.sh` parse error)
+- **FU-D3-5**: `telegram-send.sh` needs input sanitization for date-like (`2026-08-02`) and hash-like (`sha256:...`) tokens that trigger Telegram parse errors
+- **FU-D3-6**: Add Wikidata guardrail to daily-audit prompt — DeepSeek recommends creating a Wikidata entry (Quick Wins #2 on 2026-08-02 audit) which directly contradicts Bill's rebuild rule ("NOT before 3+ external mentions exist"). Analogous shape to existing Aston Hill guardrail
+
+### weekly-competitor.sh — pre-emptive color-blind fix (2026-08-02)
+
+Never fired yet — first fire Monday 2026-08-03 09:00 ICT. Shipped one-line prompt change in geo-prospects `cb40213`: threat-level glyphs switched from 🔴/🟡/🟢 (red-yellow-green, violates Bill's color-blindness preference) to `▲/●/○` (shape-based, monochrome-safe). Sensor is D1 & D3 exempt per checklist (competitor findings are qualitative competitive intelligence, not technical claims about our own site; D2 metadata still applied).
+
+### Task tracker (end state)
+
+- ✅ **28-37** all completed
+  - 28-35: pilot P0 setup through ADR-002 D1/D2 implementation
+  - 36: 2026-08-01 daily-audit D3 review (verdict DIRTY)
+  - 37: 2026-08-02 combined review (weekly-cross-check 4-bug trail diagnosed & patched + Sonnet cross-check reviewed CLEAN-not-counting + DeepSeek daily-audit reviewed DIRTY)
+- No pending tasks; next auto-events are cron-driven (see How to resume § 7)
 
 **Pilot cards** (`~/.geo-prospects/cards/`) — all four resolved:
 | Card | Status | Note |
@@ -230,10 +256,15 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 5. Check `Research/CamFinTech.com/Firm Operations/03_Session_Log_2026-07-31.md` for the full narrative of the day
 6. Check `~/.geo-prospects/cards/` for pilot card state (`git log --oneline` inside that dir)
 7. Bill's next likely ask (in rough priority order):
-   - **Immediate**: merge PR #4 + deploy + I run production verification (this is the top-of-queue action)
-   - **Execution work**: send GBP Maps URL + lat/lng (2 min task) · run 2-week re-audit on/after 2026-08-13 · real founder bio for /about (FU-6) · H4 primary-source hyperlinking sweep
-   - **Scoping sessions**: "let's plan the 62010 pivot" (A) · "let's plan the remediation engine" (B) · "let's plan sensor 2" (C)
-   - **First live cron audit under ADR-002 D1**: 2026-08-01 09:00 ICT — daily-audit fires automatically; **must be reviewed against vault [[../Firm Operations/04_ADR-002_D3_Clean_Run_Checklist]]** per tasks 36 + 37 before it counts toward lifting the D3 sensor-quality pause. Review record goes at `~/.geo-prospects/reviews/2026-08-01-daily-audit-review.md`. Checklist has 3 sections: A (D2 metadata integrity mechanical), B (D1 evidence discipline substantive), C (downgrade-abuse detection per Bill's loophole observation).
+   - **Standing task**: review each scheduled cron output against the D3 checklist as it lands. Review records go at `~/.geo-prospects/reviews/YYYY-MM-DD-<producer>-review.md`. Cadence: daily 09:00 ICT DeepSeek daily-audit (D1 + D3 scope) + Sunday 08:00 ICT Sonnet weekly cross-check (D1 + D3 scope) + Monday 09:00 ICT competitor sweep (D1 & D3 EXEMPT per checklist; D2-only mechanical checks).
+   - **Next auto-events**:
+     - **2026-08-03 09:00 ICT**: daily-audit fire (D3 candidate) — pattern of DIRTY twice in a row expected unless FU-D3-6 (Wikidata guardrail) or a broader D1 amendment ships
+     - **2026-08-03 09:00 ICT**: FIRST-EVER competitor sweep fire — untested pipeline, watch for exit codes similar to weekly-cross-check's four bugs
+     - **2026-08-09 08:00 ICT**: weekly cross-check fire — first honest Hermes-launched test of the 4 script fixes committed 2026-08-02
+   - **Execution work**: send GBP Maps URL + lat/lng (2 min) · real founder bio for /about (FU-6) · H4 primary-source hyperlinking sweep · 2-week re-audit on/after 2026-08-13
+   - **Scoping sessions** (all forbid ad-hoc execution): "let's plan the 62010 pivot" (A) · "let's plan the remediation engine" (B) · "let's plan sensor 2" (C)
+   - **Six D3 follow-ups filed** (see Live Pilot State section) — FU-D3-1 through FU-D3-6; none actioned; all await Bill authorization
+   - **ADR-003 opening**: trigger emphatically met, standing "wait it out" per 2026-08-02 decision; revisit if a 4th distinct downgrade-abuse pattern emerges
 
 ## Hard rules to preserve (from CLAUDE.md + DPI Integration vault)
 
