@@ -3,7 +3,7 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-02 evening (end of 2026-07-30 → 2026-08-02 arc — earlier: GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured** + **Agentic Firm operating thesis + pressure-test + Decision Log ADR-001+ADR-002** + **Phase 11 pilot P0 Case A complete end-to-end via PR #4 → deploy `dpl_AGjMXv8MhR6Vzb6YJRvvr3a68ukr`** · **2026-08-01 → 2026-08-02 morning**: first two D3 candidate reviews both **DIRTY** (Article-schema false-Medium claim recurred 3 audits in a row; new BreadcrumbList hallucination 08-02); **weekly-cross-check.sh 4-bug fix trail** all patched (`90f10b5` `13f5725` `ffeae34` `0d1dfc1`); **weekly-competitor.sh shape-based glyphs `cb40213`** ahead of Monday first fire; 6 D3 follow-ups filed; Bill ruled 08-02 manual-retry precedent · **2026-08-02 afternoon → evening**: **Bill built Contract Manager PoC — sensor #3 out-of-order** on LLMware (n8n orchestrator on DO droplet → Tailscale bridge → local SLIM inference on M3 Max → 18 exception cards to new Hermes Kanban board `contract-sensor`; deployed but **IN SHAKEDOWN** — failing non-negotiable #2); **ADR-003 landed** capturing sequencing deviation + scope deviation (Legal Exposure row split into intake/expiration) + new **non-negotiable #8** (sensitive-data sensors run inference at the data); thesis frontmatter status → `thesis-in-shakedown`; MEMORY LLMware anchor rewritten to reflect deployed reality; new **session log `05_Session_Log_2026-08-01_to_02`** written; **Recent Milestones Phase 10** added)
+2026-08-04 evening (end of 2026-08-02 → 2026-08-04 arc — 2026-08-02 arc summarized in prior update, see Phase 12 · **2026-08-03 arc**: first-ever competitor sweep fired CLEAN in 4:28 (glyph fix `cb40213` rendered ▲/●/○ correctly, no bug trail contra weekly-cross-check's 4-bug morning); competitor watchlist correction (DAS & Partners = UAE engineering firm, NOT Cambodia advisory → replaced with Sciaroni & Associates, `abb2dad`); daily-audit Telegram-delivery bug class discovered — 08-02 parse-entity + 08-03 UTF-8-invalid em-dash from mid-byte truncation, `e55c7ac` char-safe fix shipped for the latter; ~90-min Firecrawl wire-up saga rooted at Nous Portal `hermes model` interactive-login requirement (`web.use_gateway: true`), unblocked pending Bill; **session log 06_Session_Log_2026-08-03** written · **2026-08-04 arc — Contract Sensor framework integration**: option 3 scope locked (sensor-first minimal + framework design note); **two n8n meta-monitoring workflows built + published + smoke-tested**: `aRHJD1BDIS5SpBY6` (contract-sensor-error-alert, wired as errorWorkflow of `8xPNIjO5tiLESwyZ`) + `h4h4SkXNDOQ8j6YZ` (contract-sensor-watchdog, Schedule 08:15 ICT → /health probe → Gmail on unhealthy; healthy path exec 5613 silent, unhealthy path fired real email via 192.0.2.1 test then reverted); vault docs **07_Contract_Sensor_Registration** (first formal sensor registration entry) + **08_Sensor_Framework_Direction_Note** (7 tensions, trigger phrase "let's plan the sensor framework"); 7 tuning cards T1-T7 landed on contract-sensor board; **n8n versioning nuance discovered** — versionId vs activeVersionId, Save = commit draft, Publish = promote-to-cron, Execute Workflow = run draft; MEMORY.md updated with all above + Gmail credential ID + framework direction anchor; **session log 09_Session_Log_2026-08-04** written; UI-terminology feedback captured to memory)
 
 ## Current Branch
 `feature/update-homepage` — **aligned with `main`** at `e908fb1` (P0 Case A merge commit; both remotes in sync). PR branch `p0/itemlist-index-pages` DELETED after merge (both local + origin) — GitHub PR #4 record preserves the 2 original commits at `f8642d0` + `aaacfb5`.
@@ -139,7 +139,55 @@ Priority order for the 30-day target (composite ≥ 72 by 2026-08-30):
 
 **Task 10 completed 2026-07-31**: `main` fast-forwarded to `2f2e70c` (later to `2712591`).
 
-## Live pilot state (Phase 11 → Phase 12 — sensor #3 shipped out-of-order)
+## Live pilot state (Phase 11 → Phase 14)
+
+### Phase 14 (2026-08-04) — Contract Sensor framework integration + meta-monitoring live
+
+Post-compact resumption. Bill's ask: *"Integrate the Legal Exposure sensor (Contract Sensor) into the agentic firm sensor framework."* Scope locked via AskUserQuestion at start — **option 3: sensor-first minimal + framework design note**.
+
+**Two new n8n workflows published + smoke-tested end-to-end** (both use existing `Gmail account` credential, gmailOAuth2 ID `RouyAEjLbQKt6KoJ`):
+- `aRHJD1BDIS5SpBY6` — contract-sensor-error-alert (2 nodes, ErrorTrigger→Gmail clone of `s3oujqs6DMAcnEVs`). Wired as `settings.errorWorkflow` of `8xPNIjO5tiLESwyZ` via workflow-settings modal (Bill approved the diff; only setting changed on the Contract Sensor — nodes/cron/URLs untouched).
+- `h4h4SkXNDOQ8j6YZ` — contract-sensor-watchdog (6 nodes, Schedule 08:15 ICT → GET http://100.64.107.112:8742/health → IF healthy? → Gmail on unhealthy). Self-monitored via `errorWorkflow → aRHJD1BDIS5SpBY6`.
+
+**Smoke tests (2026-08-04 02:39 → 02:43 ICT)**:
+- Healthy path (exec 5613, 256 ms): probe reached Mac, `{status:"ok", models_warm:[5 SLIMs]}`, Route Unhealthy → false branch, zero emails. Correct silence.
+- Unhealthy path: temporarily set macHost to `192.0.2.1` (RFC 5737 reserved-unreachable), executed → 10s timeout → healthy=false → email fired to `info@camfintech.com` with all fields rendered correctly (statusCode 0, warmModels 0, error `timeout of 10000ms exceeded`, full first-response checklist HTML intact). Reverted immediately; verified via `n8n_get_workflow full` — draft AND `activeVersionId d00573f9` both show `macHost: "100.64.107.112"`.
+
+**Vault docs added**:
+- `Firm Operations/07_Contract_Sensor_Registration.md` — the first-ever formal sensor registration entry (identity · trust status · data-sensitivity · delivery sink · meta-monitoring · finding format · tuning backlog). Updated later in session with activation status + smoke-test outcomes + n8n versioning nuance.
+- `Firm Operations/08_Sensor_Framework_Direction_Note.md` — direction-only. 7 tensions captured (normalized schema · registry storage · meta-monitoring convention · brief-feed contract · retrofit cost · notifier mixing · component-vs-convention). Trigger phrase *"let's plan the sensor framework"*.
+- `Firm Operations/09_Session_Log_2026-08-04.md` — this session's narrative record.
+
+**Tuning backlog captured as 7 `[tuning]`-prefixed Kanban cards** on `contract-sensor` board (idempotency keys `tuning|contract-sensor|Tn|...`):
+- T1 `t_d119689c` (P2) — Boolean answer/explanation agreement gate — LOAD-BEARING for Contract Sensor to earn non-negotiable #2 trust
+- T2 `t_011a7ba6` (P2) — doc_type-gated field set
+- T3 `t_06830716` (P3) — Whitespace bug re-verification
+- T4 `t_abc31d96` (P3) — Expiration/renewal date extraction (thesis row 6b)
+- T5 `t_d1fae256` (P2) — Plaintext webhook secret in n8n Config → env var
+- T6 `t_7454536f` (P2) — Mac wake-at-07:00 guarantee (pmset repeat)
+- T7 `t_c05d3ca3` (P3) — n8n Executions API check ("cron actually fired") — bundled with sensor #4 meta-monitoring
+
+Contract-sensor board now: 22 sensor findings + 1 test + 7 tuning = 30 real cards.
+
+**n8n workflow versioning nuance discovered**: this instance separates `versionId` (draft) from `activeVersionId` (published). **Save** commits draft; **Publish** promotes to what cron runs; **Execute Workflow** button runs the draft. Consequence: Bill's 192.0.2.1 test-edit only ever touched draft; scheduled cron would have been safe even without revert. Documented in registration entry §"n8n versioning nuance". Forward rule: for a change to affect scheduled behavior, Save + Publish.
+
+**Communication feedback saved to memory** (`feedback_n8n_ui_terminology.md`): always qualify "modal" (workflow-settings / node-parameters / credential-editor) — bare "modal" caused two rounds of back-and-forth during activation walkthrough.
+
+### Phase 13 (2026-08-03) — Competitor sweep first fire + DAS→Sciaroni + Firecrawl saga
+
+**Competitor sweep first-ever fire** (Monday 2026-08-03 09:00 ICT, cron `f365ca6ac1f5`): SUCCEEDED CLEAN in 4:28. No bug trail (contra weekly-cross-check's 4-bug morning 2026-08-02). Glyph fix `cb40213` rendered `▲/●/○` correctly (no 🔴🟡🟢). D2 metadata clean.
+
+**Competitor watchlist correction (`abb2dad`)**: first sweep discovered `dasandpartners.com` is a UAE engineering firm (Das And Partners Engineering Consultants in Abu Dhabi), NOT the Cambodia advisory the 2026-07-30 audit had named. Replaced with **Sciaroni & Associates** (sciaroni.com, Phnom Penh, DNS-verified). Current watchlist: DFDL · Acclime · Sciaroni. Historical note inline in weekly-competitor.sh line 37.
+
+**Firecrawl unconfigured on sensor Hermes profile**: SERP positions in competitor report marked `[unverified]`. Investigation established root cause = `web.use_gateway: true` requires Nous Portal `hermes model` interactive login (~90-min saga; `FIRECRAWL_API_KEY` env var alone doesn't work). Blocked pending Bill run `hermes model` interactively.
+
+**Daily-audit Telegram-delivery is a bug class, not a single fix (FU-D3-5)**: 08-02 and 08-03 daily audits both had bodies + D2 metadata clean but Telegram send failed on different content triggers:
+- 08-02: parse-entity choked on date-token
+- 08-03: UTF-8-invalid em-dash from mid-byte truncation (`head -c 200` truncated `—` = U+2014 = 3 bytes mid-sequence)
+
+**08-03 char-safe truncation shipped in `e55c7ac`** (extract-digest.sh: `head -c 200` → python character slice `sys.stdin.read()[:200]`). 08-02 parse-entity fix still open. Pattern: novel digest content will keep tripping new Telegram validators until sender is hardened at the sanitization layer.
+
+**Session log `06_Session_Log_2026-08-03.md`** written (vault Firm Operations). Recent Milestones Phase 11 added.
 
 ### Phase 12 (2026-08-02 afternoon → evening) — Contract Manager PoC + ADR-003
 
@@ -258,6 +306,11 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 | `Firm Operations/02_Decision_Log.md` | ✅ NEW append-only ADR ledger — **ADR-001** (Honcho defer): git-tracked YAML wins for pilot; 5 revisit triggers all must be true. **ADR-002** (added late 2026-07-31): 3-part decision — D1 sensor evidence requirement for Critical/High technical findings + D2 audit artifact identity spec (immutable run_id/producer/model/prompt_version/content_hash; logical identity `geo-audit:<date>` forbidden) + D3 sensor-quality pause before P1 automation. Bill-quoted audit variant quarantined at `~/.geo-prospects/quarantine/`. |
 | `Firm Operations/03_Session_Log_2026-07-31.md` | ✅ NEW session log — narrative record of the full 2026-07-31 day arc. 5 sections (morning hotfix → mid-day concept expansion → afternoon pilot execution → PR #4 + verifier-separation → end-of-day state). Artifacts index at bottom (new vault docs, YAML cards, quarantine, deployed infrastructure, all commits). Sets naming pattern `NN_Session_Log_YYYY-MM-DD.md` for future session logs. |
 | `Firm Operations/04_ADR-002_D3_Clean_Run_Checklist.md` | ✅ NEW review instrument — per-audit checklist for the D3 pause-lift condition. Three sections: (A) D2 metadata integrity mechanical checks, (B) D1 evidence discipline substantive checks, (C) **downgrade-abuse detection** per Bill's 2026-07-31 loophole observation that a Critical/High could be rebadged to Medium and stay in the report. Names two triggers for a future ADR-003 amendment but explicitly forbids amending before empirical review evidence exists. Per-audit review records at `~/.geo-prospects/reviews/`. |
+| `Firm Operations/05_Session_Log_2026-08-01_to_02.md` | ✅ NEW session log — 2-day arc (2026-08-01 first D3 review → 08-02 weekly-cross-check 4-bug trail → Contract Manager PoC → ADR-003). |
+| `Firm Operations/06_Session_Log_2026-08-03.md` | ✅ NEW session log — competitor sweep first-fire clean + DAS→Sciaroni + Telegram bug class + Firecrawl saga. |
+| `Firm Operations/07_Contract_Sensor_Registration.md` | ✅ NEW (2026-08-04) — first-ever formal sensor registration entry. Updated later same session with activation-live status + smoke-test outcomes + n8n versioning nuance. |
+| `Firm Operations/08_Sensor_Framework_Direction_Note.md` | ✅ NEW (2026-08-04) direction-only. 7 tensions ready for scoping session. Trigger phrase "let's plan the sensor framework". |
+| `Firm Operations/09_Session_Log_2026-08-04.md` | ✅ NEW session log — Contract Sensor framework integration + meta-monitoring build + smoke tests + n8n versioning discovery. |
 | `CamFinTech.com website/Recent Milestones.md` | ✅ NEW Phase 9 section + Documentation-milestones row for new `Firm Operations/` folder. Phase 9 = agentic firm operating system arc (docs 65 + 00 + 01 + 02, pilot P0 execution, ADR-002, PR #4). |
 | `FinTechReport/35 - Brand Architecture...md` | ⚠️ Unchanged — banner-only reconciliation still current; body says "software company" (FU-1) |
 | `FinTechReport/12 - Session Timeline.md` | Unchanged — no new entry needed |
@@ -284,9 +337,11 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 7. Bill's next likely ask (in rough priority order):
    - **Standing task**: review each scheduled cron output against the D3 checklist as it lands. Review records go at `~/.geo-prospects/reviews/YYYY-MM-DD-<producer>-review.md`. Cadence: daily 09:00 ICT DeepSeek daily-audit (D1 + D3 scope) + Sunday 08:00 ICT Sonnet weekly cross-check (D1 + D3 scope) + Monday 09:00 ICT competitor sweep (D1 & D3 EXEMPT per checklist; D2-only mechanical checks).
    - **Next auto-events**:
-     - **2026-08-03 09:00 ICT**: daily-audit fire (D3 candidate) — pattern of DIRTY twice in a row expected unless FU-D3-6 (Wikidata guardrail) or a broader D1 amendment ships
-     - **2026-08-03 09:00 ICT**: FIRST-EVER competitor sweep fire — untested pipeline, watch for exit codes similar to weekly-cross-check's four bugs
+     - **2026-08-05 07:00 ICT**: Contract Sensor daily scan (`8xPNIjO5tiLESwyZ`) — first scheduled fire with errorWorkflow wired to `aRHJD1BDIS5SpBY6`; runtime failure → Gmail alert
+     - **2026-08-05 08:15 ICT**: Contract Sensor watchdog (`h4h4SkXNDOQ8j6YZ`) first scheduled fire — probes Mac /health; if Mac asleep or Tailscale down → Gmail alert
+     - **2026-08-05 09:00 ICT**: daily-audit fire (D3 candidate)
      - **2026-08-09 08:00 ICT**: weekly cross-check fire — first honest Hermes-launched test of the 4 script fixes committed 2026-08-02
+     - **2026-08-10 09:00 ICT**: weekly competitor sweep — Firecrawl SERP will remain `[unverified]` until Bill completes Nous Portal `hermes model` login
    - **Execution work**: send GBP Maps URL + lat/lng (2 min) · real founder bio for /about (FU-6) · H4 primary-source hyperlinking sweep · 2-week re-audit on/after 2026-08-13
    - **Scoping sessions** (all forbid ad-hoc execution): "let's plan the 62010 pivot" (A) · "let's plan the remediation engine" (B) · "let's plan sensor 2" (C)
    - **Six D3 follow-ups filed** (see Live Pilot State section) — FU-D3-1 through FU-D3-6; none actioned; all await Bill authorization
