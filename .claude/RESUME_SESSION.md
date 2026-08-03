@@ -3,7 +3,7 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-02 EOS (end of 2026-07-30 → 2026-08-02 arc — earlier: GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured** + **Agentic Firm operating thesis + pressure-test + Decision Log ADR-001+ADR-002** + **Phase 11 pilot P0 Case A complete end-to-end via PR #4 → deploy `dpl_AGjMXv8MhR6Vzb6YJRvvr3a68ukr`** · **new 2026-08-01 → 2026-08-02**: first two D3 candidate reviews both **DIRTY** (Article-schema false-Medium claim recurred 3 audits in a row; new BreadcrumbList hallucination 08-02); **ADR-003 trigger #1 emphatically met but Bill electing to wait it out**; **weekly-cross-check.sh first scheduled fire 08-02 exposed 4 bugs — PATH → stdin → sandbox-root → permission-bypass — all patched in geo-prospects `90f10b5` `13f5725` `ffeae34` `0d1dfc1`**; **weekly-competitor.sh threat glyphs swapped to shape-based `▲/●/○` in `cb40213`** ahead of Monday 08-03 first fire; **6 D3 follow-ups filed** (FU-D3-1 through FU-D3-6); Bill ruled 08-02: **manual retries of mid-day-fixed cron scripts do NOT count toward D3** (precedent captured))
+2026-08-02 evening (end of 2026-07-30 → 2026-08-02 arc — earlier: GEO re-audit + Wikidata dead-link fix + hotfix bundle + OBR-KHNSIC scope broadening + **sameAs Health Check n8n + Daily GEO Monitoring pipeline deployed** + **direction notes 64+65 captured** + **Agentic Firm operating thesis + pressure-test + Decision Log ADR-001+ADR-002** + **Phase 11 pilot P0 Case A complete end-to-end via PR #4 → deploy `dpl_AGjMXv8MhR6Vzb6YJRvvr3a68ukr`** · **2026-08-01 → 2026-08-02 morning**: first two D3 candidate reviews both **DIRTY** (Article-schema false-Medium claim recurred 3 audits in a row; new BreadcrumbList hallucination 08-02); **weekly-cross-check.sh 4-bug fix trail** all patched (`90f10b5` `13f5725` `ffeae34` `0d1dfc1`); **weekly-competitor.sh shape-based glyphs `cb40213`** ahead of Monday first fire; 6 D3 follow-ups filed; Bill ruled 08-02 manual-retry precedent · **2026-08-02 afternoon → evening**: **Bill built Contract Manager PoC — sensor #3 out-of-order** on LLMware (n8n orchestrator on DO droplet → Tailscale bridge → local SLIM inference on M3 Max → 18 exception cards to new Hermes Kanban board `contract-sensor`; deployed but **IN SHAKEDOWN** — failing non-negotiable #2); **ADR-003 landed** capturing sequencing deviation + scope deviation (Legal Exposure row split into intake/expiration) + new **non-negotiable #8** (sensitive-data sensors run inference at the data); thesis frontmatter status → `thesis-in-shakedown`; MEMORY LLMware anchor rewritten to reflect deployed reality; new **session log `05_Session_Log_2026-08-01_to_02`** written; **Recent Milestones Phase 10** added)
 
 ## Current Branch
 `feature/update-homepage` — **aligned with `main`** at `e908fb1` (P0 Case A merge commit; both remotes in sync). PR branch `p0/itemlist-index-pages` DELETED after merge (both local + origin) — GitHub PR #4 record preserves the 2 original commits at `f8642d0` + `aaacfb5`.
@@ -139,7 +139,33 @@ Priority order for the 30-day target (composite ≥ 72 by 2026-08-30):
 
 **Task 10 completed 2026-07-31**: `main` fast-forwarded to `2f2e70c` (later to `2712591`).
 
-## Live pilot state (Phase 11 → Phase 12)
+## Live pilot state (Phase 11 → Phase 12 — sensor #3 shipped out-of-order)
+
+### Phase 12 (2026-08-02 afternoon → evening) — Contract Manager PoC + ADR-003
+
+Bill built **sensor #3 out-of-order**: a contract-intake risk analyzer on LLMware. Full loop shipped in one session — n8n orchestrator on DO droplet (178.128.85.53) → Tailscale bridge → local SLIM inference on Bill's M3 Max → 18 exception cards emitted to a new Hermes Kanban board `contract-sensor` on a 15-contract initial run.
+
+**Deployed but IN SHAKEDOWN** — currently failing thesis non-negotiable #2 (sensor trustworthiness): `no_severance_term` false-positive on all 15 contracts with empty explanations; `party_person` misses on all. Tuning backlog is the pre-condition for the sensor being counted as "fully deployed" for CoS trigger purposes.
+
+**ADR-003 landed** in vault [[../Firm Operations/02_Decision_Log|02_Decision_Log]] capturing three coupled decisions:
+- **Sequencing deviation**: sensor #3 built out-of-order (thesis recommended cybersecurity or compliance-calendar based on existential-risk ranking; pre-existing LLMware install lowered contract-sensor's marginal build cost below cybersecurity's — momentum-driven)
+- **Scope deviation**: thesis's Legal Exposure row scoped expiration/renewal watcher, but what was built is intake-risk analyzer; different existential risks. Thesis sensor table now has **two Legal Exposure rows** (intake DEPLOYED-in-shakedown + expiration-monitor PENDING); total sensor count moved 9 → 10.
+- **Design principle discovered → thesis non-negotiable #8 added**: sensitive-data sensors run inference at the data (Tailscale hybrid — cloud orchestration + local SLIM inference; client contracts never leave the founder's machine; metadata is the only thing that touches cloud).
+
+**Thesis edits applied** ([[../Firm Operations/00_Agentic_Firm_Thesis]]):
+- Sensor table split into two Legal Exposure rows; "Nine sensors" → "Ten sensors"; count → "two fully deployed + one in shakedown"
+- Non-negotiable #8 added
+- CoS trigger clarified as **conditionally-fired** — activates when contract-intake clears its tuning backlog
+- Sequencing-deviation acknowledged inline (Recommended path forward section)
+- Frontmatter `status: thesis-in-shakedown` · `updated: 2026-08-02`
+
+**MEMORY.md LLMware anchor** rewritten from "NOT pre-selected" inventory → "deployed as contract-intake sensor back-end (in shakedown)" — includes scope deviation, sequencing deviation, non-negotiable #8, meta-monitoring gap flags.
+
+**Session log 05** written: [[../Firm Operations/05_Session_Log_2026-08-01_to_02]] — narrative of the two-day arc from first D3 review through weekly-cross-check 4-bug trail through Contract Manager PoC through ADR-003.
+
+**Recent Milestones Phase 10 added** in the website vault.
+
+### Combined section — original Phase 11 D3 arc below
 
 **D3 sensor-quality pause status**: **HOLD — counter 0/2**. Both scheduled D1-covered runs reviewed by end 2026-08-02; neither counted toward lift.
 
