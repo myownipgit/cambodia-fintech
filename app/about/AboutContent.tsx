@@ -6,12 +6,13 @@ const CONTACT_EMAIL = "info@camfintech.com";
 
 function FounderAvatar() {
   return (
-    <div
-      className="flex h-24 w-24 items-center justify-center rounded-full bg-primary/15 text-primary text-2xl font-bold tracking-wider ring-2 ring-primary/40"
-      aria-label={`Placeholder avatar for ${FOUNDER_NAME}`}
-    >
-      WM
-    </div>
+    <img
+      src="/images/founder-william-mallett.png"
+      alt={`${FOUNDER_NAME}, ${FOUNDER_TITLE}, CamFinTech`}
+      width={96}
+      height={96}
+      className="h-24 w-24 rounded-full object-cover ring-2 ring-primary/40"
+    />
   );
 }
 
@@ -95,8 +96,11 @@ export default function AboutContent() {
 
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-3">Background</h2>
-          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed italic text-text-light/60 dark:text-text-dark/60">
-            [Bio in progress. Coming soon: William&apos;s professional background, prior engagements in Cambodian and ASEAN FinTech, and the specific regulatory expertise he brings to DPI approval-navigation work.]
+          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed">
+            Most FinTechs in Cambodia don&apos;t fail to get onto the national rails because of their technology. They fail because approval turns on compliance, governance and documentation — not code — and the unwritten expectations of NBC, NBFSA, TSC and the GDT are opaque to outsiders. Foreign-owned operators are told their application is &quot;non-compliant,&quot; with little explanation of how to fix it. Local FinTechs put their engineers on regulatory problems no engineer was trained to solve.
+          </p>
+          <p className="text-text-light/85 dark:text-text-dark/85 leading-relaxed mt-4">
+            That gap is why William founded CamFinTech. Fuller professional history — prior work in Cambodian and ASEAN FinTech — is maintained on <a href={FOUNDER_LINKEDIN} target="_blank" rel="noopener noreferrer me" className="text-primary hover:underline">LinkedIn</a>.
           </p>
         </section>
 
