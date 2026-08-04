@@ -193,7 +193,7 @@ Same-day continuation from Phase 14. Bill opened sensor #4 via `"let's plan sens
 
 **HIBP dropped from v1** — Round-2 "free tier only" lock excludes HIBP's paid email-search API ($3.99/mo minimum). Recommendation: batch-review paid-service asks when scoping sensor #5+.
 
-**Task 50 still pending**: Hermes cron registration (`hermes cron create` × 2). Once registered, first scheduled fires = tomorrow 10:00 ICT (daily) + Sunday 07:00 ICT (weekly). D3-equivalent trust starts building AFTER those unattended runs.
+**Task 50 completed 2026-08-04 late afternoon**: two Hermes crons registered — `57a63b09e69d` camfintech-cybersecurity-daily (`0 10 * * *`) + `b4345725e0cb` camfintech-cybersecurity-weekly (`0 7 * * 0`). Both `--no-agent` mode, deliver to Telegram `-1004295083888`. Uses exec-wrapper pattern (`~/.hermes/scripts/camfintech-cybersecurity-{daily,weekly}.sh` → `exec ~/.geo-prospects/scripts/cybersecurity-{daily,weekly}.sh`) because Hermes requires scripts under `~/.hermes/scripts/`. First scheduled fires: **2026-08-05 10:00 ICT** (daily) + **2026-08-09 07:00 ICT (Sunday)** (weekly). D3-equivalent trust counter starts 0/2 on those.
 
 ### Phase 14 (2026-08-04 morning) — Contract Sensor framework integration + meta-monitoring live
 
@@ -396,10 +396,10 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
      - **2026-08-05 07:00 ICT**: Contract Sensor daily scan (`8xPNIjO5tiLESwyZ`) — first scheduled fire with errorWorkflow wired to `aRHJD1BDIS5SpBY6`; runtime failure → Gmail alert
      - **2026-08-05 08:15 ICT**: Contract Sensor watchdog (`h4h4SkXNDOQ8j6YZ`) first scheduled fire — probes Mac /health; if Mac asleep or Tailscale down → Gmail alert
      - **2026-08-05 09:00 ICT**: daily-audit fire (D3 candidate)
-     - **2026-08-05 10:00 ICT**: cybersecurity-daily fire (if Bill has registered the Hermes cron by then — task 50 pending); expected findings: same 7 npm CVEs already deduped, ~0 net cards unless new
-     - **2026-08-09 08:00 ICT**: weekly cross-check fire — first honest Hermes-launched test of the 4 script fixes committed 2026-08-02
-     - **2026-08-10 07:00 ICT**: cybersecurity-weekly fire (if task 50 registered) — expected findings: same 5 already deduped, ~0 net cards unless new
-     - **2026-08-10 09:00 ICT**: weekly competitor sweep — Firecrawl SERP will remain `[unverified]` until Bill completes Nous Portal `hermes model` login
+     - **2026-08-05 10:00 ICT**: cybersecurity-daily first UNATTENDED fire (cron `57a63b09e69d` registered); expected findings same 7 npm CVEs already deduped, ~0 net cards unless new — D3-equivalent counter starts building
+     - **2026-08-09 07:00 ICT (Sunday)**: cybersecurity-weekly first UNATTENDED fire (cron `b4345725e0cb`); expected findings same 5 already deduped, ~0 net cards unless new
+     - **2026-08-09 08:00 ICT (Sunday)**: weekly cross-check fire — first honest Hermes-launched test of the 4 script fixes committed 2026-08-02
+     - **2026-08-10 09:00 ICT (Monday)**: weekly competitor sweep — Firecrawl SERP will remain `[unverified]` until Bill completes Nous Portal `hermes model` login
    - **Execution work**: send GBP Maps URL + lat/lng (2 min) · real founder bio for /about (FU-6) · H4 primary-source hyperlinking sweep · 2-week re-audit on/after 2026-08-13
    - **Scoping sessions** (all forbid ad-hoc execution): "let's plan the 62010 pivot" (A) · "let's plan the remediation engine" (B) · "let's plan sensor 2" (C)
    - **Six D3 follow-ups filed** (see Live Pilot State section) — FU-D3-1 through FU-D3-6; none actioned; all await Bill authorization
