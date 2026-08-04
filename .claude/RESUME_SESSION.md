@@ -3,7 +3,7 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-04 evening (end of 2026-08-02 → 2026-08-04 arc — 2026-08-02 arc summarized in prior update, see Phase 12 · **2026-08-03 arc**: first-ever competitor sweep fired CLEAN in 4:28 (glyph fix `cb40213` rendered ▲/●/○ correctly, no bug trail contra weekly-cross-check's 4-bug morning); competitor watchlist correction (DAS & Partners = UAE engineering firm, NOT Cambodia advisory → replaced with Sciaroni & Associates, `abb2dad`); daily-audit Telegram-delivery bug class discovered — 08-02 parse-entity + 08-03 UTF-8-invalid em-dash from mid-byte truncation, `e55c7ac` char-safe fix shipped for the latter; ~90-min Firecrawl wire-up saga rooted at Nous Portal `hermes model` interactive-login requirement (`web.use_gateway: true`), unblocked pending Bill; **session log 06_Session_Log_2026-08-03** written · **2026-08-04 arc — Contract Sensor framework integration**: option 3 scope locked (sensor-first minimal + framework design note); **two n8n meta-monitoring workflows built + published + smoke-tested**: `aRHJD1BDIS5SpBY6` (contract-sensor-error-alert, wired as errorWorkflow of `8xPNIjO5tiLESwyZ`) + `h4h4SkXNDOQ8j6YZ` (contract-sensor-watchdog, Schedule 08:15 ICT → /health probe → Gmail on unhealthy; healthy path exec 5613 silent, unhealthy path fired real email via 192.0.2.1 test then reverted); vault docs **07_Contract_Sensor_Registration** (first formal sensor registration entry) + **08_Sensor_Framework_Direction_Note** (7 tensions, trigger phrase "let's plan the sensor framework"); 7 tuning cards T1-T7 landed on contract-sensor board; **n8n versioning nuance discovered** — versionId vs activeVersionId, Save = commit draft, Publish = promote-to-cron, Execute Workflow = run draft; MEMORY.md updated with all above + Gmail credential ID + framework direction anchor; **session log 09_Session_Log_2026-08-04** written; UI-terminology feedback captured to memory)
+2026-08-04 late-afternoon (end of 2026-08-02 → 2026-08-04-afternoon arc — Phase 12 = Contract Sensor integration morning, Phase 13 = **cybersecurity sensor #4 built same day**: `"let's plan sensor #4"` opened, Bill picked pure existential-risk rank → cybersecurity, 9 design locks across 3 AskUserQuestion rounds (scope=external+supply+internal · runtime=cloud+Hermes cron hybrid · tooling=deterministic scanners + LLM triage · triage runtime=local SLIM · delivery=Telegram+Kanban · budget=free tier · cadence=mixed · organization=2 scripts · meta-monitoring=Hermes-native only) + Path-B mid-stream reversal (LLM triage is summary-only, severity stays deterministic caller-side); built `~/.geo-prospects/scripts/cybersecurity-{lib,weekly,daily}.sh` (~700 lines total); added `POST /triage` to `sensor_api.py` on Mac (additive; Contract Sensor's `/health`+`/analyze`+`/scan` untouched); created new Hermes Kanban board `security-posture`; real-run delivery test 12:07 ICT produced 10 real cards (3 weekly external + 7 daily npm-audit high CVEs including `next` + `postcss` direct) + 2 Telegram digests (daily failed first attempt on HTML parse-mode `<=1.1.17` collision, HTML-escape inline fix in both scripts, retry succeeded); 4 tuning cards T1-T4 landed on security-posture board (telegram-send.sh HTML sanitizer · SSH threshold rebaseline · internal-port whitelist · HIBP paid-tier); vault docs **10_Security_Posture_Sensor_Registration** + **11_Session_Log_2026-08-04b** written; MEMORY updated with new topic + new feedback memory `feedback_python_bash_quoting` (4 compounding bugs captured); HIBP dropped from v1 per free-tier lock; Hermes cron registration (task 50) still pending — sensor operationally verified but not yet unattended · 2026-08-03 competitor sweep + Firecrawl saga summarized in Phase 11 · 2026-08-02 D3 review DIRTY x2 + Contract Manager PoC summarized in Phase 12)
 
 ## Current Branch
 `feature/update-homepage` — **aligned with `main`** at `e908fb1` (P0 Case A merge commit; both remotes in sync). PR branch `p0/itemlist-index-pages` DELETED after merge (both local + origin) — GitHub PR #4 record preserves the 2 original commits at `f8642d0` + `aaacfb5`.
@@ -139,9 +139,63 @@ Priority order for the 30-day target (composite ≥ 72 by 2026-08-30):
 
 **Task 10 completed 2026-07-31**: `main` fast-forwarded to `2f2e70c` (later to `2712591`).
 
-## Live pilot state (Phase 11 → Phase 14)
+## Live pilot state (Phase 11 → Phase 15)
 
-### Phase 14 (2026-08-04) — Contract Sensor framework integration + meta-monitoring live
+### Phase 15 (2026-08-04 afternoon) — Sensor #4 Cybersecurity built (Security Posture Sensor)
+
+Same-day continuation from Phase 14. Bill opened sensor #4 via `"let's plan sensor #4"` after weighing my earlier weaker recommendation of compliance calendar; picked pure existential-risk ranking → cybersecurity. Excluded the OBR cert-issued watcher as "political" (noted for compliance calendar future scoping).
+
+**9 design locks across 3 AskUserQuestion rounds**:
+- R1: scope=External+supply+internal · runtime=Cloud+Hermes cron hybrid · tooling=deterministic scanners + LLM triage
+- R2 (resolving R1's non-negotiable #8 tension): LLM triage runtime=local SLIM · delivery=Both Telegram+Kanban · budget=free tier
+- R3: cadence=mixed daily+weekly · organization=2 scripts · meta-monitoring=Hermes-native only
+
+**One design reversal mid-stream (Path B)**: after R1's "LLM triage" pick, flagged that severity-classifying LLM = Contract Sensor's T1 shakedown pattern. Bill reversed `/triage` to summary-only; severity classification stays caller-side deterministic. Path B principle: LLM output = compression of scanner evidence, not novel judgment.
+
+**Built** (all in `~/.geo-prospects/scripts/`):
+- `cybersecurity-lib.sh` — shared helpers (HMAC signer, kanban card creator, SLIM triage caller, internal-finding redactor, dedup helpers, telegram digest wrapper). Reuses Contract Sensor's webhook secret + kanban-create route.
+- `cybersecurity-weekly.sh` — 7 check families (Sundays 07:00 ICT): TLS certs · HTTPS headers · email auth (SPF/DMARC/DKIM) · external port scan (via `nc -G 3 -z`, NOT `nc -w2` — macOS bug) · Mac posture (SIP/FileVault/Gatekeeper) · droplet posture via SSH · Tailscale ACL.
+- `cybersecurity-daily.sh` — 3 check families (10:00 ICT): DNS integrity (A/NS/DNSSEC baseline drift) · npm audit on `cambodia-fintech` · n8n version+reachability on `n8n-camfintech-com` container.
+
+**Sensor API modification** — `POST /triage` endpoint added to `~/llmware_data/contract_sensor/sensor_api.py` (additive; Contract Sensor's `/health`+`/analyze`+`/scan` untouched). Uses `slim-summary-tool` with `params=["key point (1)"]`. Bill approved via "option 1" (extend existing API rather than second FastAPI). launchd service kickstarted; 5 SLIMs remain warm.
+
+**Kanban board `security-posture` created** via `hermes kanban boards create security-posture --name "Security Posture"`. Reuses Contract Sensor's webhook (generic; board picked per payload).
+
+**Real-run delivery test (2026-08-04 12:07 ICT)** — 10 real cards + 2 Telegram digests:
+- Weekly: 5 findings (TLS www cert 30d, CSP missing on www, all 6 headers missing on automation.camfintech.com, 2 internal medium: unexpected listen ports + elevated SSH failed count). 3 cards created (high-only card gate).
+- Daily: 7 findings — all high-severity npm audit CVEs on cambodia-fintech (2 direct: `next` + `postcss`; 5 transitive: brace-expansion, flatted, js-yaml, minimatch, picomatch). 7 cards created.
+- Daily Telegram first-attempt FAILED on `<=1.1.17` HTML parse-mode collision (same bug class Bill's e55c7ac patched for UTF-8). HTML-escape (`&amp;`, `&lt;`, `&gt;`) applied inline in EXTERNAL_SUMMARY block of both scripts; retry succeeded. Systemic fix belongs in shared `telegram-send.sh` — filed as tuning card T1.
+
+**Bugs found + fixed during scaffold** (captured as feedback memory `feedback_python_bash_quoting`):
+1. Lib's last-line `[[ ]] && echo` short-circuit exited 1 under `set -e` → fixed with `if` + `true`
+2. Python `f"{d[\"key\"]}"` inside bash single-quoted `python3 -c '...'` — outer `'` closes at inner `'`. Refactored to heredoc + extract-vars pattern.
+3. `nc -w2` doesn't enforce connect-timeout on macOS for filtered ports (port 3000 hung). Switched to `nc -G 3 -z`.
+4. `echo "$audit_json" | python3 <<'PYEOF'` — heredoc replaces stdin, so `json.load(sys.stdin)` reads Python source. Fixed with env var passthrough.
+5. n8n container name `camfintech` was wrong (actual: `n8n-camfintech-com`).
+6. Telegram HTML parse-mode + `<=1.1.17` = "Unsupported start tag" — inline HTML-escape.
+
+**4 tuning cards on `security-posture` board** (idempotency `tuning|security-posture|Tn|...`):
+- T1 (P2) — `telegram-send.sh` HTML-parse-mode systemic sanitizer (bug class hit 3 scripts now)
+- T2 (P2) — SSH failed-count threshold 200 → 2000+ (real baseline observed 613/day; internet-exposed 22 sees this normally)
+- T3 (P2) — Internal-port whitelist mechanism (tailscaled ephemeral, systemd-resolve, code-server all fired FP on first run)
+- T4 (P3) — HIBP paid-tier authorization ($3.99/mo) to close credential-leak gap deferred from v1
+
+**Vault docs added**:
+- `Firm Operations/10_Security_Posture_Sensor_Registration.md` — second sensor registration entry, parallels `07_Contract_Sensor_Registration`
+- `Firm Operations/11_Session_Log_2026-08-04b.md` — this session's narrative
+- `Firm Operations/00_Agentic_Firm_Thesis.md` — cybersecurity row updated (deployed-pending-cron); sensor count "2 fully deployed + 1 in shakedown + 1 deployed-pending-cron"
+- `Firm Operations/07_Contract_Sensor_Registration.md` — added `/triage` endpoint section
+- `Recent Milestones.md` — Phase 13 section added
+
+**Auto-memory**:
+- MEMORY.md — new topic `project_security_posture_sensor` + new feedback `feedback_python_bash_quoting`
+- Existing topics updated: `project_agentic_firm_thesis` (sensor count) + `project_contract_sensor` (/triage endpoint)
+
+**HIBP dropped from v1** — Round-2 "free tier only" lock excludes HIBP's paid email-search API ($3.99/mo minimum). Recommendation: batch-review paid-service asks when scoping sensor #5+.
+
+**Task 50 still pending**: Hermes cron registration (`hermes cron create` × 2). Once registered, first scheduled fires = tomorrow 10:00 ICT (daily) + Sunday 07:00 ICT (weekly). D3-equivalent trust starts building AFTER those unattended runs.
+
+### Phase 14 (2026-08-04 morning) — Contract Sensor framework integration + meta-monitoring live
 
 Post-compact resumption. Bill's ask: *"Integrate the Legal Exposure sensor (Contract Sensor) into the agentic firm sensor framework."* Scope locked via AskUserQuestion at start — **option 3: sensor-first minimal + framework design note**.
 
@@ -311,6 +365,8 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
 | `Firm Operations/07_Contract_Sensor_Registration.md` | ✅ NEW (2026-08-04) — first-ever formal sensor registration entry. Updated later same session with activation-live status + smoke-test outcomes + n8n versioning nuance. |
 | `Firm Operations/08_Sensor_Framework_Direction_Note.md` | ✅ NEW (2026-08-04) direction-only. 7 tensions ready for scoping session. Trigger phrase "let's plan the sensor framework". |
 | `Firm Operations/09_Session_Log_2026-08-04.md` | ✅ NEW session log — Contract Sensor framework integration + meta-monitoring build + smoke tests + n8n versioning discovery. |
+| `Firm Operations/10_Security_Posture_Sensor_Registration.md` | ✅ NEW (2026-08-04 afternoon) — second formal sensor registration (cybersecurity). 9 design locks captured + tuning backlog (T1-T4) + data-sensitivity-class handling per non-negotiable #8. |
+| `Firm Operations/11_Session_Log_2026-08-04b.md` | ✅ NEW session log — sensor #4 (cybersecurity) build narrative. Includes Path-B `/triage` decision + HIBP dropped from v1 + 6 bugs fixed during scaffold. |
 | `CamFinTech.com website/Recent Milestones.md` | ✅ NEW Phase 9 section + Documentation-milestones row for new `Firm Operations/` folder. Phase 9 = agentic firm operating system arc (docs 65 + 00 + 01 + 02, pilot P0 execution, ADR-002, PR #4). |
 | `FinTechReport/35 - Brand Architecture...md` | ⚠️ Unchanged — banner-only reconciliation still current; body says "software company" (FU-1) |
 | `FinTechReport/12 - Session Timeline.md` | Unchanged — no new entry needed |
@@ -340,7 +396,9 @@ Primary path: `/Users/myownip/Library/Mobile Documents/com~apple~CloudDocs/Obsid
      - **2026-08-05 07:00 ICT**: Contract Sensor daily scan (`8xPNIjO5tiLESwyZ`) — first scheduled fire with errorWorkflow wired to `aRHJD1BDIS5SpBY6`; runtime failure → Gmail alert
      - **2026-08-05 08:15 ICT**: Contract Sensor watchdog (`h4h4SkXNDOQ8j6YZ`) first scheduled fire — probes Mac /health; if Mac asleep or Tailscale down → Gmail alert
      - **2026-08-05 09:00 ICT**: daily-audit fire (D3 candidate)
+     - **2026-08-05 10:00 ICT**: cybersecurity-daily fire (if Bill has registered the Hermes cron by then — task 50 pending); expected findings: same 7 npm CVEs already deduped, ~0 net cards unless new
      - **2026-08-09 08:00 ICT**: weekly cross-check fire — first honest Hermes-launched test of the 4 script fixes committed 2026-08-02
+     - **2026-08-10 07:00 ICT**: cybersecurity-weekly fire (if task 50 registered) — expected findings: same 5 already deduped, ~0 net cards unless new
      - **2026-08-10 09:00 ICT**: weekly competitor sweep — Firecrawl SERP will remain `[unverified]` until Bill completes Nous Portal `hermes model` login
    - **Execution work**: send GBP Maps URL + lat/lng (2 min) · real founder bio for /about (FU-6) · H4 primary-source hyperlinking sweep · 2-week re-audit on/after 2026-08-13
    - **Scoping sessions** (all forbid ad-hoc execution): "let's plan the 62010 pivot" (A) · "let's plan the remediation engine" (B) · "let's plan sensor 2" (C)
