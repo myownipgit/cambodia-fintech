@@ -3,7 +3,35 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-05 midday (Phase 17 = sensor #5 Compliance Calendar built + published + live-pipeline-verified in same session. Fresh session opened via trigger `"execute compliance calendar sensor plan"`. Delivered Phases 1/2/3/4/7 of the plan; Phase 5 (Prakas scraper — MEF+NBFSA+OBR+CIR) deferred to a separate scoped session; Phase 6 (seed deadlines) skipped per plan Round-3 lock. Built: `~/.geo-prospects/compliance/{schema.sql,deadlines.db,compliance-cal,evaluator.py,eval_api.py}` on Mac; `/opt/compliance/{deadlines.db,webhook.secret,evaluator.py,eval_api.py}` + `/etc/systemd/system/compliance-eval-api.service` on droplet; new Kanban board `firm-compliance`; two n8n workflows: `o3SVegyvlFsQuf6G` (compliance-calendar-weekly, Schedule Sun 08:30 ICT → HTTP POST http://172.18.0.1:8745/run) + `0rMsCp01eBNZs3eB` (compliance-calendar-error-alert, errorTrigger → Gmail). Two design pivots off locked plan surfaced at build time + re-approved via AskUserQuestion: (1) sshfs → CLI push model (Mac had no inbound SSH); (2) n8n Execute Command → HTTP endpoint on docker bridge `172.18.0.1:8745`. Bill Published both workflows in web UI same session; live pipeline probe passed: exec 5710 `mode=manual · status=success · 1.87s`, card `t_8ef4e1b7` landed on `firm-compliance` board, all cleaned up. WAL-forced DB check confirmed both `active=1` + errorWorkflow pointer survived Publish. Nuances captured for future: (a) n8n CLI `--active` filter unreliable on this version (returns empty for known-active workflows) — use DB WAL-forced check instead; (b) `docker cp` of `database.sqlite` alone misses in-flight WAL — copy all three files (`database.sqlite` + `-wal` + `-shm`) then `PRAGMA wal_checkpoint(FULL)`. New vault docs `12_Compliance_Calendar_Sensor_Registration.md` + `13_Session_Log_2026-08-05.md`. Thesis + Recent Milestones + MEMORY + direction-notes memory + new topic memory `project_compliance_calendar_sensor.md` all updated. Sensor tally: **5 of 10 deployed** (all 4 prior + Compliance Calendar). Next-auto-events: 2026-08-10 08:30 ICT Sun first unattended fire → D3 counter 1/2 (DB empty → `fires_matched: 0`, still counts as clean) → 2026-08-17 second fire → D3 2/2 → non-negotiable #2 promotion if both clean.)
+2026-08-06 morning (Phase 17 = sensor #5 Compliance Calendar built + published + live-pipeline-verified 2026-08-05; Phase 18 = **Security Posture Sensor first unattended run clean** 2026-08-05 10:28 ICT (Hermes fired on Mac-wake catch-up, ADR-002 metadata clean, same 7 real npm-audit high CVEs as day 1, Hermes dedup means no new Kanban cards — the day-1 cards remain the same items). **Security Posture D3 counter now 1/2** — one clean daily remaining (2026-08-06 10:00 ICT today) to hit 2/2 promotion. Compliance Calendar still awaits first unattended fire 2026-08-10 08:30 ICT Sun (D3 0/2 unchanged).)
+
+### Phase 17 — Compliance Calendar built + published + verified (2026-08-05)
+
+Fresh session opened via trigger `"execute compliance calendar sensor plan"`. Delivered Phases 1/2/3/4/7 of the plan; Phase 5 (Prakas scraper — MEF+NBFSA+OBR+CIR) deferred to a separate scoped session; Phase 6 (seed deadlines) skipped per plan Round-3 lock.
+
+Built: `~/.geo-prospects/compliance/{schema.sql,deadlines.db,compliance-cal,evaluator.py,eval_api.py}` on Mac; `/opt/compliance/{deadlines.db,webhook.secret,evaluator.py,eval_api.py}` + `/etc/systemd/system/compliance-eval-api.service` on droplet; new Kanban board `firm-compliance`; two n8n workflows: `o3SVegyvlFsQuf6G` (compliance-calendar-weekly, Schedule Sun 08:30 ICT → HTTP POST http://172.18.0.1:8745/run) + `0rMsCp01eBNZs3eB` (compliance-calendar-error-alert, errorTrigger → Gmail).
+
+Two design pivots off locked plan surfaced at build time + re-approved via AskUserQuestion: (1) sshfs → CLI push model (Mac had no inbound SSH); (2) n8n Execute Command → HTTP endpoint on docker bridge `172.18.0.1:8745`. Bill Published both workflows in web UI same session; live pipeline probe passed: exec 5710 `mode=manual · status=success · 1.87s`, card `t_8ef4e1b7` landed on `firm-compliance` board, all cleaned up.
+
+Nuances captured for future: (a) n8n CLI `--active` filter unreliable on this version (returns empty for known-active workflows) — use DB WAL-forced check instead; (b) `docker cp` of `database.sqlite` alone misses in-flight WAL — copy all three files (`database.sqlite` + `-wal` + `-shm`) then `PRAGMA wal_checkpoint(FULL)`; (c) actual vault path is `.../Obsidian/Research/Obsidian Vault/...` NOT `.../Obsidian/Research/CamFinTech.com/...` as CLAUDE.md implies — iCloud fuzzy-resolved my earlier writes, but the correct explicit path avoids the round-trip. New vault docs `12_Compliance_Calendar_Sensor_Registration.md` + `13_Session_Log_2026-08-05.md`. Sensor tally: **5 of 10 deployed** (all 4 prior + Compliance Calendar).
+
+### Phase 18 — Security Posture first unattended daily clean (2026-08-05)
+
+Hermes cron `57a63b09e69d` (`camfintech-cybersecurity-daily`) fired at 2026-08-05 10:28 ICT (28-min catch-up after Mac wake — normal). Report at `~/.geo-prospects/security/2026-08-05-daily.md` with ADR-002 metadata intact (`run_id 38e7367f...`). 7 high-severity supply-chain findings, all deterministic npm-audit CVEs — same 7 as 2026-08-04 (brace-expansion, flatted, js-yaml, minimatch, picomatch, next, postcss). Hermes idempotency dedup'd all 7 → no new cards on `security-posture` board (day-1 cards remain the canonical instances). No false positives on this run (daily only runs DNS + npm audit + n8n version — none of the known-noise checks fire on daily; SSH-threshold-T2 and internal-port-T3 only fire on weekly). **D3 counter 1/2** — need one more clean unattended run to hit 2/2.
+
+### Next-auto-events
+
+- **2026-08-06 10:00 ICT (later today) — Security Posture daily fire #2** → D3 2/2 if clean → non-negotiable #2 promotion.
+- **2026-08-09 07:00 ICT Sun — Security Posture weekly fire** (first ever; will likely surface known-noise T2 SSH threshold false positive + T3 internal-port whitelist false positive per registration doc's shakedown notes).
+- **2026-08-10 08:30 ICT Sun — Compliance Calendar first unattended fire** → D3 1/2 (DB empty → `fires_matched: 0`, still counts as clean).
+- **2026-08-17 08:30 ICT Sun — Compliance Calendar second unattended fire** → D3 2/2 → non-negotiable #2 promotion.
+
+### Pending Bill decisions
+
+- Contract Sensor T1 tuning gate (boolean answer/explanation agreement) — still open.
+- Compliance Calendar tuning T1-T5 (Prakas scraper deferred, fire journal write-back, auto-recurrence, complete-command sugar, second HMAC secret).
+- Security Posture tuning T1-T4 (telegram-send.sh HTML sanitizer, SSH threshold rebaseline, internal-port whitelist, HIBP paid-tier).
+- `next` + `postcss` direct-dependency upgrades in cambodia-fintech repo (surfaced by npm audit two days in a row now).
 
 ## Current Branch
 `feature/update-homepage` — **aligned with `main`** at `e908fb1` (P0 Case A merge commit; both remotes in sync). PR branch `p0/itemlist-index-pages` DELETED after merge (both local + origin) — GitHub PR #4 record preserves the 2 original commits at `f8642d0` + `aaacfb5`.
