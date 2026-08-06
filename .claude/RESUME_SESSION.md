@@ -3,7 +3,7 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-06 morning (Phase 17 = sensor #5 Compliance Calendar built + published + live-pipeline-verified 2026-08-05; Phase 18 = **Security Posture Sensor first unattended run clean** 2026-08-05 10:28 ICT (Hermes fired on Mac-wake catch-up, ADR-002 metadata clean, same 7 real npm-audit high CVEs as day 1, Hermes dedup means no new Kanban cards — the day-1 cards remain the same items). **Security Posture D3 counter now 1/2** — one clean daily remaining (2026-08-06 10:00 ICT today) to hit 2/2 promotion. Compliance Calendar still awaits first unattended fire 2026-08-10 08:30 ICT Sun (D3 0/2 unchanged).)
+2026-08-07 morning (Phase 17 = Compliance Calendar built + published + verified 2026-08-05; Phase 18 = Security Posture first unattended daily clean 2026-08-05 → D3 1/2; **Phase 19 = Security Posture daily cadence D3-promoted 2026-08-06** after second consecutive clean unattended run at 10:00 ICT sharp (content-identical to day 2 — same 7 real npm CVEs, Hermes dedup'd → no new cards); vault + memory ratified 2026-08-07 flipping registration doc frontmatter trust_level to `confirmed-daily`, thesis doc 00 cybersecurity row to `daily D3-promoted 2026-08-06 · weekly still provisional`, MEMORY + 3 topic memories updated, Recent Milestones Phase 17 added; Phase 20 = Compliance Calendar populated with 3 real domain-renewal deadlines 2026-08-07 (whois + Identity Digital RDAP for .report) — all beyond current tier windows, evaluator correctly returns fires=0; compliance/ bundle committed to local ~/.geo-prospects git as e126a61. Security Posture WEEKLY cadence still 0/1 pending 2026-08-09 first weekly fire. Compliance Calendar D3 still 0/2 pending 2026-08-10 first Sunday fire.)
 
 ### Phase 17 — Compliance Calendar built + published + verified (2026-08-05)
 
@@ -17,13 +17,21 @@ Nuances captured for future: (a) n8n CLI `--active` filter unreliable on this ve
 
 ### Phase 18 — Security Posture first unattended daily clean (2026-08-05)
 
-Hermes cron `57a63b09e69d` (`camfintech-cybersecurity-daily`) fired at 2026-08-05 10:28 ICT (28-min catch-up after Mac wake — normal). Report at `~/.geo-prospects/security/2026-08-05-daily.md` with ADR-002 metadata intact (`run_id 38e7367f...`). 7 high-severity supply-chain findings, all deterministic npm-audit CVEs — same 7 as 2026-08-04 (brace-expansion, flatted, js-yaml, minimatch, picomatch, next, postcss). Hermes idempotency dedup'd all 7 → no new cards on `security-posture` board (day-1 cards remain the canonical instances). No false positives on this run (daily only runs DNS + npm audit + n8n version — none of the known-noise checks fire on daily; SSH-threshold-T2 and internal-port-T3 only fire on weekly). **D3 counter 1/2** — need one more clean unattended run to hit 2/2.
+Hermes cron `57a63b09e69d` fired 2026-08-05 10:28 ICT (Mac-wake catch-up). 7 real high-severity npm-audit CVEs. Hermes dedup'd → no new cards. **D3 1/2**.
 
-### Next-auto-events
+### Phase 19 — Security Posture daily cadence D3-promoted (2026-08-06)
 
-- **2026-08-06 10:00 ICT (later today) — Security Posture daily fire #2** → D3 2/2 if clean → non-negotiable #2 promotion.
-- **2026-08-09 07:00 ICT Sun — Security Posture weekly fire** (first ever; will likely surface known-noise T2 SSH threshold false positive + T3 internal-port whitelist false positive per registration doc's shakedown notes).
-- **2026-08-10 08:30 ICT Sun — Compliance Calendar first unattended fire** → D3 1/2 (DB empty → `fires_matched: 0`, still counts as clean).
+Second consecutive clean unattended daily fire 2026-08-06 10:00 ICT sharp. Content-identical to 2026-08-05 (diff = only run_id/hash/generated_at/H1-date). Same 7 npm CVEs, Hermes dedup'd. **D3 2/2 → non-negotiable #2 met for daily cadence.** Ratified in vault + memory 2026-08-07: `10_Security_Posture_Sensor_Registration.md` frontmatter `trust_level` → `confirmed-daily (D3 2/2 · 2026-08-06)`; thesis doc 00 cybersecurity row → `daily D3-promoted 2026-08-06 · weekly still provisional`; Recent Milestones Phase 17 added; `MEMORY.md` + `project_security_posture_sensor.md` + `project_agentic_firm_thesis.md` + `project_direction_notes.md` all updated. Weekly cadence still 0/1 pending 2026-08-09 07:00 ICT first weekly fire (expected shakedown noise on T2 SSH-threshold + T3 internal-port whitelist).
+
+### Phase 20 — Compliance Calendar populated with 3 real deadlines + committed (2026-08-07)
+
+Bill populated DB with 3 real Namecheap domain-renewal deadlines (verified via whois + Identity Digital RDAP for the `.report` TLD which needs a non-default whois server): `camfintech-domain-renewal` 2030-11-18 (1564d) · `riel-report-domain-renewal` 2027-05-26 (292d) · `angkorskillsacademy-domain-renewal` 2028-07-02 (695d). All tiers 90/30/7/0, rule=yearly. First tier fire = 2027-02-25 (riel.report at 90d out). Evaluator's manual run confirmed `fires_matched: 0` for all three (all still beyond 90d tier window) → Kanban `firm-compliance` still empty. Proves non-firing logic works correctly. Committed compliance/ bundle as `e126a61` to local `~/.geo-prospects` git (5 files: schema.sql · deadlines.db · compliance-cal · evaluator.py · eval_api.py; no remote so nothing pushed). Off-by-one nuance captured: evaluator's droplet-side `date.today()` uses UTC while Mac CLI uses ICT — no impact on Sunday 08:30 ICT scheduled fire (both same UTC date at fire time), only visible on manual runs in the ICT morning.
+
+### Next-auto-events (updated 2026-08-07)
+
+- **2026-08-07 10:00 ICT (~4h from morning check) — Security Posture daily fire** (steady-state; already-trusted; expected clean).
+- **2026-08-09 07:00 ICT Sun — Security Posture weekly fire #1** (first ever; will likely surface T2 SSH-threshold + T3 internal-port whitelist false positives per shakedown analysis; weekly D3 counter starts).
+- **2026-08-10 08:30 ICT Sun — Compliance Calendar first unattended fire** → D3 1/2 (3 real deadlines all beyond 90d tier windows → `fires_matched: 0`, still counts as clean).
 - **2026-08-17 08:30 ICT Sun — Compliance Calendar second unattended fire** → D3 2/2 → non-negotiable #2 promotion.
 
 ### Pending Bill decisions
@@ -31,7 +39,7 @@ Hermes cron `57a63b09e69d` (`camfintech-cybersecurity-daily`) fired at 2026-08-0
 - Contract Sensor T1 tuning gate (boolean answer/explanation agreement) — still open.
 - Compliance Calendar tuning T1-T5 (Prakas scraper deferred, fire journal write-back, auto-recurrence, complete-command sugar, second HMAC secret).
 - Security Posture tuning T1-T4 (telegram-send.sh HTML sanitizer, SSH threshold rebaseline, internal-port whitelist, HIBP paid-tier).
-- `next` + `postcss` direct-dependency upgrades in cambodia-fintech repo (surfaced by npm audit two days in a row now).
+- `next` + `postcss` direct-dependency upgrades in cambodia-fintech repo (surfaced by npm audit THREE days in a row now: 2026-08-04 + 2026-08-05 + 2026-08-06).
 
 ## Current Branch
 `feature/update-homepage` — **aligned with `main`** at `e908fb1` (P0 Case A merge commit; both remotes in sync). PR branch `p0/itemlist-index-pages` DELETED after merge (both local + origin) — GitHub PR #4 record preserves the 2 original commits at `f8642d0` + `aaacfb5`.
