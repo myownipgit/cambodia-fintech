@@ -163,7 +163,7 @@ The following content was retired during the 2026-06-18 DPI repositioning and is
 
 - **Founder & Managing Director** of CamFinTech (since 2024).
 - LinkedIn: https://www.linkedin.com/in/william-mall/
-- Bio: https://www.camfintech.com/about (placeholder; real bio + headshot pending).
+- Bio: https://www.camfintech.com/about (Background section + founder headshot at https://www.camfintech.com/images/founder-william-mallett.png).
 - The LinkedIn slug `william-mall` is the short form; display name is William Mallett (full surname). Do not "fix" the slug-name mismatch.
 
 ## Contact
