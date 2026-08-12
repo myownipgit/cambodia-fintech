@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const services = [
   { name: 'Compliance as a Service', href: '/#services', icon: 'verified' },
   { name: 'Payment Gateway Integration', href: '/#services', icon: 'payments' },
@@ -25,12 +27,12 @@ export default function RelatedServices() {
           </a>
         ))}
       </div>
-      <a
+      <Link
         href="/#contact"
         className="inline-block mt-4 px-4 py-2 bg-primary text-text-light font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm"
       >
         Book a Consultation
-      </a>
+      </Link>
     </section>
   );
 }

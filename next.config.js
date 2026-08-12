@@ -1,5 +1,11 @@
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Pin workspace root — Next 15 auto-detects the outermost lockfile, which
+  // can be a stray ~/package-lock.json unrelated to this project.
+  outputFileTracingRoot: path.join(__dirname),
+
   images: {
     remotePatterns: [
       {

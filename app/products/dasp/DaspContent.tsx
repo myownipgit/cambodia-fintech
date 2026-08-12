@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
@@ -10,9 +11,9 @@ export default function DaspContent() {
         <div className="mx-auto flex max-w-5xl flex-col px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           {/* Breadcrumb */}
           <nav className="text-sm text-text-light/60 dark:text-text-dark/60 mb-6">
-            <a href="/" className="hover:text-primary">CamFinTech</a>
+            <Link href="/" className="hover:text-primary">CamFinTech</Link>
             <span className="mx-1">/</span>
-            <a href="/products/dasp" className="hover:text-primary">Products</a>
+            <Link href="/products/dasp" className="hover:text-primary">Products</Link>
             <span className="mx-1">/</span>
             <span>DASP Approval-Readiness</span>
           </nav>
@@ -35,9 +36,9 @@ export default function DaspContent() {
               <a href="mailto:dasp@camfintech.com" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-primary px-5 text-base font-bold text-text-light hover:scale-105 transition-transform">
                 Email dasp@camfintech.com
               </a>
-              <a href="/#contact" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-primary/15 px-5 text-base font-bold text-text-light dark:text-text-dark hover:scale-105 transition-transform">
+              <Link href="/#contact" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-primary/15 px-5 text-base font-bold text-text-light dark:text-text-dark hover:scale-105 transition-transform">
                 Book a readiness call
-              </a>
+              </Link>
             </div>
           </header>
 
@@ -194,9 +195,9 @@ export default function DaspContent() {
 
           {/* Back link */}
           <div className="mt-8 pt-6 border-t border-border-light dark:border-border-dark">
-            <a href="/" className="text-primary hover:underline text-sm">
+            <Link href="/" className="text-primary hover:underline text-sm">
               &larr; Back to all services
-            </a>
+            </Link>
           </div>
         </div>
       </main>

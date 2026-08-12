@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -66,7 +67,7 @@ export default function PublicationPage() {
           <div className="mx-auto flex max-w-3xl flex-col px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
             {/* Breadcrumb */}
             <nav className="text-sm text-text-light/60 dark:text-text-dark/60 mb-6">
-              <a href="/" className="hover:text-primary">CamFinTech</a>
+              <Link href="/" className="hover:text-primary">CamFinTech</Link>
               <span className="mx-1">/</span>
               <span>Publication</span>
             </nav>
@@ -127,9 +128,9 @@ export default function PublicationPage() {
             </section>
 
             <div className="mt-10 pt-6 border-t border-border-light dark:border-border-dark">
-              <a href="/" className="text-primary hover:underline text-sm">
+              <Link href="/" className="text-primary hover:underline text-sm">
                 &larr; Back to CamFinTech
-              </a>
+              </Link>
             </div>
           </div>
         </main>

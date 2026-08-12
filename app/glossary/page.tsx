@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Metadata } from 'next';
 import { getArticlesByType } from '@/app/content/registry';
 import { flattenClustersToOrderedList, buildIndexItemList } from '@/app/content/indexItemList';
@@ -36,7 +37,7 @@ export default function GlossaryIndex() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
       <nav className="max-w-3xl mx-auto px-4 pt-6 text-sm text-text-light/60 dark:text-text-dark/60">
-        <a href="/" className="hover:text-primary">CamFinTech</a> / Glossary
+        <Link href="/" className="hover:text-primary">CamFinTech</Link> / Glossary
       </nav>
 
       <main className="max-w-3xl mx-auto px-4 py-8">

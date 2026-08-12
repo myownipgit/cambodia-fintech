@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const FOUNDER_NAME = "William Mallett";
 const FOUNDER_TITLE = "Founder & Managing Director";
 const FOUNDER_LINKEDIN = "https://www.linkedin.com/in/william-mall/";
@@ -22,7 +24,7 @@ export default function AboutContent() {
       {/* Breadcrumb */}
       <div className="max-w-3xl mx-auto px-4 pt-6 flex items-center justify-between text-sm text-text-light/60 dark:text-text-dark/60">
         <nav>
-          <a href="/" className="hover:text-primary">CamFinTech</a>
+          <Link href="/" className="hover:text-primary">CamFinTech</Link>
           <span className="mx-1">/</span>
           <span>About</span>
         </nav>
@@ -129,9 +131,9 @@ export default function AboutContent() {
         </section>
 
         <div className="mt-10 pt-6 border-t border-border-light dark:border-border-dark">
-          <a href="/" className="text-primary hover:underline text-sm">
+          <Link href="/" className="text-primary hover:underline text-sm">
             &larr; Back to CamFinTech
-          </a>
+          </Link>
         </div>
       </main>
     </div>

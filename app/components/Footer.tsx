@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="w-full border-t border-border-light dark:border-border-dark mt-12">
@@ -32,21 +34,21 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-text-light dark:text-text-dark mb-3">Site</h3>
             <ul className="flex flex-col gap-1.5 text-text-light/70 dark:text-text-dark/70">
-              <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
-              <li><a href="/#services" className="hover:text-primary transition-colors">Services</a></li>
-              <li><a href="/products/dasp" className="hover:text-primary transition-colors">DASP / Prakas 093</a></li>
-              <li><a href="/about" className="hover:text-primary transition-colors">About</a></li>
-              <li><a href="/publication" className="hover:text-primary transition-colors">Publication</a></li>
-              <li><a href="/#contact" className="hover:text-primary transition-colors">Contact</a></li>
+              <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+              <li><Link href="/#services" className="hover:text-primary transition-colors">Services</Link></li>
+              <li><Link href="/products/dasp" className="hover:text-primary transition-colors">DASP / Prakas 093</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors">About</Link></li>
+              <li><Link href="/publication" className="hover:text-primary transition-colors">Publication</Link></li>
+              <li><Link href="/#contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-bold text-text-light dark:text-text-dark mb-3">Resources &amp; legal</h3>
             <ul className="flex flex-col gap-1.5 text-text-light/70 dark:text-text-dark/70">
-              <li><a href="/glossary" className="hover:text-primary transition-colors">Glossary</a></li>
-              <li><a href="/privacy" className="hover:text-primary transition-colors">Privacy</a></li>
-              <li><a href="/terms" className="hover:text-primary transition-colors">Terms</a></li>
+              <li><Link href="/glossary" className="hover:text-primary transition-colors">Glossary</Link></li>
+              <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy</Link></li>
+              <li><Link href="/terms" className="hover:text-primary transition-colors">Terms</Link></li>
               <li className="pt-2 text-xs text-text-light/55 dark:text-text-dark/55">
                 Partner inquiries:<br />
                 <a href="mailto:partners@camfintech.com" className="hover:text-primary transition-colors">partners@camfintech.com</a>

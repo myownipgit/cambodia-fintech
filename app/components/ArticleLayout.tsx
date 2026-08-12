@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ArticleContent } from '@/app/content/types';
 import ClaimBlock from './ClaimBlock';
 import DataTable from './DataTable';
@@ -126,7 +127,7 @@ export default function ArticleLayout({ article }: { article: ArticleContent }) 
       {/* Breadcrumbs */}
       <nav className="max-w-3xl mx-auto px-4 pt-6 text-sm text-text-light/60 dark:text-text-dark/60">
         <ol className="flex items-center gap-1">
-          <li><a href="/" className="hover:text-primary">CamFinTech</a></li>
+          <li><Link href="/" className="hover:text-primary">CamFinTech</Link></li>
           <li>/</li>
           <li>
             <a href={`/${article.type}`} className="hover:text-primary">

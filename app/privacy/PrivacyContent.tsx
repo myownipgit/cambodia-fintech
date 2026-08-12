@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Script from "next/script";
 
 const EFFECTIVE_DATE = "22 May 2026";
@@ -215,7 +216,7 @@ export default function PrivacyContent() {
       {/* Breadcrumb + lang toggle */}
       <div className="max-w-3xl mx-auto px-4 pt-6 flex items-center justify-between text-sm text-text-light/60 dark:text-text-dark/60">
         <nav>
-          <a href="/" className="hover:text-primary">CamFinTech</a>
+          <Link href="/" className="hover:text-primary">CamFinTech</Link>
           <span className="mx-1">/</span>
           <span className={isKm ? "font-khmer" : ""}>{T.breadcrumb[lang]}</span>
         </nav>
@@ -260,9 +261,9 @@ export default function PrivacyContent() {
             {T.langNote[lang]}
           </p>
           <div className="flex items-center gap-4 text-sm">
-            <a href="/" className="text-primary hover:underline">
+            <Link href="/" className="text-primary hover:underline">
               &larr; {T.back[lang]}
-            </a>
+            </Link>
             <span className="text-text-light/30 dark:text-text-dark/30">·</span>
             <a href="/terms" className={`text-primary hover:underline ${isKm ? "font-khmer" : ""}`}>
               {isKm ? "លក្ខខណ្ឌប្រើប្រាស់" : "Terms of Use"}
