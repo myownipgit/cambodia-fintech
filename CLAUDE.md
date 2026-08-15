@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a bilingual (English/Khmer) FinTech consulting website for Cambodia, built with Next.js 14 using the App Router architecture. The site focuses on Cambodia's unique Government-as-a-Platform digital infrastructure, including CamDigiKey (digital identity), Bakong (instant payments), CamDX (data exchange), and CamInvoice (mandatory invoicing system).
+This is a bilingual (English/Khmer) FinTech consulting website for Cambodia, built with Next.js 16 (React 19) using the App Router architecture. The site focuses on Cambodia's unique Government-as-a-Platform digital infrastructure, including CamDigiKey (digital identity), Bakong (instant payments), CamDX (data exchange), and CamInvoice (mandatory invoicing system).
 
 ## Legal Entity & Corporate HQ
 
@@ -25,8 +25,12 @@ npm install          # Install dependencies
 npm run dev          # Start development server on http://localhost:3000
 npm run build        # Build for production
 npm start            # Start production server
-npm run lint         # Run Next.js linter
+npm run lint         # eslint .  — `next lint` was REMOVED in Next 16
 ```
+
+**Linting changed in Next 16.** `next build` no longer runs ESLint, so a green build does NOT imply a clean lint — run `npm run lint` deliberately before committing. `eslint.config.mjs` is native flat config: do **not** reintroduce the `@eslint/eslintrc` FlatCompat wrapper, which throws `Converting circular structure to JSON` against `eslint-config-next@16`. Note `eslint .` also lints the repo root (`next.config.js`, `tailwind.config.ts`), which `next lint` never did.
+
+Builds use **Turbopack by default** — no `--turbopack` flag needed, and adding a custom `webpack` config to `next.config.js` would make `next build` fail.
 
 ## Architecture & Key Patterns
 
@@ -194,7 +198,7 @@ A session state file is maintained at `.claude/RESUME_SESSION.md` to enable seam
 - The main page is a single-page application with anchor links for navigation
 - All sections are contained in `app/page.tsx` (no separate route pages yet)
 - TypeScript is in strict mode
-- The project uses the Next.js 14 App Router (not Pages Router)
+- The project uses the Next.js 16 App Router (not Pages Router) — upgraded 14 → 15 → 16 across 2026-08-12/16
 - ServiceCard and UseCaseCard are now in separate files under `app/components/`
 - Types are centralized in `app/types/index.ts`
 - Dark mode is enabled with localStorage persistence
