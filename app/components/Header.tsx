@@ -11,6 +11,11 @@ export default function Header() {
     const stored = localStorage.getItem("darkMode");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const isDark = stored ? stored === "true" : prefersDark;
+    // localStorage and matchMedia are unavailable during SSR, so the stored
+    // preference can only be read after hydration; a useState initializer here
+    // would cause a hydration mismatch. Follow-up: move this to a no-flash
+    // inline script in layout.tsx so the class is set before first paint.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDarkMode(isDark);
     document.documentElement.classList.toggle("dark", isDark);
     document.documentElement.classList.toggle("light", !isDark);
