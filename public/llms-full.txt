@@ -130,6 +130,12 @@ CamFinTech voluntarily holds its own operations to NBC's Technology and Cyber Ri
 
 CamFinTech is the publisher of **The Riel Report**, a Cambodia FinTech intelligence service at https://riel.report read by the financial-services industry, regulators, and multilateral analysts. Separate brand at its own domain. Cross-link at https://www.camfintech.com/publication.
 
+## Sibling property — CamFinTech Insights
+
+**CamFinTech Insights** at https://insights.camfintech.com is a daily-refreshed dashboard tracking Cambodian FinTech regulatory and market activity: tagged items, a historical event timeline, approved briefings, and tracked entities. Operated by CamFinTech on its own subdomain, serving its own `robots.txt` and `sitemap.xml`, and cross-submitted from the canonical domain's `robots.txt`.
+
+Division of surfaces: **camfintech.com** is the canonical positioning, service catalogue and reference content. **insights.camfintech.com** is the high-volume, high-frequency activity data. **riel.report** is the editorial publication. All three are first-party CamFinTech properties operated by the same principal — they are not independent corroboration of each other.
+
 ## Reference content — retained from earlier site (light-reframed for DPI)
 
 ### Glossary (definitional pages)

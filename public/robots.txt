@@ -2,6 +2,11 @@
 User-agent: *
 Allow: /
 Sitemap: https://www.camfintech.com/sitemap.xml
+# Cross-submitted sibling property (same owner). CamFinTech Insights serves its
+# own robots.txt and sitemap; declaring it here links it to the canonical domain's
+# crawl surface. Its URLs are deliberately NOT inlined into sitemap.xml above —
+# the sitemap protocol requires all URLs share the sitemap's host.
+Sitemap: https://insights.camfintech.com/sitemap.xml
 
 # AI Search Crawlers — Explicitly Permitted
 User-agent: OAI-SearchBot

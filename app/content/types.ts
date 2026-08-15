@@ -11,6 +11,12 @@ export interface ClaimData {
   stat: string;
   source: string;
   year?: string;
+  /**
+   * Optional link to the cited source. Omit rather than guess — an unlinked
+   * citation renders as plain text, which is preferable to a dead or
+   * approximate link on a site whose positioning rests on honesty discipline.
+   */
+  url?: string;
 }
 
 export interface ArticleMeta {

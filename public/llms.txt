@@ -98,6 +98,10 @@ Full product detail: https://www.camfintech.com/products/dasp
 
 CamFinTech is also the publisher of [The Riel Report](https://riel.report) — Cambodia FinTech intelligence read by the financial-services industry, regulators, and multilateral analysts. Separate brand at its own domain. No replicated content on camfintech.com; cross-reference at [/publication](https://www.camfintech.com/publication).
 
+## Sibling property — CamFinTech Insights
+
+[CamFinTech Insights](https://insights.camfintech.com) is a daily-refreshed dashboard tracking Cambodian FinTech regulatory and market activity — tagged items, a historical event timeline, approved briefings, and tracked entities. Operated by CamFinTech at its own subdomain, with its own `robots.txt` and `sitemap.xml`. It is the most dynamic content surface in the CamFinTech estate; camfintech.com is the canonical positioning and service surface.
+
 ## Voluntary TCRMG-2026 compliance posture
 
 CamFinTech voluntarily holds its own operations to NBC's Technology and Cyber Risk Management Guidelines (TCRMG 2026) standards — even as a non-BFI. Posture documentation available on request for BFI procurement conversations.
@@ -120,3 +124,4 @@ CamFinTech voluntarily holds its own operations to NBC's Technology and Cyber Ri
 - [About William Mallett](https://www.camfintech.com/about)
 - [DASP product spec](https://www.camfintech.com/products/dasp)
 - [Publication — The Riel Report](https://www.camfintech.com/publication)
+- [CamFinTech Insights — Cambodia FinTech activity dashboard](https://insights.camfintech.com)

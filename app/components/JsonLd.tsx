@@ -116,6 +116,14 @@ export default function JsonLd() {
           "postalCode": "12210",
           "addressCountry": "KH",
         },
+        // Coordinates supplied by William Mallett from Google Maps (2026-08-16),
+        // rounded to 6 dp (~11 cm). Corresponds to the HQ on Preah Norodom
+        // Boulevard, Khan Daun Penh.
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 11.568510,
+          "longitude": 104.924645,
+        },
         "telephone": "+855-76-277-5645",
         "email": "info@camfintech.com",
         "url": "https://www.camfintech.com",

@@ -85,6 +85,12 @@ export default function RootLayout({
     <html lang="en" className="light">
       <head>
         <JsonLd />
+        {/*
+          Explicit discovery pointer to /llms.txt. The llms.txt spec recommends
+          rel="describedby" for this — there is no registered rel="llms.txt",
+          despite it being a common (incorrect) suggestion.
+        */}
+        <link rel="describedby" href="/llms.txt" type="text/markdown" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
           rel="stylesheet"

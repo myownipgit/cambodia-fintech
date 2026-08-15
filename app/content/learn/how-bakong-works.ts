@@ -15,8 +15,8 @@ export const howBakongWorks: ArticleContent = {
   claims: [
     { stat: 'Bakong processed over 21 million transactions in 2024, representing a 78% year-over-year increase, with total value exceeding USD 26 billion.', source: 'National Bank of Cambodia Annual Report', year: '2024' },
     { stat: 'Cambodia ranks among the top five countries globally with a fully operational retail CBDC, ahead of most ASEAN peers.', source: 'Bank for International Settlements CBDC Tracker', year: '2024' },
-    { stat: 'Mobile money and digital payment adoption in Cambodia reached 73% of the adult population in 2024, up from 36% in 2017, driven largely by Bakong infrastructure.', source: 'World Bank Global Findex Database', year: '2024' },
-    { stat: 'Cross-border remittance costs from Thailand to Cambodia fell by approximately 50% after Bakong-PromptPay linkage, from an average 10% to under 5% of transaction value.', source: 'Asian Development Bank', year: '2024' },
+    { stat: 'Mobile money and digital payment adoption in Cambodia reached 73% of the adult population in 2024, up from 36% in 2017, driven largely by Bakong infrastructure.', source: 'World Bank Global Findex Database', year: '2024', url: 'https://www.worldbank.org/en/publication/globalfindex' },
+    { stat: 'Cross-border remittance costs from Thailand to Cambodia fell by approximately 50% after Bakong-PromptPay linkage, from an average 10% to under 5% of transaction value.', source: 'Asian Development Bank', year: '2024', url: 'https://www.adb.org/countries/cambodia/main' },
   ],
   faqs: [
     { question: 'Is Bakong a cryptocurrency?', answer: 'No. Bakong is a central bank digital currency (CBDC), not a cryptocurrency. It is issued and fully backed by the National Bank of Cambodia, operates on a permissioned Hyperledger Iroha blockchain, and maintains a stable 1:1 peg to fiat KHR and USD. Unlike cryptocurrencies, Bakong has no speculative value and is designed purely for payment settlement.' },

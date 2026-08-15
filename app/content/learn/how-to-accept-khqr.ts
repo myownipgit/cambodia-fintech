@@ -15,7 +15,7 @@ export const howToAcceptKHQR: ArticleContent = {
   claims: [
     { stat: 'Over 400,000 merchant KHQR codes were registered in Cambodia by early 2025, with the NBC targeting 600,000 by the end of the year.', source: 'National Bank of Cambodia', year: '2025' },
     { stat: 'QR code payments accounted for approximately 45% of all point-of-sale digital transactions in Cambodia in 2024, up from 18% in 2022.', source: 'National Bank of Cambodia Payment Systems Report', year: '2024' },
-    { stat: 'Cross-border QR payment acceptance through Bakong corridors enabled over USD 200 million in tourist spending in 2024, primarily from Thai and Chinese visitors.', source: 'Asian Development Bank', year: '2024' },
+    { stat: 'Cross-border QR payment acceptance through Bakong corridors enabled over USD 200 million in tourist spending in 2024, primarily from Thai and Chinese visitors.', source: 'Asian Development Bank', year: '2024', url: 'https://www.adb.org/countries/cambodia/main' },
     { stat: 'Merchant discount rates for KHQR transactions range from 0% to 0.5% depending on the acquiring bank, significantly lower than the 2-3% typical for international card networks.', source: 'National Bank of Cambodia', year: '2024' },
   ],
   faqs: [
