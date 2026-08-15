@@ -3,7 +3,35 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-09 evening (Phase 19 landed three arcs in one session: (a) weekly cross-check audit surfaced stale FU-6 wording in llms.txt + llms-full.txt — fixed and deployed as `dpl_4NWa7SSk4PZLyuoZxux2FGHd5D5W` on commit `7471c86`; (b) daily-audit Hermes cron `645711088c45` had been failing all day with YAML frontmatter double-prepend — root-cause was DeepSeek emitting SKILL-shape frontmatter with fabricated values; two-layer fix committed as `8450ed3` on local `~/.geo-prospects` (write-audit-metadata.sh now strips + rewrites instead of aborting; daily-audit.sh prompt tells DeepSeek not to emit frontmatter); E2E verified by triggering `hermes cron run` — cron status flipped `error` → `ok`, report has real UUID + real content hash; (c) VPS migration scoping conversation — initial plan v1 was over-spec (t3.xlarge, ~$130/mo, full LLMware migration) drew Bill's "you often over-spec" push-back; rewrote as plan v2 (t3.small, **~$21/mo on-demand**, LLMware stays on Mac, Contract Sensor accepts ~25% failure rate documented explicitly). Approved plan at `~/.config/claude/plans/misty-cuddling-gray.md`. Trigger to execute: `"execute VPS migration plan"`. Task #60 tracks. Also filed new feedback memory `feedback_infrastructure_sizing.md` capturing Bill's "lean smaller" rule as durable behavioral guidance. Prior arc (2026-08-05→08-07 = Phases 17+18+19+20) still valid: Compliance Calendar sensor #5 built + published + live-pipeline-verified 2026-08-05 (exec 5710 success), Security Posture daily D3-promoted 2026-08-06 (2/2), Compliance Calendar populated with 3 real domain-renewal deadlines 2026-08-07 (whois + Identity Digital RDAP). Security Posture WEEKLY cadence still 0/1 pending 2026-08-09 07:00 ICT first weekly fire. Compliance Calendar D3 still 0/2 pending 2026-08-10 08:30 ICT first Sunday fire.)
+2026-08-16 ~02:35 ICT — **Phase 22: 2026-08-15 cybersecurity alert triaged to zero.** See section below.
+
+### Phase 22 — Security sensor alert remediation (2026-08-15 review → 2026-08-16 early hours)
+
+Bill asked to review the 2026-08-15 daily alert (3 high supply-chain findings) and plan what could be fixed now. Approved plan at `~/.config/claude/plans/review-todays-cybersecurity-sensor-robust-ullman.md`.
+
+**Key insight — the 3 findings were ONE root cause, not three.** `next@15.5.23` pins `postcss 8.4.31` and `sharp ^0.34.3`→0.34.5, both vulnerable; `next` itself had no advisory and was flagged purely for depending on them.
+
+Delivered:
+1. **`67d644b` (cambodia-fintech)** — `package.json` `overrides` block (`postcss ^8.5.26`, `sharp ^0.35.3`). `npm audit` 7 → 0. Chose overrides over Next 16 to avoid a second major in 4 days. Two gotchas: npm rejects overrides conflicting with a direct dep (`EOVERRIDE`) so the postcss devDep floor was raised `^8.4.49`→`^8.5.26`; and **Next 16.3.1 accepts React `^18.2.0`, so a Next 16 upgrade needs NO React 19 migration** (needs node >=20.9). **Remove the overrides block when Next 16 is adopted.**
+2. **`4d5e2e7` (~/.geo-prospects)** — three sensor fixes: T3 port whitelist rewritten as (process, port) pairs; dedup made resolution-aware; port-53 external-scan false positive removed.
+
+Three things in the backlog turned out already-resolved (verified live, not assumed): CSP on www, all 6 headers on automation, all 3 TLS certs renewed. **T2 was already done too** (SSH threshold raised to 5000 in the 08-09 07:36 edit) — the memory backlog was stale.
+
+Two bugs found that were NOT in the original alert:
+- **Dedup blind spot**: `cs_dedup_mark` only ever added ids and `cs_dedup_check` was pure membership, so a fixed-then-regressed finding reproduced a byte-identical id and was suppressed **forever** — silently. 15 deaf spots existed. Fixed with `cs_dedup_reconcile` (scope-aware); proven side-by-side against the old lib.
+- **Port-53 false positive**: the 08-09 edit added 53 to `EXPECTED_OPEN_PORTS`, asserting it should be open externally when systemd-resolved is loopback-only. Caught in a dry run ~4.5h before the 2026-08-16 07:00 run that would have fired it first.
+
+**bash 3.2 trap worth remembering**: `#!/usr/bin/env bash` resolves to bash 3.2.57 on macOS — no `declare -A`, and it fails *silently wrong* (parses `[key]=value` as index 0). Whitelist kept as a flat string parsed in Python.
+
+End state: both cadences dry-run to **0 findings**; `seen_findings.json` pruned to `{}` (pre-prune archived). Deployed `67d644b` to production (2 identical deploys created by an accidental double-invoke; both Ready, latest aliased). Production verified: 200, GA tag, CSP, /about 200.
+
+**Still open**: T1 (`telegram-send.sh` HTML-parse-mode sanitizer), T4 (HIBP paid tier), and a new tracked item — upgrade to Next 16.3.1 and drop the overrides block.
+
+**Watch**: 2026-08-16 07:00 ICT weekly and 10:00 ICT daily are the first unattended runs on the new code — they exercise the reconcile path for real (dry runs skip it, since reconcile sits inside the `CS_SKIP_CARDS` guard).
+
+---
+
+### (previous) 2026-08-09 evening — Phase 19 landed three arcs in one session: (a) weekly cross-check audit surfaced stale FU-6 wording in llms.txt + llms-full.txt — fixed and deployed as `dpl_4NWa7SSk4PZLyuoZxux2FGHd5D5W` on commit `7471c86`; (b) daily-audit Hermes cron `645711088c45` had been failing all day with YAML frontmatter double-prepend — root-cause was DeepSeek emitting SKILL-shape frontmatter with fabricated values; two-layer fix committed as `8450ed3` on local `~/.geo-prospects` (write-audit-metadata.sh now strips + rewrites instead of aborting; daily-audit.sh prompt tells DeepSeek not to emit frontmatter); E2E verified by triggering `hermes cron run` — cron status flipped `error` → `ok`, report has real UUID + real content hash; (c) VPS migration scoping conversation — initial plan v1 was over-spec (t3.xlarge, ~$130/mo, full LLMware migration) drew Bill's "you often over-spec" push-back; rewrote as plan v2 (t3.small, **~$21/mo on-demand**, LLMware stays on Mac, Contract Sensor accepts ~25% failure rate documented explicitly). Approved plan at `~/.config/claude/plans/misty-cuddling-gray.md`. Trigger to execute: `"execute VPS migration plan"`. Task #60 tracks. Also filed new feedback memory `feedback_infrastructure_sizing.md` capturing Bill's "lean smaller" rule as durable behavioral guidance. Prior arc (2026-08-05→08-07 = Phases 17+18+19+20) still valid: Compliance Calendar sensor #5 built + published + live-pipeline-verified 2026-08-05 (exec 5710 success), Security Posture daily D3-promoted 2026-08-06 (2/2), Compliance Calendar populated with 3 real domain-renewal deadlines 2026-08-07 (whois + Identity Digital RDAP). Security Posture WEEKLY cadence still 0/1 pending 2026-08-09 07:00 ICT first weekly fire. Compliance Calendar D3 still 0/2 pending 2026-08-10 08:30 ICT first Sunday fire.)
 
 ### Phase 17 — Compliance Calendar built + published + verified (2026-08-05)
 
