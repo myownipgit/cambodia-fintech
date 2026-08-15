@@ -3,7 +3,28 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-16 ~02:35 ICT — **Phase 22: 2026-08-15 cybersecurity alert triaged to zero.** See section below.
+2026-08-16 ~03:15 ICT — **Phase 23: Next 16 + React 19 upgrade landed.** Phase 22 (cybersecurity alert → zero) below it.
+
+### Phase 23 — Next.js 16.3.1 + React 19.2.8 upgrade (2026-08-16)
+
+Commit `79323b6`, deployed to production and verified. Closes the follow-up Phase 22 left open: the `overrides` stopgap from `67d644b` is **deleted**, because next@16.3.1 pins `postcss 8.5.23` / `sharp 0.35.3` natively. `npm audit` confirmed 0 vulnerabilities *without* overrides — that was the pass/fail gate.
+
+**The upgrade was much smaller than a major suggests.** Verified individually against the official version-16 guide, these did NOT apply: async request APIs (already migrated), all five `next/image` breaking changes (`next/image` isn't imported anywhere — `AboutContent` uses a plain `<img>`), middleware→proxy (none), Turbopack-vs-webpack conflict (no webpack key), sitemap async id, parallel routes, scroll-behavior, AMP, runtime config, PPR. React 19 type churn was **nil** — `tsc --noEmit` passed with no component changes.
+
+**Two things broke that the guide does not mention** (full detail in memory `project_next16_upgrade.md`):
+1. **`@eslint/eslintrc` FlatCompat breaks against `eslint-config-next@16`** — `Converting circular structure to JSON`, because v16 exports native flat-config arrays. Dropping FlatCompat was scoped as *optional polish* in the plan; it turned out to be **required**. `eslint.config.mjs` rewritten, `@eslint/eslintrc` removed.
+2. **`eslint .` scans the repo root, `next lint` never did** — `next.config.js` and `tailwind.config.ts` newly reported `no-require-imports`. Both uses are legitimate, so the rule is scoped off for config files.
+
+Also: `react-hooks/set-state-in-effect` (new in the React 19 era) flags the dark-mode mount effect in `Header.tsx`; targeted disable with reasoning inline, since reading localStorage post-hydration is correct. Dropped `runtime = "edge"` from `opengraph-image.tsx` → now builds `○ (Static)` instead of `ƒ (Dynamic)`, and the build emits zero warnings. Next 16 auto-edited `tsconfig.json` (`jsx` → `react-jsx`, `.next/dev` types) — expected.
+
+Verified: audit 0 without overrides · tsc clean · lint 0 errors (same 5 warnings as pre-upgrade) · Turbopack build, 29 pages prerendered · 12 route classes + 404 correct locally and in production · 6/6 security headers · redirects still 308 · GA tag + JSON-LD intact · 11/11 client chunks serve · server log clean, no hydration errors.
+
+**Not verified**: the browser extension was unavailable, so the dark-mode toggle and language switcher were checked only by confirming the client markup renders and all JS chunks serve — not by actually clicking them. Worth a manual look.
+
+**Still open**: `reactCompiler: true` (deliberately separate), the `<img>`→`next/image` swap in AboutContent, and moving dark-mode init to a no-flash inline script. Plus T1 (telegram sanitizer) and T4 (HIBP) on the sensor side.
+
+---
+
 
 ### Phase 22 — Security sensor alert remediation (2026-08-15 review → 2026-08-16 early hours)
 
