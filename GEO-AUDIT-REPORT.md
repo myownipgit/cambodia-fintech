@@ -1,3 +1,10 @@
+> **SUPERSEDED — this is the 2026-07-30 audit (composite 67/100).**
+> The current audit is **2026-08-15, composite 72/100**, which met the ≥72-by-2026-08-30 target 15 days early.
+> Its findings L1, L2 and M4 were closed in commit `e915c57`.
+> This file is retained for delta provenance. Current snapshot lives in the Obsidian vault at
+> `CamFinTech.com website/GEO Audit 2026-08-15.md`; raw sensor output at
+> `~/.geo-prospects/audits/camfintech-deepseek-2026-08-15.md`.
+
 # GEO Audit Report: CamFinTech
 
 **Audit Date:** 2026-07-30 (6 weeks post-DPI-repositioning)
