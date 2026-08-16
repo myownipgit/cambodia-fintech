@@ -1,6 +1,9 @@
 > **SUPERSEDED — this is the 2026-07-30 audit (composite 67/100).**
-> The current audit is **2026-08-15, composite 72/100**, which met the ≥72-by-2026-08-30 target 15 days early.
-> Its findings L1, L2 and M4 were closed in commit `e915c57`.
+> Recent audits: **2026-08-15 → 72/100**, **2026-08-16 → 68 (Sonnet) and 71 (DeepSeek)**.
+> Treat the composite as **±4 noise** — three runs across ~25 hours on a near-identical site
+> spanned 68-72, and one category (Platform Optimization) swung 17 points with no
+> underlying change. Judge progress on multi-run medians, not single scores.
+> The 2026-08-15 findings L1, L2 and M4 were closed in commit `e915c57`.
 > This file is retained for delta provenance. Current snapshot lives in the Obsidian vault at
 > `CamFinTech.com website/GEO Audit 2026-08-15.md`; raw sensor output at
 > `~/.geo-prospects/audits/camfintech-deepseek-2026-08-15.md`.
