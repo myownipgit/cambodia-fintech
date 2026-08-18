@@ -3,7 +3,50 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-16 ~03:15 ICT — **Phase 23: Next 16 + React 19 upgrade landed.** Phase 22 (cybersecurity alert → zero) below it.
+2026-08-19 ~00:30 ICT — **session closed clean.** See "Session close 2026-08-19" immediately below; Phases 22-23 follow.
+
+---
+
+## Session close — 2026-08-19
+
+### Current state
+
+| Item | State |
+|---|---|
+| Branch | `feature/update-homepage`, aligned with `main` and both remotes at `01a710b` |
+| Stack | Next 16.3.1 · React 19.2.8 · Turbopack · `npm audit` **0 vulnerabilities**, no `overrides` block |
+| Production | Deployed and verified — 6/6 security headers, redirects 308, GA tag, `geo` in JSON-LD |
+| Sensors | **5 of 10 deployed · 4 now trust-confirmed** |
+
+### Sensor trust status
+
+- **GEO daily-audit** — trusted. **Its scores are noise** (5 runs on an unchanged site: composite 68-75, Platform Optimization 25-50). Use it as a findings generator, never as a metric.
+- **Competitor sweep** — trusted.
+- **Security Posture** — daily D3 2/2 (2026-08-06). Three consecutive clean unattended dailies 08-16/17/18. **Weekly D3 1/2 — second clean weekly due 2026-08-23 07:00 ICT → promotion.**
+- **Compliance Calendar** — **D3 2/2 REACHED 2026-08-16** (execs 7530 + 8455, both unattended Sunday fires). Promoted. ⚠️ **Holds 3 domain renewals and zero statutory deadlines** despite its row being "missed statutory filing".
+- **Contract Sensor** — deployed, still failing non-negotiable #2.
+
+### Highest-value next action
+
+**Load the post-incorporation statutory deadlines (GDT · MLVT · NSSF) into Compliance Calendar.** Source: `business registration/_SESSION-KICKOFF - Post-Incorporation (GDT · MLVT · NSSF)` + the post-incorporation checklist PDF. This is data entry into a now-verified pipeline, not a build — assessed as better value than starting sensor #6. If a new sensor is wanted, **Brand/reputation** is the recommendation (it instruments the zero-third-party-mentions gap that now caps GEO). Detail in memory `project_direction_notes.md`.
+
+### Standing constraint — read before proposing architecture
+
+Bill, 2026-08-19: *"I will complete the sensors before changing the strategy."* **Do not open MCP surfaces, packaging, normalized schemas, frameworks or dashboards until all 10 sensors are deployed.** This has now been decided three times (Sensor Framework note, dashboard note, and this). Captured in memory `feedback_finish_sensors_before_strategy.md`.
+
+### Open triggers (do not execute without a scoping session)
+
+- `"execute VPS migration plan"` — AWS t3.small, ~$21/mo. Plan at `~/.config/claude/plans/misty-cuddling-gray.md`. **Not finalised.**
+- `"execute knowledge-layer compliance consumer plan"`
+- `"let's plan the sensor framework"` / `"let's plan the sensor dashboard"` — both gated on all 10 sensors
+- `"let's plan the 62010 pivot"` / `"let's plan the remediation engine"`
+
+### Smaller items still open
+
+T1 (`telegram-send.sh` HTML-parse-mode sanitizer, bug class has hit 3 scripts) · T4 (HIBP paid tier) · `reactCompiler: true` (separate change) · `<img>` → `next/image` in `AboutContent.tsx` · dark-mode init → no-flash inline script (removes an eslint-disable) · `hstspreload.org` submission unverified · H4 citation links capped at 2 of 6 institutions (NBC/GDT/MEF/IMF block automated verification — needs browser-verified URLs from Bill).
+
+---
+
 
 ### Phase 23 — Next.js 16.3.1 + React 19.2.8 upgrade (2026-08-16)
 
