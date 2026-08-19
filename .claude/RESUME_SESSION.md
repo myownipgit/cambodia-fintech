@@ -3,7 +3,39 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-19 ~00:30 ICT — **session closed clean.** See "Session close 2026-08-19" immediately below; Phases 22-23 follow.
+2026-08-19 later (evening) — **short follow-on session closed.** Brief Q&A + doc-gap fill; no code changes. See "Follow-on close 2026-08-19 (evening)" immediately below, then the earlier morning close, then Phases 22-23.
+
+---
+
+## Follow-on close — 2026-08-19 (evening, doc-gap fill only)
+
+### What happened
+
+Short session; three exchanges:
+
+1. **"have the sensors been deployed to AWS?"** — Answer: no. Verified via `aws ec2 describe-instances --region ap-southeast-1` (only pre-existing `i-083f2fcc4944…` t3a.medium `bge-m3-embedding` — Source Knowledge Layer, unrelated to sensor migration). Local Mac Hermes + Contract Sensor `launchctl list` both running. Migration is still parked at Phase M0b (rotate 3 exposed API credentials) — needs Bill's browser.
+2. **"what is the GitHub PAT?"** — Surfaced token metadata without printing the value: it's a classic `ghp_` PAT (40 chars, fingerprint `ghp_osqnarM…VBCA`) in `~/.claude/config.json` at `mcpServers.github.env.GITHUB_PERSONAL_ACCESS_TOKEN`, used by the GitHub MCP server. Distinct from the `gho_` OAuth token `gh` CLI uses (macOS keychain, scopes `delete_repo, gist, read:org, repo, workflow` for `myownipgit`). Rotation flow described.
+3. **"save all necessary documentation and update vaults, ready the resume.md in preparation for exit of this session"** — this doc sweep.
+
+### Documentation gap fixed
+
+Between the previous morning session-close and today's evening check-in, I discovered a documentation gap: the **2026-08-12 work I did earlier in this same conversation** (`npm audit fix` deploy `dpl_8NqV5Xeh…`, Next 15.5.23 upgrade deploy `dpl_7gvyTsxu…`, 10 Kanban cards closed, attribution investigation, PDF summary) had **no session log and no Recent Milestones entry**. Filled both:
+
+- **New vault doc**: `Firm Operations/14b_Session_Log_2026-08-12_security_remediation.md` — sits between docs 14 (08-06/07) and 15 (08-15/16); positions itself explicitly as predecessor to Bill's Phase 22 arc (the residual `next`/`postcss`/`sharp` that Phase 22 triaged are what Phase 19b left open).
+- **Recent Milestones**: added Phase 19b (2026-08-12) between Phase 19 (08-09) and Phase 20 (08-15/16); frontmatter `updated:` bumped to 2026-08-19; Documentation-milestones row added for the new session log.
+
+Bill's own 2026-08-19 morning close block (below) is authoritative for the higher-value session state — this addendum is purely to make today's small increment findable.
+
+### No code changes
+
+Neither `~/workspace/cambodia-fintech` nor `~/.geo-prospects` had commits made in this follow-on. `Header.tsx` change from a prior session (dark-mode hydration-mismatch explanation + `eslint-disable` for `react-hooks/set-state-in-effect`) was already committed before this session.
+
+### Trigger phrases still open (unchanged from morning close)
+
+- `"execute VPS migration plan"` — still blocked on M0b credential rotation (needs Bill's browser).
+- `"execute knowledge-layer compliance consumer plan"` — still blocked on VPS migration.
+- `"let's plan the sensor framework"` / `"let's plan the sensor dashboard"` — gated on all 10 sensors deployed (Bill's standing constraint, 2026-08-19).
+- `"let's plan the 62010 pivot"` / `"let's plan the remediation engine"` — the 2026-08-12 remediation cycle made the remediation engine empirically load-bearing, worth flagging next time it comes up.
 
 ---
 
