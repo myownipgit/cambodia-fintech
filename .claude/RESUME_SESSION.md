@@ -3,7 +3,9 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-19 — **statutory deadlines loaded into Compliance Calendar; session closed.** Repo HEAD `c9b7603`, geo-prospects `1ff5898`.
+2026-08-19 — **statutory deadlines loaded into Compliance Calendar; session closed.** All four `cambodia-fintech` refs aligned (`main`, `feature/update-homepage`, both remotes); `~/.geo-prospects` at `1ff5898`.
+
+> A specific HEAD hash is deliberately **not** recorded here: any hash written into this file is stale the moment the commit recording it is created. Verify with `git rev-parse --short HEAD`. What matters and stays true is that **all four refs are aligned** — check with `git status -sb` and a `main` vs `feature/update-homepage` comparison.
 
 > [!warning] Three 2026-08-19 blocks below — read in this order
 > Two Claude sessions wrote to this file on the same day, so the sections are out of chronological order. **Authoritative sequence:**
@@ -54,7 +56,7 @@ Neither `~/workspace/cambodia-fintech` nor `~/.geo-prospects` had commits made i
 
 | Item | State |
 |---|---|
-| Branch | `feature/update-homepage`, aligned with `main` and both remotes at **`c9b7603`** · `~/.geo-prospects` at **`1ff5898`** |
+| Branch | `feature/update-homepage`, aligned with `main` and both remotes · `~/.geo-prospects` at `1ff5898` (that repo has no remote, so its hash is stable) |
 | Stack | Next 16.3.1 · React 19.2.8 · Turbopack · `npm audit` **0 vulnerabilities**, no `overrides` block |
 | Production | Deployed and verified — 6/6 security headers, redirects 308, GA tag, `geo` in JSON-LD |
 | Sensors | **5 of 10 deployed · 4 now trust-confirmed** |
