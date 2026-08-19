@@ -60,7 +60,13 @@ Neither `~/workspace/cambodia-fintech` nor `~/.geo-prospects` had commits made i
 
 ### Highest-value next action
 
-**Load the post-incorporation statutory deadlines (GDT · MLVT · NSSF) into Compliance Calendar.** Source: `business registration/_SESSION-KICKOFF - Post-Incorporation (GDT · MLVT · NSSF)` + the post-incorporation checklist PDF. This is data entry into a now-verified pipeline, not a build — assessed as better value than starting sensor #6. If a new sensor is wanted, **Brand/reputation** is the recommendation (it instruments the zero-third-party-mentions gap that now caps GEO). Detail in memory `project_direction_notes.md`.
+~~Load the post-incorporation statutory deadlines into Compliance Calendar~~ — **DONE 2026-08-19** (`1ff5898`). Calendar went 3 → 9; it fired its first ever card, `t_de44bba9`.
+
+**The live next action is now gated on MoC approval.** The registration was resubmitted 2026-08-14 and was still awaiting approval at last check, expected week of 2026-08-17. On approval a **15-day clock** starts for Patent Tax + VAT registration with a **~2,000,000 KHR fine** — that deadline is deliberately *undated* in the calendar because guessing it would be worse than nothing. The `moc-approval-status-check` entry (fires 2026-08-26) is the standing reminder and carries the full on-approval action list in its `notes`.
+
+**On approval: add the dated 15-day Patent Tax + VAT deadline, the MLVT Notice of Enterprise Opening (~30d), Company Secretary Prakas 117 (~3mo) and ADCE — then archive the watcher.** Also re-date `gdt-monthly-filings`, whose 2026-10-20 start is an estimate, not a sourced date.
+
+If a new sensor is wanted instead, **Brand/reputation** remains the recommendation (it instruments the zero-third-party-mentions gap that caps GEO). Detail in memory `project_direction_notes.md`.
 
 ### Standing constraint — read before proposing architecture
 
