@@ -3,7 +3,16 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-19 later (evening) — **short follow-on session closed.** Brief Q&A + doc-gap fill; no code changes. See "Follow-on close 2026-08-19 (evening)" immediately below, then the earlier morning close, then Phases 22-23.
+2026-08-19 — **statutory deadlines loaded into Compliance Calendar; session closed.** Repo HEAD `c9b7603`, geo-prospects `1ff5898`.
+
+> [!warning] Three 2026-08-19 blocks below — read in this order
+> Two Claude sessions wrote to this file on the same day, so the sections are out of chronological order. **Authoritative sequence:**
+>
+> 1. **"Session close — 2026-08-19"** (below the evening block) — the substantive state: sensor trust, standing constraint, open triggers. **Start here.**
+> 2. **"Follow-on close (evening)"** (immediately below) — a *separate, smaller* session: AWS/PAT Q&A plus a doc-gap fill for 2026-08-12 work. Its "**No code changes**" statement is true **only of that session** — it does not describe the day.
+> 3. **This header** supersedes both for current state.
+>
+> **Today's actual output: 3 commits in `cambodia-fintech`, 2 in `~/.geo-prospects`** — the GEO audit fixes, the statutory-deadline load, and the doc sweeps. The evening block's "no code changes" line has caused this file to understate the day once already; do not read it as the day's summary.
 
 ---
 
@@ -45,7 +54,7 @@ Neither `~/workspace/cambodia-fintech` nor `~/.geo-prospects` had commits made i
 
 | Item | State |
 |---|---|
-| Branch | `feature/update-homepage`, aligned with `main` and both remotes at `01a710b` |
+| Branch | `feature/update-homepage`, aligned with `main` and both remotes at **`c9b7603`** · `~/.geo-prospects` at **`1ff5898`** |
 | Stack | Next 16.3.1 · React 19.2.8 · Turbopack · `npm audit` **0 vulnerabilities**, no `overrides` block |
 | Production | Deployed and verified — 6/6 security headers, redirects 308, GA tag, `geo` in JSON-LD |
 | Sensors | **5 of 10 deployed · 4 now trust-confirmed** |
@@ -55,7 +64,7 @@ Neither `~/workspace/cambodia-fintech` nor `~/.geo-prospects` had commits made i
 - **GEO daily-audit** — trusted. **Its scores are noise** (5 runs on an unchanged site: composite 68-75, Platform Optimization 25-50). Use it as a findings generator, never as a metric.
 - **Competitor sweep** — trusted.
 - **Security Posture** — daily D3 2/2 (2026-08-06). Three consecutive clean unattended dailies 08-16/17/18. **Weekly D3 1/2 — second clean weekly due 2026-08-23 07:00 ICT → promotion.**
-- **Compliance Calendar** — **D3 2/2 REACHED 2026-08-16** (execs 7530 + 8455, both unattended Sunday fires). Promoted. ⚠️ **Holds 3 domain renewals and zero statutory deadlines** despite its row being "missed statutory filing".
+- **Compliance Calendar** — **D3 2/2 REACHED 2026-08-16** (execs 7530 + 8455, both unattended Sunday fires). Promoted. **Statutory deadlines loaded 2026-08-19 — calendar 3 → 9** (GDT patent tax + CIT + monthly filings, MLVT permit + quota, MoC approval watcher). Fired its **first ever card** `t_de44bba9` the same day. ⚠️ Caveat on that promotion: **both promoting runs had `fires_matched: 0`**, so they exercised scheduling and the *non*-firing path only — the firing path was unverified until 08-19. Also: **`fire_journal` is unimplemented**; idempotency is delegated to Hermes (verified working).
 - **Contract Sensor** — deployed, still failing non-negotiable #2.
 
 ### Highest-value next action
