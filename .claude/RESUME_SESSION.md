@@ -51,6 +51,20 @@ Today's daily-audit already fired at 09:07 ICT (`camfintech-deepseek-2026-08-20.
 - **No Kanban seeding** — Shape D deferred per Bill's standing "no frameworks until 10 sensors deployed" constraint; the remediation-engine direction note is the right home for it.
 - **No vault docs updated** — the sensor still fires the same schedule with the same delivery; not a topology or registration change.
 
+### Vault sweep (same session, after Bill's "update any impacted documentation and vaults")
+
+Five vault files touched:
+
+- **NEW** `Firm Operations/16_Session_Log_2026-08-20_geo_kb_seed.md` — full session log matching the 14b/15 pattern; documents the trigger, four-shape decision, what shipped, curation model, what did NOT change, and the 2026-08-21 first-live-proof-point check.
+- **NEW** `CamFinTech.com website/GEO Audit 2026-08-20.md` — summary + interpretation of the 24-page manual audit; matches the `GEO Audit 2026-08-15.md` shape (summary doc pointing at the source file at repo commit `45bb659`). Frontmatter records the prior-audit history and the source-audit commit for provenance.
+- **UPDATED** `CamFinTech.com website/Daily GEO Monitoring Pipeline.md` — new "Knowledge base — standing findings (added 2026-08-20)" section between the prompt-engineering and model-shootout sections. Covers why/what/how/curation and links to the session log. Frontmatter `updated:` bumped to 2026-08-20.
+- **UPDATED** `CamFinTech.com website/Recent Milestones.md` — Phase 24 row inserted above Phase 23 (matches Bill's descending-recent-block convention); new documentation-milestones row for the 2026-08-20 sweep; frontmatter `updated:` bumped.
+- **UPDATED** `Firm Operations/08_Sensor_Framework_Direction_Note.md` — added **tension #8** to the "Tensions to resolve" list about the per-sensor curated-priors slot (curated vs auto-mutated dedup state are same shape / opposite semantics). Marked "data point only — do not act on this before all 10 sensors are deployed" to preserve the standing "no framework work" constraint. Frontmatter `updated:` bumped + related link added.
+
+Not touched (deliberately): `00_Agentic_Firm_Thesis.md` (per-sensor KB doesn't change the thesis or the sensor tally), the three [[GEO Audit YYYY-MM-DD]] prior docs (historical), any sensor-registration doc for the GEO sensor (there isn't one — the [[Daily GEO Monitoring Pipeline]] IS the registration).
+
+Memory `project_geo_monitoring.md` also updated in the earlier commit with the "Knowledge base" section and the re-seed trigger phrase.
+
 ### Trigger phrases still open (unchanged)
 
 - `"execute VPS migration plan"` — still blocked on M0b credential rotation (needs Bill's browser).
