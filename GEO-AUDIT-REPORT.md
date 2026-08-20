@@ -1,8 +1,12 @@
 > **SUPERSEDED — this is the 2026-07-30 audit (composite 67/100).**
-> Recent audits: **2026-08-15 → 72/100**, **2026-08-16 → 68 (Sonnet) and 71 (DeepSeek)**.
-> Treat the composite as **±4 noise** — three runs across ~25 hours on a near-identical site
-> spanned 68-72, and one category (Platform Optimization) swung 17 points with no
-> underlying change. Judge progress on multi-run medians, not single scores.
+> **Current full audit: [`GEO-AUDIT-2026-08-20.md`](GEO-AUDIT-2026-08-20.md) (composite 63/100).**
+> Recent audits: **2026-08-15 → 72/100**, **2026-08-16 → 68 (Sonnet) and 71 (DeepSeek)**,
+> **2026-08-17 → 75**, **2026-08-20 → 63** (the 2026-08-20 drop is a measurement change —
+> Brand Authority was API-verified rather than estimated; holding it at the 5-run median
+> yields 68, in-band).
+> Treat the composite as **±7 noise** — five runs on a site unchanged since `e915c57`
+> spanned 68-75, and one category (Platform Optimization) swung 25 points with no
+> underlying change (per-category noise up to ±25). Judge progress on multi-run medians, not single scores.
 > The 2026-08-15 findings L1, L2 and M4 were closed in commit `e915c57`.
 > This file is retained for delta provenance. Current snapshot lives in the Obsidian vault at
 > `CamFinTech.com website/GEO Audit 2026-08-15.md`; raw sensor output at

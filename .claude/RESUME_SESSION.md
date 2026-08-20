@@ -3,18 +3,61 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-19 — **statutory deadlines loaded into Compliance Calendar; session closed.** All four `cambodia-fintech` refs aligned (`main`, `feature/update-homepage`, both remotes); `~/.geo-prospects` at `1ff5898`.
+2026-08-20 — **GEO sensor knowledge base seeded** from the 2026-08-20 manual audit; daily sensor now cross-checks each probe against 7 H-severity priors instead of rediscovering them. `~/.geo-prospects` at `ef0b8fc` (still local-only, no remote). `cambodia-fintech` unchanged this session — no code deploy needed.
 
-> A specific HEAD hash is deliberately **not** recorded here: any hash written into this file is stale the moment the commit recording it is created. Verify with `git rev-parse --short HEAD`. What matters and stays true is that **all four refs are aligned** — check with `git status -sb` and a `main` vs `feature/update-homepage` comparison.
+> A specific HEAD hash is deliberately **not** recorded here: any hash written into this file is stale the moment the commit recording it is created. Verify with `git rev-parse --short HEAD`. What matters and stays true is that **all four `cambodia-fintech` refs are aligned** — check with `git status -sb` and a `main` vs `feature/update-homepage` comparison.
 
-> [!warning] Three 2026-08-19 blocks below — read in this order
-> Two Claude sessions wrote to this file on the same day, so the sections are out of chronological order. **Authoritative sequence:**
+> [!warning] Multiple day-close blocks below — read in this order
+> **Authoritative sequence:**
 >
-> 1. **"Session close — 2026-08-19"** (below the evening block) — the substantive state: sensor trust, standing constraint, open triggers. **Start here.**
-> 2. **"Follow-on close (evening)"** (immediately below) — a *separate, smaller* session: AWS/PAT Q&A plus a doc-gap fill for 2026-08-12 work. Its "**No code changes**" statement is true **only of that session** — it does not describe the day.
-> 3. **This header** supersedes both for current state.
->
-> **Today's actual output: 3 commits in `cambodia-fintech`, 2 in `~/.geo-prospects`** — the GEO audit fixes, the statutory-deadline load, and the doc sweeps. The evening block's "no code changes" line has caused this file to understate the day once already; do not read it as the day's summary.
+> 1. **"Session close — 2026-08-20 (GEO KB seed)"** (immediately below) — today's work.
+> 2. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
+> 3. **This header** supersedes all for current state.
+
+---
+
+## Session close — 2026-08-20 (GEO KB seed)
+
+### What happened
+
+Bill produced two manual GEO audit files at the `cambodia-fintech` repo root — `GEO-AUDIT-2026-08-20.md` (current, composite 63, findings-generator framing) and `GEO-AUDIT-REPORT.md` (2026-07-30 audit, explicitly SUPERSEDED and retained for delta provenance only). Ask: **"feed findings into the GEO sensor's knowledge base to include where necessary into the daily GEO sensor report."**
+
+Diagnosed that the daily GEO sensor (`~/.geo-prospects/scripts/daily-audit.sh`) had **no formal KB file at all** — each run was independent, which is exactly what produced the ±25-per-category composite noise the 2026-08-20 audit itself calls out. Presented four possible shapes (addendum-pinning / SKILL.md update / new baseline file / Kanban seeding); Bill chose **Shape C with H-severity items only**.
+
+### What shipped
+
+- **New file** `~/.geo-prospects/geo/known_findings.md` — 7 H-severity findings from GEO-AUDIT-2026-08-20 (H1 outbound-citations, H2 LinkedIn invisibility, H3 icon-font ligatures, H4 owned-property schema wiring, H5 split entity nodes, H6 og:image/Twitter cards, H7 nine recoverable redirects). Each with status (all OPEN at seed), evidence, and fix. M/L intentionally excluded per Bill's tight-prompt decision.
+- **Edit** `~/.geo-prospects/scripts/daily-audit.sh` — added conditional KB loader + spliced content in as addendum section 4 between the Aston Hill guardrail (section 3) and the Output section. Sensor instructed to emit a **Standing-findings status** table at the top of each daily report marking each known finding as `present` / `closed` / `regressed` / `inconclusive`, with ADR-002 D1 evidence rule applied to `closed` and `regressed` verdicts (both high-signal).
+- **Verified**: `bash -n` OK; prompt-assembly dry-run shows KB block splices exactly once between Aston Hill and Output, all 7 H-headers present. Adds ~2.5k tokens per daily run (modest).
+- **Commit** `ef0b8fc` on `~/.geo-prospects` (local-only repo, no remote push). Memory updated ([[project-geo-monitoring]] has a new "Knowledge base" section).
+
+### Curation model
+
+Sensor NEVER mutates the KB file — it is curated state. Update triggers:
+
+- New manual re-audit → update `known_findings.md` from that audit's H-findings + bump `source_audit` / `source_date` / `last_reviewed` frontmatter.
+- Finding verifiably closed in production → mark status `CLOSED` inline + append to the curation log at the bottom.
+- Regression → mark `REGRESSED` + note evidence.
+
+Trigger phrase to re-seed: **`"update GEO known findings from <new-audit-path>"`** (added to project_geo_monitoring memory).
+
+### Live verification
+
+Today's daily-audit already fired at 09:07 ICT (`camfintech-deepseek-2026-08-20.md`) BEFORE the KB was seeded — so it does NOT contain the standing-findings table. **First real proof point: tomorrow's 09:00 ICT fire (2026-08-21).** Look for the Standing-findings status table at the top of `~/.geo-prospects/audits/camfintech-deepseek-2026-08-21.md`, before the Executive Summary. If it's missing, the addendum splice did not reach the LLM — check the log at `.log` alongside.
+
+### Not shipped this session
+
+- **No cambodia-fintech commits** — the daily sensor is a monitoring change, not a site change. All 7 findings remain OPEN in production. Remediation (Week 1 Quick Wins in the manual audit) is separate work.
+- **No Kanban seeding** — Shape D deferred per Bill's standing "no frameworks until 10 sensors deployed" constraint; the remediation-engine direction note is the right home for it.
+- **No vault docs updated** — the sensor still fires the same schedule with the same delivery; not a topology or registration change.
+
+### Trigger phrases still open (unchanged)
+
+- `"execute VPS migration plan"` — still blocked on M0b credential rotation (needs Bill's browser).
+- `"execute knowledge-layer compliance consumer plan"` — still blocked on VPS migration.
+- `"let's plan the sensor framework"` / `"let's plan the sensor dashboard"` — gated on all 10 sensors deployed.
+- `"let's plan the 62010 pivot"` / `"let's plan the remediation engine"` — the 2026-08-12 cycle made the remediation engine empirically load-bearing.
+- **NEW**: `"update GEO known findings from <audit-path>"` — re-seed the KB from a new manual audit.
 
 ---
 
