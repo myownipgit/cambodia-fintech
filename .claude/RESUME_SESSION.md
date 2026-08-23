@@ -3,19 +3,67 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-23 — **Google Search Console verification retired.** The `verification.google` meta tag belonging to the bill.mallett@2speak2.com property was removed from `app/layout.tsx`, deployed to production, and confirmed absent from live HTML; Bill removed the property in Search Console itself. GSC coverage is now **DNS-only under info@camfintech.com**.
+2026-08-23 (evening) — **Logo design exploration opened.** Second session on the same day, separate from the GSC verification work. Four rounds of `/design` iterations on a private Artifact canvas. Direction locked = geometric C-wraps-TF monogram (Bill's reference Image #4); 5 variations shipped on the canvas; **no decision locked**. Full narrative in vault [[Firm Operations/17_Session_Log_2026-08-23_logo_design]]. **No site code touched this session** — the current stacked-ellipses `Header.tsx` mark is unchanged in production.
 
-Prior entry (2026-08-20): GEO sensor knowledge base seeded — `~/.geo-prospects` at `ef0b8fc`, local-only. Full detail in its session-close block below. **Note:** that entry's "no code deploy needed" applied to 2026-08-20 only; 2026-08-23 did deploy.
+Prior entry (2026-08-23 morning): GSC `verification.google` meta tag removed; DNS-only GSC coverage under info@camfintech.com. Full detail in its session-close block below.
+
+Prior entry (2026-08-20): GEO sensor knowledge base seeded — `~/.geo-prospects` at `ef0b8fc`, local-only. Full detail in its session-close block below. **Note:** that entry's "no code deploy needed" applied to 2026-08-20 only; 2026-08-23 morning did deploy, 2026-08-23 evening did not.
 
 > A specific HEAD hash is deliberately **not** recorded here: any hash written into this file is stale the moment the commit recording it is created. Verify with `git rev-parse --short HEAD`. What matters and stays true is that **all four `cambodia-fintech` refs are aligned** — check with `git status -sb` and a `main` vs `feature/update-homepage` comparison.
 
 > [!warning] Multiple day-close blocks below — read in this order
 > **Authoritative sequence:**
 >
-> 1. **"Session close — 2026-08-23 (GSC verification retired)"** (immediately below) — today's work.
-> 2. **"Session close — 2026-08-20 (GEO KB seed)"** — GEO sensor knowledge base.
-> 3. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
-> 4. **This header** supersedes all for current state.
+> 1. **"Session close — 2026-08-23 (evening, logo design exploration)"** (immediately below) — today's evening session.
+> 2. **"Session close — 2026-08-23 (GSC verification retired)"** — today's morning session (separate scope).
+> 3. **"Session close — 2026-08-20 (GEO KB seed)"** — GEO sensor knowledge base.
+> 4. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
+> 5. **This header** supersedes all for current state.
+
+---
+
+## Session close — 2026-08-23 (evening, logo design exploration)
+
+### What happened
+
+Bill opened `/design create some logo suggestions for CamFinTech` and iterated across **four rounds** in one session. Each round republished the same private Artifact URL.
+
+**Canvas** (kept up-to-date): [https://claude.ai/code/artifact/e28797b1-ed5d-4122-bfd9-c6bc32fd6f1a](https://claude.ai/code/artifact/e28797b1-ed5d-4122-bfd9-c6bc32fd6f1a)
+
+### Iteration timeline
+
+1. **Round 1** — four direction sketches: Stacked Rails, Angkorian Geometry, Khmer Monogram, Wordmark-only. Bill picked the Khmer Monogram direction.
+2. **Round 2** — 5 variations on the Khmer monogram. Two corrections landed: the Khmer letter should be **ខ** (kha, matches the Khmer trading name **ខេមហ្វីនថេក**), not the **ច** I first guessed from Latin C phonetics; and **ឯ.ក** (Cambodian equivalent of "Co., Ltd.") gets the same public-vs-legal treatment as "Co., Ltd." — omitted from the mark.
+3. **Round 3** — pivot to Latin **C.F.T.** after Bill flagged the Khmer letter interpretation didn't read for a non-Khmer audience. `ខ` parked as a possible future trademark. Five typographic C.F.T. variations plus the now-fixed dark wordmark stack (`CamFinTech` over `ខេមហ្វីនថេក`).
+4. **Round 4 (current)** — geometric **C-wraps-TF monogram** based on Bill's reference Image #4: thick circular C wrapping an interlocked T+F sharing a vertical stem. Five variations shipped as inline SVG in gold: baseline (V1), open-C (V2), TF-breakout (V3), two-tone dark C + gold TF (V4), thin-refined (V5).
+
+### What did NOT ship
+
+- **No site code changed.** `app/components/Header.tsx`'s current stacked-ellipses SVG mark is unchanged in production. All exploration lives in the design canvas only.
+- **No decision locked.** Bill is still iterating; V1-V5 of Round 4 are open for further variation, colour swap, or a next-theme pivot.
+- **No brand assets committed to the repo.** When a decision lands, downstream work is: SVG swap in `Header.tsx`, new `public/logo.svg` + favicon set, `Organization.logo` in JSON-LD, and a new `Brand Guide` vault doc.
+- **No trademark work.** Bill's note about registering `ខ` as a future trademark is a filing-later intent, not a current-session task.
+
+### Vault + memory updates from this session
+
+- **NEW** `Firm Operations/17_Session_Log_2026-08-23_logo_design.md` — full narrative.
+- **NEW** `CamFinTech.com website/Logo Design Exploration 2026-08-23.md` — canonical current-state summary with canvas link.
+- **UPDATED** `CamFinTech.com website/Recent Milestones.md` — Phase 26 inserted above Phase 25; documentation-milestones row added for the vault sweep.
+- **NEW memory** `project_logo_design.md` — canvas URL, current direction, iteration history, downstream-work list, trigger phrases. Linked from `MEMORY.md` index.
+
+### Trigger phrases (added this session)
+
+- **Continue iterating**: `"iterate on the logo canvas"` — a fresh session WebFetches the artifact + `--extract`s working files.
+- **Lock a decision**: `"ship logo Vn"` (pick one of V1-V5) — triggers `Header.tsx` swap + asset build + JSON-LD update.
+- **Colour switch**: `"try the logo in navy/other"` — Bill's Image #4 was navy; gold vs alternative colours is a separate axis if he wants to explore it.
+
+### Other open triggers (unchanged)
+
+- `"execute VPS migration plan"` — still blocked on M0b credential rotation.
+- `"execute knowledge-layer compliance consumer plan"` — still blocked on VPS.
+- `"let's plan the sensor framework"` / `"let's plan the sensor dashboard"` — gated on all 10 sensors deployed.
+- `"let's plan the 62010 pivot"` / `"let's plan the remediation engine"`.
+- `"update GEO known findings from <audit-path>"` — re-seed GEO KB from a new manual audit.
 
 ---
 
