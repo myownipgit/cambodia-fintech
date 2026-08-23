@@ -3,16 +3,76 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-20 — **GEO sensor knowledge base seeded** from the 2026-08-20 manual audit; daily sensor now cross-checks each probe against 7 H-severity priors instead of rediscovering them. `~/.geo-prospects` at `ef0b8fc` (still local-only, no remote). `cambodia-fintech` unchanged this session — no code deploy needed.
+2026-08-23 — **Google Search Console verification retired.** The `verification.google` meta tag belonging to the bill.mallett@2speak2.com property was removed from `app/layout.tsx`, deployed to production, and confirmed absent from live HTML; Bill removed the property in Search Console itself. GSC coverage is now **DNS-only under info@camfintech.com**.
+
+Prior entry (2026-08-20): GEO sensor knowledge base seeded — `~/.geo-prospects` at `ef0b8fc`, local-only. Full detail in its session-close block below. **Note:** that entry's "no code deploy needed" applied to 2026-08-20 only; 2026-08-23 did deploy.
 
 > A specific HEAD hash is deliberately **not** recorded here: any hash written into this file is stale the moment the commit recording it is created. Verify with `git rev-parse --short HEAD`. What matters and stays true is that **all four `cambodia-fintech` refs are aligned** — check with `git status -sb` and a `main` vs `feature/update-homepage` comparison.
 
 > [!warning] Multiple day-close blocks below — read in this order
 > **Authoritative sequence:**
 >
-> 1. **"Session close — 2026-08-20 (GEO KB seed)"** (immediately below) — today's work.
-> 2. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
-> 3. **This header** supersedes all for current state.
+> 1. **"Session close — 2026-08-23 (GSC verification retired)"** (immediately below) — today's work.
+> 2. **"Session close — 2026-08-20 (GEO KB seed)"** — GEO sensor knowledge base.
+> 3. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
+> 4. **This header** supersedes all for current state.
+
+---
+
+## Session close — 2026-08-23 (GSC verification retired)
+
+### What happened
+
+Bill asked to remove the Google Search Console verification belonging to
+**bill.mallett@2speak2.com** (token `7o0E2d5v…cyzo`) from the repo, with two explicit
+guardrails: do not remove any other verification token, and do not touch DNS.
+
+A full-repo search found the token in **exactly one place** — the `verification.google`
+field in the root layout metadata (`app/layout.tsx`), which emitted a
+`<meta name="google-site-verification">` tag on every page. Confirmed absent: any raw
+meta tag, any file-based `googleXXXX.html` in `public/`, and any env var
+(`.env.example` is the only env file and is clean).
+
+### What shipped
+
+- **Edit** `app/layout.tsx` — deleted the single `verification.google` line. The
+  `verification.other` block (Bing `msvalidate.01`, `facebook-domain-verification`)
+  was left intact and both tags verified still live.
+- **Commit** `9b55c95` on `feature/update-homepage`, pushed to origin.
+- **Deploy** `vercel --prod --yes` → `cambodia-fintech-cwohajomv-…` · Ready · aliased to www.
+  (Git push does not deploy this project — Hobby-plan non-team commit author. CLI only.)
+- **Live verification**, cache-busted with `age: 0` and a fresh `x-vercel-id`: token
+  absent from `/`, `/about`, `/products/dasp`, `/learn/how-bakong-works`. Gone from the
+  build output; Facebook + Bing tokens survive the build.
+- **Read-only `dig`** confirmed the DNS TXT record `OFlDlnpA…tS4` is untouched, so
+  info@camfintech.com remains verified. No DNS changes were made.
+- **Manual step completed by Bill**: the property was removed in Search Console under
+  bill.mallett@2speak2.com. This is the actual revocation — the meta-tag deletion only
+  prevents re-verification.
+- **Doc update** `CLAUDE.md` — added a "Site verification tokens — current state" table
+  and a standing instruction **not to re-add `verification.google`**, plus a post-deploy
+  check asserting zero `google-site-verification` matches.
+
+### Current state
+
+| Service | Method | Owner | Location |
+|---|---|---|---|
+| Google Search Console | DNS TXT | info@camfintech.com | DNS zone — not in repo |
+| Bing Webmaster Tools | meta tag | — | `app/layout.tsx` |
+| Facebook domain | meta tag | — | `app/layout.tsx` |
+
+### Notes / residue
+
+- The token remains in **git history** at commit `211d8b8` ("Add Google Search Console
+  verification meta tag") and this repo is public. Not treated as a secret — GSC tokens
+  are served in public HTML by design — and no history rewrite was performed.
+- **`main` is behind `feature/update-homepage`** by the commits from this session.
+  Offered the fast-forward; not requested, so not performed. Refs are *not* aligned —
+  this is the one place today's state departs from the usual "all four refs aligned"
+  invariant in the header note above.
+- If the retired property held a submitted sitemap or unresolved coverage issues, those
+  went with it. The info@camfintech.com property is unaffected but worth a spot-check
+  that `sitemap.xml` is submitted there.
 
 ---
 

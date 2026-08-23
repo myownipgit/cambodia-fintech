@@ -140,11 +140,30 @@ curl -sS https://www.camfintech.com/<your-changed-route>
 # 3. Confirm GA tag still loads (measurement ID: G-QDZ83JQWVC)
 curl -sS https://www.camfintech.com | grep -oE 'G-QDZ83JQWVC'
 
-# 4. Confirm Facebook domain verification still present
+# 4. Confirm the surviving verification meta tags are still present
 curl -sS https://www.camfintech.com | grep -oE 'facebook-domain-verification[^>]*'
+curl -sS https://www.camfintech.com | grep -oE 'msvalidate\.01[^>]*'
+
+# 5. Confirm NO google-site-verification meta tag has crept back (expect zero matches)
+curl -sS https://www.camfintech.com | grep -c 'google-site-verification'
 ```
 
 For UI changes, open the page in a browser — `curl` won't catch visual regressions.
+
+### Site verification tokens — current state
+
+| Service | Method | Owner | Where it lives |
+|---|---|---|---|
+| Google Search Console | **DNS TXT** | info@camfintech.com | DNS zone (`OFlDlnpA…`) — **not** in this repo |
+| Bing Webmaster Tools | meta tag | — | `verification.other['msvalidate.01']` in `app/layout.tsx` |
+| Facebook domain | meta tag | — | `verification.other['facebook-domain-verification']` in `app/layout.tsx` |
+
+**Do not re-add a `verification.google` field to the root layout metadata.** The
+meta-tag GSC verification belonged to a second property owned by
+bill.mallett@2speak2.com; that property was removed in Search Console and the tag
+was deleted from the repo on 2026-08-23 (commit `9b55c95`). Google Search Console
+coverage is now DNS-only under info@camfintech.com — adding the meta tag back would
+re-verify the retired property.
 
 ### Troubleshooting
 
