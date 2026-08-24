@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { ogImage } from "@/app/og";
 
 export const metadata: Metadata = {
   title: "Publication — The Riel Report | CamFinTech",
@@ -14,6 +15,14 @@ export const metadata: Metadata = {
       "The Riel Report is published by CamFinTech, a Phnom Penh regulatory approval-navigation and compliance firm. Cambodia FinTech intelligence at riel.report.",
     url: "https://www.camfintech.com/publication",
     type: "website",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Publication — The Riel Report | CamFinTech",
+    description:
+      "The Riel Report is published by CamFinTech, a Phnom Penh regulatory approval-navigation and compliance firm.",
+    images: [ogImage],
   },
 };
 

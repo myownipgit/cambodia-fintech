@@ -42,6 +42,7 @@ export default function FAQSection({ faqs, pageUrl }: { faqs: FAQ[]; pageUrl: st
             >
               <span>{faq.question}</span>
               <span className="material-symbols-outlined text-primary ml-2 transition-transform duration-200"
+                aria-hidden="true"
                 style={{ transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                 expand_more
               </span>

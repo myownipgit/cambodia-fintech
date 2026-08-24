@@ -119,10 +119,10 @@ export default function DaspContent() {
             <h2 className="text-2xl font-bold mb-4">What we do — and explicit bright lines</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <div className="rounded-xl border-2 border-primary/30 bg-card-light dark:bg-card-dark p-6">
-                <h3 className="font-bold mb-3 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary text-xl">check_circle</span>
-                  In scope
-                </h3>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="material-symbols-outlined text-primary text-xl" aria-hidden="true">check_circle</span>
+                  <h3 className="font-bold">In scope</h3>
+                </div>
                 <ul className="space-y-2 text-sm text-text-light/80 dark:text-text-dark/80">
                   <li>AML/CFT framework + policy + procedures</li>
                   <li>Risk assessment + risk appetite statement</li>
@@ -137,10 +137,10 @@ export default function DaspContent() {
                 </ul>
               </div>
               <div className="rounded-xl border-2 border-text-light/15 dark:border-text-dark/15 bg-card-light/50 dark:bg-card-dark/50 p-6">
-                <h3 className="font-bold mb-3 flex items-center gap-2 text-text-light/70 dark:text-text-dark/70">
-                  <span className="material-symbols-outlined text-xl">block</span>
-                  Bright lines — out of scope
-                </h3>
+                <div className="flex items-center gap-2 mb-3 text-text-light/70 dark:text-text-dark/70">
+                  <span className="material-symbols-outlined text-xl" aria-hidden="true">block</span>
+                  <h3 className="font-bold">Bright lines — out of scope</h3>
+                </div>
                 <ul className="space-y-2 text-sm text-text-light/75 dark:text-text-dark/75">
                   <li><strong>Named MLRO</strong> stays client-side — must be a board-appointed, senior-management, CAFIU-notified individual of the licensed entity (not outsourceable to us)</li>
                   <li><strong>Custody, filing, operating the rail</strong> stays with the licensed DASP — we never hold assets, never file submissions on your behalf, never operate</li>

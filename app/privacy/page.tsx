@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import PrivacyContent from "./PrivacyContent";
+import { ogImage } from "@/app/og";
 
 export const metadata: Metadata = {
   title: "Privacy Statement — CamFinTech",
@@ -12,9 +13,11 @@ export const metadata: Metadata = {
       "How CamFinTech collects, uses, and protects information about visitors and clients. Covers analytics, cross-border data, AI tooling, and your rights.",
     url: "https://www.camfintech.com/privacy",
     type: "article",
+    images: [ogImage],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
+    images: [ogImage],
     title: "Privacy Statement — CamFinTech",
     description:
       "How CamFinTech collects, uses, and protects information about visitors and clients of our Cambodian FinTech consulting practice.",

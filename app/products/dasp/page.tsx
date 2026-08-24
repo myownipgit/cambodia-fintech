@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import DaspContent from "./DaspContent";
+import { ogImage } from "@/app/og";
 
 export const metadata: Metadata = {
   title: "DASP Approval-Readiness — SERC Prakas 093 | CamFinTech",
@@ -12,11 +13,13 @@ export const metadata: Metadata = {
       "Get licence-ready for digital assets. The end-to-end approval-readiness programme for SERC's Prakas 093 regime — flagship product. Fee-only. AML-rigor-not-access.",
     url: "https://www.camfintech.com/products/dasp",
     type: "website",
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "DASP Approval-Readiness — Prakas 093",
     description: "End-to-end DASP licensing readiness. Fee-only. Process competence, never access.",
+    images: [ogImage],
   },
 };
 

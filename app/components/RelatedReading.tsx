@@ -29,7 +29,7 @@ export default function RelatedReading({ links }: { links: RelatedLink[] }) {
               href={`/${link.type}/${link.slug}`}
               className="flex items-center gap-2 text-text-light/80 dark:text-text-dark/80 hover:text-primary transition-colors"
             >
-              <span className="material-symbols-outlined text-primary text-lg">article</span>
+              <span className="material-symbols-outlined text-primary text-lg" aria-hidden="true">article</span>
               <span>{link.title}</span>
               <span className="text-xs text-text-light/40 dark:text-text-dark/40">
                 {typeLabels[link.type]}

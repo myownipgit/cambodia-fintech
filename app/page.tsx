@@ -171,10 +171,10 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="rounded-xl border-2 border-primary/30 bg-card-light dark:bg-card-dark p-6">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary text-2xl">check_circle</span>
-                  We do
-                </h3>
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="material-symbols-outlined text-primary text-2xl" aria-hidden="true">check_circle</span>
+                  <h3 className="text-xl font-bold">We do</h3>
+                </div>
                 <ul className="space-y-3 text-sm">
                   <li>Navigate the <strong>approval</strong> for each rail (PSP/Bakong, CamDX/eKYC, CamInvoice, SERC DASP)</li>
                   <li>Build your <strong>risk &amp; compliance programme</strong> (AML/CFT, governance, MLRO support, GRC advisory)</li>
@@ -184,10 +184,10 @@ export default function Home() {
                 </ul>
               </div>
               <div className="rounded-xl border-2 border-text-light/15 dark:border-text-dark/15 bg-card-light/50 dark:bg-card-dark/50 p-6">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-text-light/70 dark:text-text-dark/70">
-                  <span className="material-symbols-outlined text-2xl">block</span>
-                  We don&apos;t
-                </h3>
+                <div className="flex items-center gap-2 mb-4 text-text-light/70 dark:text-text-dark/70">
+                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">block</span>
+                  <h3 className="text-xl font-bold">We don&apos;t</h3>
+                </div>
                 <ul className="space-y-3 text-sm text-text-light/75 dark:text-text-dark/75">
                   <li>Hold client funds or operate any rail</li>
                   <li>Write the integration code — that&apos;s our accredited partners</li>
@@ -455,11 +455,11 @@ export default function Home() {
                 <h3 className="font-bold mb-3">General inquiries</h3>
                 <div className="flex flex-col items-center gap-2 md:items-start text-sm">
                   <a className="flex items-center gap-2 hover:text-primary transition-colors" href="mailto:info@camfintech.com">
-                    <span className="material-symbols-outlined text-base">mail</span>
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">mail</span>
                     info@camfintech.com
                   </a>
                   <a className="flex items-center gap-2 hover:text-primary transition-colors" href="tel:+855762775645">
-                    <span className="material-symbols-outlined text-base">call</span>
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">call</span>
                     +855 76 277 5645
                   </a>
                 </div>
@@ -468,7 +468,7 @@ export default function Home() {
                 <h3 className="font-bold mb-3">DASP / Prakas 093</h3>
                 <div className="flex flex-col items-center gap-2 md:items-start text-sm">
                   <a className="flex items-center gap-2 hover:text-primary transition-colors" href="mailto:dasp@camfintech.com">
-                    <span className="material-symbols-outlined text-base">mail</span>
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">mail</span>
                     dasp@camfintech.com
                   </a>
                   <a className="text-primary hover:underline text-xs" href="/products/dasp">
@@ -480,11 +480,11 @@ export default function Home() {
                 <h3 className="font-bold mb-3">Messaging</h3>
                 <div className="flex flex-col items-center gap-2 md:items-start text-sm">
                   <a className="flex items-center gap-2 hover:text-primary transition-colors" href="https://wa.me/855762775645">
-                    <span className="material-symbols-outlined text-base">chat</span>
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">chat</span>
                     WhatsApp
                   </a>
                   <a className="flex items-center gap-2 hover:text-primary transition-colors" href="https://t.me/+855762775645">
-                    <span className="material-symbols-outlined text-base">send</span>
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">send</span>
                     Telegram
                   </a>
                 </div>

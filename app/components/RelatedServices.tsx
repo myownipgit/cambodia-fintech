@@ -22,7 +22,7 @@ export default function RelatedServices() {
             href={service.href}
             className="flex items-center gap-2 text-sm text-text-light/80 dark:text-text-dark/80 hover:text-primary transition-colors"
           >
-            <span className="material-symbols-outlined text-primary text-lg">{service.icon}</span>
+            <span className="material-symbols-outlined text-primary text-lg" aria-hidden="true">{service.icon}</span>
             {service.name}
           </a>
         ))}

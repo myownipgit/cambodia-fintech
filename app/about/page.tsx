@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import AboutContent from "./AboutContent";
+import { ogImage } from "@/app/og";
 
 export const metadata: Metadata = {
   title: "About — William Mallett, Founder & Managing Director, CamFinTech",
@@ -12,9 +13,11 @@ export const metadata: Metadata = {
       "Fee-only regulatory approval-navigation and compliance firm in Phnom Penh. Founder William Mallett. Process competence, never access.",
     url: "https://www.camfintech.com/about",
     type: "profile",
+    images: [ogImage],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
+    images: [ogImage],
     title: "About William Mallett — CamFinTech",
     description:
       "Founder & Managing Director, CamFinTech. Phnom Penh. Cambodia DPI approval-navigation & compliance.",

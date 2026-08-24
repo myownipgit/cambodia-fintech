@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import TermsContent from "./TermsContent";
+import { ogImage } from "@/app/og";
 
 export const metadata: Metadata = {
   title: "Terms of Use — CamFinTech",
@@ -12,9 +13,11 @@ export const metadata: Metadata = {
       "Terms governing access to camfintech.com — IP, acceptable use, disclaimers, and governing law (Cambodia).",
     url: "https://www.camfintech.com/terms",
     type: "article",
+    images: [ogImage],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
+    images: [ogImage],
     title: "Terms of Use — CamFinTech",
     description:
       "Terms governing access to camfintech.com — IP, acceptable use, disclaimers, and Cambodian governing law.",

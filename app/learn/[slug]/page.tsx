@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getArticlesByType, getArticleByTypeAndSlug } from '@/app/content/registry';
+import { ogImage } from '@/app/og';
 import ArticleLayout from '@/app/components/ArticleLayout';
 
 interface Props {
@@ -28,6 +29,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt,
+      images: [ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.description,
+      images: [ogImage],
     },
   };
 }

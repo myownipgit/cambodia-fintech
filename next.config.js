@@ -52,8 +52,15 @@ const nextConfig = {
 
   // 301 redirects for content tree decommission (D2 Option E):
   //   selected /knowledge/* → /products/dasp where topically relevant
-  //   all other retired routes → / (no good 1:1 topical replacement under DPI positioning)
+  //   retired routes with no topical replacement → /
   // Section indexes /knowledge, /insights, /use-cases → / (sections retired entirely)
+  //
+  // 2026-08-24 (GEO audit H7): nine of the → / redirects were repointed at real
+  // destinations. The original "no good 1:1 topical replacement" note was true when
+  // written, but the June /learn and /glossary build-out created those pages.
+  // Redirect-to-root reads as a soft 404 and discards the source URL's authority.
+  // /learn/fintech-license-cambodia deliberately still → / : it is the best-performing
+  // legacy URL and has no clean match; the open decision is to rebuild it as a page.
   async redirects() {
     return [
       // Specific knowledge → DASP product page (closest DPI mapping)
@@ -63,32 +70,32 @@ const nextConfig = {
       { source: '/knowledge/cambodia-scf-opportunity', destination: '/products/dasp', permanent: true },
 
       // Other knowledge → homepage (no clear topical match under DPI positioning)
-      { source: '/knowledge/bakong-technical-integration', destination: '/', permanent: true },
-      { source: '/knowledge/cambodia-digital-identity', destination: '/', permanent: true },
-      { source: '/knowledge/cambodia-payment-ecosystem', destination: '/', permanent: true },
+      { source: '/knowledge/bakong-technical-integration', destination: '/learn/how-bakong-works', permanent: true },
+      { source: '/knowledge/cambodia-digital-identity', destination: '/learn/what-is-camdigikey', permanent: true },
+      { source: '/knowledge/cambodia-payment-ecosystem', destination: '/learn/how-to-accept-khqr', permanent: true },
       { source: '/knowledge/asean-digital-economy-comparison', destination: '/', permanent: true },
 
       // Insights → homepage (Phase 7 follow-up: migrate publication-shaped pieces to riel.report)
       { source: '/insights/cambodia-digital-payment-growth', destination: '/', permanent: true },
       { source: '/insights/sme-digital-readiness', destination: '/', permanent: true },
       { source: '/insights/asean-fintech-investment', destination: '/', permanent: true },
-      { source: '/insights/bakong-adoption-metrics', destination: '/', permanent: true },
-      { source: '/insights/caminvoice-rollout-impact', destination: '/', permanent: true },
+      { source: '/insights/bakong-adoption-metrics', destination: '/learn/how-bakong-works', permanent: true },
+      { source: '/insights/caminvoice-rollout-impact', destination: '/learn/what-is-caminvoice', permanent: true },
       { source: '/insights/cambodia-vs-regional-fintech', destination: '/', permanent: true },
 
       // Use cases → homepage (pre-logo discipline per DPI vault 57)
       { source: '/use-cases/sme-compliance-automation', destination: '/products/dasp', permanent: true },
       { source: '/use-cases/cross-border-payment-optimization', destination: '/', permanent: true },
       { source: '/use-cases/digital-lending-platform', destination: '/', permanent: true },
-      { source: '/use-cases/enterprise-bakong-integration', destination: '/', permanent: true },
+      { source: '/use-cases/enterprise-bakong-integration', destination: '/learn/how-bakong-works', permanent: true },
 
       // Retired learn pages → homepage
-      { source: '/learn/cambodia-fintech-landscape', destination: '/', permanent: true },
-      { source: '/learn/supply-chain-finance-cambodia', destination: '/', permanent: true },
+      { source: '/learn/cambodia-fintech-landscape', destination: '/learn/what-is-cambodia-gaap', permanent: true },
+      { source: '/learn/supply-chain-finance-cambodia', destination: '/glossary/supply-chain-finance', permanent: true },
       { source: '/learn/compliance-as-a-service', destination: '/products/dasp', permanent: true },
       { source: '/learn/fintech-license-cambodia', destination: '/', permanent: true },
       { source: '/learn/cambodia-aml-requirements', destination: '/products/dasp', permanent: true },
-      { source: '/learn/cross-border-payments-bakong', destination: '/', permanent: true },
+      { source: '/learn/cross-border-payments-bakong', destination: '/learn/how-bakong-works', permanent: true },
 
       // Section indexes retired entirely
       { source: '/knowledge', destination: '/', permanent: true },

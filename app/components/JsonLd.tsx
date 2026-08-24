@@ -80,9 +80,26 @@ export default function JsonLd() {
         "founder": {
           "@id": "https://www.camfintech.com/about#person",
         },
+        // Mirrors #localbusiness. The identity anchors (sameAs/founder/knowsAbout)
+        // and the NAP must sit on the same node for entity resolution to work.
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "30 Preah Norodom Boulevard, Khan Daun Penh",
+          "addressLocality": "Phnom Penh",
+          "addressRegion": "Phnom Penh",
+          "postalCode": "12210",
+          "addressCountry": "KH",
+        },
+        "telephone": "+855-76-277-5645",
+        "email": "info@camfintech.com",
         "sameAs": [
           "https://www.linkedin.com/company/118224010/",
           "https://github.com/myownipgit/cambodia-fintech",
+          // Owned sibling properties. Declaring them here is what lets a crawler
+          // resolve camfintech.com, riel.report and insights.camfintech.com as one
+          // entity rather than three unrelated domains.
+          "https://riel.report",
+          "https://insights.camfintech.com",
         ],
       },
       // Person (Founder) — unchanged
@@ -108,6 +125,18 @@ export default function JsonLd() {
         "parentOrganization": {
           "@id": "https://www.camfintech.com/#organization",
         },
+        // knowsAbout deliberately stays on #organization only — parentOrganization
+        // already links the nodes, and duplicating 26 entries onto every page is
+        // payload for no additional signal.
+        "founder": {
+          "@id": "https://www.camfintech.com/about#person",
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/118224010/",
+          "https://github.com/myownipgit/cambodia-fintech",
+          "https://riel.report",
+          "https://insights.camfintech.com",
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "30 Preah Norodom Boulevard, Khan Daun Penh",
