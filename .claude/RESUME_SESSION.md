@@ -3,7 +3,9 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-23 (evening) — **Logo design exploration opened.** Second session on the same day, separate from the GSC verification work. Four rounds of `/design` iterations on a private Artifact canvas. Direction locked = geometric C-wraps-TF monogram (Bill's reference Image #4); 5 variations shipped on the canvas; **no decision locked**. Full narrative in vault [[Firm Operations/17_Session_Log_2026-08-23_logo_design]]. **No site code touched this session** — the current stacked-ellipses `Header.tsx` mark is unchanged in production.
+2026-08-24 — **Five standing GEO findings remediated and deployed.** H5, H6, H7 CLOSED; H3, H4 PARTIAL; H1 (citations) and H2 (LinkedIn) still OPEN and both off-code. Commit `8aa75b5` + deploy `cambodia-fintech-hhgyf32cf`; KB corrected at `c0e825b` on `~/.geo-prospects`. Full narrative in vault [[Firm Operations/18_Session_Log_2026-08-24_geo_remediation]].
+
+Prior entry (2026-08-23 evening) — **Logo design exploration opened.** Second session on the same day, separate from the GSC verification work. Four rounds of `/design` iterations on a private Artifact canvas. Direction locked = geometric C-wraps-TF monogram (Bill's reference Image #4); 5 variations shipped on the canvas; **no decision locked**. Full narrative in vault [[Firm Operations/17_Session_Log_2026-08-23_logo_design]]. **No site code touched this session** — the current stacked-ellipses `Header.tsx` mark is unchanged in production.
 
 Prior entry (2026-08-23 morning): GSC `verification.google` meta tag removed; DNS-only GSC coverage under info@camfintech.com. Full detail in its session-close block below.
 
@@ -14,11 +16,66 @@ Prior entry (2026-08-20): GEO sensor knowledge base seeded — `~/.geo-prospects
 > [!warning] Multiple day-close blocks below — read in this order
 > **Authoritative sequence:**
 >
-> 1. **"Session close — 2026-08-23 (evening, logo design exploration)"** (immediately below) — today's evening session.
-> 2. **"Session close — 2026-08-23 (GSC verification retired)"** — today's morning session (separate scope).
-> 3. **"Session close — 2026-08-20 (GEO KB seed)"** — GEO sensor knowledge base.
-> 4. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
-> 5. **This header** supersedes all for current state.
+> 1. **"Session close — 2026-08-24 (GEO standing-findings remediation)"** (immediately below) — today's work.
+> 2. **"Session close — 2026-08-23 (evening, logo design exploration)"** — logo direction, no code.
+> 3. **"Session close — 2026-08-23 (GSC verification retired)"** — separate scope.
+> 4. **"Session close — 2026-08-20 (GEO KB seed)"** — GEO sensor knowledge base.
+> 5. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
+> 6. **This header** supersedes all for current state.
+
+---
+
+## Session close — 2026-08-24 (GEO standing-findings remediation)
+
+### What happened
+
+Bill: *"review today's GEO audit report camfintech-deepseek-2026-08-24.md and make some recommendations on fixes"*, then *"ship the bundle and correct the known_findings entries"*.
+
+Commits `8aa75b5` (repo) · `c0e825b` (`~/.geo-prospects`). Deploy `cambodia-fintech-hhgyf32cf-fin-tec-consulting-cambodia.vercel.app` · Ready · 21s.
+
+### The KB works — and the run was an accidental control
+
+The 2026-08-24 daily run was the first to render the Standing-Findings Status table seeded on 2026-08-20 (`0 closed / 0 regressed / 7 present`). Phase 24's proof point landed.
+
+Exactly one commit had touched site code since the source audit — `9b55c95`, deleting a single meta-tag line — so any reported change had to be an artefact. **The sensor reported two that had not happened**: it called H5 "partially remediated" and H2's on-site edge "improved". Three further measurement errors followed (per-page icon counts inflated ~1.75× by counting the serialized RSC payload; `dateModified` attributed to `DefinedTerm` rather than `WebPage`; a claimed Wikipedia `sameAs` anchor that actually sits on `areaServed`).
+
+It got two things right that the **manual** audit got wrong: og:image count is 21 of 24 not 20, and `twitter:card=summary` on `/about`, `/privacy`, `/terms` was a genuine new finding.
+
+### Shipped
+
+| Finding | Change | Status |
+|---|---|---|
+| H3 | `aria-hidden` on 12 icon spans (5 files); icon moved out of the 4 affected `<h3>`s into a flex wrapper | PARTIAL |
+| H4 | riel.report + insights.camfintech.com added to `Organization.sameAs` and `ProfessionalService.sameAs` | PARTIAL |
+| H5 | `#organization` gained `address`/`telephone`/`email`; `#localbusiness` gained `sameAs`/`founder` | **CLOSED** |
+| H6 | New `app/og.ts`; 7 metadata files reference it + declare their own `twitter` block; card type normalised | **CLOSED** |
+| H7 | 9 legacy redirects repointed off `/` in `next.config.js` | **CLOSED** |
+
+All verified live with cache-busted fetches. Build green, lint 0 errors (5 pre-existing warnings).
+
+### The H3 discovery — scope was extended beyond what Bill approved
+
+The approved fix was `aria-hidden` on 12 spans (~10 min). Applied, rebuilt, and the headings were **still** `check_circleWe do` — `aria-hidden` removes a node from the accessibility tree but leaves its text in the DOM, and text extractors read the DOM. Four extra markup changes moved the icon out of the `<h3>` into a flex wrapper (rendering identical). Flagged to Bill as beyond scope; offered to revert; no objection recorded as of session close.
+
+**Never accept `aria-hidden` as evidence a ligature-contamination finding is closed.**
+
+### KB corrected (`c0e825b`)
+
+Four corrections — two against the source manual audit (H6 counts 21/16 not 20/15; H5's recommended `parentOrganization` edge already existed) and two against the sensor (H3 per-page counts; H3 fix efficacy) — plus a **verification-discipline note**: sensor phrasing "now carries" / "improved" / "partially remediated" is unverified until a commit backs it; `closed`/`regressed` need a commit hash *and* a live probe per ADR-002 D1.
+
+### Open
+
+- **H1 citation sweep** (Bill) — highest-leverage lever on the site, flagged in 3 consecutive audits, zero movement. 16 pages of regulatory research.
+- **H2 LinkedIn** (Bill) — company-page completeness, vanity URL, report the Aston Hill profile.
+- **H3 inline SVG** — closes anchor-text contamination (`articleWhat is Bakong?`) and drops a 310 KB render-blocking font.
+- **H4 sibling markup** — JSON-LD + `llms.txt` + AI-crawler allowlist on riel.report and insights.camfintech.com; link insights from nav or `/publication`.
+- **`/learn/fintech-license-cambodia`** still 308 → `/`. Content decision: rebuild as a page, or accept. Deliberately not repointed at `/products/dasp` (digital-asset-specific; the URL ranks for general licensing).
+- **Tomorrow's 09:00 ICT run** is the real test — it should emit the first `present → closed` transitions for H5/H6/H7. If it does not, the KB is a list rather than a detector.
+
+### Housekeeping
+
+- A concurrent session committed `c236a7e` (logo design log) between commits — docs-only, no conflict.
+- **`main` is 4 commits behind `feature/update-homepage`.** The all-refs-aligned invariant in the header note does not hold.
 
 ---
 
