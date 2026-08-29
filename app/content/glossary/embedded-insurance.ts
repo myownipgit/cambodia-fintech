@@ -13,7 +13,7 @@ export const embeddedInsurance: ArticleContent = {
   relatedSlugs: ['khqr', 'camdigikey', 'supply-chain-finance'],
   lead: 'Embedded insurance in Cambodia refers to the distribution of insurance products directly within non-insurance digital transactions, leveraging KHQR payment rails for premium collection and claims payment, and CamDigiKey for instant policyholder identity verification, targeting a market with insurance penetration below 2%.',
   claims: [
-    { stat: 'Cambodia\'s insurance penetration stands at approximately 1.5% of GDP, among the lowest in ASEAN, representing a significant untapped market estimated at over $500 million in annual premium potential.', source: 'Insurance Authority of Cambodia', year: '2025', url: 'https://irc.gov.kh' },
+    { stat: 'Cambodia\'s insurance penetration stands at approximately 1.5% of GDP, among the lowest in ASEAN, representing a significant untapped market estimated at over $500 million in annual premium potential.', source: 'Insurance Authority of Cambodia', year: '2025', url: 'https://irc.gov.kh/statistics/quarterly' },
     { stat: 'Embedded insurance distribution models have demonstrated 3-5x higher conversion rates compared to traditional insurance sales channels in emerging markets.', source: 'GSMA Mobile Insurance Report', year: '2024' },
     { stat: 'Cambodia has approximately 18 million mobile phone subscribers with over 60% smartphone penetration, providing the digital access foundation for embedded insurance distribution.', source: 'International Telecommunication Union', year: '2024', url: 'https://www.itu.int/en/ITU-D/Statistics/Pages/stat/default.aspx' },
   ],

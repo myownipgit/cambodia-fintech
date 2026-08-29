@@ -13,7 +13,7 @@ export const nbc: ArticleContent = {
   relatedSlugs: ['bakong', 'khqr', 'gdt'],
   lead: 'The National Bank of Cambodia (NBC) is Cambodia\'s central bank responsible for monetary policy, financial institution supervision, and payment system regulation. The NBC operates the Bakong CBDC and KHQR payment infrastructure, and administers the FinTech Regulatory Sandbox that governs innovation in Cambodia\'s financial services sector.',
   claims: [
-    { stat: 'The NBC supervises over 80 commercial banks, specialized banks, and microfinance institutions operating in Cambodia, with total banking sector assets exceeding $75 billion.', source: 'National Bank of Cambodia', year: '2025', url: 'https://www.nbc.gov.kh/economic_research/deposit_taking_banks_and_financial_institutions.php' },
+    { stat: 'The NBC supervises over 80 commercial banks, specialized banks, and microfinance institutions operating in Cambodia, with total banking sector assets exceeding $75 billion.', source: 'National Bank of Cambodia', year: '2025', url: 'https://www.nbc.gov.kh/download_files/supervision/sup_an_rep_eng/EN%20Annual%20Supervision%20Report%202025.pdf' },
     { stat: 'Cambodia\'s FinTech regulatory sandbox has evaluated over 20 innovative financial products since its establishment, with several receiving full operating licenses.', source: 'National Bank of Cambodia', year: '2024', url: 'https://www.nbc.gov.kh/supervision/technology_risk_and_innovation_supervision.php' },
     { stat: 'Cambodia maintains one of the highest financial inclusion growth rates in ASEAN, with formal financial access increasing from 18% in 2011 to over 75% by 2024.', source: 'World Bank Global Findex Database', year: '2024', url: 'https://www.worldbank.org/en/publication/globalfindex' },
   ],

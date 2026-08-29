@@ -14,7 +14,7 @@ export const gdt: ArticleContent = {
   lead: 'The General Department of Taxation (GDT) is Cambodia\'s national tax authority under the Ministry of Economy and Finance, responsible for administering the CamInvoice mandatory e-invoicing system, collecting value-added tax (VAT), corporate income tax, and overseeing tax compliance for all registered businesses in Cambodia.',
   claims: [
     { stat: 'Cambodia\'s tax revenue collection reached approximately $4.5 billion in 2024, with the GDT targeting 20% growth through improved digital compliance tools including CamInvoice.', source: 'General Department of Taxation Cambodia', year: '2025', url: 'https://www.tax.gov.kh/en' },
-    { stat: 'The GDT has registered over 150,000 taxpaying businesses in its system, with SMEs accounting for more than 85% of registered entities.', source: 'General Department of Taxation Cambodia', year: '2024', url: 'https://www.tax.gov.kh/en/public-service' },
+    { stat: 'The GDT has registered over 150,000 taxpaying businesses in its system, with SMEs accounting for more than 85% of registered entities.', source: 'General Department of Taxation Cambodia', year: '2024', url: 'https://www.tax.gov.kh/en/tax-payer' },
     { stat: 'Digital tax administration systems in developing countries have demonstrated the ability to reduce compliance costs for businesses by 30-50% while increasing government revenue by 10-25%.', source: 'International Monetary Fund Fiscal Affairs', year: '2024', url: 'https://www.elibrary.imf.org/' },
   ],
   faqs: [
