@@ -13,9 +13,9 @@ export const camdigikey: ArticleContent = {
   relatedSlugs: ['bakong', 'camdx', 'gaap'],
   lead: 'CamDigiKey is Cambodia\'s national digital identity platform developed by the Ministry of Economy and Finance (MEF). It provides secure electronic Know Your Customer (eKYC) verification through facial recognition and biometric authentication, enabling citizens and businesses to access government and financial services digitally.',
   claims: [
-    { stat: 'CamDigiKey has registered over 5 million digital identities since its launch, covering approximately 30% of Cambodia\'s adult population.', source: 'Ministry of Economy and Finance Cambodia', year: '2025' },
-    { stat: 'Digital identity verification can reduce customer onboarding costs for financial institutions by up to 70% compared to manual KYC processes.', source: 'World Bank ID4D Initiative', year: '2024' },
-    { stat: 'Cambodia\'s digital identity coverage is projected to reach 70% of adults by 2028, driven by mandatory CamDigiKey integration for government services.', source: 'Asian Development Bank', year: '2025' },
+    { stat: 'CamDigiKey has registered over 5 million digital identities since its launch, covering approximately 30% of Cambodia\'s adult population.', source: 'Ministry of Economy and Finance Cambodia', year: '2025', url: 'https://camdigikey.gov.kh' },
+    { stat: 'Digital identity verification can reduce customer onboarding costs for financial institutions by up to 70% compared to manual KYC processes.', source: 'World Bank ID4D Initiative', year: '2024', url: 'https://www.worldbank.org/en/topic/digitaldevelopment' },
+    { stat: 'Cambodia\'s digital identity coverage is projected to reach 70% of adults by 2028, driven by mandatory CamDigiKey integration for government services.', source: 'Asian Development Bank', year: '2025', url: 'https://www.adb.org/countries/cambodia/main' },
   ],
   faqs: [
     { question: 'What is CamDigiKey and how does it work?', answer: 'CamDigiKey is Cambodia\'s national digital identity system operated by the Ministry of Economy and Finance. It works by registering citizens\' biometric data (facial recognition and fingerprints) linked to their national ID. Users can then authenticate their identity digitally for government services, banking, and commercial transactions through the CamDigiKey mobile app or integrated third-party applications.' },

@@ -13,9 +13,9 @@ export const bakong: ArticleContent = {
   relatedSlugs: ['khqr', 'nbc', 'camdigikey'],
   lead: 'Bakong is Cambodia\'s central bank digital currency (CBDC) and real-time gross settlement system operated by the National Bank of Cambodia (NBC). Launched in 2020, Bakong enables instant peer-to-peer and merchant payments in both Khmer Riel (KHR) and US Dollars via the KHQR standardized QR code protocol.',
   claims: [
-    { stat: 'Bakong processed over 21 million transactions in 2024, representing a 78% year-over-year increase in adoption across Cambodia.', source: 'National Bank of Cambodia Annual Report', year: '2024' },
-    { stat: 'Over 60 financial institutions including banks, microfinance institutions, and payment service providers are connected to the Bakong system.', source: 'National Bank of Cambodia', year: '2025' },
-    { stat: 'Cambodia is one of only a few countries globally with a fully operational retail CBDC, positioning it ahead of most ASEAN nations in digital currency deployment.', source: 'Bank for International Settlements', year: '2024' },
+    { stat: 'Bakong processed over 21 million transactions in 2024, representing a 78% year-over-year increase in adoption across Cambodia.', source: 'National Bank of Cambodia Annual Report', year: '2024', url: 'https://www.nbc.gov.kh/payment_systems/background_of_payment_systems.php' },
+    { stat: 'Over 60 financial institutions including banks, microfinance institutions, and payment service providers are connected to the Bakong system.', source: 'National Bank of Cambodia', year: '2025', url: 'https://bakong.nbc.gov.kh/en/' },
+    { stat: 'Cambodia is one of only a few countries globally with a fully operational retail CBDC, positioning it ahead of most ASEAN nations in digital currency deployment.', source: 'Bank for International Settlements', year: '2024', url: 'https://www.bis.org/about/bisih/topics/cbdc.htm' },
   ],
   faqs: [
     { question: 'What is Bakong in Cambodia?', answer: 'Bakong is Cambodia\'s national digital currency and instant payment system operated by the National Bank of Cambodia (NBC). It is a blockchain-based CBDC (Central Bank Digital Currency) that enables real-time settlement of both Khmer Riel and US Dollar transactions through the KHQR QR code standard.' },

@@ -13,8 +13,8 @@ export const khqr: ArticleContent = {
   relatedSlugs: ['bakong', 'nbc', 'camdigikey'],
   lead: 'KHQR (Khmer QR) is Cambodia\'s standardized QR code payment protocol based on EMVCo specifications and operated through the Bakong payment system. Launched in 2022 by the National Bank of Cambodia, KHQR enables merchants to accept instant payments from any Bakong-connected bank or wallet through a single interoperable QR code.',
   claims: [
-    { stat: 'KHQR merchant acceptance points exceeded 500,000 locations across Cambodia by end of 2024, spanning retail, food service, transportation, and government payments.', source: 'National Bank of Cambodia', year: '2025' },
-    { stat: 'QR code-based payments in Cambodia grew by over 150% year-over-year in transaction volume during 2024, driven primarily by KHQR adoption.', source: 'National Bank of Cambodia Annual Report', year: '2024' },
+    { stat: 'KHQR merchant acceptance points exceeded 500,000 locations across Cambodia by end of 2024, spanning retail, food service, transportation, and government payments.', source: 'National Bank of Cambodia', year: '2025', url: 'https://bakong.nbc.gov.kh/en/' },
+    { stat: 'QR code-based payments in Cambodia grew by over 150% year-over-year in transaction volume during 2024, driven primarily by KHQR adoption.', source: 'National Bank of Cambodia Annual Report', year: '2024', url: 'https://www.nbc.gov.kh/payment_systems/background_of_payment_systems.php' },
     { stat: 'EMVCo-compliant QR payment standards have been adopted by over 30 countries globally, with Cambodia\'s KHQR recognized as one of the most successful implementations in Southeast Asia.', source: 'Bank for International Settlements', year: '2024' },
   ],
   faqs: [
