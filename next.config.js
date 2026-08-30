@@ -63,19 +63,10 @@ const nextConfig = {
   // legacy URL and has no clean match; the open decision is to rebuild it as a page.
   async redirects() {
     return [
-      // Specific knowledge → DASP product page (closest DPI mapping)
-      { source: '/knowledge/cambodia-gaap-architecture', destination: '/products/dasp', permanent: true },
-      { source: '/knowledge/cambodia-fintech-regulation', destination: '/products/dasp', permanent: true },
-      { source: '/knowledge/caminvoice-technical-compliance', destination: '/products/dasp', permanent: true },
-      { source: '/knowledge/cambodia-scf-opportunity', destination: '/products/dasp', permanent: true },
 
-      // Other knowledge → homepage (no clear topical match under DPI positioning)
-      { source: '/knowledge/bakong-technical-integration', destination: '/learn/how-bakong-works', permanent: true },
-      { source: '/knowledge/cambodia-digital-identity', destination: '/learn/what-is-camdigikey', permanent: true },
-      { source: '/knowledge/cambodia-payment-ecosystem', destination: '/learn/how-to-accept-khqr', permanent: true },
-      { source: '/knowledge/asean-digital-economy-comparison', destination: '/', permanent: true },
 
-      // Insights → homepage (Phase 7 follow-up: migrate publication-shaped pieces to riel.report)
+      // Insights — pending staleness audit (2026 market data). Interim topical targets
+      // where one exists; the four below have no live equivalent yet.
       { source: '/insights/cambodia-digital-payment-growth', destination: '/', permanent: true },
       { source: '/insights/sme-digital-readiness', destination: '/', permanent: true },
       { source: '/insights/asean-fintech-investment', destination: '/', permanent: true },
@@ -83,22 +74,15 @@ const nextConfig = {
       { source: '/insights/caminvoice-rollout-impact', destination: '/learn/what-is-caminvoice', permanent: true },
       { source: '/insights/cambodia-vs-regional-fintech', destination: '/', permanent: true },
 
-      // Use cases → homepage (pre-logo discipline per DPI vault 57)
+      // Use cases — being rewritten as labelled scenarios; the originals named
+      // clients that did not exist, so they are not restored as-is.
       { source: '/use-cases/sme-compliance-automation', destination: '/products/dasp', permanent: true },
       { source: '/use-cases/cross-border-payment-optimization', destination: '/', permanent: true },
       { source: '/use-cases/digital-lending-platform', destination: '/', permanent: true },
       { source: '/use-cases/enterprise-bakong-integration', destination: '/learn/how-bakong-works', permanent: true },
 
-      // Retired learn pages → homepage
-      { source: '/learn/cambodia-fintech-landscape', destination: '/learn/what-is-cambodia-gaap', permanent: true },
-      { source: '/learn/supply-chain-finance-cambodia', destination: '/glossary/supply-chain-finance', permanent: true },
-      { source: '/learn/compliance-as-a-service', destination: '/products/dasp', permanent: true },
-      { source: '/learn/fintech-license-cambodia', destination: '/', permanent: true },
-      { source: '/learn/cambodia-aml-requirements', destination: '/products/dasp', permanent: true },
-      { source: '/learn/cross-border-payments-bakong', destination: '/learn/how-bakong-works', permanent: true },
 
-      // Section indexes retired entirely
-      { source: '/knowledge', destination: '/', permanent: true },
+      // Section indexes still retired (/knowledge is restored, so it is not here)
       { source: '/insights', destination: '/', permanent: true },
       { source: '/use-cases', destination: '/', permanent: true },
     ];
