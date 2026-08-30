@@ -11,7 +11,10 @@ const typeLabels: Record<ContentType, string> = {
   knowledge: 'Knowledge Base',
   glossary: 'Glossary',
   insights: 'Insights',
-  'use-cases': 'Use Cases',
+  // Singular here — this labels one linked item, not the section. Keep it in
+  // step with ArticleLayout's typeLabels/badgeLabels; "Use Cases" must not come
+  // back, it reads as delivery history. See ScenarioNotice.tsx.
+  'use-cases': 'Engagement Scenario',
 };
 
 export default function RelatedReading({ links }: { links: RelatedLink[] }) {

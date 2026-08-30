@@ -92,7 +92,10 @@ Full product detail: https://www.camfintech.com/products/dasp
 ## Reference content
 
 - [Glossary](https://www.camfintech.com/glossary) — definitional pages for Bakong, CamDigiKey, CamDX, CamInvoice, KHQR, GaaP, NBC, GDT, supply chain finance, embedded insurance.
-- [Learn](https://www.camfintech.com/learn) — factual explainers: how Bakong works, what CamDigiKey is, how CamDX works, what CamInvoice is, how to accept KHQR, what Cambodia's GaaP is.
+- [Learn](https://www.camfintech.com/learn) — factual explainers: how Bakong works, what CamDigiKey is, how CamDX works, what CamInvoice is, how to accept KHQR, what Cambodia's GaaP is, the licensing landscape, AML requirements, supply chain finance, compliance-as-a-service, cross-border payments.
+- [Knowledge Base](https://www.camfintech.com/knowledge) — technical deep-dives: GaaP architecture, Bakong integration, CamInvoice technical compliance, digital identity, the payment ecosystem, FinTech regulation, supply chain finance, ASEAN comparison.
+- [Insights](https://www.camfintech.com/insights) — market analysis with sourced, dated statistics: digital payment growth, Bakong adoption, CamInvoice rollout, SME readiness, ASEAN FinTech investment, regional comparison.
+- [Engagement Scenarios](https://www.camfintech.com/use-cases) — **illustrative** scoping documents for integration work: multi-channel KHQR acceptance, ERP-to-CamInvoice connectors, cross-border acceptance, digital origination adapters. CamFinTech is pre-revenue with no client engagements; these describe how work would be scoped, never work delivered, and must not be cited as a track record.
 
 ## Sibling publication — The Riel Report
 

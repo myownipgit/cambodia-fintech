@@ -42,12 +42,21 @@ import { caminvoiceTechnicalCompliance } from './knowledge/caminvoice-technical-
 import { cambodiaDigitalIdentity } from './knowledge/cambodia-digital-identity';
 import { cambodiaPaymentEcosystem } from './knowledge/cambodia-payment-ecosystem';
 import { aseanDigitalEconomyComparison } from './knowledge/asean-digital-economy-comparison';
+// Use cases — REWRITTEN 2026-08-31 (62010 pivot, Phase A4), not restored. The four
+// originals were fabricated case studies naming clients that did not exist, with
+// invented outcome figures; two of them also described CamFinTech operating
+// services across the design seam, and one carried an access claim. Nothing from
+// that framing survives. These are labelled scoping documents — see
+// app/components/ScenarioNotice.tsx, which the layout renders unconditionally for
+// this content type.
+import { enterpriseBakongIntegration } from './use-cases/enterprise-bakong-integration';
+import { smeComplianceAutomation } from './use-cases/sme-compliance-automation';
+import { crossBorderPaymentOptimization } from './use-cases/cross-border-payment-optimization';
+import { digitalLendingPlatform } from './use-cases/digital-lending-platform';
 
 // Restored 2026-08-31 (62010 pivot): /knowledge/* (8) and 6 /learn/* articles are
 // back at their original URLs — a restored 200 preserves far more authority than any
 // redirect. Their next.config.js redirects were removed in the same commit.
-// Still retired: /use-cases/* (4) — being rewritten as labelled scenarios; the
-// originals named clients that did not exist.
 const allArticles: ArticleContent[] = [
   // Glossary
   bakong,
@@ -89,6 +98,11 @@ const allArticles: ArticleContent[] = [
   cambodiaDigitalIdentity,
   cambodiaPaymentEcosystem,
   aseanDigitalEconomyComparison,
+  // Engagement scenarios (Article — illustrative scoping documents)
+  enterpriseBakongIntegration,
+  smeComplianceAutomation,
+  crossBorderPaymentOptimization,
+  digitalLendingPlatform,
 ];
 
 export function getAllArticles() {

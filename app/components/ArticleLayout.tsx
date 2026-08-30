@@ -5,16 +5,31 @@ import DataTable from './DataTable';
 import FAQSection from './FAQSection';
 import RelatedServices from './RelatedServices';
 import RelatedReading from './RelatedReading';
+import ScenarioNotice from './ScenarioNotice';
 import { getArticleBySlug } from '@/app/content/registry';
 
 const BASE_URL = 'https://www.camfintech.com';
 
+// Section names, used for breadcrumbs and the "All … articles" back link.
+// `use-cases` keeps its URL segment — the three legacy /use-cases/* URLs are
+// being recovered and a rename would cost their equity — but is LABELLED
+// "Engagement Scenarios" everywhere a reader sees it, because the section holds
+// illustrative scoping documents rather than delivery history. Do not relabel it
+// back to "Use Cases": the label is half of the integrity guardrail, the other
+// half being ScenarioNotice.
 const typeLabels = {
   learn: 'Learn',
   knowledge: 'Knowledge Base',
   glossary: 'Glossary',
   insights: 'Insights',
-  'use-cases': 'Use Cases',
+  'use-cases': 'Engagement Scenarios',
+};
+
+// The header pill names the individual item, not the section, so it reads in
+// the singular. Only use-cases differs from its section label.
+const badgeLabels: Record<keyof typeof typeLabels, string> = {
+  ...typeLabels,
+  'use-cases': 'Scenario',
 };
 
 function buildSchema(article: ArticleContent) {
@@ -144,7 +159,7 @@ export default function ArticleLayout({ article }: { article: ArticleContent }) 
         {/* Header */}
         <header className="mb-8">
           <span className="inline-block px-2 py-1 text-xs font-medium bg-teal/10 text-navy rounded mb-3">
-            {typeLabels[article.type]}
+            {badgeLabels[article.type]}
           </span>
           <h1 className="text-3xl md:text-4xl font-bold text-navy mb-4 leading-tight">
             {article.title}
@@ -158,6 +173,9 @@ export default function ArticleLayout({ article }: { article: ArticleContent }) 
             <span>{article.readingTime} min read</span>
           </div>
         </header>
+
+        {/* Scenario disclosure — structural, not prose. See ScenarioNotice. */}
+        {article.type === 'use-cases' && <ScenarioNotice />}
 
         {/* Claims at top */}
         {article.claims.length > 0 && (
