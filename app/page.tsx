@@ -32,7 +32,7 @@ const homepageSchema = {
           "name": "What does CamFinTech actually do?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "CamFinTech is a fee-only regulatory approval-navigation and compliance firm in Phnom Penh. We get Cambodian and foreign FinTechs approved onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the compliance programme that keeps them approved. The technical build is delivered by our accredited Service Providers; we coordinate them. We never hold client funds and never operate a rail.",
+            "text": "CamFinTech is a fee-only regulatory approval-navigation and compliance firm in Phnom Penh. We get Cambodian and foreign FinTechs approved onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the compliance programme that keeps them approved. We build the client-side integration ourselves, or direct an accredited Service Provider where their platform depth fits better. We never hold client funds and never operate a rail.",
           },
         },
         {
@@ -40,7 +40,7 @@ const homepageSchema = {
           "name": "Why use CamFinTech instead of a law firm or system integrator?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Law firms cover legal advice and filings but don't run an end-to-end approval programme or build a risk-and-compliance function. System integrators and accredited Service Providers build the integration but don't navigate the regulator. CamFinTech owns the layer that's unowned by both — regulatory approval-navigation, AML/CFT and governance programme build, cross-rail orchestration — staffed by ex-NBC, NBFSA, TSC, SERC, and GDT specialists. We coordinate the law firm and the SP; you get one plan and one point of contact.",
+            "text": "Law firms cover legal advice and filings but don't run an end-to-end approval programme or build a risk-and-compliance function. System integrators build the integration but don't navigate the regulator. CamFinTech does both — regulatory approval-navigation, AML/CFT and governance programme build, and the client-side integration itself — staffed by ex-NBC, NBFSA, TSC, SERC, and GDT specialists. We coordinate the law firm and the SP; you get one plan and one point of contact.",
           },
         },
         {
@@ -91,7 +91,7 @@ export default function Home() {
                   We get Cambodian and foreign FinTechs approved onto the government rails — and keep them compliant.
                 </h1>
                 <p className="text-base font-normal leading-normal sm:text-lg text-navy/85">
-                  CamFinTech is a fee-only regulatory approval-navigation and compliance firm. We navigate NBC, NBFSA, TSC, SERC, and GDT approvals for Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — raising you <em>to</em> the regulator&apos;s standard. We&apos;re your single accountable partner for the whole journey, and we coordinate our vetted legal, tax, and integration partners transparently. <strong>We never hold your funds and never operate a rail; the technical build is delivered by accredited partners we coordinate.</strong>
+                  CamFinTech is a fee-only regulatory approval-navigation and compliance firm. We navigate NBC, NBFSA, TSC, SERC, and GDT approvals for Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — raising you <em>to</em> the regulator&apos;s standard. We&apos;re your single accountable partner for the whole journey, and we coordinate our vetted legal, tax, and integration partners transparently. <strong>We never hold your funds and never operate a rail.</strong> We build the client-side integration ourselves or direct the accredited Service Provider who does — either way you have one accountable partner.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a
@@ -166,7 +166,7 @@ export default function Home() {
                 What we do (and don&apos;t)
               </h2>
               <p className="max-w-3xl text-base text-navy/75">
-                The boundary is explicit and transparent. We sell process competence; reserved work goes to licensed partners; the technical build goes to accredited Service Providers.
+                The boundary is explicit and transparent. We sell process competence and integration delivery; reserved work goes to licensed partners; we never operate the rail you connect to.
               </p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -179,7 +179,7 @@ export default function Home() {
                   <li>Navigate the <strong>approval</strong> for each rail (PSP/Bakong, CamDX/eKYC, CamInvoice, SERC DASP)</li>
                   <li>Build your <strong>risk &amp; compliance programme</strong> (AML/CFT, governance, MLRO support, GRC advisory)</li>
                   <li><strong>Represent</strong> Cambodian <em>and</em> foreign FinTechs before the regulators</li>
-                  <li><strong>Coordinate</strong> the accredited Service Provider who delivers the technical build — systems integration and project management across the end-to-end approval + integration programme</li>
+                  <li><strong>Build</strong> the client-side integration to the rails — ERP to CamInvoice, Bakong/KHQR connectivity, CamDX and CamDigiKey adapters — or direct an accredited Service Provider where that is the better fit</li>
                   <li>Route reserved work (legal, tax filing, pen-test) to licensed partners — transparently, never marked up</li>
                 </ul>
               </div>
@@ -190,12 +190,25 @@ export default function Home() {
                 </div>
                 <ul className="space-y-3 text-sm text-navy/75">
                   <li>Hold client funds or operate any rail</li>
-                  <li>Write the integration code — that&apos;s our accredited partners</li>
+                  <li>Host or transmit your transaction traffic — we build the integration, you operate it</li>
                   <li>Lobby, trade on contacts, or sell &quot;access&quot;</li>
                   <li>Take a cut of your transactions</li>
                   <li>Promise an outcome we can&apos;t control</li>
                 </ul>
               </div>
+            </div>
+
+            {/* Conflict disclosure. We both build and navigate approval, which is a
+                fair thing for a sceptic to question — so it is answered here rather
+                than left to the engagement letter. */}
+            <div className="mt-6 rounded-xl border-2 border-navy/15 bg-card p-6">
+              <h3 className="text-lg font-bold mb-3">When we do both, we say so</h3>
+              <p className="text-sm text-navy/85 leading-relaxed">
+                We may build your integration and navigate your approval on the same engagement. That is a fair thing to ask about, so here is the answer in full. <strong>You are always the applicant of record</strong> — the licence, the filing, and the operator role are yours, never ours. <strong>We do not influence a regulator&apos;s decision and we do not claim to.</strong> Our work is getting you to the published bar, not around it. Where we deliver both the build and the approval navigation, that is disclosed in the engagement letter and priced as two separate scopes, so you can take either one elsewhere without penalty.
+              </p>
+              <p className="mt-3 text-sm text-navy/85 leading-relaxed">
+                The rules that make this safe have not moved: fee-only, never hold client funds, never operate a rail, reserved legal and tax work routed to licensed professionals. Building the client side of an integration sits inside those limits — it is the operating and the custody we stay out of, not the engineering.
+              </p>
             </div>
           </section>
 
@@ -220,12 +233,12 @@ export default function Home() {
                   <div className="rounded-lg border border-line p-5">
                     <p className="text-xs text-navy font-bold mb-1">SRV-01</p>
                     <h4 className="font-bold mb-2">CamDX / eKYC Enablement</h4>
-                    <p className="text-sm text-navy/75">Verify your customers digitally in seconds. We navigate the approval to connect to Cambodia&apos;s national identity system and coordinate the integration build.</p>
+                    <p className="text-sm text-navy/75">Verify your customers digitally in seconds. We navigate the approval to connect to Cambodia&apos;s national identity system and build the integration.</p>
                   </div>
                   <div className="rounded-lg border border-line p-5">
                     <p className="text-xs text-navy font-bold mb-1">SRV-02</p>
                     <h4 className="font-bold mb-2">Bakong / KHQR Integration</h4>
-                    <p className="text-sm text-navy/75">Take and send payments on Cambodia&apos;s national rails — we navigate PSP licensing or member-sponsorship and coordinate the technical build.</p>
+                    <p className="text-sm text-navy/75">Take and send payments on Cambodia&apos;s national rails — we navigate PSP licensing or member-sponsorship and build the integration.</p>
                   </div>
                   <div className="rounded-lg border border-line p-5">
                     <p className="text-xs text-navy font-bold mb-1">SRV-03</p>
@@ -304,7 +317,7 @@ export default function Home() {
             </div>
 
             <p className="mt-8 text-xs text-navy/55 italic max-w-3xl">
-              Technical build delivered by our accredited partners (BanhJi, Innolab/Odoo, MAQSU, SAP/Crimson, KOSIGN, Metfone, GK-Smart). We coordinate, advise, and run the compliance programme — we don&apos;t compete on engineering. Pricing is indicative; every engagement is validated by quote.
+              We build the client-side integration ourselves, or bring in an accredited Service Provider (BanhJi, Innolab/Odoo, MAQSU, SAP/Crimson, KOSIGN, Metfone, GK-Smart) as a disclosed sub-contract where their platform depth is the better fit. Either way we stay accountable for the programme, and we don&apos;t compete for our partners&apos; clients. Pricing is indicative; every engagement is validated by quote.
             </p>
           </section>
 
@@ -404,7 +417,7 @@ export default function Home() {
                   CamFinTech is a Phnom Penh–based fee-only regulatory approval-navigation and compliance firm focused on Cambodia&apos;s Digital Public Infrastructure rails. Founded 2024 by <strong>William Mallett</strong>, Founder &amp; Managing Director.
                 </p>
                 <p className="text-base text-navy/75 leading-relaxed">
-                  Our moat is ex-regulator talent — NBC, NBFSA, TSC, SERC, GDT — not engineering capacity. We navigate the approval and run the compliance; accredited partners build the integration.
+                  Our moat is ex-regulator talent — NBC, NBFSA, TSC, SERC, GDT — paired with the engineering to deliver against it. We navigate the approval, run the compliance, and build the integration that connects you to the rail.
                 </p>
                 <p>
                   <a href="/about" className="text-navy font-medium hover:underline">Read more about CamFinTech &amp; William Mallett →</a>

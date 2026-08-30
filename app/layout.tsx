@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.camfintech.com"),
   title: "CamFinTech — Cambodia DPI Approval-Navigation & Compliance",
   description:
-    "CamFinTech is a fee-only regulatory approval-navigation and compliance firm based in Phnom Penh. We get Cambodian and foreign FinTechs approved onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, CamInvoice — and keep them compliant. Technical build delivered by accredited partners.",
+    "CamFinTech is a fee-only regulatory approval-navigation and compliance firm based in Phnom Penh. We get Cambodian and foreign FinTechs approved onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, CamInvoice — and keep them compliant. We build the client-side integration to the rails; we never hold funds or operate one.",
   keywords: [
     "Cambodia DPI",
     "DPI Integration",

@@ -16,7 +16,7 @@ export default function JsonLd() {
           "height": 300,
         },
         "description":
-          "CamFinTech is a Phnom Penh–based fee-only regulatory approval-navigation and compliance firm. We get Cambodian and foreign FinTechs approved onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and keep them compliant. Technical build is delivered by accredited Service Providers we coordinate; we never hold client funds and never operate a rail. Our moat is ex-NBC/NBFSA/TSC/SERC/GDT regulator talent, not engineering capacity.",
+          "CamFinTech is a Phnom Penh–based fee-only regulatory approval-navigation and compliance firm. We get Cambodian and foreign FinTechs approved onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and keep them compliant. We build the client-side integration to those rails, or direct an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Our moat is ex-NBC/NBFSA/TSC/SERC/GDT regulator talent paired with the engineering to deliver against it.",
         "foundingDate": "2024",
         "areaServed": {
           "@type": "Country",
@@ -45,11 +45,13 @@ export default function JsonLd() {
           "Securities and Exchange Regulator of Cambodia (SERC)",
           "Foreign FinTech market entry Cambodia",
           "Regulatory GRC advisory (governance, risk, compliance)",
-          "DPI systems integration coordination",
+          "DPI systems integration",
           "IT project management (Cambodian DPI programmes)",
           "Compliance data and analytics",
           "Professional training in FinTech regulatory compliance",
-          "KHNSIC 2015 activities 62020, 62090, 70200, 85499",
+          "Bakong/KHQR integration development",
+          "CamInvoice ERP integration development",
+          "KHNSIC 2015 activities 62010, 62020, 62090, 70200, 85499",
         ],
         "contactPoint": [
           {
@@ -174,10 +176,10 @@ export default function JsonLd() {
           "AML/CFT programme design",
           "MLRO support",
           "DASP licensing readiness",
-          "DPI rail integration coordination",
+          "DPI rail integration development",
           "Management consultancy (regulatory)",
           "Governance, Risk and Compliance (GRC) advisory",
-          "IT systems integration coordination",
+          "IT systems integration",
           "Professional training",
         ],
       },
