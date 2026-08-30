@@ -104,6 +104,20 @@ The "never builds" rule was **reversed on 2026-08-31** (commit `cd62c7b`, vault 
 
 **No unevidenced claims.** CamFinTech is pre-revenue with no active clients. Do not write case studies, track-record claims, named product SKUs, or quantified client outcomes. The restored 2026 content carried ~15 fabricated assets and two fabricated citations; all were removed. If a capability claim cannot be evidenced, it does not ship.
 
+**This class of claim has now been found late three times** — twice in the 2026-08-31 Phase A neutralisation, and once *after* it, on `/knowledge/cambodia-fintech-regulation` (*"Our clients have achieved average licensing timelines 30% shorter…"*, live until 2026-08-31). Grepping for a remembered phrasing is not sufficient. When touching content, sweep for the **pattern**: any first-person sentence asserting an outcome, a delivery, a product, or a relationship.
+
+### `/use-cases` — engagement scenarios, and why the guardrail is structural
+
+The four articles under `/use-cases/*` are **illustrative scoping documents**, rewritten from scratch on 2026-08-31 (`a1c024d`). The originals were fabricated case studies naming clients that never existed; two also described CamFinTech operating services across the design seam, and one carried an access claim. Nothing from that framing survives, and none of it is recoverable from git as a starting point — treat `c5b5201^` versions of these files as a record of what went wrong, not as source material.
+
+Three rules hold this in place. Do not weaken any of them:
+
+- **`ScenarioNotice.tsx` is rendered by `ArticleLayout` for `type: 'use-cases'`**, not written into article prose. That is deliberate: prose disclaimers get edited away, and two access claims already shipped undetected. Do not make it conditional, do not move it below the claims block, and do not "DRY it up" into the content files.
+- **The URL segment stays `/use-cases`; every visible label says "Engagement Scenarios."** The URLs are being recovered for their link equity, so renaming the route would cost the thing the rewrite exists to get. The label is the other half of the guardrail — `typeLabels` in `ArticleLayout.tsx` and `RelatedReading.tsx` must not revert to "Use Cases", which reads as delivery history.
+- **Each scenario carries an explicit scope-boundary section** naming who does what: CamFinTech builds and hands over, the client operates and holds the data, the licensed party operates the rail. That section is what keeps the pages inside the seam, not just clear of fabrication.
+
+If a real, consented engagement ever exists, it is a new content type — not an edit to these files.
+
 **The conflict disclosure on the homepage is load-bearing** — building a client's integration while navigating its approval is the one genuine residual risk of the reversal, and it is answered publicly rather than in the engagement letter. Do not remove it.
 
 ## Git Workflow & Deployment Automation

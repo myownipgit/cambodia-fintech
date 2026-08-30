@@ -3,7 +3,13 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-31 (2nd session) — **62010 PIVOT SHIPPED.** Commits `8ddc1d9` (Phase A) + `cd62c7b` (Phase B) → deploy `cambodia-fintech-a2pr6adia`. Executes the direction note open since 2026-07-31; recorded as **ADR-005**.
+2026-08-31 (2nd session) — **62010 PIVOT COMPLETE.** Commits `8ddc1d9` (Phase A) + `cd62c7b` (Phase B) + `3997d6c` (Phase A5) + `a1c024d` (Phase A4) → latest deploy `cambodia-fintech-f25jkeyh7`. Executes the direction note open since 2026-07-31; recorded as **ADR-005**.
+
+**Phase A4 — `/use-cases` rewritten** (`a1c024d`). **Sitemap 46 → 51; redirects 3 → 0** (`next.config.js` `redirects()` now returns `[]`). Not a restore: all four originals were fabricated case studies, two described CamFinTech operating across the design seam, and `digital-lending-platform` carried an **access claim**. New writing on reused technical substance. URLs stay `/use-cases/*` for their equity; every visible label says **"Engagement Scenarios"**; `ScenarioNotice.tsx` is rendered by `ArticleLayout` for the content type so the disclaimer cannot be edited out of prose. Each page carries an explicit scope-boundary section.
+
+**Two live defects found by the post-write sweep, not by planning:**
+- `/knowledge/cambodia-fintech-regulation` was serving *"Our clients have achieved average licensing timelines 30% shorter than the industry average"* — a fabricated outcome claim from a pre-revenue firm. It survived the June rewrite, the August GEO pass **and** Phase A's 68-claim neutralisation. **Third find of this class; grep the pattern, not a remembered phrasing.**
+- `public/llms-full.txt` still told AI systems that `/knowledge/*`, `/insights/*` and six `/learn/*` were retired and superseded — actively suppressing the ~38k words the restore existed to surface. Header note and retired-content block inverted; `llms.txt` gained the three missing section entries.
 
 **Phase A — content restored.** 8 `/knowledge` deep-dives + 6 `/learn` explainers back at their original URLs (redirects removed, not repointed). **Sitemap 24 → 39.** The traffic loss was from `c5b5201` deleting 24 URLs and ~60k words, NOT from the positioning change — the two are separable and restoration is what recovers traffic.
 
@@ -72,10 +78,11 @@ Client-side integration to the rails. **Never host or transmit client traffic** 
 ### Open
 
 1. ~~6 `/insights`~~ — **DONE `3997d6c`.** Audited: almost nothing was stale (every stat carries an explicit source year). Only the mid-2026 Bakong-NAPAS/LAPNet corridor claim had elapsed; reframed to "were slated for". Analytical self-references kept — no fabrication in this set, unlike `/knowledge`. **Sitemap 39 → 46.**
-2. **4 `/use-cases`** — rewrite as labelled scenarios; originals named clients that did not exist. NEW-M4.
-3. **3 redirects still on `/`** (was 8) — blocked on the above. NEW-L11.
-4. **GEO KB re-seed** + watch for Business Type shift (Agency/Services → Hybrid). NEW-L12.
+2. ~~4 `/use-cases`~~ — **DONE `a1c024d`.** Rewritten, not restored. See the Phase A4 note in the header. **Sitemap 46 → 51.**
+3. ~~3 redirects still on `/`~~ — **DONE.** `redirects()` returns `[]`; every previously-redirected URL now serves a page.
+4. **GEO KB re-seed** + watch for Business Type shift (Agency/Services → Hybrid). NEW-L12. Now also stale on the `/use-cases` section, which the KB records as retired.
 5. **Traffic** — re-verify GSC (DNS-only; do NOT re-add `verification.google`), measure at 2/4/8 weeks.
+6. **NEW-M2 `RelatedServices.tsx`** — now the most visible inconsistency on the site. It advertises "Core Banking Modernization", "API Development", "Lending & Credit Scoring" and "Payment Gateway Integration" in the footer of every article page, including the four new scenarios whose whole point is a precisely-drawn scope. Open since 2026-08-29; ~15-minute fix.
 
 ---
 
