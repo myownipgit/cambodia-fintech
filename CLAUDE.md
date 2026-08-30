@@ -128,6 +128,23 @@ Three rules hold this in place. Do not weaken any of them:
 
 If a real, consented engagement ever exists, it is a new content type — not an edit to these files.
 
+### `/regulatory` — the instrument index, and its evidence bar
+
+A reference section indexing the Prakas, laws and sub-decrees governing Cambodian FinTech. Phase R1 shipped 2026-08-31 (`ef93f72`) with six instruments; eleven more are verified and queued for R2. Design in vault `DPI Integration/66_Regulatory_Section_Design.md`, evidence in `65_Regulatory_Instruments_Verification_Pass.md`.
+
+**The evidence bar is absolute: no instrument gets a page unless a source was fetched and read, and the entry records that date in `asAt`.** This section's entire value is being independently checkable — one wrong Prakas number destroys more credibility than a whole fabricated case study, because a reader can act on it. If a fact cannot be traced to a fetched source, it does not ship, even when it is probably true.
+
+That is not hypothetical. The research this was built from asserted the 5%/3% CET1 caps as a headline finding while citing three sources, **none of which stated them.** They turned out to be exactly right — Article 16 of the primary text. Correct-but-unsourced and wrong-but-confident are indistinguishable from inside a document; only fetching the primary separates them.
+
+- **Separate data model, deliberately.** `app/content/regulatory/types.ts`, not `ArticleContent`. Instruments carry structured fields (number, issuer, dates, legal force, sources with tier) that drive both the index table and the JSON-LD. Do not merge these registries.
+- **`schema.org/Legislation` for binding instruments; `CreativeWork` for non-binding ones.** `BINDING_KINDS` in the types file decides. A development policy emits no `legislationLegalForce` — calling it "in force" misdescribes it. `PartiallyInForce` exists in the vocabulary and is the correct value for phased commencement (the CGT instruments, R2).
+- **`doesNotCover` is required on every instrument, not optional garnish.** The limits of an instrument are what tell a reader whether it reaches them, they are the hardest thing to find elsewhere, and a page that states its own limits cannot be read as over-claiming.
+- **`RegulatoryNotice.tsx` is rendered by the section's pages, never written into content.** Same guardrail pattern as `ScenarioNotice`. Its closing clause — *"CamFinTech advises clients on process; it does not represent them before any regulator"* — is the whole reason a regulatory section is safe for this firm to publish. Do not soften or remove it.
+- **Never publish a capital threshold, licence tier or fee from a secondary aggregator.** Those figures were the least reliable part of the source research and are excluded site-wide until an issuer or a law firm states them.
+- **Tax entries need the deferral history, not just the rate.** Cambodia's CGT has been postponed repeatedly; stating "20% applies" flatly was one of the errors the verification pass caught.
+
+**Instrument numbers are the highest-risk field.** `app/content/regulatory/instruments/prakas-b14-017-161.ts` carries a comment explaining why its number is what it is — the source research had it as `B7-017-282` and that number appears to exist nowhere. Read that comment before "correcting" it.
+
 **The conflict disclosure on the homepage is load-bearing** — building a client's integration while navigating its approval is the one genuine residual risk of the reversal, and it is answered publicly rather than in the engagement letter. Do not remove it.
 
 ## Git Workflow & Deployment Automation

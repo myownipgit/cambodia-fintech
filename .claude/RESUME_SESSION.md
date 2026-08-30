@@ -3,6 +3,16 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
+
+**2026-08-31 (3rd thread) — `/regulatory` R1 SHIPPED** (`ef93f72`, deploy `cambodia-fintech-9khgn9fk2`). **Sitemap 51 → 58.** New reference section indexing Cambodian FinTech instruments. Six instruments live, each with a PRIMARY source fetched and read: NBC `B7-024-735` (cryptoassets, full 8pp English text from nbc.gov.kh), NBC `B14-017-161 P.K` (payment service institutions), Law on E-Commerce, Sub-Decree 207 (CamDigiKey), Law on Banking, FinTech Policy 2023-28. Plus the index and regulator map.
+
+**This began as a verification pass on research Bill supplied, and the pass is the reason the section is safe to publish.** 30 citations fetched. **Nine material errors found**, incl. a wrong instrument number for the payments Prakas (`B7-017-282` → actually `B14-017-161 P.K`), the CGT stated as flatly in force when it has been repeatedly deferred, and a crypto/CGT link no cited source supports. Also: the research **cited camfintech.com back at us** as authority for a statutory claim, and nine sources were unusable (Binance Square posts, a photography blog, Scribd). Full evidence in vault [[DPI Integration/65_Regulatory_Instruments_Verification_Pass]]; design in [[DPI Integration/66_Regulatory_Section_Design]].
+
+**The finding to carry forward**: the research asserted the 5%/3% CET1 caps citing three sources, **none of which stated them**. They were exactly right — Article 16 of the primary. Correct-but-unsourced and wrong-but-confident look identical from inside a document.
+
+Queued: **R2** 11 commentary-sourced instruments (Prakas 093, Notification 083/25, trusts, e-commerce, CGT, working group) — R1 cross-links already point at them. **R3** sector matrix + market-entry guide. **R4** nav, `llms*.txt`, cross-links (sitemap was pulled forward into R1).
+
+## Superseded — prior entry
 2026-08-31 (2nd session) — **62010 PIVOT COMPLETE.** Commits `8ddc1d9` (Phase A) + `cd62c7b` (Phase B) + `3997d6c` (Phase A5) + `a1c024d` (Phase A4) → latest deploy `cambodia-fintech-f25jkeyh7`. Executes the direction note open since 2026-07-31; recorded as **ADR-005**.
 
 **Phase A4 — `/use-cases` rewritten** (`a1c024d`). **Sitemap 46 → 51; redirects 3 → 0** (`next.config.js` `redirects()` now returns `[]`). Not a restore: all four originals were fabricated case studies, two described CamFinTech operating across the design seam, and `digital-lending-platform` carried an **access claim**. New writing on reused technical substance. URLs stay `/use-cases/*` for their equity; every visible label says **"Engagement Scenarios"**; `ScenarioNotice.tsx` is rendered by `ArticleLayout` for the content type so the disclaimer cannot be edited out of prose. Each page carries an explicit scope-boundary section.
