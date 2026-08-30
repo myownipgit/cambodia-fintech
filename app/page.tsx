@@ -134,7 +134,7 @@ export default function Home() {
                   </li>
                   <li className="flex gap-2">
                     <span className="text-navy font-bold">·</span>
-                    <span><strong>Process competence, never access.</strong></span>
+                    <span><strong>Process competence, never access.</strong> You pay us for knowing the process, not for knowing people.</span>
                   </li>
                 </ul>
               </aside>
@@ -166,7 +166,7 @@ export default function Home() {
                 What we do (and don&apos;t)
               </h2>
               <p className="max-w-3xl text-base text-navy/75">
-                The boundary is explicit and transparent. We sell process competence and integration delivery; reserved work goes to licensed partners; we never operate the rail you connect to.
+                The boundary is explicit, and it is easier to judge a firm by what it rules out than by what it promises. Both halves are below.
               </p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -178,7 +178,12 @@ export default function Home() {
                 <ul className="space-y-3 text-sm">
                   <li>Navigate the <strong>approval</strong> for each rail (PSP/Bakong, CamDX/eKYC, CamInvoice, SERC DASP)</li>
                   <li>Build your <strong>risk &amp; compliance programme</strong> (AML/CFT, governance, MLRO support, GRC advisory)</li>
-                  <li><strong>Represent</strong> Cambodian <em>and</em> foreign FinTechs before the regulators</li>
+                  {/* Was: "Represent Cambodian and foreign FinTechs before the regulators".
+                      That contradicted the conflict disclosure below it, the applicant-of-record
+                      rule, and the notice on every /regulatory page — and "represent … before the
+                      regulators" is access-claim language. The point of the line is that we serve
+                      foreign firms as well as Cambodian ones; that survives. */}
+                  <li><strong>Prepare and support the application</strong> for Cambodian <em>and</em> foreign FinTechs — you remain the applicant of record</li>
                   <li><strong>Build</strong> the client-side integration to the rails — ERP to CamInvoice, Bakong/KHQR connectivity, CamDX and CamDigiKey adapters — or direct an accredited Service Provider where that is the better fit</li>
                   <li>Route reserved work (legal, tax filing, pen-test) to licensed partners — transparently, never marked up</li>
                 </ul>
@@ -207,7 +212,7 @@ export default function Home() {
                 We may build your integration and navigate your approval on the same engagement. That is a fair thing to ask about, so here is the answer in full. <strong>You are always the applicant of record</strong> — the licence, the filing, and the operator role are yours, never ours. <strong>We do not influence a regulator&apos;s decision and we do not claim to.</strong> Our work is getting you to the published bar, not around it. Where we deliver both the build and the approval navigation, that is disclosed in the engagement letter and priced as two separate scopes, so you can take either one elsewhere without penalty.
               </p>
               <p className="mt-3 text-sm text-navy/85 leading-relaxed">
-                The rules that make this safe have not moved: fee-only, never hold client funds, never operate a rail, reserved legal and tax work routed to licensed professionals. Building the client side of an integration sits inside those limits — it is the operating and the custody we stay out of, not the engineering.
+                None of the rules above has moved to make room for this. Building the client side of an integration sits inside them — it is the operating and the custody we stay out of, not the engineering.
               </p>
             </div>
           </section>
@@ -343,7 +348,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-bold mb-2">Capital-light and conflict-free</h3>
-                  <p className="text-sm text-navy/75">Fee-only. We never touch your money or your rail. Our incentives are simple: get you approved and keep you compliant.</p>
+                  <p className="text-sm text-navy/75">We earn nothing from the volume you process or the rail you choose, so our incentives are simple: get you approved, and keep you compliant.</p>
                 </div>
                 <div>
                   <h3 className="font-bold mb-2">One coordinator across every rail</h3>
