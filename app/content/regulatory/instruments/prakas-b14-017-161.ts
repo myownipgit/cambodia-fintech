@@ -23,7 +23,11 @@ export const prakasB14017161: RegulatoryInstrument = {
   kind: 'prakas',
   issuer: 'National Bank of Cambodia',
   issued: '2017-06-14',
+  effective: '2017-06-14',
   force: 'in-force',
+  // Added during R2: the National Trade Repository record states "This Prakas
+  // shall have effect from this signing date", signed by Governor Chea Chanto.
+  forceNote: 'Takes effect from its signing date.',
   sectors: ['Payments', 'E-money'],
   summary:
     'The licensing regime for non-bank payment service institutions in Cambodia — the instrument a payments business, e-wallet or remittance operator is licensed under, and the foundation the later Bakong and cryptoasset rules are built on top of.',

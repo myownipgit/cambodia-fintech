@@ -42,6 +42,10 @@ export const lawOnECommerce: RegulatoryInstrument = {
       tier: 'primary',
     },
   ],
-  relatedInstruments: ['sub-decree-134-ecommerce', 'prakas-290-ecommerce'],
+  relatedInstruments: [
+    'sub-decree-134-ecommerce',
+    'prakas-290-ecommerce',
+    'joint-prakas-316-ecommerce',
+  ],
   relatedContent: [],
 };

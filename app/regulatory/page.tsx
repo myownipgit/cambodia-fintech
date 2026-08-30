@@ -23,32 +23,38 @@ const regulators = [
     remit: 'Banking, payments and the fiat rails',
     supervises:
       'Commercial banks, payment service institutions, e-money, and cryptoasset exposures held by supervised institutions',
-    instruments: ['prakas-b14-017-161', 'prakas-b7-024-735'],
   },
   {
     name: 'Non-Bank Financial Services Authority (NBFSA)',
     remit: 'Umbrella regulator for non-bank financial sectors',
     supervises:
       'Insurance and pensions, securities, social security, trusts, accounting and audit, real estate and pawnshops — delegating day-to-day supervision to sector regulators including SERC and the Trust Regulator',
-    instruments: [],
   },
   {
     name: 'Securities and Exchange Regulator of Cambodia (SERC)',
     remit: 'Capital markets and digital assets held for investment',
-    supervises: 'Securities activity and Digital Asset Service Providers',
-    instruments: [],
+    supervises:
+      'Securities activity, Digital Asset Service Providers, and the FinTech Regulatory Sandbox every DASP applicant must pass through',
+  },
+  {
+    name: 'Trust Regulator (TR)',
+    remit: 'Fiduciary services',
+    supervises: 'Licensed trustees and the four statutory trust types',
+  },
+  {
+    name: 'Ministry of Economy and Finance (MEF) / GDT',
+    remit: 'Fiscal policy and taxation',
+    supervises: 'Capital gains, trust taxation, and tax administration generally',
   },
   {
     name: 'Ministry of Commerce (MOC)',
     remit: 'Commercial registration and e-commerce',
     supervises: 'E-commerce permits and licences, company registration',
-    instruments: [],
   },
   {
     name: 'Royal Government / cross-ministry',
     remit: 'Digital government infrastructure',
     supervises: 'National platforms including CamDigiKey',
-    instruments: ['sub-decree-207-camdigikey'],
   },
 ];
 
@@ -120,9 +126,10 @@ export default function RegulatoryIndex() {
             Instrument index
           </h2>
           <p className="text-sm text-navy/60 mb-5">
-            {total} instruments, each verified against a primary source — the
-            instrument itself or an official government repository. Further
-            instruments sourced to professional legal commentary are being added.
+            {total} instruments. Each entry was checked against a source that
+            was actually fetched and read — the instrument itself where an
+            official text is published, otherwise professional legal commentary.
+            Every page names its sources and marks which kind each one is.
           </p>
 
           <div className="space-y-8">
