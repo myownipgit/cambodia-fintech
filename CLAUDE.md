@@ -26,7 +26,12 @@ npm run dev          # Start development server on http://localhost:3000
 npm run build        # Build for production
 npm start            # Start production server
 npm run lint         # eslint .  — `next lint` was REMOVED in Next 16
+npm run check:llms   # guards public/llms*.txt against content-inventory drift
 ```
+
+**Run `npm run check:llms` after any content change.** `public/llms.txt` and `public/llms-full.txt` are hand-maintained, have no build step, and drifted twice: they spent a day telling AI systems that restored content was "superseded", and the canonical page index listed two of five content sections while giving `/learn` as 6 articles when it held 12. The check verifies every section appears in both files, that published counts match the registries, that no content file is orphaned from its registry, and that the exact superseded wording has not returned. It exits non-zero — it is not advisory.
+
+A generator was considered and rejected: it would move ~340 lines of carefully-worded prose into template literals, and the worse of the two drifts was *prose*, which a generator would have reproduced faithfully. The failure was that nothing noticed.
 
 **Linting changed in Next 16.** `next build` no longer runs ESLint, so a green build does NOT imply a clean lint — run `npm run lint` deliberately before committing. `eslint.config.mjs` is native flat config: do **not** reintroduce the `@eslint/eslintrc` FlatCompat wrapper, which throws `Converting circular structure to JSON` against `eslint-config-next@16`. Note `eslint .` also lints the repo root (`next.config.js`, `tailwind.config.ts`), which `next lint` never did.
 
@@ -130,7 +135,9 @@ If a real, consented engagement ever exists, it is a new content type — not an
 
 ### `/regulatory` — the instrument index, and its evidence bar
 
-A reference section indexing the Prakas, laws and sub-decrees governing Cambodian FinTech. **17 instruments live** — R1 `ef93f72` (6 primary-sourced) and R2 `1fe8c96` (11 commentary-sourced). R3 (sector matrix, market-entry guide) and R4 (nav, `llms*.txt`, cross-links) are open; **the section is not yet linked from the site navigation.** Design in vault `DPI Integration/66_Regulatory_Section_Design.md`, evidence in `65_Regulatory_Instruments_Verification_Pass.md`.
+A reference section indexing the Prakas, laws and sub-decrees governing Cambodian FinTech. **17 instruments live and wired in** — R1 `ef93f72` (6 primary-sourced), R2 `1fe8c96` (11 commentary-sourced), R4 `66d006a` (nav, llms surfaces, cross-links). Only R3 remains: the sector matrix and market-entry guide, gated on legal questions. Design in vault `DPI Integration/66_Regulatory_Section_Design.md`, evidence in `65_Regulatory_Instruments_Verification_Pass.md`.
+
+**Article → instrument links are registry-driven.** `ArticleMeta.relatedInstruments` (optional) holds instrument slugs; `ArticleLayout` renders them as a "Regulatory instruments" block. Instruments point back via their own `relatedContent`. Both directions are data — do not hand-write these links into prose, where they rot silently.
 
 **The evidence bar is absolute: no instrument gets a page unless a source was fetched and read, and the entry records that date in `asAt`.** This section's entire value is being independently checkable — one wrong Prakas number destroys more credibility than a whole fabricated case study, because a reader can act on it. If a fact cannot be traced to a fetched source, it does not ship, even when it is probably true.
 

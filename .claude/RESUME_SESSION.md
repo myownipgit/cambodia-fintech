@@ -18,7 +18,13 @@ A second verification round before writing R2 found **two more research errors**
 
 **The CGT page is the one the exercise was for**: `schema.org/PartiallyInForce`, full deferral history, and `doesNotCover` stating that no instrument reviewed names cryptocurrency — so the crypto/CGT link is unsettled, contra the research's executive summary.
 
-Queued: **R3** sector matrix + market-entry guide (gated on NEW-L13 counsel questions). **R4** nav, `llms*.txt`, cross-links — **the section is currently unreachable from site navigation**, which makes R4 the next job. Sitemap was pulled forward into R1.
+**R4 SHIPPED** (`66d006a`, deploy `cambodia-fintech-5vpaiumld`). The section was live but unreachable — 18 pages, no nav entry, no inbound links, no mention in either llms file. Now: nav gains "Regulatory" (7 items); `/products/dasp` links Prakas 093 and Notification 083/25; **article → instrument links are registry-driven** via a new optional `ArticleMeta.relatedInstruments` rendered by `ArticleLayout`, wired onto the 8 articles that name instruments. Instruments already pointed back via `relatedContent`, so both directions are now data rather than prose.
+
+**NEW-M6 closed with a check, not a generator** — `npm run check:llms` (`scripts/check-llms.mjs`, wired into package.json). Verifies every section appears in both llms files, published counts match the registries, no content file is orphaned, and the exact "treat these as superseded" wording has not returned. Exits non-zero. Verified by breaking a count and watching it fail. A generator would have moved ~340 lines of careful prose into template literals, and the worse drift was *prose* — a generator would have reproduced it. Nothing noticed; this notices.
+
+**The canonical index was worse than NEW-M6 recorded**: `llms-full.txt` listed `/glossary` and `/learn` only — no `/knowledge`, `/insights` or `/use-cases` at all — and gave `/learn` as 6 when it holds 12. The file AI crawlers are pointed at was describing about a third of the site.
+
+Queued: **R3** sector matrix + market-entry guide, gated on NEW-L13 (two counsel questions — genuinely for a lawyer). Then **GEO KB re-seed** — note R4 materially changed what it should be seeded against: nav entry, 18 new pages, primary outbound citations, `Legislation` structured data. Then **traffic measurement** at 2/4/8 weeks.
 
 ## Superseded — prior entry
 2026-08-31 (2nd session) — **62010 PIVOT COMPLETE.** Commits `8ddc1d9` (Phase A) + `cd62c7b` (Phase B) + `3997d6c` (Phase A5) + `a1c024d` (Phase A4) → latest deploy `cambodia-fintech-f25jkeyh7`. Executes the direction note open since 2026-07-31; recorded as **ADR-005**.
