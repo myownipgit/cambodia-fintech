@@ -11,6 +11,7 @@ export const whatIsCamDigiKey: ArticleContent = {
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['camdigikey', 'camdx', 'gaap'],
+  relatedInstruments: ['sub-decree-207-camdigikey'],
   lead: 'CamDigiKey is Cambodia\'s national digital identity and electronic Know Your Customer (eKYC) platform, operated by the Ministry of Post and Telecommunications under the Digital Government Committee. Launched as part of Cambodia\'s Digital Government Policy 2022-2035, CamDigiKey provides citizens and residents with a single, government-verified digital identity that can be used for financial account opening, government service access, and private-sector authentication via OAuth 2.0 single sign-on. For FinTech companies operating in Cambodia, CamDigiKey is rapidly becoming the mandatory gateway for customer onboarding.',
   claims: [
     { stat: 'Cambodia\'s Digital Government Policy 2022-2035 mandates digital identity coverage for 70% of the adult population by 2030, with CamDigiKey as the primary national digital ID platform.', source: 'Royal Government of Cambodia Digital Government Policy', year: '2022' },

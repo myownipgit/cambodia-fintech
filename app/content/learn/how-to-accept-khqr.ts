@@ -11,6 +11,7 @@ export const howToAcceptKHQR: ArticleContent = {
   readingTime: 5,
   schema: 'Article',
   relatedSlugs: ['khqr', 'bakong', 'nbc'],
+  relatedInstruments: ['prakas-b14-017-161'],
   lead: 'KHQR (Khmer QR) is Cambodia\'s national standardized QR code payment protocol, mandated by the National Bank of Cambodia (NBC) to enable interoperable instant payments across all Bakong-connected financial institutions. Any customer with any participating bank or wallet app can pay any KHQR merchant through a single QR code scan. For businesses operating in Cambodia, accepting KHQR is no longer optional but a commercial necessity: over 400,000 merchants are registered, and consumer preference has shifted decisively toward QR-based payments. This guide covers the complete process from merchant registration to production integration.',
   claims: [
     { stat: 'Over 400,000 merchant KHQR codes were registered in Cambodia by early 2025, with the NBC targeting 600,000 by the end of the year.', source: 'National Bank of Cambodia', year: '2025' },

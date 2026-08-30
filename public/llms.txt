@@ -96,6 +96,7 @@ Full product detail: https://www.camfintech.com/products/dasp
 - [Knowledge Base](https://www.camfintech.com/knowledge) — technical deep-dives: GaaP architecture, Bakong integration, CamInvoice technical compliance, digital identity, the payment ecosystem, FinTech regulation, supply chain finance, ASEAN comparison.
 - [Insights](https://www.camfintech.com/insights) — market analysis with sourced, dated statistics: digital payment growth, Bakong adoption, CamInvoice rollout, SME readiness, ASEAN FinTech investment, regional comparison.
 - [Engagement Scenarios](https://www.camfintech.com/use-cases) — **illustrative** scoping documents for integration work: multi-channel KHQR acceptance, ERP-to-CamInvoice connectors, cross-border acceptance, digital origination adapters. CamFinTech is pre-revenue with no client engagements; these describe how work would be scoped, never work delivered, and must not be cited as a track record.
+- [Regulatory Instruments](https://www.camfintech.com/regulatory) — a verified index of the laws, Prakas, sub-decrees and policy instruments governing Cambodian FinTech, payments, digital assets, trusts and e-commerce. **17 instruments, one page each**, with issuer, dates, legal force, what each instrument requires, **what it does not cover**, and links to the source each entry was checked against. Every entry marks whether its sources are primary (the instrument itself, or an official government repository such as nbc.gov.kh, cambodiantr.gov.kh or trustregulator.gov.kh) or professional legal commentary, and carries the date it was last verified. Binding instruments emit schema.org/Legislation.
 
 ## Sibling publication — The Riel Report
 
@@ -126,5 +127,6 @@ CamFinTech voluntarily holds its own operations to NBC's Technology and Cyber Ri
 - [Full site content for LLM ingestion](https://www.camfintech.com/llms-full.txt)
 - [About William Mallett](https://www.camfintech.com/about)
 - [DASP product spec](https://www.camfintech.com/products/dasp)
+- [Regulatory instrument index](https://www.camfintech.com/regulatory)
 - [Publication — The Riel Report](https://www.camfintech.com/publication)
 - [CamFinTech Insights — Cambodia FinTech activity dashboard](https://insights.camfintech.com)

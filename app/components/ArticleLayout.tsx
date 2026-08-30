@@ -7,6 +7,7 @@ import RelatedServices from './RelatedServices';
 import RelatedReading from './RelatedReading';
 import ScenarioNotice from './ScenarioNotice';
 import { getArticleBySlug } from '@/app/content/registry';
+import { getRelatedInstruments } from '@/app/content/regulatory/registry';
 
 const BASE_URL = 'https://www.camfintech.com';
 
@@ -132,6 +133,8 @@ export default function ArticleLayout({ article }: { article: ArticleContent }) 
     })
     .filter(Boolean) as { slug: string; title: string; type: typeof article.type }[];
 
+  const instruments = getRelatedInstruments(article.relatedInstruments ?? []);
+
   return (
     <div className="min-h-screen bg-cloud">
       <script
@@ -215,6 +218,29 @@ export default function ArticleLayout({ article }: { article: ArticleContent }) 
 
         {/* Related */}
         <RelatedReading links={relatedLinks} />
+
+        {/* The instruments this article discusses, where it names any. Sends a
+            reader from our description of a rule to the rule itself. */}
+        {instruments.length > 0 && (
+          <section className="my-8">
+            <h2 className="text-lg font-semibold text-navy mb-3">Regulatory instruments</h2>
+            <ul className="space-y-2">
+              {instruments.map((instrument) => (
+                <li key={instrument.slug}>
+                  <Link
+                    href={`/regulatory/${instrument.slug}`}
+                    className="text-navy/80 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4"
+                  >
+                    {instrument.number
+                      ? `${instrument.number} — ${instrument.title}`
+                      : instrument.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <RelatedServices />
 
         {/* Back link */}

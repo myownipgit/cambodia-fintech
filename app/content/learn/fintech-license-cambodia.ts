@@ -11,6 +11,7 @@ export const fintechLicenseCambodia: ArticleContent = {
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['nbc', 'gdt', 'gaap'],
+  relatedInstruments: ['law-on-banking', 'prakas-b14-017-161', 'law-on-nbfsa', 'prakas-093'],
   lead: 'Obtaining a FinTech license in Cambodia requires navigating the National Bank of Cambodia\'s (NBC) multi-tiered licensing framework, which categorizes financial technology operators by activity type, risk profile, and capital adequacy. The NBC oversees all payment service providers, e-money issuers, and technology-driven financial institutions through a regulatory architecture designed to promote innovation while maintaining financial system stability. With Cambodia\'s digital payment volumes exceeding $78 billion in 2024 and the regulatory sandbox attracting international entrants, understanding the licensing pathway is essential for any firm planning to operate in the Kingdom\'s FinTech sector.',
   claims: [
     { stat: 'The National Bank of Cambodia has issued over 40 payment service provider licenses and 15 e-money issuer licenses as of 2025, with an additional 15 firms operating under regulatory sandbox provisions.', source: 'National Bank of Cambodia', year: '2025' },

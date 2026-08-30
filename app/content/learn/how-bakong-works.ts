@@ -11,6 +11,7 @@ export const howBakongWorks: ArticleContent = {
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'nbc'],
+  relatedInstruments: ['prakas-b14-017-161'],
   lead: 'Bakong is far more than a mobile wallet. It is a central bank digital currency (CBDC) and real-time gross settlement system built on Hyperledger Iroha blockchain technology, operated by the National Bank of Cambodia (NBC). Since its public launch in October 2020, Bakong has grown into the payment backbone of the Cambodian economy, connecting over 60 financial institutions, enabling dual-currency settlement in both Khmer Riel (KHR) and US Dollars (USD), and powering the KHQR standardized QR code protocol that has become ubiquitous in Cambodian commerce.',
   claims: [
     { stat: 'Bakong processed over 21 million transactions in 2024, representing a 78% year-over-year increase, with total value exceeding USD 26 billion.', source: 'National Bank of Cambodia Annual Report', year: '2024' },

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "check:llms": "node scripts/check-llms.mjs"
   },
   "dependencies": {
     "eslint-config-next": "^16.3.1",

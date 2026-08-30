@@ -11,6 +11,7 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/#services", label: "Services" },
     { href: "/products/dasp", label: "DASP" },
+    { href: "/regulatory", label: "Regulatory" },
     { href: "/about", label: "About" },
     { href: "/publication", label: "Publication" },
     { href: "/#contact", label: "Contact" },

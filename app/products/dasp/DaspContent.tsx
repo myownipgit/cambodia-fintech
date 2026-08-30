@@ -56,6 +56,13 @@ export default function DaspContent() {
                 <strong>Honesty discipline:</strong> there is <em>no published grace window</em>. We will not manufacture urgency by claiming one. The regulation is in force; the readiness work takes 4–8 months to do properly. The cost of starting late is missing the early-mover window.
               </p>
             </div>
+            <p className="mt-4 text-sm text-navy/75 leading-relaxed">
+              Read the instruments rather than our summary of them:{' '}
+              <Link href="/regulatory/prakas-093" className="text-navy font-medium hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4">Prakas 093</Link>{' '}
+              sets the licensing regime, and{' '}
+              <Link href="/regulatory/notification-083-25" className="text-navy font-medium hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4">SERC Notification 083/25</Link>{' '}
+              is what makes sandbox graduation a precondition of applying at all. Both pages state what the instrument does not cover, and link to the sources they were checked against.
+            </p>
           </section>
 
           {/* The four products */}

@@ -11,6 +11,7 @@ export const camdigikey: ArticleContent = {
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'camdx', 'gaap'],
+  relatedInstruments: ['sub-decree-207-camdigikey'],
   lead: 'CamDigiKey is Cambodia\'s national digital identity platform developed by the Ministry of Economy and Finance (MEF). It provides secure electronic Know Your Customer (eKYC) verification through facial recognition and biometric authentication, enabling citizens and businesses to access government and financial services digitally.',
   claims: [
     { stat: 'CamDigiKey has registered over 5 million digital identities since its launch, covering approximately 30% of Cambodia\'s adult population.', source: 'Ministry of Economy and Finance Cambodia', year: '2025', url: 'https://camdigikey.gov.kh' },

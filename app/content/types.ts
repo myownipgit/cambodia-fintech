@@ -31,6 +31,15 @@ export interface ArticleMeta {
   readingTime: number;
   schema: SchemaType;
   relatedSlugs: string[];
+  /**
+   * Slugs into the regulatory instrument registry.
+   *
+   * Instruments already point back at articles via their own `relatedContent`;
+   * this is the return direction, so an article that discusses licensing can
+   * send a reader to the instrument itself. Optional — most articles have no
+   * instrument to name, and a link that is not earned is noise.
+   */
+  relatedInstruments?: string[];
   faqs: FAQ[];
   claims: ClaimData[];
 }
