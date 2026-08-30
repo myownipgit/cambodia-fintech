@@ -3,7 +3,9 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-29 — **Positioning verified + ClickUp PM layer opened.** Two threads, no code, no commits, no deploys. (A) Bill's TPP/NBC licensing belief **verified as broadly correct** — pure advisory/PM/technical-integration needs no NBC licence (`02:79`); the wall is the **PSI licence** (~US$2M + 5% deposit) triggered by routing/handling payments on a bank's behalf (`02:86`). Nuance: NBC regulates **by activity**, so say "no NBC licence for a pure assist role", not "no NBC involvement" (`59:430`). **Key correction**: git archaeology of the 2026-06-18 removal sweep (`c674610`·`c5b5201`·`cf564eb`) + 2026-07-30 broadening (`086a8ae`) found **no licensing rationale anywhere** — the removal was documented purely as a **positioning** decision (post-Huione "process competence, never access"). (B) ClickUp + Hermes PM layer opened over the remaining Agentic Firm build; read-only proposal done, 20 questions answered, container locked. **Scope shrank**: legal-expiration likely folds into Compliance Calendar → 3 full builds + 2 deferred + 1 fold-in + 1 gated dashboard, not 5 + dashboard. Full narrative in vault [[Firm Operations/20_Session_Log_2026-08-29_positioning_verify_and_clickup_pm]].
+2026-08-31 — **BRAND MIGRATION SHIPPED.** Commit `5bece33` → deploy `dpl_qu14tmaxzwzHFtqW4w2zBRXfsPSF` (`cambodia-fintech-b2vaw1l4o-…`), live on camfintech.com. Site is now on the locked identity: navy `#1E2F52` / Riel Teal `#17A398` / Cloud `#F5F7FB` on white cards; Poppins + Manrope + Kantumruy Pro + IBM Plex Mono; bilingual navybg lockup; icons rebuilt from the real mark. **Dark mode removed entirely** (222 `dark:` classes, toggle, localStorage key, FOUC defect). **Teal is a FILL, never body text** — 2.91:1 on cloud, fails AA; text on a teal fill must be `navy-deep` `#16233F` (5.00:1). `ឯ.ក` deviation recorded as **ADR-004**. Full narrative in vault [[Firm Operations/21_Session_Log_2026-08-31_brand_migration]].
+
+Prior entry (2026-08-29) — **Positioning verified + ClickUp PM layer opened.** Two threads, no code, no commits, no deploys. (A) Bill's TPP/NBC licensing belief **verified as broadly correct** — pure advisory/PM/technical-integration needs no NBC licence (`02:79`); the wall is the **PSI licence** (~US$2M + 5% deposit) triggered by routing/handling payments on a bank's behalf (`02:86`). Nuance: NBC regulates **by activity**, so say "no NBC licence for a pure assist role", not "no NBC involvement" (`59:430`). **Key correction**: git archaeology of the 2026-06-18 removal sweep (`c674610`·`c5b5201`·`cf564eb`) + 2026-07-30 broadening (`086a8ae`) found **no licensing rationale anywhere** — the removal was documented purely as a **positioning** decision (post-Huione "process competence, never access"). (B) ClickUp + Hermes PM layer opened over the remaining Agentic Firm build; read-only proposal done, 20 questions answered, container locked. **Scope shrank**: legal-expiration likely folds into Compliance Calendar → 3 full builds + 2 deferred + 1 fold-in + 1 gated dashboard, not 5 + dashboard. Full narrative in vault [[Firm Operations/20_Session_Log_2026-08-29_positioning_verify_and_clickup_pm]].
 
 Prior entry (2026-08-25) — **Finalised production brand kit landed.** Bill delivered `camfintech-brand-package_1.zip` at repo root ("FYI the brand guidelines are now finalised"); extracted to new `brand/` at repo root (101 files, 3.6 MB — svg/pdf/eps/png + README.txt). Logo direction CLOSED — canvas exploration (Phase 26) superseded by production kit. **Site NOT yet migrated**: palette pivots gold `#f4af25` → navy `#1E2F52` + Riel Teal `#17A398`; fonts pivot Inter/Noto → Poppins/Kantumruy Pro/Manrope/IBM Plex Mono. Khmer legal name locked as `ខេមហ្វីនថេក ឯ.ក` for post-registration use. **No commit, no deploy.** Migration triggers open: `"execute brand migration"` (full) or `"wire the new logo into the header"` (narrow, keep old palette). Full narrative in vault [[Firm Operations/19_Session_Log_2026-08-25_brand_kit_landed]].
 
@@ -20,14 +22,69 @@ Prior entry (2026-08-20): GEO sensor knowledge base seeded — `~/.geo-prospects
 > [!warning] Multiple day-close blocks below — read in this order
 > **Authoritative sequence:**
 >
-> 1. **"Session close — 2026-08-29 (positioning verification + ClickUp PM layer)"** (immediately below) — today's work.
-> 2. **"Session close — 2026-08-25 (finalised brand kit landed)"** — brand kit staged at `brand/`.
-> 3. **"Session close — 2026-08-24 (GEO standing-findings remediation)"** — GEO H5/H6/H7 closed.
-> 4. **"Session close — 2026-08-23 (evening, logo design exploration)"** — logo direction (superseded by 08-25 kit).
-> 5. **"Session close — 2026-08-23 (GSC verification retired)"** — separate scope.
-> 6. **"Session close — 2026-08-20 (GEO KB seed)"** — GEO sensor knowledge base.
-> 7. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
-> 8. **This header** supersedes all for current state.
+> 1. **"Session close — 2026-08-31 (brand migration shipped)"** (immediately below) — today's work.
+> 2. **"Session close — 2026-08-29 (positioning verification + ClickUp PM layer)"** — TPP verification + PM layer.
+> 3. **"Session close — 2026-08-25 (finalised brand kit landed)"** — brand kit staged at `brand/`.
+> 4. **"Session close — 2026-08-24 (GEO standing-findings remediation)"** — GEO H5/H6/H7 closed.
+> 5. **"Session close — 2026-08-23 (evening, logo design exploration)"** — logo direction (superseded by 08-25 kit, shipped 08-31).
+> 6. **"Session close — 2026-08-23 (GSC verification retired)"** — separate scope.
+> 7. **"Session close — 2026-08-20 (GEO KB seed)"** — GEO sensor knowledge base.
+> 8. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
+> 9. **This header** supersedes all for current state.
+
+---
+
+## Session close — 2026-08-31 (brand migration shipped)
+
+Planning through production in one session. Commit `5bece33`, deploy `dpl_qu14tmaxzwzHFtqW4w2zBRXfsPSF`, live and verified.
+
+### Five locked decisions
+
+| # | Decision |
+|---|---|
+| 1 | Logo = `lockup-bilingual-navybg` — **deviation, ADR-004** |
+| 2 | Page = Cloud `#F5F7FB`, cards stay pure `#FFFFFF` |
+| 3 | Dark mode removed entirely |
+| 4 | Riel Teal `#17A398` is the accent |
+| 5 | **Teal is a fill, never body text** |
+
+Decision 5 reversed a choice Bill had already made. His first pick was "links and hovers in teal"; the measured contrast is **2.91:1 on Cloud** and **3.12:1 on white**, failing AA at every size on the page background. Shown the numbers, he re-picked teal-as-fill-only.
+
+**Second consequence, easy to miss: CTA text on a teal fill must be Deep Navy `#16233F`** (5.00:1). Primary Navy is 4.25:1 and white is 3.12:1 — both fail. The instinct to put white text on a teal button is wrong here.
+
+### Why it was a one-session job
+
+The palette was **hermetic** — 9 tokens, zero stock Tailwind colours, zero arbitrary hex classes in `app/`. A config swap moved ~95% of 612 references. Preserve that discipline.
+
+### Shipped
+
+612 colour refs migrated; tokens renamed off the meaningless `-light`/`-dark` suffixes to `navy` · `navy-deep` · `teal` · `cloud` · `card` · `slate` · `line`. All 222 `dark:` classes plus the toggle, localStorage key and FOUC defect removed; `:root { color-scheme: light }` replaces `<html className="light">`. Poppins/Manrope/Kantumruy Pro/IBM Plex Mono with a base-layer `h1–h4` rule. Bilingual lockup at `h-12`. Icons rebuilt from the real mark. OG card on navy. `Organization.logo` repointed to a 512 square.
+
+### Four defects caught by a design agent that returned AFTER execution
+
+Three were introduced this session:
+
+| Defect | Why it mattered |
+|---|---|
+| Poppins loaded at weight 600 only | **No variable master** — all 99 `font-bold` headings were synthesising fake bold |
+| Privacy notice claimed the site stores a dark-mode preference, **in both EN and KM** | Nothing writes to browser storage any more. A legal page asserting something untrue. |
+| `apple-icon.svg` was inert | Next 16 accepts png/jpg only for that convention — **no `apple-touch-icon` had ever shipped** |
+| `brand/` + zips not gitignored | 6 MB uploading to Vercel on every deploy |
+
+It also caught that the `-navybg` variants bake clearspace in — the drawn mark is ~56% of panel height, so `h-10` rendered it under the brand guide's own 24px minimum. Raised to `h-12`; the loading skeleton was resized to match or the sticky bar jumps 24px on every page load.
+
+**Lesson: a design agent launched during planning is still worth reading after execution.** The instinct was to discard it as stale.
+
+### Verified in production
+
+All 10 routes 200 · all 6 brand assets 200 · old palette 0 · `dark:` 0 · GA tag present · Bing + Facebook meta present · `google-site-verification` still 0 (DNS-only GSC intact) · `apple-touch-icon` present · dark-mode claim gone from live privacy copy in both languages.
+
+### Open
+
+1. **Khmer privacy deletion needs a native reviewer** (`Outstanding Issues` NEW-L10). The edit removed the parallel sentence rather than rewriting it; nobody who reads Khmer has checked the surrounding flow.
+2. **Three visual items unverified** (NEW-V1/V2/V3) — no browser pass; the Chrome extension was not connected. The opaque navy panel against the blurred header is the most likely to want changing; fallback `lockup-bilingual-navy.svg` inherits the blur.
+3. **NEW-M2 `RelatedServices.tsx`** still ships the retired pre-repositioning service list. Touched for colour, content fix deliberately left out of a brand commit.
+4. **Material Symbols still loaded** — GEO H3, 310 KB render-blocking.
 
 ---
 

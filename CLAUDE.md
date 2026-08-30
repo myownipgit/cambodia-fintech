@@ -36,7 +36,7 @@ Builds use **Turbopack by default** — no `--turbopack` flag needed, and adding
 
 ### Language System
 - **State Management**: Language state (`"en" | "km"`) is managed in `app/page.tsx` using React's `useState`
-- **Font Handling**: Khmer text uses Noto Sans Khmer font, toggled via the `.font-khmer` CSS class
+- **Font Handling**: Khmer text uses Kantumruy Pro, toggled via the `.font-khmer` CSS class. Note the two **deliberately inverted** ternaries at `PrivacyContent.tsx` and `TermsContent.tsx` (`${isKm ? "" : "font-khmer"}`) — the language-switch button displays the *other* language's label, so the inversion is correct. Do not "fix" them.
 - **Language Toggle**: Passed down from `page.tsx` to `Header.tsx` component via props
 - **Bilingual Content**: All user-facing content has both English and Khmer versions using ternary operators
 
@@ -47,13 +47,26 @@ Builds use **Turbopack by default** — no `--turbopack` flag needed, and adding
 - **Type Definitions**: Centralized in `app/types/index.ts`
 
 ### Styling System
-- **Tailwind Configuration**: Custom color palette defined in `tailwind.config.ts`:
-  - Primary: `#f4af25` (golden/yellow accent)
-  - Light mode: `#f8f7f5` background, `#1c170d` text
-  - Dark mode: `#221c10` background, `#f8f7f5` text
-- **Dark Mode**: Uses class-based strategy (`darkMode: "class"`) with toggle in Header, persists to localStorage
-- **Font Setup**: Inter (Latin) and Noto Sans Khmer fonts loaded via next/font/google in `layout.tsx`
-- **Material Symbols**: Icon font loaded from Google Fonts CDN in layout head
+
+Migrated to the locked brand identity on 2026-08-31 (commit `5bece33`). Brand masters live in `brand/` (gitignored); web copies in `public/brand/`. `brand/README.txt` is the authoritative spec.
+
+- **Tailwind Configuration**: semantic tokens in `tailwind.config.ts` — no raw brand aliases, no stock Tailwind colours anywhere in `app/`:
+
+  | Token | Hex | Role |
+  |---|---|---|
+  | `navy` | `#1E2F52` | headings, body, structure |
+  | `navy-deep` | `#16233F` | text sitting ON a teal fill |
+  | `teal` | `#17A398` | accent — **fills only** |
+  | `cloud` | `#F5F7FB` | page background |
+  | `card` | `#FFFFFF` | cards, deliberately brighter than the page |
+  | `slate` | `#5E6B84` | secondary/muted text (defined, currently unused) |
+  | `line` | `#E2E7F0` | hairlines and rules |
+
+- **Riel Teal is a FILL colour, never body text.** Measured 2.91:1 on `cloud` and 3.12:1 on `card` — both below the 4.5:1 WCAG AA floor. It carries CTA fills, tinted bands, borders, rules, and icon glyphs at large-text sizes. Text on a teal fill must be `navy-deep` (5.00:1); `navy` is 4.25:1 and white is 3.12:1, and both fail. Do not "simplify" a CTA to white-on-teal.
+- **No dark mode.** Removed 2026-08-31 — the brand guide specifies no dark palette. There is no `darkMode` key, no `dark:` class, no theme toggle, and nothing writes to browser storage. `:root { color-scheme: light }` in `globals.css` replaces the old `<html className="light">`. Do not reintroduce a `dark:` variant without a brand-side dark palette to derive it from.
+- **Font Setup** (brand-locked, `next/font/google` in `layout.tsx`): Poppins 600/700/800 (Latin display) · Manrope variable (body, the default) · Kantumruy Pro 400/600 (Khmer) · IBM Plex Mono 400/500 (data). **Poppins has no variable master** — every weight the headings request must be listed explicitly or the browser synthesises fake bold. Manrope's ceiling is 800, so `font-black` (900) will clamp on body elements.
+- **Headings**: a base-layer `h1–h4` rule in `globals.css` puts them on `font-display` (Poppins). Utility classes still win, so `font-bold` on a heading gives Poppins 700.
+- **Material Symbols**: icon font still loaded from the Google Fonts CDN in the layout head. This is open GEO finding H3 — 310 KB render-blocking, and its ligature text contaminates AI text extraction. Replacing it with inline SVG is queued, not done.
 
 ### Image Handling
 - **Next.js Image**: Uses `next/image` with `fill` prop for responsive images
@@ -220,8 +233,10 @@ A session state file is maintained at `.claude/RESUME_SESSION.md` to enable seam
 - The project uses the Next.js 16 App Router (not Pages Router) — upgraded 14 → 15 → 16 across 2026-08-12/16
 - ServiceCard and UseCaseCard are now in separate files under `app/components/`
 - Types are centralized in `app/types/index.ts`
-- Dark mode is enabled with localStorage persistence
+- **Dark mode was removed 2026-08-31** — see the Styling System section above
 - Mobile hamburger menu is implemented in Header.tsx
+- The header logo is `public/brand/lockup-bilingual-navybg.svg` at `h-12`. The `-navybg` variants bake clearspace into the panel, so the drawn mark is only ~56% of panel height — below `h-12` the symbol falls under the brand guide's own 24px minimum. `app/loading.tsx`'s skeleton must track this height or the sticky bar jumps on every page load.
+- The bilingual lockup embeds **`ឯ.ក`** (Co., Ltd. equivalent). This is a **recorded deviation** from the public-vs-legal name rule below — see vault `Firm Operations/02_Decision_Log.md` ADR-004. Fallback if OBR approval proves outstanding: swap to `lockup-latin-navybg.svg`, already in `public/brand/`.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
