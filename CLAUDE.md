@@ -130,7 +130,7 @@ If a real, consented engagement ever exists, it is a new content type — not an
 
 ### `/regulatory` — the instrument index, and its evidence bar
 
-A reference section indexing the Prakas, laws and sub-decrees governing Cambodian FinTech. Phase R1 shipped 2026-08-31 (`ef93f72`) with six instruments; eleven more are verified and queued for R2. Design in vault `DPI Integration/66_Regulatory_Section_Design.md`, evidence in `65_Regulatory_Instruments_Verification_Pass.md`.
+A reference section indexing the Prakas, laws and sub-decrees governing Cambodian FinTech. **17 instruments live** — R1 `ef93f72` (6 primary-sourced) and R2 `1fe8c96` (11 commentary-sourced). R3 (sector matrix, market-entry guide) and R4 (nav, `llms*.txt`, cross-links) are open; **the section is not yet linked from the site navigation.** Design in vault `DPI Integration/66_Regulatory_Section_Design.md`, evidence in `65_Regulatory_Instruments_Verification_Pass.md`.
 
 **The evidence bar is absolute: no instrument gets a page unless a source was fetched and read, and the entry records that date in `asAt`.** This section's entire value is being independently checkable — one wrong Prakas number destroys more credibility than a whole fabricated case study, because a reader can act on it. If a fact cannot be traced to a fetched source, it does not ship, even when it is probably true.
 
@@ -143,7 +143,21 @@ That is not hypothetical. The research this was built from asserted the 5%/3% CE
 - **Never publish a capital threshold, licence tier or fee from a secondary aggregator.** Those figures were the least reliable part of the source research and are excluded site-wide until an issuer or a law firm states them.
 - **Tax entries need the deferral history, not just the rate.** Cambodia's CGT has been postponed repeatedly; stating "20% applies" flatly was one of the errors the verification pass caught.
 
-**Instrument numbers are the highest-risk field.** `app/content/regulatory/instruments/prakas-b14-017-161.ts` carries a comment explaining why its number is what it is — the source research had it as `B7-017-282` and that number appears to exist nowhere. Read that comment before "correcting" it.
+**Instrument numbers and dates are the highest-risk fields, and two entries carry corrections in-file.** `prakas-b14-017-161.ts` explains why its number is not `B7-017-282` (that number appears to exist nowhere). `law-on-trust.ts` explains why it is `NS/RKM/0119/002` of January 2019 and not `NS/RKM/0819/014` of August 2019 — the August date belongs to the Sub-Decree on Trust Registration, a different instrument. **Read those comments before "correcting" either.**
+
+**Verified Cambodian primary sources** — these are the ones that exist and respond:
+
+| Source | Holds |
+|---|---|
+| `nbc.gov.kh/download_files/legislation/prakas_eng/` | Official English Prakas translations |
+| `cambodiantr.gov.kh` | National Trade Repository — official instrument records |
+| `trustregulator.gov.kh` | Trust Regulator's own law and regulation texts |
+| `data.opendevelopmentcambodia.net` | Statute texts and legal records |
+| `fintech.fsa.gov.kh` | FSA FinTech Center, policy documents |
+
+**WebFetch gets 403 from `nbc.gov.kh` and `phnompenhpost.com`; `curl` with a browser user-agent works.** Fetch the PDF to the scratchpad and Read it — Read handles PDFs natively and page ranges work.
+
+**Two standing traps in the source material**, both caught only by fetching primaries: dates that conflate a signing with a publication (the virtual-assets working group decision was signed 8 July 2026 and published 10 August; the research recorded "8 August"), and general tax rates restated as instrument-specific levies (Prakas 192 has no "20% trustee fee tax" — that is the ordinary corporate rate).
 
 **The conflict disclosure on the homepage is load-bearing** — building a client's integration while navigating its approval is the one genuine residual risk of the reversal, and it is answered publicly rather than in the engagement letter. Do not remove it.
 

@@ -10,7 +10,15 @@ This file tracks the current session state to enable seamless recovery between s
 
 **The finding to carry forward**: the research asserted the 5%/3% CET1 caps citing three sources, **none of which stated them**. They were exactly right — Article 16 of the primary. Correct-but-unsourced and wrong-but-confident look identical from inside a document.
 
-Queued: **R2** 11 commentary-sourced instruments (Prakas 093, Notification 083/25, trusts, e-commerce, CGT, working group) — R1 cross-links already point at them. **R3** sector matrix + market-entry guide. **R4** nav, `llms*.txt`, cross-links (sitemap was pulled forward into R1).
+**R2 SHIPPED** (`1fe8c96`, deploy `cambodia-fintech-edaylsd4i`). **6 → 17 instruments; sitemap 58 → 69.** Prakas 093, Notification 083/25, the trust group, NBFSA Law, the e-commerce group, CGT, and the virtual-assets working group decision.
+
+A second verification round before writing R2 found **two more research errors**. The **Law on Trust was wrong three ways** — "Law on Trusts", `NS/RKM/0819/014`, 2 Aug 2019. It is **`NS/RKM/0119/002`**, adopted 13 Dec 2018, promulgated Jan 2019; the Aug 2019 date belongs to the Sub-Decree on Trust Registration. Verified against **`trustregulator.gov.kh`** — a third primary source the research never found. Art. 9 lists **four** trust types, not the five in circulation. Also: the NTR record confirms B14-017-161 takes effect from signing.
+
+**"Prakas 003"** (flagged unexplained in the verification pass) is NBFSA Prakas 003 F.S.A.PrK of 26 Jan 2022 on trust management. **Deliberately NOT added** — it came from a search summary, not a fetched source.
+
+**The CGT page is the one the exercise was for**: `schema.org/PartiallyInForce`, full deferral history, and `doesNotCover` stating that no instrument reviewed names cryptocurrency — so the crypto/CGT link is unsettled, contra the research's executive summary.
+
+Queued: **R3** sector matrix + market-entry guide (gated on NEW-L13 counsel questions). **R4** nav, `llms*.txt`, cross-links — **the section is currently unreachable from site navigation**, which makes R4 the next job. Sitemap was pulled forward into R1.
 
 ## Superseded — prior entry
 2026-08-31 (2nd session) — **62010 PIVOT COMPLETE.** Commits `8ddc1d9` (Phase A) + `cd62c7b` (Phase B) + `3997d6c` (Phase A5) + `a1c024d` (Phase A4) → latest deploy `cambodia-fintech-f25jkeyh7`. Executes the direction note open since 2026-07-31; recorded as **ADR-005**.
