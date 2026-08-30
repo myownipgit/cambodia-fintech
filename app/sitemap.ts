@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getAllArticles } from "./content/registry";
+import { getAllInstruments } from "./content/regulatory/registry";
 
 export const revalidate = 86400;
 
@@ -63,6 +64,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/regulatory`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/privacy`,
       lastModified,
       changeFrequency: "yearly",
@@ -84,5 +91,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...articlePages];
+  // Regulatory instruments. `asAt` — the date the entry was last verified
+  // against its source — is the correct lastModified: it is the only date on
+  // these pages that reflects when the content was actually checked.
+  const instrumentPages: MetadataRoute.Sitemap = getAllInstruments().map((instrument) => ({
+    url: `${baseUrl}/regulatory/${instrument.slug}`,
+    lastModified: new Date(instrument.asAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...articlePages, ...instrumentPages];
 }
