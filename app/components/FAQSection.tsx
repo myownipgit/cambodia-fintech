@@ -22,7 +22,7 @@ export default function FAQSection({ faqs, pageUrl }: { faqs: FAQ[]; pageUrl: st
 
   return (
     <section className="my-8">
-      <h2 className="text-xl font-semibold text-text-light dark:text-text-dark mb-4">
+      <h2 className="text-xl font-semibold text-navy mb-4">
         Frequently Asked Questions
       </h2>
       <script
@@ -33,22 +33,22 @@ export default function FAQSection({ faqs, pageUrl }: { faqs: FAQ[]; pageUrl: st
         {faqs.map((faq, i) => (
           <div
             key={i}
-            className="border border-border-light dark:border-border-dark rounded-lg overflow-hidden"
+            className="border border-line rounded-lg overflow-hidden"
           >
             <button
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-text-light dark:text-text-dark hover:bg-primary/5"
+              className="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-navy hover:bg-teal/5"
               aria-expanded={openIndex === i}
             >
               <span>{faq.question}</span>
-              <span className="material-symbols-outlined text-primary ml-2 transition-transform duration-200"
+              <span className="material-symbols-outlined text-teal ml-2 transition-transform duration-200"
                 aria-hidden="true"
                 style={{ transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                 expand_more
               </span>
             </button>
             {openIndex === i && (
-              <div className="px-4 pb-4 text-text-light/80 dark:text-text-dark/80">
+              <div className="px-4 pb-4 text-navy/80">
                 {faq.answer}
               </div>
             )}

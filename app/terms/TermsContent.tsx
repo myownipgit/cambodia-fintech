@@ -199,7 +199,7 @@ export default function TermsContent() {
   const isKm = lang === "km";
 
   return (
-    <div className="min-h-screen bg-background-light dark:bg-background-dark">
+    <div className="min-h-screen bg-cloud">
       <Script
         id="terms-schema"
         type="application/ld+json"
@@ -207,15 +207,15 @@ export default function TermsContent() {
       />
 
       {/* Breadcrumb + lang toggle */}
-      <div className="max-w-3xl mx-auto px-4 pt-6 flex items-center justify-between text-sm text-text-light/60 dark:text-text-dark/60">
+      <div className="max-w-3xl mx-auto px-4 pt-6 flex items-center justify-between text-sm text-navy/60">
         <nav>
-          <Link href="/" className="hover:text-primary">CamFinTech</Link>
+          <Link href="/" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4">CamFinTech</Link>
           <span className="mx-1">/</span>
           <span className={isKm ? "font-khmer" : ""}>{T.breadcrumb[lang]}</span>
         </nav>
         <button
           onClick={() => setLang(isKm ? "en" : "km")}
-          className={`px-3 py-1 rounded-md border border-border-light dark:border-border-dark hover:border-primary hover:text-primary transition-colors text-xs font-medium ${isKm ? "" : "font-khmer"}`}
+          className={`px-3 py-1 rounded-md border border-line hover:border-teal hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors text-xs font-medium ${isKm ? "" : "font-khmer"}`}
           aria-label={isKm ? "Switch to English" : "ប្តូរទៅភាសាខ្មែរ"}
         >
           {T.toggle[lang]}
@@ -224,41 +224,41 @@ export default function TermsContent() {
 
       <main className="max-w-3xl mx-auto px-4 py-8">
         <header className="mb-8">
-          <span className={`inline-block px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded mb-3 ${isKm ? "font-khmer" : ""}`}>
+          <span className={`inline-block px-2 py-1 text-xs font-medium bg-teal/10 text-navy rounded mb-3 ${isKm ? "font-khmer" : ""}`}>
             {T.breadcrumb[lang]}
           </span>
-          <h1 className={`text-3xl md:text-4xl font-bold text-text-light dark:text-text-dark mb-4 leading-tight ${isKm ? "font-khmer" : ""}`}>
+          <h1 className={`text-3xl md:text-4xl font-bold text-navy mb-4 leading-tight ${isKm ? "font-khmer" : ""}`}>
             {T.title[lang]}
           </h1>
-          <p className={`text-lg text-text-light/80 dark:text-text-dark/80 leading-relaxed ${isKm ? "font-khmer" : ""}`}>
+          <p className={`text-lg text-navy/80 leading-relaxed ${isKm ? "font-khmer" : ""}`}>
             {T.lead[lang]}
           </p>
-          <p className={`mt-4 text-xs text-text-light/50 dark:text-text-dark/50 ${isKm ? "font-khmer" : ""}`}>
+          <p className={`mt-4 text-xs text-navy/50 ${isKm ? "font-khmer" : ""}`}>
             {T.effective[lang]}: {isKm ? EFFECTIVE_DATE_KM : EFFECTIVE_DATE}
           </p>
         </header>
 
         {SECTIONS.map((section) => (
           <section key={section.id} id={section.id} className="mb-8">
-            <h2 className={`text-xl font-semibold text-text-light dark:text-text-dark mb-3 ${isKm ? "font-khmer" : ""}`}>
+            <h2 className={`text-xl font-semibold text-navy mb-3 ${isKm ? "font-khmer" : ""}`}>
               {section.heading[lang]}
             </h2>
-            <div className={`text-text-light/80 dark:text-text-dark/80 leading-relaxed whitespace-pre-line ${isKm ? "font-khmer" : ""}`}>
+            <div className={`text-navy/80 leading-relaxed whitespace-pre-line ${isKm ? "font-khmer" : ""}`}>
               {section.body[lang]}
             </div>
           </section>
         ))}
 
-        <div className="mt-10 pt-6 border-t border-border-light dark:border-border-dark">
-          <p className={`text-xs text-text-light/50 dark:text-text-dark/50 mb-4 ${isKm ? "font-khmer" : ""}`}>
+        <div className="mt-10 pt-6 border-t border-line">
+          <p className={`text-xs text-navy/50 mb-4 ${isKm ? "font-khmer" : ""}`}>
             {T.langNote[lang]}
           </p>
           <div className="flex items-center gap-4 text-sm">
-            <Link href="/" className="text-primary hover:underline">
+            <Link href="/" className="text-navy hover:underline">
               &larr; {T.back[lang]}
             </Link>
-            <span className="text-text-light/30 dark:text-text-dark/30">·</span>
-            <a href="/privacy" className={`text-primary hover:underline ${isKm ? "font-khmer" : ""}`}>
+            <span className="text-navy/30">·</span>
+            <a href="/privacy" className={`text-navy hover:underline ${isKm ? "font-khmer" : ""}`}>
               {isKm ? "សេចក្តីប្រកាសឯកជនភាព" : "Privacy Statement"}
             </a>
           </div>

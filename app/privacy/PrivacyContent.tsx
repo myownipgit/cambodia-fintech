@@ -68,8 +68,8 @@ const SECTIONS: Section[] = [
       km: "៥. ខូឃីស៍ និងការវិភាគ",
     },
     body: {
-      en: "We use a small number of cookies and analytics services to understand how the site is used.\n\nGoogle Analytics — we use Google Analytics 4 (measurement ID G-QDZ83JQWVC) to collect aggregated, pseudonymised information about pages viewed, traffic sources, devices, and approximate location. This data is processed by Google LLC and is governed by Google's privacy practices.\n\nSearch console verification — we verify the site with Google Search Console, Bing Webmaster Tools, and Facebook domain verification. These services do not set tracking cookies on your device.\n\nEssential cookies — the site stores a small amount of information in your browser (for example, your dark-mode preference) using browser storage. This data stays on your device.\n\nYou can disable cookies and analytics in your browser settings, or use browser extensions that block analytics scripts. Doing so will not prevent you from using the site.",
-      km: "យើងប្រើខូឃីស៍ និងសេវាវិភាគចំនួនតិចតួចដើម្បីយល់ពីរបៀបដែលគេហទំព័រត្រូវបានប្រើប្រាស់។\n\nGoogle Analytics — យើងប្រើ Google Analytics 4 (លេខសម្គាល់រង្វាស់ G-QDZ83JQWVC) ដើម្បីប្រមូលព័ត៌មានសរុបដែលបានធ្វើជានាមផ្សេងអំពីទំព័រដែលបានមើល ប្រភពចរាចរណ៍ ឧបករណ៍ និងទីតាំងប្រហាក់ប្រហែល។ ទិន្នន័យនេះត្រូវបានដំណើរការដោយ Google LLC ហើយត្រូវបានគ្រប់គ្រងដោយការអនុវត្តឯកជនភាពរបស់ Google។\n\nការផ្ទៀងផ្ទាត់កុងសូលស្វែងរក — យើងផ្ទៀងផ្ទាត់គេហទំព័រជាមួយ Google Search Console, Bing Webmaster Tools, និងការផ្ទៀងផ្ទាត់ដែន Facebook។ សេវាកម្មទាំងនេះមិនកំណត់ខូឃីស៍តាមដាននៅលើឧបករណ៍របស់អ្នកទេ។\n\nខូឃីស៍ចាំបាច់ — គេហទំព័ររក្សាទុកព័ត៌មានបន្តិចបន្តួចនៅក្នុងកម្មវិធីរុករករបស់អ្នក (ឧទាហរណ៍ ចំណូលចិត្តរបៀបងងឹតរបស់អ្នក) ដោយប្រើការផ្ទុកកម្មវិធីរុករក។ ទិន្នន័យនេះស្ថិតនៅលើឧបករណ៍របស់អ្នក។\n\nអ្នកអាចបិទខូឃីស៍ និងការវិភាគនៅក្នុងការកំណត់កម្មវិធីរុករករបស់អ្នក ឬប្រើផ្នែកបន្ថែមកម្មវិធីរុករកដែលរារាំងស្គ្រីបវិភាគ។ ការធ្វើដូច្នេះនឹងមិនរារាំងអ្នកពីការប្រើគេហទំព័រនេះទេ។",
+      en: "We use a small number of cookies and analytics services to understand how the site is used.\n\nGoogle Analytics — we use Google Analytics 4 (measurement ID G-QDZ83JQWVC) to collect aggregated, pseudonymised information about pages viewed, traffic sources, devices, and approximate location. This data is processed by Google LLC and is governed by Google's privacy practices.\n\nSearch console verification — we verify the site with Google Search Console, Bing Webmaster Tools, and Facebook domain verification. These services do not set tracking cookies on your device.\n\nYou can disable cookies and analytics in your browser settings, or use browser extensions that block analytics scripts. Doing so will not prevent you from using the site.",
+      km: "យើងប្រើខូឃីស៍ និងសេវាវិភាគចំនួនតិចតួចដើម្បីយល់ពីរបៀបដែលគេហទំព័រត្រូវបានប្រើប្រាស់។\n\nGoogle Analytics — យើងប្រើ Google Analytics 4 (លេខសម្គាល់រង្វាស់ G-QDZ83JQWVC) ដើម្បីប្រមូលព័ត៌មានសរុបដែលបានធ្វើជានាមផ្សេងអំពីទំព័រដែលបានមើល ប្រភពចរាចរណ៍ ឧបករណ៍ និងទីតាំងប្រហាក់ប្រហែល។ ទិន្នន័យនេះត្រូវបានដំណើរការដោយ Google LLC ហើយត្រូវបានគ្រប់គ្រងដោយការអនុវត្តឯកជនភាពរបស់ Google។\n\nការផ្ទៀងផ្ទាត់កុងសូលស្វែងរក — យើងផ្ទៀងផ្ទាត់គេហទំព័រជាមួយ Google Search Console, Bing Webmaster Tools, និងការផ្ទៀងផ្ទាត់ដែន Facebook។ សេវាកម្មទាំងនេះមិនកំណត់ខូឃីស៍តាមដាននៅលើឧបករណ៍របស់អ្នកទេ។\n\nអ្នកអាចបិទខូឃីស៍ និងការវិភាគនៅក្នុងការកំណត់កម្មវិធីរុករករបស់អ្នក ឬប្រើផ្នែកបន្ថែមកម្មវិធីរុករកដែលរារាំងស្គ្រីបវិភាគ។ ការធ្វើដូច្នេះនឹងមិនរារាំងអ្នកពីការប្រើគេហទំព័រនេះទេ។",
     },
   },
   {
@@ -206,7 +206,7 @@ export default function PrivacyContent() {
   const isKm = lang === "km";
 
   return (
-    <div className="min-h-screen bg-background-light dark:bg-background-dark">
+    <div className="min-h-screen bg-cloud">
       <Script
         id="privacy-schema"
         type="application/ld+json"
@@ -214,15 +214,15 @@ export default function PrivacyContent() {
       />
 
       {/* Breadcrumb + lang toggle */}
-      <div className="max-w-3xl mx-auto px-4 pt-6 flex items-center justify-between text-sm text-text-light/60 dark:text-text-dark/60">
+      <div className="max-w-3xl mx-auto px-4 pt-6 flex items-center justify-between text-sm text-navy/60">
         <nav>
-          <Link href="/" className="hover:text-primary">CamFinTech</Link>
+          <Link href="/" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4">CamFinTech</Link>
           <span className="mx-1">/</span>
           <span className={isKm ? "font-khmer" : ""}>{T.breadcrumb[lang]}</span>
         </nav>
         <button
           onClick={() => setLang(isKm ? "en" : "km")}
-          className={`px-3 py-1 rounded-md border border-border-light dark:border-border-dark hover:border-primary hover:text-primary transition-colors text-xs font-medium ${isKm ? "" : "font-khmer"}`}
+          className={`px-3 py-1 rounded-md border border-line hover:border-teal hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors text-xs font-medium ${isKm ? "" : "font-khmer"}`}
           aria-label={isKm ? "Switch to English" : "ប្តូរទៅភាសាខ្មែរ"}
         >
           {T.toggle[lang]}
@@ -231,41 +231,41 @@ export default function PrivacyContent() {
 
       <main className="max-w-3xl mx-auto px-4 py-8">
         <header className="mb-8">
-          <span className={`inline-block px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded mb-3 ${isKm ? "font-khmer" : ""}`}>
+          <span className={`inline-block px-2 py-1 text-xs font-medium bg-teal/10 text-navy rounded mb-3 ${isKm ? "font-khmer" : ""}`}>
             {T.breadcrumb[lang]}
           </span>
-          <h1 className={`text-3xl md:text-4xl font-bold text-text-light dark:text-text-dark mb-4 leading-tight ${isKm ? "font-khmer" : ""}`}>
+          <h1 className={`text-3xl md:text-4xl font-bold text-navy mb-4 leading-tight ${isKm ? "font-khmer" : ""}`}>
             {T.title[lang]}
           </h1>
-          <p className={`text-lg text-text-light/80 dark:text-text-dark/80 leading-relaxed ${isKm ? "font-khmer" : ""}`}>
+          <p className={`text-lg text-navy/80 leading-relaxed ${isKm ? "font-khmer" : ""}`}>
             {T.lead[lang]}
           </p>
-          <p className={`mt-4 text-xs text-text-light/50 dark:text-text-dark/50 ${isKm ? "font-khmer" : ""}`}>
+          <p className={`mt-4 text-xs text-navy/50 ${isKm ? "font-khmer" : ""}`}>
             {T.effective[lang]}: {isKm ? EFFECTIVE_DATE_KM : EFFECTIVE_DATE}
           </p>
         </header>
 
         {SECTIONS.map((section) => (
           <section key={section.id} id={section.id} className="mb-8">
-            <h2 className={`text-xl font-semibold text-text-light dark:text-text-dark mb-3 ${isKm ? "font-khmer" : ""}`}>
+            <h2 className={`text-xl font-semibold text-navy mb-3 ${isKm ? "font-khmer" : ""}`}>
               {section.heading[lang]}
             </h2>
-            <div className={`text-text-light/80 dark:text-text-dark/80 leading-relaxed whitespace-pre-line ${isKm ? "font-khmer" : ""}`}>
+            <div className={`text-navy/80 leading-relaxed whitespace-pre-line ${isKm ? "font-khmer" : ""}`}>
               {section.body[lang]}
             </div>
           </section>
         ))}
 
-        <div className="mt-10 pt-6 border-t border-border-light dark:border-border-dark">
-          <p className={`text-xs text-text-light/50 dark:text-text-dark/50 mb-4 ${isKm ? "font-khmer" : ""}`}>
+        <div className="mt-10 pt-6 border-t border-line">
+          <p className={`text-xs text-navy/50 mb-4 ${isKm ? "font-khmer" : ""}`}>
             {T.langNote[lang]}
           </p>
           <div className="flex items-center gap-4 text-sm">
-            <Link href="/" className="text-primary hover:underline">
+            <Link href="/" className="text-navy hover:underline">
               &larr; {T.back[lang]}
             </Link>
-            <span className="text-text-light/30 dark:text-text-dark/30">·</span>
-            <a href="/terms" className={`text-primary hover:underline ${isKm ? "font-khmer" : ""}`}>
+            <span className="text-navy/30">·</span>
+            <a href="/terms" className={`text-navy hover:underline ${isKm ? "font-khmer" : ""}`}>
               {isKm ? "លក្ខខណ្ឌប្រើប្រាស់" : "Terms of Use"}
             </a>
           </div>

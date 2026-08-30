@@ -11,8 +11,8 @@ const services = [
 
 export default function RelatedServices() {
   return (
-    <section className="my-8 p-6 bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark">
-      <h2 className="text-lg font-semibold text-text-light dark:text-text-dark mb-3">
+    <section className="my-8 p-6 bg-card rounded-xl border border-line">
+      <h2 className="text-lg font-semibold text-navy mb-3">
         How CamFinTech Can Help
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -20,16 +20,16 @@ export default function RelatedServices() {
           <a
             key={service.name}
             href={service.href}
-            className="flex items-center gap-2 text-sm text-text-light/80 dark:text-text-dark/80 hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-sm text-navy/80 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors"
           >
-            <span className="material-symbols-outlined text-primary text-lg" aria-hidden="true">{service.icon}</span>
+            <span className="material-symbols-outlined text-teal text-lg" aria-hidden="true">{service.icon}</span>
             {service.name}
           </a>
         ))}
       </div>
       <Link
         href="/#contact"
-        className="inline-block mt-4 px-4 py-2 bg-primary text-text-light font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm"
+        className="inline-block mt-4 px-4 py-2 bg-teal text-navy font-medium rounded-lg hover:bg-teal/90 transition-colors text-sm"
       >
         Book a Consultation
       </Link>

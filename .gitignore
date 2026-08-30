@@ -33,3 +33,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Brand masters — working files, not shipped
+/brand/
+camfintech-brand-package_*.zip

@@ -10,7 +10,7 @@ export default async function Image() {
     (
       <div
         style={{
-          background: "linear-gradient(135deg, #221c10 0%, #1c170d 50%, #2a2214 100%)",
+          background: "#1E2F52",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -26,7 +26,7 @@ export default async function Image() {
           style={{
             width: "80px",
             height: "6px",
-            background: "#f4af25",
+            background: "#17A398",
             borderRadius: "3px",
             marginBottom: "32px",
           }}
@@ -37,7 +37,7 @@ export default async function Image() {
           style={{
             fontSize: "28px",
             fontWeight: 700,
-            color: "#f4af25",
+            color: "#FFFFFF",
             letterSpacing: "0.1em",
             textTransform: "uppercase",
             marginBottom: "16px",
@@ -51,7 +51,7 @@ export default async function Image() {
           style={{
             fontSize: "48px",
             fontWeight: 800,
-            color: "#f8f7f5",
+            color: "#FFFFFF",
             lineHeight: 1.15,
             maxWidth: "1000px",
             marginBottom: "24px",
@@ -65,7 +65,7 @@ export default async function Image() {
           style={{
             fontSize: "22px",
             fontWeight: 400,
-            color: "#f8f7f5",
+            color: "#FFFFFF",
             opacity: 0.85,
             maxWidth: "900px",
             lineHeight: 1.5,
@@ -81,8 +81,8 @@ export default async function Image() {
             display: "flex",
             gap: "20px",
             fontSize: "16px",
-            color: "#f4af25",
-            opacity: 0.8,
+            color: "#FFFFFF",
+            opacity: 0.85,
             marginBottom: "16px",
           }}
         >
@@ -98,8 +98,8 @@ export default async function Image() {
           style={{
             fontSize: "18px",
             fontWeight: 500,
-            color: "#f4af25",
-            opacity: 0.7,
+            color: "#17A398",
+            opacity: 1,
           }}
         >
           www.camfintech.com

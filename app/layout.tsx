@@ -1,18 +1,44 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_Khmer } from "next/font/google";
+import { Poppins, Manrope, Kantumruy_Pro, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 import JsonLd from "./components/JsonLd";
 import "./globals.css";
 
-const inter = Inter({
+// Brand type system — locked August 2026. See brand/README.txt.
+// Poppins = Latin display/wordmark · Manrope = body · Kantumruy Pro = Khmer
+// · IBM Plex Mono = data/references. Weights are pinned to what the guide
+// specifies; do not widen them without a reason (each adds transfer weight).
+// Poppins has NO variable master on Google Fonts — every weight is a separate
+// file, so this list must cover every weight the headings actually request.
+// The site renders 600 (base heading weight from globals.css), 700 (font-bold,
+// ~99 sites) and 800 (font-extrabold). 900 is deliberately absent: the two
+// former font-black sites were moved to font-extrabold rather than pull a
+// fourth file for two elements.
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["600", "700", "800"],
+  variable: "--font-poppins",
   display: "swap",
 });
 
-const notoSansKhmer = Noto_Sans_Khmer({
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const kantumruy = Kantumruy_Pro({
   subsets: ["khmer"],
-  variable: "--font-noto-sans-khmer",
+  weight: ["400", "600"],
+  variable: "--font-kantumruy",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
@@ -81,7 +107,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light">
+    <html lang="en">
       <head>
         <JsonLd />
         {/*
@@ -96,7 +122,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${notoSansKhmer.variable} bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark`}
+        className={`${poppins.variable} ${manrope.variable} ${kantumruy.variable} ${plexMono.variable} bg-cloud font-sans text-navy`}
       >
         {/* Google Analytics */}
         <Script

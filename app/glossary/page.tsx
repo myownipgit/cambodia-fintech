@@ -31,36 +31,36 @@ export default function GlossaryIndex() {
   );
 
   return (
-    <div className="min-h-screen bg-background-light dark:bg-background-dark">
+    <div className="min-h-screen bg-cloud">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
-      <nav className="max-w-3xl mx-auto px-4 pt-6 text-sm text-text-light/60 dark:text-text-dark/60">
-        <Link href="/" className="hover:text-primary">CamFinTech</Link> / Glossary
+      <nav className="max-w-3xl mx-auto px-4 pt-6 text-sm text-navy/60">
+        <Link href="/" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4">CamFinTech</Link> / Glossary
       </nav>
 
       <main className="max-w-3xl mx-auto px-4 py-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-text-light dark:text-text-dark mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-navy mb-4">
           Cambodia FinTech Glossary
         </h1>
-        <p className="text-lg text-text-light/80 dark:text-text-dark/80 mb-8">
+        <p className="text-lg text-navy/80 mb-8">
           Key terms and definitions for Cambodia&apos;s digital financial infrastructure, covering the Government-as-a-Platform (GaaP) model, payment systems, digital identity, and regulatory frameworks.
         </p>
 
         {(Object.entries(clusters) as [keyof typeof clusterLabels, typeof articles][]).map(([key, items]) => (
           items.length > 0 && (
             <section key={key} className="mb-10">
-              <h2 className="text-xl font-semibold text-primary mb-4">{clusterLabels[key]}</h2>
+              <h2 className="text-xl font-semibold text-navy mb-4">{clusterLabels[key]}</h2>
               <div className="space-y-3">
                 {items.map((article) => (
                   <a
                     key={article.slug}
                     href={`/glossary/${article.slug}`}
-                    className="block p-4 bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark hover:border-primary transition-colors"
+                    className="block p-4 bg-card rounded-lg border border-line hover:border-teal transition-colors"
                   >
-                    <h3 className="font-medium text-text-light dark:text-text-dark">{article.title}</h3>
-                    <p className="text-sm text-text-light/60 dark:text-text-dark/60 mt-1">{article.description}</p>
+                    <h3 className="font-medium text-navy">{article.title}</h3>
+                    <p className="text-sm text-navy/60 mt-1">{article.description}</p>
                   </a>
                 ))}
               </div>

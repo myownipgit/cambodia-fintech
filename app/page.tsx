@@ -87,53 +87,53 @@ export default function Home() {
           <section className="w-full" id="home">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-5 lg:gap-16">
               <div className="flex flex-col gap-6 text-left lg:col-span-3">
-                <h1 className="text-4xl font-black leading-tight tracking-[-0.033em] sm:text-5xl">
+                <h1 className="text-4xl font-extrabold leading-tight tracking-[-0.033em] sm:text-5xl">
                   We get Cambodian and foreign FinTechs approved onto the government rails — and keep them compliant.
                 </h1>
-                <p className="text-base font-normal leading-normal sm:text-lg text-text-light/85 dark:text-text-dark/85">
+                <p className="text-base font-normal leading-normal sm:text-lg text-navy/85">
                   CamFinTech is a fee-only regulatory approval-navigation and compliance firm. We navigate NBC, NBFSA, TSC, SERC, and GDT approvals for Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — raising you <em>to</em> the regulator&apos;s standard. We&apos;re your single accountable partner for the whole journey, and we coordinate our vetted legal, tax, and integration partners transparently. <strong>We never hold your funds and never operate a rail; the technical build is delivered by accredited partners we coordinate.</strong>
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a
                     href="#contact"
-                    className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold tracking-[0.015em] text-text-light transition-transform hover:scale-105"
+                    className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal px-5 text-base font-bold tracking-[0.015em] text-navy transition-transform hover:scale-105"
                   >
                     <span className="truncate">Book a readiness call</span>
                   </a>
                   <a
                     href="#services"
-                    className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary/20 px-5 text-base font-bold tracking-[0.015em] text-text-light dark:text-text-dark transition-transform hover:scale-105"
+                    className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal/20 px-5 text-base font-bold tracking-[0.015em] text-navy transition-transform hover:scale-105"
                   >
                     <span className="truncate">See what we do</span>
                   </a>
                 </div>
-                <p className="text-xs text-text-light/55 dark:text-text-dark/55">
+                <p className="text-xs text-navy/55">
                   ភាសាខ្មែរ — Khmer language edition coming soon, pending native editorial hire.
                 </p>
               </div>
 
               {/* Trust strip */}
-              <aside className="lg:col-span-2 flex flex-col gap-3 rounded-2xl border-2 border-primary/30 bg-primary/5 p-6">
-                <p className="text-xs font-bold uppercase tracking-wider text-primary">How we operate</p>
+              <aside className="lg:col-span-2 flex flex-col gap-3 rounded-2xl border-2 border-teal/30 bg-teal/5 p-6">
+                <p className="text-xs font-bold uppercase tracking-wider text-navy">How we operate</p>
                 <ul className="flex flex-col gap-2 text-sm">
                   <li className="flex gap-2">
-                    <span className="text-primary font-bold">·</span>
+                    <span className="text-navy font-bold">·</span>
                     <span><strong>Fee-only.</strong> No commissions, no transaction cuts.</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-primary font-bold">·</span>
+                    <span className="text-navy font-bold">·</span>
                     <span><strong>Never hold client funds.</strong> Funds flow through the licensed operator, never us.</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-primary font-bold">·</span>
+                    <span className="text-navy font-bold">·</span>
                     <span><strong>Never operate a rail.</strong> You (or your sponsor member bank) remain the licensed operator.</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-primary font-bold">·</span>
+                    <span className="text-navy font-bold">·</span>
                     <span><strong>Reserved work to licensed partners.</strong> Bar lawyers, GDT tax agents, accredited Service Providers.</span>
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-primary font-bold">·</span>
+                    <span className="text-navy font-bold">·</span>
                     <span><strong>Process competence, never access.</strong></span>
                   </li>
                 </ul>
@@ -147,13 +147,13 @@ export default function Home() {
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 The problem we solve
               </h2>
-              <p className="text-lg text-text-light/85 dark:text-text-dark/85 leading-relaxed">
+              <p className="text-lg text-navy/85 leading-relaxed">
                 Cambodia&apos;s rails are powerful — but getting <em>onto</em> them defeats most applicants. Approval is opaque and multi-gated (an NBC licence, a sponsoring member bank, a separate CamDX membership), and it turns on <strong>AML/CFT, governance, capital planning, and documentation</strong> — not code.
               </p>
-              <p className="text-lg text-text-light/85 dark:text-text-dark/85 leading-relaxed">
+              <p className="text-lg text-navy/85 leading-relaxed">
                 Most FinTechs have no in-house risk or compliance function, so they put engineers on regulatory problems they were never trained for. Many applicants report being turned back as &quot;non-compliant&quot; with no further explanation. The result is delay, cost, and applications that don&apos;t clear the bar.
               </p>
-              <p className="text-lg text-text-light/85 dark:text-text-dark/85 leading-relaxed">
+              <p className="text-lg text-navy/85 leading-relaxed">
                 We are the missing risk-and-compliance function. Our people have hands-on NBC, NBFSA, TSC, SERC, and GDT experience — a competency the regulator itself documents as scarce in Cambodia.
               </p>
             </div>
@@ -165,14 +165,14 @@ export default function Home() {
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 What we do (and don&apos;t)
               </h2>
-              <p className="max-w-3xl text-base text-text-light/75 dark:text-text-dark/75">
+              <p className="max-w-3xl text-base text-navy/75">
                 The boundary is explicit and transparent. We sell process competence; reserved work goes to licensed partners; the technical build goes to accredited Service Providers.
               </p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="rounded-xl border-2 border-primary/30 bg-card-light dark:bg-card-dark p-6">
+              <div className="rounded-xl border-2 border-teal/30 bg-card p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="material-symbols-outlined text-primary text-2xl" aria-hidden="true">check_circle</span>
+                  <span className="material-symbols-outlined text-teal text-2xl" aria-hidden="true">check_circle</span>
                   <h3 className="text-xl font-bold">We do</h3>
                 </div>
                 <ul className="space-y-3 text-sm">
@@ -183,12 +183,12 @@ export default function Home() {
                   <li>Route reserved work (legal, tax filing, pen-test) to licensed partners — transparently, never marked up</li>
                 </ul>
               </div>
-              <div className="rounded-xl border-2 border-text-light/15 dark:border-text-dark/15 bg-card-light/50 dark:bg-card-dark/50 p-6">
-                <div className="flex items-center gap-2 mb-4 text-text-light/70 dark:text-text-dark/70">
+              <div className="rounded-xl border-2 border-navy/15 bg-card/50 p-6">
+                <div className="flex items-center gap-2 mb-4 text-navy/70">
                   <span className="material-symbols-outlined text-2xl" aria-hidden="true">block</span>
                   <h3 className="text-xl font-bold">We don&apos;t</h3>
                 </div>
-                <ul className="space-y-3 text-sm text-text-light/75 dark:text-text-dark/75">
+                <ul className="space-y-3 text-sm text-navy/75">
                   <li>Hold client funds or operate any rail</li>
                   <li>Write the integration code — that&apos;s our accredited partners</li>
                   <li>Lobby, trade on contacts, or sell &quot;access&quot;</li>
@@ -205,7 +205,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 What we navigate
               </h2>
-              <p className="max-w-3xl text-base text-text-light/75 dark:text-text-dark/75">
+              <p className="max-w-3xl text-base text-navy/75">
                 Eleven productised service vectors across four areas — applied across regulated FinTechs (banks, MFIs, PSPs, insurers, securities/crypto, alt-lenders) and rail-using enterprises.
               </p>
             </div>
@@ -214,28 +214,28 @@ export default function Home() {
               {/* Core Rail Integrations */}
               <div>
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider px-2 py-1 rounded bg-primary/10">Core Rail Integrations</span>
+                  <span className="text-xs font-bold text-navy uppercase tracking-wider px-2 py-1 rounded bg-teal/10">Core Rail Integrations</span>
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-01</p>
+                  <div className="rounded-lg border border-line p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-01</p>
                     <h4 className="font-bold mb-2">CamDX / eKYC Enablement</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Verify your customers digitally in seconds. We navigate the approval to connect to Cambodia&apos;s national identity system and coordinate the integration build.</p>
+                    <p className="text-sm text-navy/75">Verify your customers digitally in seconds. We navigate the approval to connect to Cambodia&apos;s national identity system and coordinate the integration build.</p>
                   </div>
-                  <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-02</p>
+                  <div className="rounded-lg border border-line p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-02</p>
                     <h4 className="font-bold mb-2">Bakong / KHQR Integration</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Take and send payments on Cambodia&apos;s national rails — we navigate PSP licensing or member-sponsorship and coordinate the technical build.</p>
+                    <p className="text-sm text-navy/75">Take and send payments on Cambodia&apos;s national rails — we navigate PSP licensing or member-sponsorship and coordinate the technical build.</p>
                   </div>
-                  <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-03</p>
+                  <div className="rounded-lg border border-line p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-03</p>
                     <h4 className="font-bold mb-2">CamInvoice Readiness</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Be ready for e-invoicing before the B2B mandate phases in. Gap assessment + costed plan against the GDT&apos;s rules.</p>
+                    <p className="text-sm text-navy/75">Be ready for e-invoicing before the B2B mandate phases in. Gap assessment + costed plan against the GDT&apos;s rules.</p>
                   </div>
-                  <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-04</p>
+                  <div className="rounded-lg border border-line p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-04</p>
                     <h4 className="font-bold mb-2">CamInvoice SP-Enablement</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Go live on e-invoicing without the headache. We coordinate accredited Service Providers to connect your ERP — every invoice clears automatically.</p>
+                    <p className="text-sm text-navy/75">Go live on e-invoicing without the headache. We coordinate accredited Service Providers to connect your ERP — every invoice clears automatically.</p>
                   </div>
                 </div>
               </div>
@@ -243,18 +243,18 @@ export default function Home() {
               {/* Strategic Services */}
               <div>
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider px-2 py-1 rounded bg-primary/10">Strategic Services</span>
+                  <span className="text-xs font-bold text-navy uppercase tracking-wider px-2 py-1 rounded bg-teal/10">Strategic Services</span>
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-05</p>
+                  <div className="rounded-lg border border-line p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-05</p>
                     <h4 className="font-bold mb-2">Licensing-Readiness</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Know exactly which NBC, NBFSA, or SERC licence you need — and be ready to win it. Management-consultancy-grade gap mapping + application preparation.</p>
+                    <p className="text-sm text-navy/75">Know exactly which NBC, NBFSA, or SERC licence you need — and be ready to win it. Management-consultancy-grade gap mapping + application preparation.</p>
                   </div>
-                  <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-06</p>
+                  <div className="rounded-lg border border-line p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-06</p>
                     <h4 className="font-bold mb-2">Market-Entry Consulting</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">For foreign FinTechs entering Cambodia — entity setup, licensing strategy, and a step-by-step route onto the government rails.</p>
+                    <p className="text-sm text-navy/75">For foreign FinTechs entering Cambodia — entity setup, licensing strategy, and a step-by-step route onto the government rails.</p>
                   </div>
                 </div>
               </div>
@@ -262,28 +262,28 @@ export default function Home() {
               {/* Risk & Security */}
               <div>
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider px-2 py-1 rounded bg-primary/10">Risk &amp; Security</span>
+                  <span className="text-xs font-bold text-navy uppercase tracking-wider px-2 py-1 rounded bg-teal/10">Risk &amp; Security</span>
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-07</p>
+                  <div className="rounded-lg border border-line p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-07</p>
                     <h4 className="font-bold mb-2">AML-Programme Design</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Build an anti-money-laundering programme regulators trust. GRC-grade design: CDD/EDD, transaction monitoring, CAFIU reporting, MLRO support.</p>
+                    <p className="text-sm text-navy/75">Build an anti-money-laundering programme regulators trust. GRC-grade design: CDD/EDD, transaction monitoring, CAFIU reporting, MLRO support.</p>
                   </div>
-                  <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-08</p>
+                  <div className="rounded-lg border border-line p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-08</p>
                     <h4 className="font-bold mb-2">Security / Pentesting</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Cyber-risk advisory and pre-launch security reviews aligned to NBC&apos;s TCRMG expectations. Penetration testing routed to an accredited security firm we coordinate.</p>
+                    <p className="text-sm text-navy/75">Cyber-risk advisory and pre-launch security reviews aligned to NBC&apos;s TCRMG expectations. Penetration testing routed to an accredited security firm we coordinate.</p>
                   </div>
-                  <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-09</p>
+                  <div className="rounded-lg border border-line p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-09</p>
                     <h4 className="font-bold mb-2">Data-Protection Protocols</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Get ahead of Cambodia&apos;s incoming Personal Data Protection Law. IT-advisory-grade data governance: consent, retention, processor governance, DPO-support.</p>
+                    <p className="text-sm text-navy/75">Get ahead of Cambodia&apos;s incoming Personal Data Protection Law. IT-advisory-grade data governance: consent, retention, processor governance, DPO-support.</p>
                   </div>
-                  <div className="rounded-lg border-2 border-primary/40 bg-primary/5 p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-11 · Flagship</p>
+                  <div className="rounded-lg border-2 border-teal/40 bg-teal/5 p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-11 · Flagship</p>
                     <h4 className="font-bold mb-2">DASP Approval-Readiness</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">End-to-end readiness for SERC&apos;s Prakas 093 digital-asset licensing regime (in force 30 Dec 2025). AML/CFT build, governance roster, sandbox-to-full readiness. <a href="/products/dasp" className="text-primary font-medium hover:underline">Learn more →</a></p>
+                    <p className="text-sm text-navy/75">End-to-end readiness for SERC&apos;s Prakas 093 digital-asset licensing regime (in force 30 Dec 2025). AML/CFT build, governance roster, sandbox-to-full readiness. <a href="/products/dasp" className="text-navy font-medium hover:underline">Learn more →</a></p>
                   </div>
                 </div>
               </div>
@@ -291,19 +291,19 @@ export default function Home() {
               {/* Enablement */}
               <div>
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider px-2 py-1 rounded bg-primary/10">Enablement</span>
+                  <span className="text-xs font-bold text-navy uppercase tracking-wider px-2 py-1 rounded bg-teal/10">Enablement</span>
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="rounded-lg border border-border-light dark:border-border-dark p-5">
-                    <p className="text-xs text-primary font-bold mb-1">SRV-10</p>
+                  <div className="rounded-lg border border-line p-5">
+                    <p className="text-xs text-navy font-bold mb-1">SRV-10</p>
                     <h4 className="font-bold mb-2">Professional Training &amp; Knowledge Transfer</h4>
-                    <p className="text-sm text-text-light/75 dark:text-text-dark/75">Hands-on professional training so your team can operate the rails, follow the compliance steps, and keep everything running after we&apos;ve handed over. Cohort workshops on DPI, cybersecurity, and regulatory compliance.</p>
+                    <p className="text-sm text-navy/75">Hands-on professional training so your team can operate the rails, follow the compliance steps, and keep everything running after we&apos;ve handed over. Cohort workshops on DPI, cybersecurity, and regulatory compliance.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <p className="mt-8 text-xs text-text-light/55 dark:text-text-dark/55 italic max-w-3xl">
+            <p className="mt-8 text-xs text-navy/55 italic max-w-3xl">
               Technical build delivered by our accredited partners (BanhJi, Innolab/Odoo, MAQSU, SAP/Crimson, KOSIGN, Metfone, GK-Smart). We coordinate, advise, and run the compliance programme — we don&apos;t compete on engineering. Pricing is indicative; every engagement is validated by quote.
             </p>
           </section>
@@ -315,30 +315,30 @@ export default function Home() {
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                   Why CamFinTech
                 </h2>
-                <p className="text-base text-text-light/75 dark:text-text-dark/75">
+                <p className="text-base text-navy/75">
                   Five things that make us the firm regulator-fluent FinTechs hire to navigate the approval and run the compliance.
                 </p>
               </div>
               <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <h3 className="font-bold mb-2">Regulator-fluent, not just regulation-literate</h3>
-                  <p className="text-sm text-text-light/75 dark:text-text-dark/75">Our people have hands-on NBC, NBFSA, TSC, SERC, and GDT experience — a competency NBFSA&apos;s own 2024–2028 FinTech plan documents as scarce in Cambodia.</p>
+                  <p className="text-sm text-navy/75">Our people have hands-on NBC, NBFSA, TSC, SERC, and GDT experience — a competency NBFSA&apos;s own 2024–2028 FinTech plan documents as scarce in Cambodia.</p>
                 </div>
                 <div>
                   <h3 className="font-bold mb-2">We raise you <em>to</em> the standard</h3>
-                  <p className="text-sm text-text-light/75 dark:text-text-dark/75">We make your application the one the regulator wants to approve — documented, governed, compliant — so it doesn&apos;t come back unexplained.</p>
+                  <p className="text-sm text-navy/75">We make your application the one the regulator wants to approve — documented, governed, compliant — so it doesn&apos;t come back unexplained.</p>
                 </div>
                 <div>
                   <h3 className="font-bold mb-2">Capital-light and conflict-free</h3>
-                  <p className="text-sm text-text-light/75 dark:text-text-dark/75">Fee-only. We never touch your money or your rail. Our incentives are simple: get you approved and keep you compliant.</p>
+                  <p className="text-sm text-navy/75">Fee-only. We never touch your money or your rail. Our incentives are simple: get you approved and keep you compliant.</p>
                 </div>
                 <div>
                   <h3 className="font-bold mb-2">One coordinator across every rail</h3>
-                  <p className="text-sm text-text-light/75 dark:text-text-dark/75">Payments, identity, and tax — navigated together, with the build handed to the right accredited partner. One plan, one point of contact.</p>
+                  <p className="text-sm text-navy/75">Payments, identity, and tax — navigated together, with the build handed to the right accredited partner. One plan, one point of contact.</p>
                 </div>
                 <div className="sm:col-span-2">
                   <h3 className="font-bold mb-2">Single accountable partner, transparently</h3>
-                  <p className="text-sm text-text-light/75 dark:text-text-dark/75">Where a step needs a licensed lawyer, tax agent, or integrator, we coordinate our vetted partners and tell you exactly who does what. You&apos;re never handed a list of vendors to chase, and we never mark up their work.</p>
+                  <p className="text-sm text-navy/75">Where a step needs a licensed lawyer, tax agent, or integrator, we coordinate our vetted partners and tell you exactly who does what. You&apos;re never handed a list of vendors to chase, and we never mark up their work.</p>
                 </div>
               </div>
             </div>
@@ -348,7 +348,7 @@ export default function Home() {
           <section className="mt-24 w-full" id="how">
             <div className="flex flex-col items-center gap-4 text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">How it works</h2>
-              <p className="max-w-3xl text-base text-text-light/75 dark:text-text-dark/75">
+              <p className="max-w-3xl text-base text-navy/75">
                 Five steps from &quot;interested&quot; to &quot;operating and compliant.&quot;
               </p>
             </div>
@@ -360,10 +360,10 @@ export default function Home() {
                 { n: "4", t: "Coordinated integration", d: "An accredited Service Provider builds; we manage delivery, UAT, and handover." },
                 { n: "5", t: "Ongoing compliance", d: "Retainer or MLRO-support so you stay approved." },
               ].map((step) => (
-                <li key={step.n} className="flex flex-col gap-2 rounded-xl border border-border-light dark:border-border-dark p-5">
-                  <span className="text-2xl font-bold text-primary">{step.n}</span>
+                <li key={step.n} className="flex flex-col gap-2 rounded-xl border border-line p-5">
+                  <span className="text-2xl font-bold text-teal">{step.n}</span>
                   <h3 className="font-bold">{step.t}</h3>
-                  <p className="text-sm text-text-light/75 dark:text-text-dark/75" dangerouslySetInnerHTML={{ __html: step.d }} />
+                  <p className="text-sm text-navy/75" dangerouslySetInnerHTML={{ __html: step.d }} />
                 </li>
               ))}
             </ol>
@@ -371,12 +371,12 @@ export default function Home() {
 
           {/* Proof / pre-logo */}
           <section className="mt-24 w-full" id="proof">
-            <div className="rounded-2xl border-2 border-border-light dark:border-border-dark p-8 max-w-4xl mx-auto">
+            <div className="rounded-2xl border-2 border-line p-8 max-w-4xl mx-auto">
               <h2 className="text-2xl font-bold mb-4">Proof and credibility</h2>
-              <p className="text-sm text-text-light/80 dark:text-text-dark/80 mb-4">
+              <p className="text-sm text-navy/80 mb-4">
                 We&apos;re early. Pre-logo discipline matters: we don&apos;t publish hypothetical case studies as if they were real engagements. What we&apos;ll show you when you ask:
               </p>
-              <ul className="space-y-3 text-sm text-text-light/80 dark:text-text-dark/80">
+              <ul className="space-y-3 text-sm text-navy/80">
                 <li>
                   <strong>Founder track record.</strong> Hands-on regulator-side experience that staffs the moat — the kind a procurement team can interrogate in a call.
                 </li>
@@ -387,7 +387,7 @@ export default function Home() {
                   <strong>Voluntary TCRMG-2026 alignment.</strong> We hold our own operations to NBC&apos;s Technology and Cyber Risk Management Guidelines — even as a non-BFI — and run our own infrastructure to that standard. Process competence isn&apos;t just what we sell.
                 </li>
                 <li>
-                  <strong>The Riel Report.</strong> Cambodia FinTech intelligence read by the financial-services industry, regulators, and multilateral analysts — published by us at <a href="https://riel.report" className="text-primary hover:underline" rel="external">riel.report</a>.
+                  <strong>The Riel Report.</strong> Cambodia FinTech intelligence read by the financial-services industry, regulators, and multilateral analysts — published by us at <a href="https://riel.report" className="text-navy hover:underline" rel="external">riel.report</a>.
                 </li>
               </ul>
             </div>
@@ -400,14 +400,14 @@ export default function Home() {
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About</h2>
               </div>
               <div className="lg:col-span-2 flex flex-col gap-4">
-                <p className="text-lg text-text-light/85 dark:text-text-dark/85 leading-relaxed">
+                <p className="text-lg text-navy/85 leading-relaxed">
                   CamFinTech is a Phnom Penh–based fee-only regulatory approval-navigation and compliance firm focused on Cambodia&apos;s Digital Public Infrastructure rails. Founded 2024 by <strong>William Mallett</strong>, Founder &amp; Managing Director.
                 </p>
-                <p className="text-base text-text-light/75 dark:text-text-dark/75 leading-relaxed">
+                <p className="text-base text-navy/75 leading-relaxed">
                   Our moat is ex-regulator talent — NBC, NBFSA, TSC, SERC, GDT — not engineering capacity. We navigate the approval and run the compliance; accredited partners build the integration.
                 </p>
                 <p>
-                  <a href="/about" className="text-primary font-medium hover:underline">Read more about CamFinTech &amp; William Mallett →</a>
+                  <a href="/about" className="text-navy font-medium hover:underline">Read more about CamFinTech &amp; William Mallett →</a>
                 </p>
               </div>
             </div>
@@ -415,9 +415,9 @@ export default function Home() {
 
           {/* Honesty notes */}
           <section className="mt-24 w-full" id="honesty">
-            <div className="rounded-xl bg-primary/5 border border-primary/20 p-6 max-w-4xl mx-auto">
+            <div className="rounded-xl bg-teal/5 border border-teal/20 p-6 max-w-4xl mx-auto">
               <h2 className="text-xl font-bold mb-3">Honesty notes</h2>
-              <ul className="space-y-2 text-sm text-text-light/80 dark:text-text-dark/80">
+              <ul className="space-y-2 text-sm text-navy/80">
                 <li>
                   <strong>Pricing is indicative.</strong> Every figure on our materials is a planning estimate, validated by quote at engagement scoping.
                 </li>
@@ -433,17 +433,17 @@ export default function Home() {
 
           {/* Contact */}
           <section className="mt-24 w-full" id="contact">
-            <div className="rounded-xl bg-primary/10 dark:bg-primary/20 p-8 text-center sm:p-12">
+            <div className="rounded-xl bg-teal/10 p-8 text-center sm:p-12">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 Book a readiness call
               </h2>
-              <p className="mt-4 text-base sm:text-lg text-text-light/80 dark:text-text-dark/80 max-w-2xl mx-auto">
+              <p className="mt-4 text-base sm:text-lg text-navy/80 max-w-2xl mx-auto">
                 Tell us which rail you&apos;re navigating. We&apos;ll come back the same day, in Phnom Penh business hours.
               </p>
               <div className="mt-8 flex flex-wrap gap-3 justify-center">
                 <a
                   href="mailto:info@camfintech.com"
-                  className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold tracking-[0.015em] text-text-light transition-transform hover:scale-105"
+                  className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal px-5 text-base font-bold tracking-[0.015em] text-navy transition-transform hover:scale-105"
                 >
                   Email info@camfintech.com
                 </a>
@@ -454,11 +454,11 @@ export default function Home() {
               <div>
                 <h3 className="font-bold mb-3">General inquiries</h3>
                 <div className="flex flex-col items-center gap-2 md:items-start text-sm">
-                  <a className="flex items-center gap-2 hover:text-primary transition-colors" href="mailto:info@camfintech.com">
+                  <a className="flex items-center gap-2 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors" href="mailto:info@camfintech.com">
                     <span className="material-symbols-outlined text-base" aria-hidden="true">mail</span>
                     info@camfintech.com
                   </a>
-                  <a className="flex items-center gap-2 hover:text-primary transition-colors" href="tel:+855762775645">
+                  <a className="flex items-center gap-2 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors" href="tel:+855762775645">
                     <span className="material-symbols-outlined text-base" aria-hidden="true">call</span>
                     +855 76 277 5645
                   </a>
@@ -467,11 +467,11 @@ export default function Home() {
               <div>
                 <h3 className="font-bold mb-3">DASP / Prakas 093</h3>
                 <div className="flex flex-col items-center gap-2 md:items-start text-sm">
-                  <a className="flex items-center gap-2 hover:text-primary transition-colors" href="mailto:dasp@camfintech.com">
+                  <a className="flex items-center gap-2 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors" href="mailto:dasp@camfintech.com">
                     <span className="material-symbols-outlined text-base" aria-hidden="true">mail</span>
                     dasp@camfintech.com
                   </a>
-                  <a className="text-primary hover:underline text-xs" href="/products/dasp">
+                  <a className="text-navy hover:underline text-xs" href="/products/dasp">
                     DASP approval-readiness →
                   </a>
                 </div>
@@ -479,11 +479,11 @@ export default function Home() {
               <div>
                 <h3 className="font-bold mb-3">Messaging</h3>
                 <div className="flex flex-col items-center gap-2 md:items-start text-sm">
-                  <a className="flex items-center gap-2 hover:text-primary transition-colors" href="https://wa.me/855762775645">
+                  <a className="flex items-center gap-2 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors" href="https://wa.me/855762775645">
                     <span className="material-symbols-outlined text-base" aria-hidden="true">chat</span>
                     WhatsApp
                   </a>
-                  <a className="flex items-center gap-2 hover:text-primary transition-colors" href="https://t.me/+855762775645">
+                  <a className="flex items-center gap-2 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors" href="https://t.me/+855762775645">
                     <span className="material-symbols-outlined text-base" aria-hidden="true">send</span>
                     Telegram
                   </a>
@@ -498,8 +498,8 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <p className="mt-8 text-xs text-text-light/55 dark:text-text-dark/55 text-center max-w-3xl mx-auto">
-              Partner &amp; subcontract inquiries (compliance-inside / white-label): <a href="mailto:partners@camfintech.com" className="hover:text-primary">partners@camfintech.com</a>
+            <p className="mt-8 text-xs text-navy/55 text-center max-w-3xl mx-auto">
+              Partner &amp; subcontract inquiries (compliance-inside / white-label): <a href="mailto:partners@camfintech.com" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4">partners@camfintech.com</a>
             </p>
           </section>
         </div>

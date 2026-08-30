@@ -18,23 +18,25 @@ export default function GlobalError({
           justifyContent: "center",
           padding: "1rem",
           fontFamily: "system-ui, sans-serif",
+          backgroundColor: "#F5F7FB",
+          color: "#1E2F52",
         }}>
           <div style={{ textAlign: "center" }}>
-            <div style={{ marginBottom: "1.5rem", fontSize: "4rem", color: "#f4af25" }}>!</div>
+            <div style={{ marginBottom: "1.5rem", fontSize: "4rem", color: "#17A398" }}>!</div>
             <h1 style={{ marginBottom: "1rem", fontSize: "1.875rem", fontWeight: "bold" }}>
               Something went wrong
             </h1>
-            <p style={{ marginBottom: "2rem", color: "#666" }}>
+            <p style={{ marginBottom: "2rem", color: "#5E6B84" }}>
               We apologize for the inconvenience. Please try again.
             </p>
             <button
               onClick={() => reset()}
               style={{
                 borderRadius: "0.5rem",
-                backgroundColor: "#f4af25",
+                backgroundColor: "#17A398",
                 padding: "0.75rem 1.5rem",
                 fontWeight: "bold",
-                color: "#1c170d",
+                color: "#16233F",
                 border: "none",
                 cursor: "pointer",
               }}

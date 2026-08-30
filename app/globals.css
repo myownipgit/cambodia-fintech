@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  /* Body defaults to Manrope (font-sans) via the body class in layout.tsx.
+     Headings take Poppins. Doing this once here keeps every heading on the
+     display face without adding font-display to ~100 call sites. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,
@@ -11,5 +27,5 @@
 }
 
 .font-khmer {
-  font-family: 'Noto Sans Khmer', sans-serif;
+  font-family: var(--font-kantumruy), sans-serif;
 }

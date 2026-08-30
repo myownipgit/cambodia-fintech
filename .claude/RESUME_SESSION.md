@@ -3,9 +3,13 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-24 — **Five standing GEO findings remediated and deployed.** H5, H6, H7 CLOSED; H3, H4 PARTIAL; H1 (citations) and H2 (LinkedIn) still OPEN and both off-code. Commit `8aa75b5` + deploy `cambodia-fintech-hhgyf32cf`; KB corrected at `c0e825b` on `~/.geo-prospects`. Full narrative in vault [[Firm Operations/18_Session_Log_2026-08-24_geo_remediation]].
+2026-08-29 — **Positioning verified + ClickUp PM layer opened.** Two threads, no code, no commits, no deploys. (A) Bill's TPP/NBC licensing belief **verified as broadly correct** — pure advisory/PM/technical-integration needs no NBC licence (`02:79`); the wall is the **PSI licence** (~US$2M + 5% deposit) triggered by routing/handling payments on a bank's behalf (`02:86`). Nuance: NBC regulates **by activity**, so say "no NBC licence for a pure assist role", not "no NBC involvement" (`59:430`). **Key correction**: git archaeology of the 2026-06-18 removal sweep (`c674610`·`c5b5201`·`cf564eb`) + 2026-07-30 broadening (`086a8ae`) found **no licensing rationale anywhere** — the removal was documented purely as a **positioning** decision (post-Huione "process competence, never access"). (B) ClickUp + Hermes PM layer opened over the remaining Agentic Firm build; read-only proposal done, 20 questions answered, container locked. **Scope shrank**: legal-expiration likely folds into Compliance Calendar → 3 full builds + 2 deferred + 1 fold-in + 1 gated dashboard, not 5 + dashboard. Full narrative in vault [[Firm Operations/20_Session_Log_2026-08-29_positioning_verify_and_clickup_pm]].
 
-Prior entry (2026-08-23 evening) — **Logo design exploration opened.** Second session on the same day, separate from the GSC verification work. Four rounds of `/design` iterations on a private Artifact canvas. Direction locked = geometric C-wraps-TF monogram (Bill's reference Image #4); 5 variations shipped on the canvas; **no decision locked**. Full narrative in vault [[Firm Operations/17_Session_Log_2026-08-23_logo_design]]. **No site code touched this session** — the current stacked-ellipses `Header.tsx` mark is unchanged in production.
+Prior entry (2026-08-25) — **Finalised production brand kit landed.** Bill delivered `camfintech-brand-package_1.zip` at repo root ("FYI the brand guidelines are now finalised"); extracted to new `brand/` at repo root (101 files, 3.6 MB — svg/pdf/eps/png + README.txt). Logo direction CLOSED — canvas exploration (Phase 26) superseded by production kit. **Site NOT yet migrated**: palette pivots gold `#f4af25` → navy `#1E2F52` + Riel Teal `#17A398`; fonts pivot Inter/Noto → Poppins/Kantumruy Pro/Manrope/IBM Plex Mono. Khmer legal name locked as `ខេមហ្វីនថេក ឯ.ក` for post-registration use. **No commit, no deploy.** Migration triggers open: `"execute brand migration"` (full) or `"wire the new logo into the header"` (narrow, keep old palette). Full narrative in vault [[Firm Operations/19_Session_Log_2026-08-25_brand_kit_landed]].
+
+Prior entry (2026-08-24) — **Five standing GEO findings remediated and deployed.** H5, H6, H7 CLOSED; H3, H4 PARTIAL; H1 (citations) and H2 (LinkedIn) still OPEN and both off-code. Commit `8aa75b5` + deploy `cambodia-fintech-hhgyf32cf`; KB corrected at `c0e825b` on `~/.geo-prospects`. Full narrative in vault [[Firm Operations/18_Session_Log_2026-08-24_geo_remediation]].
+
+Prior entry (2026-08-23 evening) — **Logo design exploration opened.** Second session on the same day, separate from the GSC verification work. Four rounds of `/design` iterations on a private Artifact canvas. Direction locked = geometric C-wraps-TF monogram (Bill's reference Image #4); 5 variations shipped on the canvas; **no decision locked at session end** — now SUPERSEDED by 2026-08-25 finalised kit above. Full narrative in vault [[Firm Operations/17_Session_Log_2026-08-23_logo_design]]. **No site code touched this session** — the current stacked-ellipses `Header.tsx` mark is unchanged in production.
 
 Prior entry (2026-08-23 morning): GSC `verification.google` meta tag removed; DNS-only GSC coverage under info@camfintech.com. Full detail in its session-close block below.
 
@@ -16,12 +20,153 @@ Prior entry (2026-08-20): GEO sensor knowledge base seeded — `~/.geo-prospects
 > [!warning] Multiple day-close blocks below — read in this order
 > **Authoritative sequence:**
 >
-> 1. **"Session close — 2026-08-24 (GEO standing-findings remediation)"** (immediately below) — today's work.
-> 2. **"Session close — 2026-08-23 (evening, logo design exploration)"** — logo direction, no code.
-> 3. **"Session close — 2026-08-23 (GSC verification retired)"** — separate scope.
-> 4. **"Session close — 2026-08-20 (GEO KB seed)"** — GEO sensor knowledge base.
-> 5. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
-> 6. **This header** supersedes all for current state.
+> 1. **"Session close — 2026-08-29 (positioning verification + ClickUp PM layer)"** (immediately below) — today's work.
+> 2. **"Session close — 2026-08-25 (finalised brand kit landed)"** — brand kit staged at `brand/`.
+> 3. **"Session close — 2026-08-24 (GEO standing-findings remediation)"** — GEO H5/H6/H7 closed.
+> 4. **"Session close — 2026-08-23 (evening, logo design exploration)"** — logo direction (superseded by 08-25 kit).
+> 5. **"Session close — 2026-08-23 (GSC verification retired)"** — separate scope.
+> 6. **"Session close — 2026-08-20 (GEO KB seed)"** — GEO sensor knowledge base.
+> 7. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
+> 8. **This header** supersedes all for current state.
+
+---
+
+## Session close — 2026-08-29 (positioning verification + ClickUp PM layer)
+
+Two unrelated threads. **No code touched, no commits, no deploys.** Repo HEAD still `7a57999` on `feature/update-homepage`; `main` still deliberately behind.
+
+### Thread A — TPP / NBC licensing belief verified
+
+Bill's ask: verify that CamFinTech's positioning is Compliance-as-a-Service for DPI integration, and check his belief that the technical-integration content he removed from the site did **not** actually need licensing — that the licensing worry belonged to acting as a payment-taking TPP.
+
+**Verdict: broadly correct.**
+
+| Claim | Verdict | Source |
+|---|---|---|
+| Advisory / PM / technical integration needs no NBC licence | **Correct** | `02_Licensing_Agency_Requirements.md:79` |
+| Payment-taking crosses into licensing | **Correct** — PSI licence, ~KHR 8bn / ~US$2M + 5% deposit | `02:86`; `59_Bakong_KHQR_PSP_Implementation_Playbook.md:75-76` |
+| "TPP" needs NBC licensing or bank sponsorship | **Correct, but the term is overloaded** — NBC's *Third-Party Processor* (Prakas 47, 2010) was folded into PSI in 2017; *Third-Party Technology Provider* is a casual self-label from early kickoff docs | `02:40`; `_SESSION-KICKOFF - CamDX & DPI Integration.md:42, 78` |
+
+**Nuance that narrows it** (`59:430`): NBC regulates **by activity**, so a vendor can cross into a regulated payment activity *without holding funds*. Correct phrasing is **"no NBC licence for a pure assist role"**, not "no NBC involvement".
+
+**Middle tier is real** (`12_Integration_Partner_Ecosystem.md:91`): an unlicensed tech provider integrates *through* a licensee, never directly. Sponsored integration under a licensee's umbrella is an available path.
+
+**Perimeter** (`47_Firm_Regulatory_Perimeter.md:37-49`): fee-only advisory is NOT a reporting entity under AML Law 2020 Art. 4. The binding constraint is **contractual** (bank outsourcing-governance, NBC TCRMG 2026 audit-access clauses), not licensing.
+
+### The correction that matters
+
+Git archaeology of the removal found **no licensing rationale anywhere** — not in site copy, not in any commit message:
+
+| Commit | Date | What |
+|---|---|---|
+| `c674610` | 2026-06-18 | Rewrote homepage/about/components; dropped six build-flavoured services (Payment Gateway Integration, Core Banking Modernization, API Development, …) |
+| `c5b5201` | 2026-06-18 | Deleted 27 route files (56 → 29) — `knowledge/`, `insights/`, `use-cases/`, six `learn/` topics |
+| `cf564eb` | 2026-06-18 | 27 redirects; regenerated `llms.txt` with a "what CamFinTech does NOT do" list |
+| `086a8ae` | 2026-07-30 | OBR broadening. Body: *"Not public: 62010… Legal-umbrella breadth only — the 'never build' hard rule stays intact."* |
+
+Every stated reason is **positioning**: post-Huione reputational discipline ("process competence, never access") and delegation to accredited SPs. The regulatory worry and the positioning discipline were bundled at removal time; only the positioning half was ever documented. `64_62010_Pivot_Direction_Note.md:22-30` already flags the regulatory half as a misreading.
+
+**The 62010 pivot direction note already exists** — 6 site surfaces, 7 tensions, unexecuted, gated behind `"let's plan the 62010 pivot"`. Not opened this session.
+
+### One real bug found (not fixed)
+
+`app/components/RelatedServices.tsx:3-10` still hardcodes the pre-2026-06-18 six services — including **"Payment Gateway Integration"** and **"API Development"** — and reaches every `/learn/[slug]` and `/glossary/[slug]` footer via `ArticleLayout.tsx:200`. The 06-18 sweep missed it. Logged as **NEW-M2** in vault [[CamFinTech.com website/Outstanding Issues]]; ~15-minute isolated fix.
+
+Also **NEW-L9**: `PrivacyContent.tsx:38` says "technical consulting" — softer than the homepage line, inconsistent vocabulary.
+
+### Thread B — ClickUp PM layer over the remaining Agentic Firm build
+
+Bill's four locks: container `/Users/myownip/clickup-projects/AgenticFirm-project` · **decomposed** granularity · **read-only plan first** · Hermes has vault access.
+
+Skill: `~/.hermes/skills/productivity/clickup-api/SKILL.md` — personal-token API (not the OAuth MCP, whose daily allowance the skill warns gets exhausted by project setup). Workspace `1100340000000623`; credential at `/Users/myownip/clickup-projects/.env` key `clickupAPIKey`.
+
+**Container locked by Bill**: `Team Space` → Folder `Agentic Firm` → List `AgenticFirm-project`.
+
+**Hermes' read-only run** produced `proposal.md`, `tasks.json`, `discovery.json`, `open-questions.md` + 20 open questions. **Eight were answerable from sources the prompt didn't point it at** (Claude Code memory files, `~/.config/claude/plans/`) — prompt gap, not a Hermes failure. Answers written to `/Users/myownip/clickup-projects/AgenticFirm-project/open-questions-answered.md`, triaged `ANSWERED` / `RECOMMENDED` / `BILL-ONLY`.
+
+**Scope finding — the build is smaller than assumed.** The 2026-08-19 sequencing assessment already concluded legal-expiration *"overlaps Compliance Calendar heavily; likely more rows in #5, not a new sensor."*
+
+| Was | Now |
+|---|---|
+| 5 full sensor builds + dashboard | **3** full (brand/reputation · product-market · legal-expiration *pending scoping*) · **2** deferred stubs (runway, client health) · **1** scoping task inside #5 · **1** gated dashboard milestone |
+
+**Other corrections**: `#59`/`#60` are Claude Code todo IDs, **not ClickUp tasks** (canonical VPS record is `~/.config/claude/plans/misty-cuddling-gray.md`; **no remaining sensor depends on the VPS**). Framework direction note has **eight** tensions, not seven — #8 (per-sensor curated-priors slot) was added 2026-08-20.
+
+**Delivery friction**: Telegram truncates at 4,096 chars; a ~5,000-char prompt reached Hermes as the tail only and it correctly refused to fabricate. Write long prompts to a file; send the path.
+
+### Process note — I over-scoped Thread A
+
+Bill said "strategic pivot" descriptively; I matched it to the direction note, entered plan mode, fired two agents, and asked him to pick between four deliverable formats before he'd asked for one. He stopped it. Saved as memory `feedback_trigger_word_overscoping.md`: **a loaded noun mid-sentence is not a trigger phrase — weight the verb.**
+
+### Next step (ungated)
+
+Send Hermes: *"Read `/Users/myownip/clickup-projects/AgenticFirm-project/open-questions-answered.md` and revise `proposal.md` and `tasks.json` accordingly. Container is resolved: Team Space → Folder 'Agentic Firm' → List 'AgenticFirm-project'. Still read-only — no ClickUp mutations."* Then review before authorising the mutation run.
+
+Four `BILL-ONLY` questions remain, blocking only their own deferred sensors: Q5/Q8 (financial-runway gate + sources), Q6/Q9 (client-health gate + sources).
+
+---
+
+## Session close — 2026-08-25 (finalised brand kit landed)
+
+### What happened
+
+Bill: *"'/Users/myownip/workspace/cambodia-fintech/camfintech-brand-package_1.zip' FYI the brand guidelines are now finalised"*.
+
+No code touched, no commit, no deploy. Package staged into repo; documentation updated. Auto Mode was on; made the reasonable staging call and stopped short of any migration.
+
+### What landed
+
+101 files, 3.6 MB, four formats: SVG, PDF, EPS, PNG. Extracted from `camfintech-brand-package_1.zip` (retained untracked at repo root for provenance) into new **`brand/`** at repo root:
+
+```
+brand/
+├── README.txt   (usage, colour specs, typography, help@mysticmandela.com)
+├── svg/         (25 files — web / documents)
+├── pdf/         (25 files — print / CMYK)
+├── eps/         (25 files — signage / embroidery)
+└── png/         (25 files — screen with transparent bg)
+```
+
+Anatomy — mark (5 colour variants: black/white/navy/duotone/gradient) · badge (navy disc) · wordmark (latin/khmer/bilingual × 3 colours) · lockup (same axes). All wordmark text vector-outlined; no font licenses required at reproduction.
+
+### The two big shifts (site NOT yet migrated)
+
+**Palette pivot gold → navy.** Primary Navy `#1E2F52` · Deep Navy `#16233F` · **Riel Teal `#17A398`** (accent) · Cloud `#F5F7FB` · Slate `#5E6B84`. **No gold anywhere.** Site's `#f4af25` in `tailwind.config.ts` is off-brand.
+
+**Typography pivot.** Poppins SemiBold 600 (Latin display / wordmark) · Kantumruy Pro SemiBold 600 (Khmer wordmark) · Manrope Regular 400 (body) · IBM Plex Mono 400/500 (data). Site currently loads Inter + Noto Sans Khmer via `app/layout.tsx`.
+
+**Khmer legal name locked with `ឯ.ក`** in Khmer + bilingual lockups. Not a conflict with the public-vs-legal discipline — the kit is tooling for post-OBR-registration use of the full legal Khmer name. Trading name "CamFinTech" (no `ឯ.ក`, no "Co., Ltd.") still applies to current public prose.
+
+### Convergence with the canvas exploration
+
+Round 4 on 2026-08-23 (Phase 26) landed on a geometric C-monogram wrapping a T+F ligature. **The finalised kit uses exactly that shape.** Differences from the canvas: palette (gold → navy), typography (Inter/Noto → Poppins/Kantumruy Pro/Manrope/IBM Plex Mono), addition of `ឯ.ក` in Khmer lockups. Canvas at `https://claude.ai/code/artifact/e28797b1-…` is now archived — no further updates published against it.
+
+### Migration scope (deferred; needs Bill's greenlight)
+
+1. **Palette migration** — `tailwind.config.ts` gold → navy + teal + full 5-token set; component sweep for every gold reference; dark-mode token audit.
+2. **Typography migration** — `layout.tsx` swap Google Font imports; utility classes for the four faces; body-copy face swap touches every page.
+3. **Logo wiring** — replace stacked-ellipses SVG in `app/components/Header.tsx` (~line 46-49) with `camfintech-lockup-*-navy.svg`; copy needed SVGs into `public/brand/`; regenerate favicon set from `camfintech-mark-navy.svg`; regenerate `app/opengraph-image.tsx` on the new palette.
+4. **JSON-LD** `Organization.logo` + `Person.image` repoint at the new hosted logo asset.
+5. **`CLAUDE.md` palette section** — update AFTER migration ships, not before (avoid misleading future Claude).
+
+**Split option**: `"wire the new logo into the header"` — narrower, mark-only, keeps old palette. Useful staging step to preview the mark before committing to the full palette shift. `"execute brand migration"` — full multi-hour scope, needs planning pass first.
+
+### Colour-blind check passes
+
+Primary Navy `#1E2F52` and Riel Teal `#17A398` are distinguishable without red-green channel dependence (both blue-family, distinct luminance and saturation). Safe per Bill's standing constraint.
+
+### Housekeeping
+
+- No commit — Bill said "FYI", didn't ask for install-to-git.
+- Repo has 3.6 MB in untracked `brand/` + the untracked `camfintech-brand-package_1.zip` at root.
+- `main` still 4 commits behind `feature/update-homepage` (unchanged from 08-24; Bill's deliberate hold).
+
+### Open trigger phrases (updated)
+
+- `"execute brand migration"` — full palette + typography + logo migration across the site.
+- `"wire the new logo into the header"` — narrow scope, mark-only, keeps old palette.
+- `"install the updated brand package"` — re-run install pattern into `brand/` when a new zip lands.
+- All prior triggers (VPS migration, knowledge-layer, sensor framework, 62010 pivot, remediation engine, GEO KB re-seed) unchanged.
 
 ---
 
