@@ -63,7 +63,16 @@ Migrated to the locked brand identity on 2026-08-31 (commit `5bece33`). Brand ma
   | `line` | `#E2E7F0` | hairlines and rules |
 
 - **Riel Teal is a FILL colour, never body text.** Measured 2.91:1 on `cloud` and 3.12:1 on `card` — both below the 4.5:1 WCAG AA floor. It carries CTA fills, tinted bands, borders, rules, and icon glyphs at large-text sizes. Text on a teal fill must be `navy-deep` (5.00:1); `navy` is 4.25:1 and white is 3.12:1, and both fail. Do not "simplify" a CTA to white-on-teal.
-- **`bg-teal text-navy` is a live AA failure in 7 places** — the brand migration set the rule above but never converted the existing CTAs. `app/page.tsx:99,459` (homepage hero + contact), `app/products/dasp/DaspContent.tsx:36,186`, `app/publication/page.tsx:110`, `app/error.tsx:20`, `app/not-found.tsx:19`. All are 16px bold, so the 4.5:1 threshold applies and 4.25:1 misses it. Each is a one-token change to `text-navy-deep`. Tracked as **NEW-M7**. When adding any teal-filled CTA, use `text-navy-deep` from the start.
+- **Every full-opacity `bg-teal` fill in `app/` now pairs with `text-navy-deep`** — all nine of them. Seven were still on `text-navy` (4.25:1, failing) until 2026-08-31 `4d92168`, because the brand migration wrote this rule and converted none of the existing CTAs. **Use `text-navy-deep` on any new teal-filled CTA.** To re-check after adding one:
+
+  ```bash
+  # every full-opacity teal fill and the text token on its line — all must be navy-deep
+  grep -rnoE 'bg-teal(?![/0-9])' app/ --include='*.tsx' -P | cut -d: -f1,2 | \
+    while IFS=: read f l; do printf "%-42s :%-4s %s\n" "$f" "$l" \
+      "$(sed -n "${l}p" "$f" | grep -oE 'text-navy-deep|text-navy\b' | head -1)"; done
+  ```
+
+  The `bg-teal/5` and `bg-teal/10` **tints are a separate case and correctly use `text-navy`** — they render near-white over `cloud`, where `navy-deep` would be needlessly heavy. Do not "consistency-fix" them.
 - **No dark mode.** Removed 2026-08-31 — the brand guide specifies no dark palette. There is no `darkMode` key, no `dark:` class, no theme toggle, and nothing writes to browser storage. `:root { color-scheme: light }` in `globals.css` replaces the old `<html className="light">`. Do not reintroduce a `dark:` variant without a brand-side dark palette to derive it from.
 - **Font Setup** (brand-locked, `next/font/google` in `layout.tsx`): Poppins 600/700/800 (Latin display) · Manrope variable (body, the default) · Kantumruy Pro 400/600 (Khmer) · IBM Plex Mono 400/500 (data). **Poppins has no variable master** — every weight the headings request must be listed explicitly or the browser synthesises fake bold. Manrope's ceiling is 800, so `font-black` (900) will clamp on body elements.
 - **Headings**: a base-layer `h1–h4` rule in `globals.css` puts them on `font-display` (Poppins). Utility classes still win, so `font-bold` on a heading gives Poppins 700.

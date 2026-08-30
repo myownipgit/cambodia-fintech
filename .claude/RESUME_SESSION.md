@@ -83,7 +83,7 @@ Client-side integration to the rails. **Never host or transmit client traffic** 
 4. **GEO KB re-seed** + watch for Business Type shift (Agency/Services → Hybrid). NEW-L12. Now also stale on the `/use-cases` section, which the KB records as retired.
 5. **Traffic** — re-verify GSC (DNS-only; do NOT re-add `verification.google`), measure at 2/4/8 weeks.
 6. ~~NEW-M2 `RelatedServices.tsx`~~ — **DONE `5bebdab`.** Now renders the 11-SRV taxonomy grouped by its four homepage categories, reproduced in full rather than sampled, plus the fee-only / never-hold-funds / never-operate-a-rail line so the block restates the scope boundary instead of undercutting it. Also dropped the Material Symbols icons — their ligature text is read by extractors even under `aria-hidden` (GEO H3), clearing ~200 fragments across the corpus.
-7. **NEW-M7 — `bg-teal text-navy` fails AA in 7 remaining places.** 4.25:1 against a 4.5:1 threshold at 16px bold. `app/page.tsx:99,459` · `DaspContent.tsx:36,186` · `publication/page.tsx:110` · `error.tsx:20` · `not-found.tsx:19`. One-token change each to `text-navy-deep` (5.00:1). Found while fixing NEW-M2; **deliberately not swept**, since it includes the homepage hero and the ask was one file.
+7. ~~NEW-M7 `bg-teal text-navy` AA failure~~ — **DONE `4d92168`.** All 7 converted to `text-navy-deep` (4.25:1 → 5.00:1): `app/page.tsx:99,459` · `DaspContent.tsx:36,186` · `publication/page.tsx:110` · `error.tsx:20` · `not-found.tsx:19`. **Every full-opacity `bg-teal` in `app/` is now navy-deep — all nine.** The `bg-teal/5` and `/10` tints deliberately stay on `text-navy`; they are near-white over cloud and navy-deep would be needlessly heavy. Re-check command is in `CLAUDE.md`.
 
 ---
 
