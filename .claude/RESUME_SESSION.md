@@ -82,7 +82,8 @@ Client-side integration to the rails. **Never host or transmit client traffic** 
 3. ~~3 redirects still on `/`~~ — **DONE.** `redirects()` returns `[]`; every previously-redirected URL now serves a page.
 4. **GEO KB re-seed** + watch for Business Type shift (Agency/Services → Hybrid). NEW-L12. Now also stale on the `/use-cases` section, which the KB records as retired.
 5. **Traffic** — re-verify GSC (DNS-only; do NOT re-add `verification.google`), measure at 2/4/8 weeks.
-6. **NEW-M2 `RelatedServices.tsx`** — now the most visible inconsistency on the site. It advertises "Core Banking Modernization", "API Development", "Lending & Credit Scoring" and "Payment Gateway Integration" in the footer of every article page, including the four new scenarios whose whole point is a precisely-drawn scope. Open since 2026-08-29; ~15-minute fix.
+6. ~~NEW-M2 `RelatedServices.tsx`~~ — **DONE `5bebdab`.** Now renders the 11-SRV taxonomy grouped by its four homepage categories, reproduced in full rather than sampled, plus the fee-only / never-hold-funds / never-operate-a-rail line so the block restates the scope boundary instead of undercutting it. Also dropped the Material Symbols icons — their ligature text is read by extractors even under `aria-hidden` (GEO H3), clearing ~200 fragments across the corpus.
+7. **NEW-M7 — `bg-teal text-navy` fails AA in 7 remaining places.** 4.25:1 against a 4.5:1 threshold at 16px bold. `app/page.tsx:99,459` · `DaspContent.tsx:36,186` · `publication/page.tsx:110` · `error.tsx:20` · `not-found.tsx:19`. One-token change each to `text-navy-deep` (5.00:1). Found while fixing NEW-M2; **deliberately not swept**, since it includes the homepage hero and the ask was one file.
 
 ---
 
