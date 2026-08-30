@@ -4,6 +4,22 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-08-31 (4th thread) — SITE COPY REALIGNED FOR CAMBODIAN CULTURAL FIT.** `b00c368`, deploy `cambodia-fintech-7yz28d4xd`. Recorded as **ADR-006**.
+
+Bill's critique: the site read as *"a hard sell US type company trying to break into the Cambodian FinTech market"*, pitched the wrong audience, and risked informal blacklisting. **He has been approached by Tier 1 banks and the Digital Government Committee** — the copy was written for a founder shopping for a vendor.
+
+**Worse than tone — the site was criticising the regulators in its own voice.** Homepage: approval is *"opaque"*, *"defeats most applicants"*, applicants *"turned back as 'non-compliant' with no further explanation"*. `/about` carried a sharper version naming NBC, NBFSA, TSC and GDT. All removed.
+
+**Plus a contradiction that had propagated to eight surfaces.** The H1 *"We get Cambodian and foreign FinTechs approved"* claims agency over the regulator's decision and contradicted the conflict disclosure on the same page. It was in the hero, OG image, page metadata, FAQ JSON-LD, Organization JSON-LD, `/about`, `llms.txt` and `llms-full.txt`. **Machine-readable surfaces carry positioning defects too — sweep them.**
+
+**The subtlest fix**: *"Lobby, trade on contacts, or sell 'access'"* implies that trading on contacts is what happens in Cambodia. Relationships are legitimate; selling influence over a decision is not. Limits are now framed as whose the work properly is.
+
+New H1: *"Cambodia has built the rails. We prepare institutions to meet the standard for connecting to them."* Headings moved to institutional register — **Scope of practice** · **Outside our scope, and where it belongs** · **How the firm is constituted** · **Where the work actually lies**. The hard rules survive intact per [[../DPI Integration/47_Firm_Regulatory_Perimeter]] §1; only framing moved.
+
+**Open**: `ScenarioNotice` and `RegulatoryNotice` were written earlier the same day in the old register and have not had this pass — see NEW-L17.
+
+## Superseded — prior entry
+
 **2026-08-31 (3rd thread) — `/regulatory` R1 SHIPPED** (`ef93f72`, deploy `cambodia-fintech-9khgn9fk2`). **Sitemap 51 → 58.** New reference section indexing Cambodian FinTech instruments. Six instruments live, each with a PRIMARY source fetched and read: NBC `B7-024-735` (cryptoassets, full 8pp English text from nbc.gov.kh), NBC `B14-017-161 P.K` (payment service institutions), Law on E-Commerce, Sub-Decree 207 (CamDigiKey), Law on Banking, FinTech Policy 2023-28. Plus the index and regulator map.
 
 **This began as a verification pass on research Bill supplied, and the pass is the reason the section is safe to publish.** 30 citations fetched. **Nine material errors found**, incl. a wrong instrument number for the payments Prakas (`B7-017-282` → actually `B14-017-161 P.K`), the CGT stated as flatly in force when it has been repeatedly deferred, and a crypto/CGT link no cited source supports. Also: the research **cited camfintech.com back at us** as authority for a statutory claim, and nine sources were unusable (Binance Square posts, a photography blog, Scribd). Full evidence in vault [[DPI Integration/65_Regulatory_Instruments_Verification_Pass]]; design in [[DPI Integration/66_Regulatory_Section_Design]].

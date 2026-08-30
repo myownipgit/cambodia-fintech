@@ -115,6 +115,20 @@ The "never builds" rule was **reversed on 2026-08-31** (commit `cd62c7b`, vault 
 - **Client is always the applicant of record**
 - **Process competence, never access**
 
+### Register and cultural fit — read before writing any public copy
+
+Adopted 2026-08-31, **ADR-006** (`b00c368`). The site is read by Tier 1 banks, the Digital Government Committee, and regulators following a link — not by a founder shopping for a vendor. Four rules, in order of how much damage breaking them does:
+
+1. **Never comment on a regulator's process, competence or conduct.** In Khmer professional culture this is a serious breach, and the damage is informal exclusion — unannounced, unappealable, and unreachable by later correction. Until this ADR the site said approval was *"opaque"*, that it *"defeats most applicants"*, and that applicants are *"turned back as 'non-compliant' with no further explanation."* All removed. The commercial argument — these are prudential requirements and most FinTechs are engineering organisations — is stronger without any of it, and harder to rebut.
+
+2. **Never claim agency over an approval.** Not "we get you approved", not "we get X approved onto the rails". The firm prepares work to a standard; the decision is the regulator's and the client is the applicant of record. This had propagated to eight surfaces including both JSON-LD blocks and both llms files — **check machine-readable surfaces, not just visible copy.**
+
+3. **State limits as whose the work properly is, never as refusals.** "The approval decision — the regulator's, entirely" rather than "we don't promise outcomes". Refusal framing carries an implied accusation that somebody does the thing being refused.
+
+4. **Do not disclaim "trading on contacts".** Relationships and standing are how serious business is legitimately done in Cambodia; selling influence over a decision is the thing the firm will not do, and they are not the same. The old *"Lobby, trade on contacts, or sell 'access'"* line collapsed them and so read as a judgment on how Cambodians do business — to exactly the reader who built those relationships honestly.
+
+**Positive framing that works**: the Royal Government built the rails; the standard exists for good reason; capability transfer leaves competence in Cambodia. **Register**: a professional-services firm, not a product landing page. If a sentence would embarrass you in a room with a deputy governor, it does not ship.
+
 **Never write access-claim language.** Phrases like "relationships with the NBC", "government liaison", "regulatory dialogue on behalf of clients", or anything implying influence over a regulator's decision are an **existential brand liability** post-Huione (vault `31_Training_Strategy.md:35`). Two separate instances of this shipped undetected and were removed on 2026-08-31 — check for it whenever touching positioning copy. "Ex-regulator talent" is fine: that describes who was hired, not who is known.
 
 **No unevidenced claims.** CamFinTech is pre-revenue with no active clients. Do not write case studies, track-record claims, named product SKUs, or quantified client outcomes. The restored 2026 content carried ~15 fabricated assets and two fabricated citations; all were removed. If a capability claim cannot be evidenced, it does not ship.
