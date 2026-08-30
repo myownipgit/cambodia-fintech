@@ -3,7 +3,17 @@
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
 ## Last Updated
-2026-08-31 — **BRAND MIGRATION SHIPPED.** Commit `5bece33` → deploy `dpl_qu14tmaxzwzHFtqW4w2zBRXfsPSF` (`cambodia-fintech-b2vaw1l4o-…`), live on camfintech.com. Site is now on the locked identity: navy `#1E2F52` / Riel Teal `#17A398` / Cloud `#F5F7FB` on white cards; Poppins + Manrope + Kantumruy Pro + IBM Plex Mono; bilingual navybg lockup; icons rebuilt from the real mark. **Dark mode removed entirely** (222 `dark:` classes, toggle, localStorage key, FOUC defect). **Teal is a FILL, never body text** — 2.91:1 on cloud, fails AA; text on a teal fill must be `navy-deep` `#16233F` (5.00:1). `ឯ.ក` deviation recorded as **ADR-004**. Full narrative in vault [[Firm Operations/21_Session_Log_2026-08-31_brand_migration]].
+2026-08-31 (2nd session) — **62010 PIVOT SHIPPED.** Commits `8ddc1d9` (Phase A) + `cd62c7b` (Phase B) → deploy `cambodia-fintech-a2pr6adia`. Executes the direction note open since 2026-07-31; recorded as **ADR-005**.
+
+**Phase A — content restored.** 8 `/knowledge` deep-dives + 6 `/learn` explainers back at their original URLs (redirects removed, not repointed). **Sitemap 24 → 39.** The traffic loss was from `c5b5201` deleting 24 URLs and ~60k words, NOT from the positioning change — the two are separable and restoration is what recovers traffic.
+
+**But the restored content carried 68 false first-person claims** — ~15 fabricated assets (validation library, reconciliation module, four named ERP connector products), 2 fabricated citations, and 4 access claims including *"leveraging deep relationships with NBC, GDT… to ensure smooth and timely approvals"* with *"our clients have achieved…"* from a firm with no clients. All neutralised. **This content, not the homepage copy, was the strongest reason to have done the June rewrite — and was never the stated one.**
+
+**Phase B — never-build reversed** across 20 files (direction note estimated 6). Scope = **integrate-only**; the seam is no hosting/transmitting of client traffic. Every integrity rule survives: fee-only, never hold funds, never operate a rail, reserved work, applicant-of-record, process competence never access. 62010 now public. **New conflict disclosure** on the homepage. **Also removed a live access claim** on `/learn/what-is-cambodia-gaap` that survived both the June rewrite and the August GEO pass.
+
+Full narrative in vault [[Firm Operations/22_Session_Log_2026-08-31_62010_pivot]].
+
+Prior entry (2026-08-31, 1st session) — **BRAND MIGRATION SHIPPED.** Commit `5bece33` → deploy `dpl_qu14tmaxzwzHFtqW4w2zBRXfsPSF` (`cambodia-fintech-b2vaw1l4o-…`), live on camfintech.com. Site is now on the locked identity: navy `#1E2F52` / Riel Teal `#17A398` / Cloud `#F5F7FB` on white cards; Poppins + Manrope + Kantumruy Pro + IBM Plex Mono; bilingual navybg lockup; icons rebuilt from the real mark. **Dark mode removed entirely** (222 `dark:` classes, toggle, localStorage key, FOUC defect). **Teal is a FILL, never body text** — 2.91:1 on cloud, fails AA; text on a teal fill must be `navy-deep` `#16233F` (5.00:1). `ឯ.ក` deviation recorded as **ADR-004**. Full narrative in vault [[Firm Operations/21_Session_Log_2026-08-31_brand_migration]].
 
 Prior entry (2026-08-29) — **Positioning verified + ClickUp PM layer opened.** Two threads, no code, no commits, no deploys. (A) Bill's TPP/NBC licensing belief **verified as broadly correct** — pure advisory/PM/technical-integration needs no NBC licence (`02:79`); the wall is the **PSI licence** (~US$2M + 5% deposit) triggered by routing/handling payments on a bank's behalf (`02:86`). Nuance: NBC regulates **by activity**, so say "no NBC licence for a pure assist role", not "no NBC involvement" (`59:430`). **Key correction**: git archaeology of the 2026-06-18 removal sweep (`c674610`·`c5b5201`·`cf564eb`) + 2026-07-30 broadening (`086a8ae`) found **no licensing rationale anywhere** — the removal was documented purely as a **positioning** decision (post-Huione "process competence, never access"). (B) ClickUp + Hermes PM layer opened over the remaining Agentic Firm build; read-only proposal done, 20 questions answered, container locked. **Scope shrank**: legal-expiration likely folds into Compliance Calendar → 3 full builds + 2 deferred + 1 fold-in + 1 gated dashboard, not 5 + dashboard. Full narrative in vault [[Firm Operations/20_Session_Log_2026-08-29_positioning_verify_and_clickup_pm]].
 
@@ -22,7 +32,8 @@ Prior entry (2026-08-20): GEO sensor knowledge base seeded — `~/.geo-prospects
 > [!warning] Multiple day-close blocks below — read in this order
 > **Authoritative sequence:**
 >
-> 1. **"Session close — 2026-08-31 (brand migration shipped)"** (immediately below) — today's work.
+> 1. **"Session close — 2026-08-31 (62010 pivot)"** (immediately below) — latest.
+> 2. **"Session close — 2026-08-31 (brand migration shipped)"** — earlier the same day.
 > 2. **"Session close — 2026-08-29 (positioning verification + ClickUp PM layer)"** — TPP verification + PM layer.
 > 3. **"Session close — 2026-08-25 (finalised brand kit landed)"** — brand kit staged at `brand/`.
 > 4. **"Session close — 2026-08-24 (GEO standing-findings remediation)"** — GEO H5/H6/H7 closed.
@@ -31,6 +42,38 @@ Prior entry (2026-08-20): GEO sensor knowledge base seeded — `~/.geo-prospects
 > 7. **"Session close — 2026-08-20 (GEO KB seed)"** — GEO sensor knowledge base.
 > 8. **"Session close — 2026-08-19"** (further down, past the two 08-19 blocks) — the substantive prior-day state: sensor trust, standing constraint, open triggers.
 > 9. **This header** supersedes all for current state.
+
+---
+
+## Session close — 2026-08-31 (62010 pivot)
+
+Second session that day. `8ddc1d9` + `cd62c7b` → `cambodia-fintech-a2pr6adia`. Decision: **ADR-005**.
+
+### The premise was mistaken, and the vault says so
+
+The licensing worry was the **TPP/PSI** regime — payment routing on a bank's behalf, ~US$2M + 5% deposit (`02:40,86`). CamFinTech is not that. For build work `02:79` is explicit: *"No NBC/NBFSA licence needed."* And `63_OBR` §2 kept 62010 off-site because it *"directly contradicts the 'never build' hard rule stamped on 6 site surfaces"* — **circular**; it protected copy, not a licence.
+
+### The traffic diagnosis was also different from the premise
+
+Sitemap 49 → 24, articles 40 → 16, corpus ~79k → ~18.7k words. `c674610` reworded pages; **`c5b5201` deleted 24 URLs and ~60k words.** Eleven still 301'd to `/` (soft 404), including `/learn/fintech-license-cambodia` — flagged in `8aa75b5` as *"the best-performing legacy URL"*.
+
+### Scope adopted: integrate-only
+
+Client-side integration to the rails. **Never host or transmit client traffic** — that is the seam (`40:34`). Unchanged: fee-only · never hold funds · never operate a rail · reserved work · applicant-of-record · process competence never access. `28:83` had already authorised bundling the build as a disclosed sub-contract, so this is closer to a disclosure change than a model change.
+
+### Two bugs worth carrying forward
+
+**Next 16 route `params` is a Promise.** The restored `/knowledge/[slug]` declared it as a plain object, typechecked against its own wrong declaration, resolved `slug` to `undefined`, and served a **404 body at HTTP 200**. `curl` said fine. Any file restored from before 2026-08-16 needs its route signature checked.
+
+**Restored files carry dead brand tokens** from before the 2026-08-31 migration.
+
+### Open
+
+1. **6 `/insights`** — staleness audit (2026 market data). NEW-M3.
+2. **4 `/use-cases`** — rewrite as labelled scenarios; originals named clients that did not exist. NEW-M4.
+3. **8 redirects still on `/`** — blocked on the above. NEW-L11.
+4. **GEO KB re-seed** + watch for Business Type shift (Agency/Services → Hybrid). NEW-L12.
+5. **Traffic** — re-verify GSC (DNS-only; do NOT re-add `verification.google`), measure at 2/4/8 weeks.
 
 ---
 

@@ -81,7 +81,30 @@ The website emphasizes:
 1. Cambodia's deliberate digital infrastructure planning (not organic growth)
 2. Government-as-a-Platform (GaaP) model with mandatory integration layers
 3. Strategic investment opportunities at infrastructure intersections (SCF, compliance-as-a-service, embedded insurance)
-4. Technical consulting for enterprises to integrate with government APIs
+4. Technical consulting **and integration delivery** for enterprises connecting to government APIs
+
+## Positioning — what CamFinTech does and doesn't (updated 2026-08-31)
+
+The "never builds" rule was **reversed on 2026-08-31** (commit `cd62c7b`, vault `Firm Operations/02_Decision_Log.md` **ADR-005**). It had been adopted partly on a mistaken belief that offering software development needed extra Cambodian licensing — that requirement belongs to a **Third-Party Processor** routing payments on a bank's behalf (the PSI licence, ~US$2M + 5% deposit), which CamFinTech is not.
+
+**Scope is integrate-only.** CamFinTech builds the **client side** of an integration — ERP→CamInvoice connectors, Bakong/KHQR connectivity, CamDX and CamDigiKey adapters. KHNSIC **62010 is now public**.
+
+**The seam that must not be crossed**: CamFinTech does **not host or transmit client transaction traffic**. A multi-tenant SaaS carrying clients' invoice or payment data is operate-adjacent and would need a ring-fenced entity — a corporate-structure decision, not a copy decision. Vault `DPI Integration/40_CamInvoice_Mandate_and_SP_Strategy.md:34,:189`.
+
+**Rules that did NOT change — do not weaken any of these:**
+
+- **Fee-only** — no commissions, no transaction cuts, no markup on partner invoices
+- **Never hold client funds**
+- **Never operate a rail** — the client or its sponsor bank is the licensed operator
+- **Reserved work to licensed professionals** — Bar lawyers, GDT tax agents
+- **Client is always the applicant of record**
+- **Process competence, never access**
+
+**Never write access-claim language.** Phrases like "relationships with the NBC", "government liaison", "regulatory dialogue on behalf of clients", or anything implying influence over a regulator's decision are an **existential brand liability** post-Huione (vault `31_Training_Strategy.md:35`). Two separate instances of this shipped undetected and were removed on 2026-08-31 — check for it whenever touching positioning copy. "Ex-regulator talent" is fine: that describes who was hired, not who is known.
+
+**No unevidenced claims.** CamFinTech is pre-revenue with no active clients. Do not write case studies, track-record claims, named product SKUs, or quantified client outcomes. The restored 2026 content carried ~15 fabricated assets and two fabricated citations; all were removed. If a capability claim cannot be evidenced, it does not ship.
+
+**The conflict disclosure on the homepage is load-bearing** — building a client's integration while navigating its approval is the one genuine residual risk of the reversal, and it is answered publicly rather than in the engagement letter. Do not remove it.
 
 ## Git Workflow & Deployment Automation
 
