@@ -65,14 +65,6 @@ const nextConfig = {
     return [
 
 
-      // Insights — pending staleness audit (2026 market data). Interim topical targets
-      // where one exists; the four below have no live equivalent yet.
-      { source: '/insights/cambodia-digital-payment-growth', destination: '/', permanent: true },
-      { source: '/insights/sme-digital-readiness', destination: '/', permanent: true },
-      { source: '/insights/asean-fintech-investment', destination: '/', permanent: true },
-      { source: '/insights/bakong-adoption-metrics', destination: '/learn/how-bakong-works', permanent: true },
-      { source: '/insights/caminvoice-rollout-impact', destination: '/learn/what-is-caminvoice', permanent: true },
-      { source: '/insights/cambodia-vs-regional-fintech', destination: '/', permanent: true },
 
       // Use cases — being rewritten as labelled scenarios; the originals named
       // clients that did not exist, so they are not restored as-is.
@@ -83,7 +75,6 @@ const nextConfig = {
 
 
       // Section indexes still retired (/knowledge is restored, so it is not here)
-      { source: '/insights', destination: '/', permanent: true },
       { source: '/use-cases', destination: '/', permanent: true },
     ];
   },

@@ -24,6 +24,15 @@ import { complianceAsAService } from './learn/compliance-as-a-service';
 import { fintechLicenseCambodia } from './learn/fintech-license-cambodia';
 import { cambodiaAmlRequirements } from './learn/cambodia-aml-requirements';
 import { crossBorderPaymentsBakong } from './learn/cross-border-payments-bakong';
+// Insights — restored 2026-08-31 after a currency audit. Data is 2024/2025 and the
+// leads say so; only one forward-looking claim had actually elapsed (the mid-2026
+// Bakong-NAPAS/LAPNet corridor launch) and it was reframed rather than asserted.
+import { aseanFintechInvestment } from './insights/asean-fintech-investment';
+import { bakongAdoptionMetrics } from './insights/bakong-adoption-metrics';
+import { cambodiaDigitalPaymentGrowth } from './insights/cambodia-digital-payment-growth';
+import { cambodiaVsRegionalFintech } from './insights/cambodia-vs-regional-fintech';
+import { caminvoiceRolloutImpact } from './insights/caminvoice-rollout-impact';
+import { smeDigitalReadiness } from './insights/sme-digital-readiness';
 // Knowledge — restored 2026-08-31 (62010 pivot, Phase A2). TechArticle deep-dives.
 import { cambodiaGaapArchitecture } from './knowledge/cambodia-gaap-architecture';
 import { bakongTechnicalIntegration } from './knowledge/bakong-technical-integration';
@@ -37,8 +46,8 @@ import { aseanDigitalEconomyComparison } from './knowledge/asean-digital-economy
 // Restored 2026-08-31 (62010 pivot): /knowledge/* (8) and 6 /learn/* articles are
 // back at their original URLs — a restored 200 preserves far more authority than any
 // redirect. Their next.config.js redirects were removed in the same commit.
-// Still retired: /insights/* (6, pending staleness audit) and /use-cases/* (4, being
-// rewritten as labelled scenarios — the originals named clients that did not exist).
+// Still retired: /use-cases/* (4) — being rewritten as labelled scenarios; the
+// originals named clients that did not exist.
 const allArticles: ArticleContent[] = [
   // Glossary
   bakong,
@@ -64,6 +73,13 @@ const allArticles: ArticleContent[] = [
   fintechLicenseCambodia,
   cambodiaAmlRequirements,
   crossBorderPaymentsBakong,
+  // Insights (Article — market data and analysis)
+  aseanFintechInvestment,
+  bakongAdoptionMetrics,
+  cambodiaDigitalPaymentGrowth,
+  cambodiaVsRegionalFintech,
+  caminvoiceRolloutImpact,
+  smeDigitalReadiness,
   // Knowledge (TechArticle deep-dives)
   cambodiaGaapArchitecture,
   bakongTechnicalIntegration,
