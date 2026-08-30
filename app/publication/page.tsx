@@ -107,7 +107,7 @@ export default function PublicationPage() {
                 <a
                   href="https://riel.report"
                   rel="external"
-                  className="inline-flex h-14 min-w-[200px] items-center justify-center rounded-lg bg-teal px-8 text-base font-bold tracking-[0.015em] text-navy hover:scale-105 transition-transform"
+                  className="inline-flex h-14 min-w-[200px] items-center justify-center rounded-lg bg-teal px-8 text-base font-bold tracking-[0.015em] text-navy-deep hover:scale-105 transition-transform"
                 >
                   Read The Riel Report →
                 </a>

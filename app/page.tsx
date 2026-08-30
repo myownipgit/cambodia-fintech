@@ -96,7 +96,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-4">
                   <a
                     href="#contact"
-                    className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal px-5 text-base font-bold tracking-[0.015em] text-navy transition-transform hover:scale-105"
+                    className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal px-5 text-base font-bold tracking-[0.015em] text-navy-deep transition-transform hover:scale-105"
                   >
                     <span className="truncate">Book a readiness call</span>
                   </a>
@@ -456,7 +456,7 @@ export default function Home() {
               <div className="mt-8 flex flex-wrap gap-3 justify-center">
                 <a
                   href="mailto:info@camfintech.com"
-                  className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal px-5 text-base font-bold tracking-[0.015em] text-navy transition-transform hover:scale-105"
+                  className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal px-5 text-base font-bold tracking-[0.015em] text-navy-deep transition-transform hover:scale-105"
                 >
                   Email info@camfintech.com
                 </a>

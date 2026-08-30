@@ -33,7 +33,7 @@ export default function DaspContent() {
               We navigate the application, build the AML/CFT programme, assemble the governance roster, and shepherd you from sandbox to full operating licence. The licensed DASP operator (you) submits and operates; reserved legal opinion routes to a Bar lawyer. <strong>We never custody, never file, never operate.</strong>
             </p>
             <div className="flex flex-wrap gap-3 mt-6">
-              <a href="mailto:dasp@camfintech.com" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-teal px-5 text-base font-bold text-navy hover:scale-105 transition-transform">
+              <a href="mailto:dasp@camfintech.com" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-teal px-5 text-base font-bold text-navy-deep hover:scale-105 transition-transform">
                 Email dasp@camfintech.com
               </a>
               <Link href="/#contact" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-teal/15 px-5 text-base font-bold text-navy hover:scale-105 transition-transform">
@@ -183,7 +183,7 @@ export default function DaspContent() {
                 The diagnostic is a 2–3 week paid engagement that doubles as the integrity STOP-gate qualifier. Tell us about your DASP plans — we&apos;ll reply within 24 hours in Phnom Penh business hours.
               </p>
               <div className="mt-6 flex flex-wrap gap-3 justify-center">
-                <a href="mailto:dasp@camfintech.com" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-teal px-5 text-base font-bold text-navy hover:scale-105 transition-transform">
+                <a href="mailto:dasp@camfintech.com" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-teal px-5 text-base font-bold text-navy-deep hover:scale-105 transition-transform">
                   Email dasp@camfintech.com
                 </a>
                 <a href="https://wa.me/855762775645" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-teal/15 px-5 text-base font-bold text-navy hover:scale-105 transition-transform">
