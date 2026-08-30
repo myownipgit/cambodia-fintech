@@ -1,6 +1,6 @@
 # CamFinTech
 
-> CamFinTech is a Phnom Penh–based **fee-only regulatory approval-navigation and compliance firm**. We get Cambodian and foreign FinTechs **approved** onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. We build the client-side integration to those rails, or bring in an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Our moat is ex-NBC, NBFSA, TSC, SERC, and GDT regulator talent paired with the engineering to deliver against it.
+> CamFinTech is a Phnom Penh–based **fee-only regulatory and compliance practice**. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. We build the client-side integration to those rails, or bring in an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Our moat is ex-NBC, NBFSA, TSC, SERC, and GDT regulator talent paired with the engineering to deliver against it.
 
 ## Operating discipline
 
@@ -8,7 +8,7 @@
 - **Never hold client funds** — funds flow through the licensed operator (member bank, licensed PSP), never CamFinTech.
 - **Never operate a rail** — the client (or sponsor) remains the licensed operator; we stay in the "assist" ring.
 - **Reserved work to licensed partners** — Bar lawyers, GDT tax agents, accredited Service Providers.
-- **Process competence, never access** — we market process competence; we don't market relationships.
+- **Paid for process competence** — the fee reflects the work of preparing an application to standard, never influence over how it is decided.
 
 **Registered scope:** CamFinTech is registered under KHNSIC-2015 codes 62020 (computer consultancy), 62090 (other IT services), 70200 (management consultancy / GRC), and 85499 (professional training). Full mapping to service vectors at https://www.camfintech.com/llms-full.txt.
 
@@ -46,11 +46,11 @@ Full product detail: https://www.camfintech.com/products/dasp
 
 ## What CamFinTech does NOT do
 
-- Hold client funds or operate any rail
-- Host or transmit client transaction traffic — we build the integration, the client operates it
-- Lobby, trade on contacts, or sell "access"
-- Take a cut of your transactions
-- Promise an outcome we can't control
+- **Custody and operation of the rail** — the licensed operator's, whether the client or its sponsoring member bank. CamFinTech holds no client funds.
+- **Hosting or transmitting transaction traffic** — the client's. We build the integration; the client runs it.
+- **The approval decision** — the regulator's, entirely. The client is the applicant of record; we prepare the work rather than press the case.
+- **Reserved professional work** — legal opinions to Bar-admitted counsel, tax filings to licensed agents, penetration testing to accredited firms. Coordinated, never marked up.
+- **Any share of transaction value** — fees are for professional work only.
 - Operate as a named MLRO (must be a board-appointed individual of the licensed entity)
 - File submissions on the client's behalf (the licensed operator is the applicant of record)
 

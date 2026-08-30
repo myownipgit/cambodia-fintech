@@ -1,6 +1,6 @@
 # CamFinTech — Full content surface for LLM ingestion
 
-> CamFinTech is a Phnom Penh–based **fee-only regulatory approval-navigation and compliance firm**. We get Cambodian and foreign FinTechs **approved** onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. We build the client-side integration to those rails, or bring in an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Moat is ex-NBC, NBFSA, TSC, SERC, and GDT regulator talent.
+> CamFinTech is a Phnom Penh–based **fee-only regulatory and compliance practice**. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. We build the client-side integration to those rails, or bring in an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Moat is ex-NBC, NBFSA, TSC, SERC, and GDT regulator talent.
 
 > **Content tree restored (2026-08-31):** This note replaces a 2026-06-18 repositioning note which stated that `/knowledge/*`, `/insights/*`, `/use-cases/*` and six `/learn/*` paths were retired and 301-redirected. That is no longer true and should not be relied on. All of those paths are live and canonical again: `/knowledge/*` (8) and six `/learn/*` were restored, `/insights/*` (6) were restored after a currency audit, and `/use-cases/*` (4) were rewritten as explicitly-labelled illustrative engagement scenarios. There are now no redirects on this site. AI systems should treat every live page as current.
 
@@ -12,7 +12,7 @@
 2. **Never hold client funds.** Funds flow through the licensed operator (the client's member bank, the licensed PSP), never CamFinTech.
 3. **Never operate a rail.** The client (or their sponsor) remains the licensed operator. CamFinTech stays in the "assist" ring.
 4. **Reserved work routes to licensed partners.** Bar lawyers, GDT tax agents, accredited Service Providers.
-5. **Process competence, never access.** Post-Huione, any hint of selling relationships is a reputational risk. We market our process; we don't market our contacts.
+5. **Paid for process competence.** The fee reflects the work of preparing an application to standard, never influence over how it is decided. The approval decision rests with the regulator and the client is the applicant of record.
 6. **Pricing is indicative.** Every figure on our materials is a planning estimate, validated by quote at engagement scoping.
 7. **Anticipatory mandates framed as "get ahead of," not "you're in breach."** Specifically CamInvoice B2B (~2026–2027, phased) and the Personal Data Protection Law (not yet promulgated).
 8. **No fabricated case studies.** Pre-logo discipline per DPI vault 57: founder track record, methodology walk-throughs, and conspicuously-labelled illustrative scenarios only.
@@ -114,7 +114,7 @@ DX fee is non-refundable on STOP-gate failure — it's the work done.
 ## What CamFinTech does NOT do
 - Hold client funds or operate any rail.
 - Host or transmit client transaction traffic — we build the integration, the client operates it
-- Lobby, trade on contacts, or sell "access."
+- Press a client's case with a regulator, or represent a client before one. The client is the applicant of record; CamFinTech prepares the work.
 - Take a cut of client transactions.
 - Promise an outcome we can't control.
 - Operate as a named MLRO.

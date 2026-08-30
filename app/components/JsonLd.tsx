@@ -16,7 +16,7 @@ export default function JsonLd() {
           "height": 300,
         },
         "description":
-          "CamFinTech is a Phnom Penh–based fee-only regulatory approval-navigation and compliance firm. We get Cambodian and foreign FinTechs approved onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and keep them compliant. We build the client-side integration to those rails, or direct an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Our moat is ex-NBC/NBFSA/TSC/SERC/GDT regulator talent paired with the engineering to deliver against it.",
+          "CamFinTech is a Phnom Penh–based fee-only regulatory and compliance practice. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the programmes that hold afterwards. We build the client-side integration to those rails, or direct an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Our moat is ex-NBC/NBFSA/TSC/SERC/GDT regulator talent paired with the engineering to deliver against it.",
         "foundingDate": "2024",
         "areaServed": {
           "@type": "Country",

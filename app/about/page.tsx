@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About — William Mallett, Founder & Managing Director, CamFinTech",
     description:
-      "Fee-only regulatory approval-navigation and compliance firm in Phnom Penh. Founder William Mallett. Process competence, never access.",
+      "Fee-only regulatory and compliance practice in Phnom Penh. Founder William Mallett. The client is always the applicant of record.",
     url: "https://www.camfintech.com/about",
     type: "profile",
     images: [ogImage],

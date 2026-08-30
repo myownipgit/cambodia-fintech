@@ -50,7 +50,7 @@ export default function AboutContent() {
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-navy mb-3">About the practice</h2>
           <p className="text-navy/85 leading-relaxed">
-            <strong>CamFinTech is a fee-only regulatory approval-navigation and compliance firm</strong> based in Phnom Penh. We get Cambodian and foreign FinTechs <em>approved</em> onto Cambodia&apos;s national rails — Bakong/KHQR (payments, NBC), CamDX/CamDigiKey (identity/data exchange, TSC), CamInvoice (e-invoicing, GDT) — and run the AML/CFT and governance programmes that keep them compliant. Trading as CamFinTech (legal entity CAMFINTECH CO., LTD pending registration).
+            <strong>CamFinTech is a fee-only regulatory and compliance practice</strong> based in Phnom Penh. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia&apos;s national rails — Bakong/KHQR (payments, NBC), CamDX/CamDigiKey (identity and data exchange, TSC), CamInvoice (e-invoicing, GDT) — and run the AML/CFT and governance programmes that hold afterwards. Trading as CamFinTech (legal entity CAMFINTECH CO., LTD pending registration).
           </p>
           <p className="text-navy/85 leading-relaxed mt-4">
             We&apos;re structurally different from the firms most prospects compare us against:
@@ -71,7 +71,7 @@ export default function AboutContent() {
             CamFinTech&apos;s defensible space is the layer between &quot;the regulator&quot; and &quot;the build.&quot; Applications fail on AML/CFT, governance, capital planning, and documentation — not code. Most FinTechs put engineers on regulatory problems they were never trained for. The fix isn&apos;t more engineering — it&apos;s people who&apos;ve worked the regulator&apos;s side of the desk.
           </p>
           <p className="text-navy/85 leading-relaxed mt-3">
-            Our people have hands-on NBC, NBFSA, TSC, SERC, and GDT experience — a competency NBFSA&apos;s own 2024–2028 FinTech plan documents as scarce in Cambodia. We hire from the regulated-private side (mid-tier banks, MFIs, PSPs, accredited SPs) and from former-regulator advisors after a self-imposed cooling-off; we never engage current officials.
+            Our people have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT, and the NBFSA&apos;s own 2024&ndash;2028 FinTech plan makes developing this competency locally a national priority. We hire from the regulated-private side (mid-tier banks, MFIs, PSPs, accredited SPs) and from former-regulator advisers after a self-imposed cooling-off period; we do not engage serving officials.
           </p>
         </section>
 
@@ -84,7 +84,7 @@ export default function AboutContent() {
             <li><strong>Fee-only.</strong> Professional fees for advisory and programme delivery — never commissions, never markups on partner invoices.</li>
             <li><strong>Never hold client funds.</strong> Funds flow through the licensed operator (the client&apos;s member bank, the licensed PSP), never us.</li>
             <li><strong>Never operate the rail.</strong> The client (or their sponsor) remains the licensed operator. We stay in the &quot;assist&quot; ring; reserved work routes to licensed partners.</li>
-            <li><strong>Process competence, never access.</strong> Post-Huione, any hint of selling relationships is a reputational risk. We market our process; we don&apos;t market our contacts.</li>
+            <li><strong>Paid for process competence.</strong> Our fee reflects the work of preparing an application to standard &mdash; never influence over how it is decided. The decision rests with the regulator, and the client is the applicant of record.</li>
             <li><strong>Pricing indicative.</strong> Every figure on our materials is a planning estimate, validated by quote at engagement scoping.</li>
           </ul>
         </section>
@@ -99,7 +99,7 @@ export default function AboutContent() {
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-navy mb-3">Background</h2>
           <p className="text-navy/85 leading-relaxed">
-            Most FinTechs in Cambodia don&apos;t fail to get onto the national rails because of their technology. They fail because approval turns on compliance, governance and documentation — not code — and the unwritten expectations of NBC, NBFSA, TSC and the GDT are opaque to outsiders. Foreign-owned operators are told their application is &quot;non-compliant,&quot; with little explanation of how to fix it. Local FinTechs put their engineers on regulatory problems no engineer was trained to solve.
+            Most FinTechs in Cambodia that struggle to reach the national rails do not struggle on technology. They struggle because the requirements are prudential — compliance, governance and documentation rather than code — and that is a discipline an engineering organisation rarely has in-house. Foreign-owned operators arrive without local regulatory experience; local FinTechs put engineers on problems no engineer was trained to solve. Neither is a failing of the standard, which exists for good reason; it is a gap in who is available to meet it.
           </p>
           <p className="text-navy/85 leading-relaxed mt-4">
             That gap is why William founded CamFinTech. Fuller professional history — prior work in Cambodian and ASEAN FinTech — is maintained on <a href={FOUNDER_LINKEDIN} target="_blank" rel="noopener noreferrer me" className="text-navy hover:underline">LinkedIn</a>.

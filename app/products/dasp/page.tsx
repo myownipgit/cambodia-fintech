@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "DASP Approval-Readiness — Prakas 093",
-    description: "End-to-end DASP licensing readiness. Fee-only. Process competence, never access.",
+    description: "End-to-end DASP licensing readiness under SERC Prakas 093. Fee-only; the client is the applicant of record.",
     images: [ogImage],
   },
 };

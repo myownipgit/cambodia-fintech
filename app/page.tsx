@@ -32,7 +32,7 @@ const homepageSchema = {
           "name": "What does CamFinTech actually do?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "CamFinTech is a fee-only regulatory approval-navigation and compliance firm in Phnom Penh. We get Cambodian and foreign FinTechs approved onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the compliance programme that keeps them approved. We build the client-side integration ourselves, or direct an accredited Service Provider where their platform depth fits better. We never hold client funds and never operate a rail.",
+            "text": "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the compliance programmes that hold afterwards. We build the client-side integration ourselves, or direct an accredited Service Provider where their platform depth fits better. The firm holds no client funds and operates no rail; the approval decision rests with the regulator and the client is the applicant of record.",
           },
         },
         {
@@ -87,11 +87,18 @@ export default function Home() {
           <section className="w-full" id="home">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-5 lg:gap-16">
               <div className="flex flex-col gap-6 text-left lg:col-span-3">
+                {/* The former H1 read "We get Cambodian and foreign FinTechs approved
+                    onto the government rails". It claimed agency over a decision that
+                    belongs to the regulator — which contradicted the conflict disclosure
+                    further down this same page ("We do not influence a regulator's
+                    decision and we do not claim to"), and reads as presumptuous to the
+                    institutional and official readers this site now receives. The firm
+                    prepares work to a standard; the decision is never ours. */}
                 <h1 className="text-4xl font-extrabold leading-tight tracking-[-0.033em] sm:text-5xl">
-                  We get Cambodian and foreign FinTechs approved onto the government rails — and keep them compliant.
+                  Cambodia has built the rails. We prepare institutions to meet the standard for connecting to them.
                 </h1>
                 <p className="text-base font-normal leading-normal sm:text-lg text-navy/85">
-                  CamFinTech is a fee-only regulatory approval-navigation and compliance firm. We navigate NBC, NBFSA, TSC, SERC, and GDT approvals for Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — raising you <em>to</em> the regulator&apos;s standard. We&apos;re your single accountable partner for the whole journey, and we coordinate our vetted legal, tax, and integration partners transparently. <strong>We never hold your funds and never operate a rail.</strong> We build the client-side integration ourselves or direct the accredited Service Provider who does — either way you have one accountable partner.
+                  CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, working alongside banks, financial institutions and FinTechs on the approvals and programmes that Bakong and KHQR, CamDX and CamDigiKey, and CamInvoice require. The standard is set by the NBC, the NBFSA and SERC, the TSC and the GDT; our work is preparing clients to meet it, and building the client-side integration once they do. We also transfer the capability, because compliance competence held in Cambodia is worth more to this market than compliance competence flown in.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a
@@ -114,7 +121,7 @@ export default function Home() {
 
               {/* Trust strip */}
               <aside className="lg:col-span-2 flex flex-col gap-3 rounded-2xl border-2 border-teal/30 bg-teal/5 p-6">
-                <p className="text-xs font-bold uppercase tracking-wider text-navy">How we operate</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-navy">How the firm is constituted</p>
                 <ul className="flex flex-col gap-2 text-sm">
                   <li className="flex gap-2">
                     <span className="text-navy font-bold">·</span>
@@ -134,7 +141,7 @@ export default function Home() {
                   </li>
                   <li className="flex gap-2">
                     <span className="text-navy font-bold">·</span>
-                    <span><strong>Process competence, never access.</strong> You pay us for knowing the process, not for knowing people.</span>
+                    <span><strong>Paid for process competence.</strong> Our fee reflects the work of preparing an application to standard — never influence over how it is decided.</span>
                   </li>
                 </ul>
               </aside>
@@ -144,17 +151,24 @@ export default function Home() {
           {/* Problem */}
           <section className="mt-24 w-full" id="problem">
             <div className="flex flex-col items-start gap-4 max-w-4xl">
+              {/* Rewritten 2026-08-31. The previous copy described approval as "opaque",
+                  said the process "defeats most applicants", and asserted that applicants
+                  are "turned back as non-compliant with no further explanation". Those are
+                  criticisms of the regulators, published in the firm's own voice, and they
+                  would be read that way by the officials and institutions this site now
+                  receives. The commercial point — that this is a prudential discipline
+                  rather than an engineering one — is made here without any of it. */}
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                The problem we solve
+                Where the work actually lies
               </h2>
               <p className="text-lg text-navy/85 leading-relaxed">
-                Cambodia&apos;s rails are powerful — but getting <em>onto</em> them defeats most applicants. Approval is opaque and multi-gated (an NBC licence, a sponsoring member bank, a separate CamDX membership), and it turns on <strong>AML/CFT, governance, capital planning, and documentation</strong> — not code.
+                Connecting to Cambodia&apos;s rails is not principally a technical exercise. The requirements are prudential: <strong>AML/CFT programme design, governance, capital planning and documentation</strong>, assessed by more than one authority, and often alongside a sponsoring member bank. The engineering is the smaller half.
               </p>
               <p className="text-lg text-navy/85 leading-relaxed">
-                Most FinTechs have no in-house risk or compliance function, so they put engineers on regulatory problems they were never trained for. Many applicants report being turned back as &quot;non-compliant&quot; with no further explanation. The result is delay, cost, and applications that don&apos;t clear the bar.
+                Most FinTechs are engineering organisations. They have no in-house risk or compliance function, so the work falls to people who were trained for something else — which costs time that a well-prepared application would not have cost.
               </p>
               <p className="text-lg text-navy/85 leading-relaxed">
-                We are the missing risk-and-compliance function. Our people have hands-on NBC, NBFSA, TSC, SERC, and GDT experience — a competency the regulator itself documents as scarce in Cambodia.
+                That function is what we supply, and what we hand over. Our people have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT, and the NBFSA&apos;s own 2024-2028 FinTech plan identifies building this competency locally as a priority. We would rather leave it behind in a client&apos;s team than be needed indefinitely.
               </p>
             </div>
           </section>
@@ -163,10 +177,10 @@ export default function Home() {
           <section className="mt-24 w-full" id="scope">
             <div className="flex flex-col items-center gap-4 text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                What we do (and don&apos;t)
+                Scope of practice
               </h2>
               <p className="max-w-3xl text-base text-navy/75">
-                The boundary is explicit, and it is easier to judge a firm by what it rules out than by what it promises. Both halves are below.
+                Set out in full, including its limits. Several things a client needs are reserved to licensed professionals or belong to the operator or the regulator, and we would rather name them than blur them.
               </p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -191,14 +205,20 @@ export default function Home() {
               <div className="rounded-xl border-2 border-navy/15 bg-card/50 p-6">
                 <div className="flex items-center gap-2 mb-4 text-navy/70">
                   <span className="material-symbols-outlined text-2xl" aria-hidden="true">block</span>
-                  <h3 className="text-xl font-bold">We don&apos;t</h3>
+                  <h3 className="text-xl font-bold">Outside our scope, and where it belongs</h3>
                 </div>
+                {/* Reframed 2026-08-31. This list previously read as five refusals, one of
+                    which — "Lobby, trade on contacts, or sell access" — carried an implied
+                    accusation about how business is conducted in Cambodia. Relationships and
+                    standing are legitimate and essential here; selling influence over a
+                    decision is the thing the firm will not do, and the two are not the same.
+                    Each limit now names the party the work properly belongs to. */}
                 <ul className="space-y-3 text-sm text-navy/75">
-                  <li>Hold client funds or operate any rail</li>
-                  <li>Host or transmit your transaction traffic — we build the integration, you operate it</li>
-                  <li>Lobby, trade on contacts, or sell &quot;access&quot;</li>
-                  <li>Take a cut of your transactions</li>
-                  <li>Promise an outcome we can&apos;t control</li>
+                  <li><strong>Custody and operation of the rail</strong> — the licensed operator&apos;s, whether that is the client or its sponsoring member bank. The firm holds no client funds.</li>
+                  <li><strong>Hosting or transmitting transaction traffic</strong> — the client&apos;s. We build the integration; you run it, on your infrastructure.</li>
+                  <li><strong>The approval decision</strong> — the regulator&apos;s, entirely. The client is the applicant of record, and we prepare the work rather than press the case.</li>
+                  <li><strong>Reserved professional work</strong> — legal opinions to Bar-admitted counsel, tax filings to licensed agents, penetration testing to accredited firms. Coordinated, never marked up.</li>
+                  <li><strong>Any share of transaction value</strong> — fees are for professional work, so that our advice does not depend on what you process.</li>
                 </ul>
               </div>
             </div>
@@ -334,13 +354,13 @@ export default function Home() {
                   Why CamFinTech
                 </h2>
                 <p className="text-base text-navy/75">
-                  Five things that make us the firm regulator-fluent FinTechs hire to navigate the approval and run the compliance.
+                  Five reasons institutions bring us in, and one reason they keep us: we would rather build the capability into your team than remain necessary.
                 </p>
               </div>
               <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <h3 className="font-bold mb-2">Regulator-fluent, not just regulation-literate</h3>
-                  <p className="text-sm text-navy/75">Our people have hands-on NBC, NBFSA, TSC, SERC, and GDT experience — a competency NBFSA&apos;s own 2024–2028 FinTech plan documents as scarce in Cambodia.</p>
+                  <p className="text-sm text-navy/75">Our people have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT — and the NBFSA&apos;s own 2024&ndash;2028 FinTech plan makes developing this competency locally a priority.</p>
                 </div>
                 <div>
                   <h3 className="font-bold mb-2">We raise you <em>to</em> the standard</h3>
@@ -348,7 +368,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-bold mb-2">Capital-light and conflict-free</h3>
-                  <p className="text-sm text-navy/75">We earn nothing from the volume you process or the rail you choose, so our incentives are simple: get you approved, and keep you compliant.</p>
+                  <p className="text-sm text-navy/75">We earn nothing from the volume you process or the rail you choose, so our interest is only in the quality of the work: an application prepared to standard, and a programme that holds afterwards.</p>
                 </div>
                 <div>
                   <h3 className="font-bold mb-2">One coordinator across every rail</h3>

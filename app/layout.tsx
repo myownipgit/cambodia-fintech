@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.camfintech.com"),
   title: "CamFinTech — Cambodia DPI Approval-Navigation & Compliance",
   description:
-    "CamFinTech is a fee-only regulatory approval-navigation and compliance firm based in Phnom Penh. We get Cambodian and foreign FinTechs approved onto Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, CamInvoice — and keep them compliant. We build the client-side integration to the rails; we never hold funds or operate one.",
+    "CamFinTech is a fee-only regulatory and compliance practice based in Phnom Penh. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure — Bakong/KHQR, CamDX/CamDigiKey, CamInvoice — and run the programmes that hold afterwards. We build the client-side integration to the rails. The firm holds no client funds and operates no rail.",
   keywords: [
     "Cambodia DPI",
     "DPI Integration",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CamFinTech — Cambodia DPI Approval-Navigation & Compliance",
     description:
-      "Fee-only regulatory approval-navigation and compliance firm. We get Cambodian and foreign FinTechs approved onto Cambodia's national rails — and keep them compliant.",
+      "Fee-only regulatory and compliance practice in Phnom Penh, preparing institutions to meet the standard for Cambodia's national digital rails.",
     url: "https://www.camfintech.com",
     siteName: "CamFinTech",
     locale: "en_US",
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CamFinTech — Cambodia DPI Approval-Navigation & Compliance",
     description:
-      "Fee-only. Never hold client funds. Never operate a rail. Process competence, never access.",
+      "Fee-only. The firm holds no client funds and operates no rail. The approval decision rests with the regulator; the client is the applicant of record.",
   },
   robots: {
     index: true,

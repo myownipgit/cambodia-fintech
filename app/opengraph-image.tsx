@@ -57,7 +57,7 @@ export default async function Image() {
             marginBottom: "24px",
           }}
         >
-          We get Cambodian and foreign FinTechs approved onto the government rails — and keep them compliant.
+          Cambodia has built the rails. We prepare institutions to meet the standard for connecting to them.
         </div>
 
         {/* Subtext */}
