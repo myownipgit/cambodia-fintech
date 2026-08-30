@@ -9,6 +9,8 @@ This file tracks the current session state to enable seamless recovery between s
 
 **But the restored content carried 68 false first-person claims** — ~15 fabricated assets (validation library, reconciliation module, four named ERP connector products), 2 fabricated citations, and 4 access claims including *"leveraging deep relationships with NBC, GDT… to ensure smooth and timely approvals"* with *"our clients have achieved…"* from a firm with no clients. All neutralised. **This content, not the homepage copy, was the strongest reason to have done the June rewrite — and was never the stated one.**
 
+**Phase A5 — `/insights` restored** (`3997d6c`) after a currency audit; sitemap 39 → 46.
+
 **Phase B — never-build reversed** across 20 files (direction note estimated 6). Scope = **integrate-only**; the seam is no hosting/transmitting of client traffic. Every integrity rule survives: fee-only, never hold funds, never operate a rail, reserved work, applicant-of-record, process competence never access. 62010 now public. **New conflict disclosure** on the homepage. **Also removed a live access claim** on `/learn/what-is-cambodia-gaap` that survived both the June rewrite and the August GEO pass.
 
 Full narrative in vault [[Firm Operations/22_Session_Log_2026-08-31_62010_pivot]].
@@ -69,9 +71,9 @@ Client-side integration to the rails. **Never host or transmit client traffic** 
 
 ### Open
 
-1. **6 `/insights`** — staleness audit (2026 market data). NEW-M3.
+1. ~~6 `/insights`~~ — **DONE `3997d6c`.** Audited: almost nothing was stale (every stat carries an explicit source year). Only the mid-2026 Bakong-NAPAS/LAPNet corridor claim had elapsed; reframed to "were slated for". Analytical self-references kept — no fabrication in this set, unlike `/knowledge`. **Sitemap 39 → 46.**
 2. **4 `/use-cases`** — rewrite as labelled scenarios; originals named clients that did not exist. NEW-M4.
-3. **8 redirects still on `/`** — blocked on the above. NEW-L11.
+3. **3 redirects still on `/`** (was 8) — blocked on the above. NEW-L11.
 4. **GEO KB re-seed** + watch for Business Type shift (Agency/Services → Hybrid). NEW-L12.
 5. **Traffic** — re-verify GSC (DNS-only; do NOT re-add `verification.google`), measure at 2/4/8 weeks.
 
