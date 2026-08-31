@@ -37,3 +37,9 @@ next-env.d.ts
 # Brand masters — working files, not shipped
 /brand/
 camfintech-brand-package_*.zip
+
+# Research PDFs — reference material, kept locally in docs/, not in the repo.
+# Three GEO PDFs (~49 MB) were committed by accident on 2026-08-31 and removed
+# from tracking the same day. The .md research notes in docs/ stay tracked;
+# they are small and text-diffable.
+docs/*.pdf
