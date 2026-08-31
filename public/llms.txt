@@ -14,7 +14,7 @@
 
 ## Service catalogue (SRV-01 through SRV-11)
 
-CamFinTech offers eleven productised service vectors across four areas, applied across regulated FinTechs (banks, MFIs, PSPs, insurers, securities/crypto, alt-lenders) and rail-using enterprises. Pricing is indicative — every engagement is validated by quote.
+CamFinTech's practice covers eleven services across four areas, applied across regulated FinTechs (banks, MFIs, PSPs, insurers, securities/crypto, alt-lenders) and rail-using enterprises. Pricing is indicative — every engagement is validated by quote.
 
 ### Core Rail Integrations
 - [SRV-01 — CamDX / eKYC Enablement](https://www.camfintech.com/#services): Prepare the approval to connect to Cambodia's national identity and data-exchange systems, and build the client-side integration — or direct an accredited Service Provider where platform depth is the better fit.
@@ -30,7 +30,7 @@ CamFinTech offers eleven productised service vectors across four areas, applied 
 - [SRV-07 — AML-Programme Design](https://www.camfintech.com/#services): CDD/EDD, transaction monitoring, CAFIU reporting, MLRO function design. The named MLRO stays client-side; we run the function around them.
 - [SRV-08 — Security / Pentesting](https://www.camfintech.com/#services): Security reviews and penetration tests aligned to NBC's TCRMG expectations — routed to an accredited security firm we coordinate.
 - [SRV-09 — Data-Protection Protocols](https://www.camfintech.com/#services): Consent, retention, processor governance, DPO-support ahead of Cambodia's Personal Data Protection Law.
-- [SRV-11 — DASP Approval-Readiness](https://www.camfintech.com/products/dasp): **Flagship.** End-to-end readiness for SERC's Prakas 093 digital-asset licensing regime (in force 30 December 2025). Productised as DASP-DX/BUILD/RUN/TRAIN.
+- [SRV-11 — DASP Approval-Readiness](https://www.camfintech.com/products/dasp): Readiness for SERC's Prakas 093 digital-asset licensing regime (in force 30 December 2025). Delivered in four stages: DX (diagnostic), BUILD, RUN and TRAIN.
 
 ### Enablement
 - [SRV-10 — Professional Training & Knowledge Transfer](https://www.camfintech.com/#services): Hands-on professional training so your team can operate the rails, follow the compliance steps, and run the programme after handover. Cohort workshops on DPI, cybersecurity, and regulatory compliance.

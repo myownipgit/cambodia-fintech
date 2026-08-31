@@ -83,7 +83,7 @@ Consent, retention, processor governance, DPO-support ahead of Cambodia's Person
 Hands-on professional training so client teams can operate the rails, follow the compliance steps, and run the programme after handover. Cohort workshops on DPI, cybersecurity, and regulatory compliance. (KHNSIC 85499.)
 
 ### SRV-11 — DASP Approval-Readiness (Flagship)
-End-to-end readiness for SERC's Prakas 093 digital-asset licensing regime, **in force 30 December 2025**. Productised as DASP-DX/BUILD/RUN/TRAIN. Full detail at https://www.camfintech.com/products/dasp.
+Readiness for SERC's Prakas 093 digital-asset licensing regime, **in force 30 December 2025**. Delivered in four stages: DX (diagnostic), BUILD, RUN and TRAIN. Full detail at https://www.camfintech.com/products/dasp.
 
 ## DASP Approval-Readiness — product ladder
 
