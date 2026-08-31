@@ -11,7 +11,7 @@ This is a bilingual (English/Khmer) FinTech consulting website for Cambodia, bui
 - **Founder & Managing Director**: William Mallett — LinkedIn: https://www.linkedin.com/in/william-mall/ — surfaced on https://www.camfintech.com/about and referenced via `Organization.founder` in the homepage JSON-LD
 - **Trading name (used publicly)**: CamFinTech
 - **Legal name (pending registration, NOT yet used on public site)**: CAMFINTECH CO., LTD
-- **Corporate HQ — abbreviated form (used on public site until registration finalises)**: 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia
+- **Corporate HQ — public form (2026-08-31, ADR-007)**: 30 Preah Norodom Boulevard, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Kingdom of Cambodia. Sangkat (commune) and Khan (district) depth is the Cambodian convention — ABA, Wing, Tilleke and PPCBank all publish to it, and stopping at Khan reads as incomplete locally. The floor and the building tenancy stay internal.
 - **Corporate HQ — full form (internal docs only)**: 30 Preah Norodom Boulevard, 3rd floor, BRED Bank Building, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Cambodia
 - **LinkedIn (company)**: https://www.linkedin.com/company/118224010/ — listed in `Organization.sameAs` in the homepage JSON-LD
 - **Naming convention**: founder's LinkedIn slug is `william-mall` (short form); the public website name is `William Mallett` (full surname). The slug-name mismatch is intentional — do not "fix" by changing one to match the other.
@@ -39,11 +39,17 @@ Builds use **Turbopack by default** — no `--turbopack` flag needed, and adding
 
 ## Architecture & Key Patterns
 
-### Language System
-- **State Management**: Language state (`"en" | "km"`) is managed in `app/page.tsx` using React's `useState`
-- **Font Handling**: Khmer text uses Kantumruy Pro, toggled via the `.font-khmer` CSS class. Note the two **deliberately inverted** ternaries at `PrivacyContent.tsx` and `TermsContent.tsx` (`${isKm ? "" : "font-khmer"}`) — the language-switch button displays the *other* language's label, so the inversion is correct. Do not "fix" them.
-- **Language Toggle**: Passed down from `page.tsx` to `Header.tsx` component via props
-- **Bilingual Content**: All user-facing content has both English and Khmer versions using ternary operators
+### Language System — the site is English, and that is a decision (ADR-007)
+
+**This section was wrong in all four of its claims until 2026-08-31.** It described language state in `app/page.tsx`, a toggle passed to `Header.tsx`, and bilingual content throughout. None of that exists. Believe the code, and if you change the position here, change it in the code in the same pass.
+
+- **There is no i18n mechanism.** No `next-intl`, no `[locale]` segment, no middleware, no dictionaries, no `alternates.languages`, no hreflang. `<html lang="en">` is hard-coded and every JSON-LD block declares `inLanguage: "en"`.
+- **The only working Khmer toggle is in `PrivacyContent.tsx` and `TermsContent.tsx`** — two local `useState` toggles over hard-coded string pairs, not shared, not persisted, and with no effect on `<html lang>` or any other page. Both pages are genuinely, fully translated and carry the correct English-prevails clause. Keep them.
+- The two **deliberately inverted** ternaries in those files (`${isKm ? "" : "font-khmer"}`) are correct: the switch button displays the *other* language's label, so Latin text must not get the Khmer font. Do not "fix" them, and preserve the inversion if you ever extract a shared `<LangToggle>`.
+- **Kantumruy Pro is loaded site-wide** and `tailwind.config.ts` already lists it as the fallback in both the `display` and `sans` stacks, so any Khmer you add renders correctly without `.font-khmer`. The class is near-redundant.
+- **English default is deliberate, not neglect.** The professional-services peer set in Cambodia — DFDL, VDB Loi, Tilleke, KPMG — ships *zero* Khmer. A half-translated site damages credibility more than an English-only one, and the corpus is ~60,000 words of specialist regulatory English in a low-resource language pair. **Do not machine-translate any of it.**
+- **What may be added**: `titleKh` on regulatory instruments (transcription from a fetched source — `regulatory/[slug]/page.tsx` already renders this field and no instrument populates it yet), Khmer glossary terms, and a native Khmer statement of the firm **written by a Cambodian editor**. Not translated nav, and not translated articles.
+- Known defect, unfixed: `/privacy` and `/terms` ship two JSON-LD blocks with conflicting `inLanguage` (`"en"` server-side, `["en","km"]` client-side).
 
 ### Component Structure
 - **Client Components**: `app/page.tsx`, `Header.tsx` marked with `"use client"` for interactivity
@@ -64,11 +70,11 @@ Migrated to the locked brand identity on 2026-08-31 (commit `5bece33`). Brand ma
   | `teal` | `#17A398` | accent — **fills only** |
   | `cloud` | `#F5F7FB` | page background |
   | `card` | `#FFFFFF` | cards, deliberately brighter than the page |
-  | `slate` | `#5E6B84` | secondary/muted text (defined, currently unused) |
+  | `slate` | `#5E6B84` | secondary/muted text — 5.00:1 on `cloud`, passes AA. In use since 2026-08-31 |
   | `line` | `#E2E7F0` | hairlines and rules |
 
 - **Riel Teal is a FILL colour, never body text.** Measured 2.91:1 on `cloud` and 3.12:1 on `card` — both below the 4.5:1 WCAG AA floor. It carries CTA fills, tinted bands, borders, rules, and icon glyphs at large-text sizes. Text on a teal fill must be `navy-deep` (5.00:1); `navy` is 4.25:1 and white is 3.12:1, and both fail. Do not "simplify" a CTA to white-on-teal.
-- **Every full-opacity `bg-teal` fill in `app/` now pairs with `text-navy-deep`** — all nine of them. Seven were still on `text-navy` (4.25:1, failing) until 2026-08-31 `4d92168`, because the brand migration wrote this rule and converted none of the existing CTAs. **Use `text-navy-deep` on any new teal-filled CTA.** To re-check after adding one:
+- **Every full-opacity `bg-teal` fill in `app/` pairs with `text-navy-deep`** — six of them, after the homepage rebuild removed its CTAs. Seven were still on `text-navy` (4.25:1, failing) until 2026-08-31 `4d92168`, because the brand migration wrote this rule and converted none of the existing CTAs. **Use `text-navy-deep` on any new teal-filled CTA.** To re-check after adding one:
 
   ```bash
   # every full-opacity teal fill and the text token on its line — all must be navy-deep
@@ -81,7 +87,7 @@ Migrated to the locked brand identity on 2026-08-31 (commit `5bece33`). Brand ma
 - **No dark mode.** Removed 2026-08-31 — the brand guide specifies no dark palette. There is no `darkMode` key, no `dark:` class, no theme toggle, and nothing writes to browser storage. `:root { color-scheme: light }` in `globals.css` replaces the old `<html className="light">`. Do not reintroduce a `dark:` variant without a brand-side dark palette to derive it from.
 - **Font Setup** (brand-locked, `next/font/google` in `layout.tsx`): Poppins 600/700/800 (Latin display) · Manrope variable (body, the default) · Kantumruy Pro 400/600 (Khmer) · IBM Plex Mono 400/500 (data). **Poppins has no variable master** — every weight the headings request must be listed explicitly or the browser synthesises fake bold. Manrope's ceiling is 800, so `font-black` (900) will clamp on body elements.
 - **Headings**: a base-layer `h1–h4` rule in `globals.css` puts them on `font-display` (Poppins). Utility classes still win, so `font-bold` on a heading gives Poppins 700.
-- **Material Symbols**: icon font still loaded from the Google Fonts CDN in the layout head. This is open GEO finding H3 — 310 KB render-blocking, and its ligature text contaminates AI text extraction. Replacing it with inline SVG is queued, not done. **`aria-hidden` does not fix the extraction half of H3** — it removes the node from the accessibility tree but leaves the ligature text in the DOM, where extractors read it. The fix is to remove the icon or move it out of the text run. `RelatedServices.tsx` dropped its icons entirely on 2026-08-31 for this reason, clearing ~200 fragments across the article corpus.
+- **Icons: inline SVG only. GEO finding H3 is CLOSED** (2026-08-31). The Material Symbols font is gone from the layout head — 310 KB, render-blocking, and its icons were ligature *text*, so an extractor read "check_circle" and "expand_more" as prose. **`aria-hidden` never fixed that half**: it removes a node from the accessibility tree and leaves the text in the DOM. The last four icons were deleted or replaced with inline SVG, and the dead `.material-symbols-outlined` rule was removed from `globals.css`. **Do not reintroduce an icon font.** If you need an icon, inline the SVG.
 
 ### Image Handling
 - **Next.js Image**: Uses `next/image` with `fill` prop for responsive images
@@ -326,8 +332,8 @@ A session state file is maintained at `.claude/RESUME_SESSION.md` to enable seam
 
 ## Important Notes
 
-- The main page is a single-page application with anchor links for navigation
-- All sections are contained in `app/page.tsx` (no separate route pages yet)
+- The homepage is a single page with anchor navigation (`#practice`, `#publications`, `#contact`). It is **structured to a Cambodian institutional convention, not a marketing convention** — see ADR-007 and the header comment in `app/page.tsx` before restructuring it. Three things there are load-bearing: the hero is an identity statement with the institution as grammatical subject; there is **no CTA button anywhere** (zero of 22 Cambodian institutional sites had one); and the published-corpus section is the credibility section, standing in for the client list the firm does not have.
+- **A content section is not shipped until it is reachable.** The footer `SECTIONS` array in `Footer.tsx` is the inbound link for every content index. `/learn`, `/knowledge`, `/insights` and `/use-cases` — 30 pages — shipped with no nav or footer entry and were reachable only from the sitemap; that was the third occurrence. Add a new section to that array in the same commit that creates it.
 - TypeScript is in strict mode
 - The project uses the Next.js 16 App Router (not Pages Router) — upgraded 14 → 15 → 16 across 2026-08-12/16
 - ServiceCard and UseCaseCard are now in separate files under `app/components/`

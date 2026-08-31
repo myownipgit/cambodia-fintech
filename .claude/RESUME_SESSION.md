@@ -4,6 +4,65 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-08-31 (5th thread) — HOMEPAGE REBUILT TO THE CAMBODIAN INSTITUTIONAL FORM, AND 153 UNSOURCEABLE CLAIMS STRIPPED FROM THE CORPUS.** Three deploys: `47610ae` (factual corrections), `47818d6` (claims strip), `2174411` (homepage + chrome). Recorded as **ADR-007**.
+
+### What Bill said
+
+He read the ADR-006 result and said the front page still *"lacks the level of professionalism necessary in Cambodia's ultra conservative culture."* He also gave context: Cambodia is mid-reputational-reset after the Prince Group and Huione actions, and asked (a) that comparable Cambodian companies' homepages be researched, and (b) whether the homepage should default to Khmer.
+
+**ADR-006 fixed what the page SAID. It did not change what the page WAS.** The homepage had been edited eight times since June; every pass rewrote sentences inside a SaaS landing-page structure, and none touched the structure. That is why a ninth copy pass would not have worked.
+
+### The research
+
+22 Cambodian institutional homepages fetched and read — banks, regulators, **the Digital Government Committee itself**, and the professional firms this practice is compared against. Conventions, with evidence:
+
+- **The hero is never a claim.** AmCham's headline is its legal name. EuroCham's is *"Promoting European Business in Cambodia Since 2011"*. KPMG Cambodia's is a dated compliance seminar. The institution is the grammatical subject — the only imperative hero in 22 sites was DFDL's, and DFDL is headquartered abroad.
+- **Zero CTA buttons. Zero schedulers.** Not one "Book a call" across the whole sample. Contact is `Contact Us` / `Submit RFP` / a hotline, at the bottom.
+- **The homepage is a document shelf.** BNG Legal — closest local analogue — runs hero → identity line → announcements → guides → reports → firm profile, with `Archives` as its only CTA.
+- **Institutional relationships replace testimonials.** ACLEDA leads with MoU ceremonies naming the NBFSA and the Ministry of Tourism. No site used a client testimonial.
+- **Licence numbers and Sangkat/Khan addresses are published.** ABA's footer carries its bank licence number *and its issue date*.
+
+### What shipped
+
+Homepage is now 8 sections, ~1,540 words: identity → signed statement of practice (founder named and visible) → practice → constitution and limits → **published reference** → why the work exists now → contact. No button anywhere.
+
+The published-corpus section is the point: **57 items including 17 sourced instruments, and it was in neither the nav nor the footer.** `/learn`, `/knowledge`, `/insights`, `/use-cases` — 30 pages — were reachable only from the sitemap. **Third occurrence of that failure.** The footer `SECTIONS` array now carries every content index.
+
+Chrome: nav 7 → 5 items, header CTA removed, `openGraph.locale` `en_US` → `en_KH`, Organization JSON-LD rewritten, address to Sangkat depth, FAQ schema off product-SKU framing. The pre-revenue disclosure moved to `/about` in full.
+
+**GEO H3 CLOSED.** Last four Material Symbols removed or replaced with inline SVG; the 310 KB render-blocking icon font is gone from the head. Lint warnings 5 → 3.
+
+### The Khmer answer: English default, and that is now a decision
+
+**No, the homepage should not default to Khmer** — but the position it was in was the worst of three. The peer set (DFDL, VDB Loi, Tilleke, KPMG) ships **zero** Khmer; every government-adjacent body defaults to Khmer. A **half-translated site damages credibility more than English-only**, the corpus is ~60,000 words of specialist regulatory English in a low-resource pair, and Khmer is the authoritative legal language so Khmer commentary is read against the Khmer original.
+
+Shipped: the apology (*"pending native editorial hire"*) reframed as a standard. **Specified but gated on a Cambodian editor**: the Khmer firm statement. **Still to do**: `titleKh` on the 17 instruments — the render path exists at `regulatory/[slug]/page.tsx` and **no instrument populates it**, so it is dead code today.
+
+### The finding that was not on the agenda — read this one
+
+Verifying a single FATF date exposed the corpus. **158 structured claims across 40 articles, 135 carrying a specific figure attributed to a named institutional report — no URL, no access date, no page reference.** Six verified: **four false, two untraceable.**
+
+- **No 2024 Cambodian mutual evaluation exists.** Two articles asserted one. The APG's 2nd Enhanced Follow-Up Report says the MER was adopted **July 2017**; the APG fifth-round schedule puts Cambodia in the **2029** plenary. The "32 of 40, up from 18" ratings appear nowhere.
+- ML penalty given as *"$2.5m and 5-10 years"*; the statute says **2-5 years, KHR 100-400m**. The 5-10 figure is insider trading under the securities law.
+- Two articles **contradicted each other** on the STR deadline. Article 12(2): **24 hours**.
+- Cited bodies that do not exist as named — the *"Insurance Authority of Cambodia"* (it is the IRC), and *"NBC Prakas on Payment Service Providers"*, already recorded as an instrument appearing nowhere.
+
+**153 claims removed rather than corrected**, on Bill's instruction: strip now, restore only what a fetched primary supports. Five verified entries survive. **~955 percentage and currency figures remain in article prose across 31 files — a separate, larger, still-open tranche.**
+
+The site had two incompatible evidence standards: an absolute bar on `/regulatory`, and none on the 40 pages beside it.
+
+Also removed: **"post-Huione"** on four surfaces including the homepage FAQ JSON-LD and `llms-full.txt`, plus a **prediction of a regulator's decisions** on `/products/dasp` (*"SERC is unlikely to approve marginal applicants"*). No Cambodian professional firm uses enforcement-event framing — Andersen, Tilleke, Sok Siphana/Kinstellar, DFDL and Compliance Partner were all checked. The replacement is **NRA II**, fetched from `cafiu.gov.kh` and quoted verbatim: the Royal Government names *"a critical gap between legislative development and operational implementation"*. The research had NRA II's date and author wrong — it is dated **24 December 2025**, signed by H.E. Koeut Rith. Fetching the primary corrected it again.
+
+### Open
+
+- **No visual pass.** The Chrome extension was not connected. The homepage layout is entirely new and has never been seen in a browser at any width. **Do this first.**
+- `titleKh` on 17 instruments; the Khmer firm statement (gated on an editor)
+- The ~955 prose figures
+- `/privacy` and `/terms` ship conflicting `inLanguage` JSON-LD
+- R3, GEO KB re-seed, traffic measurement at 2/4/8 weeks
+
+## Superseded — prior entry
+
 **2026-08-31 (4th thread) — SITE COPY REALIGNED FOR CAMBODIAN CULTURAL FIT.** `b00c368`, deploy `cambodia-fintech-7yz28d4xd`. Recorded as **ADR-006**.
 
 Bill's critique: the site read as *"a hard sell US type company trying to break into the Cambodian FinTech market"*, pitched the wrong audience, and risked informal blacklisting. **He has been approached by Tier 1 banks and the Digital Government Committee** — the copy was written for a founder shopping for a vendor.
