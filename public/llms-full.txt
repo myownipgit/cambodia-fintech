@@ -95,7 +95,7 @@ End-to-end readiness for SERC's Prakas 093 digital-asset licensing regime, **in 
 ### DASP 5-test integrity STOP-gate (executed during DX)
 1. UBO transparency (beneficial ownership traceable to a named individual)
 2. Sanctions clearance (OFAC, UK, EU, UN, Cambodian designations)
-3. Source-of-funds defensibility (no Huione-adjacent, scam-centre-adjacent, sanctioned-source funds)
+3. Source-of-funds defensibility (provenance documented; funds traceable to a designated party, an entity subject to a special measure, or proceeds of technology-enabled fraud do not clear)
 4. Counterparty hygiene (no obvious facilitation of designated entities)
 5. Operational separation (no shared infrastructure with designated entities)
 

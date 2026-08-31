@@ -56,7 +56,7 @@ const homepageSchema = {
           "name": "What does 'fee-only' mean and why does it matter?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Fee-only means we charge professional fees for advisory and programme delivery — never commissions on transactions, never markups on the licensed lawyer's or accredited SP's invoices, never a cut of any payment flow. We never hold client funds and never operate a rail. This eliminates the conflicts of interest that arise when an advisor is also the operator or aggregator. Post-Huione, that conflict-free posture is a meaningful credibility signal to regulators and counterparties.",
+            "text": "Fee-only means we charge professional fees for advisory and programme delivery — never commissions on transactions, never markups on the licensed lawyer's or accredited SP's invoices, never a cut of any payment flow. We never hold client funds and never operate a rail. This removes the conflicts of interest that arise when an adviser is also the operator or the aggregator, and it is a position a client's third-party-risk function can verify rather than take on trust.",
           },
         },
         {

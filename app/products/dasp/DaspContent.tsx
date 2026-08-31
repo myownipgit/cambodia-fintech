@@ -50,7 +50,7 @@ export default function DaspContent() {
                 <strong>Prakas 093 entered into force on 30 December 2025.</strong> Cambodia&apos;s digital-asset operators — crypto exchanges, OTC desks, custody providers, payment-on-rails firms with token components — now need DASP licensing from SERC to operate legally.
               </p>
               <p className="text-base text-navy/85 leading-relaxed mb-3">
-                The bar is high. The AML/CFT and governance build (FATF Travel Rule, MLRO function, sandbox readiness, fit-and-proper assessments) is the gating burden — not the technology. Post-Huione, SERC is unlikely to approve marginal applicants.
+                The requirements are prudential rather than technical. The AML/CFT and governance build — FATF Travel Rule, MLRO function, sandbox readiness, fit-and-proper assessments — is the substantial work; the technology is the smaller half.
               </p>
               <p className="text-base text-navy/85 leading-relaxed">
                 <strong>Honesty discipline:</strong> there is <em>no published grace window</em>. We will not manufacture urgency by claiming one. The regulation is in force; the readiness work takes 4–8 months to do properly. The cost of starting late is missing the early-mover window.
@@ -107,12 +107,12 @@ export default function DaspContent() {
           <section className="mb-16">
             <h2 className="text-2xl font-bold mb-4">The 5-test integrity STOP-gate</h2>
             <p className="text-base text-navy/85 leading-relaxed mb-4">
-              Before we accept any DASP engagement, every prospect clears a 5-test post-Huione integrity screen. The DX diagnostic is the qualifier. If a test fails, we decline — no exceptions. The five tests:
+              Before we accept any DASP engagement, every prospect clears a five-test integrity screen. The DX diagnostic is the qualifier. If a test fails, we decline — no exceptions. The five tests:
             </p>
             <ol className="space-y-3 text-sm text-navy/85 leading-relaxed">
               <li><strong>1. UBO transparency.</strong> Beneficial-ownership traceable to a named individual with verifiable identity; no anonymous chains, no opaque holding structures.</li>
               <li><strong>2. Sanctions clearance.</strong> Principals, entity, and connected parties clear OFAC, UK, EU, UN, and Cambodian designations at engagement and re-screened quarterly.</li>
-              <li><strong>3. Source-of-funds defensibility.</strong> Capital provenance can be substantiated; no Huione-adjacent, scam-centre-adjacent, or sanctioned-source funds.</li>
+              <li><strong>3. Source-of-funds defensibility.</strong> Capital provenance can be substantiated to a documented origin. Funds traceable to a designated party, to an entity subject to a special measure, or to proceeds of technology-enabled fraud do not clear this test.</li>
               <li><strong>4. Counterparty hygiene.</strong> Current and proposed trading relationships pass a basic-due-diligence screen; no obvious facilitation of designated entities.</li>
               <li><strong>5. Operational separation.</strong> No operational ties (shared infrastructure, common officers, intermingled funds) to entities in the designated set.</li>
             </ol>
