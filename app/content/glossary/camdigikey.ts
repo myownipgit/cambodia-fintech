@@ -13,11 +13,14 @@ export const camdigikey: ArticleContent = {
   relatedSlugs: ['bakong', 'camdx', 'gaap'],
   relatedInstruments: ['sub-decree-207-camdigikey'],
   lead: 'CamDigiKey is Cambodia\'s national digital identity platform developed by the Ministry of Economy and Finance (MEF). It provides secure electronic Know Your Customer (eKYC) verification through facial recognition and biometric authentication, enabling citizens and businesses to access government and financial services digitally.',
-  claims: [
-    { stat: 'CamDigiKey has registered over 5 million digital identities since its launch, covering approximately 30% of Cambodia\'s adult population.', source: 'Ministry of Economy and Finance Cambodia', year: '2025', url: 'https://camdigikey.gov.kh' },
-    { stat: 'Digital identity verification can reduce customer onboarding costs for financial institutions by up to 70% compared to manual KYC processes.', source: 'World Bank ID4D Initiative', year: '2024', url: 'https://www.worldbank.org/en/topic/digitaldevelopment' },
-    { stat: 'Cambodia\'s digital identity coverage is projected to reach 70% of adults by 2028, driven by mandatory CamDigiKey integration for government services.', source: 'Asian Development Bank', year: '2025', url: 'https://www.adb.org/countries/cambodia/main' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is CamDigiKey and how does it work?', answer: 'CamDigiKey is Cambodia\'s national digital identity system operated by the Ministry of Economy and Finance. It works by registering citizens\' biometric data (facial recognition and fingerprints) linked to their national ID. Users can then authenticate their identity digitally for government services, banking, and commercial transactions through the CamDigiKey mobile app or integrated third-party applications.' },
     { question: 'Is CamDigiKey mandatory for businesses in Cambodia?', answer: 'CamDigiKey integration is increasingly required for businesses interacting with government platforms including CamDX, CamInvoice, and certain NBC-regulated financial services. While not yet mandatory for all private sector activities, businesses that process government transactions or provide regulated financial services must support CamDigiKey authentication.' },

@@ -12,13 +12,14 @@ export const cambodiaDigitalPaymentGrowth: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'cambodia-payment-ecosystem'],
   lead: 'Analysis published March 2026. Figures are as at their cited source year — mostly 2024 and 2025 — and are not restated here; check the source for anything more recent. Cambodia\'s digital payment landscape has undergone a structural transformation since the National Bank of Cambodia (NBC) launched Bakong in October 2020. What began as a CBDC experiment has grown into a comprehensive payment infrastructure processing over USD 30 billion annually by 2025. This analysis examines the data behind Cambodia\'s digital payment acceleration, tracking transaction volumes, user adoption curves, merchant penetration, and mobile money trends across the 2020-2026 period. The findings reveal that Cambodia\'s government-led approach has produced adoption rates that rival or exceed those of wealthier ASEAN neighbors, driven by KHQR interoperability mandates and aggressive cross-border corridor development.',
-  claims: [
-    { stat: 'Bakong processed approximately USD 30 billion in total transaction value during 2025, representing a 15.4% year-over-year increase from USD 26 billion in 2024.', source: 'National Bank of Cambodia Annual Report', year: '2025' },
-    { stat: 'Digital payment adoption among Cambodian adults reached 73% in 2024, up from 36% in 2017, making Cambodia one of the fastest-growing digital payment markets in Southeast Asia.', source: 'World Bank Global Findex Database', year: '2024' },
-    { stat: 'KHQR merchant registrations surpassed 400,000 by early 2025, up from approximately 50,000 when the standard launched in 2022, representing a compound annual growth rate of 103%.', source: 'National Bank of Cambodia KHQR Dashboard', year: '2025' },
-    { stat: 'Mobile money accounts in Cambodia reached 21.3 million by end of 2024, exceeding the country\'s adult population of approximately 11 million, indicating high multi-account ownership.', source: 'GSMA State of the Industry Report on Mobile Money', year: '2024' },
-    { stat: 'Cambodia ranks among the top five countries globally with a fully operational retail CBDC, alongside the Bahamas, Nigeria, Jamaica, and the Eastern Caribbean Currency Union.', source: 'Bank for International Settlements CBDC Tracker', year: '2024' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'How fast are digital payments growing in Cambodia?', answer: 'Cambodia\'s digital payment ecosystem has grown at a compound annual rate of approximately 65% in transaction volume between 2020 and 2025. Bakong transaction volumes increased from roughly 1.2 million transactions in its first full year (2021) to over 24 million in 2025. The total value processed through the system expanded from USD 2.1 billion in 2021 to approximately USD 30 billion in 2025. This growth rate significantly outpaces the ASEAN average of 25-30% annual digital payment growth.' },
     { question: 'What is driving Cambodia\'s digital payment adoption?', answer: 'Three primary factors drive adoption: (1) the NBC\'s KHQR interoperability mandate, which eliminated the fragmented QR code landscape and created a single payment standard; (2) Bakong\'s dual-currency design supporting both KHR and USD, which mirrors Cambodia\'s dollarized economy; and (3) cross-border corridors with Thailand (PromptPay), Malaysia (DuitNow), and China (Alipay), which reduced remittance costs by 40-50%. The government\'s deliberate infrastructure-first approach, rather than leaving adoption to market forces, has been the key differentiator.' },

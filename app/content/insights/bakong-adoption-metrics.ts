@@ -12,12 +12,14 @@ export const bakongAdoptionMetrics: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['bakong', 'how-bakong-works', 'nbc'],
   lead: 'Analysis published March 2026. Figures are as at their cited source year — mostly 2024 and 2025 — and are not restated here; check the source for anything more recent. Bakong is frequently cited as one of the world\'s most successful retail CBDC deployments, yet granular adoption metrics have been difficult to access outside NBC publications. This analysis consolidates available data on Bakong\'s growth trajectory from its October 2020 launch through early 2026, covering registered users, monthly active users, transaction volumes by type and currency, institutional participation, and cross-border corridor performance. The data reveals a system that has moved beyond pilot phase into genuine economic infrastructure: with over 10 million registered wallets, 60+ participating financial institutions, and monthly transaction values exceeding USD 2.5 billion, Bakong has achieved adoption metrics that most CBDC projects globally have not reached.',
-  claims: [
-    { stat: 'Bakong registered wallets surpassed 10 million by end of 2025, up from 7.9 million at end of 2024 and 1.8 million at end of 2021, representing a 65% compound annual growth rate.', source: 'National Bank of Cambodia Annual Report', year: '2025' },
-    { stat: 'Monthly active Bakong users reached 3.8 million in December 2025, representing a 38% monthly active rate relative to registered wallets, compared to a global CBDC average of 15-20%.', source: 'Bank for International Settlements CBDC Progress Report', year: '2025' },
-    { stat: 'Bakong processes over 2 million transactions per month as of Q4 2025, with a daily peak record of 142,000 transactions in November 2025 during the Water Festival period.', source: 'National Bank of Cambodia Payment Systems Report', year: '2025' },
-    { stat: 'Over 60 financial institutions are connected to the Bakong network, including all 58 licensed commercial banks and 8 specialized financial institutions, achieving 100% banking sector coverage.', source: 'National Bank of Cambodia Financial Stability Report', year: '2025' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'How many people use Bakong in Cambodia?', answer: 'As of end 2025, Bakong has over 10 million registered wallets. However, the monthly active user count of 3.8 million is a more accurate measure of genuine usage. Given Cambodia\'s adult population of approximately 11 million, this means roughly 35% of adults actively use Bakong at least once per month. This figure rises to approximately 55% in urban areas and drops to 20% in rural provinces. When including users who transact via Bakong rails through their bank\'s app without a dedicated Bakong wallet, the effective reach is estimated at 50-60% of adults.' },
     { question: 'How does Bakong compare to other CBDCs globally?', answer: 'By adoption metrics, Bakong is one of the top-performing retail CBDCs globally. The Bahamas\' Sand Dollar has approximately 180,000 wallets (out of 400,000 population), Nigeria\'s eNaira has 13 million wallets but a monthly active rate below 5%, and Jamaica\'s JAM-DEX has approximately 200,000 users. Bakong\'s combination of 10 million wallets, 38% monthly active rate, and USD 30 billion annual throughput places it in a category of its own among retail CBDCs. The key differentiator is Bakong\'s integration with the existing banking system rather than operating as a standalone product.' },

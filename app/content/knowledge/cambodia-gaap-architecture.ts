@@ -12,13 +12,14 @@ export const cambodiaGaapArchitecture: ArticleContent = {
   schema: 'TechArticle',
   relatedSlugs: ['gaap', 'bakong', 'camdigikey', 'camdx', 'caminvoice'],
   lead: 'Cambodia\'s Government-as-a-Platform (GaaP) architecture represents one of the most deliberate and structurally coherent digital infrastructure programs in Southeast Asia. Unlike organic fintech ecosystems that emerged from market competition in Singapore, Indonesia, or Vietnam, Cambodia\'s stack was designed top-down by the Royal Government of Cambodia in partnership with the National Bank of Cambodia, the General Department of Taxation, and the Ministry of Economy and Finance. The result is a unified, interoperable platform comprising four foundational layers: CamDigiKey for digital identity, Bakong for real-time payments, CamDX for government data exchange, and CamInvoice for tax-compliant invoicing. Together, these layers form a mandatory integration surface that every enterprise operating in Cambodia must engage with by 2027. This article provides a technical deep dive into the architecture, protocols, data flows, and strategic implications of Cambodia\'s GaaP model.',
-  claims: [
-    { stat: 'Cambodia\'s Bakong system processed over USD 26 billion in transaction value across 21 million transactions in 2024, representing 78% year-over-year growth.', source: 'National Bank of Cambodia Annual Report', year: '2024' },
-    { stat: 'CamDigiKey has enrolled over 4 million verified digital identities as of Q4 2025, covering approximately 38% of Cambodia\'s adult population aged 18 and above.', source: 'Ministry of Post and Telecommunications Annual Report', year: '2025' },
-    { stat: 'Cambodia ranked 8th globally and 2nd in ASEAN on the MIT Technology Review Government AI Readiness Index for digital identity infrastructure maturity.', source: 'MIT Technology Review', year: '2024' },
-    { stat: 'The World Bank estimates Cambodia\'s digital economy will contribute 25% of GDP by 2035, up from approximately 8% in 2023, driven primarily by GaaP infrastructure adoption.', source: 'World Bank Cambodia Digital Economy Assessment', year: '2024' },
-    { stat: 'CamDX processed over 12 million government-to-government API transactions in 2024, reducing average document processing time from 14 days to under 48 hours.', source: 'Cambodia Data Exchange Annual Report', year: '2024' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is Government-as-a-Platform (GaaP) and how does Cambodia implement it?', answer: 'Government-as-a-Platform (GaaP) is a digital governance model where the government provides shared infrastructure layers — identity, payments, data exchange, and compliance — as reusable platform services that private sector enterprises integrate with via standardized APIs. Cambodia implements GaaP through four core systems: CamDigiKey (digital identity and eKYC), Bakong (real-time payment settlement), CamDX (secure government data exchange), and CamInvoice (mandatory electronic invoicing). Unlike traditional e-government portals, GaaP treats government services as programmable infrastructure that enterprises embed directly into their business processes.' },
     { question: 'Is GaaP integration mandatory for businesses in Cambodia?', answer: 'Yes, and the mandates are phased by business size and sector. Large enterprises (annual revenue above KHR 1 billion) were required to integrate with CamInvoice by January 2025. Medium enterprises follow by January 2026. All businesses accepting digital payments must support KHQR on Bakong rails. Financial institutions must implement CamDigiKey-based eKYC by mid-2026. Non-compliance results in tax penalties, licensing restrictions, and potential business registration issues.' },

@@ -12,11 +12,14 @@ export const supplyChainFinanceCambodia: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['supply-chain-finance', 'caminvoice', 'bakong'],
   lead: 'Supply chain finance (SCF) represents one of the largest untapped opportunities in Cambodia\'s financial ecosystem. With an estimated $2.5 billion trade finance gap affecting small and medium enterprises, the Kingdom\'s unique government digital infrastructure -- particularly CamInvoice\'s verified invoice data and the National Single Window\'s customs records -- creates a foundation for SCF products that simply do not exist in most emerging markets. By connecting trusted government data to bank lending decisions, Cambodia is positioned to leapfrog traditional trade finance models and deliver working capital solutions to the SMEs that power its $30 billion economy.',
-  claims: [
-    { stat: 'Cambodia\'s trade finance gap is estimated at $2.5 billion, with SMEs representing 70% of rejected trade finance applications due to insufficient documentation and credit history.', source: 'Asian Development Bank Trade Finance Gap Report', year: '2024' },
-    { stat: 'CamInvoice processes over 500,000 verified electronic invoices monthly as of 2025, creating a real-time audit trail of commercial transactions across the Kingdom.', source: 'General Department of Taxation, Cambodia', year: '2025' },
-    { stat: 'Global supply chain finance volumes reached $2.1 trillion in 2024, with Asia-Pacific accounting for 45% of total flows, yet Cambodia captures less than 0.1% of regional SCF activity.', source: 'International Chamber of Commerce Trade Register Report', year: '2024' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is supply chain finance in Cambodia?', answer: 'Supply chain finance in Cambodia refers to financing solutions that leverage verified commercial data from government systems like CamInvoice and the National Single Window to provide working capital to SMEs. Unlike traditional bank lending, SCF uses invoice and trade data as collateral proxies, enabling faster approvals and lower interest rates for businesses in Cambodia\'s supply chains.' },
     { question: 'How does CamInvoice enable supply chain finance?', answer: 'CamInvoice provides government-verified electronic invoice data that serves as a trusted source of commercial transaction records. Banks and financiers can validate that an invoice is genuine, that the buyer exists and has a tax history, and that the goods or services were delivered. This verified data replaces the traditional documentation burden that excludes most Cambodian SMEs from trade finance.' },

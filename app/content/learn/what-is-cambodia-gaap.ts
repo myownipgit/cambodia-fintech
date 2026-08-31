@@ -12,12 +12,14 @@ export const whatIsCambodiaGaaP: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['gaap', 'bakong', 'camdigikey', 'camdx', 'caminvoice'],
   lead: 'Cambodia\'s approach to digital infrastructure is fundamentally different from the organic, market-driven evolution seen in most economies. The Royal Government of Cambodia has deliberately architected a Government-as-a-Platform (GaaP) model: a four-layer digital stack where identity (CamDigiKey), payments (Bakong), data exchange (CamDX), and invoicing (CamInvoice) are designed as interoperable public infrastructure. This is not a collection of independent government IT projects. It is a unified platform architecture where each layer amplifies the others, creating network effects that reshape how financial services, commerce, and compliance operate in Cambodia.',
-  claims: [
-    { stat: 'Cambodia\'s Digital Government Policy 2022-2035 allocates over USD 300 million in public and development partner investment toward digital infrastructure, with GaaP architecture as the organizing framework.', source: 'Royal Government of Cambodia Digital Government Policy', year: '2022' },
-    { stat: 'Estonia\'s GaaP model, which Cambodia\'s architecture closely mirrors, generates an estimated 2% of GDP annually in economic value through reduced transaction costs and administrative efficiency.', source: 'World Bank Digital Government Readiness Assessment', year: '2023' },
-    { stat: 'Cambodia\'s GDP growth averaged 5.8% over 2022-2024, with the digital economy contributing an increasing share as Bakong, CamDigiKey, and CamDX infrastructure scaled.', source: 'International Monetary Fund World Economic Outlook', year: '2024' },
-    { stat: 'The BIS Innovation Hub has identified Cambodia as one of the most advanced developing economies in CBDC deployment, citing Bakong\'s integration with national identity and data exchange systems.', source: 'Bank for International Settlements', year: '2024' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What makes Cambodia\'s digital infrastructure different from other ASEAN countries?', answer: 'Most ASEAN countries built digital payment systems, identity platforms, and data exchanges independently over decades. Cambodia designed all four layers simultaneously as a unified stack under the Digital Government Policy 2022-2035. This deliberate architecture means the layers are interoperable by design, not retrofitted. A CamDigiKey identity verification can trigger a CamDX data query and initiate a Bakong payment in a single workflow.' },
     { question: 'Is Cambodia\'s GaaP model based on Estonia\'s?', answer: 'Yes, directly. Cambodia adopted Estonia\'s X-Road technology for CamDX and studied Estonia\'s digital identity and e-governance architecture extensively. However, Cambodia adapted the model for its dual-currency economy, mobile-first population, and specific regulatory requirements. The Bakong CBDC layer has no direct Estonian equivalent, as Estonia uses the euro.' },

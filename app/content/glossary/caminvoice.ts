@@ -12,11 +12,14 @@ export const caminvoice: ArticleContent = {
   schema: 'DefinedTerm',
   relatedSlugs: ['gdt', 'gaap', 'supply-chain-finance'],
   lead: 'CamInvoice is Cambodia\'s mandatory electronic invoicing system administered by the General Department of Taxation (GDT). Using the UBL XML standard and a clearance model, CamInvoice requires businesses to submit invoices electronically for real-time tax authority validation before they become legally valid.',
-  claims: [
-    { stat: 'Cambodia\'s CamInvoice rollout targets large taxpayers from 2025 with full SME coverage by 2027, covering an estimated 150,000+ registered businesses.', source: 'General Department of Taxation Cambodia', year: '2025', url: 'https://www.tax.gov.kh/en/notice' },
-    { stat: 'Countries implementing mandatory e-invoicing have seen VAT compliance improvements of 15-30% and significant reductions in tax fraud.', source: 'International Monetary Fund', year: '2024', url: 'https://www.elibrary.imf.org/' },
-    { stat: 'Cambodia\'s tax-to-GDP ratio stood at approximately 18.5% in 2024, with e-invoicing expected to increase collection efficiency by reducing the informal economy gap.', source: 'World Bank Cambodia Economic Update', year: '2024', url: 'https://documents1.worldbank.org/curated/en/099120924052010564/pdf/P506814-95fb5d73-3eba-440e-98eb-50a46c722a27.pdf' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is CamInvoice and when does it become mandatory?', answer: 'CamInvoice is Cambodia\'s mandatory electronic invoicing system operated by the General Department of Taxation (GDT). The rollout follows a phased timeline: large taxpayers (annual revenue above $2 million) from 2025, medium taxpayers from 2026, and all remaining registered businesses including SMEs by 2027. Once mandatory for your taxpayer category, all B2B and B2G invoices must be submitted through CamInvoice.' },
     { question: 'What is the UBL XML format required by CamInvoice?', answer: 'UBL (Universal Business Language) XML is an international standard for electronic business documents maintained by OASIS. CamInvoice requires invoices to be structured in UBL 2.1 XML format, which includes standardized fields for seller/buyer identification, line items, tax calculations, and payment terms. This machine-readable format enables automated tax validation and cross-referencing by the GDT.' },

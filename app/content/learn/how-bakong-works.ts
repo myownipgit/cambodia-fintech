@@ -13,12 +13,14 @@ export const howBakongWorks: ArticleContent = {
   relatedSlugs: ['bakong', 'khqr', 'nbc'],
   relatedInstruments: ['prakas-b14-017-161'],
   lead: 'Bakong is far more than a mobile wallet. It is a central bank digital currency (CBDC) and real-time gross settlement system built on Hyperledger Iroha blockchain technology, operated by the National Bank of Cambodia (NBC). Since its public launch in October 2020, Bakong has grown into the payment backbone of the Cambodian economy, connecting over 60 financial institutions, enabling dual-currency settlement in both Khmer Riel (KHR) and US Dollars (USD), and powering the KHQR standardized QR code protocol that has become ubiquitous in Cambodian commerce.',
-  claims: [
-    { stat: 'Bakong processed over 21 million transactions in 2024, representing a 78% year-over-year increase, with total value exceeding USD 26 billion.', source: 'National Bank of Cambodia Annual Report', year: '2024' },
-    { stat: 'Cambodia ranks among the top five countries globally with a fully operational retail CBDC, ahead of most ASEAN peers.', source: 'Bank for International Settlements CBDC Tracker', year: '2024' },
-    { stat: 'Mobile money and digital payment adoption in Cambodia reached 73% of the adult population in 2024, up from 36% in 2017, driven largely by Bakong infrastructure.', source: 'World Bank Global Findex Database', year: '2024', url: 'https://www.worldbank.org/en/publication/globalfindex' },
-    { stat: 'Cross-border remittance costs from Thailand to Cambodia fell by approximately 50% after Bakong-PromptPay linkage, from an average 10% to under 5% of transaction value.', source: 'Asian Development Bank', year: '2024', url: 'https://www.adb.org/countries/cambodia/main' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'Is Bakong a cryptocurrency?', answer: 'No. Bakong is a central bank digital currency (CBDC), not a cryptocurrency. It is issued and fully backed by the National Bank of Cambodia, operates on a permissioned Hyperledger Iroha blockchain, and maintains a stable 1:1 peg to fiat KHR and USD. Unlike cryptocurrencies, Bakong has no speculative value and is designed purely for payment settlement.' },
     { question: 'Do I need a bank account to use Bakong?', answer: 'No. Bakong supports both bank-linked wallets and standalone e-wallets. Users can open a Bakong wallet by completing KYC through a participating institution. This design deliberately targets financial inclusion for Cambodia\'s unbanked population, which the World Bank estimates at approximately 27% of adults.' },

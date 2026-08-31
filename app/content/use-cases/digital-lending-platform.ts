@@ -26,28 +26,14 @@ export const digitalLendingPlatform: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['camdigikey', 'caminvoice', 'cambodia-fintech-landscape', 'cambodia-digital-identity'],
   lead: 'Loan origination in Cambodia is slow for a specific and fixable reason: a large share of the elapsed time is spent establishing who the applicant is and what their business actually does, using documents collected by hand. Cambodia now has government infrastructure that answers both questions faster — verified digital identity, and structured invoice records the applicant can consent to share. This scenario sets out how a licensed lender would wire those into its existing origination flow, and is equally concerned with a boundary: the integrator builds the adapters, and the lender keeps the data and owns every decision made with it.',
-  claims: [
-    {
-      stat: 'CamDigiKey digital identity verification has been integrated into KYC processes by over 25 financial institutions, reducing customer onboarding time from days to under 10 minutes.',
-      source: 'National Bank of Cambodia',
-      year: '2025',
-    },
-    {
-      stat: 'Countries with national digital ID systems reduce customer onboarding costs by 40-60% for financial institutions compared to manual KYC processes.',
-      source: 'World Bank ID4D Global Dataset',
-      year: '2024',
-    },
-    {
-      stat: 'CamInvoice processes over 500,000 verified electronic invoices monthly as of 2025, creating a real-time audit trail of commercial transactions across the Kingdom.',
-      source: 'General Department of Taxation, Cambodia',
-      year: '2025',
-    },
-    {
-      stat: 'Only 28% of Cambodian SMEs have received any formal bank credit, with a financing gap estimated at USD 2.8 billion annually.',
-      source: 'Asian Development Bank SME Monitor',
-      year: '2024',
-    },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     {
       question: 'Does CamFinTech build credit scoring models or make lending decisions?',

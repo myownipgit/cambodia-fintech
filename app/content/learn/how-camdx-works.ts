@@ -12,11 +12,14 @@ export const howCamDXWorks: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['camdx', 'camdigikey', 'gaap'],
   lead: 'CamDX (Cambodia Data Exchange) is the national secure data exchange platform that connects government ministries, financial institutions, and licensed private-sector entities through standardized APIs. Built on Estonia\'s X-Road technology and deployed under Cambodia\'s Digital Government Policy 2022-2035, CamDX eliminates the need for point-to-point integrations between agencies. Instead, it provides a single, auditable data highway where authorized parties can query and share structured data in real time. For FinTech companies, CamDX is the infrastructure layer that makes instant KYC, real-time tax verification, and automated regulatory compliance technically possible.',
-  claims: [
-    { stat: 'Estonia\'s X-Road platform, the technology foundation for CamDX, processes over 1.5 billion queries annually and saves the Estonian government an estimated 1,400 working years per year in administrative efficiency.', source: 'e-Estonia Briefing Centre', year: '2024' },
-    { stat: 'Cambodia\'s Digital Government Policy 2022-2035 mandates interconnection of all government databases through CamDX by 2030, covering identity, taxation, business registration, land titles, and social protection.', source: 'Royal Government of Cambodia Digital Government Policy', year: '2022' },
-    { stat: 'Countries that implement centralized data exchange platforms reduce government service delivery costs by 30-50% and decrease processing times from weeks to minutes.', source: 'World Bank Digital Government Readiness Assessment', year: '2023' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is the difference between CamDX and CamDigiKey?', answer: 'CamDigiKey is the digital identity and eKYC platform. CamDX is the data exchange infrastructure. CamDigiKey verifies who a person is; CamDX enables authorized parties to query government databases about that person or entity. CamDigiKey is a data provider ON CamDX, meaning a KYC query flows through CamDX to reach CamDigiKey identity services.' },
     { question: 'Can private companies connect directly to CamDX?', answer: 'Licensed financial institutions and authorized private-sector entities can connect to CamDX through the official onboarding process. This requires registration with the Digital Government Committee, deployment of a CamDX security server, and compliance with the CamDX data governance framework. CamFinTech navigates the approval for enterprises to onboard with CamDX; the security-server deployment itself is coordinated with accredited Service Providers.' },

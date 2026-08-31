@@ -12,11 +12,14 @@ export const gaap: ArticleContent = {
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'camdigikey', 'camdx', 'caminvoice'],
   lead: 'Government-as-a-Platform (GaaP) is Cambodia\'s strategic approach to digital infrastructure where the government builds foundational technology layers that the private sector builds upon. Cambodia\'s GaaP model integrates four core platforms: CamDigiKey (digital identity), Bakong (instant payments), CamDX (data exchange), and CamInvoice (e-invoicing).',
-  claims: [
-    { stat: 'Cambodia\'s coordinated approach to digital infrastructure has attracted over $1.5 billion in fintech and digital economy investment commitments between 2022 and 2025.', source: 'Asian Development Bank', year: '2025', url: 'https://www.adb.org/countries/cambodia/economy' },
-    { stat: 'The World Bank ranks Cambodia among the top improvers in digital government maturity within ASEAN, citing its integrated platform approach as a model for developing economies.', source: 'World Bank Digital Government Readiness Assessment', year: '2024', url: 'https://www.worldbank.org/en/topic/digitaldevelopment' },
-    { stat: 'Countries adopting platform-based government digital infrastructure see 2-3x faster private sector digital innovation compared to countries with fragmented government IT systems.', source: 'International Telecommunication Union', year: '2024', url: 'https://www.itu.int/en/ITU-D/Statistics/Pages/stat/default.aspx' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is Government-as-a-Platform in the Cambodia context?', answer: 'Government-as-a-Platform (GaaP) in Cambodia refers to the deliberate strategy of building interconnected government digital infrastructure that functions as a platform for private sector innovation. Rather than each ministry building isolated IT systems, Cambodia has created four foundational layers: CamDigiKey for identity, Bakong for payments, CamDX for data exchange, and CamInvoice for invoicing. Private businesses build products and services on top of these government-provided platforms.' },
     { question: 'How is Cambodia\'s GaaP approach different from other countries?', answer: 'Cambodia\'s GaaP model is distinctive because the infrastructure was designed as an integrated stack from the outset rather than evolving organically. CamDigiKey, Bakong, CamDX, and CamInvoice were planned to interoperate. This contrasts with countries where digital identity, payments, and data exchange evolved separately and require complex retrofitting to work together. Cambodia\'s deliberate approach creates compounding network effects.' },

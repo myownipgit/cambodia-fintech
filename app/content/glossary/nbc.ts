@@ -13,11 +13,14 @@ export const nbc: ArticleContent = {
   relatedSlugs: ['bakong', 'khqr', 'gdt'],
   relatedInstruments: ['prakas-b14-017-161', 'prakas-b7-024-735', 'law-on-banking'],
   lead: 'The National Bank of Cambodia (NBC) is Cambodia\'s central bank responsible for monetary policy, financial institution supervision, and payment system regulation. The NBC operates the Bakong CBDC and KHQR payment infrastructure, and administers the FinTech Regulatory Sandbox that governs innovation in Cambodia\'s financial services sector.',
-  claims: [
-    { stat: 'The NBC supervises over 80 commercial banks, specialized banks, and microfinance institutions operating in Cambodia, with total banking sector assets exceeding $75 billion.', source: 'National Bank of Cambodia', year: '2025', url: 'https://www.nbc.gov.kh/download_files/supervision/sup_an_rep_eng/EN%20Annual%20Supervision%20Report%202025.pdf' },
-    { stat: 'Cambodia\'s FinTech regulatory sandbox has evaluated over 20 innovative financial products since its establishment, with several receiving full operating licenses.', source: 'National Bank of Cambodia', year: '2024', url: 'https://www.nbc.gov.kh/supervision/technology_risk_and_innovation_supervision.php' },
-    { stat: 'Cambodia maintains one of the highest financial inclusion growth rates in ASEAN, with formal financial access increasing from 18% in 2011 to over 75% by 2024.', source: 'World Bank Global Findex Database', year: '2024', url: 'https://www.worldbank.org/en/publication/globalfindex' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What does the National Bank of Cambodia regulate?', answer: 'The NBC regulates all financial institutions in Cambodia including commercial banks, specialized banks, microfinance deposit-taking institutions, microfinance institutions, payment service providers, and electronic money issuers. It also regulates the Bakong payment system, sets KHQR technical standards, administers the FinTech regulatory sandbox, and manages Cambodia\'s monetary policy including the exchange rate stability between KHR and USD.' },
     { question: 'What is the NBC FinTech regulatory sandbox?', answer: 'The NBC FinTech Regulatory Sandbox is a controlled testing environment where innovative financial service providers can trial new products under NBC supervision with relaxed regulatory requirements. Companies accepted into the sandbox operate under temporary conditions that allow them to test business models, technology, and consumer response before applying for a full license. The sandbox covers areas including digital lending, insurance technology, and payment innovations.' },

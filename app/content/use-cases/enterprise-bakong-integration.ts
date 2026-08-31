@@ -21,28 +21,14 @@ export const enterpriseBakongIntegration: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'how-bakong-works', 'bakong-technical-integration'],
   lead: 'A retailer that has grown channel by channel usually ends up with one payment integration per channel: a card terminal in store, a gateway on the website, an SDK in the app. Each settles separately, reconciles separately and supports a different set of payment methods. KHQR makes consolidation possible for the first time, because a single merchant registration reaches every bank and wallet on the Bakong network. This scenario walks through how that consolidation would be scoped — what gets built, who operates it once built, and which parts are not CamFinTech\'s to touch.',
-  claims: [
-    {
-      stat: 'Over 60 financial institutions are connected to the Bakong network, including all 58 licensed commercial banks and 8 specialized financial institutions, achieving 100% banking sector coverage.',
-      source: 'National Bank of Cambodia Financial Stability Report',
-      year: '2025',
-    },
-    {
-      stat: 'Over 400,000 KHQR merchant codes were registered by Q1 2025, covering approximately 65% of formal retail establishments in Phnom Penh and 35% nationwide.',
-      source: 'National Bank of Cambodia Payment Systems Report',
-      year: '2025',
-    },
-    {
-      stat: 'QR code payments accounted for approximately 45% of all point-of-sale digital transactions in Cambodia in 2024, up from 18% in 2022.',
-      source: 'National Bank of Cambodia Payment Systems Report',
-      year: '2024',
-    },
-    {
-      stat: 'Merchant discount rates for KHQR transactions range from 0% to 0.5% depending on the acquiring bank, significantly lower than the 2-3% typical for international card networks.',
-      source: 'National Bank of Cambodia',
-      year: '2024',
-    },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     {
       question: 'Does a merchant need to deal with the NBC directly to accept Bakong payments?',

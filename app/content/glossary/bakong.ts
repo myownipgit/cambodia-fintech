@@ -12,11 +12,14 @@ export const bakong: ArticleContent = {
   schema: 'DefinedTerm',
   relatedSlugs: ['khqr', 'nbc', 'camdigikey'],
   lead: 'Bakong is Cambodia\'s central bank digital currency (CBDC) and real-time gross settlement system operated by the National Bank of Cambodia (NBC). Launched in 2020, Bakong enables instant peer-to-peer and merchant payments in both Khmer Riel (KHR) and US Dollars via the KHQR standardized QR code protocol.',
-  claims: [
-    { stat: 'Bakong processed over 21 million transactions in 2024, representing a 78% year-over-year increase in adoption across Cambodia.', source: 'National Bank of Cambodia Annual Report', year: '2024', url: 'https://www.nbc.gov.kh/payment_systems/background_of_payment_systems.php' },
-    { stat: 'Over 60 financial institutions including banks, microfinance institutions, and payment service providers are connected to the Bakong system.', source: 'National Bank of Cambodia', year: '2025', url: 'https://bakong.nbc.gov.kh/en/' },
-    { stat: 'Cambodia is one of only a few countries globally with a fully operational retail CBDC, positioning it ahead of most ASEAN nations in digital currency deployment.', source: 'Bank for International Settlements', year: '2024', url: 'https://www.bis.org/about/bisih/topics/cbdc.htm' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is Bakong in Cambodia?', answer: 'Bakong is Cambodia\'s national digital currency and instant payment system operated by the National Bank of Cambodia (NBC). It is a blockchain-based CBDC (Central Bank Digital Currency) that enables real-time settlement of both Khmer Riel and US Dollar transactions through the KHQR QR code standard.' },
     { question: 'How does Bakong differ from mobile money services like Wing or ABA Pay?', answer: 'Unlike commercial mobile wallets, Bakong is a central bank-operated settlement rail. Wing, ABA Pay, and other mobile wallets connect TO Bakong as participant institutions. Bakong provides the underlying interbank settlement infrastructure, while commercial apps provide the consumer interface.' },

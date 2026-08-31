@@ -12,13 +12,14 @@ export const smeDigitalReadiness: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['caminvoice', 'supply-chain-finance', 'compliance-as-a-service'],
   lead: 'Analysis published March 2026. Figures are as at their cited source year — mostly 2024 and 2025 — and are not restated here; check the source for anything more recent. Small and medium enterprises (SMEs) account for 99.8% of all businesses in Cambodia and contribute approximately 58% of GDP, yet their digital readiness varies dramatically. While urban SMEs in Phnom Penh increasingly accept KHQR payments and use social media for commerce, the vast majority still rely on paper-based accounting, cash transactions, and informal bookkeeping. As the General Department of Taxation (GDT) rolls out CamInvoice to mandatory compliance tiers and digital payment infrastructure matures, the gap between digitally prepared and unprepared SMEs is becoming a defining competitive divide. This analysis quantifies that gap across five dimensions: payment digitization, accounting and invoicing systems, e-commerce participation, access to digital credit, and workforce digital skills.',
-  claims: [
-    { stat: 'SMEs represent 99.8% of all registered businesses in Cambodia, numbering approximately 520,000 enterprises, and contribute 58% of GDP and 72% of total employment.', source: 'Ministry of Economy and Finance, Cambodia SME Development Framework', year: '2024' },
-    { stat: 'Only 12% of Cambodian SMEs use any form of accounting software, with 74% relying entirely on manual paper-based record keeping.', source: 'World Bank Cambodia Enterprise Survey', year: '2023' },
-    { stat: 'E-commerce participation among Cambodian SMEs reached 18% in 2024, up from 7% in 2020, but remains below the ASEAN average of 34%.', source: 'Google/Temasek/Bain e-Conomy SEA Report', year: '2024' },
-    { stat: 'Only 28% of Cambodian SMEs have received any formal bank credit, with a financing gap estimated at USD 2.8 billion annually.', source: 'Asian Development Bank SME Monitor', year: '2024' },
-    { stat: 'Cambodia ranks 108th out of 132 countries in the Global Innovation Index 2024 digital skills sub-index, highlighting workforce readiness challenges for SME digitization.', source: 'World Intellectual Property Organization, Global Innovation Index', year: '2024' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What percentage of Cambodian SMEs are digitally ready for CamInvoice?', answer: 'Based on our assessment framework, approximately 15-18% of Cambodian SMEs currently have the digital infrastructure needed for CamInvoice compliance, including accounting software, internet connectivity, and staff capable of operating electronic invoicing systems. This figure rises to approximately 35% in Phnom Penh but drops to under 8% in rural provinces. The GDT\'s phased rollout strategy, starting with large taxpayers and gradually extending to smaller businesses, is designed to allow time for this readiness gap to close.' },
     { question: 'What are the biggest barriers to SME digitization in Cambodia?', answer: 'Three barriers dominate: (1) Digital literacy, with only 23% of SME owners or managers reporting confidence in using business software beyond basic social media; (2) Cost of technology, with SMEs citing USD 50-150 monthly for software subscriptions as prohibitive when average monthly profit margins are USD 500-2,000; and (3) Perceived lack of immediate benefit, with 62% of survey respondents stating they do not see clear ROI from digitization. Infrastructure barriers such as internet access have largely been resolved, with 4G coverage reaching 95% of the population.' },

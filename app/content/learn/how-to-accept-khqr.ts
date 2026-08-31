@@ -13,12 +13,14 @@ export const howToAcceptKHQR: ArticleContent = {
   relatedSlugs: ['khqr', 'bakong', 'nbc'],
   relatedInstruments: ['prakas-b14-017-161'],
   lead: 'KHQR (Khmer QR) is Cambodia\'s national standardized QR code payment protocol, mandated by the National Bank of Cambodia (NBC) to enable interoperable instant payments across all Bakong-connected financial institutions. Any customer with any participating bank or wallet app can pay any KHQR merchant through a single QR code scan. For businesses operating in Cambodia, accepting KHQR is no longer optional but a commercial necessity: over 400,000 merchants are registered, and consumer preference has shifted decisively toward QR-based payments. This guide covers the complete process from merchant registration to production integration.',
-  claims: [
-    { stat: 'Over 400,000 merchant KHQR codes were registered in Cambodia by early 2025, with the NBC targeting 600,000 by the end of the year.', source: 'National Bank of Cambodia', year: '2025' },
-    { stat: 'QR code payments accounted for approximately 45% of all point-of-sale digital transactions in Cambodia in 2024, up from 18% in 2022.', source: 'National Bank of Cambodia Payment Systems Report', year: '2024' },
-    { stat: 'Cross-border QR payment acceptance through Bakong corridors enabled over USD 200 million in tourist spending in 2024, primarily from Thai and Chinese visitors.', source: 'Asian Development Bank', year: '2024', url: 'https://www.adb.org/countries/cambodia/main' },
-    { stat: 'Merchant discount rates for KHQR transactions range from 0% to 0.5% depending on the acquiring bank, significantly lower than the 2-3% typical for international card networks.', source: 'National Bank of Cambodia', year: '2024' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'How much does it cost to accept KHQR payments?', answer: 'KHQR merchant fees are among the lowest in the region. Most acquiring banks charge between 0% and 0.5% per transaction, with some banks waiving fees entirely for small merchants to encourage adoption. There are no monthly fees, terminal rental charges, or chargeback costs. Compare this to international card networks which typically charge 2-3% per transaction.' },
     { question: 'Can tourists pay with KHQR?', answer: 'Yes. Through Bakong\'s cross-border corridors, tourists from Thailand (PromptPay), Malaysia (DuitNow), and China (Alipay) can scan KHQR codes and pay using their home banking apps. The currency conversion happens automatically. This makes KHQR the most tourist-friendly payment method in Cambodia.' },

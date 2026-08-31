@@ -12,11 +12,14 @@ export const whatIsCamInvoice: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['caminvoice', 'gdt', 'supply-chain-finance'],
   lead: 'CamInvoice is Cambodia\'s mandatory electronic invoicing system, operated by the General Department of Taxation (GDT) under the Ministry of Economy and Finance. Launched as part of Cambodia\'s Revenue Mobilization Strategy 2019-2023 and extended through the Digital Government Policy 2022-2035, CamInvoice requires businesses to submit structured electronic invoices in real time to the GDT clearance platform before they are considered legally valid. The system uses the Universal Business Language (UBL) 2.1 XML standard and follows a clearance model where the GDT validates and stamps each invoice before it reaches the buyer. Compliance is mandatory and phased by business size, with significant penalties for non-compliance.',
-  claims: [
-    { stat: 'Cambodia\'s tax-to-GDP ratio stood at approximately 18.2% in 2023, with the government targeting 20% by 2027 through improved tax administration including mandatory e-invoicing.', source: 'International Monetary Fund Article IV Consultation', year: '2023' },
-    { stat: 'Countries that implement mandatory e-invoicing typically see VAT compliance gaps narrow by 10-15 percentage points within three years of full rollout.', source: 'World Bank Tax Administration Diagnostic Assessment', year: '2024' },
-    { stat: 'The GDT registered approximately 160,000 active taxpayer entities as of 2024, of which the largest 5,000 account for over 80% of total tax revenue collected.', source: 'General Department of Taxation Annual Report', year: '2024' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'When does CamInvoice become mandatory for my business?', answer: 'CamInvoice compliance follows a phased timeline based on annual turnover. Phase 1 (2025) covers large taxpayers with annual turnover above KHR 2 billion. Phase 2 (2026) extends to medium taxpayers with turnover above KHR 500 million. Phase 3 (2027) covers all registered taxpayers. Check with the GDT or consult CamFinTech to confirm your specific compliance deadline.' },
     { question: 'What are the penalties for non-compliance with CamInvoice?', answer: 'Non-compliance penalties include fines of 10-25% of the invoice value for failure to issue compliant e-invoices, suspension of VAT refund claims, and potential business license revocation for repeat offenders. Additionally, non-compliant invoices cannot be used as tax deductions by the buyer, creating commercial pressure from trading partners.' },

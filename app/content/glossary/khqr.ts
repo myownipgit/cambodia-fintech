@@ -12,11 +12,14 @@ export const khqr: ArticleContent = {
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'nbc', 'camdigikey'],
   lead: 'KHQR (Khmer QR) is Cambodia\'s standardized QR code payment protocol based on EMVCo specifications and operated through the Bakong payment system. Launched in 2022 by the National Bank of Cambodia, KHQR enables merchants to accept instant payments from any Bakong-connected bank or wallet through a single interoperable QR code.',
-  claims: [
-    { stat: 'KHQR merchant acceptance points exceeded 500,000 locations across Cambodia by end of 2024, spanning retail, food service, transportation, and government payments.', source: 'National Bank of Cambodia', year: '2025', url: 'https://bakong.nbc.gov.kh/en/' },
-    { stat: 'QR code-based payments in Cambodia grew by over 150% year-over-year in transaction volume during 2024, driven primarily by KHQR adoption.', source: 'National Bank of Cambodia Annual Report', year: '2024', url: 'https://www.nbc.gov.kh/payment_systems/background_of_payment_systems.php' },
-    { stat: 'EMVCo-compliant QR payment standards have been adopted by over 30 countries globally, with Cambodia\'s KHQR recognized as one of the most successful implementations in Southeast Asia.', source: 'Bank for International Settlements', year: '2024' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is KHQR and how is it different from other QR codes?', answer: 'KHQR (Khmer QR) is Cambodia\'s national standardized QR code payment protocol. Unlike proprietary QR codes from individual banks (such as ABA QR or ACLEDA QR), KHQR is interoperable, meaning a single KHQR code can accept payments from any Bakong-connected bank or mobile wallet. This eliminates the need for merchants to display multiple QR codes and provides a unified payment experience for consumers.' },
     { question: 'How does KHQR work with Bakong?', answer: 'KHQR operates as the consumer-facing payment interface on top of the Bakong settlement infrastructure. When a customer scans a KHQR code and initiates payment through their banking app, the transaction is routed through Bakong for real-time settlement. The merchant receives instant confirmation and the funds settle immediately between the customer\'s and merchant\'s banks via the Bakong ledger.' },

@@ -12,12 +12,14 @@ export const cambodiaFintechLandscape: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['gaap', 'bakong', 'nbc'],
   lead: 'Cambodia\'s FinTech sector has transformed from an early-stage frontier market into one of Southeast Asia\'s most dynamic digital finance ecosystems. Anchored by the National Bank of Cambodia\'s forward-thinking regulatory framework and the Bakong CBDC, the Kingdom now hosts over 30 licensed FinTech operators, processes billions of dollars in mobile payments annually, and attracts growing venture capital interest. With a population where the median age is 26 and smartphone penetration exceeds 80%, Cambodia presents a structurally unique opportunity at the intersection of government-mandated digital infrastructure and a young, digitally native consumer base.',
-  claims: [
-    { stat: 'Cambodia\'s mobile money transaction volume reached $78 billion in 2024, driven by KHQR adoption and Bakong settlement rails across 60+ participating institutions.', source: 'National Bank of Cambodia Annual Report', year: '2024' },
-    { stat: 'Financial inclusion in Cambodia rose from 59% to 78% of adults with a formal financial account between 2017 and 2024, outpacing the East Asia & Pacific regional average.', source: 'World Bank Global Findex Database', year: '2024' },
-    { stat: 'Cambodia attracted approximately $120 million in FinTech-related investment between 2022 and 2025, with payment services and lending platforms receiving the largest share.', source: 'Asian Development Bank FinTech Report', year: '2025' },
-    { stat: 'The ASEAN FinTech market is projected to exceed $60 billion in transaction value by 2027, with Cambodia, Vietnam, and the Philippines identified as the fastest-growing sub-markets.', source: 'GSMA State of the Industry Report', year: '2025' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'How big is Cambodia\'s FinTech market?', answer: 'Cambodia\'s FinTech market encompasses over 30 licensed operators, with mobile payment transaction volumes exceeding $78 billion in 2024. The ecosystem includes payment service providers, microfinance institutions, e-money issuers, and emerging InsurTech and LendTech platforms, all operating under NBC regulatory oversight.' },
     { question: 'What are the biggest FinTech companies in Cambodia?', answer: 'The leading FinTech players include Wing (Cambodia) Limited with over 9 million users, ABA Bank (the largest digital banking platform), Pi Pay (now merged into Bakong ecosystem), TrueMoney Cambodia, and ACLEDA mobile. Each serves different market segments from rural mobile money to urban digital banking.' },

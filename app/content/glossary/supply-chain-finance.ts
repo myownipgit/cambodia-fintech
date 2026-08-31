@@ -12,11 +12,14 @@ export const supplyChainFinance: ArticleContent = {
   schema: 'DefinedTerm',
   relatedSlugs: ['caminvoice', 'bakong', 'embedded-insurance'],
   lead: 'Supply chain finance (SCF) in Cambodia refers to the set of financial products, including invoice financing, factoring, and reverse factoring, that use CamInvoice-verified trade data and Bakong instant settlement to provide working capital to businesses within supply chains.',
-  claims: [
-    { stat: 'Cambodia\'s SME financing gap is estimated at over $3 billion annually, with supply chain finance identified as the most promising mechanism to close this gap using digital infrastructure.', source: 'Asian Development Bank', year: '2025', url: 'https://www.adb.org/countries/cambodia/economy' },
-    { stat: 'Global supply chain finance volumes exceeded $2 trillion in 2024, yet penetration in ASEAN developing markets remains below 5% of eligible trade flows.', source: 'World Bank Trade Finance Report', year: '2024', url: 'https://www.worldbank.org/en/topic/smefinance' },
-    { stat: 'CamInvoice-verified invoices are expected to cover over $10 billion in annual B2B trade value by 2027, creating the data foundation for scalable supply chain finance programs.', source: 'General Department of Taxation Cambodia', year: '2025', url: 'https://www.tax.gov.kh/en/e-service' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is supply chain finance and how does it work in Cambodia?', answer: 'Supply chain finance is a set of financing techniques that optimize cash flow within supply chains. In Cambodia, a supplier delivers goods to a buyer and issues an invoice through CamInvoice. A financial institution can then advance payment to the supplier at a discount, using the GDT-verified CamInvoice record as proof of the receivable. When the buyer pays at invoice maturity, the financial institution collects the full amount. The CamInvoice verification eliminates the document fraud risk that previously made this type of lending prohibitively risky in Cambodia.' },
     { question: 'Why does CamInvoice make supply chain finance viable in Cambodia?', answer: 'Before CamInvoice, invoice-based financing in Cambodia was limited because lenders could not reliably verify that invoices were genuine, unaltered, and not already pledged to another lender. CamInvoice solves all three problems: the GDT clears every invoice in real-time (proving authenticity), assigns a unique cryptographic reference (preventing alteration), and creates a central registry (enabling duplicate detection). This trusted data layer transforms previously unfinanceable receivables into bankable assets.' },

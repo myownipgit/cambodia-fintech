@@ -12,11 +12,14 @@ export const camdx: ArticleContent = {
   schema: 'DefinedTerm',
   relatedSlugs: ['camdigikey', 'gaap', 'caminvoice'],
   lead: 'CamDX (Cambodia Data Exchange) is Cambodia\'s national data exchange platform built on Estonia\'s proven X-Road technology. Operated by the Ministry of Economy and Finance, CamDX provides a secure, standardized infrastructure for real-time data sharing between government agencies and authorized private sector participants.',
-  claims: [
-    { stat: 'CamDX connects over 40 government agencies and ministries, processing millions of secure data transactions monthly for inter-agency coordination.', source: 'Ministry of Economy and Finance Cambodia', year: '2025', url: 'https://camdx.gov.kh/documents/files/Unofficial%20Translation%20of%20CamDX%20Subdecree.pdf' },
-    { stat: 'Countries implementing X-Road-based data exchange platforms save an estimated 800+ working years annually in reduced administrative processing time.', source: 'World Bank Digital Development Report', year: '2024', url: 'https://www.worldbank.org/en/topic/digitaldevelopment' },
-    { stat: 'Cambodia\'s adoption of X-Road technology makes it the first ASEAN country to deploy a nationwide government data exchange layer based on the Estonian model.', source: 'Asian Development Bank', year: '2024', url: 'https://www.adb.org/countries/cambodia/main' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is CamDX and what technology does it use?', answer: 'CamDX (Cambodia Data Exchange) is Cambodia\'s national data exchange platform that enables secure, real-time data sharing between government agencies and authorized private sector organizations. It is built on Estonia\'s X-Road technology, a proven open-source data exchange layer used by over 20 countries worldwide. X-Road ensures data integrity through cryptographic signatures and provides a complete audit trail of all data transactions.' },
     { question: 'How does CamDX connect to other Cambodia digital infrastructure?', answer: 'CamDX serves as the data backbone connecting Cambodia\'s Government-as-a-Platform components. CamDigiKey identity verifications flow through CamDX. CamInvoice e-invoicing data is shared via CamDX. Bakong payment confirmations can be validated through CamDX connections. This interoperability creates a unified digital ecosystem where identity, payments, invoicing, and data exchange work together seamlessly.' },

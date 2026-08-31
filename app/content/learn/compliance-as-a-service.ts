@@ -12,12 +12,14 @@ export const complianceAsAService: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['caminvoice', 'gdt', 'gaap'],
   lead: 'Compliance-as-a-Service (CaaS) is an emerging business model that automates tax filing, bookkeeping, and regulatory reporting for Cambodia\'s 43,970+ registered SMEs by integrating directly with government digital infrastructure. As Cambodia\'s General Department of Taxation mandates CamInvoice adoption and tightens enforcement, SMEs face growing compliance complexity that most lack the internal capacity to manage. CaaS platforms that connect to CamInvoice APIs, automate GDT reporting, and bundle accounting with compliance functions represent a multi-million-dollar market opportunity sitting at the intersection of Cambodia\'s Government-as-a-Platform model and the operational reality of small businesses.',
-  claims: [
-    { stat: 'Cambodia has over 43,970 registered small and medium enterprises, of which fewer than 30% maintain formal bookkeeping records adequate for GDT compliance requirements.', source: 'General Department of Taxation, Cambodia', year: '2025' },
-    { stat: 'CamInvoice became mandatory for all large taxpayers in 2024, with phased rollout to medium and small taxpayers scheduled through 2026, creating universal e-invoicing coverage.', source: 'General Department of Taxation Prakas', year: '2024' },
-    { stat: 'Global RegTech spending is projected to reach $33.1 billion by 2026, with compliance automation for SMEs identified as the fastest-growing sub-segment in emerging markets.', source: 'IMF FinTech Note on Regulatory Technology', year: '2025' },
-    { stat: 'Cambodian SMEs spend an average of 173 hours per year on tax compliance activities, significantly above the East Asia & Pacific average of 158 hours.', source: 'World Bank Doing Business Indicators', year: '2024' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is compliance-as-a-service in Cambodia?', answer: 'Compliance-as-a-service (CaaS) refers to cloud-based platforms that automate tax compliance, bookkeeping, and regulatory reporting for Cambodian businesses by connecting directly to government systems like CamInvoice and GDT. Instead of hiring accountants or compliance officers, SMEs subscribe to CaaS platforms that handle invoicing, VAT calculation, tax filing, and audit preparation automatically.' },
     { question: 'Why do Cambodian SMEs need compliance automation?', answer: 'Cambodia\'s 43,970+ registered SMEs face increasing compliance requirements as CamInvoice becomes mandatory. Most SMEs lack dedicated accounting staff and spend 173+ hours per year on tax compliance. Penalties for non-compliance include fines of 10-40% of owed tax plus potential business license suspension. CaaS platforms reduce this burden to minutes per month through automation.' },

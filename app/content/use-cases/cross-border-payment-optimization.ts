@@ -22,28 +22,14 @@ export const crossBorderPaymentOptimization: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['bakong', 'cross-border-payments-bakong', 'nbc', 'khqr'],
   lead: 'Cambodia has bilateral payment linkages that let a visitor pay a Cambodian merchant from the banking app they already use at home. For a merchant in a tourism-facing business, that is a straightforward commercial proposition: capture spending that would otherwise be a cash transaction or no transaction. It is also an area where integrators overpromise, because the parts of a cross-border payment that sound most valuable — the exchange rate, the routing, the settlement — are precisely the parts a client-side integrator has no business touching. This scenario draws that line explicitly.',
-  claims: [
-    {
-      stat: 'Cambodia is one of only three ASEAN member states (alongside Singapore and Thailand) with operational bilateral real-time payment linkages connecting to multiple foreign payment systems.',
-      source: 'BIS Committee on Payments and Market Infrastructures Report',
-      year: '2025',
-    },
-    {
-      stat: 'Cross-border digital payment volume through Bakong bilateral corridors (Thailand, Malaysia, China) reached USD 2.8 billion in 2024, reducing average remittance costs from 10% to under 5% of transaction value.',
-      source: 'Asian Development Bank Remittance Cost Report',
-      year: '2024',
-    },
-    {
-      stat: 'Cambodia received approximately 1.2 million international tourist arrivals in the first half of 2025, with Chinese, Thai, and Malaysian visitors representing the primary source markets for Bakong Tourist App usage.',
-      source: 'Ministry of Tourism, Cambodia',
-      year: '2025',
-    },
-    {
-      stat: 'Cross-border remittances to Cambodia totaled $3.1 billion in 2024, with Thailand and Malaysia accounting for over 60% of inbound flows from Cambodian migrant workers.',
-      source: 'World Bank Migration and Remittances Data',
-      year: '2024',
-    },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     {
       question: 'Which corridors can a merchant actually accept from today?',

@@ -12,12 +12,14 @@ export const crossBorderPaymentsBakong: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['bakong', 'nbc', 'khqr'],
   lead: 'Bakong\'s cross-border payment corridors represent one of the most advanced real-time international settlement implementations in the developing world. Through bilateral agreements with Thailand\'s PromptPay, Malaysia\'s DuitNow, and China\'s Alipay, Cambodia\'s central bank digital currency enables instant cross-border transfers that reduce costs by 40-60% compared to traditional remittance channels. The Bank for International Settlements has cited Bakong\'s cross-border architecture as a model for emerging market CBDC interoperability, and with corridors to Vietnam and Laos under development, Cambodia is positioning itself as a hub for ASEAN real-time payment connectivity.',
-  claims: [
-    { stat: 'Cross-border remittances to Cambodia totaled $3.1 billion in 2024, with Thailand and Malaysia accounting for over 60% of inbound flows from Cambodian migrant workers.', source: 'World Bank Migration and Remittances Data', year: '2024' },
-    { stat: 'The Bakong-PromptPay corridor reduced average remittance costs from 8-10% to under 3% for Cambodia-Thailand transfers, processing transactions in under 30 seconds.', source: 'National Bank of Cambodia', year: '2025' },
-    { stat: 'The Bank for International Settlements identified bilateral CBDC linkages like Bakong\'s corridors as the most practical near-term approach to cross-border CBDC interoperability.', source: 'BIS Innovation Hub Cross-Border Payments Report', year: '2024' },
-    { stat: 'Cambodia received approximately 1.2 million international tourist arrivals in the first half of 2025, with Chinese, Thai, and Malaysian visitors representing the primary source markets for Bakong Tourist App usage.', source: 'Ministry of Tourism, Cambodia', year: '2025' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'How do cross-border payments work through Bakong?', answer: 'Bakong processes cross-border payments through bilateral linkages with foreign national payment systems. When a sender in Thailand initiates a transfer via PromptPay, the payment routes through the PromptPay-Bakong connection, converts currency at real-time NBC exchange rates, and settles instantly into the recipient\'s Bakong-connected account in Cambodia. The entire process takes under 30 seconds and costs significantly less than traditional wire transfers.' },
     { question: 'Which countries can send payments to Cambodia via Bakong?', answer: 'As of 2026, Bakong has operational cross-border payment corridors with Thailand (via PromptPay), Malaysia (via DuitNow), and China (via Alipay). Corridors with Vietnam (NAPAS) and Laos (LAPNet) are under development. These bilateral linkages support both remittance transfers and merchant payments, with additional ASEAN corridors planned.' },

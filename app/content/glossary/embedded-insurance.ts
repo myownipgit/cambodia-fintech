@@ -12,11 +12,14 @@ export const embeddedInsurance: ArticleContent = {
   schema: 'DefinedTerm',
   relatedSlugs: ['khqr', 'camdigikey', 'supply-chain-finance'],
   lead: 'Embedded insurance in Cambodia refers to the distribution of insurance products directly within non-insurance digital transactions, leveraging KHQR payment rails for premium collection and claims payment, and CamDigiKey for instant policyholder identity verification, targeting a market with insurance penetration below 2%.',
-  claims: [
-    { stat: 'Cambodia\'s insurance penetration stands at approximately 1.5% of GDP, among the lowest in ASEAN, representing a significant untapped market estimated at over $500 million in annual premium potential.', source: 'Insurance Authority of Cambodia', year: '2025', url: 'https://irc.gov.kh/statistics/quarterly' },
-    { stat: 'Embedded insurance distribution models have demonstrated 3-5x higher conversion rates compared to traditional insurance sales channels in emerging markets.', source: 'GSMA Mobile Insurance Report', year: '2024' },
-    { stat: 'Cambodia has approximately 18 million mobile phone subscribers with over 60% smartphone penetration, providing the digital access foundation for embedded insurance distribution.', source: 'International Telecommunication Union', year: '2024', url: 'https://www.itu.int/en/ITU-D/Statistics/Pages/stat/default.aspx' },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     { question: 'What is embedded insurance and why is it relevant to Cambodia?', answer: 'Embedded insurance is the integration of insurance products into non-insurance platforms and transactions. Instead of buying insurance separately, customers receive offers at contextually relevant moments: travel insurance when booking a bus ticket, device insurance when purchasing a phone, or health insurance when making a healthcare payment. This model is particularly relevant to Cambodia because traditional insurance distribution (agents, brokers, branches) has failed to achieve meaningful penetration. Embedding insurance into existing KHQR payment flows and digital platforms removes the distribution barrier.' },
     { question: 'How does KHQR enable embedded insurance distribution?', answer: 'KHQR provides the payment rails that make micro-insurance economically viable. When a customer makes a KHQR payment, an insurance offer can be presented and the premium collected in the same transaction flow. Claims can be paid back instantly via Bakong. The low transaction costs of KHQR mean that even micro-premiums of $0.50-$2.00 per month are commercially sustainable, enabling products that serve Cambodia\'s mass market rather than only affluent consumers.' },

@@ -23,28 +23,14 @@ export const smeComplianceAutomation: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['caminvoice', 'gdt', 'compliance-as-a-service', 'what-is-caminvoice'],
   lead: 'CamInvoice compliance is not really an invoicing problem. Most businesses already produce invoices; what the mandate adds is that each one must be rendered in a prescribed structure, submitted to the General Department of Taxation through an API, and retained with the confirmation the GDT returns. The work is a mapping-and-lifecycle problem between a system a business already runs and an interface it does not control. This scenario sets out how that connector would be scoped, and why the least interesting architectural decision — where it runs — is the one that matters most.',
-  claims: [
-    {
-      stat: 'Over 12,000 large enterprises were required to register for CamInvoice by January 2025, with approximately 10,200 achieving compliance by the deadline.',
-      source: 'General Department of Taxation Press Release',
-      year: '2025',
-    },
-    {
-      stat: 'The GDT reported that CamInvoice processed over 8.5 million electronic invoices in its first quarter of mandatory operation (Q1 2025), representing approximately 85% compliance among Phase 1 large enterprises.',
-      source: 'General Department of Taxation Quarterly Report',
-      year: '2025',
-    },
-    {
-      stat: 'Only 12% of Cambodian SMEs use any form of accounting software, with 74% relying entirely on manual paper-based record keeping.',
-      source: 'World Bank Cambodia Enterprise Survey',
-      year: '2023',
-    },
-    {
-      stat: 'Cambodian SMEs spend an average of 173 hours per year on tax compliance activities, significantly above the East Asia & Pacific average of 158 hours.',
-      source: 'World Bank Doing Business Indicators',
-      year: '2024',
-    },
-  ],
+  // Claims removed 2026-08-31. This array previously carried figures attributed
+  // to named institutional reports with no URL, access date or page reference.
+  // A verified sample was wrong more often than not — including a Cambodian FATF
+  // mutual evaluation that never took place, and citations to bodies that do not
+  // exist under the names given. Restore an entry only when its figure has been
+  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
+  // and record where it was read. See vault ADR-007.
+  claims: [],
   faqs: [
     {
       question: 'Does a business have to replace its accounting system to comply with CamInvoice?',
