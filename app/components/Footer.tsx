@@ -1,73 +1,109 @@
 import Link from "next/link";
 
+/* Footer rebuilt 2026-08-31 (ADR-007).
+ *
+ * Two jobs beyond navigation:
+ *
+ * 1. The Publications column is the inbound link for /learn, /knowledge,
+ *    /insights and /use-cases. Those four sections — 30 pages — shipped with
+ *    no entry in either the nav or the footer and were reachable only from the
+ *    sitemap. That is the third occurrence of the same failure; the footer is
+ *    where it stops. Every content section index belongs in this list.
+ *
+ * 2. The legal-identity block. Publishing registered activity scope and a full
+ *    Sangkat/Khan address is the Cambodian institutional convention — ABA
+ *    carries its commercial bank licence number and date, Canadia its Patent
+ *    TIN, and every local site gives the address to commune and district depth.
+ *    Registration STATUS is deliberately absent while the OBR filing is
+ *    outstanding: scope is stated, status is not.
+ */
+
+const SECTIONS = [
+  { href: "/regulatory", label: "Regulatory instruments" },
+  { href: "/knowledge", label: "Knowledge base" },
+  { href: "/learn", label: "Explainers" },
+  { href: "/insights", label: "Insights" },
+  { href: "/use-cases", label: "Engagement scenarios" },
+  { href: "/glossary", label: "Glossary" },
+];
+
+const PRACTICE_LINKS = [
+  { href: "/#practice", label: "Practice" },
+  { href: "/products/dasp", label: "Digital-asset service providers" },
+  { href: "/#constitution", label: "How the firm is constituted" },
+  { href: "/about", label: "About" },
+  { href: "/publication", label: "The Riel Report" },
+  { href: "/#contact", label: "Contact" },
+];
+
+const link =
+  "hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors";
+
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-line mt-12">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        {/* Trust strip */}
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-navy/70 mb-6 border-b border-line pb-6">
-          <span>Fee-only</span>
-          <span className="text-navy/30">·</span>
-          <span>Never hold client funds</span>
-          <span className="text-navy/30">·</span>
-          <span>Never operate the rail</span>
-          <span className="text-navy/30">·</span>
-          <span>Reserved work to licensed partners</span>
-          <span className="text-navy/30">·</span>
-          <span>Phnom Penh HQ</span>
-        </div>
-
-        {/* Three-column info */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-          <div>
-            <h3 className="font-bold text-navy mb-3">CamFinTech</h3>
-            <p className="text-navy/70 leading-relaxed">
-              Fee-only regulatory approval-navigation and compliance firm for Cambodia&apos;s Digital Public Infrastructure rails. Founded 2024 in Phnom Penh.
+    <footer className="mt-16 w-full border-t border-line">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 text-sm md:grid-cols-4">
+          <div className="md:col-span-2">
+            <h2 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-navy">
+              CamFinTech
+            </h2>
+            <p className="mt-3 max-w-md leading-relaxed text-navy/80">
+              A fee-only regulatory and compliance practice in Phnom Penh, working on the
+              approvals, compliance programmes and client-side integrations that connect
+              institutions to the Kingdom of Cambodia&apos;s national digital infrastructure.
             </p>
-            <p className="text-xs text-navy/55 mt-3">
+            <address className="mt-5 text-xs not-italic leading-relaxed text-slate">
               30 Preah Norodom Boulevard<br />
-              Khan Daun Penh<br />
-              Phnom Penh, Kingdom of Cambodia
+              Sangkat Phsar Thmey 3, Khan Daun Penh<br />
+              Phnom Penh 12210, Kingdom of Cambodia
+            </address>
+            <p className="mt-4 text-xs leading-relaxed text-slate">
+              Registered activity scope, KHNSIC-2015:{" "}
+              <span className="font-mono">62010</span> computer programming ·{" "}
+              <span className="font-mono">62020</span> computer consultancy and systems integration ·{" "}
+              <span className="font-mono">62090</span> information-technology advisory ·{" "}
+              <span className="font-mono">70200</span> management consultancy ·{" "}
+              <span className="font-mono">85499</span> professional training.
             </p>
           </div>
 
           <div>
-            <h3 className="font-bold text-navy mb-3">Site</h3>
-            <ul className="flex flex-col gap-1.5 text-navy/70">
-              <li><Link href="/" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors">Home</Link></li>
-              <li><Link href="/#services" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors">Services</Link></li>
-              <li><Link href="/products/dasp" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors">DASP / Prakas 093</Link></li>
-              <li><Link href="/about" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors">About</Link></li>
-              <li><Link href="/publication" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors">Publication</Link></li>
-              <li><Link href="/#contact" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors">Contact</Link></li>
+            <h2 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-navy">
+              Publications
+            </h2>
+            <ul className="mt-3 flex flex-col gap-2 text-navy/80">
+              {SECTIONS.map((s) => (
+                <li key={s.href}>
+                  <Link href={s.href} className={link}>{s.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold text-navy mb-3">Resources &amp; legal</h3>
-            <ul className="flex flex-col gap-1.5 text-navy/70">
-              <li><Link href="/glossary" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors">Glossary</Link></li>
-              <li><Link href="/privacy" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors">Privacy</Link></li>
-              <li><Link href="/terms" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors">Terms</Link></li>
-              <li className="pt-2 text-xs text-navy/55">
-                Partner inquiries:<br />
-                <a href="mailto:partners@camfintech.com" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors">partners@camfintech.com</a>
-              </li>
+            <h2 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-navy">
+              Practice
+            </h2>
+            <ul className="mt-3 flex flex-col gap-2 text-navy/80">
+              {PRACTICE_LINKS.map((s) => (
+                <li key={s.href}>
+                  <Link href={s.href} className={link}>{s.label}</Link>
+                </li>
+              ))}
+            </ul>
+            <ul className="mt-5 flex flex-col gap-2 text-xs text-slate">
+              <li><Link href="/privacy" className={link}>Privacy</Link></li>
+              <li><Link href="/terms" className={link}>Terms</Link></li>
             </ul>
           </div>
         </div>
 
-        {/* Riel Report cross-link */}
-        <div className="mt-8 pt-6 border-t border-line text-center">
-          <p className="text-sm text-navy/75">
-            CamFinTech is also the publisher of <a href="https://riel.report" rel="external" className="text-navy font-medium hover:underline">The Riel Report</a> — Cambodia FinTech intelligence at <span className="font-mono text-xs">riel.report</span>.
+        <div className="mt-10 flex flex-col gap-3 border-t border-line pt-6 text-xs text-slate sm:flex-row sm:items-baseline sm:justify-between">
+          <p>
+            Fee-only · No client funds held · No rail operated · Reserved work to licensed professionals
           </p>
-        </div>
-
-        {/* Copyright */}
-        <div className="mt-8 text-center text-xs text-navy/55">
-          <p>© 2024–2026 CamFinTech. All rights reserved.</p>
-          <p className="mt-1">Pricing is indicative — every engagement is validated by quote.</p>
+          <p>© 2024–2026 CamFinTech. Established 2024, Phnom Penh.</p>
         </div>
       </div>
     </footer>

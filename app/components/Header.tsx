@@ -7,13 +7,16 @@ import Link from "next/link";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Five items, and no CTA button. Across 22 Cambodian institutional homepages
+  // there was not a single "Book a call" or embedded scheduler; contact is an
+  // office you write to, reached from the nav like anything else. "Publications"
+  // is what makes /learn, /knowledge, /insights and /use-cases reachable —
+  // 30 pages that shipped with no inbound link from nav or footer.
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/#services", label: "Services" },
-    { href: "/products/dasp", label: "DASP" },
+    { href: "/#practice", label: "Practice" },
     { href: "/regulatory", label: "Regulatory" },
+    { href: "/#publications", label: "Publications" },
     { href: "/about", label: "About" },
-    { href: "/publication", label: "Publication" },
     { href: "/#contact", label: "Contact" },
   ];
 
@@ -45,13 +48,9 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Book a call CTA — replaces the EN/KM toggle (Khmer pending native editorial hire) */}
-          <Link
-            href="/#contact"
-            className="hidden sm:flex h-10 min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal px-4 text-sm font-bold tracking-[0.015em] text-navy-deep hover:scale-105 transition-transform"
-          >
-            <span className="truncate">Book a call</span>
-          </Link>
+          {/* Deliberately no CTA button here — see the navLinks comment above.
+              This slot previously held "Book a call", which itself replaced the
+              EN/KM toggle. Do not reinstate either without reading ADR-007. */}
 
           {/* Mobile Menu Button */}
           <button

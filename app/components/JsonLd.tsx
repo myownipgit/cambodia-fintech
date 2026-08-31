@@ -16,7 +16,7 @@ export default function JsonLd() {
           "height": 300,
         },
         "description":
-          "CamFinTech is a Phnom Penh–based fee-only regulatory and compliance practice. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the programmes that hold afterwards. We build the client-side integration to those rails, or direct an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Our moat is ex-NBC/NBFSA/TSC/SERC/GDT regulator talent paired with the engineering to deliver against it.",
+          "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, established 2024. It prepares Cambodian and foreign institutions to meet the standard for connecting to the Kingdom of Cambodia's national digital infrastructure — Bakong and KHQR, CamDX and CamDigiKey, and CamInvoice — runs the AML/CFT and governance programmes that hold afterwards, and builds the client-side integration, or directs an accredited Service Provider as a disclosed sub-contract. The firm holds no client funds and operates no rail. The approval decision rests with the regulator and the client is the applicant of record. The practice is staffed by people who have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT.",
         "foundingDate": "2024",
         "areaServed": {
           "@type": "Country",
@@ -86,7 +86,7 @@ export default function JsonLd() {
         // and the NAP must sit on the same node for entity resolution to work.
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "30 Preah Norodom Boulevard, Khan Daun Penh",
+          "streetAddress": "30 Preah Norodom Boulevard, Sangkat Phsar Thmey 3, Khan Daun Penh",
           "addressLocality": "Phnom Penh",
           "addressRegion": "Phnom Penh",
           "postalCode": "12210",
@@ -141,7 +141,7 @@ export default function JsonLd() {
         ],
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "30 Preah Norodom Boulevard, Khan Daun Penh",
+          "streetAddress": "30 Preah Norodom Boulevard, Sangkat Phsar Thmey 3, Khan Daun Penh",
           "addressLocality": "Phnom Penh",
           "addressRegion": "Phnom Penh",
           "postalCode": "12210",

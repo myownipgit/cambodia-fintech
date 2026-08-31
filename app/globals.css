@@ -18,13 +18,9 @@
   }
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
-}
+/* The .material-symbols-outlined rule was removed 2026-08-31 with the icon
+   font itself (GEO H3). Use inline SVG for icons; do not reintroduce an icon
+   font, whose ligature text contaminates AI text extraction. */
 
 .font-khmer {
   font-family: var(--font-kantumruy), sans-serif;

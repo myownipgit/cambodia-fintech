@@ -1,6 +1,6 @@
 # CamFinTech
 
-> CamFinTech is a Phnom Penh–based **fee-only regulatory and compliance practice**. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. We build the client-side integration to those rails, or bring in an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Our moat is ex-NBC, NBFSA, TSC, SERC, and GDT regulator talent paired with the engineering to deliver against it.
+> CamFinTech is a Phnom Penh–based **fee-only regulatory and compliance practice**. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. We build the client-side integration to those rails, or bring in an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. The practice is staffed by people who have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT, paired with the engineering to deliver against that experience.
 
 ## Operating discipline
 
@@ -17,8 +17,8 @@
 CamFinTech offers eleven productised service vectors across four areas, applied across regulated FinTechs (banks, MFIs, PSPs, insurers, securities/crypto, alt-lenders) and rail-using enterprises. Pricing is indicative — every engagement is validated by quote.
 
 ### Core Rail Integrations
-- [SRV-01 — CamDX / eKYC Enablement](https://www.camfintech.com/#services): Navigate the approval to connect to Cambodia's national identity system; coordinate the integration build with an accredited partner.
-- [SRV-02 — Bakong / KHQR Integration](https://www.camfintech.com/#services): Navigate PSP licensing (or member-bank sponsorship); coordinate the technical build for accepting and sending payments on Cambodia's national rails.
+- [SRV-01 — CamDX / eKYC Enablement](https://www.camfintech.com/#services): Prepare the approval to connect to Cambodia's national identity and data-exchange systems, and build the client-side integration — or direct an accredited Service Provider where platform depth is the better fit.
+- [SRV-02 — Bakong / KHQR Integration](https://www.camfintech.com/#services): Prepare Payment Service Institution licensing or member-bank sponsorship, and build the connectivity for accepting and sending payments on Cambodia's national rails.
 - [SRV-03 — CamInvoice Readiness](https://www.camfintech.com/#services): Gap assessment + costed plan against the GDT's CamInvoice rules ahead of the phased B2B mandate.
 - [SRV-04 — CamInvoice SP-Enablement](https://www.camfintech.com/#services): Coordinate an accredited Service Provider to connect your ERP/accounting system to CamInvoice.
 
@@ -35,7 +35,7 @@ CamFinTech offers eleven productised service vectors across four areas, applied 
 ### Enablement
 - [SRV-10 — Professional Training & Knowledge Transfer](https://www.camfintech.com/#services): Hands-on professional training so your team can operate the rails, follow the compliance steps, and run the programme after handover. Cohort workshops on DPI, cybersecurity, and regulatory compliance.
 
-## Flagship product — DASP Approval-Readiness
+## DASP Approval-Readiness (SRV-11)
 
 - **DASP-DX** (Diagnostic) — paid readiness diagnostic + integrity STOP-gate qualifier. Indicative: US$8k–25k, 2–3 weeks.
 - **DASP-BUILD** (Flagship) — AML/CFT programme + governance + sandbox-readiness + full application pack. Indicative: US$45k–75k (wallet) / US$90k–160k+ (full exchange/custody), 4–8 months.
@@ -78,7 +78,7 @@ Full product detail: https://www.camfintech.com/products/dasp
 
 - **Pricing is indicative.** Every figure is a planning estimate, validated by quote at engagement scoping.
 - **Some mandates are anticipatory.** CamInvoice B2B is phased (~2026–2027, announced but not gazetted) and the Personal Data Protection Law is not yet promulgated. We help clients get *ahead* of these; we never claim they're already in breach.
-- **No fabricated case studies.** CamFinTech is pre-revenue and early. Pre-logo proof discipline: founder track record, methodology walk-throughs, and conspicuously-labelled illustrative scenarios. Real consented case studies are surfaced only when they exist.
+- **No unevidenced claims.** The practice is newly established and has no client engagements to report. What it offers instead: founder track record, methodology walk-throughs, a published regulatory reference, and conspicuously-labelled illustrative scenarios. A real engagement is published only if it exists and the client has consented.
 - **Every regulatory claim graded [S] sourced / [A] assumption / [V] verify** internally.
 - **No grace window claimed for Prakas 093.** No published grace period exists; we will not manufacture urgency.
 

@@ -44,9 +44,9 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.camfintech.com"),
-  title: "CamFinTech — Cambodia DPI Approval-Navigation & Compliance",
+  title: "CamFinTech — Regulatory and Compliance Advisers, Phnom Penh",
   description:
-    "CamFinTech is a fee-only regulatory and compliance practice based in Phnom Penh. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure — Bakong/KHQR, CamDX/CamDigiKey, CamInvoice — and run the programmes that hold afterwards. We build the client-side integration to the rails. The firm holds no client funds and operates no rail.",
+    "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, established 2024. It prepares Cambodian and foreign institutions to meet the standard for connecting to the Kingdom of Cambodia's national digital infrastructure — Bakong and KHQR, CamDX and CamDigiKey, CamInvoice — runs the AML/CFT and governance programmes that hold afterwards, and builds the client-side integration. The firm holds no client funds and operates no rail; the approval decision rests with the regulator and the client is the applicant of record.",
   keywords: [
     "Cambodia DPI",
     "DPI Integration",
@@ -75,12 +75,15 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "CamFinTech — Cambodia DPI Approval-Navigation & Compliance",
+    title: "CamFinTech — Regulatory and Compliance Advisers, Phnom Penh",
     description:
-      "Fee-only regulatory and compliance practice in Phnom Penh, preparing institutions to meet the standard for Cambodia's national digital rails.",
+      "A fee-only regulatory and compliance practice in the Kingdom of Cambodia, established 2024. Approvals, compliance programmes and client-side integrations for the national digital rails.",
     url: "https://www.camfintech.com",
     siteName: "CamFinTech",
-    locale: "en_US",
+    // en_KH, not en_US. The site is published by a Cambodian practice for a
+    // Cambodian and regional readership; declaring a US locale was a small but
+    // exact instance of the thing ADR-007 exists to fix.
+    locale: "en_KH",
     type: "website",
   },
   twitter: {
@@ -116,10 +119,16 @@ export default function RootLayout({
           despite it being a common (incorrect) suggestion.
         */}
         <link rel="describedby" href="/llms.txt" type="text/markdown" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-          rel="stylesheet"
-        />
+        {/*
+          The Material Symbols stylesheet was removed 2026-08-31, closing GEO
+          finding H3. It was ~310 KB and render-blocking, and its icons were
+          ligature TEXT: an extractor reading this page saw "check_circle",
+          "expand_more" and "article" interleaved with the prose, and
+          aria-hidden did not help because it removes a node from the
+          accessibility tree while leaving the text in the DOM. The last four
+          icons were deleted or replaced with inline SVG. Do not reintroduce an
+          icon font — use inline SVG.
+        */}
       </head>
       <body
         className={`${poppins.variable} ${manrope.variable} ${kantumruy.variable} ${plexMono.variable} bg-cloud font-sans text-navy`}

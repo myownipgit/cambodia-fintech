@@ -1,5 +1,37 @@
+import Link from "next/link";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
+/* Homepage restructured 2026-08-31 (ADR-007).
+ *
+ * ADR-006 corrected what this page SAID. It did not change what the page WAS:
+ * a claim-led marketing page organised as a sales argument, opening with a
+ * "Book a readiness call" button. Bill's second reading — that it "lacks the
+ * level of professionalism necessary in Cambodia's ultra conservative culture"
+ * — is a finding about structure, and eight prior copy passes had not touched
+ * the structure.
+ *
+ * The order and the devices below are the conventions observed across 22
+ * Cambodian institutional homepages (banks, regulators, the Digital Government
+ * Committee, and the professional-services firms this practice is compared
+ * against). Three of them are load-bearing and should not be "improved":
+ *
+ *   1. The hero is an identity statement, not a value proposition, and the
+ *      institution is the grammatical subject. No imperative, no second person,
+ *      nothing promised to the reader. Not one site in the sample opens with a
+ *      claim; the only imperative hero belonged to a firm headquartered abroad.
+ *   2. There is NO button CTA and no scheduler. Across all 22 sites there was
+ *      not a single "Book a call" or embedded calendar. Contact is an office
+ *      you write to, and it lives at the bottom, not the top.
+ *   3. The published corpus is the credibility section. For a pre-revenue firm
+ *      this is what stands in for a client list, and it is exactly what the
+ *      closest local analogue (BNG Legal) puts on its homepage.
+ *
+ * The hard rules stay visible because a client's third-party-risk function
+ * needs to find them — vault 47_Firm_Regulatory_Perimeter §2: the client
+ * retains full liability and TCRMG 2026 cl. 7.0.17 pushes NBC audit and access
+ * rights down into their contract. They may be quietened; not removed.
+ */
 
 const homepageSchema = {
   "@context": "https://schema.org",
@@ -8,15 +40,15 @@ const homepageSchema = {
       "@type": "WebPage",
       "@id": "https://www.camfintech.com/#webpage",
       "url": "https://www.camfintech.com",
-      "name": "CamFinTech — Cambodia DPI Approval-Navigation & Compliance",
+      "name": "CamFinTech — Regulatory and Compliance Advisers, Phnom Penh",
       "isPartOf": { "@id": "https://www.camfintech.com/#website" },
       "about": { "@id": "https://www.camfintech.com/#organization" },
       "datePublished": "2024-11-25",
-      "dateModified": "2026-06-18",
+      "dateModified": "2026-08-31",
       "inLanguage": "en",
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": ["#home h1", "#home h1 + p", "#problem h2 + p"],
+        "cssSelector": ["#home h1", "#practice h2 + p"],
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
@@ -29,48 +61,106 @@ const homepageSchema = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does CamFinTech actually do?",
+          "name": "What does CamFinTech do?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the compliance programmes that hold afterwards. We build the client-side integration ourselves, or direct an accredited Service Provider where their platform depth fits better. The firm holds no client funds and operates no rail; the approval decision rests with the regulator and the client is the applicant of record.",
+            "text": "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, established in 2024. It prepares Cambodian and foreign institutions to meet the standard for connecting to the Kingdom's national digital infrastructure — Bakong and KHQR, CamDX and CamDigiKey, and CamInvoice — runs the AML/CFT and governance programmes that hold afterwards, and builds the client-side integration. The firm holds no client funds and operates no rail. The approval decision rests with the regulator and the client is the applicant of record.",
           },
         },
         {
           "@type": "Question",
-          "name": "Why use CamFinTech instead of a law firm or system integrator?",
+          "name": "How does the practice differ from a law firm or a systems integrator?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Law firms cover legal advice and filings but don't run an end-to-end approval programme or build a risk-and-compliance function. System integrators build the integration but don't navigate the regulator. CamFinTech does both — regulatory approval-navigation, AML/CFT and governance programme build, and the client-side integration itself — staffed by ex-NBC, NBFSA, TSC, SERC, and GDT specialists. We coordinate the law firm and the SP; you get one plan and one point of contact.",
+            "text": "A law firm provides legal advice and filings; reserved legal work belongs there and is routed there. A systems integrator builds. CamFinTech covers the layer between them — the approval programme, the risk and compliance function, and the client-side integration — and coordinates the licensed lawyer and the accredited Service Provider so that a client has one plan and one point of contact.",
           },
         },
         {
           "@type": "Question",
-          "name": "Do you help with the SERC Prakas 093 digital-asset regime?",
+          "name": "What does fee-only mean?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — DASP approval-readiness is our flagship product (SRV-11). Prakas 093 has been in force since 30 December 2025. Our DASP-DX/BUILD/RUN/TRAIN programme covers the AML/CFT build, governance roster, sandbox-to-full readiness, and ongoing compliance retainer. The licensed DASP operator (you) submits and operates; the reserved legal opinion goes to a Bar lawyer we coordinate. See /products/dasp for the full product spec.",
+            "text": "The firm charges professional fees for advisory and programme delivery. It takes no commission on transactions, no share of any payment flow, and no markup on a licensed lawyer's or an accredited Service Provider's invoice. It holds no client funds and operates no rail. This removes the conflicts of interest that arise when an adviser is also the operator or the aggregator, and it is a position a client's third-party-risk function can verify rather than take on trust.",
           },
         },
         {
           "@type": "Question",
-          "name": "What does 'fee-only' mean and why does it matter?",
+          "name": "Does CamFinTech work on the SERC Prakas 093 digital-asset regime?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Fee-only means we charge professional fees for advisory and programme delivery — never commissions on transactions, never markups on the licensed lawyer's or accredited SP's invoices, never a cut of any payment flow. We never hold client funds and never operate a rail. This removes the conflicts of interest that arise when an adviser is also the operator or the aggregator, and it is a position a client's third-party-risk function can verify rather than take on trust.",
+            "text": "Yes. Prakas 093 has been in force since 30 December 2025. The firm's DASP work covers the AML/CFT programme build, the governance roster, and readiness from sandbox through to full application. The licensed operator submits and operates; the reserved legal opinion is routed to a Bar-admitted lawyer the firm coordinates.",
           },
         },
         {
           "@type": "Question",
-          "name": "Is CamInvoice B2B mandatory yet?",
+          "name": "Is the CamInvoice B2B mandate in force?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The B2B mandate is announced and phased (~2026–2027) but not yet gazetted. We help clients get ahead of it via SRV-03 (CamInvoice Readiness) and SRV-04 (SP-Enablement), but we don't claim they're already in breach. Honesty discipline: anticipatory mandates are framed as 'get ahead of' the law, never 'you're already non-compliant.' The B2G CamInvoice mandate is gazetted and active.",
+            "text": "The business-to-government mandate is active. The business-to-business mandate is announced and phased but not yet gazetted, so the firm helps clients prepare ahead of it and does not suggest that anyone is already in breach.",
           },
         },
       ],
     },
   ],
 };
+
+const RAILS = [
+  { rail: "Bakong · KHQR", authority: "National Bank of Cambodia" },
+  { rail: "CamDX · CamDigiKey", authority: "Techo Startup Center" },
+  { rail: "CamInvoice", authority: "General Department of Taxation" },
+  { rail: "Digital assets · Prakas 093", authority: "SERC" },
+];
+
+const PRACTICE = [
+  {
+    group: "Connection to the national rails",
+    items: [
+      { ref: "SRV-01", name: "CamDX and CamDigiKey enablement", body: "Approval to connect to the national data-exchange and digital-identity systems, and the client-side integration that follows." },
+      { ref: "SRV-02", name: "Bakong and KHQR integration", body: "Payment Service Institution licensing or member-bank sponsorship, and connectivity to the national payment rails." },
+      { ref: "SRV-03", name: "CamInvoice readiness", body: "Gap assessment and a costed plan against the General Department of Taxation's requirements, ahead of the phased business-to-business mandate." },
+      { ref: "SRV-04", name: "CamInvoice service-provider enablement", body: "Connection of a client's ERP to the e-invoicing rail, delivered with an accredited Service Provider where platform depth is the better fit." },
+    ],
+  },
+  {
+    group: "Licensing and market entry",
+    items: [
+      { ref: "SRV-05", name: "Licensing readiness", body: "Identification of the applicable National Bank, NBFSA or SERC licence, gap mapping against its requirements, and preparation of the application." },
+      { ref: "SRV-06", name: "Market entry", body: "For foreign institutions establishing in Cambodia — entity formation, licensing strategy, and the sequence of approvals that reaches the rails." },
+    ],
+  },
+  {
+    group: "Risk, compliance and security",
+    items: [
+      { ref: "SRV-07", name: "AML and CFT programme design", body: "Customer due diligence and enhanced due diligence, transaction monitoring, CAFIU reporting and MLRO support — built to be demonstrated in supervision, not filed." },
+      { ref: "SRV-08", name: "Security review", body: "Cyber-risk advisory and pre-launch review against the National Bank's Technology and Cyber Risk Management Guidelines. Penetration testing is routed to an accredited security firm." },
+      { ref: "SRV-09", name: "Data-protection governance", body: "Consent, retention, processor governance and data-protection-officer support, ahead of the Kingdom's Personal Data Protection Law." },
+      { ref: "SRV-11", name: "Digital-asset service provider readiness", body: "Readiness for the SERC regime under Prakas 093, in force since 30 December 2025 — AML and CFT build, governance roster, and sandbox-to-full application preparation.", href: "/products/dasp" },
+    ],
+  },
+  {
+    group: "Capability transfer",
+    items: [
+      { ref: "SRV-10", name: "Professional training and handover", body: "Cohort training in digital public infrastructure, cybersecurity and regulatory compliance, so that a client's own team operates the integration and the programme after handover." },
+    ],
+  },
+];
+
+const SEQUENCE = [
+  { n: "01", t: "Readiness diagnostic", d: "Which rails, which licences, and where a submission would fall short today." },
+  { n: "02", t: "Application preparation", d: "The submission is assembled and supported to the published standard. The client is the applicant of record throughout." },
+  { n: "03", t: "Compliance programme", d: "AML and CFT, governance, and the controls expected before go-live." },
+  { n: "04", t: "Integration and handover", d: "The client-side integration is built by the firm, or delivered by an accredited Service Provider under its management. Either way the firm runs acceptance testing and handover." },
+  { n: "05", t: "Continuing support", d: "Retainer or MLRO support, so the programme holds after the approval." },
+];
+
+const CORPUS = [
+  { href: "/regulatory", name: "Regulatory instruments", count: "17 instruments", note: "Laws, sub-decrees and Prakas governing Cambodian financial technology. Each entry records the source that was read and the date it was read, and states what the instrument does not cover." },
+  { href: "/knowledge", name: "Knowledge base", count: "8 papers", note: "Extended technical and regulatory references on the rails and the approvals that reach them." },
+  { href: "/learn", name: "Explainers", count: "12 articles", note: "Shorter reference pieces on how each rail works and what it requires." },
+  { href: "/insights", name: "Insights", count: "6 analyses", note: "Analysis of the Cambodian market and its digital-infrastructure programme." },
+  { href: "/use-cases", name: "Engagement scenarios", count: "4 scenarios", note: "Illustrative scoping documents showing how an engagement is structured and where the boundaries fall. Not client engagements." },
+  { href: "/glossary", name: "Glossary", count: "10 entries", note: "Definitions of the institutions, rails and instruments referred to throughout." },
+];
 
 export default function Home() {
   return (
@@ -82,463 +172,321 @@ export default function Home() {
       <Header />
 
       <main className="flex-1">
-        <div className="mx-auto flex max-w-7xl flex-col items-center px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          {/* Hero */}
-          <section className="w-full" id="home">
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-5 lg:gap-16">
-              <div className="flex flex-col gap-6 text-left lg:col-span-3">
-                {/* The former H1 read "We get Cambodian and foreign FinTechs approved
-                    onto the government rails". It claimed agency over a decision that
-                    belongs to the regulator — which contradicted the conflict disclosure
-                    further down this same page ("We do not influence a regulator's
-                    decision and we do not claim to"), and reads as presumptuous to the
-                    institutional and official readers this site now receives. The firm
-                    prepares work to a standard; the decision is never ours. */}
-                <h1 className="text-4xl font-extrabold leading-tight tracking-[-0.033em] sm:text-5xl">
-                  Cambodia has built the rails. We prepare institutions to meet the standard for connecting to them.
-                </h1>
-                <p className="text-base font-normal leading-normal sm:text-lg text-navy/85">
-                  CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, working alongside banks, financial institutions and FinTechs on the approvals and programmes that Bakong and KHQR, CamDX and CamDigiKey, and CamInvoice require. The standard is set by the NBC, the NBFSA and SERC, the TSC and the GDT; our work is preparing clients to meet it, and building the client-side integration once they do. We also transfer the capability, because compliance competence held in Cambodia is worth more to this market than compliance competence flown in.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <a
-                    href="#contact"
-                    className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal px-5 text-base font-bold tracking-[0.015em] text-navy-deep transition-transform hover:scale-105"
-                  >
-                    <span className="truncate">Book a readiness call</span>
-                  </a>
-                  <a
-                    href="#services"
-                    className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal/20 px-5 text-base font-bold tracking-[0.015em] text-navy transition-transform hover:scale-105"
-                  >
-                    <span className="truncate">See what we do</span>
-                  </a>
-                </div>
-                <p className="text-xs text-navy/55">
-                  ភាសាខ្មែរ — Khmer language edition coming soon, pending native editorial hire.
-                </p>
-              </div>
+        <div className="mx-auto flex max-w-6xl flex-col px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
 
-              {/* Trust strip */}
-              <aside className="lg:col-span-2 flex flex-col gap-3 rounded-2xl border-2 border-teal/30 bg-teal/5 p-6">
-                <p className="text-xs font-bold uppercase tracking-wider text-navy">How the firm is constituted</p>
-                <ul className="flex flex-col gap-2 text-sm">
-                  <li className="flex gap-2">
-                    <span className="text-navy font-bold">·</span>
-                    <span><strong>Fee-only.</strong> No commissions, no transaction cuts.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-navy font-bold">·</span>
-                    <span><strong>Never hold client funds.</strong> Funds flow through the licensed operator, never us.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-navy font-bold">·</span>
-                    <span><strong>Never operate a rail.</strong> You (or your sponsor member bank) remain the licensed operator.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-navy font-bold">·</span>
-                    <span><strong>Reserved work to licensed partners.</strong> Bar lawyers, GDT tax agents, accredited Service Providers.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-navy font-bold">·</span>
-                    <span><strong>Paid for process competence.</strong> Our fee reflects the work of preparing an application to standard — never influence over how it is decided.</span>
-                  </li>
-                </ul>
-              </aside>
-            </div>
-          </section>
-
-          {/* Problem */}
-          <section className="mt-24 w-full" id="problem">
-            <div className="flex flex-col items-start gap-4 max-w-4xl">
-              {/* Rewritten 2026-08-31. The previous copy described approval as "opaque",
-                  said the process "defeats most applicants", and asserted that applicants
-                  are "turned back as non-compliant with no further explanation". Those are
-                  criticisms of the regulators, published in the firm's own voice, and they
-                  would be read that way by the officials and institutions this site now
-                  receives. The commercial point — that this is a prudential discipline
-                  rather than an engineering one — is made here without any of it. */}
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Where the work actually lies
-              </h2>
-              <p className="text-lg text-navy/85 leading-relaxed">
-                Connecting to Cambodia&apos;s rails is not principally a technical exercise. The requirements are prudential: <strong>AML/CFT programme design, governance, capital planning and documentation</strong>, assessed by more than one authority, and often alongside a sponsoring member bank. The engineering is the smaller half.
-              </p>
-              <p className="text-lg text-navy/85 leading-relaxed">
-                Most FinTechs are engineering organisations. They have no in-house risk or compliance function, so the work falls to people who were trained for something else — which costs time that a well-prepared application would not have cost.
-              </p>
-              <p className="text-lg text-navy/85 leading-relaxed">
-                That function is what we supply, and what we hand over. Our people have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT, and the NBFSA&apos;s own 2024-2028 FinTech plan identifies building this competency locally as a priority. We would rather leave it behind in a client&apos;s team than be needed indefinitely.
-              </p>
-            </div>
-          </section>
-
-          {/* What we do / don't */}
-          <section className="mt-24 w-full" id="scope">
-            <div className="flex flex-col items-center gap-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Scope of practice
-              </h2>
-              <p className="max-w-3xl text-base text-navy/75">
-                Set out in full, including its limits. Several things a client needs are reserved to licensed professionals or belong to the operator or the regulator, and we would rather name them than blur them.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="rounded-xl border-2 border-teal/30 bg-card p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="material-symbols-outlined text-teal text-2xl" aria-hidden="true">check_circle</span>
-                  <h3 className="text-xl font-bold">We do</h3>
-                </div>
-                <ul className="space-y-3 text-sm">
-                  <li>Navigate the <strong>approval</strong> for each rail (PSP/Bakong, CamDX/eKYC, CamInvoice, SERC DASP)</li>
-                  <li>Build your <strong>risk &amp; compliance programme</strong> (AML/CFT, governance, MLRO support, GRC advisory)</li>
-                  {/* Was: "Represent Cambodian and foreign FinTechs before the regulators".
-                      That contradicted the conflict disclosure below it, the applicant-of-record
-                      rule, and the notice on every /regulatory page — and "represent … before the
-                      regulators" is access-claim language. The point of the line is that we serve
-                      foreign firms as well as Cambodian ones; that survives. */}
-                  <li><strong>Prepare and support the application</strong> for Cambodian <em>and</em> foreign FinTechs — you remain the applicant of record</li>
-                  <li><strong>Build</strong> the client-side integration to the rails — ERP to CamInvoice, Bakong/KHQR connectivity, CamDX and CamDigiKey adapters — or direct an accredited Service Provider where that is the better fit</li>
-                  <li>Route reserved work (legal, tax filing, pen-test) to licensed partners — transparently, never marked up</li>
-                </ul>
-              </div>
-              <div className="rounded-xl border-2 border-navy/15 bg-card/50 p-6">
-                <div className="flex items-center gap-2 mb-4 text-navy/70">
-                  <span className="material-symbols-outlined text-2xl" aria-hidden="true">block</span>
-                  <h3 className="text-xl font-bold">Outside our scope, and where it belongs</h3>
-                </div>
-                {/* Reframed 2026-08-31. This list previously read as five refusals, one of
-                    which — "Lobby, trade on contacts, or sell access" — carried an implied
-                    accusation about how business is conducted in Cambodia. Relationships and
-                    standing are legitimate and essential here; selling influence over a
-                    decision is the thing the firm will not do, and the two are not the same.
-                    Each limit now names the party the work properly belongs to. */}
-                <ul className="space-y-3 text-sm text-navy/75">
-                  <li><strong>Custody and operation of the rail</strong> — the licensed operator&apos;s, whether that is the client or its sponsoring member bank. The firm holds no client funds.</li>
-                  <li><strong>Hosting or transmitting transaction traffic</strong> — the client&apos;s. We build the integration; you run it, on your infrastructure.</li>
-                  <li><strong>The approval decision</strong> — the regulator&apos;s, entirely. The client is the applicant of record, and we prepare the work rather than press the case.</li>
-                  <li><strong>Reserved professional work</strong> — legal opinions to Bar-admitted counsel, tax filings to licensed agents, penetration testing to accredited firms. Coordinated, never marked up.</li>
-                  <li><strong>Any share of transaction value</strong> — fees are for professional work, so that our advice does not depend on what you process.</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Conflict disclosure. We both build and navigate approval, which is a
-                fair thing for a sceptic to question — so it is answered here rather
-                than left to the engagement letter. */}
-            <div className="mt-6 rounded-xl border-2 border-navy/15 bg-card p-6">
-              <h3 className="text-lg font-bold mb-3">When we do both, we say so</h3>
-              <p className="text-sm text-navy/85 leading-relaxed">
-                We may build your integration and navigate your approval on the same engagement. That is a fair thing to ask about, so here is the answer in full. <strong>You are always the applicant of record</strong> — the licence, the filing, and the operator role are yours, never ours. <strong>We do not influence a regulator&apos;s decision and we do not claim to.</strong> Our work is getting you to the published bar, not around it. Where we deliver both the build and the approval navigation, that is disclosed in the engagement letter and priced as two separate scopes, so you can take either one elsewhere without penalty.
-              </p>
-              <p className="mt-3 text-sm text-navy/85 leading-relaxed">
-                None of the rules above has moved to make room for this. Building the client side of an integration sits inside them — it is the operating and the custody we stay out of, not the engineering.
-              </p>
-            </div>
-          </section>
-
-          {/* Services — 4-bucket SRV grid */}
-          <section className="mt-24 w-full" id="services">
-            <div className="flex flex-col items-center gap-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                What we navigate
-              </h2>
-              <p className="max-w-3xl text-base text-navy/75">
-                Eleven productised service vectors across four areas — applied across regulated FinTechs (banks, MFIs, PSPs, insurers, securities/crypto, alt-lenders) and rail-using enterprises.
-              </p>
-            </div>
-
-            <div className="space-y-10">
-              {/* Core Rail Integrations */}
-              <div>
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                  <span className="text-xs font-bold text-navy uppercase tracking-wider px-2 py-1 rounded bg-teal/10">Core Rail Integrations</span>
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="rounded-lg border border-line p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-01</p>
-                    <h4 className="font-bold mb-2">CamDX / eKYC Enablement</h4>
-                    <p className="text-sm text-navy/75">Verify your customers digitally in seconds. We navigate the approval to connect to Cambodia&apos;s national identity system and build the integration.</p>
-                  </div>
-                  <div className="rounded-lg border border-line p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-02</p>
-                    <h4 className="font-bold mb-2">Bakong / KHQR Integration</h4>
-                    <p className="text-sm text-navy/75">Take and send payments on Cambodia&apos;s national rails — we navigate PSP licensing or member-sponsorship and build the integration.</p>
-                  </div>
-                  <div className="rounded-lg border border-line p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-03</p>
-                    <h4 className="font-bold mb-2">CamInvoice Readiness</h4>
-                    <p className="text-sm text-navy/75">Be ready for e-invoicing before the B2B mandate phases in. Gap assessment + costed plan against the GDT&apos;s rules.</p>
-                  </div>
-                  <div className="rounded-lg border border-line p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-04</p>
-                    <h4 className="font-bold mb-2">CamInvoice SP-Enablement</h4>
-                    <p className="text-sm text-navy/75">Go live on e-invoicing without the headache. We coordinate accredited Service Providers to connect your ERP — every invoice clears automatically.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Strategic Services */}
-              <div>
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                  <span className="text-xs font-bold text-navy uppercase tracking-wider px-2 py-1 rounded bg-teal/10">Strategic Services</span>
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="rounded-lg border border-line p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-05</p>
-                    <h4 className="font-bold mb-2">Licensing-Readiness</h4>
-                    <p className="text-sm text-navy/75">Know exactly which NBC, NBFSA, or SERC licence you need — and be ready to win it. Management-consultancy-grade gap mapping + application preparation.</p>
-                  </div>
-                  <div className="rounded-lg border border-line p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-06</p>
-                    <h4 className="font-bold mb-2">Market-Entry Consulting</h4>
-                    <p className="text-sm text-navy/75">For foreign FinTechs entering Cambodia — entity setup, licensing strategy, and a step-by-step route onto the government rails.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Risk & Security */}
-              <div>
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                  <span className="text-xs font-bold text-navy uppercase tracking-wider px-2 py-1 rounded bg-teal/10">Risk &amp; Security</span>
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="rounded-lg border border-line p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-07</p>
-                    <h4 className="font-bold mb-2">AML-Programme Design</h4>
-                    <p className="text-sm text-navy/75">Build an anti-money-laundering programme regulators trust. GRC-grade design: CDD/EDD, transaction monitoring, CAFIU reporting, MLRO support.</p>
-                  </div>
-                  <div className="rounded-lg border border-line p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-08</p>
-                    <h4 className="font-bold mb-2">Security / Pentesting</h4>
-                    <p className="text-sm text-navy/75">Cyber-risk advisory and pre-launch security reviews aligned to NBC&apos;s TCRMG expectations. Penetration testing routed to an accredited security firm we coordinate.</p>
-                  </div>
-                  <div className="rounded-lg border border-line p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-09</p>
-                    <h4 className="font-bold mb-2">Data-Protection Protocols</h4>
-                    <p className="text-sm text-navy/75">Get ahead of Cambodia&apos;s incoming Personal Data Protection Law. IT-advisory-grade data governance: consent, retention, processor governance, DPO-support.</p>
-                  </div>
-                  <div className="rounded-lg border-2 border-teal/40 bg-teal/5 p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-11 · Flagship</p>
-                    <h4 className="font-bold mb-2">DASP Approval-Readiness</h4>
-                    <p className="text-sm text-navy/75">End-to-end readiness for SERC&apos;s Prakas 093 digital-asset licensing regime (in force 30 Dec 2025). AML/CFT build, governance roster, sandbox-to-full readiness. <a href="/products/dasp" className="text-navy font-medium hover:underline">Learn more →</a></p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Enablement */}
-              <div>
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                  <span className="text-xs font-bold text-navy uppercase tracking-wider px-2 py-1 rounded bg-teal/10">Enablement</span>
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="rounded-lg border border-line p-5">
-                    <p className="text-xs text-navy font-bold mb-1">SRV-10</p>
-                    <h4 className="font-bold mb-2">Professional Training &amp; Knowledge Transfer</h4>
-                    <p className="text-sm text-navy/75">Hands-on professional training so your team can operate the rails, follow the compliance steps, and keep everything running after we&apos;ve handed over. Cohort workshops on DPI, cybersecurity, and regulatory compliance.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <p className="mt-8 text-xs text-navy/55 italic max-w-3xl">
-              We build the client-side integration ourselves, or bring in an accredited Service Provider (BanhJi, Innolab/Odoo, MAQSU, SAP/Crimson, KOSIGN, Metfone, GK-Smart) as a disclosed sub-contract where their platform depth is the better fit. Either way we stay accountable for the programme, and we don&apos;t compete for our partners&apos; clients. Pricing is indicative; every engagement is validated by quote.
+          {/* 1 — Identity. Name, then what the firm is, then where and since when.
+              No claim, no CTA. See the header comment before changing this. */}
+          <section className="w-full border-b border-line pb-14" id="home">
+            <p className="font-display text-sm font-bold uppercase tracking-[0.18em] text-navy">
+              CamFinTech
             </p>
-          </section>
+            <h1 className="mt-5 max-w-4xl text-3xl font-bold leading-[1.2] tracking-[-0.02em] text-navy sm:text-4xl lg:text-[2.75rem]">
+              Regulatory and compliance advisers to institutions connecting to the Kingdom of Cambodia&apos;s national digital infrastructure.
+            </h1>
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-slate">
+              Phnom Penh &middot; Established 2024 &middot; Fee-only
+            </p>
 
-          {/* Why CamFinTech */}
-          <section className="mt-24 w-full" id="why-us">
-            <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-3 lg:gap-10">
-              <div className="lg:col-span-1 flex flex-col gap-4">
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Why CamFinTech
-                </h2>
-                <p className="text-base text-navy/75">
-                  Five reasons institutions bring us in, and one reason they keep us: we would rather build the capability into your team than remain necessary.
-                </p>
-              </div>
-              <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-bold mb-2">Regulator-fluent, not just regulation-literate</h3>
-                  <p className="text-sm text-navy/75">Our people have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT — and the NBFSA&apos;s own 2024&ndash;2028 FinTech plan makes developing this competency locally a priority.</p>
+            <dl className="mt-10 grid grid-cols-1 gap-x-10 gap-y-4 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-4">
+              {RAILS.map((r) => (
+                <div key={r.rail}>
+                  <dt className="font-display text-sm font-bold text-navy">{r.rail}</dt>
+                  <dd className="mt-1 text-sm text-slate">{r.authority}</dd>
                 </div>
-                <div>
-                  <h3 className="font-bold mb-2">We raise you <em>to</em> the standard</h3>
-                  <p className="text-sm text-navy/75">We make your application the one the regulator wants to approve — documented, governed, compliant — so it doesn&apos;t come back unexplained.</p>
-                </div>
-                <div>
-                  <h3 className="font-bold mb-2">Capital-light and conflict-free</h3>
-                  <p className="text-sm text-navy/75">We earn nothing from the volume you process or the rail you choose, so our interest is only in the quality of the work: an application prepared to standard, and a programme that holds afterwards.</p>
-                </div>
-                <div>
-                  <h3 className="font-bold mb-2">One coordinator across every rail</h3>
-                  <p className="text-sm text-navy/75">Payments, identity, and tax — navigated together, with the build handed to the right accredited partner. One plan, one point of contact.</p>
-                </div>
-                <div className="sm:col-span-2">
-                  <h3 className="font-bold mb-2">Single accountable partner, transparently</h3>
-                  <p className="text-sm text-navy/75">Where a step needs a licensed lawyer, tax agent, or integrator, we coordinate our vetted partners and tell you exactly who does what. You&apos;re never handed a list of vendors to chase, and we never mark up their work.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* How it works */}
-          <section className="mt-24 w-full" id="how">
-            <div className="flex flex-col items-center gap-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">How it works</h2>
-              <p className="max-w-3xl text-base text-navy/75">
-                Five steps from &quot;interested&quot; to &quot;operating and compliant.&quot;
-              </p>
-            </div>
-            <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {[
-                { n: "1", t: "Readiness diagnostic", d: "Which rails, which licences, where you&apos;d fail today." },
-                { n: "2", t: "Approval-navigation", d: "We assemble and shepherd each application. You remain the applicant of record." },
-                { n: "3", t: "Compliance build", d: "AML/CFT, governance, and the controls regulators expect before go-live." },
-                { n: "4", t: "Coordinated integration", d: "An accredited Service Provider builds; we manage delivery, UAT, and handover." },
-                { n: "5", t: "Ongoing compliance", d: "Retainer or MLRO-support so you stay approved." },
-              ].map((step) => (
-                <li key={step.n} className="flex flex-col gap-2 rounded-xl border border-line p-5">
-                  <span className="text-2xl font-bold text-teal">{step.n}</span>
-                  <h3 className="font-bold">{step.t}</h3>
-                  <p className="text-sm text-navy/75" dangerouslySetInnerHTML={{ __html: step.d }} />
-                </li>
               ))}
-            </ol>
+            </dl>
           </section>
 
-          {/* Proof / pre-logo */}
-          <section className="mt-24 w-full" id="proof">
-            <div className="rounded-2xl border-2 border-line p-8 max-w-4xl mx-auto">
-              <h2 className="text-2xl font-bold mb-4">Proof and credibility</h2>
-              <p className="text-sm text-navy/80 mb-4">
-                We&apos;re early. Pre-logo discipline matters: we don&apos;t publish hypothetical case studies as if they were real engagements. What we&apos;ll show you when you ask:
-              </p>
-              <ul className="space-y-3 text-sm text-navy/80">
-                <li>
-                  <strong>Founder track record.</strong> Hands-on regulator-side experience that staffs the moat — the kind a procurement team can interrogate in a call.
-                </li>
-                <li>
-                  <strong>Methodology walk-throughs.</strong> Our DPI onboarding architecture, the integrity STOP-screen, the build-then-retainer ladder — explained against your specific rail and use case.
-                </li>
-                <li>
-                  <strong>Voluntary TCRMG-2026 alignment.</strong> We hold our own operations to NBC&apos;s Technology and Cyber Risk Management Guidelines — even as a non-BFI — and run our own infrastructure to that standard. Process competence isn&apos;t just what we sell.
-                </li>
-                <li>
-                  <strong>The Riel Report.</strong> Cambodia FinTech intelligence read by the financial-services industry, regulators, and multilateral analysts — published by us at <a href="https://riel.report" className="text-navy hover:underline" rel="external">riel.report</a>.
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* About snippet */}
-          <section className="mt-24 w-full" id="about">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          {/* 2 — Statement of practice, signed. The "President's message" convention
+              observed at PPCBank and the Royal University of Phnom Penh: a named
+              officeholder, a photograph, and a short statement in the firm's voice. */}
+          <section className="mt-16 w-full" id="statement">
+            <h2 className="font-display text-xs font-bold uppercase tracking-[0.18em] text-slate">
+              Statement of practice
+            </h2>
+            <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-14">
+              <div className="lg:col-span-2 flex flex-col gap-5">
+                <p className="text-lg leading-relaxed text-navy">
+                  The Royal Government built the rails. Bakong settles at national scale, CamDX carries data between ministries and licensed institutions, and CamInvoice is bringing invoicing into a single system. The standard for connecting to any of them is set by the National Bank of Cambodia, the NBFSA and SERC, the Techo Startup Center and the General Department of Taxation.
+                </p>
+                <p className="leading-relaxed text-navy/85">
+                  Meeting that standard is mostly not an engineering exercise. The requirements are prudential — AML and CFT programme design, governance, capital planning, documentation — assessed by more than one authority and often alongside a sponsoring member bank. Most financial technology firms are engineering organisations and hold no risk or compliance function, so the work falls to people trained for something else.
+                </p>
+                <p className="leading-relaxed text-navy/85">
+                  This practice supplies that function, and hands it over. Our people have worked inside the regulators, and we would rather leave the competence inside a client&apos;s team than remain necessary to it. Compliance capability held in Cambodia is worth more to this market than compliance capability flown in.
+                </p>
+                <div className="mt-2 border-l-2 border-teal pl-5">
+                  <p className="font-display text-sm font-bold text-navy">William Mallett</p>
+                  <p className="text-sm text-slate">Founder &amp; Managing Director</p>
+                  <p className="mt-2 text-sm">
+                    <Link href="/about" className="text-navy underline decoration-teal decoration-2 underline-offset-4">
+                      About the practice and its founder
+                    </Link>
+                  </p>
+                </div>
+              </div>
               <div className="lg:col-span-1">
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About</h2>
-              </div>
-              <div className="lg:col-span-2 flex flex-col gap-4">
-                <p className="text-lg text-navy/85 leading-relaxed">
-                  CamFinTech is a Phnom Penh–based fee-only regulatory approval-navigation and compliance firm focused on Cambodia&apos;s Digital Public Infrastructure rails. Founded 2024 by <strong>William Mallett</strong>, Founder &amp; Managing Director.
-                </p>
-                <p className="text-base text-navy/75 leading-relaxed">
-                  Our moat is ex-regulator talent — NBC, NBFSA, TSC, SERC, GDT — paired with the engineering to deliver against it. We navigate the approval, run the compliance, and build the integration that connects you to the rail.
-                </p>
-                <p>
-                  <a href="/about" className="text-navy font-medium hover:underline">Read more about CamFinTech &amp; William Mallett →</a>
-                </p>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/founder-william-mallett.png"
+                  alt="William Mallett, Founder and Managing Director of CamFinTech"
+                  width={397}
+                  height={500}
+                  className="w-40 rounded-lg border border-line object-cover lg:w-full lg:max-w-[220px]"
+                />
               </div>
             </div>
           </section>
 
-          {/* Honesty notes */}
-          <section className="mt-24 w-full" id="honesty">
-            <div className="rounded-xl bg-teal/5 border border-teal/20 p-6 max-w-4xl mx-auto">
-              <h2 className="text-xl font-bold mb-3">Honesty notes</h2>
-              <ul className="space-y-2 text-sm text-navy/80">
-                <li>
-                  <strong>Pricing is indicative.</strong> Every figure on our materials is a planning estimate, validated by quote at engagement scoping.
-                </li>
-                <li>
-                  <strong>Some mandates are anticipatory.</strong> Mandatory B2B e-invoicing is phased (~2026–2027) and Cambodia&apos;s Personal Data Protection Law is not yet promulgated. We help you get <em>ahead</em> of these mandates; we never claim you&apos;re already in breach.
-                </li>
-                <li>
-                  <strong>We&apos;re pre-revenue and early.</strong> No fabricated case studies, no anonymised &quot;leading bank&quot; logos. Ask us about our methodology and let our work in the discovery call speak for itself.
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* Contact */}
-          <section className="mt-24 w-full" id="contact">
-            <div className="rounded-xl bg-teal/10 p-8 text-center sm:p-12">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Book a readiness call
-              </h2>
-              <p className="mt-4 text-base sm:text-lg text-navy/80 max-w-2xl mx-auto">
-                Tell us which rail you&apos;re navigating. We&apos;ll come back the same day, in Phnom Penh business hours.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3 justify-center">
-                <a
-                  href="mailto:info@camfintech.com"
-                  className="flex h-12 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-teal px-5 text-base font-bold tracking-[0.015em] text-navy-deep transition-transform hover:scale-105"
-                >
-                  Email info@camfintech.com
-                </a>
-              </div>
-            </div>
-
-            <div className="mt-12 grid grid-cols-1 gap-8 text-center md:grid-cols-2 lg:grid-cols-4 md:text-left">
-              <div>
-                <h3 className="font-bold mb-3">General inquiries</h3>
-                <div className="flex flex-col items-center gap-2 md:items-start text-sm">
-                  <a className="flex items-center gap-2 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors" href="mailto:info@camfintech.com">
-                    <span className="material-symbols-outlined text-base" aria-hidden="true">mail</span>
-                    info@camfintech.com
-                  </a>
-                  <a className="flex items-center gap-2 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors" href="tel:+855762775645">
-                    <span className="material-symbols-outlined text-base" aria-hidden="true">call</span>
-                    +855 76 277 5645
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h3 className="font-bold mb-3">DASP / Prakas 093</h3>
-                <div className="flex flex-col items-center gap-2 md:items-start text-sm">
-                  <a className="flex items-center gap-2 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors" href="mailto:dasp@camfintech.com">
-                    <span className="material-symbols-outlined text-base" aria-hidden="true">mail</span>
-                    dasp@camfintech.com
-                  </a>
-                  <a className="text-navy hover:underline text-xs" href="/products/dasp">
-                    DASP approval-readiness →
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h3 className="font-bold mb-3">Messaging</h3>
-                <div className="flex flex-col items-center gap-2 md:items-start text-sm">
-                  <a className="flex items-center gap-2 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors" href="https://wa.me/855762775645">
-                    <span className="material-symbols-outlined text-base" aria-hidden="true">chat</span>
-                    WhatsApp
-                  </a>
-                  <a className="flex items-center gap-2 hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4 transition-colors" href="https://t.me/+855762775645">
-                    <span className="material-symbols-outlined text-base" aria-hidden="true">send</span>
-                    Telegram
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h3 className="font-bold mb-3">Office</h3>
-                <p className="text-sm leading-relaxed">
-                  30 Preah Norodom Boulevard<br />
-                  Khan Daun Penh<br />
-                  Phnom Penh, Kingdom of Cambodia
-                </p>
-              </div>
-            </div>
-            <p className="mt-8 text-xs text-navy/55 text-center max-w-3xl mx-auto">
-              Partner &amp; subcontract inquiries (compliance-inside / white-label): <a href="mailto:partners@camfintech.com" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4">partners@camfintech.com</a>
+          {/* 3 — Practice. Stated flatly, in four groups. The SRV references are
+              kept as a quiet monospace reference for correspondence and RFPs;
+              "eleven productised service vectors" was internal taxonomy and is gone. */}
+          <section className="mt-20 w-full border-t border-line pt-14" id="practice">
+            <h2 className="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">
+              Practice
+            </h2>
+            <p className="mt-4 max-w-3xl leading-relaxed text-navy/85">
+              The firm works across the approvals, the compliance programmes and the client-side integrations that connect a regulated institution or a rail-using enterprise to Cambodia&apos;s digital public infrastructure.
             </p>
+
+            <div className="mt-10 flex flex-col gap-10">
+              {PRACTICE.map((g) => (
+                <div key={g.group}>
+                  <h3 className="font-display text-xs font-bold uppercase tracking-[0.16em] text-slate">
+                    {g.group}
+                  </h3>
+                  <div className="mt-4 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
+                    {g.items.map((it) => (
+                      <div key={it.ref} className="bg-card p-5">
+                        <p className="font-mono text-[0.7rem] tracking-wider text-slate">{it.ref}</p>
+                        <h4 className="mt-1 font-display font-bold text-navy">{it.name}</h4>
+                        <p className="mt-2 text-sm leading-relaxed text-navy/80">
+                          {it.body}
+                          {it.href && (
+                            <>
+                              {" "}
+                              <Link href={it.href} className="text-navy underline decoration-teal decoration-2 underline-offset-4">
+                                Full specification
+                              </Link>
+                            </>
+                          )}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12">
+              <h3 className="font-display text-xs font-bold uppercase tracking-[0.16em] text-slate">
+                How an engagement proceeds
+              </h3>
+              <ol className="mt-4 divide-y divide-line border-y border-line">
+                {SEQUENCE.map((s) => (
+                  <li key={s.n} className="flex flex-col gap-1 py-4 sm:flex-row sm:gap-6">
+                    <span className="font-mono text-xs text-slate sm:w-10 sm:shrink-0 sm:pt-1">{s.n}</span>
+                    <span className="font-display font-bold text-navy sm:w-56 sm:shrink-0">{s.t}</span>
+                    <span className="text-sm leading-relaxed text-navy/80">{s.d}</span>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-5 max-w-3xl text-sm leading-relaxed text-slate">
+                Where an accredited Service Provider is the better fit for a build — BanhJi, Innolab and Odoo, MAQSU, SAP and Crimson, KOSIGN, Metfone, GK-Smart — the firm engages them as a disclosed sub-contract and remains accountable for the programme. Their work is never marked up, and the firm does not compete for their clients. Pricing is indicative until validated by quote.
+              </p>
+            </div>
+          </section>
+
+          {/* 4 — Constitution and limits. Each limit names the party the work
+              properly belongs to (ADR-006 rule 4). These are not refusals, and
+              they are not decoration: a client's third-party-risk function needs
+              to find them. */}
+          <section className="mt-20 w-full border-t border-line pt-14" id="constitution">
+            <h2 className="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">
+              How the firm is constituted
+            </h2>
+            <p className="mt-4 max-w-3xl leading-relaxed text-navy/85">
+              Set out in full, including its boundaries. Several things a client needs belong to a licensed professional, to the operator, or to the regulator, and the firm would rather name them than blur them.
+            </p>
+
+            <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+              <div className="rounded-lg bg-teal/5 p-6">
+                <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-navy">
+                  Standing commitments
+                </h3>
+                <dl className="mt-4 flex flex-col gap-4 text-sm">
+                  <div>
+                    <dt className="font-display font-bold text-navy">Fee-only</dt>
+                    <dd className="text-navy/80">Professional fees for advisory and delivery. No commissions, no share of transaction value, no markup on a partner&apos;s invoice.</dd>
+                  </div>
+                  <div>
+                    <dt className="font-display font-bold text-navy">No client funds</dt>
+                    <dd className="text-navy/80">Funds move through the licensed operator. They do not move through this firm.</dd>
+                  </div>
+                  <div>
+                    <dt className="font-display font-bold text-navy">No rail operation</dt>
+                    <dd className="text-navy/80">The client, or its sponsoring member bank, is and remains the licensed operator.</dd>
+                  </div>
+                  <div>
+                    <dt className="font-display font-bold text-navy">Reserved work to licensed professionals</dt>
+                    <dd className="text-navy/80">Bar-admitted counsel, licensed tax agents, accredited security firms. Coordinated openly, never marked up.</dd>
+                  </div>
+                  <div>
+                    <dt className="font-display font-bold text-navy">Paid for process competence</dt>
+                    <dd className="text-navy/80">The fee reflects the work of preparing a submission to standard — never influence over how it is decided.</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div className="rounded-lg border border-line p-6">
+                <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-navy">
+                  Where the boundaries fall
+                </h3>
+                <dl className="mt-4 flex flex-col gap-4 text-sm">
+                  <div>
+                    <dt className="font-display font-bold text-navy">The approval decision</dt>
+                    <dd className="text-navy/80">The regulator&apos;s, entirely. The client is the applicant of record; the firm prepares the work rather than presses the case.</dd>
+                  </div>
+                  <div>
+                    <dt className="font-display font-bold text-navy">Custody and operation of the rail</dt>
+                    <dd className="text-navy/80">The licensed operator&apos;s — the client, or its sponsoring member bank.</dd>
+                  </div>
+                  <div>
+                    <dt className="font-display font-bold text-navy">Transaction traffic</dt>
+                    <dd className="text-navy/80">The client&apos;s. The firm builds the integration; the client runs it, on the client&apos;s infrastructure.</dd>
+                  </div>
+                  <div>
+                    <dt className="font-display font-bold text-navy">Legal opinions and tax filings</dt>
+                    <dd className="text-navy/80">Bar-admitted counsel&apos;s and licensed agents&apos;. The firm runs the surrounding programme.</dd>
+                  </div>
+                  <div>
+                    <dt className="font-display font-bold text-navy">Any share of transaction value</dt>
+                    <dd className="text-navy/80">Outside the fee basis, so that advice does not depend on what a client processes.</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            {/* Conflict disclosure. Load-bearing — the firm both builds and
+                prepares approvals, which is a fair thing for a sceptical reader
+                to question, so it is answered here rather than in the
+                engagement letter. Do not remove. */}
+            <div className="mt-8 rounded-lg border border-line bg-card p-6">
+              <h3 className="font-display font-bold text-navy">Where both are delivered, it is disclosed</h3>
+              <p className="mt-3 max-w-4xl text-sm leading-relaxed text-navy/85">
+                The firm may build a client&apos;s integration and prepare its approval on the same engagement, and a reader is entitled to ask about that. The client is always the applicant of record: the licence, the filing and the operator role are the client&apos;s. The firm does not influence a regulator&apos;s decision and does not claim to; its work is meeting the published bar. Where both scopes are delivered, that is disclosed in the engagement letter and priced separately, so either can be taken elsewhere without penalty.
+              </p>
+            </div>
+          </section>
+
+          {/* 5 — Published work. For a practice with no client list this is the
+              credibility section, and it is the convention the local market
+              rewards most. It is also what makes the corpus reachable. */}
+          <section className="mt-20 w-full border-t border-line pt-14" id="publications">
+            <h2 className="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">
+              Published reference
+            </h2>
+            <p className="mt-4 max-w-3xl leading-relaxed text-navy/85">
+              The firm maintains a public reference on Cambodian financial-technology regulation and the national rails. It is open, it is dated, and it is the most direct way to assess how the practice works before speaking to anyone.
+            </p>
+            <div className="mt-8 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
+              {CORPUS.map((c) => (
+                <Link key={c.href} href={c.href} className="group bg-card p-6 transition-colors hover:bg-teal/5">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="font-display font-bold text-navy underline decoration-teal decoration-2 underline-offset-4">
+                      {c.name}
+                    </h3>
+                    <span className="font-mono text-[0.7rem] whitespace-nowrap text-slate">{c.count}</span>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-navy/80">{c.note}</p>
+                </Link>
+              ))}
+            </div>
+            <p className="mt-6 max-w-3xl text-sm leading-relaxed text-slate">
+              The firm also publishes <a href="https://riel.report" rel="external" className="text-navy underline decoration-teal decoration-2 underline-offset-4">The Riel Report</a>, an independent record of Cambodian financial-technology developments.
+            </p>
+          </section>
+
+          {/* 6 — Why the work exists now. Sourced to the Royal Government's own
+              assessment. NRA II was fetched from cafiu.gov.kh on 2026-08-31 and
+              the quotation below is verbatim from its Conclusion (p.15,
+              sanitized version). Do NOT reintroduce a "post-Huione"-style frame
+              here: naming a designated company as an era-marker for national
+              embarrassment is a positioning no Cambodian professional firm uses,
+              and the argument is stronger from the government's own text. */}
+          <section className="mt-20 w-full border-t border-line pt-14" id="context">
+            <h2 className="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">
+              Why this work, and why now
+            </h2>
+            <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-14">
+              <blockquote className="lg:col-span-3 border-l-2 border-teal pl-6">
+                <p className="text-lg leading-relaxed text-navy">
+                  &ldquo;&hellip;significant progress in its Anti-Money Laundering and Countering the Financing of Terrorism (AML/CFT) framework, with strengthened laws and better inter-agency coordination. However, it also highlights a critical gap between legislative development and operational implementation across various sectors. Key deficiencies include inconsistent beneficial ownership verification, limited data integration, and uneven quality in suspicious transaction reporting.&rdquo;
+                </p>
+                <footer className="mt-4 text-sm text-slate">
+                  Cambodia&apos;s 2nd National Risk Assessment Report on Money Laundering and Terrorist Financing (NRA&nbsp;II), Conclusion. Phnom Penh, 24 December 2025.
+                </footer>
+              </blockquote>
+              <div className="lg:col-span-2 flex flex-col gap-4">
+                <p className="leading-relaxed text-navy/85">
+                  That is the Royal Government&apos;s own assessment of where the work lies, and it describes this practice&apos;s subject exactly: the distance between a framework that exists and a programme that operates.
+                </p>
+                <p className="leading-relaxed text-navy/85">
+                  NRA&nbsp;II also sets capacity building among its recommended actions — specialised training and a wider understanding of AML and CFT obligations across sectors. That is the part of this practice we care most about, and the reason every engagement is written to end in a handover.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* 7 — Contact. A formal block, at the bottom, with no button and no
+              response-time promise. Across 22 Cambodian institutional sites
+              there was not one scheduler or "Book a call". */}
+          <section className="mt-20 w-full border-t border-line pt-14" id="contact">
+            <h2 className="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">
+              Contact
+            </h2>
+            <div className="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+              <div>
+                <h3 className="font-display text-xs font-bold uppercase tracking-[0.14em] text-slate">Office</h3>
+                <address className="mt-3 text-sm not-italic leading-relaxed text-navy">
+                  30 Preah Norodom Boulevard<br />
+                  Sangkat Phsar Thmey 3<br />
+                  Khan Daun Penh<br />
+                  Phnom Penh 12210<br />
+                  Kingdom of Cambodia
+                </address>
+              </div>
+              <div>
+                <h3 className="font-display text-xs font-bold uppercase tracking-[0.14em] text-slate">General</h3>
+                <ul className="mt-3 flex flex-col gap-2 text-sm text-navy">
+                  <li><a className="underline decoration-teal decoration-2 underline-offset-4" href="mailto:info@camfintech.com">info@camfintech.com</a></li>
+                  <li><a className="underline decoration-teal decoration-2 underline-offset-4" href="tel:+855762775645">+855 76 277 5645</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-display text-xs font-bold uppercase tracking-[0.14em] text-slate">Specific enquiries</h3>
+                <ul className="mt-3 flex flex-col gap-2 text-sm text-navy">
+                  <li><a className="underline decoration-teal decoration-2 underline-offset-4" href="mailto:dasp@camfintech.com">dasp@camfintech.com</a> <span className="text-slate">&mdash; Prakas 093</span></li>
+                  <li><a className="underline decoration-teal decoration-2 underline-offset-4" href="mailto:partners@camfintech.com">partners@camfintech.com</a> <span className="text-slate">&mdash; partners and sub-contract</span></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-display text-xs font-bold uppercase tracking-[0.14em] text-slate">Messaging</h3>
+                <ul className="mt-3 flex flex-col gap-2 text-sm text-navy">
+                  <li><a className="underline decoration-teal decoration-2 underline-offset-4" href="https://t.me/+855762775645" rel="external">Telegram</a></li>
+                  <li><a className="underline decoration-teal decoration-2 underline-offset-4" href="https://wa.me/855762775645" rel="external">WhatsApp</a></li>
+                </ul>
+                {/* The Khmer note reframed 2026-08-31. It previously read
+                    "Khmer language edition coming soon, pending native editorial
+                    hire" — which published an unfilled internal hire as an
+                    apology. The same fact stated as a standard is an asset in
+                    this market, where a mistranslated requirement would be a
+                    competence disproof. See ADR-007 on the Khmer decision. */}
+                <p className="mt-5 text-xs leading-relaxed text-slate">
+                  Correspondence in English. <span className="font-khmer">ភាសាខ្មែរ</span> — the Khmer edition is written by a Cambodian editor rather than translated, and is published when it is ready.
+                </p>
+              </div>
+            </div>
           </section>
         </div>
       </main>

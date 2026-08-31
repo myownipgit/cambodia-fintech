@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DASP Approval-Readiness — SERC Prakas 093 | CamFinTech",
     description:
-      "Get licence-ready for digital assets. The end-to-end approval-readiness programme for SERC's Prakas 093 regime — flagship product. Fee-only. AML-rigor-not-access.",
+      "Approval-readiness for SERC's Prakas 093 digital-asset regime, in force since 30 December 2025. AML and CFT programme build, governance roster, and sandbox-to-full application preparation. Fee-only; the licensed operator submits and operates.",
     url: "https://www.camfintech.com/products/dasp",
     type: "website",
     images: [ogImage],

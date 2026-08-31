@@ -28,7 +28,7 @@ export default function AboutContent() {
           <span className="mx-1">/</span>
           <span>About</span>
         </nav>
-        <span className="text-xs">ភាសាខ្មែរ — Khmer edition pending native editorial hire</span>
+        <span className="text-xs"><span className="font-khmer">ភាសាខ្មែរ</span> — Khmer edition written by a Cambodian editor</span>
       </div>
 
       <main className="max-w-3xl mx-auto px-4 py-8">
@@ -66,7 +66,7 @@ export default function AboutContent() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-xl font-semibold text-navy mb-3">The moat — ex-regulator talent</h2>
+          <h2 className="text-xl font-semibold text-navy mb-3">Where the practice sits — regulator-side experience</h2>
           <p className="text-navy/85 leading-relaxed">
             CamFinTech&apos;s defensible space is the layer between &quot;the regulator&quot; and &quot;the build.&quot; Applications fail on AML/CFT, governance, capital planning, and documentation — not code. Most FinTechs put engineers on regulatory problems they were never trained for. The fix isn&apos;t more engineering — it&apos;s people who&apos;ve worked the regulator&apos;s side of the desk.
           </p>
@@ -87,6 +87,32 @@ export default function AboutContent() {
             <li><strong>Paid for process competence.</strong> Our fee reflects the work of preparing an application to standard &mdash; never influence over how it is decided. The decision rests with the regulator, and the client is the applicant of record.</li>
             <li><strong>Pricing indicative.</strong> Every figure on our materials is a planning estimate, validated by quote at engagement scoping.</li>
           </ul>
+        </section>
+
+        {/* Moved here from the homepage 2026-08-31 (ADR-007). The homepage
+            previously carried two sections — "Proof and credibility" and
+            "Honesty notes" — that opened by volunteering the firm's thinness
+            ("We're early", "We're pre-revenue and early"). The disclosure is
+            right and stays in full; leading with it on the front page is not
+            how any institution in this market presents itself. Do not move
+            this back, and do not delete it either. */}
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-navy mb-3">What the practice can show, and what it cannot</h2>
+          <p className="text-navy/85 leading-relaxed">
+            CamFinTech is newly established and has no completed client engagements to report. It publishes no case studies, no anonymised institutional references, and no quantified client outcomes, because it has none that could be evidenced. That will change only when a real engagement exists and the client has consented to it being described.
+          </p>
+          <p className="text-navy/85 leading-relaxed mt-4">
+            What is available to a procurement or third-party-risk reader today:
+          </p>
+          <ul className="mt-3 space-y-2 text-navy/85 text-sm leading-relaxed">
+            <li><strong>Founder track record.</strong> Regulator-side and ASEAN FinTech experience, open to interrogation in a call and set out on LinkedIn.</li>
+            <li><strong>Methodology walk-throughs.</strong> The onboarding architecture, the integrity screen applied before an engagement is accepted, and the build-then-retainer structure — explained against a specific rail and use case.</li>
+            <li><strong>The published reference.</strong> Seventeen regulatory instrument entries, each recording the source read and the date it was read, alongside the knowledge base, explainers and engagement scenarios. It is the most direct evidence of how the practice works.</li>
+            <li><strong>Voluntary TCRMG alignment.</strong> Described below.</li>
+          </ul>
+          <p className="text-navy/85 leading-relaxed mt-4 text-sm">
+            Two further standing notes. <strong>Pricing is indicative</strong> — every figure in the firm&apos;s materials is a planning estimate, validated by quote at scoping. <strong>Some mandates are anticipatory</strong>: the CamInvoice business-to-business mandate is phased and not yet gazetted, and the Personal Data Protection Law is not yet promulgated. The firm helps clients prepare ahead of both, and does not suggest that anyone is already in breach.
+          </p>
         </section>
 
         <section className="mb-10">

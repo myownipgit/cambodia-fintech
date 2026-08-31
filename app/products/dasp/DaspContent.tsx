@@ -21,7 +21,7 @@ export default function DaspContent() {
           {/* Hero */}
           <header className="mb-16">
             <span className="inline-block text-xs font-bold text-navy uppercase tracking-wider px-2 py-1 rounded bg-teal/10 mb-3">
-              Flagship product · SRV-11
+              SRV-11 · Digital-asset service providers
             </span>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4 leading-tight">
               DASP Approval-Readiness
@@ -30,14 +30,14 @@ export default function DaspContent() {
               The end-to-end regulatory approval-readiness programme for SERC&apos;s <strong>Prakas 093 digital-asset licensing regime</strong> — in force since 30 December 2025.
             </p>
             <p className="text-base text-navy/75 leading-relaxed">
-              We navigate the application, build the AML/CFT programme, assemble the governance roster, and shepherd you from sandbox to full operating licence. The licensed DASP operator (you) submits and operates; reserved legal opinion routes to a Bar lawyer. <strong>We never custody, never file, never operate.</strong>
+              The firm prepares the application, builds the AML/CFT programme, assembles the governance roster, and supports the client from sandbox readiness through to the full application. The licensed DASP operator (you) submits and operates; reserved legal opinion routes to a Bar lawyer. <strong>We never custody, never file, never operate.</strong>
             </p>
             <div className="flex flex-wrap gap-3 mt-6">
               <a href="mailto:dasp@camfintech.com" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-teal px-5 text-base font-bold text-navy-deep hover:scale-105 transition-transform">
                 Email dasp@camfintech.com
               </a>
               <Link href="/#contact" className="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-teal/15 px-5 text-base font-bold text-navy hover:scale-105 transition-transform">
-                Book a readiness call
+                Contact the practice
               </Link>
             </div>
           </header>
@@ -126,10 +126,7 @@ export default function DaspContent() {
             <h2 className="text-2xl font-bold mb-4">What we do — and explicit bright lines</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <div className="rounded-xl border-2 border-teal/30 bg-card p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="material-symbols-outlined text-teal text-xl" aria-hidden="true">check_circle</span>
-                  <h3 className="font-bold">In scope</h3>
-                </div>
+                <h3 className="font-bold mb-3">In scope</h3>
                 <ul className="space-y-2 text-sm text-navy/80">
                   <li>AML/CFT framework + policy + procedures</li>
                   <li>Risk assessment + risk appetite statement</li>
@@ -144,10 +141,7 @@ export default function DaspContent() {
                 </ul>
               </div>
               <div className="rounded-xl border-2 border-navy/15 bg-card/50 p-6">
-                <div className="flex items-center gap-2 mb-3 text-navy/70">
-                  <span className="material-symbols-outlined text-xl" aria-hidden="true">block</span>
-                  <h3 className="font-bold">Bright lines — out of scope</h3>
-                </div>
+                <h3 className="font-bold mb-3 text-navy/70">Bright lines — out of scope</h3>
                 <ul className="space-y-2 text-sm text-navy/75">
                   <li><strong>Named MLRO</strong> stays client-side — must be a board-appointed, senior-management, CAFIU-notified individual of the licensed entity (not outsourceable to us)</li>
                   <li><strong>Custody, filing, operating the rail</strong> stays with the licensed DASP — we never hold assets, never file submissions on your behalf, never operate</li>

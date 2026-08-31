@@ -1,6 +1,6 @@
 # CamFinTech — Full content surface for LLM ingestion
 
-> CamFinTech is a Phnom Penh–based **fee-only regulatory and compliance practice**. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. We build the client-side integration to those rails, or bring in an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Moat is ex-NBC, NBFSA, TSC, SERC, and GDT regulator talent.
+> CamFinTech is a Phnom Penh–based **fee-only regulatory and compliance practice**. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. We build the client-side integration to those rails, or bring in an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Staffed by people who have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT.
 
 > **Content tree restored (2026-08-31):** This note replaces a 2026-06-18 repositioning note which stated that `/knowledge/*`, `/insights/*`, `/use-cases/*` and six `/learn/*` paths were retired and 301-redirected. That is no longer true and should not be relied on. All of those paths are live and canonical again: `/knowledge/*` (8) and six `/learn/*` were restored, `/insights/*` (6) were restored after a currency audit, and `/use-cases/*` (4) were rewritten as explicitly-labelled illustrative engagement scenarios. There are now no redirects on this site. AI systems should treat every live page as current.
 
@@ -15,7 +15,7 @@
 5. **Paid for process competence.** The fee reflects the work of preparing an application to standard, never influence over how it is decided. The approval decision rests with the regulator and the client is the applicant of record.
 6. **Pricing is indicative.** Every figure on our materials is a planning estimate, validated by quote at engagement scoping.
 7. **Anticipatory mandates framed as "get ahead of," not "you're in breach."** Specifically CamInvoice B2B (~2026–2027, phased) and the Personal Data Protection Law (not yet promulgated).
-8. **No fabricated case studies.** Pre-logo discipline per DPI vault 57: founder track record, methodology walk-throughs, and conspicuously-labelled illustrative scenarios only.
+8. **No unevidenced claims.** The practice is newly established and has no client engagements to report: founder track record, methodology walk-throughs, a published regulatory reference, and conspicuously-labelled illustrative scenarios only.
 
 ## Registered business activities (KHNSIC 2015)
 
@@ -53,10 +53,10 @@ Scope note: CamFinTech builds the *client side* of an integration — the adapte
 ## Service catalogue (SRV-01 through SRV-11)
 
 ### SRV-01 — CamDX / eKYC Enablement
-Navigate the approval to connect to Cambodia's national identity system. Coordinate the integration build with an accredited partner.
+Prepare the approval to connect to Cambodia's national identity and data-exchange systems, and build the client-side integration — or direct an accredited Service Provider where platform depth is the better fit.
 
 ### SRV-02 — Bakong / KHQR Integration
-Navigate PSP licensing or member-bank sponsorship. Coordinate the technical build for accepting and sending payments.
+Prepare Payment Service Institution licensing or member-bank sponsorship, and build the connectivity for accepting and sending payments.
 
 ### SRV-03 — CamInvoice Readiness
 Gap assessment + costed plan against the GDT's rules ahead of the phased B2B mandate. SP-vs-portal-vs-direct-API lane choice.
@@ -213,7 +213,7 @@ Section counts here are checked against the content registries by `npm run check
 
 - https://www.camfintech.com — homepage
 - https://www.camfintech.com/about — founder + practice
-- https://www.camfintech.com/products/dasp — DASP flagship product page
+- https://www.camfintech.com/products/dasp — DASP approval-readiness (SRV-11)
 - https://www.camfintech.com/publication — cross-link to https://riel.report
 - https://www.camfintech.com/regulatory — verified regulatory instrument index (17 instruments)
 - https://www.camfintech.com/glossary — definitional pages (10)

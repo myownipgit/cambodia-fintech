@@ -41,11 +41,17 @@ export default function FAQSection({ faqs, pageUrl }: { faqs: FAQ[]; pageUrl: st
               aria-expanded={openIndex === i}
             >
               <span>{faq.question}</span>
-              <span className="material-symbols-outlined text-teal ml-2 transition-transform duration-200"
+              {/* Inline SVG, not a Material Symbols ligature. The ligature text
+                  ("expand_more") stays in the DOM where text extractors read it,
+                  and aria-hidden does not remove it — GEO finding H3. */}
+              <svg
+                className="ml-2 h-5 w-5 shrink-0 text-teal transition-transform duration-200"
+                style={{ transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2"
                 aria-hidden="true"
-                style={{ transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-                expand_more
-              </span>
+              >
+                <path d="M5 7.5 10 12.5 15 7.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </button>
             {openIndex === i && (
               <div className="px-4 pb-4 text-navy/80">
