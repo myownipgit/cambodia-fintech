@@ -4,6 +4,43 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-10-16 — HOUSEKEEPING BEFORE A MAC REBOOT. No code changes.** Repo is clean, in sync with `origin/feature/update-homepage` at `1aa1af0`, and has not moved since 2026-09-02. The last deployed commit is still `1aa1af0`; production is unchanged.
+
+### Written this session
+
+- **New vault note [[Firm Operations/26_Mac_Reboot_Readiness]]** — what runs locally, what restarts by itself, what to verify afterwards. Written as a reusable runbook rather than a one-off, since the Mac is a node in the sensor topology and not merely a workstation.
+- Corrected the sensor tally in the thesis (see below).
+
+### Reboot state, as checked 2026-10-16
+
+- **Uptime 58 days.** All four local services are launchd agents with `RunAtLoad`, so the reboot needs no manual intervention: `ai.hermes.gateway`, `com.camfintech.contract-sensor` (port 8742), `com.voicemode.kokoro`, `com.voicemode.whisper`.
+- **A `hermes update` was in flight at 16:45** ("Building the desktop app"). The one real pre-reboot check is that it has finished — an interrupted update swaps the install root mid-write. The runbook carries the command.
+- The reboot **cures** a standing defect: Hermes has been warning that a previous update pulled new code without restarting the gateways, so they may be serving mixed `sys.modules`. A clean boot resolves it.
+- **No scheduled job is missed.** Earliest fire is `camfintech-daily-audit` at 2026-10-17 09:00 ICT.
+- Vault is iCloud-synced, not git. Zero `.icloud` placeholders, so nothing was mid-sync.
+
+### Open findings from the 2026-09-08 vault sweep — still unresolved
+
+A read-only sweep of `Firm Operations/` surfaced five things that are recorded nowhere else. They are not reboot-related but they are the live state of the backlog:
+
+1. **The sensor tally was wrong, and three gates count off it.** The thesis said "Five of ten sensors deployed (2026-08-07)" and every session log through `22_` repeated it. Sensor #6 (Brand/Reputation) was built and marked trusted 2026-09-07. **Corrected in the thesis this session** with a dated note rather than an edit, per the vault's supersession convention.
+2. **Sensor #7 does not exist in the record.** #6 is documented, `"let's plan sensor #8"` is gated and waiting, and nothing names or scopes a #7. Either it was built outside `Firm Operations/` or the numbering skipped.
+3. **The 10-row sensor structure may itself be wrong.** The 2026-08-29 scoping found legal-expiration *"overlaps Compliance Calendar heavily; likely more rows in #5, not a new sensor"*, and flagged that the thesis table "may want revisiting". Never picked up. This sits upstream of the "all 10 sensors" gate that blocks the sensor framework, the dashboard and the CoS layer — so the gate may be counting the wrong thing.
+4. **An ADR clock expired unnoticed.** ADR-003 set a four-week window from ~2026-08-02 for Contract Sensor to clear its false-positive backlog, after which it reopens asking whether the sensor is solvable at this model tier. That window closed ~2026-08-30. Nothing reopened it; the Contract Sensor row is still ageing in ClickUp `d3 review`.
+5. **ByteDC carries 345 pending updates (250 security) and a zombie process**, before a 30-day unattended run starts on it. Sharpest unaddressed operational risk in the folder. A related check never propagated: the chrony defect found there (143-second offset, `confdir` missing so `conf.d/` drop-ins are silently ignored) may be an image default shared by the DO droplet and the Daun Penh host.
+
+Also noted: **the brief-feed write convention was not adopted by sensor #6**, which is the first accrual of the retrofit debt the framework note warned about.
+
+### The C1 / Thesys answer
+
+Bill asked which headless dashboard API he had suggested. It is **C1 by Thesys** — hosted Generative UI API plus React SDK, endpoint `api.thesys.dev/v1/embed`, docs at `docs.thesys.dev/guides/what-is-thesys-c1`. Suggested 2026-08-04 as a candidate for the sensor dashboard.
+
+**It is recorded in memory (`project_direction_notes.md`) but appears nowhere in the vault** — the sensor-dashboard direction note was never promoted from memory to a vault file, which is why it was hard to find. The memory entry carries the constraint that matters: Contract Sensor findings contain client-contract material, so routing them through a hosted API breaks non-negotiable #8. Two workarounds are recorded there.
+
+Not to be confused with **Directus**, which is a headless CMS evaluated for the Riel Report back-end — No-Go on 2026-06-02, reopened the same afternoon when Cambodian data-residency law forced the ByteDC move, and now settled as **Path Z** (bare Postgres + n8n preserved + Directus as editorial GUI).
+
+## Superseded — prior entry
+
 **2026-08-31 (5th thread) — HOMEPAGE REBUILT TO THE CAMBODIAN INSTITUTIONAL FORM, AND 153 UNSOURCEABLE CLAIMS STRIPPED FROM THE CORPUS.** Three deploys: `47610ae` (factual corrections), `47818d6` (claims strip), `2174411` (homepage + chrome). Recorded as **ADR-007**.
 
 ### What Bill said
