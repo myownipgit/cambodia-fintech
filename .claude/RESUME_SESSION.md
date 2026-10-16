@@ -11,6 +11,39 @@ This file tracks the current session state to enable seamless recovery between s
 - **New vault note [[Firm Operations/26_Mac_Reboot_Readiness]]** — what runs locally, what restarts by itself, what to verify afterwards. Written as a reusable runbook rather than a one-off, since the Mac is a node in the sensor topology and not merely a workstation.
 - Corrected the sensor tally in the thesis (see below).
 
+### Second pass, 17:00 — three corrections and one gap
+
+A follow-up session re-checked the claims above against live state. Most held; three did not.
+
+1. **"No scheduled job is missed" was wrong.** The §4 cron table in the runbook was built
+   from 7 of the **15** registered jobs. **`camfintech-memory-auto-commit` fires at 22:00
+   ICT tonight.** A reboot spanning 22:00 misses it — Hermes does not catch up a fire it
+   was down for. Consequence is mild (memory commits slip to the 2026-10-17 run) but the
+   advice was wrong. **Reboot before 22:00 or after ~22:05.** Table corrected to all 15
+   jobs, with the generating command recorded so it is not hand-assembled again.
+2. **The Hermes update has finished** — `posix.sh` (PID 96924) and the update panel have
+   exited, status file gone, gateway back as PID 7426 with last exit `-15` (the update
+   stopping it, not a crash). The runbook's one genuine pre-reboot check is **satisfied**.
+3. **`~/.geo-prospects` was absent from the runbook, and it is the only local store with no
+   second copy.** It is a git repo with **no remote** (adding one was VPS-migration Phase
+   M0, never done) and it had **not been committed since `c0e825b` on 2026-08-24** — six
+   and a half weeks, including all of sensor #6's construction. Now committed as
+   `687846f`: three scripts tracked (`weekly-brand-reputation.sh`,
+   `brand-reputation-watchdog.sh`, `geo-batch-audit.sh`) plus the `seen_findings.json`
+   baseline; `brand/` output, ~16 MB of probe/scratch dirs and `*.bak-*` copies ignored.
+   A reboot never threatened this — the real gap is the missing remote.
+
+Also recorded, unrelated to the reboot: **sensor #6 has delivered 5 of 7 weekly reports.**
+2026-09-21 and 2026-10-12 both wrote an empty log and no report (10-12 with
+`Script exited with code -15`), while the watchdog built to catch exactly that ran `ok`.
+Whether it alerted and was ignored, or failed to detect, is unresolved — see
+[[Firm Operations/21_Brand_Reputation_Sensor_Registration#Weekly fire reliability — 5 of 7, two silent misses (observed 2026-10-16)]].
+The sensor is still flagged `trusted` on two clean runs that predate this.
+
+Unchanged and verified: repo clean and in sync at `1aa1af0`; both launchd agents carry
+`RunAtLoad` (`ai.hermes.gateway`, `com.camfintech.contract-sensor`). Note `main` is **35
+commits behind** `feature/update-homepage`.
+
 ### Reboot state, as checked 2026-10-16
 
 - **Uptime 58 days.** All four local services are launchd agents with `RunAtLoad`, so the reboot needs no manual intervention: `ai.hermes.gateway`, `com.camfintech.contract-sensor` (port 8742), `com.voicemode.kokoro`, `com.voicemode.whisper`.
