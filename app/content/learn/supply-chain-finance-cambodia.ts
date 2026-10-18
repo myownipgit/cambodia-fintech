@@ -7,7 +7,7 @@ export const supplyChainFinanceCambodia: ArticleContent = {
   type: 'learn',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-08-31',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['supply-chain-finance', 'caminvoice', 'bakong'],

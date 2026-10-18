@@ -7,7 +7,7 @@ export const embeddedInsurance: ArticleContent = {
   type: 'glossary',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-06-18',
+  updatedAt: '2026-08-31',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['khqr', 'camdigikey', 'supply-chain-finance'],

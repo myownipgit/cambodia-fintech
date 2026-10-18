@@ -7,7 +7,7 @@ export const caminvoiceTechnicalCompliance: ArticleContent = {
   type: 'knowledge',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-08-31',
   readingTime: 9,
   schema: 'TechArticle',
   relatedSlugs: ['caminvoice', 'gdt', 'what-is-caminvoice'],

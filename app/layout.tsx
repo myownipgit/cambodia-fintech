@@ -88,7 +88,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CamFinTech — Cambodia DPI Approval-Navigation & Compliance",
+    // Mirrors openGraph.title above. It read "Cambodia DPI Approval-Navigation
+    // & Compliance" until 2026-10-18 — the agency framing ADR-006 removed,
+    // still live on a machine-readable surface and inherited by every route
+    // that does not declare its own twitter block.
+    title: "CamFinTech — Regulatory and Compliance Advisers, Phnom Penh",
     description:
       "Fee-only. The firm holds no client funds and operates no rail. The approval decision rests with the regulator; the client is the applicant of record.",
   },

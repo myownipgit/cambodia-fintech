@@ -7,7 +7,7 @@ export const cambodiaAmlRequirements: ArticleContent = {
   type: 'learn',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-08-31',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['nbc', 'camdigikey', 'gdt'],

@@ -7,7 +7,7 @@ export const bakongTechnicalIntegration: ArticleContent = {
   type: 'knowledge',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-08-31',
   readingTime: 10,
   schema: 'TechArticle',
   relatedSlugs: ['bakong', 'khqr', 'how-bakong-works'],

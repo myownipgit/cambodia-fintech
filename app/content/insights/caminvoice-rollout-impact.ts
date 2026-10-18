@@ -7,7 +7,7 @@ export const caminvoiceRolloutImpact: ArticleContent = {
   type: 'insights',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-08-31',
   readingTime: 7,
   schema: 'Article',
   relatedSlugs: ['caminvoice', 'gdt', 'what-is-caminvoice'],

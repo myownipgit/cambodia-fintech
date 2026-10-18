@@ -7,7 +7,7 @@ export const whatIsCamDigiKey: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-06-18',
+  updatedAt: '2026-08-31',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['camdigikey', 'camdx', 'gaap'],

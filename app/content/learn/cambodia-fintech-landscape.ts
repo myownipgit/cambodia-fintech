@@ -7,7 +7,7 @@ export const cambodiaFintechLandscape: ArticleContent = {
   type: 'learn',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-08-31',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['gaap', 'bakong', 'nbc'],

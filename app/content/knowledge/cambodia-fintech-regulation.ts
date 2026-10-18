@@ -7,7 +7,7 @@ export const cambodiaFintechRegulation: ArticleContent = {
   type: 'knowledge',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-08-31',
   readingTime: 10,
   schema: 'TechArticle',
   relatedSlugs: ['nbc', 'gdt', 'fintech-license-cambodia', 'cambodia-aml-requirements'],

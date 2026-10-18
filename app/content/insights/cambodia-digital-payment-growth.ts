@@ -7,7 +7,7 @@ export const cambodiaDigitalPaymentGrowth: ArticleContent = {
   type: 'insights',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-08-31',
   readingTime: 8,
   schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'cambodia-payment-ecosystem'],

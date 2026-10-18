@@ -7,7 +7,7 @@ export const smeDigitalReadiness: ArticleContent = {
   type: 'insights',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-08-31',
   readingTime: 8,
   schema: 'Article',
   relatedSlugs: ['caminvoice', 'supply-chain-finance', 'compliance-as-a-service'],

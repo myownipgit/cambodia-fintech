@@ -18,10 +18,28 @@
  * drift above was a formatting problem. The failure is that nothing NOTICED.
  * So this notices.
  *
+ * Extended 2026-10-18 (GEO audit) to guard two more drift classes that had each
+ * already shipped, for the same underlying reason — a rule written in docs that
+ * new code did not inherit:
+ *
+ *   - `updatedAt` drift. 36 of 40 content files declared a date OLDER than their
+ *     last real edit. All 36 were rewritten on 2026-08-31 — the day 153
+ *     unsourceable claims were stripped and the FATF facts corrected — and all
+ *     still said March or June. The pages whose facts were corrected were the
+ *     ones telling AI systems nothing had changed, so a model holding the
+ *     pre-correction text had no signal prompting a re-crawl.
+ *   - Missing `openGraph.images`. A route that declares its own `openGraph`
+ *     loses the file-convention image from app/opengraph-image.tsx, and a route
+ *     that omits `twitter` inherits the root layout's block verbatim. This was
+ *     closed for the then-existing routes on 2026-08-24 and reappeared in the
+ *     three sections built afterwards — 27 pages with no social image and the
+ *     homepage's own Twitter title.
+ *
  * Run: npm run check:llms   (and before committing any content change)
  */
 import { readFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const root = process.cwd();
 const llms = readFileSync(join(root, 'public/llms.txt'), 'utf8');
@@ -112,12 +130,128 @@ for (const [name, text] of [
   }
 }
 
+// --- updatedAt must not be older than the file's last content edit ---------
+
+// Compared against git, not against a hand-kept list. Commits whose diff for a
+// file touches ONLY the `updatedAt` line are skipped: a metadata-only bump must
+// not itself count as a content edit, or this check would fail every time it is
+// satisfied.
+const lastContentEdit = (file) => {
+  const hashes = execFileSync(
+    'git', ['log', '--format=%H', '--', file], { encoding: 'utf8' },
+  ).trim().split('\n').filter(Boolean);
+
+  for (const hash of hashes) {
+    const diff = execFileSync(
+      'git', ['show', '--format=', '--unified=0', hash, '--', file], { encoding: 'utf8' },
+    );
+    const touched = diff
+      .split('\n')
+      .filter((l) => /^[+-]/.test(l) && !/^(\+\+\+|---)/.test(l));
+    const onlyTheDate = touched.length > 0
+      && touched.every((l) => /updatedAt:\s*'[0-9-]+'/.test(l));
+    if (touched.length === 0 || onlyTheDate) continue;
+
+    return execFileSync(
+      'git', ['log', '-1', '--format=%ad', '--date=short', hash], { encoding: 'utf8' },
+    ).trim();
+  }
+  return null;
+};
+
+for (const type of contentTypes) {
+  const dir = join(articleDir, type);
+  for (const file of readdirSync(dir).filter((f) => f.endsWith('.ts'))) {
+    const abs = join(dir, file);
+    const declared = (readFileSync(abs, 'utf8').match(/updatedAt: '([0-9-]+)'/) || [])[1];
+    if (!declared) continue;
+    const edited = lastContentEdit(relative(root, abs));
+    if (edited && declared < edited) {
+      problems.push(
+        `${type}/${file} declares updatedAt ${declared} but was last edited ${edited}`
+        + ' — stale freshness signal, set it to the real edit date',
+      );
+    }
+  }
+}
+
+// --- A route that declares openGraph must declare images (and twitter) -----
+
+// Source-level, because og:image is only observable once rendered — by which
+// point it has already shipped.
+// Returns the text of a named object literal, brace-matched. Needed because a
+// bare /images: \[ogImage\]/ test over the whole file passes when the image is
+// present in `twitter` but missing from `openGraph` — which still ships a page
+// with no og:image. Verified by negative test before this was tightened.
+const block = (src, key) => {
+  const open = src.search(new RegExp(`${key}:\\s*{`));
+  if (open === -1) return null;
+  const start = src.indexOf('{', open);
+  let depth = 0;
+  for (let i = start; i < src.length; i += 1) {
+    if (src[i] === '{') depth += 1;
+    else if (src[i] === '}') {
+      depth -= 1;
+      if (depth === 0) return src.slice(start, i + 1);
+    }
+  }
+  return null;
+};
+
+const routeFiles = [
+  'app/layout.tsx',
+  'app/about/page.tsx',
+  'app/privacy/page.tsx',
+  'app/terms/page.tsx',
+  'app/publication/page.tsx',
+  'app/products/dasp/page.tsx',
+  'app/glossary/[slug]/page.tsx',
+  'app/learn/[slug]/page.tsx',
+  'app/knowledge/[slug]/page.tsx',
+  'app/insights/[slug]/page.tsx',
+  'app/use-cases/[slug]/page.tsx',
+  'app/regulatory/[slug]/page.tsx',
+];
+
+for (const file of routeFiles) {
+  let src;
+  try {
+    src = readFileSync(join(root, file), 'utf8');
+  } catch {
+    problems.push(`${file} is listed in the og:image guard but does not exist — update the list`);
+    continue;
+  }
+  if (!/openGraph:\s*{/.test(src)) continue;
+  // The root layout is the one route that legitimately inherits the file
+  // convention, because it does not override it for a child segment.
+  if (file === 'app/layout.tsx') continue;
+
+  if (!block(src, 'openGraph') || !/images:\s*\[ogImage\]/.test(block(src, 'openGraph'))) {
+    problems.push(
+      `${file} declares openGraph without images: [ogImage] inside it`
+      + ' — the page will ship with no og:image',
+    );
+  }
+  const tw = block(src, 'twitter');
+  if (!tw) {
+    problems.push(
+      `${file} declares openGraph without its own twitter block`
+      + " — it will inherit the root layout's title",
+    );
+  } else if (!/images:\s*\[ogImage\]/.test(tw)) {
+    problems.push(
+      `${file} has a twitter block without images: [ogImage] inside it`
+      + ' — the card will ship with no image',
+    );
+  }
+}
+
 // --- Report ----------------------------------------------------------------
 
 if (problems.length) {
   console.error('llms drift check FAILED:\n');
   for (const p of problems) console.error(`  · ${p}`);
-  console.error('\nUpdate public/llms.txt and public/llms-full.txt to match the registries.');
+  console.error('\nFix the items above: llms*.txt must match the registries, updatedAt must match the last real edit, and any route declaring openGraph must declare images and twitter.');
   process.exit(1);
 }
 

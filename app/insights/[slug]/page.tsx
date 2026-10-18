@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getArticlesByType, getArticleByTypeAndSlug } from '@/app/content/registry';
 import ArticleLayout from '@/app/components/ArticleLayout';
+import { ogImage } from '@/app/og';
 
 interface Props {
   // params is a Promise in Next 16 — see app/knowledge/[slug]/page.tsx for what
@@ -30,6 +31,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt,
+      images: [ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.description,
+      images: [ogImage],
     },
   };
 }

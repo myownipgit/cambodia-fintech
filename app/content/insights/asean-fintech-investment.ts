@@ -7,7 +7,7 @@ export const aseanFintechInvestment: ArticleContent = {
   type: 'insights',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-03-25',
+  updatedAt: '2026-08-31',
   readingTime: 8,
   schema: 'Article',
   relatedSlugs: ['cambodia-fintech-landscape', 'asean-digital-economy-comparison'],

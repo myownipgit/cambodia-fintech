@@ -7,7 +7,7 @@ export const gdt: ArticleContent = {
   type: 'glossary',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-06-18',
+  updatedAt: '2026-08-31',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['caminvoice', 'nbc', 'supply-chain-finance'],

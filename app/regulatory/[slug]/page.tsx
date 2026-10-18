@@ -11,6 +11,7 @@ import { getArticleBySlug } from '@/app/content/registry';
 import RegulatoryNotice from '@/app/components/RegulatoryNotice';
 import RelatedServices from '@/app/components/RelatedServices';
 import { kindLabel, forceLabel, formatIssuedFull } from '../labels';
+import { ogImage } from '@/app/og';
 
 const BASE_URL = 'https://www.camfintech.com';
 
@@ -42,6 +43,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: instrument.summary,
       url: `/regulatory/${instrument.slug}`,
       type: 'article',
+      images: [ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: name,
+      description: instrument.summary,
+      images: [ogImage],
     },
   };
 }
