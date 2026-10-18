@@ -199,6 +199,10 @@ That is not hypothetical. The research this was built from asserted the 5%/3% CE
 - **Dashboard URL**: https://vercel.com/fin-tec-consulting-cambodia/cambodia-fintech
 - **Production URL**: https://www.camfintech.com
 
+### Why Vercel at all — ADR-008 (2026-10-18)
+
+It was **never chosen**. `.vercel/project.json` is in the initial commit (`d0f9e90`, 2025-11-24) — it arrived as the Next.js vendor default, and the question *"why Vercel"* had no recorded answer until 2026-10-18. It is now **ratified** on measured grounds (full static prerender on all 69 pages, `sin1` edge at 0.16–0.56 s TTFB, platform-served security headers, no recurring charge on Hobby) with the two workflow defects below recorded as accepted costs. Vault `Firm Operations/02_Decision_Log.md` → **ADR-008** carries the options, the revisit triggers and the consequences. **Do not migrate or upgrade without one of those triggers.**
+
 ### Deploy method: `vercel --prod` CLI (not Git auto-deploy)
 
 The Vercel Git integration is configured against `main` and theoretically deploys on push. **In practice, the Hobby plan blocks deploys when the commit author isn't a team member** — and the linked GitHub account (`myownipgit`) shows up as a non-team author, so pushes silently no-op for deploys. The CLI deploy bypasses this because it uses the local Vercel OAuth token as the identity, not the git commit author.
