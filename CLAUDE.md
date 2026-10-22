@@ -12,7 +12,7 @@ This is a bilingual (English/Khmer) FinTech consulting website for Cambodia, bui
 - **Trading name (used publicly)**: CamFinTech
 - **Legal name (pending registration, NOT yet used on public site)**: CAMFINTECH CO., LTD
 - **Corporate HQ — public form (2026-08-31, ADR-007)**: 30 Preah Norodom Boulevard, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Kingdom of Cambodia. Sangkat (commune) and Khan (district) depth is the Cambodian convention — ABA, Wing, Tilleke and PPCBank all publish to it, and stopping at Khan reads as incomplete locally. The floor and the building tenancy stay internal.
-- **Corporate HQ — full form (internal docs only)**: 30 Preah Norodom Boulevard, 3rd floor, BRED Bank Building, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Cambodia
+- **Corporate HQ — full form (internal docs only)**: 30 Preah Norodom Boulevard, 2nd floor, Room 203 (registered wording per MoC certificate; the building also calls it the 3rd floor), BRED Bank Building, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Cambodia
 - **LinkedIn (company)**: https://www.linkedin.com/company/118224010/ — listed in `Organization.sameAs` in the homepage JSON-LD
 - **Naming convention**: founder's LinkedIn slug is `william-mall` (short form); the public website name is `William Mallett` (full surname). The slug-name mismatch is intentional — do not "fix" by changing one to match the other.
 - **Status**: Cambodian business registration in progress. Until registration is finalised, refer to the practice as "CamFinTech" (trading name) on public materials. Do not use "Co., Ltd" suffix publicly.
