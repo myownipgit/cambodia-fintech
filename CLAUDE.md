@@ -10,12 +10,12 @@ This is a bilingual (English/Khmer) FinTech consulting website for Cambodia, bui
 
 - **Founder & Managing Director**: William Mallett — LinkedIn: https://www.linkedin.com/in/william-mall/ — surfaced on https://www.camfintech.com/about and referenced via `Organization.founder` in the homepage JSON-LD
 - **Trading name (used publicly)**: CamFinTech
-- **Legal name (pending registration, NOT yet used on public site)**: CAMFINTECH CO., LTD
+- **Legal name (registered)**: CAMFINTECH CO., LTD — MoC company no. 1000648818, incorporated 9 October 2026
 - **Corporate HQ — public form (2026-08-31, ADR-007)**: 30 Preah Norodom Boulevard, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Kingdom of Cambodia. Sangkat (commune) and Khan (district) depth is the Cambodian convention — ABA, Wing, Tilleke and PPCBank all publish to it, and stopping at Khan reads as incomplete locally. The floor and the building tenancy stay internal.
 - **Corporate HQ — full form (internal docs only)**: 30 Preah Norodom Boulevard, 2nd floor, Room 203 (registered wording per MoC certificate; the building also calls it the 3rd floor), BRED Bank Building, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Cambodia
 - **LinkedIn (company)**: https://www.linkedin.com/company/118224010/ — listed in `Organization.sameAs` in the homepage JSON-LD
 - **Naming convention**: founder's LinkedIn slug is `william-mall` (short form); the public website name is `William Mallett` (full surname). The slug-name mismatch is intentional — do not "fix" by changing one to match the other.
-- **Status**: Cambodian business registration in progress. Until registration is finalised, refer to the practice as "CamFinTech" (trading name) on public materials. Do not use "Co., Ltd" suffix publicly.
+- **Status**: Registered (9 October 2026, MoC 1000648818). "CamFinTech" is the trading name; the legal entity CAMFINTECH CO., LTD may now be used publicly. NSSF (1089962-9), MLVT (L20266200253), TIN K003-902604575 complete.
 
 ## Development Commands
 

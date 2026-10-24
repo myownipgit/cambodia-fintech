@@ -50,7 +50,7 @@ export default function AboutContent() {
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-navy mb-3">About the practice</h2>
           <p className="text-navy/85 leading-relaxed">
-            <strong>CamFinTech is a fee-only regulatory and compliance practice</strong> based in Phnom Penh. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia&apos;s national rails — Bakong/KHQR (payments, NBC), CamDX/CamDigiKey (identity and data exchange, TSC), CamInvoice (e-invoicing, GDT) — and run the AML/CFT and governance programmes that hold afterwards. Trading as CamFinTech (legal entity CAMFINTECH CO., LTD pending registration).
+            <strong>CamFinTech is a fee-only regulatory and compliance practice</strong> based in Phnom Penh. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia&apos;s national rails — Bakong/KHQR (payments, NBC), CamDX/CamDigiKey (identity and data exchange, TSC), CamInvoice (e-invoicing, GDT) — and run the AML/CFT and governance programmes that hold afterwards. Trading as CamFinTech (legal entity CAMFINTECH CO., LTD, registered with the Ministry of Commerce, company no. 1000648818, 9 October 2026).
           </p>
           <p className="text-navy/85 leading-relaxed mt-4">
             We&apos;re structurally different from the firms most prospects compare us against:

@@ -12,7 +12,7 @@ A modern, bilingual (English/Khmer) website for a FinTech consulting company in 
 |---|---|
 | **Founder & Managing Director** | William Mallett ([LinkedIn](https://www.linkedin.com/in/william-mall/)) |
 | **Trading name** | CamFinTech |
-| **Legal entity** | CAMFINTECH CO., LTD (registration pending) |
+| **Legal entity** | CAMFINTECH CO., LTD (registered — MoC 1000648818, 9 Oct 2026) |
 | **Corporate HQ** | 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia |
 | **Contact** | info@camfintech.com · +855 76 277 5645 |
 | **LinkedIn (company)** | https://www.linkedin.com/company/118224010/ |

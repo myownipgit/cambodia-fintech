@@ -205,7 +205,7 @@ The four pages under `/use-cases/*` are hypothetical. CamFinTech is pre-revenue 
 
 ## Legal entity status
 
-CamFinTech is currently the trading name. The legal entity **CAMFINTECH CO., LTD** is pending Cambodian business registration. Public materials use the trading name only until registration is finalised.
+CAMFINTECH CO., LTD. (ខេមហ្វីនថេក ឯ.ក) is a duly registered private limited company in the Kingdom of Cambodia — MoC company number 1000648818, incorporated 9 October 2026, TIN K003-902604575, with MLVT (L20266200253) and NSSF (1089962-9) registrations complete. Registered office: BRED Bank Building, 2nd Floor, Room 203, 30 Preah Norodom Boulevard, Phnom Penh. "CamFinTech" remains the trading name.
 
 ## Index of canonical pages on camfintech.com
 

@@ -7,7 +7,11 @@ export default function JsonLd() {
         "@type": "Organization",
         "@id": "https://www.camfintech.com/#organization",
         "name": "CamFinTech",
-        "alternateName": "CamFinTech Cambodia",
+        "legalName": "CAMFINTECH CO., LTD.",
+        "alternateName": ["CamFinTech Cambodia", "ខេមហ្វីនថេក ឯ.ក"],
+        "taxID": "K003-902604575",
+        "vatID": "K003-902604575",
+        "identifier": "MoC 1000648818",
         "url": "https://www.camfintech.com",
         "logo": {
           "@type": "ImageObject",
@@ -16,8 +20,8 @@ export default function JsonLd() {
           "height": 300,
         },
         "description":
-          "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, established 2024. It prepares Cambodian and foreign institutions to meet the standard for connecting to the Kingdom of Cambodia's national digital infrastructure — Bakong and KHQR, CamDX and CamDigiKey, and CamInvoice — runs the AML/CFT and governance programmes that hold afterwards, and builds the client-side integration, or directs an accredited Service Provider as a disclosed sub-contract. The firm holds no client funds and operates no rail. The approval decision rests with the regulator and the client is the applicant of record. The practice is staffed by people who have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT.",
-        "foundingDate": "2024",
+          "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, established 2024; incorporated as CAMFINTECH CO., LTD. on 9 October 2026 (MoC 1000648818). It prepares Cambodian and foreign institutions to meet the standard for connecting to the Kingdom of Cambodia's national digital infrastructure — Bakong and KHQR, CamDX and CamDigiKey, and CamInvoice — runs the AML/CFT and governance programmes that hold afterwards, and builds the client-side integration, or directs an accredited Service Provider as a disclosed sub-contract. The firm holds no client funds and operates no rail. The approval decision rests with the regulator and the client is the applicant of record. The practice is staffed by people who have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT.",
+        "foundingDate": "2026-10-09",
         "areaServed": {
           "@type": "Country",
           "name": "Cambodia",
@@ -86,7 +90,7 @@ export default function JsonLd() {
         // and the NAP must sit on the same node for entity resolution to work.
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "30 Preah Norodom Boulevard, Sangkat Phsar Thmey 3, Khan Daun Penh",
+          "streetAddress": "No. 30 Preah Norodom Boulevard, 2nd Floor, Room 203, BRED Bank Building, Phsar Thmei Ti Bei (Village 9), Khan Daun Penh",
           "addressLocality": "Phnom Penh",
           "addressRegion": "Phnom Penh",
           "postalCode": "12210",
@@ -124,6 +128,7 @@ export default function JsonLd() {
         "@type": "ProfessionalService",
         "@id": "https://www.camfintech.com/#localbusiness",
         "name": "CamFinTech",
+        "legalName": "CAMFINTECH CO., LTD.",
         "parentOrganization": {
           "@id": "https://www.camfintech.com/#organization",
         },
@@ -141,7 +146,7 @@ export default function JsonLd() {
         ],
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "30 Preah Norodom Boulevard, Sangkat Phsar Thmey 3, Khan Daun Penh",
+          "streetAddress": "No. 30 Preah Norodom Boulevard, 2nd Floor, Room 203, BRED Bank Building, Phsar Thmei Ti Bei (Village 9), Khan Daun Penh",
           "addressLocality": "Phnom Penh",
           "addressRegion": "Phnom Penh",
           "postalCode": "12210",

@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.camfintech.com"),
   title: "CamFinTech — Regulatory and Compliance Advisers, Phnom Penh",
   description:
-    "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, established 2024. It prepares Cambodian and foreign institutions to meet the standard for connecting to the Kingdom of Cambodia's national digital infrastructure — Bakong and KHQR, CamDX and CamDigiKey, CamInvoice — runs the AML/CFT and governance programmes that hold afterwards, and builds the client-side integration. The firm holds no client funds and operates no rail; the approval decision rests with the regulator and the client is the applicant of record.",
+    "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, established 2024, incorporated 9 October 2026. It prepares Cambodian and foreign institutions to meet the standard for connecting to the Kingdom of Cambodia's national digital infrastructure — Bakong and KHQR, CamDX and CamDigiKey, CamInvoice — runs the AML/CFT and governance programmes that hold afterwards, and builds the client-side integration. The firm holds no client funds and operates no rail; the approval decision rests with the regulator and the client is the applicant of record.",
   keywords: [
     "Cambodia DPI",
     "DPI Integration",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CamFinTech — Regulatory and Compliance Advisers, Phnom Penh",
     description:
-      "A fee-only regulatory and compliance practice in the Kingdom of Cambodia, established 2024. Approvals, compliance programmes and client-side integrations for the national digital rails.",
+      "A fee-only regulatory and compliance practice in the Kingdom of Cambodia, established 2024, incorporated 9 October 2026. Approvals, compliance programmes and client-side integrations for the national digital rails.",
     url: "https://www.camfintech.com",
     siteName: "CamFinTech",
     // en_KH, not en_US. The site is published by a Cambodian practice for a
