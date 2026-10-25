@@ -106,6 +106,7 @@ export default function JsonLd() {
           // entity rather than three unrelated domains.
           "https://riel.report",
           "https://insights.camfintech.com",
+          "https://techindex.law.stanford.edu/companies/camfintech",
         ],
       },
       // Person (Founder) — unchanged
@@ -143,6 +144,7 @@ export default function JsonLd() {
           "https://github.com/myownipgit/cambodia-fintech",
           "https://riel.report",
           "https://insights.camfintech.com",
+          "https://techindex.law.stanford.edu/companies/camfintech",
         ],
         "address": {
           "@type": "PostalAddress",
