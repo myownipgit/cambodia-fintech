@@ -4,6 +4,51 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 — HSTS `preload` LIVE ON riel.report. Submission still outstanding.**
+
+Served on apex, www and assets: `max-age=31536000; includeSubDomains; preload`.
+`insights` deliberately unchanged — it is a subdomain of camfintech.com, whose apex already
+preloads with `includeSubDomains`, so a token there would be inert.
+
+### Preconditions verified before adding it
+
+| Requirement | Status |
+|---|---|
+| HTTP → HTTPS redirect, same host | 301 on both `riel.report` and `www.riel.report` |
+| www served over HTTPS | 301 → apex |
+| Valid cert covering both names | Let's Encrypt, SAN `riel.report` + `www.riel.report`, Traefik auto-renews |
+| Subdomain inventory (`includeSubDomains` binds them all, forever) | `www` is the **only** one that resolves |
+
+### A docker trap that cost two failed attempts — worth remembering
+
+**Never `sed -i` a file that is docker-bind-mounted as a single file.** `sed -i` writes a
+temp file and renames over the target, creating a **new inode**. A single-file bind mount
+follows the **original** inode, so the container keeps serving the old content: `nginx -t`
+passes, `nginx -s reload` succeeds, the host file reads correctly, and **nothing changes**.
+
+Diagnosis: `docker exec riel-report-server grep -c preload /etc/nginx/conf.d/default.conf`
+returned **0** while the host file returned **9**. Once severed, writing through the inode
+does not repair it — only `docker restart` re-establishes the bind.
+
+Use `cp new old` or `cat new > old` for in-place edits. The earlier security-headers change
+worked precisely because it used `cp`.
+
+### Still outstanding — Bill's to do
+
+**The header does not preload the domain.** `riel.report` must be submitted at
+**hstspreload.org**, which is a manual form and an effectively irreversible public
+registration — removal takes months and ships with browser releases. I did not submit it.
+
+Note the precedent in [reference-geo-audits]: `camfintech.com` has carried a `preload`
+header since August and its hstspreload.org submission was **also never verified**. Worth
+checking both at once.
+
+### Consequence to be clear about
+
+With `includeSubDomains`, every future subdomain of `riel.report` must be HTTPS from the
+moment it resolves. A plain-HTTP `staging.riel.report` would be unreachable in any browser
+that has seen this header, not merely warned about.
+
 **2026-11-04 — SECURITY HEADERS LIVE ON BOTH SIBLINGS. No repo change.**
 
 ### The headers were already configured — and had never been served
