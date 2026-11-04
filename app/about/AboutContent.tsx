@@ -9,7 +9,7 @@ const CONTACT_EMAIL = "info@camfintech.com";
 function FounderAvatar() {
   return (
     <img
-      src="/images/founder-william-mallett.png"
+      src="/images/William_Mallett_Chief_Executive_CAMFINTECH_CO_LTD.jpg"
       alt={`${FOUNDER_NAME}, ${FOUNDER_TITLE}, CamFinTech`}
       width={96}
       height={96}

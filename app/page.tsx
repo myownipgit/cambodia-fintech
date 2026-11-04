@@ -228,10 +228,10 @@ export default function Home() {
               <div className="lg:col-span-1">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/founder-william-mallett.png"
+                  src="/images/William_Mallett_Chief_Executive_CAMFINTECH_CO_LTD.jpg"
                   alt="William Mallett, Founder and Managing Director of CamFinTech"
-                  width={397}
-                  height={500}
+                  width={1000}
+                  height={1000}
                   className="w-40 rounded-lg border border-line object-cover lg:w-full lg:max-w-[220px]"
                 />
               </div>
