@@ -4,6 +4,51 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 — camfintech.com is NOT on the HSTS preload list, and cannot be submitted as
+it stands.** No change made; this is a finding.
+
+Checked against the official hstspreload.org API for both domains.
+
+| Domain | On the list? | Would a submission be accepted? |
+|---|---|---|
+| **camfintech.com** | **No** — `status: "unknown"` | **No** — two hard errors: *"No includeSubDomains directive"*, *"No preload directive"* |
+| **riel.report** | No — `status: "unknown"` | **Yes** — zero errors, zero warnings |
+
+### Why camfintech.com fails, precisely
+
+The preload list is keyed on the **apex**, and the checker reads the apex's own response.
+
+```
+https://camfintech.com   -> HTTP/2 308, location: https://www.camfintech.com/
+                            strict-transport-security: max-age=63072000     <- no directives
+https://www.camfintech.com -> HTTP/2 200
+                            strict-transport-security: max-age=63072000; includeSubDomains; preload
+```
+
+The apex is a **Vercel domain-level redirect**, served at the edge **before Next.js runs**.
+Proof: the 308 carries **none** of the six `next.config.js` headers — no CSP, no
+X-Frame-Options, nothing but `server: Vercel`, a bare HSTS and `x-vercel-id`. The `www`
+response carries all six. **www is not what the list checks.**
+
+So the header has advertised `preload` on www since August while the domain was ineligible.
+The memory note saying the submission was "unverified" understated it — **it could never
+have succeeded.**
+
+### The fix is a Vercel change, not a code change
+
+`vercel.json` has no `headers` or `redirects`; `next.config.js` `redirects()` is deliberately
+empty (with a long comment on why). The apex→www redirect is configured in the Vercel
+dashboard. To make the apex eligible it has to stop being a platform redirect and start being
+an application one — a `redirects()` entry matching the apex host, which `headers()` then
+covers. **That touches the deliberately-empty redirects array, so it is a decision, not a
+cleanup** — read the comment at `next.config.js:53` first.
+
+### Not done, deliberately
+
+Neither domain submitted. hstspreload.org submission is a manual form and effectively
+irreversible — removal takes months and ships with browser releases. riel.report is ready
+whenever Bill wants it; camfintech.com needs the apex fixed first.
+
 **2026-11-04 — HSTS `preload` LIVE ON riel.report. Submission still outstanding.**
 
 Served on apex, www and assets: `max-age=31536000; includeSubDomains; preload`.
