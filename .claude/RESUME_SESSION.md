@@ -4,6 +4,43 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 — FAQPage SHIPPED ON /products/dasp (GEO L4, FAQPage half).**
+Production `dpl_6kWA1jcTkCCghNoHhLCqecKBxJCV`.
+
+Seven Question/Answer pairs live in the JSON-LD, with the visible accordion rendered from
+the same array by the shared `FAQSection` — so the markup cannot drift from what a reader
+sees. Verified live: `"@type":"FAQPage"` with 7 `Question` + 7 `Answer`, and both question
+**and answer** text present in the served HTML outside the `ld+json` block, so a non-JS
+crawler reads it.
+
+Every answer restates something already on the page (30 Dec 2025 commencement, the
+no-grace-window correction, the bright lines, the five STOP-gate tests, the indicative
+ranges). **Nothing new is asserted, and nothing new may be** — FAQPage schema asserts the
+Q&A is visible on the page, so an answer that drifts from the prose above becomes a false
+machine-readable claim. A comment on `DASP_FAQS` says exactly that.
+
+### L4's `HowTo` half deliberately NOT implemented
+
+**Google removed HowTo rich results in September 2023.** This is the *same* recommendation
+this auditor made on 2026-08-15, rejected then for the same reason and recorded in
+[reference-geo-audits]. The markup is genuinely absent from the page — the finding is
+factually correct — but adding it would achieve nothing. **Do not implement it if a later
+audit raises it again.**
+
+### GEO audit remediation — where it stands
+
+| Item | State |
+|---|---|
+| H1 / HIGH-2 citations | **Closed** `269388e` — 22/22 unsourced → 2/22 |
+| L4 FAQPage | **Closed** this commit |
+| L4 HowTo | **Won't do** — obsolete since Sept 2023 |
+| M2 Article schema | **Won't do** — false finding, 4th recurrence |
+| L1 README registration | Closed incidentally by the `main` fast-forward |
+| L1 README KHNSIC codes | Open, ~10 min |
+| M1 sibling `llms.txt` | Open — separate repos |
+| HIGH-1 LinkedIn Experience text | **Open — Bill only.** Highest-value item left. |
+| L2 / M3 / M4 LinkedIn title, company page, platforms | Open — Bill only |
+
 **2026-11-04 — GEO CITATION SWEEP SHIPPED (standing H1). 22 pages → 2 unsourced.**
 Production `dpl_2HuiAbL9uwtfBWPffGj4eyuLaz7j`.
 
