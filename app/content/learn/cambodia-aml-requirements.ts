@@ -28,8 +28,7 @@ export const cambodiaAmlRequirements: ArticleContent = {
     { stat: 'Cambodia\'s mutual evaluation report was adopted by the Asia/Pacific Group on Money Laundering in July 2017, and the country has since been in enhanced follow-up with technical-compliance re-ratings. Its fifth-round mutual evaluation is scheduled for the 2029 plenary year.', source: 'APG, 2nd Enhanced Follow-Up Report and Global Fifth Round Mutual Evaluation Schedule', year: '2019' },
   ],
   sources: [
-    { publisher: 'Cambodia Financial Intelligence Unit', label: 'Law and regulation index', url: 'https://cafiu.gov.kh/law-regulation', tier: 'primary' },
-    { publisher: 'Cambodia National Trade Repository', label: 'National Trade Repository — official instrument records', url: 'https://cambodiantr.gov.kh/en', tier: 'primary' },
+    { publisher: 'Cambodia Financial Intelligence Unit', label: 'Official site (home page)', url: 'https://cafiu.gov.kh', tier: 'primary' },
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [

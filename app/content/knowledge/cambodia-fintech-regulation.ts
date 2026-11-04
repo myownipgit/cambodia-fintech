@@ -46,36 +46,18 @@ export const cambodiaFintechRegulation: ArticleContent = {
       },
     },
     {
-      // This section cited the three-category structure to a "Prakas on Payment
-      // Service Providers (B7-019-344)". That number appears nowhere in the verified
-      // instrument registry; the payments Prakas is B14-017-161 P.K "Payment Service
-      // Institutions" (14 Jun 2017), and B7-017-282 was an earlier phantom of the same
-      // shape caught before it shipped. The citation was removed 2026-11-04 rather than
-      // corrected, because the category structure itself has not been read in a primary.
-      // The Category 1/2/3 labels are kept: they are used as classifications across four
-      // content files, including to describe named licensees.
-      heading: 'Payment Service Provider Licensing Categories',
-      content: 'The NBC licenses payment services in three categories, each with a distinct scope, capital requirement and set of operational constraints. Category 1 licenses authorize the issuance and management of electronic money (e-wallets). Category 2 licenses cover payment processing, aggregation, and gateway services. Category 3 licenses permit money transfer services, including domestic and international remittance.\n\nCategory 1 (E-Money Issuance) is the most capital-intensive, and carries the additional obligation to segregate customer funds in trust accounts at NBC-licensed banks. E-money issuers must maintain a 1:1 reserve ratio, meaning every unit of e-money outstanding must be backed by an equivalent amount in the trust account. Category 2 (Payment Processing) is commonly used by payment aggregators, POS terminal providers, and online payment gateways. Category 3 (Money Transfer) imposes additional KYC requirements for cross-border remittance services. The governing capital figures are set by Prakas and revised from time to time; read them from the current instrument, or confirm them with Cambodian counsel, before relying on them for a capital plan.\n\nAll three categories require the applicant to demonstrate robust technology infrastructure, disaster recovery capabilities, data residency within Cambodia, and compliance with NBC\'s information security standards. Determining the correct licence category before drafting is what prevents a re-filing.',
-      // Capital thresholds removed 2026-11-04. The site carried three mutually
-      // contradictory sets of NBC minimum-capital figures (PSP variously $500,000,
-      // $1,000,000 and ~USD 250,000), none traceable to a fetched source. CLAUDE.md
-      // excludes capital thresholds, licence tiers and fees from a secondary
-      // aggregator site-wide. Restore a figure only when it has been read in an
-      // issuer's instrument or stated by a law firm, on the app/content/regulatory
-      // evidence bar, and record where it was read.
-      table: {
-        caption: 'NBC Payment Service Provider License Categories',
-        headers: ['Category', 'Scope', 'Trust Account Required'],
-        rows: [
-          ['Category 1', 'E-money issuance, wallet operations', 'Yes (1:1 reserve)'],
-          ['Category 2', 'Payment processing, aggregation', 'No'],
-          ['Category 3', 'Money transfer, remittance', 'Yes (operational reserve)'],
-        ],
-      },
+      // Corrected 2026-11-04 against the National Trade Repository's English text of
+      // Prakas B14-017-161. This section previously described three licence categories
+      // with separate capital figures and a count of licences issued, citing a Prakas
+      // numbered B7-019-344. That number is not in the verified registry, and the
+      // 2017 Prakas contains no categories: it has one payment service institution
+      // licence. Check for later amendments before stating a figure or a tier here.
+      heading: 'Payment Service Institution Licensing',
+      content: 'Prakas B14-017-161 on the Management of Payment Service Institutions requires any legal person intending to provide payment services in Cambodia to obtain a licence from the NBC. It does not divide that licence into categories. An electronic money issuer is defined as a payment service institution licensed to issue electronic money under the same Prakas.\n\nThe services covered include placing cash on and withdrawing it from a payment account, executing payment transactions and credit transfers, issuing payment instruments, money remittance and payment initiation. An application must set out, among other things, a business plan, evidence of adequate capital, safeguarding procedures, governance and internal controls, business continuity arrangements and security controls.\n\nThe NBC is to give written notice of its decision within six months of receiving an application and may extend that period. A licence is valid for six years, and a renewal application is due at least three months before expiry.',
     },
     {
       heading: 'Capital Requirements and Financial Obligations',
-      content: 'Beyond minimum registered capital, NBC-licensed fintech companies face ongoing financial obligations designed to ensure solvency and protect consumer funds. PSP licensees are subject to a capital adequacy ratio against risk-weighted assets, calculated and reported to the NBC on a periodic basis. E-money issuers (Category 1) must additionally maintain liquidity sufficient to meet customer redemption requests promptly.\n\nOperational expenses coverage is another key requirement: PSP licensees must demonstrate that their capital base covers a stated period of projected operating expenses at all times. If capital falls below that threshold, the NBC issues a supervisory warning and may restrict new customer onboarding until capital is restored. Licences also carry an annual renewal fee that varies with the licence category and transaction volume. The ratios, the coverage period and the fee scale are all set by Prakas and revised from time to time — read the current instrument, or confirm with Cambodian counsel, rather than planning against a figure quoted secondhand.\n\nFintech companies raising capital from foreign investors must comply with the Foreign Investment Law and register their investment with the Council for the Development of Cambodia (CDC). Investment incentives, including tax holidays of up to 6 years and duty-free import of equipment, are available for qualified investment projects. Capital raises can be structured to capture CDC investment incentives while still meeting NBC capital requirements.',
+      content: 'A payment service institution must hold its minimum capital in cash, and its net worth may not fall below its initial capital. It must also place a capital guarantee in an account at the NBC. The Prakas sets an annual licence fee and states that the capital requirement may be reviewed from time to time, so read the current instrument or confirm with Cambodian counsel before planning against a figure.\n\nFunds received from payment service users must be safeguarded in a separate trust account at a commercial bank, or in secure, liquid, low-risk assets as the NBC defines them. Those funds do not belong to the institution.\n\nFintech companies raising capital from foreign investors must comply with the Foreign Investment Law and register their investment with the Council for the Development of Cambodia (CDC). Investment incentives, including tax holidays of up to 6 years and duty-free import of equipment, are available for qualified investment projects. Capital raises can be structured to capture CDC investment incentives while still meeting NBC capital requirements.',
     },
     {
       heading: 'Anti-Money Laundering and Counter-Terrorism Financing',
@@ -121,13 +103,13 @@ export const cambodiaFintechRegulation: ArticleContent = {
     },
     {
       heading: 'Foreign Exchange and Cross-Border Regulations',
-      content: 'Cambodia\'s foreign exchange regime is relatively liberal compared to regional peers, with no restrictions on current account transactions and limited capital account controls. However, fintech companies dealing in cross-border payments and foreign exchange must comply with specific NBC regulations. The Prakas on Foreign Exchange Reporting requires all transactions above USD 10,000 to be reported to the NBC\'s Statistics Department. Money transfer operators (Category 3 PSPs) must report all cross-border remittances regardless of amount.\n\nThe NBC\'s de-dollarization policy, which aims to increase Khmer Riel usage from approximately 20% to 30% of total money supply by 2030, has regulatory implications for fintech companies. New PSP licenses now require the ability to process both KHR and USD transactions, and the NBC encourages (but does not yet mandate) default pricing in KHR. The Reserve Requirement Regulation imposes higher reserve ratios for USD deposits (12.5%) compared to KHR deposits (7.0%), creating a cost incentive for financial institutions to promote Riel-denominated products.\n\nFor cross-border payment corridors, fintech companies must obtain specific NBC endorsement on their PSP license and comply with bilateral regulatory agreements between Cambodia and the partner country. The Thailand-Cambodia (Bakong-PromptPay) corridor requires compliance with both NBC and Bank of Thailand regulations. Cross-border payment services carry the most complex regulatory requirements of any category here.',
+      content: 'Cambodia\'s foreign exchange regime is relatively liberal compared to regional peers, with no restrictions on current account transactions and limited capital account controls. However, fintech companies dealing in cross-border payments and foreign exchange must comply with specific NBC regulations. The Prakas on Foreign Exchange Reporting requires all transactions above USD 10,000 to be reported to the NBC\'s Statistics Department. Money transfer operators must report all cross-border remittances regardless of amount.\n\nThe NBC\'s de-dollarization policy, which aims to increase Khmer Riel usage from approximately 20% to 30% of total money supply by 2030, has regulatory implications for fintech companies. New PSP licenses now require the ability to process both KHR and USD transactions, and the NBC encourages (but does not yet mandate) default pricing in KHR. The Reserve Requirement Regulation imposes higher reserve ratios for USD deposits (12.5%) compared to KHR deposits (7.0%), creating a cost incentive for financial institutions to promote Riel-denominated products.\n\nFor cross-border payment corridors, fintech companies must obtain specific NBC endorsement on their PSP license and comply with bilateral regulatory agreements between Cambodia and the partner country. The Thailand-Cambodia (Bakong-PromptPay) corridor requires compliance with both NBC and Bank of Thailand regulations. Cross-border payment services carry the most complex regulatory requirements of any category here.',
       table: {
         caption: 'Cambodia Foreign Exchange Regulatory Requirements',
         headers: ['Requirement', 'Threshold', 'Reporting Entity', 'Frequency', 'Penalty for Non-Compliance'],
         rows: [
           ['FX transaction reporting', '> USD 10,000', 'All FIs and PSPs', 'Per transaction', 'Fine up to KHR 50M'],
-          ['Cross-border remittance reporting', 'All amounts', 'Category 3 PSPs', 'Daily batch', 'License restriction'],
+          ['Cross-border remittance reporting', 'All amounts', 'Payment service institutions offering remittance', 'Daily batch', 'License restriction'],
           ['Large cash transaction reporting', '> USD 10,000 equivalent', 'All FIs', 'Per transaction', 'AML/CFT penalty'],
           ['Capital account approval', '> USD 100,000 outflow', 'Banks', 'Per transaction', 'Transaction reversal'],
           ['USD reserve requirement', '12.5% of deposits', 'Banks and MFIs', 'Monthly', 'Supervisory action'],

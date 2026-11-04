@@ -22,9 +22,9 @@ export const nbc: ArticleContent = {
   // and record where it was read. See vault ADR-007.
   claims: [],
   sources: [
-    { publisher: 'National Bank of Cambodia', label: 'Official site — legislation, Prakas and publications', url: 'https://www.nbc.gov.kh', tier: 'primary' },
-    { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
-    { publisher: 'Cambodia National Trade Repository', label: 'National Trade Repository — official instrument records', url: 'https://cambodiantr.gov.kh/en', tier: 'primary' },
+    { publisher: 'Cambodia National Trade Repository', label: 'Prakas on the Management of Payment Service Institution, official record', url: 'https://cambodiantr.gov.kh/en/document/?title=prakas-on-the-management-of-payment-service-institution', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Official site (home page)', url: 'https://www.nbc.gov.kh', tier: 'primary' },
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [

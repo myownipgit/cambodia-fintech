@@ -22,8 +22,8 @@ export const whatIsCamDigiKey: ArticleContent = {
   // and record where it was read. See vault ADR-007.
   claims: [],
   sources: [
-    { publisher: 'Techo Startup Center', label: 'CamDigiKey — the platform\'s official site', url: 'https://www.camdigikey.gov.kh', tier: 'primary' },
-    { publisher: 'Techo Startup Center', label: 'CamDX eKYC Open API specification', url: 'https://camdx.gov.kh/docs/open-api/ekyc', tier: 'primary' },
+    { publisher: 'Open Development Cambodia', label: 'Sub-Decree No. 207 on the management of the CamDigiKey platform, legal record', url: 'https://data.opendevelopmentcambodia.net/en/laws_record/sub-decree-no-207-on-the-management-of-camdigikey-platform', tier: 'primary' },
+    { publisher: 'CamDigiKey', label: 'Official site (home page)', url: 'https://www.camdigikey.gov.kh', tier: 'primary' },
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [

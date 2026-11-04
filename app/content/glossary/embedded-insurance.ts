@@ -21,7 +21,7 @@ export const embeddedInsurance: ArticleContent = {
   // and record where it was read. See vault ADR-007.
   claims: [],
   sources: [
-    { publisher: 'Insurance Regulator of Cambodia', label: 'Insurance Regulator of Cambodia, official site', url: 'https://www.irc.gov.kh/en', tier: 'primary' },
+    { publisher: 'Insurance Regulator of Cambodia', label: 'Official site (home page)', url: 'https://www.irc.gov.kh/en', tier: 'primary' },
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [

@@ -24,13 +24,14 @@ export interface ClaimData {
  *
  * The /regulatory section has had an absolute evidence bar since R1 and the
  * article corpus has not; this is the article-side half of that bar. A source
- * goes in this array only when the URL was fetched and confirmed to return 200
- * and to be the thing it is labelled as. `tier` is not decoration — a reader
+ * goes in this array only when the URL was fetched and its content confirmed to
+ * be what the label says. A 200 is not enough: single-page sites return 200 for
+ * any path. A home page is labelled as one. `tier` is not decoration — a reader
  * deciding whether to act on a page needs to know whether they are being sent
  * to the issuer or to someone's reading of the issuer.
  *
- * This is a reading list, not a citation apparatus: it says what a page rests
- * on. A specific numeric assertion still belongs in `claims`, which carries its
+ * This is a reading list, not a citation apparatus: it does not show that the
+ * source supports each statement on the page. A specific numeric assertion still belongs in `claims`, which carries its
  * own optional url. Do not move claims here to make a page look better sourced.
  */
 export interface ArticleSource {
@@ -64,8 +65,8 @@ export interface ArticleMeta {
    */
   relatedInstruments?: string[];
   /**
-   * Official sources this page rests on. Optional, and deliberately so: a page
-   * with no genuine primary gets no block rather than a padded one. Primary
+   * Official sources relevant to this page. Optional, and deliberately so: a page
+   * with no relevant source gets no block rather than a padded one. Primary
    * sources first.
    */
   sources?: ArticleSource[];

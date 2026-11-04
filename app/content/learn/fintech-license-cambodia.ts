@@ -31,15 +31,17 @@ export const fintechLicenseCambodia: ArticleContent = {
   // NBC's own copy 404s; read from the Open Development Cambodia mirror:
   // https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf
   // The report is the NBC's, not a secondary aggregator's. The GDP multiple is
-  // quoted as the NBC states it; press reporting of "330% of GDP" is Bakong alone,
-  // a narrower measure than this report's "digital payments".
+  // quoted as the NBC states it. Press reports give "330% of GDP" for Bakong alone
+  // in 2024; why the two differ has not been established, so do not reconcile them.
+  // A search of three guessed NBC paths found no English edition, which is not proof
+  // that none exists.
   claims: [
-    { stat: 'The number of digital payment transactions in Cambodia grew 78% during 2024 and their value grew 38%, both measured against 2023. The National Bank of Cambodia puts the total value at approximately 15 times gross domestic product.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i', year: '2024' },
+    { stat: 'The number of digital payment transactions in Cambodia grew 78% during 2024 and their value grew 38%, both measured against 2023. The National Bank of Cambodia puts the total value at approximately 15 times gross domestic product.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i (Open Development Cambodia copy)', year: '2024', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf' },
   ],
   sources: [
-    { publisher: 'National Bank of Cambodia', label: 'Official site — legislation, Prakas and publications', url: 'https://www.nbc.gov.kh', tier: 'primary' },
-    { publisher: 'Cambodia National Trade Repository', label: 'National Trade Repository — official instrument records', url: 'https://cambodiantr.gov.kh/en', tier: 'primary' },
-    { publisher: 'Financial Services Authority (FSA), Cambodia', label: 'Cambodia FinTech Development Policy — official portal and full document', url: 'https://fintech.fsa.gov.kh/cambodia-fintech-development-policy?lang=en', tier: 'primary' },
+    { publisher: 'Cambodia National Trade Repository', label: 'Prakas on the Management of Payment Service Institution, official record', url: 'https://cambodiantr.gov.kh/en/document/?title=prakas-on-the-management-of-payment-service-institution', tier: 'primary' },
+    { publisher: 'Financial Services Authority (FSA), Cambodia', label: 'Cambodia FinTech Development Policy, official portal', url: 'https://fintech.fsa.gov.kh/cambodia-fintech-development-policy?lang=en', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Official site (home page)', url: 'https://www.nbc.gov.kh', tier: 'primary' },
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [
@@ -51,7 +53,7 @@ export const fintechLicenseCambodia: ArticleContent = {
     {
       heading: 'NBC Licensing Categories for FinTech',
       content: 'The National Bank of Cambodia classifies FinTech operators into distinct licensing categories based on the financial services they provide. The primary categories relevant to FinTech firms are Payment Service Providers (PSPs), E-Money Issuers, Microfinance Institutions (MFIs), and Banking Institutions. Each category carries different capital requirements, operational mandates, and reporting obligations.\n\nThe NBC\'s regulatory philosophy emphasizes activity-based regulation: the license type is determined by what a firm does, not what it calls itself. A technology company that facilitates payments requires a PSP license. A platform that issues stored-value digital tokens needs an e-money license. A firm that extends credit digitally must obtain an MFI or banking license. This approach ensures regulatory coverage regardless of the business model\'s novelty.',
-      // Capital thresholds removed 2026-11-04. The site carried three mutually
+      // Capital thresholds removed 2026-11-04. The site carried mutually
       // contradictory sets of NBC minimum-capital figures (PSP variously $500,000,
       // $1,000,000 and ~USD 250,000), none traceable to a fetched source. CLAUDE.md
       // excludes capital thresholds, licence tiers and fees from a secondary
@@ -77,7 +79,7 @@ export const fintechLicenseCambodia: ArticleContent = {
     },
     {
       heading: 'Capital Requirements and Financial Conditions',
-      content: 'Capital requirements represent one of the most significant barriers to entry in Cambodia\'s FinTech market. The NBC mandates minimum registered capital that must be fully paid-up and maintained in a Cambodian bank account before license issuance, and the figure rises steeply with the licence category: a payment service provider sits at the bottom of the range, a commercial bank at the top. The thresholds are set by Prakas and revised from time to time, so the governing figure should be read from the current instrument or confirmed with Cambodian counsel before it is relied on for a capital plan.\n\nBeyond initial capital, the NBC imposes ongoing capital adequacy requirements. E-money issuers must maintain customer float in a segregated trust account at a licensed bank, with the total float covered by liquid assets at all times. PSPs must maintain a solvency ratio ensuring operational continuity for at least six months without revenue. These prudential requirements ensure that licensed FinTech firms can absorb operational losses and protect customer funds, but they also concentrate the market toward well-capitalized operators.',
+      content: 'Capital is a condition of the licence rather than a formality. Under Prakas B14-017-161 a payment service institution must hold its minimum capital in cash, its net worth may not fall below its initial capital, and the NBC may review the requirement from time to time. Read the current figure from the instrument or confirm it with Cambodian counsel before relying on it for a capital plan. This page does not state figures for other licence types, because they have not been checked against their own instruments.\n\nThe same Prakas requires a licensed institution to place a capital guarantee in an account at the NBC, and to safeguard funds received from payment service users, either in a separate trust account at a commercial bank or in secure, liquid, low-risk assets as the NBC defines them.',
     },
     {
       heading: 'The Regulatory Sandbox Pathway',

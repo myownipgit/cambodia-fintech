@@ -21,8 +21,7 @@ export const complianceAsAService: ArticleContent = {
   // and record where it was read. See vault ADR-007.
   claims: [],
   sources: [
-    { publisher: 'Cambodia Financial Intelligence Unit', label: 'Law and regulation index', url: 'https://cafiu.gov.kh/law-regulation', tier: 'primary' },
-    { publisher: 'Cambodia National Trade Repository', label: 'National Trade Repository — official instrument records', url: 'https://cambodiantr.gov.kh/en', tier: 'primary' },
+    { publisher: 'Cambodia Financial Intelligence Unit', label: 'Official site (home page)', url: 'https://cafiu.gov.kh', tier: 'primary' },
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [

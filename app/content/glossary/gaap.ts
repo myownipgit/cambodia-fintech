@@ -21,9 +21,9 @@ export const gaap: ArticleContent = {
   // and record where it was read. See vault ADR-007.
   claims: [],
   sources: [
-    { publisher: 'Digital Economy and Business Committee', label: 'Digital Economy and Business Committee, official site', url: 'https://digitaleconomy.gov.kh/en', tier: 'primary' },
-    { publisher: 'Techo Startup Center', label: 'CamDX — Cambodia Data Exchange, official site', url: 'https://camdx.gov.kh', tier: 'primary' },
-    { publisher: 'National Bank of Cambodia', label: 'Bakong — the system\'s official site', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
+    { publisher: 'Digital Economy and Business Committee', label: 'Official site (home page)', url: 'https://digitaleconomy.gov.kh/en', tier: 'primary' },
+    { publisher: 'CamDX', label: 'Cambodia Data Exchange, official site (home page)', url: 'https://camdx.gov.kh', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Bakong, official site (home page)', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [

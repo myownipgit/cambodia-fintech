@@ -220,7 +220,7 @@ export default function ArticleLayout({ article }: { article: ArticleContent }) 
         {/* Related */}
         <RelatedReading links={relatedLinks} />
 
-        {/* The official sources this page rests on, as outbound links. Sits
+        {/* Official sources relevant to this page, as outbound links. Sits
             above the instrument block because an instrument link is internal —
             it sends a reader to our page about a rule, not to the rule. */}
         {article.sources && article.sources.length > 0 && (

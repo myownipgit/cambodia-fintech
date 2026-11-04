@@ -21,9 +21,9 @@ export const howCamDXWorks: ArticleContent = {
   // and record where it was read. See vault ADR-007.
   claims: [],
   sources: [
-    { publisher: 'Royal Government of Cambodia', label: 'Sub-Decree No. 164 S.E on Data Exchange through CamDX — unofficial English translation (PDF)', url: 'https://camdx.gov.kh/documents/files/Unofficial%20Translation%20of%20CamDX%20Subdecree.pdf', tier: 'primary' },
-    { publisher: 'Techo Startup Center', label: 'CamDX User Guide Book, English (PDF)', url: 'https://camdx.gov.kh/documents/files/CamDX%20User%20Guide%20Book%20English.pdf', tier: 'primary' },
-    { publisher: 'Techo Startup Center', label: 'CamDX eKYC Open API specification', url: 'https://camdx.gov.kh/docs/open-api/ekyc', tier: 'primary' },
+    { publisher: 'Royal Government of Cambodia', label: 'Sub-Decree No. 164 on Data Exchange through CamDX, unofficial English translation (PDF)', url: 'https://camdx.gov.kh/documents/files/Unofficial%20Translation%20of%20CamDX%20Subdecree.pdf', tier: 'primary' },
+    { publisher: 'CamDX', label: 'CamDX Membership User Guidebook (PDF)', url: 'https://camdx.gov.kh/documents/files/CamDX%20User%20Guide%20Book%20English.pdf', tier: 'primary' },
+    { publisher: 'CamDX', label: 'Cambodia Data Exchange, official site (home page)', url: 'https://camdx.gov.kh', tier: 'primary' },
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [
