@@ -4,6 +4,108 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 — FOUNDER HEADSHOT REPLACED, COMMITTED AND DEPLOYED.** `feature/update-homepage`
+at `0d375ba`, pushed. Production is `dpl_6uAbppDTmrMXckc5kCwJKDuR5pWY`, serving the new
+headshot. `main` is still deliberately behind at `4d1bb79` — Bill declined the fast-forward
+on 2026-08-23 and it has not been revisited.
+
+### Headshot swap
+
+`/images/founder-william-mallett.png` (397x500 RGBA, 253 KB, in place since 2026-08-04)
+is **deleted** and replaced by `/images/William_Mallett_Chief_Executive_CAMFINTECH_CO_LTD.jpg`
+(1000x1000, 153 KB). Bill supplied a 1254x1254 / 2.16 MB PNG; it was resized and converted
+to JPEG q88 because both render sites use a raw `<img>` (no `next/image`, so the file ships
+byte-for-byte). The untouched original is **not** in the repo.
+
+Five references repointed: `app/page.tsx:231`, `app/about/AboutContent.tsx:12`,
+`app/components/JsonLd.tsx:118` (`Person.image`), `public/llms.txt:90`,
+`public/llms-full.txt:191`. The homepage `<img>` also moved from `width={397} height={500}`
+to `1000/1000` — the old intrinsic ratio would have made `object-cover` crop the square
+source left and right. The homepage portrait is now a square block, same width.
+
+Gates green: `check:llms` passed, `npm run lint` 0 errors / 3 pre-existing warnings,
+`npm run build` succeeded (69 routes).
+
+Post-deploy verification, all passing: both pages reference the new path · the asset
+returns `200 image/jpeg 153049` · `Person.image` in the live JSON-LD carries the new URL ·
+the old `/images/founder-william-mallett.png` now **404s** (it had been live since
+2026-08-04, so anything that cached that URL — LinkedIn previews, a GSC image record —
+will need to re-crawl) · GA tag `G-QDZ83JQWVC` still loads · Bing and Facebook metas
+intact · zero `google-site-verification`. **No browser pass** — the Chrome extension is
+not connected to this session, so the square-crop change on the homepage was verified in
+markup and served HTML, not rendered.
+
+The first `vercel --prod` attempt died with `fetch failed` (network, not the build); the
+immediate retry succeeded.
+
+Open: the filename says "Chief Executive" while the site's published title everywhere is
+"Founder & Managing Director". Flagged to Bill; not changed.
+
+**2026-11-02 — GOOGLE ANALYTICS CONNECTED; FIRST TRAFFIC READ. No code changes.** Repo clean
+on `feature/update-homepage` at `9224db9`; production unchanged.
+
+### Google Analytics access established
+
+Read access to the camfintech.com GA4 property now works from this machine, with **no
+private key on disk**.
+
+| | |
+|---|---|
+| GA account / property | `376276838` (CamFinTech) / `514609061` (camfintech.com) |
+| Data stream | CamFinTech Web → `G-QDZ83JQWVC` → https://www.camfintech.com |
+| Reader | `ga4-reader@camfintech-integrations.iam.gserviceaccount.com`, **Viewer** on the property |
+| How | `info@camfintech.com` holds `roles/iam.serviceAccountTokenCreator` and mints a short-lived impersonated token |
+
+Two dead ends recorded so they are not retried: **`gcloud auth application-default login`
+can never carry `analytics.readonly`** — Google refuses that scope on the ADC client for any
+account, consumer or Workspace (`bill.mallett@gmail.com` blocked identically, which disproved
+the Workspace-policy theory); and the user credential **expires about fortnightly**, after
+which impersonation fails with *"Reauthentication failed"* and Bill must re-run
+`gcloud auth login`. That is the accepted cost of having no key file. Full detail in memory
+`reference_ga4_access.md`.
+
+Faster access test than `accountSummaries`, which returns `{}` with HTTP 200 when the service
+account can see nothing and so reads as success:
+
+```bash
+curl -H "Authorization: Bearer $TOKEN" \
+  https://analyticsadmin.googleapis.com/v1beta/properties/514609061
+```
+
+### What the first read showed
+
+- **Two thirds of all traffic is automated** — 567 of 848 sessions (2 Sep – 2 Nov) sit in
+  segments engaging below 20%: Singapore/Direct 389 at 2% and 6s, US/Direct 61, China/Direct
+  36. **No bot filter is configured**, so every figure in the GA interface is overstated
+  roughly threefold. Do not quote a headline session count without segmenting first.
+- **The real audience is ~281 sessions, 72% Cambodian**, reading for four minutes at ~51%
+  engagement. The ADR-006/ADR-007 audience assumption is now evidenced.
+- **No conversion tracking exists.** The only key events on the property are the three GA4
+  stock defaults (`close_convert_lead`, `qualify_lead`, `purchase`) created automatically at
+  property creation; none can ever fire here. GA4 tracks outbound http(s) links only, so every
+  `mailto:` and `tel:` on the site is invisible — the site cannot report whether it has ever
+  produced an enquiry.
+- **`/regulatory/prakas-b14-017-161` is the most common entry page, ahead of the homepage.**
+  Most visitors never see the rebuilt homepage.
+- **Every outbound click is to a cited primary source** (NBC Prakas PDFs, the National Trade
+  Repository). The evidence bar is doing what it was built to do.
+- **ADR-005's 8-week traffic clock**: organic sessions Aug 43 → Sep 69 → Oct 106, engaged
+  24 → 28 → 57. Engaged organic is a genuine high, but June was already 108 sessions, so this
+  reads as recovery from a Jul–Aug trough. **Inconclusive-but-positive, not closed.**
+
+Report published as a dashboard: https://claude.ai/artifact/6FmtzfVFW7kCnjU41StHEo
+Baseline recorded in memory `project_ga4_traffic_baseline.md`.
+
+### Open after this session
+
+- Bot filter not configured on the GA property — the contamination recurs every month.
+- ADR-005 clock reading not yet written into the vault Decision Log.
+- Recommendations in the report not actioned (event tracking, Search Console link, entry-page
+  identity, inter-page linking).
+
+---
+
+
 **2026-10-16 — HOUSEKEEPING BEFORE A MAC REBOOT. No code changes.** Repo is clean, in sync with `origin/feature/update-homepage` at `1aa1af0`, and has not moved since 2026-09-02. The last deployed commit is still `1aa1af0`; production is unchanged.
 
 ### Written this session
