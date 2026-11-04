@@ -4,6 +4,56 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 — SECURITY HEADERS LIVE ON BOTH SIBLINGS. No repo change.**
+
+### The headers were already configured — and had never been served
+
+Both sibling nginx configs already carried `X-Content-Type-Options`, `Referrer-Policy` and
+`Permissions-Policy` at server level. `curl -D -` showed **none of them** on any response.
+
+**`add_header` in nginx does not merge — it replaces.** A `location` block that sets any
+`add_header` discards every `add_header` inherited from its parent. Both configs set
+`Cache-Control` in each location, which silently threw away the whole hardening block. The
+rule was written and did nothing, which is the third instance of that pattern today
+(CLAUDE.md capital thresholds, the teal-contrast rule, this).
+
+Fixed by repeating the full security block in **every** location — 8 blocks on riel, 7 on
+insights — with a comment in each file explaining why the duplication is deliberate.
+
+### Now served on both
+
+CSP · HSTS `max-age=31536000; includeSubDomains` · `X-Frame-Options: DENY` · nosniff ·
+Referrer-Policy · Permissions-Policy.
+
+**HSTS `preload` deliberately omitted.** It is a one-way door that takes months to reverse,
+and it is Bill's decision, not a default. `camfintech.com` already sends preload from the
+apex with `includeSubDomains`, which covers `insights.` anyway.
+
+### CSP — the origins that would have been missed
+
+Written only after enumerating every page, which mattered:
+
+| Site | Needs | Why |
+|---|---|---|
+| riel.report | `challenges.cloudflare.com` in **script-src and frame-src** | `/subscribe` loads Cloudflare Turnstile — invisible from the homepage |
+| riel.report | `automation.camfintech.com` in **connect-src** | the subscribe form POSTs to the n8n instance |
+| insights | `plausible.io` in script-src + connect-src | analytics |
+| insights | `img-src 'self' data: https:` | the builder has a Supabase infographic pipeline; nothing references it in the current build, so https: is headroom rather than a known need |
+
+A CSP written from either homepage would have broken the subscribe form **silently**.
+
+### Verified
+
+`nginx -t` passed before each reload, with automatic rollback armed. Backups at
+`nginx.conf.bak-20261104-151603` in both tenant dirs. After reload: all six headers present
+on both sites · 10 URLs across both still 200 · `/nope` still 404 · asset caching unchanged ·
+and every script, stylesheet and fetch endpoint on four sampled pages cross-checked as
+permitted by the CSP actually being served.
+
+**Not verified**: no browser execution — the Chrome extension is not connected to this
+session. The cross-check is static. If the subscribe form misbehaves, CSP is the first
+suspect and the backup configs restore in one command.
+
 **2026-11-04 — SIBLING llms.txt (GEO M1). riel.report LIVE; insights STAGED.**
 No change to this repo — both siblings live on the DO droplet.
 
