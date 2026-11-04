@@ -180,7 +180,7 @@ export default function Home() {
             <p className="font-display text-sm font-bold uppercase tracking-[0.18em] text-navy">
               CamFinTech
             </p>
-            <h1 className="mt-5 max-w-4xl text-3xl font-bold leading-[1.2] tracking-[-0.02em] text-navy sm:text-4xl lg:text-[2.75rem]">
+            <h1 className="mt-5 max-w-4xl text-3xl font-bold leading-[1.2] tracking-[-0.02em] text-navy sm:text-4xl sm:leading-[1.2] lg:text-[2.75rem]">
               Regulatory and compliance advisers to institutions connecting to the Kingdom of Cambodia&apos;s national digital infrastructure.
             </h1>
             <p className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-slate">
@@ -256,8 +256,11 @@ export default function Home() {
                     {g.group}
                   </h3>
                   <div className="mt-4 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
-                    {g.items.map((it) => (
-                      <div key={it.ref} className="bg-card p-5">
+                    {g.items.map((it, i) => (
+                      <div
+                        key={it.ref}
+                        className={`bg-card p-5 ${g.items.length % 2 === 1 && i === g.items.length - 1 ? "md:col-span-2" : ""}`}
+                      >
                         <p className="font-mono text-[0.7rem] tracking-wider text-slate">{it.ref}</p>
                         <h4 className="mt-1 font-display font-bold text-navy">{it.name}</h4>
                         <p className="mt-2 text-sm leading-relaxed text-navy/80">
