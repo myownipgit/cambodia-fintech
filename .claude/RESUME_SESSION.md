@@ -9,7 +9,7 @@ This file tracks the current session state to enable seamless recovery between s
 - `sheets-llm` key `662dd13d…` is **disabled, not deleted**. Delete it and `~/Downloads/key.json` after a week or two if nothing breaks. Project contents unconfirmed.
 - Prakas B14-017-161 has no licence categories. Art. 13 (KHR 8,000,000,000 in cash) is published with source and check date; limits of the amendment check are in ADR-011.
 - NBC links repointed. SCF circular paragraph removed.
-- PayGo and Chhip Pay removed from `/knowledge/cambodia-payment-ecosystem`; licensed count now 28 from the NBC register as at 31 May 2026. `/learn/cambodia-fintech-landscape` still says "over 30 licensed operators", unsourced.
+- PayGo and Chhip Pay removed from `/knowledge/cambodia-payment-ecosystem`; licensed count now 28 from the NBC register as at 31 May 2026. Counts on four pages now cite the NBC registers (`/en/supervision/*`, as at 31 May 2026). Top-10 bank table removed (it listed Prince Bank). Still unverified: Bakong connection claims, gateway prose and market figures.
 - Corrected below: "three phantoms", "byte-identical", "17 URLs confirmed as documents", "330% is Bakong alone", "no English edition".
 - Left alone on Bill's instruction: placeholder bio on `insights.camfintech.com/press`. Also unfixed: "Bio coming shortly" on riel.report.
 

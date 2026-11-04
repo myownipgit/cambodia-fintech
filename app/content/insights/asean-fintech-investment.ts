@@ -7,7 +7,7 @@ export const aseanFintechInvestment: ArticleContent = {
   type: 'insights',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 8,
   schema: 'Article',
   relatedSlugs: ['cambodia-fintech-landscape', 'asean-digital-economy-comparison'],
@@ -80,7 +80,7 @@ export const aseanFintechInvestment: ArticleContent = {
     },
     {
       heading: 'Regulatory Sandbox and Licensing Comparison',
-      content: 'Regulatory environment quality significantly influences fintech investment flows. Across ASEAN, Singapore\'s MAS sets the benchmark with a structured regulatory sandbox, clear digital banking licensing (four licenses issued), and comprehensive fintech licensing frameworks. Indonesia\'s OJK has issued over 100 P2P lending licenses, and Vietnam\'s SBV launched a fintech sandbox in 2024.\n\nCambodia\'s NBC operates an informal sandbox model and has issued guidelines for digital banking, payment service providers, and e-money operators. The NBC has licensed 35 payment service providers and 8 specialized deposit-taking institutions that operate digital-first models. While the regulatory framework is less codified than Singapore\'s or Indonesia\'s, it is pragmatically flexible. The NBC has shown willingness to engage directly with fintech companies, and the absence of heavy regulatory bureaucracy can actually accelerate time to market. The key regulatory distinction is that Cambodia\'s framework assumes fintech builds on government infrastructure, creating a more collaborative regulatory model than markets where fintechs compete with or disrupt traditional providers.',
+      content: 'Regulatory environment quality significantly influences fintech investment flows. Across ASEAN, Singapore\'s MAS sets the benchmark with a structured regulatory sandbox, clear digital banking licensing (four licenses issued), and comprehensive fintech licensing frameworks. Indonesia\'s OJK has issued over 100 P2P lending licenses, and Vietnam\'s SBV launched a fintech sandbox in 2024.\n\nCambodia\'s NBC operates an informal sandbox model and has issued guidelines for digital banking, payment service providers, and e-money operators. The NBC register lists 28 payment service institutions and 7 specialized banks, as at 31 May 2026. While the regulatory framework is less codified than Singapore\'s or Indonesia\'s, it is pragmatically flexible. The NBC has shown willingness to engage directly with fintech companies, and the absence of heavy regulatory bureaucracy can actually accelerate time to market. The key regulatory distinction is that Cambodia\'s framework assumes fintech builds on government infrastructure, creating a more collaborative regulatory model than markets where fintechs compete with or disrupt traditional providers.',
     },
     {
       heading: 'Deal Size and Investor Profile Analysis',

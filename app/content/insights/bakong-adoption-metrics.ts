@@ -7,7 +7,7 @@ export const bakongAdoptionMetrics: ArticleContent = {
   type: 'insights',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 8,
   schema: 'Article',
   relatedSlugs: ['bakong', 'how-bakong-works', 'nbc'],
@@ -76,7 +76,7 @@ export const bakongAdoptionMetrics: ArticleContent = {
     },
     {
       heading: 'Institutional Participation and Network Effects',
-      content: 'Bakong\'s institutional coverage is a critical differentiator from most CBDC deployments globally. As of 2025, all 58 licensed commercial banks in Cambodia are connected to the Bakong network, along with 8 specialized financial institutions and approximately 35 licensed payment service providers. This 100% banking sector coverage means that any Bakong user can send money to any bank account holder in Cambodia, creating a universal payment network.\n\nThe network effect dynamics are powerful. Each new institutional participant increases the utility for all existing users. The NBC achieved this by making Bakong participation effectively mandatory for licensed institutions rather than relying on voluntary adoption. This contrasts with Nigeria\'s eNaira, where only 30 of 89 licensed banks actively participate, or Jamaica\'s JAM-DEX, where coverage remains limited to selected institutions. The institutional depth also creates a data advantage: the NBC has visibility into the full spectrum of formal financial transactions, enabling better monetary policy and financial stability monitoring.',
+      content: 'Bakong\'s institutional coverage is a critical differentiator from most CBDC deployments globally. Cambodia\'s commercial banks are connected to the Bakong network, along with specialized banks and payment service institutions. The NBC register lists 58, 7 and 28 of these respectively, as at 31 May 2026. This 100% banking sector coverage means that any Bakong user can send money to any bank account holder in Cambodia, creating a universal payment network.\n\nThe network effect dynamics are powerful. Each new institutional participant increases the utility for all existing users. The NBC achieved this by making Bakong participation effectively mandatory for licensed institutions rather than relying on voluntary adoption. This contrasts with Nigeria\'s eNaira, where only 30 of 89 licensed banks actively participate, or Jamaica\'s JAM-DEX, where coverage remains limited to selected institutions. The institutional depth also creates a data advantage: the NBC has visibility into the full spectrum of formal financial transactions, enabling better monetary policy and financial stability monitoring.',
     },
     {
       heading: 'Currency Distribution: KHR vs USD Transactions',
