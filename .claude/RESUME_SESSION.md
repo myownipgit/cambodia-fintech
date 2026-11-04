@@ -4,8 +4,15 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
-**2026-11-04 (final) — DOCUMENTATION AND VAULT UPDATED; updatedAt gate repaired.**
-`feature/update-homepage` at `b380531`; production `dpl_5hXeZ2DE8w5pzXkKNmqbQZbCSgr8`.
+**2026-11-04 (final) — DOCUMENTATION AND VAULT UPDATED; `main` FAST-FORWARDED.**
+`main` and `feature/update-homepage` both at `eddd4ad`, zero divergence; production
+`dpl_5hXeZ2DE8w5pzXkKNmqbQZbCSgr8`.
+
+**`main` is no longer deliberately behind.** Bill asked for the fast-forward on 2026-11-04;
+it took 11 commits cleanly. The 2026-08-23 standing note telling future sessions not to
+force-merge is **superseded** — resume the CLAUDE.md working-branch hygiene step. Pushing
+`main` did not trigger a Vercel deploy, as ADR-008 records (Hobby blocks non-team commit
+authors); production still serves the CLI deploy.
 
 ### A gate failure worth remembering
 
