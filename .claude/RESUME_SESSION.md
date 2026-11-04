@@ -55,6 +55,29 @@ just outward from camfintech.com. GEO M1 closed.
 published to the host — it must be called from inside the container. `/healthz` on the same
 port reports `running` and `lastResult` and needs no auth.
 
+### riel.report is NOT served by Vercel — established 2026-11-04
+
+Bill: *"it's built on vercel under my personal account."* It may be built there; it is not
+served there.
+
+| Check | Result |
+|---|---|
+| `dig riel.report` / `www.riel.report` | **178.128.85.53** — the droplet, not Vercel |
+| Response headers | `server: nginx`, no `x-vercel-*` |
+| Served `index.html` vs `/var/www/riel-report/index.html` | **byte-identical**, sha256 `bf53ceba099c8d74…`, 10,280 b |
+| Droplet file date | **28 June 2026** — four months stale |
+
+So a Vercel redeploy of riel.report changes nothing a visitor sees. Either someone copies
+the Vercel build to the droplet by hand (last done 28 June) or the Vercel project is
+orphaned. **Do not treat a Vercel deploy of riel.report as publishing until this is
+resolved.** The personal Vercel scope is not reachable from this CLI (logged in as
+`info-48301266`; `vercel teams ls` shows only `fin-tec-consulting-cambodia`), and no
+riel.report repo exists under `myownipgit`.
+
+Practical upshot for the llms.txt: it is **safer than feared** — a Vercel deploy will not
+overwrite it, because Vercel does not reach the droplet. It is still not in source, so it
+would be lost if a fresh build is ever copied up.
+
 ### Durability caveat on riel.report
 
 Its source is not on the droplet and not on this Mac (`~/workspace/riel.report` holds only
