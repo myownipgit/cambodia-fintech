@@ -34,7 +34,7 @@ const daspSchema = {
       "isPartOf": { "@id": "https://www.camfintech.com/#website" },
       "about": { "@id": "https://www.camfintech.com/products/dasp#service" },
       "datePublished": "2026-06-18",
-      "dateModified": "2026-06-18",
+      "dateModified": "2026-11-04",
       "inLanguage": "en",
     },
     {

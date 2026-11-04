@@ -1,6 +1,57 @@
 import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import FAQSection from "../../components/FAQSection";
+import type { FAQ } from "@/app/content/types";
+
+/**
+ * Every answer below restates something already on this page — the Prakas 093
+ * commencement date, the no-grace-window correction, the bright lines, the
+ * STOP-gate tests, the indicative ranges. Nothing here is new, and nothing here
+ * may become new: FAQPage schema asserts that this content is visible on the
+ * page, so an answer that drifts from the page above is a false assertion in
+ * machine-readable form. If the page changes, change these with it.
+ *
+ * ADR-006 applies as it does to any public copy: the decision is SERC's, the
+ * client is the applicant of record, and no answer may imply otherwise.
+ */
+const DASP_FAQS: FAQ[] = [
+  {
+    question: "Who needs a DASP licence in Cambodia?",
+    answer:
+      "SERC's Prakas 093 entered into force on 30 December 2025. Cambodia's digital-asset operators — crypto exchanges, OTC desks, custody providers, and payment-on-rails firms with token components — need DASP licensing from SERC to operate legally. Whether a particular business model falls inside the regime is a question for the instrument and for counsel; the Prakas 093 page states what the instrument covers and what it does not.",
+  },
+  {
+    question: "Is there a grace period for Prakas 093?",
+    answer:
+      "There is no published grace window. Several commentaries refer to one; we checked, and it does not appear in the gazetted instrument. We will not manufacture urgency by quoting a deadline that does not exist — but the regulation is in force now, and the readiness work takes four to eight months to do properly.",
+  },
+  {
+    question: "How long does DASP approval-readiness take?",
+    answer:
+      "The DASP-BUILD programme runs four to eight months: AML/CFT framework, governance documentation, MLRO function design, FATF Travel Rule integration spec, sandbox-readiness package, and the full SERC application pack. The DASP-DX diagnostic that precedes it is two to three weeks.",
+  },
+  {
+    question: "Does CamFinTech file the application or operate the rail?",
+    answer:
+      "No. The licensed DASP operator is the applicant of record and submits its own application. The firm prepares the work to a standard; it never holds assets, never files on a client's behalf, and never operates a rail. The approval decision is SERC's, entirely. Reserved legal opinion routes to a Bar lawyer, and external audit to an audit firm — neither is CamFinTech-stamped.",
+  },
+  {
+    question: "Can CamFinTech act as our MLRO?",
+    answer:
+      "No. The named MLRO must be a board-appointed senior-management individual of the licensed entity, notified to CAFIU. That role stays client-side. CamFinTech designs the function around your named officer and can train the team through DASP-TRAIN.",
+  },
+  {
+    question: "What is the five-test integrity STOP-gate?",
+    answer:
+      "A screen every prospect clears before the firm accepts a DASP engagement: UBO transparency, sanctions clearance, source-of-funds defensibility, counterparty hygiene, and operational separation. The DX diagnostic is the qualifier. If a test fails we decline, and we tell you which test failed and why. The DX fee is non-refundable on STOP-gate failure — it is the work done.",
+  },
+  {
+    question: "What does the DASP programme cost?",
+    answer:
+      "Indicative planning ranges: DASP-DX US$8k–25k; DASP-BUILD US$45k–75k for a wallet and US$90k–160k+ for a full exchange or custody operation; DASP-RUN US$2k–8k per month; DASP-TRAIN US$5k–15k per cohort. All figures on this page are planning estimates. Final pricing is engagement-specific and validated by quote during DX.",
+  },
+];
 
 export default function DaspContent() {
   return (
@@ -172,6 +223,12 @@ export default function DaspContent() {
                 </li>
               </ul>
             </div>
+          </section>
+
+          {/* FAQ — renders the visible accordion and the FAQPage JSON-LD from
+              the same array, so the markup cannot drift from what a reader sees. */}
+          <section className="mb-16">
+            <FAQSection faqs={DASP_FAQS} pageUrl="https://www.camfintech.com/products/dasp" />
           </section>
 
           {/* Contact CTA */}
