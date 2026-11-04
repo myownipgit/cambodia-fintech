@@ -30,16 +30,23 @@ export const fintechLicenseCambodia: ArticleContent = {
     {
       heading: 'NBC Licensing Categories for FinTech',
       content: 'The National Bank of Cambodia classifies FinTech operators into distinct licensing categories based on the financial services they provide. The primary categories relevant to FinTech firms are Payment Service Providers (PSPs), E-Money Issuers, Microfinance Institutions (MFIs), and Banking Institutions. Each category carries different capital requirements, operational mandates, and reporting obligations.\n\nThe NBC\'s regulatory philosophy emphasizes activity-based regulation: the license type is determined by what a firm does, not what it calls itself. A technology company that facilitates payments requires a PSP license. A platform that issues stored-value digital tokens needs an e-money license. A firm that extends credit digitally must obtain an MFI or banking license. This approach ensures regulatory coverage regardless of the business model\'s novelty.',
+      // Capital thresholds removed 2026-11-04. The site carried three mutually
+      // contradictory sets of NBC minimum-capital figures (PSP variously $500,000,
+      // $1,000,000 and ~USD 250,000), none traceable to a fetched source. CLAUDE.md
+      // excludes capital thresholds, licence tiers and fees from a secondary
+      // aggregator site-wide. Restore a figure only when it has been read in an
+      // issuer's instrument or stated by a law firm, on the app/content/regulatory
+      // evidence bar, and record where it was read.
       table: {
         caption: 'NBC FinTech License Categories and Requirements',
-        headers: ['License Type', 'Minimum Capital', 'Key Activities Covered', 'Regulatory Burden', 'Foreign Ownership'],
+        headers: ['License Type', 'Key Activities Covered', 'Regulatory Burden', 'Foreign Ownership'],
         rows: [
-          ['Payment Service Provider', '$500,000', 'Payment processing, transfers, KHQR', 'Medium', '100% allowed'],
-          ['E-Money Issuer', '$1,500,000', 'Digital wallets, stored value, top-ups', 'High', '100% allowed'],
-          ['Microfinance Institution', '$1,500,000', 'Digital lending, micro-credit', 'High', '100% allowed'],
-          ['Specialized Bank', '$15,000,000', 'Deposits, lending, full digital banking', 'Very High', '100% allowed'],
-          ['Commercial Bank', '$75,000,000', 'Full banking services', 'Maximum', '100% allowed'],
-          ['Sandbox Participant', 'Varies', 'Testing innovative FinTech models', 'Low (supervised)', 'Case by case'],
+          ['Payment Service Provider', 'Payment processing, transfers, KHQR', 'Medium', '100% allowed'],
+          ['E-Money Issuer', 'Digital wallets, stored value, top-ups', 'High', '100% allowed'],
+          ['Microfinance Institution', 'Digital lending, micro-credit', 'High', '100% allowed'],
+          ['Specialized Bank', 'Deposits, lending, full digital banking', 'Very High', '100% allowed'],
+          ['Commercial Bank', 'Full banking services', 'Maximum', '100% allowed'],
+          ['Sandbox Participant', 'Testing innovative FinTech models', 'Low (supervised)', 'Case by case'],
         ],
       },
     },
@@ -49,7 +56,7 @@ export const fintechLicenseCambodia: ArticleContent = {
     },
     {
       heading: 'Capital Requirements and Financial Conditions',
-      content: 'Capital requirements represent one of the most significant barriers to entry in Cambodia\'s FinTech market. The NBC mandates minimum registered capital that must be fully paid-up and maintained in a Cambodian bank account before license issuance. For PSPs, the minimum is $500,000. E-money issuers must maintain $1.5 million. MFIs require $1.5 million (deposit-taking MFIs require $7.5 million). Specialized banks need $15 million.\n\nBeyond initial capital, the NBC imposes ongoing capital adequacy requirements. E-money issuers must maintain customer float in a segregated trust account at a licensed bank, with the total float covered by liquid assets at all times. PSPs must maintain a solvency ratio ensuring operational continuity for at least six months without revenue. These prudential requirements ensure that licensed FinTech firms can absorb operational losses and protect customer funds, but they also concentrate the market toward well-capitalized operators.',
+      content: 'Capital requirements represent one of the most significant barriers to entry in Cambodia\'s FinTech market. The NBC mandates minimum registered capital that must be fully paid-up and maintained in a Cambodian bank account before license issuance, and the figure rises steeply with the licence category: a payment service provider sits at the bottom of the range, a commercial bank at the top. The thresholds are set by Prakas and revised from time to time, so the governing figure should be read from the current instrument or confirmed with Cambodian counsel before it is relied on for a capital plan.\n\nBeyond initial capital, the NBC imposes ongoing capital adequacy requirements. E-money issuers must maintain customer float in a segregated trust account at a licensed bank, with the total float covered by liquid assets at all times. PSPs must maintain a solvency ratio ensuring operational continuity for at least six months without revenue. These prudential requirements ensure that licensed FinTech firms can absorb operational losses and protect customer funds, but they also concentrate the market toward well-capitalized operators.',
     },
     {
       heading: 'The Regulatory Sandbox Pathway',

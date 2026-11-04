@@ -34,15 +34,22 @@ export const nbc: ArticleContent = {
     {
       heading: 'Regulatory Framework and Licensing',
       content: 'The NBC maintains a tiered licensing framework that governs different categories of financial service providers. Each license type carries specific capital requirements, reporting obligations, technology standards, and consumer protection mandates. The framework has evolved significantly to accommodate digital business models while maintaining systemic stability.\n\nFor enterprises entering Cambodia\'s financial services market, understanding the NBC licensing landscape is critical. Choosing the wrong license category can result in regulatory delays, while underestimating compliance requirements risks enforcement action. The NBC has increased its supervisory capacity significantly in recent years, with dedicated teams for digital finance oversight.',
+      // Capital thresholds removed 2026-11-04. The site carried three mutually
+      // contradictory sets of NBC minimum-capital figures (PSP variously $500,000,
+      // $1,000,000 and ~USD 250,000), none traceable to a fetched source. CLAUDE.md
+      // excludes capital thresholds, licence tiers and fees from a secondary
+      // aggregator site-wide. Restore a figure only when it has been read in an
+      // issuer's instrument or stated by a law firm, on the app/content/regulatory
+      // evidence bar, and record where it was read.
       table: {
         caption: 'NBC Financial Service License Categories',
-        headers: ['License Type', 'Minimum Capital', 'Key Requirements', 'Typical Applicants'],
+        headers: ['License Type', 'Key Requirements', 'Typical Applicants'],
         rows: [
-          ['Commercial Bank', '$75 million', 'Full prudential regulation, deposit insurance', 'Large domestic and foreign banks'],
-          ['Specialized Bank', '$15 million', 'Limited banking activities, sector focus', 'Niche lenders, digital banks'],
-          ['MFI (Deposit-taking)', '$2.5 million', 'Microfinance focus, rural coverage mandates', 'Microfinance operators'],
-          ['Payment Service Provider', '$1 million', 'Payment processing, Bakong connectivity', 'Fintech companies, processors'],
-          ['E-Money Issuer', '$1.5 million', 'Electronic wallet, float management', 'Mobile money operators'],
+          ['Commercial Bank', 'Full prudential regulation, deposit insurance', 'Large domestic and foreign banks'],
+          ['Specialized Bank', 'Limited banking activities, sector focus', 'Niche lenders, digital banks'],
+          ['MFI (Deposit-taking)', 'Microfinance focus, rural coverage mandates', 'Microfinance operators'],
+          ['Payment Service Provider', 'Payment processing, Bakong connectivity', 'Fintech companies, processors'],
+          ['E-Money Issuer', 'Electronic wallet, float management', 'Mobile money operators'],
         ],
       },
     },

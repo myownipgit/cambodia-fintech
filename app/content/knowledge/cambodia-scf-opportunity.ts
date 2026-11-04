@@ -72,16 +72,23 @@ export const cambodiaScfOpportunity: ArticleContent = {
     },
     {
       heading: 'Regulatory Landscape for SCF',
-      content: 'The regulatory framework for supply chain finance in Cambodia is evolving but currently lacks a dedicated SCF regulatory category. SCF platforms must navigate existing NBC licensing categories and work with regulators to classify their specific business model. The NBC evaluates SCF business models based on the core activity: if the platform purchases receivables (true-sale factoring), it is classified as a lending activity requiring an MFI or banking license; if it operates as a marketplace connecting institutional lenders to verified receivables, it may qualify for a Category 2 PSP license with an endorsement.\n\nThe NBC issued a Circular on Supply Chain Finance Guidelines in late 2024, providing initial guidance on accounting treatment, capital requirements, and risk management standards for SCF activities. Key provisions include: receivables purchased through true-sale factoring must be recognized on the SCF provider\'s balance sheet and provisioned according to NBC loan classification rules; marketplace platforms must maintain a minimum guarantee fund equal to 5% of outstanding financed receivables; and all SCF providers must implement real-time CamInvoice verification for every financed invoice.\n\nThe Securities and Exchange Regulator of Cambodia (SERC) may also have jurisdiction if SCF platforms issue securities backed by receivables pools (asset-backed securities or receivables-backed notes). Regulatory classification should be established early, because it determines both the licensing path and the capital requirement.',
+      content: 'The regulatory framework for supply chain finance in Cambodia is evolving but currently lacks a dedicated SCF regulatory category. SCF platforms must navigate existing NBC licensing categories and work with regulators to classify their specific business model. The NBC evaluates SCF business models based on the core activity: if the platform purchases receivables (true-sale factoring), it is classified as a lending activity requiring an MFI or banking license; if it operates as a marketplace connecting institutional lenders to verified receivables, it may qualify for a Category 2 PSP license with an endorsement.\n\nThe NBC issued a Circular on Supply Chain Finance Guidelines in late 2024, providing initial guidance on accounting treatment, capital requirements, and risk management standards for SCF activities. Key provisions include: receivables purchased through true-sale factoring must be recognized on the SCF provider\'s balance sheet and provisioned according to NBC loan classification rules; marketplace platforms must maintain a guarantee fund sized against outstanding financed receivables; and all SCF providers must implement real-time CamInvoice verification for every financed invoice.\n\nThe Securities and Exchange Regulator of Cambodia (SERC) may also have jurisdiction if SCF platforms issue securities backed by receivables pools (asset-backed securities or receivables-backed notes). Regulatory classification should be established early, because it determines both the licensing path and the capital requirement.',
+      // Capital thresholds removed 2026-11-04. The site carried three mutually
+      // contradictory sets of NBC minimum-capital figures (PSP variously $500,000,
+      // $1,000,000 and ~USD 250,000), none traceable to a fetched source. CLAUDE.md
+      // excludes capital thresholds, licence tiers and fees from a secondary
+      // aggregator site-wide. Restore a figure only when it has been read in an
+      // issuer's instrument or stated by a law firm, on the app/content/regulatory
+      // evidence bar, and record where it was read.
       table: {
         caption: 'Regulatory Requirements for SCF Business Models',
-        headers: ['SCF Model', 'Regulatory Classification', 'License Required', 'Capital Requirement', 'Key Compliance Obligations'],
+        headers: ['SCF Model', 'Regulatory Classification', 'License Required', 'Key Compliance Obligations'],
         rows: [
-          ['Direct Factoring', 'Lending activity', 'MFI or Bank license', 'KHR 10-30 billion', 'Loan classification, provisioning, NBC reporting'],
-          ['Reverse Factoring', 'Lending activity', 'MFI or Bank license', 'KHR 10-30 billion', 'Loan classification, buyer credit assessment'],
-          ['SCF Marketplace', 'Payment facilitation', 'Category 2 PSP + endorsement', 'KHR 1 billion + 5% guarantee fund', 'Investor protection, platform risk management'],
-          ['Invoice Discounting', 'Lending activity', 'MFI license', 'KHR 10 billion', 'NBC prudential reporting, AML/CFT'],
-          ['Purchase Order Finance', 'Lending activity', 'MFI or Bank license', 'KHR 10-30 billion', 'Collateral management, NBC reporting'],
+          ['Direct Factoring', 'Lending activity', 'MFI or Bank license', 'Loan classification, provisioning, NBC reporting'],
+          ['Reverse Factoring', 'Lending activity', 'MFI or Bank license', 'Loan classification, buyer credit assessment'],
+          ['SCF Marketplace', 'Payment facilitation', 'Category 2 PSP + endorsement', 'Guarantee fund, investor protection, platform risk management'],
+          ['Invoice Discounting', 'Lending activity', 'MFI license', 'NBC prudential reporting, AML/CFT'],
+          ['Purchase Order Finance', 'Lending activity', 'MFI or Bank license', 'Collateral management, NBC reporting'],
         ],
       },
     },

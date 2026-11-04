@@ -46,21 +46,36 @@ export const cambodiaFintechRegulation: ArticleContent = {
       },
     },
     {
+      // This section cited the three-category structure to a "Prakas on Payment
+      // Service Providers (B7-019-344)". That number appears nowhere in the verified
+      // instrument registry; the payments Prakas is B14-017-161 P.K "Payment Service
+      // Institutions" (14 Jun 2017), and B7-017-282 was an earlier phantom of the same
+      // shape caught before it shipped. The citation was removed 2026-11-04 rather than
+      // corrected, because the category structure itself has not been read in a primary.
+      // The Category 1/2/3 labels are kept: they are used as classifications across four
+      // content files, including to describe named licensees.
       heading: 'Payment Service Provider Licensing Categories',
-      content: 'The NBC\'s Prakas on Payment Service Providers (B7-019-344) establishes three categories of payment service licenses, each with distinct scope, capital requirements, and operational constraints. Category 1 licenses authorize the issuance and management of electronic money (e-wallets). Category 2 licenses cover payment processing, aggregation, and gateway services. Category 3 licenses permit money transfer services, including domestic and international remittance.\n\nCategory 1 (E-Money Issuance) is the most capital-intensive, requiring minimum registered capital of KHR 2 billion (approximately USD 500,000) and full segregation of customer funds in trust accounts at NBC-licensed banks. E-money issuers must maintain a 1:1 reserve ratio, meaning every unit of e-money outstanding must be backed by an equivalent amount in the trust account. Category 2 (Payment Processing) requires KHR 1 billion (approximately USD 250,000) in registered capital and is commonly used by payment aggregators, POS terminal providers, and online payment gateways. Category 3 (Money Transfer) requires KHR 1.5 billion (approximately USD 375,000) and imposes additional KYC requirements for cross-border remittance services.\n\nAll three categories require the applicant to demonstrate robust technology infrastructure, disaster recovery capabilities, data residency within Cambodia, and compliance with NBC\'s information security standards. Determining the correct licence category before drafting is what prevents a re-filing.',
+      content: 'The NBC licenses payment services in three categories, each with a distinct scope, capital requirement and set of operational constraints. Category 1 licenses authorize the issuance and management of electronic money (e-wallets). Category 2 licenses cover payment processing, aggregation, and gateway services. Category 3 licenses permit money transfer services, including domestic and international remittance.\n\nCategory 1 (E-Money Issuance) is the most capital-intensive, and carries the additional obligation to segregate customer funds in trust accounts at NBC-licensed banks. E-money issuers must maintain a 1:1 reserve ratio, meaning every unit of e-money outstanding must be backed by an equivalent amount in the trust account. Category 2 (Payment Processing) is commonly used by payment aggregators, POS terminal providers, and online payment gateways. Category 3 (Money Transfer) imposes additional KYC requirements for cross-border remittance services. The governing capital figures are set by Prakas and revised from time to time; read them from the current instrument, or confirm them with Cambodian counsel, before relying on them for a capital plan.\n\nAll three categories require the applicant to demonstrate robust technology infrastructure, disaster recovery capabilities, data residency within Cambodia, and compliance with NBC\'s information security standards. Determining the correct licence category before drafting is what prevents a re-filing.',
+      // Capital thresholds removed 2026-11-04. The site carried three mutually
+      // contradictory sets of NBC minimum-capital figures (PSP variously $500,000,
+      // $1,000,000 and ~USD 250,000), none traceable to a fetched source. CLAUDE.md
+      // excludes capital thresholds, licence tiers and fees from a secondary
+      // aggregator site-wide. Restore a figure only when it has been read in an
+      // issuer's instrument or stated by a law firm, on the app/content/regulatory
+      // evidence bar, and record where it was read.
       table: {
         caption: 'NBC Payment Service Provider License Categories',
-        headers: ['Category', 'Scope', 'Min. Capital (KHR)', 'Min. Capital (USD equiv.)', 'Trust Account Required', 'Licenses Issued (Q4 2025)'],
+        headers: ['Category', 'Scope', 'Trust Account Required'],
         rows: [
-          ['Category 1', 'E-money issuance, wallet operations', '2 billion', '~USD 500,000', 'Yes (1:1 reserve)', '12'],
-          ['Category 2', 'Payment processing, aggregation', '1 billion', '~USD 250,000', 'No', '16'],
-          ['Category 3', 'Money transfer, remittance', '1.5 billion', '~USD 375,000', 'Yes (operational reserve)', '9'],
+          ['Category 1', 'E-money issuance, wallet operations', 'Yes (1:1 reserve)'],
+          ['Category 2', 'Payment processing, aggregation', 'No'],
+          ['Category 3', 'Money transfer, remittance', 'Yes (operational reserve)'],
         ],
       },
     },
     {
       heading: 'Capital Requirements and Financial Obligations',
-      content: 'Beyond minimum registered capital, NBC-licensed fintech companies face ongoing financial obligations designed to ensure solvency and protect consumer funds. All PSP licensees must maintain a capital adequacy ratio (CAR) of at least 15% of risk-weighted assets, calculated quarterly and reported to the NBC. E-money issuers (Category 1) must additionally maintain a liquidity coverage ratio ensuring they can meet all customer redemption requests within 24 hours.\n\nOperational expenses coverage is another key requirement: PSP licensees must demonstrate that their capital base covers at least 6 months of projected operating expenses at all times. If capital falls below this threshold, the NBC issues a supervisory warning and may restrict new customer onboarding until capital is restored. Annual license renewal fees range from KHR 10 million to KHR 50 million depending on the license category and transaction volume.\n\nFintech companies raising capital from foreign investors must comply with the Foreign Investment Law and register their investment with the Council for the Development of Cambodia (CDC). Investment incentives, including tax holidays of up to 6 years and duty-free import of equipment, are available for qualified investment projects. Capital raises can be structured to capture CDC investment incentives while still meeting NBC capital requirements.',
+      content: 'Beyond minimum registered capital, NBC-licensed fintech companies face ongoing financial obligations designed to ensure solvency and protect consumer funds. PSP licensees are subject to a capital adequacy ratio against risk-weighted assets, calculated and reported to the NBC on a periodic basis. E-money issuers (Category 1) must additionally maintain liquidity sufficient to meet customer redemption requests promptly.\n\nOperational expenses coverage is another key requirement: PSP licensees must demonstrate that their capital base covers a stated period of projected operating expenses at all times. If capital falls below that threshold, the NBC issues a supervisory warning and may restrict new customer onboarding until capital is restored. Licences also carry an annual renewal fee that varies with the licence category and transaction volume. The ratios, the coverage period and the fee scale are all set by Prakas and revised from time to time — read the current instrument, or confirm with Cambodian counsel, rather than planning against a figure quoted secondhand.\n\nFintech companies raising capital from foreign investors must comply with the Foreign Investment Law and register their investment with the Council for the Development of Cambodia (CDC). Investment incentives, including tax holidays of up to 6 years and duty-free import of equipment, are available for qualified investment projects. Capital raises can be structured to capture CDC investment incentives while still meeting NBC capital requirements.',
     },
     {
       heading: 'Anti-Money Laundering and Counter-Terrorism Financing',
