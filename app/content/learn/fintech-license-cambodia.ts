@@ -12,7 +12,7 @@ export const fintechLicenseCambodia: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['nbc', 'gdt', 'gaap'],
   relatedInstruments: ['law-on-banking', 'prakas-b14-017-161', 'law-on-nbfsa', 'prakas-093'],
-  lead: 'Obtaining a FinTech license in Cambodia requires navigating the National Bank of Cambodia\'s (NBC) multi-tiered licensing framework, which categorizes financial technology operators by activity type, risk profile, and capital adequacy. The NBC oversees all payment service providers, e-money issuers, and technology-driven financial institutions through a regulatory architecture designed to promote innovation while maintaining financial system stability. With Cambodia\'s digital payment volumes exceeding $78 billion in 2024 and the regulatory sandbox attracting international entrants, understanding the licensing pathway is essential for any firm planning to operate in the Kingdom\'s FinTech sector.',
+  lead: 'Obtaining a FinTech license in Cambodia requires navigating the National Bank of Cambodia\'s (NBC) multi-tiered licensing framework, which categorizes financial technology operators by activity type, risk profile, and capital adequacy. The NBC oversees all payment service providers, e-money issuers, and technology-driven financial institutions through a regulatory architecture designed to promote innovation while maintaining financial system stability. With the National Bank of Cambodia reporting that the number of digital payment transactions grew 78% in 2024 and the regulatory sandbox attracting international entrants, understanding the licensing pathway is essential for any firm planning to operate in the Kingdom\'s FinTech sector.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -20,7 +20,22 @@ export const fintechLicenseCambodia: ArticleContent = {
   // exist under the names given. Restore an entry only when its figure has been
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
-  claims: [],
+  //
+  // First restoration, 2026-11-04. The lede asserted "digital payment volumes
+  // exceeding $78 billion in 2024". The NBC's own annual payment-system report
+  // says, on its foreword page, that the NUMBER of digital payment transactions
+  // and their VALUE rose 78% and 38% respectively against 2023 — the "$78 billion"
+  // was the 78% growth rate transcribed as a currency total. Fetched and read
+  // 2026-11-04: "របាយការណ៍ប្រព័ន្ធទូទាត់សងប្បាក់នៅកម្ពុជា ប្រចាំឆ្នាំ២០២៤"
+  // (Annual Report on the Payment System in Cambodia 2024), Khmer, p. i.
+  // NBC's own copy 404s; read from the Open Development Cambodia mirror:
+  // https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf
+  // The report is the NBC's, not a secondary aggregator's. The GDP multiple is
+  // quoted as the NBC states it; press reporting of "330% of GDP" is Bakong alone,
+  // a narrower measure than this report's "digital payments".
+  claims: [
+    { stat: 'The number of digital payment transactions in Cambodia grew 78% during 2024 and their value grew 38%, both measured against 2023. The National Bank of Cambodia puts the total value at approximately 15 times gross domestic product.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i', year: '2024' },
+  ],
   faqs: [
     { question: 'What types of FinTech licenses does Cambodia offer?', answer: 'Cambodia offers several FinTech-related license types through the NBC: Payment Service Provider (PSP) licenses for payment processing and transfer services, E-Money Issuer licenses for digital wallet operators, Microfinance Institution (MFI) licenses for digital lending, and Banking licenses for full-service digital banks. The regulatory sandbox also provides a temporary testing framework for innovative FinTech models that do not fit existing categories.' },
     { question: 'Can foreigners own a FinTech company in Cambodia?', answer: 'Yes. Cambodia allows 100% foreign ownership of payment service providers and e-money issuers, subject to NBC approval. Foreign-owned FinTech firms must comply with the Law on Foreign Exchange, maintain minimum capital requirements in Cambodia, and appoint at least one local director. This open ownership framework has attracted FinTech firms from Singapore, Thailand, Japan, and China.' },

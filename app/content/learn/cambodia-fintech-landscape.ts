@@ -7,7 +7,7 @@ export const cambodiaFintechLandscape: ArticleContent = {
   type: 'learn',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['gaap', 'bakong', 'nbc'],
@@ -19,16 +19,23 @@ export const cambodiaFintechLandscape: ArticleContent = {
   // exist under the names given. Restore an entry only when its figure has been
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
-  claims: [],
+  // 2026-11-04: this page carried "$78 billion in 2024" twice, and a derived
+  // "up from approximately $40 billion in 2022". Both came from reading the NBC's
+  // 78% transaction-count GROWTH RATE as a currency total; the 2022 figure had no
+  // source at all and is gone. Same correction as learn/fintech-license-cambodia.ts,
+  // where the fetched primary and its URL are recorded in full.
+  claims: [
+    { stat: 'The number of digital payment transactions in Cambodia grew 78% during 2024 and their value grew 38%, both measured against 2023. The National Bank of Cambodia puts the total value at approximately 15 times gross domestic product.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i', year: '2024' },
+  ],
   faqs: [
-    { question: 'How big is Cambodia\'s FinTech market?', answer: 'Cambodia\'s FinTech market encompasses over 30 licensed operators, with mobile payment transaction volumes exceeding $78 billion in 2024. The ecosystem includes payment service providers, microfinance institutions, e-money issuers, and emerging InsurTech and LendTech platforms, all operating under NBC regulatory oversight.' },
+    { question: 'How big is Cambodia\'s FinTech market?', answer: 'Cambodia\'s FinTech market encompasses over 30 licensed operators. The National Bank of Cambodia reports that the number of digital payment transactions grew 78% during 2024 and their value grew 38%, with the total value equivalent to roughly 15 times GDP. The ecosystem includes payment service providers, microfinance institutions, e-money issuers, and emerging InsurTech and LendTech platforms, all operating under NBC regulatory oversight.' },
     { question: 'What are the biggest FinTech companies in Cambodia?', answer: 'The leading FinTech players include Wing (Cambodia) Limited with over 9 million users, ABA Bank (the largest digital banking platform), Pi Pay (now merged into Bakong ecosystem), TrueMoney Cambodia, and ACLEDA mobile. Each serves different market segments from rural mobile money to urban digital banking.' },
     { question: 'Is Cambodia a good market for FinTech investment?', answer: 'Yes. Cambodia offers structural advantages including a young population (median age 26), high smartphone penetration (80%+), government-mandated digital infrastructure (Bakong, CamDigiKey, CamInvoice), and a regulatory sandbox for innovation. The combination of rapid digital adoption and underserved financial segments creates significant opportunity.' },
   ],
   sections: [
     {
       heading: 'Market Size and Growth Trajectory',
-      content: 'Cambodia\'s FinTech sector has experienced compound annual growth exceeding 35% since 2020, catalyzed by the COVID-19 digital acceleration and the NBC\'s deliberate push toward cashless payments. Total digital payment transaction volume surpassed $78 billion in 2024, up from approximately $40 billion in 2022. The market spans multiple verticals including payments, lending, insurance, and wealth management.\n\nThe Kingdom\'s GDP growth of 5.8% in 2025, combined with rising urbanization and a growing middle class, provides strong macroeconomic tailwinds. The NBC has actively encouraged innovation through its regulatory sandbox while maintaining prudential oversight. Cambodia\'s FinTech penetration rate now exceeds that of several larger ASEAN economies on a per-capita basis, reflecting the outsized impact of government digital infrastructure mandates.',
+      content: 'Cambodia\'s FinTech sector has experienced compound annual growth exceeding 35% since 2020, catalyzed by the COVID-19 digital acceleration and the NBC\'s deliberate push toward cashless payments. The National Bank of Cambodia reports digital payment transaction counts up 78% and their value up 38% during 2024 against 2023. The market spans multiple verticals including payments, lending, insurance, and wealth management.\n\nThe Kingdom\'s GDP growth of 5.8% in 2025, combined with rising urbanization and a growing middle class, provides strong macroeconomic tailwinds. The NBC has actively encouraged innovation through its regulatory sandbox while maintaining prudential oversight. Cambodia\'s FinTech penetration rate now exceeds that of several larger ASEAN economies on a per-capita basis, reflecting the outsized impact of government digital infrastructure mandates.',
     },
     {
       heading: 'Key Players in the Ecosystem',
