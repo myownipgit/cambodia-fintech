@@ -7,7 +7,7 @@ export const camdigikey: ArticleContent = {
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'camdx', 'gaap'],
@@ -21,6 +21,11 @@ export const camdigikey: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'Techo Startup Center', label: 'CamDigiKey — the platform\'s official site', url: 'https://www.camdigikey.gov.kh', tier: 'primary' },
+    { publisher: 'Techo Startup Center', label: 'CamDX eKYC Open API specification', url: 'https://camdx.gov.kh/docs/open-api/ekyc', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What is CamDigiKey and how does it work?', answer: 'CamDigiKey is Cambodia\'s national digital identity system operated by the Ministry of Economy and Finance. It works by registering citizens\' biometric data (facial recognition and fingerprints) linked to their national ID. Users can then authenticate their identity digitally for government services, banking, and commercial transactions through the CamDigiKey mobile app or integrated third-party applications.' },
     { question: 'Is CamDigiKey mandatory for businesses in Cambodia?', answer: 'CamDigiKey integration is increasingly required for businesses interacting with government platforms including CamDX, CamInvoice, and certain NBC-regulated financial services. While not yet mandatory for all private sector activities, businesses that process government transactions or provide regulated financial services must support CamDigiKey authentication.' },

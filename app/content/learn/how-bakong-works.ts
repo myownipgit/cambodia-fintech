@@ -7,7 +7,7 @@ export const howBakongWorks: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'nbc'],
@@ -21,6 +21,12 @@ export const howBakongWorks: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Bakong White Paper (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Bakong — the system\'s official site', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'Is Bakong a cryptocurrency?', answer: 'No. Bakong is a central bank digital currency (CBDC), not a cryptocurrency. It is issued and fully backed by the National Bank of Cambodia, operates on a permissioned Hyperledger Iroha blockchain, and maintains a stable 1:1 peg to fiat KHR and USD. Unlike cryptocurrencies, Bakong has no speculative value and is designed purely for payment settlement.' },
     { question: 'Do I need a bank account to use Bakong?', answer: 'No. Bakong supports both bank-linked wallets and standalone e-wallets. Users can open a Bakong wallet by completing KYC through a participating institution. This design deliberately targets financial inclusion for Cambodia\'s unbanked population, which the World Bank estimates at approximately 27% of adults.' },

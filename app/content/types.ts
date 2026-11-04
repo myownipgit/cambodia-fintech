@@ -19,6 +19,29 @@ export interface ClaimData {
   url?: string;
 }
 
+/**
+ * Mirrors app/content/regulatory/types.ts InstrumentSource deliberately.
+ *
+ * The /regulatory section has had an absolute evidence bar since R1 and the
+ * article corpus has not; this is the article-side half of that bar. A source
+ * goes in this array only when the URL was fetched and confirmed to return 200
+ * and to be the thing it is labelled as. `tier` is not decoration — a reader
+ * deciding whether to act on a page needs to know whether they are being sent
+ * to the issuer or to someone's reading of the issuer.
+ *
+ * This is a reading list, not a citation apparatus: it says what a page rests
+ * on. A specific numeric assertion still belongs in `claims`, which carries its
+ * own optional url. Do not move claims here to make a page look better sourced.
+ */
+export interface ArticleSource {
+  /** Who published it — 'National Bank of Cambodia', 'Techo Startup Center', … */
+  publisher: string;
+  /** What the link actually goes to, e.g. 'Bakong White Paper (PDF)'. */
+  label: string;
+  url: string;
+  tier: 'primary' | 'commentary';
+}
+
 export interface ArticleMeta {
   slug: string;
   title: string;
@@ -40,6 +63,14 @@ export interface ArticleMeta {
    * instrument to name, and a link that is not earned is noise.
    */
   relatedInstruments?: string[];
+  /**
+   * Official sources this page rests on. Optional, and deliberately so: a page
+   * with no genuine primary gets no block rather than a padded one. Primary
+   * sources first.
+   */
+  sources?: ArticleSource[];
+  /** Date every url in `sources` was last fetched and confirmed. */
+  sourcesAsAt?: string;
   faqs: FAQ[];
   claims: ClaimData[];
 }

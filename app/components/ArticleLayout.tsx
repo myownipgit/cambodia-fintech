@@ -5,6 +5,7 @@ import DataTable from './DataTable';
 import FAQSection from './FAQSection';
 import RelatedServices from './RelatedServices';
 import RelatedReading from './RelatedReading';
+import SourceList from './SourceList';
 import ScenarioNotice from './ScenarioNotice';
 import { getArticleBySlug } from '@/app/content/registry';
 import { getRelatedInstruments } from '@/app/content/regulatory/registry';
@@ -218,6 +219,13 @@ export default function ArticleLayout({ article }: { article: ArticleContent }) 
 
         {/* Related */}
         <RelatedReading links={relatedLinks} />
+
+        {/* The official sources this page rests on, as outbound links. Sits
+            above the instrument block because an instrument link is internal —
+            it sends a reader to our page about a rule, not to the rule. */}
+        {article.sources && article.sources.length > 0 && (
+          <SourceList sources={article.sources} asAt={article.sourcesAsAt} />
+        )}
 
         {/* The instruments this article discusses, where it names any. Sends a
             reader from our description of a rule to the rule itself. */}

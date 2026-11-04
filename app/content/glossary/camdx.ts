@@ -7,7 +7,7 @@ export const camdx: ArticleContent = {
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['camdigikey', 'gaap', 'caminvoice'],
@@ -20,6 +20,12 @@ export const camdx: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'Royal Government of Cambodia', label: 'Sub-Decree No. 164 S.E on Data Exchange through CamDX — unofficial English translation (PDF)', url: 'https://camdx.gov.kh/documents/files/Unofficial%20Translation%20of%20CamDX%20Subdecree.pdf', tier: 'primary' },
+    { publisher: 'Royal Government of Cambodia', label: 'Decision appointing Techo Startup Center as CamDX operator, 28 July 2022 (PDF)', url: 'https://camdx.gov.kh/documents/files/20220728-Decision%20on%20TSC%20as%20operator%20of%20CamDX.pdf', tier: 'primary' },
+    { publisher: 'Techo Startup Center', label: 'CamDX — Cambodia Data Exchange, official site', url: 'https://camdx.gov.kh', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What is CamDX and what technology does it use?', answer: 'CamDX (Cambodia Data Exchange) is Cambodia\'s national data exchange platform that enables secure, real-time data sharing between government agencies and authorized private sector organizations. It is built on Estonia\'s X-Road technology, a proven open-source data exchange layer used by over 20 countries worldwide. X-Road ensures data integrity through cryptographic signatures and provides a complete audit trail of all data transactions.' },
     { question: 'How does CamDX connect to other Cambodia digital infrastructure?', answer: 'CamDX serves as the data backbone connecting Cambodia\'s Government-as-a-Platform components. CamDigiKey identity verifications flow through CamDX. CamInvoice e-invoicing data is shared via CamDX. Bakong payment confirmations can be validated through CamDX connections. This interoperability creates a unified digital ecosystem where identity, payments, invoicing, and data exchange work together seamlessly.' },

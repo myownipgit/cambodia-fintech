@@ -7,7 +7,7 @@ export const cambodiaAmlRequirements: ArticleContent = {
   type: 'learn',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['nbc', 'camdigikey', 'gdt'],
@@ -27,6 +27,11 @@ export const cambodiaAmlRequirements: ArticleContent = {
     { stat: 'Failure to file a required cash or suspicious transaction report carries imprisonment of one month to one year and a fine of KHR 50 million to KHR 200 million; a legal entity faces KHR 200 million to KHR 500 million.', source: 'Law on Anti-Money Laundering and Combating the Financing of Terrorism, penalty provisions', year: '2020' },
     { stat: 'Cambodia\'s mutual evaluation report was adopted by the Asia/Pacific Group on Money Laundering in July 2017, and the country has since been in enhanced follow-up with technical-compliance re-ratings. Its fifth-round mutual evaluation is scheduled for the 2029 plenary year.', source: 'APG, 2nd Enhanced Follow-Up Report and Global Fifth Round Mutual Evaluation Schedule', year: '2019' },
   ],
+  sources: [
+    { publisher: 'Cambodia Financial Intelligence Unit', label: 'Law and regulation index', url: 'https://cafiu.gov.kh/law-regulation', tier: 'primary' },
+    { publisher: 'Cambodia National Trade Repository', label: 'National Trade Repository — official instrument records', url: 'https://cambodiantr.gov.kh/en', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What AML laws apply to FinTech companies in Cambodia?', answer: 'FinTech companies in Cambodia are subject to the 2020 Law on Anti-Money Laundering and Combating the Financing of Terrorism, NBC Prakas on AML/CFT for banking and financial institutions, and CAFIU reporting directives. All licensed payment service providers, e-money issuers, and other financial institutions must implement risk-based AML programs, conduct customer due diligence, monitor transactions, and report suspicious activities to CAFIU.' },
     { question: 'What is CAFIU and how does it affect FinTech firms?', answer: 'CAFIU (Cambodia Financial Intelligence Unit) is Cambodia\'s financial intelligence unit responsible for receiving, analyzing, and disseminating suspicious transaction reports. All NBC-licensed FinTech firms must register with CAFIU, appoint a compliance officer, file STRs within prescribed timelines, and respond to CAFIU information requests. CAFIU can impose administrative sanctions for non-compliance with reporting obligations.' },

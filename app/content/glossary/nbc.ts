@@ -21,6 +21,12 @@ export const nbc: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Official site — legislation, Prakas and publications', url: 'https://www.nbc.gov.kh', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
+    { publisher: 'Cambodia National Trade Repository', label: 'National Trade Repository — official instrument records', url: 'https://cambodiantr.gov.kh/en', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What does the National Bank of Cambodia regulate?', answer: 'The NBC regulates all financial institutions in Cambodia including commercial banks, specialized banks, microfinance deposit-taking institutions, microfinance institutions, payment service providers, and electronic money issuers. It also regulates the Bakong payment system, sets KHQR technical standards, administers the FinTech regulatory sandbox, and manages Cambodia\'s monetary policy including the exchange rate stability between KHR and USD.' },
     { question: 'What is the NBC FinTech regulatory sandbox?', answer: 'The NBC FinTech Regulatory Sandbox is a controlled testing environment where innovative financial service providers can trial new products under NBC supervision with relaxed regulatory requirements. Companies accepted into the sandbox operate under temporary conditions that allow them to test business models, technology, and consumer response before applying for a full license. The sandbox covers areas including digital lending, insurance technology, and payment innovations.' },

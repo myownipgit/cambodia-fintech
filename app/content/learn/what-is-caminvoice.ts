@@ -7,7 +7,7 @@ export const whatIsCamInvoice: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['caminvoice', 'gdt', 'supply-chain-finance'],
@@ -20,6 +20,11 @@ export const whatIsCamInvoice: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'General Department of Taxation', label: 'General Department of Taxation, official site', url: 'https://www.tax.gov.kh/en', tier: 'primary' },
+    { publisher: 'General Department of Taxation', label: 'Prakas index (Khmer)', url: 'https://www.tax.gov.kh/kh/prakas', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'When does CamInvoice become mandatory for my business?', answer: 'CamInvoice compliance follows a phased timeline based on annual turnover. Phase 1 (2025) covers large taxpayers with annual turnover above KHR 2 billion. Phase 2 (2026) extends to medium taxpayers with turnover above KHR 500 million. Phase 3 (2027) covers all registered taxpayers. Check with the GDT or consult CamFinTech to confirm your specific compliance deadline.' },
     { question: 'What are the penalties for non-compliance with CamInvoice?', answer: 'Non-compliance penalties include fines of 10-25% of the invoice value for failure to issue compliant e-invoices, suspension of VAT refund claims, and potential business license revocation for repeat offenders. Additionally, non-compliant invoices cannot be used as tax deductions by the buyer, creating commercial pressure from trading partners.' },

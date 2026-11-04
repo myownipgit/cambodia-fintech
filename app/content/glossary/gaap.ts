@@ -7,7 +7,7 @@ export const gaap: ArticleContent = {
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'camdigikey', 'camdx', 'caminvoice'],
@@ -20,6 +20,12 @@ export const gaap: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'Digital Economy and Business Committee', label: 'Digital Economy and Business Committee, official site', url: 'https://digitaleconomy.gov.kh/en', tier: 'primary' },
+    { publisher: 'Techo Startup Center', label: 'CamDX — Cambodia Data Exchange, official site', url: 'https://camdx.gov.kh', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Bakong — the system\'s official site', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What is Government-as-a-Platform in the Cambodia context?', answer: 'Government-as-a-Platform (GaaP) in Cambodia refers to the deliberate strategy of building interconnected government digital infrastructure that functions as a platform for private sector innovation. Rather than each ministry building isolated IT systems, Cambodia has created four foundational layers: CamDigiKey for identity, Bakong for payments, CamDX for data exchange, and CamInvoice for invoicing. Private businesses build products and services on top of these government-provided platforms.' },
     { question: 'How is Cambodia\'s GaaP approach different from other countries?', answer: 'Cambodia\'s GaaP model is distinctive because the infrastructure was designed as an integrated stack from the outset rather than evolving organically. CamDigiKey, Bakong, CamDX, and CamInvoice were planned to interoperate. This contrasts with countries where digital identity, payments, and data exchange evolved separately and require complex retrofitting to work together. Cambodia\'s deliberate approach creates compounding network effects.' },

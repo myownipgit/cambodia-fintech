@@ -7,7 +7,7 @@ export const howCamDXWorks: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['camdx', 'camdigikey', 'gaap'],
@@ -20,6 +20,12 @@ export const howCamDXWorks: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'Royal Government of Cambodia', label: 'Sub-Decree No. 164 S.E on Data Exchange through CamDX — unofficial English translation (PDF)', url: 'https://camdx.gov.kh/documents/files/Unofficial%20Translation%20of%20CamDX%20Subdecree.pdf', tier: 'primary' },
+    { publisher: 'Techo Startup Center', label: 'CamDX User Guide Book, English (PDF)', url: 'https://camdx.gov.kh/documents/files/CamDX%20User%20Guide%20Book%20English.pdf', tier: 'primary' },
+    { publisher: 'Techo Startup Center', label: 'CamDX eKYC Open API specification', url: 'https://camdx.gov.kh/docs/open-api/ekyc', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What is the difference between CamDX and CamDigiKey?', answer: 'CamDigiKey is the digital identity and eKYC platform. CamDX is the data exchange infrastructure. CamDigiKey verifies who a person is; CamDX enables authorized parties to query government databases about that person or entity. CamDigiKey is a data provider ON CamDX, meaning a KYC query flows through CamDX to reach CamDigiKey identity services.' },
     { question: 'Can private companies connect directly to CamDX?', answer: 'Licensed financial institutions and authorized private-sector entities can connect to CamDX through the official onboarding process. This requires registration with the Digital Government Committee, deployment of a CamDX security server, and compliance with the CamDX data governance framework. CamFinTech navigates the approval for enterprises to onboard with CamDX; the security-server deployment itself is coordinated with accredited Service Providers.' },

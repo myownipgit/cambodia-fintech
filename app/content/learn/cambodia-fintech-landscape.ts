@@ -27,6 +27,12 @@ export const cambodiaFintechLandscape: ArticleContent = {
   claims: [
     { stat: 'The number of digital payment transactions in Cambodia grew 78% during 2024 and their value grew 38%, both measured against 2023. The National Bank of Cambodia puts the total value at approximately 15 times gross domestic product.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i', year: '2024' },
   ],
+  sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
+    { publisher: 'Financial Services Authority (FSA), Cambodia', label: 'Cambodia FinTech Development Policy — official portal and full document', url: 'https://fintech.fsa.gov.kh/cambodia-fintech-development-policy?lang=en', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Official site — legislation, Prakas and publications', url: 'https://www.nbc.gov.kh', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'How big is Cambodia\'s FinTech market?', answer: 'Cambodia\'s FinTech market encompasses over 30 licensed operators. The National Bank of Cambodia reports that the number of digital payment transactions grew 78% during 2024 and their value grew 38%, with the total value equivalent to roughly 15 times GDP. The ecosystem includes payment service providers, microfinance institutions, e-money issuers, and emerging InsurTech and LendTech platforms, all operating under NBC regulatory oversight.' },
     { question: 'What are the biggest FinTech companies in Cambodia?', answer: 'The leading FinTech players include Wing (Cambodia) Limited with over 9 million users, ABA Bank (the largest digital banking platform), Pi Pay (now merged into Bakong ecosystem), TrueMoney Cambodia, and ACLEDA mobile. Each serves different market segments from rural mobile money to urban digital banking.' },

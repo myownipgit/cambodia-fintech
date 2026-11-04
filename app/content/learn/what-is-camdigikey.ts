@@ -7,7 +7,7 @@ export const whatIsCamDigiKey: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['camdigikey', 'camdx', 'gaap'],
@@ -21,6 +21,11 @@ export const whatIsCamDigiKey: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'Techo Startup Center', label: 'CamDigiKey — the platform\'s official site', url: 'https://www.camdigikey.gov.kh', tier: 'primary' },
+    { publisher: 'Techo Startup Center', label: 'CamDX eKYC Open API specification', url: 'https://camdx.gov.kh/docs/open-api/ekyc', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'Is CamDigiKey mandatory for opening a bank account in Cambodia?', answer: 'Not yet universally, but the NBC is progressively mandating eKYC through CamDigiKey for new financial account openings. Several banks and all licensed payment service providers are already required to support CamDigiKey verification. The phased mandate is expected to cover all regulated financial institutions by 2027.' },
     { question: 'How does CamDigiKey protect user privacy?', answer: 'CamDigiKey follows a consent-based data sharing model. When a FinTech company requests identity verification, the user must explicitly approve each data field shared. Biometric data is stored encrypted on government servers and never shared with third parties. The system complies with Cambodia\'s draft Personal Data Protection Law.' },

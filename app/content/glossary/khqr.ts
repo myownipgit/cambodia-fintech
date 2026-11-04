@@ -7,7 +7,7 @@ export const khqr: ArticleContent = {
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'nbc', 'camdigikey'],
@@ -20,6 +20,11 @@ export const khqr: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Bakong White Paper (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Bakong — the system\'s official site', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What is KHQR and how is it different from other QR codes?', answer: 'KHQR (Khmer QR) is Cambodia\'s national standardized QR code payment protocol. Unlike proprietary QR codes from individual banks (such as ABA QR or ACLEDA QR), KHQR is interoperable, meaning a single KHQR code can accept payments from any Bakong-connected bank or mobile wallet. This eliminates the need for merchants to display multiple QR codes and provides a unified payment experience for consumers.' },
     { question: 'How does KHQR work with Bakong?', answer: 'KHQR operates as the consumer-facing payment interface on top of the Bakong settlement infrastructure. When a customer scans a KHQR code and initiates payment through their banking app, the transaction is routed through Bakong for real-time settlement. The merchant receives instant confirmation and the funds settle immediately between the customer\'s and merchant\'s banks via the Bakong ledger.' },

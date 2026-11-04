@@ -36,6 +36,12 @@ export const fintechLicenseCambodia: ArticleContent = {
   claims: [
     { stat: 'The number of digital payment transactions in Cambodia grew 78% during 2024 and their value grew 38%, both measured against 2023. The National Bank of Cambodia puts the total value at approximately 15 times gross domestic product.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i', year: '2024' },
   ],
+  sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Official site — legislation, Prakas and publications', url: 'https://www.nbc.gov.kh', tier: 'primary' },
+    { publisher: 'Cambodia National Trade Repository', label: 'National Trade Repository — official instrument records', url: 'https://cambodiantr.gov.kh/en', tier: 'primary' },
+    { publisher: 'Financial Services Authority (FSA), Cambodia', label: 'Cambodia FinTech Development Policy — official portal and full document', url: 'https://fintech.fsa.gov.kh/cambodia-fintech-development-policy?lang=en', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What types of FinTech licenses does Cambodia offer?', answer: 'Cambodia offers several FinTech-related license types through the NBC: Payment Service Provider (PSP) licenses for payment processing and transfer services, E-Money Issuer licenses for digital wallet operators, Microfinance Institution (MFI) licenses for digital lending, and Banking licenses for full-service digital banks. The regulatory sandbox also provides a temporary testing framework for innovative FinTech models that do not fit existing categories.' },
     { question: 'Can foreigners own a FinTech company in Cambodia?', answer: 'Yes. Cambodia allows 100% foreign ownership of payment service providers and e-money issuers, subject to NBC approval. Foreign-owned FinTech firms must comply with the Law on Foreign Exchange, maintain minimum capital requirements in Cambodia, and appoint at least one local director. This open ownership framework has attracted FinTech firms from Singapore, Thailand, Japan, and China.' },

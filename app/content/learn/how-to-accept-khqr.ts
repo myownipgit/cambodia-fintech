@@ -7,7 +7,7 @@ export const howToAcceptKHQR: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 5,
   schema: 'Article',
   relatedSlugs: ['khqr', 'bakong', 'nbc'],
@@ -21,6 +21,11 @@ export const howToAcceptKHQR: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Bakong White Paper (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Bakong — the system\'s official site', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'How much does it cost to accept KHQR payments?', answer: 'KHQR merchant fees are among the lowest in the region. Most acquiring banks charge between 0% and 0.5% per transaction, with some banks waiving fees entirely for small merchants to encourage adoption. There are no monthly fees, terminal rental charges, or chargeback costs. Compare this to international card networks which typically charge 2-3% per transaction.' },
     { question: 'Can tourists pay with KHQR?', answer: 'Yes. Through Bakong\'s cross-border corridors, tourists from Thailand (PromptPay), Malaysia (DuitNow), and China (Alipay) can scan KHQR codes and pay using their home banking apps. The currency conversion happens automatically. This makes KHQR the most tourist-friendly payment method in Cambodia.' },

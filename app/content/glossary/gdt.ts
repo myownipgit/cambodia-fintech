@@ -7,7 +7,7 @@ export const gdt: ArticleContent = {
   type: 'glossary',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['caminvoice', 'nbc', 'supply-chain-finance'],
@@ -20,6 +20,11 @@ export const gdt: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'General Department of Taxation', label: 'General Department of Taxation, official site', url: 'https://www.tax.gov.kh/en', tier: 'primary' },
+    { publisher: 'General Department of Taxation', label: 'Prakas index (Khmer)', url: 'https://www.tax.gov.kh/kh/prakas', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What is the GDT and what taxes does it administer?', answer: 'The General Department of Taxation (GDT) is Cambodia\'s primary tax authority operating under the Ministry of Economy and Finance. The GDT administers value-added tax (VAT at 10%), corporate income tax (20% standard rate), withholding tax, specific tax on certain goods, and property tax. The GDT also operates the CamInvoice mandatory e-invoicing system and manages taxpayer registration, audit, and enforcement activities.' },
     { question: 'How does CamInvoice change GDT tax compliance?', answer: 'CamInvoice transforms GDT compliance from periodic self-reporting to real-time transaction visibility. Previously, businesses submitted monthly and annual tax returns that the GDT could only verify through audits. With CamInvoice, every invoice is cleared by the GDT in real-time, enabling automated VAT reconciliation, cross-matching of buyer and seller declarations, and immediate detection of discrepancies. This shift dramatically reduces the tax gap.' },

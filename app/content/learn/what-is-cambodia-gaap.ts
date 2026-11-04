@@ -7,7 +7,7 @@ export const whatIsCambodiaGaaP: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['gaap', 'bakong', 'camdigikey', 'camdx', 'caminvoice'],
@@ -20,6 +20,12 @@ export const whatIsCambodiaGaaP: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'Digital Economy and Business Committee', label: 'Digital Economy and Business Committee, official site', url: 'https://digitaleconomy.gov.kh/en', tier: 'primary' },
+    { publisher: 'Techo Startup Center', label: 'CamDX — Cambodia Data Exchange, official site', url: 'https://camdx.gov.kh', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Bakong — the system\'s official site', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What makes Cambodia\'s digital infrastructure different from other ASEAN countries?', answer: 'Most ASEAN countries built digital payment systems, identity platforms, and data exchanges independently over decades. Cambodia designed all four layers simultaneously as a unified stack under the Digital Government Policy 2022-2035. This deliberate architecture means the layers are interoperable by design, not retrofitted. A CamDigiKey identity verification can trigger a CamDX data query and initiate a Bakong payment in a single workflow.' },
     { question: 'Is Cambodia\'s GaaP model based on Estonia\'s?', answer: 'Yes, directly. Cambodia adopted Estonia\'s X-Road technology for CamDX and studied Estonia\'s digital identity and e-governance architecture extensively. However, Cambodia adapted the model for its dual-currency economy, mobile-first population, and specific regulatory requirements. The Bakong CBDC layer has no direct Estonian equivalent, as Estonia uses the euro.' },

@@ -7,7 +7,7 @@ export const embeddedInsurance: ArticleContent = {
   type: 'glossary',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['khqr', 'camdigikey', 'supply-chain-finance'],
@@ -20,6 +20,10 @@ export const embeddedInsurance: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'Insurance Regulator of Cambodia', label: 'Insurance Regulator of Cambodia, official site', url: 'https://www.irc.gov.kh/en', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What is embedded insurance and why is it relevant to Cambodia?', answer: 'Embedded insurance is the integration of insurance products into non-insurance platforms and transactions. Instead of buying insurance separately, customers receive offers at contextually relevant moments: travel insurance when booking a bus ticket, device insurance when purchasing a phone, or health insurance when making a healthcare payment. This model is particularly relevant to Cambodia because traditional insurance distribution (agents, brokers, branches) has failed to achieve meaningful penetration. Embedding insurance into existing KHQR payment flows and digital platforms removes the distribution barrier.' },
     { question: 'How does KHQR enable embedded insurance distribution?', answer: 'KHQR provides the payment rails that make micro-insurance economically viable. When a customer makes a KHQR payment, an insurance offer can be presented and the premium collected in the same transaction flow. Claims can be paid back instantly via Bakong. The low transaction costs of KHQR mean that even micro-premiums of $0.50-$2.00 per month are commercially sustainable, enabling products that serve Cambodia\'s mass market rather than only affluent consumers.' },
