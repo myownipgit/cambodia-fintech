@@ -28,13 +28,32 @@ that build runs**, which is by design.
 
 riel.report has no builder, so its llms.txt is **live now** — verified `200 text/plain 1586`.
 
-### Deliberately NOT done: forcing the insights rebuild
+### Rebuild triggered on Bill's instruction — clean, M1 now fully closed
 
-The builder exposes `POST /build` on :9000 and I stopped short of calling it. A forced
-rebuild regenerates all 165 pages from upstream data and then `rsync --delete`s the result
-over the live tree. **If any upstream source is unavailable right now, that publishes a
-thinner site than the one currently served.** The weekday-morning build does the same thing
-under normal supervision. Bill's call; one command either way.
+`POST /build` on the builder's :9000, authenticated with `BUILDER_SECRET` (already in the
+container env — referenced, never printed). Build + swap in **21s**, `ok:true`.
+
+**Nothing shrank**, which was the risk in forcing a rebuild:
+
+| | before | after |
+|---|---|---|
+| sitemap locs | 165 | **165** |
+| archive dirs | 89 | **89** |
+| entity dirs | 72 | **72** |
+| index.html | 2,359,921 b | **2,359,921 b** |
+| feed.xml | 25,386 b | **25,386 b** |
+
+Byte-identical output plus the new `llms.txt`. `/archive`, `/entities`, `/methodology`
+and `/press` all 200 after the swap.
+
+**All three properties now serve llms.txt, robots.txt and sitemap.xml at 200**, and each
+llms.txt cross-links the other two — the entity graph resolves in every direction, not
+just outward from camfintech.com. GEO M1 closed.
+
+**To rebuild insights again**: `docker exec insights-builder sh -c 'curl -sS -X POST -H
+"x-insights-secret: $BUILDER_SECRET" http://127.0.0.1:9000/build'`. Port 9000 is NOT
+published to the host — it must be called from inside the container. `/healthz` on the same
+port reports `running` and `lastResult` and needs no auth.
 
 ### Durability caveat on riel.report
 
