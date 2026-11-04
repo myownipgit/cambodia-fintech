@@ -4,6 +4,8 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 — BAKONG CONNECTION CLAIMS CHECKED, NOT YET CHANGED.** Against the undated member list on bakong.nbc.gov.kh and NBC registers as at 31 May 2026: about 45 of 58 commercial banks, 1 of 7 specialised banks, about 10-11 of 28 PSIs, and the 3 deposit-taking MFIs match. The list is stale (still shows Prince Bank), so this neither proves nor disproves connection. No "mandatory connection" rule found: Prakas F14-020-351 (June 2020) requires institutions using QR payments to follow KHQR by end-2020; Prakas F14-020-349 (June 2020) binds Bakong members. The annex to F14-020-349 was not in the PDF read. The site's "2023 mandate" is unsupported, and "KHQR introduced 2022" sits oddly with the 2020 Prakas. Awaiting Bill's decision.
+
 **2026-11-04 — CORRECTIONS PASS. Entries below this one contain errors listed here (ADR-011).**
 
 - `sheets-llm` key `662dd13d…` is **disabled, not deleted**. Delete it and `~/Downloads/key.json` after a week or two if nothing breaks. Project contents unconfirmed.
