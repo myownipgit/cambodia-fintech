@@ -4,6 +4,35 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 (final) — DOCUMENTATION AND VAULT UPDATED; updatedAt gate repaired.**
+`feature/update-homepage` at `b380531`; production `dpl_5hXeZ2DE8w5pzXkKNmqbQZbCSgr8`.
+
+### A gate failure worth remembering
+
+`check:llms` validates `updatedAt` against each file's **last git commit date**, so it
+passed before `57f19ac` and failed immediately after. **A pre-commit run of this gate
+cannot catch that class** — re-run it after committing a content change, not only before.
+All five edited files now declare `updatedAt: '2026-11-04'`; verified live, all five emit
+`"dateModified":"2026-11-04"`.
+
+### Documentation written
+
+| Target | What went in |
+|---|---|
+| `CLAUDE.md` | Capital-threshold exclusion annotated with the 2026-11-04 remediation; the three-phantom-Prakas finding; "a rule in CLAUDE.md is not a check" (second occurrence after teal-contrast); claim-found-late counter 3 -> 4 |
+| vault `Firm Operations/02_Decision_Log.md` | **ADR-010** — remove rather than correct or hedge; options table; what was deliberately not done; revisit triggers |
+| vault `CamFinTech.com website/Outstanding Issues.md` | 2026-11-04 reconciliation — C1 closed, NEW-H2 recount, NEW-H3/M9/M10 opened |
+| vault `DPI Integration/65_Regulatory_Instruments_Verification_Pass.md` | Follow-up: its own `fintechcambodia.net` sourcing defect shipped anyway; the three-phantom table |
+| memory | `MEMORY.md` (C1 closed, Prakas line, rule-is-not-a-check), `project_corpus_evidence_bar.md`, `project_decision_log.md` |
+
+### The finding worth carrying forward
+
+The verification pass had **already traced** the `$75m`/`$2.5m` figures to `fintechcambodia.net`
+and recorded it as a sourcing defect in August. `CLAUDE.md` had **already prohibited** the
+class site-wide since R1. Both were correct, both were written down, and the figures stayed
+live for nine weeks. **Neither a rule nor a research finding is a check.** When a rule names
+a class of content, grep the content tree for that class in the same pass that writes it.
+
 **2026-11-04 (later) — UNSOURCED CAPITAL THRESHOLDS REMOVED SITE-WIDE. Deployed.**
 `feature/update-homepage` at `57f19ac`; production `dpl_6Vh2jUFp5hvMYXZAoghLQ1EsJ14Y`.
 
