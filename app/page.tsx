@@ -228,7 +228,7 @@ export default function Home() {
               <div className="lg:col-span-1">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/William_Mallett_Chief_Executive_CAMFINTECH_CO_LTD.jpg"
+                  src="/images/William_Mallett_Founder_and_Managing_Director_CAMFINTECH_CO_LTD.jpg"
                   alt="William Mallett, Founder and Managing Director of CamFinTech"
                   width={1000}
                   height={1000}

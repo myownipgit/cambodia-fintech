@@ -115,7 +115,7 @@ export default function JsonLd() {
         "@id": "https://www.camfintech.com/about#person",
         "name": "William Mallett",
         "jobTitle": "Founder & Managing Director",
-        "image": "https://www.camfintech.com/images/William_Mallett_Chief_Executive_CAMFINTECH_CO_LTD.jpg",
+        "image": "https://www.camfintech.com/images/William_Mallett_Founder_and_Managing_Director_CAMFINTECH_CO_LTD.jpg",
         "worksFor": {
           "@id": "https://www.camfintech.com/#organization",
         },

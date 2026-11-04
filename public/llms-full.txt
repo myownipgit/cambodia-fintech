@@ -188,7 +188,7 @@ The four pages under `/use-cases/*` are hypothetical. CamFinTech is pre-revenue 
 
 - **Founder & Managing Director** of CamFinTech (since 2024).
 - LinkedIn: https://www.linkedin.com/in/william-mall/
-- Bio: https://www.camfintech.com/about (Background section + founder headshot at https://www.camfintech.com/images/William_Mallett_Chief_Executive_CAMFINTECH_CO_LTD.jpg).
+- Bio: https://www.camfintech.com/about (Background section + founder headshot at https://www.camfintech.com/images/William_Mallett_Founder_and_Managing_Director_CAMFINTECH_CO_LTD.jpg).
 - The LinkedIn slug `william-mall` is the short form; display name is William Mallett (full surname). Do not "fix" the slug-name mismatch.
 
 ## Contact
