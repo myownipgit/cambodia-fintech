@@ -4,6 +4,44 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 — SIBLING llms.txt (GEO M1). riel.report LIVE; insights STAGED.**
+No change to this repo — both siblings live on the DO droplet.
+
+### Where the siblings actually are
+
+Neither is on Vercel; neither has source on this Mac. Both are **Astro v4.16.19** behind
+**nginx + Traefik on `178.128.85.53`**. Full map in memory (`MEMORY.md` → Sibling properties).
+
+| | riel.report | insights.camfintech.com |
+|---|---|---|
+| Webroot | `/var/www/riel-report` | `/var/www/insights` |
+| Source on droplet | **none** — compose + nginx.conf only | full Astro source in the tenant dir |
+| Build | none; copied up, files dated 28 Jun | `insights-builder` → `scripts/swap.sh`, **weekday mornings** |
+
+### `rsync --delete` is the thing to know
+
+`scripts/swap.sh` runs `rsync -a --delete dist/ /var/www/insights/`. **A file hand-placed in
+that webroot is deleted on the next build.** So insights' llms.txt went to two places:
+the host source `public/` (survives a future image rebuild) **and** `docker cp` into the
+running builder's `public/` (so the next scheduled build picks it up). It is **404 until
+that build runs**, which is by design.
+
+riel.report has no builder, so its llms.txt is **live now** — verified `200 text/plain 1586`.
+
+### Deliberately NOT done: forcing the insights rebuild
+
+The builder exposes `POST /build` on :9000 and I stopped short of calling it. A forced
+rebuild regenerates all 165 pages from upstream data and then `rsync --delete`s the result
+over the live tree. **If any upstream source is unavailable right now, that publishes a
+thinner site than the one currently served.** The weekday-morning build does the same thing
+under normal supervision. Bill's call; one command either way.
+
+### Durability caveat on riel.report
+
+Its source is not on the droplet and not on this Mac (`~/workspace/riel.report` holds only
+`.claude/settings.local.json`). **The llms.txt will be lost the next time that site is
+redeployed.** Ask Bill where it is built before treating the webroot edit as permanent.
+
 **2026-11-04 — FAQPage SHIPPED ON /products/dasp (GEO L4, FAQPage half).**
 Production `dpl_6kWA1jcTkCCghNoHhLCqecKBxJCV`.
 
