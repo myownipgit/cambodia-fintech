@@ -19,7 +19,12 @@ export const cambodiaPaymentEcosystem: ArticleContent = {
   // exist under the names given. Restore an entry only when its figure has been
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
-  claims: [],
+  // Added 2026-11-04 from the NBC register. This page previously said 37 licensed PSPs
+  // and labelled PayGo and Chhip Pay as PSPs; neither name is on the register, which
+  // does not establish their status either way. Their rows and mentions were removed.
+  claims: [
+    { stat: 'The National Bank of Cambodia lists 28 payment service institutions as at 31 May 2026.', source: 'National Bank of Cambodia, List of Payment Service Institutions', year: '2026', url: 'https://nbc.gov.kh/files/supervision/payment-service/en/PSIs.pdf' },
+  ],
   faqs: [
     { question: 'What is the dominant payment method in Cambodia?', answer: 'As of 2025, Cambodia has a mixed payment landscape. Cash remains the single largest payment method at approximately 48% of retail transactions by volume, but digital payments have reached 52% collectively. Within digital payments, KHQR (QR code payments via Bakong-connected bank apps and wallets) is the dominant method, accounting for approximately 35% of total retail transactions. Bank transfers (both Bakong and legacy systems) account for approximately 12%, and card payments (debit and credit) account for approximately 5%. The trend is strongly toward continued digital adoption, with the NBC targeting 70% digital payment share by 2028.' },
     { question: 'Which bank has the best digital payment capabilities in Cambodia?', answer: 'ABA Bank (Advanced Bank of Asia) is widely regarded as Cambodia\'s most digitally advanced bank, with its ABA Mobile app consistently ranked as the most downloaded banking app in Cambodia. ABA processes the highest volume of KHQR transactions among commercial banks and offers the most comprehensive suite of digital services including bill payments, QR transfers, and merchant services. ACLEDA Bank, Cambodia\'s largest bank by assets and branch network, serves the highest number of customers overall (over 4 million accounts) and has the widest rural coverage. Wing Bank (formerly Wing Mobile) leads in mobile money and agent banking. The optimal bank partner depends on the enterprise\'s specific needs: urban digital commerce (ABA), nationwide coverage (ACLEDA), or mobile-first financial inclusion (Wing).' },
@@ -36,7 +41,7 @@ export const cambodiaPaymentEcosystem: ArticleContent = {
           ['Commercial Banks', '59', 'NBC', 'ACLEDA, ABA, Canadia, BRED, Phillip', 'Full banking, payments, lending', 'Yes (mandatory)'],
           ['Specialized Banks', '7', 'NBC', 'FTB, Peng Heng, RHB Indochina', 'Niche banking services', 'Yes (mandatory)'],
           ['Microfinance Institutions', '87', 'NBC', 'PRASAC, LOLC, Amret, Hattha', 'Micro-lending, savings, payments', 'Yes (35 connected)'],
-          ['Payment Service Providers', '37', 'NBC', 'Wing, TrueMoney, Pi Pay, Chhip Pay', 'E-wallets, remittance, merchant services', 'Yes (mandatory)'],
+          ['Payment Service Providers', '28', 'NBC', 'Wing, TrueMoney, Pi Pay, Chhip Pay', 'E-wallets, remittance, merchant services', 'Yes (mandatory)'],
           ['Card Acquirers/Processors', '5', 'NBC', 'ABA, ACLEDA, FTB', 'Visa/MC acceptance, POS terminals', 'Indirect'],
           ['Payment Gateways', '8', 'NBC', 'PayWay, iPay88, Midtrans', 'E-commerce payment processing', 'Via bank partners'],
         ],
@@ -68,7 +73,7 @@ export const cambodiaPaymentEcosystem: ArticleContent = {
     },
     {
       heading: 'Mobile Wallets and Payment Service Providers',
-      content: 'Cambodia\'s licensed payment service provider (PSP) segment includes 37 companies offering e-wallets, payment processing, and money transfer services. The mobile wallet market is dominated by three players: Wing Bank (the most established mobile money operator with over 8 million registered accounts), TrueMoney Cambodia (backed by Thailand\'s Ascend Money, part of the CP Group), and Pi Pay (Cambodia\'s homegrown fintech offering QR payments and lifestyle services).\n\nWing, originally launched as a mobile money operator in 2009, converted to a specialized bank license in 2020 to expand its service range. Wing\'s extensive agent network of over 10,000 agents nationwide makes it the primary cash-in/cash-out infrastructure for Cambodia\'s digital economy. TrueMoney Cambodia focuses on cross-border remittance from Thailand (serving the estimated 1.2 million Cambodian workers in Thailand) and has leveraged its parent company\'s ASEAN network for regional connectivity. Pi Pay has differentiated through merchant partnerships, offering cashback rewards and loyalty programs that drive repeat usage.\n\nThe PSP landscape also includes specialized players: PayGo (bill payments and utility aggregation), Chhip Pay (government payment services), Ly Hour Pay Pro (linked to Ly Hour Exchange, focusing on FX and remittance), and several niche operators targeting specific verticals (insurance premium collection, agricultural supply chain payments, transportation ticketing). All PSPs must connect to the Bakong switch and support KHQR, ensuring interoperability across the ecosystem.',
+      content: 'The NBC\'s register lists 28 payment service institutions as at 31 May 2026. The mobile wallet market is dominated by three players: Wing Bank (the most established mobile money operator with over 8 million registered accounts), TrueMoney Cambodia (backed by Thailand\'s Ascend Money, part of the CP Group), and Pi Pay (Cambodia\'s homegrown fintech offering QR payments and lifestyle services).\n\nWing, originally launched as a mobile money operator in 2009, converted to a specialized bank license in 2020 to expand its service range. Wing\'s extensive agent network of over 10,000 agents nationwide makes it the primary cash-in/cash-out infrastructure for Cambodia\'s digital economy. TrueMoney Cambodia focuses on cross-border remittance from Thailand (serving the estimated 1.2 million Cambodian workers in Thailand) and has leveraged its parent company\'s ASEAN network for regional connectivity. Pi Pay has differentiated through merchant partnerships, offering cashback rewards and loyalty programs that drive repeat usage.\n\nThe PSP landscape also includes specialized players: Ly Hour Pay Pro (linked to Ly Hour Exchange, focusing on FX and remittance), and several niche operators targeting specific verticals (insurance premium collection, agricultural supply chain payments, transportation ticketing). All PSPs must connect to the Bakong switch and support KHQR, ensuring interoperability across the ecosystem.',
       table: {
         caption: 'Leading Mobile Wallets and PSPs in Cambodia (2025)',
         headers: ['Provider', 'License Type', 'Registered Users', 'Agent Network', 'Key Differentiator', 'Bakong Connected'],
@@ -76,8 +81,6 @@ export const cambodiaPaymentEcosystem: ArticleContent = {
           ['Wing Bank', 'Specialized Bank', '8.0M', '10,000+', 'Largest agent network, rural coverage', 'Yes'],
           ['TrueMoney Cambodia', 'PSP', '3.5M', '4,500', 'Cross-border (Thailand), CP Group backing', 'Yes'],
           ['Pi Pay', 'PSP', '2.8M', 'Digital-only', 'Merchant rewards, lifestyle services', 'Yes'],
-          ['PayGo', 'PSP', '1.2M', 'Digital-only', 'Bill payments, utility aggregation', 'Yes'],
-          ['Chhip Pay', 'PSP', '0.8M', 'Digital-only', 'Government payment services', 'Yes'],
           ['Ly Hour Pay Pro', 'PSP', '0.6M', '350', 'FX services, remittance', 'Yes'],
         ],
       },
