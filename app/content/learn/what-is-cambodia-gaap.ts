@@ -80,7 +80,7 @@ export const whatIsCambodiaGaaP: ArticleContent = {
     },
     {
       heading: 'Implications for Enterprise Strategy',
-      content: 'For enterprises operating or investing in Cambodia, the GaaP model demands a platform-native strategy. Companies that treat CamDigiKey, Bakong, CamDX, and CamInvoice as optional add-ons will face increasing friction as integration becomes mandatory. Companies that orient their operations around these platforms will benefit from lower costs, faster onboarding, and regulatory alignment.\n\nThe strategic question is not whether to integrate, but how deeply and how quickly. Early movers gain advantages in customer experience, operational efficiency, and regulatory goodwill. CamFinTech navigates a phased approval-and-compliance roadmap that prioritizes high-impact platform connections first and builds toward full GaaP integration as each layer matures.',
+      content: 'For enterprises operating or investing in Cambodia, the GaaP model demands a platform-native strategy. Companies that treat CamDigiKey, Bakong, CamDX, and CamInvoice as optional add-ons will face increasing friction. Companies that orient their operations around these platforms will benefit from lower costs, faster onboarding, and regulatory alignment.\n\nThe strategic question is not whether to integrate, but how deeply and how quickly. Early movers gain advantages in customer experience, operational efficiency, and regulatory goodwill. CamFinTech navigates a phased approval-and-compliance roadmap that prioritizes high-impact platform connections first and builds toward full GaaP integration as each layer matures.',
     },
     {
       heading: 'CamFinTech\'s GaaP Approval-Navigation Practice',

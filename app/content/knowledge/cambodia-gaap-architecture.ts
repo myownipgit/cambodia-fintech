@@ -7,7 +7,7 @@ export const cambodiaGaapArchitecture: ArticleContent = {
   type: 'knowledge',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 10,
   schema: 'TechArticle',
   relatedSlugs: ['gaap', 'bakong', 'camdigikey', 'camdx', 'caminvoice'],
@@ -39,7 +39,7 @@ export const cambodiaGaapArchitecture: ArticleContent = {
         headers: ['Layer', 'System', 'Operator', 'Core Function', 'Protocol', 'Mandate Status'],
         rows: [
           ['Identity', 'CamDigiKey', 'MPTC', 'Digital identity and eKYC', 'OAuth 2.0 / OpenID Connect', 'Mandatory for FIs by mid-2026'],
-          ['Payments', 'Bakong', 'NBC', 'Real-time settlement (RTGS)', 'REST API / Hyperledger Iroha', 'Mandatory for all digital payments'],
+          ['Payments', 'Bakong', 'NBC', 'Real-time settlement (RTGS)', 'REST API / Hyperledger Iroha', 'NBC-operated payment system'],
           ['Data Exchange', 'CamDX', 'MEF / MPTC', 'Secure inter-agency data sharing', 'REST + X.509 mTLS', 'Mandatory for government services'],
           ['Compliance', 'CamInvoice', 'GDT', 'Electronic invoicing and tax', 'REST API / UBL 2.1', 'Phased mandate 2025-2027'],
         ],

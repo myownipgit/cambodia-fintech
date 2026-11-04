@@ -11,7 +11,7 @@ export const khqr: ArticleContent = {
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'nbc', 'camdigikey'],
-  lead: 'KHQR (Khmer QR) is Cambodia\'s standardized QR code payment protocol based on EMVCo specifications and operated through the Bakong payment system. Launched in 2022 by the National Bank of Cambodia, KHQR enables merchants to accept instant payments from any Bakong-connected bank or wallet through a single interoperable QR code.',
+  lead: 'KHQR (Khmer QR) is Cambodia\'s standardized QR code payment protocol based on EMVCo specifications and operated through the Bakong payment system. Set as a standard by National Bank of Cambodia Prakas in June 2020, KHQR enables merchants to accept instant payments from any Bakong-connected bank or wallet through a single interoperable QR code.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -21,6 +21,7 @@ export const khqr: ArticleContent = {
   // and record where it was read. See vault ADR-007.
   claims: [],
   sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Bakong, official site (home page)', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
   ],
   sourcesAsAt: '2026-11-04',
@@ -36,7 +37,7 @@ export const khqr: ArticleContent = {
     },
     {
       heading: 'Merchant Adoption and Acceptance Network',
-      content: 'KHQR adoption has expanded rapidly across Cambodia since its 2022 launch. The NBC has driven merchant acceptance through a combination of regulatory mandates for banks to support KHQR and incentive programs that subsidize merchant onboarding costs. Today, KHQR is accepted at a wide range of locations from large retail chains and hotels to street vendors and tuk-tuk drivers.\n\nThe system supports both static and dynamic QR codes. Static KHQR codes are printed once and displayed at merchant locations, with customers entering the payment amount manually. Dynamic KHQR codes are generated per transaction with a pre-filled amount, commonly used for e-commerce and point-of-sale integrations.',
+      content: 'KHQR adoption has expanded rapidly across Cambodia since the NBC set the standard. The NBC has driven merchant acceptance through a combination of a Prakas requiring banks and financial institutions that use QR codes for payments to follow the KHQR standard, and incentive programs that subsidize merchant onboarding costs. Today, KHQR is accepted at a wide range of locations from large retail chains and hotels to street vendors and tuk-tuk drivers.\n\nThe system supports both static and dynamic QR codes. Static KHQR codes are printed once and displayed at merchant locations, with customers entering the payment amount manually. Dynamic KHQR codes are generated per transaction with a pre-filled amount, commonly used for e-commerce and point-of-sale integrations.',
       table: {
         caption: 'KHQR Code Types and Use Cases',
         headers: ['Type', 'Generation', 'Amount', 'Best For'],

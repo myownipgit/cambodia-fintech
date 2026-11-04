@@ -38,7 +38,7 @@ export const bakong: ArticleContent = {
     },
     {
       heading: 'KHQR Integration',
-      content: 'KHQR (Khmer QR) is the standardized QR code payment protocol that operates on top of Bakong. Introduced in July 2022, KHQR enables any merchant to accept payments from any Bakong-connected bank or wallet through a single QR code.\n\nFor merchants and enterprises, this eliminates the need to support multiple payment app QR codes. A single KHQR code works across all participating institutions. CamFinTech helps businesses navigate the approval to accept KHQR and coordinates the technical build (point-of-sale integration, e-commerce gateway) with accredited Service Providers.',
+      content: 'KHQR (Khmer QR) is the standardized QR code payment protocol that operates on top of Bakong. KHQR, set as a standard by NBC Prakas in June 2020, enables any merchant to accept payments from any Bakong-connected bank or wallet through a single QR code.\n\nFor merchants and enterprises, this eliminates the need to support multiple payment app QR codes. A single KHQR code works across all participating institutions. CamFinTech helps businesses navigate the approval to accept KHQR and coordinates the technical build (point-of-sale integration, e-commerce gateway) with accredited Service Providers.',
     },
     {
       heading: 'Cross-Border Capabilities',

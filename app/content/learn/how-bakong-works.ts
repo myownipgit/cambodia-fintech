@@ -22,6 +22,8 @@ export const howBakongWorks: ArticleContent = {
   // and record where it was read. See vault ADR-007.
   claims: [],
   sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-349 on the Bakong system rules and procedures, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-349-PR_Rule_and_Procedure.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Project Bakong: Next Generation Payment System, white paper, June 2020 (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Bakong, official site (home page)', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
@@ -58,12 +60,12 @@ export const howBakongWorks: ArticleContent = {
     },
     {
       heading: 'KHQR Integration and Merchant Acceptance',
-      content: 'KHQR (Khmer QR) is the standardized QR code protocol mandated by the NBC that runs on top of Bakong infrastructure. Based on the EMVCo QR Code Specification, KHQR assigns each merchant a unique identifier embedded in the QR code. Any customer using any Bakong-connected bank app can scan a single KHQR code to pay.\n\nBefore KHQR, merchants needed separate QR codes for each bank or wallet. KHQR interoperability eliminated this fragmentation. By early 2025, over 400,000 merchant KHQR codes had been registered across Cambodia. The protocol supports both static QR codes printed at point-of-sale locations and dynamic QR codes generated per transaction for e-commerce and invoicing scenarios.',
+      content: 'KHQR (Khmer QR) is the standardized QR code protocol set by the NBC that runs on top of Bakong infrastructure. Based on the EMVCo QR Code Specification, KHQR assigns each merchant a unique identifier embedded in the QR code. Any customer using any Bakong-connected bank app can scan a single KHQR code to pay.\n\nBefore KHQR, merchants needed separate QR codes for each bank or wallet. KHQR interoperability eliminated this fragmentation. By early 2025, over 400,000 merchant KHQR codes had been registered across Cambodia. The protocol supports both static QR codes printed at point-of-sale locations and dynamic QR codes generated per transaction for e-commerce and invoicing scenarios.',
       table: {
         caption: 'KHQR Adoption Milestones',
         headers: ['Year', 'Registered Merchants', 'Monthly Transactions', 'Key Development'],
         rows: [
-          ['2022', '~50,000', '~500,000', 'KHQR standard launched by NBC'],
+          ['2022', '~50,000', '~500,000', 'KHQR acceptance expanding'],
           ['2023', '~180,000', '~2.5 million', 'Interoperability mandate enforced'],
           ['2024', '~350,000', '~6 million', 'Tourist acceptance expanded'],
           ['2025', '~400,000+', '~8 million+', 'Dynamic QR for e-commerce scaling'],
@@ -94,7 +96,7 @@ export const howBakongWorks: ArticleContent = {
     },
     {
       heading: 'Strategic Implications for Enterprise FinTech',
-      content: 'For enterprises evaluating Cambodia\'s digital payment landscape, Bakong represents mandatory infrastructure rather than an optional channel. The NBC\'s strategy is to route all domestic retail payments through Bakong rails over time, making direct integration a strategic imperative.\n\nCamFinTech navigates the approval for businesses to integrate with Bakong across three horizons: immediate KHQR acceptance for retail operations, medium-term API integration for automated B2B payments and reconciliation, and long-term positioning for cross-border payment corridors as ASEAN linkages mature. The technical build is coordinated with accredited Service Providers; CamFinTech is fee-only, never operates the rail, and never holds client funds.',
+      content: 'For enterprises evaluating Cambodia\'s digital payment landscape, Bakong is central infrastructure, and its members must follow its rules under NBC Prakas F14-020-349. The NBC\'s strategy is to route all domestic retail payments through Bakong rails over time, making direct integration a strategic imperative.\n\nCamFinTech navigates the approval for businesses to integrate with Bakong across three horizons: immediate KHQR acceptance for retail operations, medium-term API integration for automated B2B payments and reconciliation, and long-term positioning for cross-border payment corridors as ASEAN linkages mature. The technical build is coordinated with accredited Service Providers; CamFinTech is fee-only, never operates the rail, and never holds client funds.',
     },
   ],
 };

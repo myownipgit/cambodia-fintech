@@ -11,7 +11,7 @@ export const cambodiaFintechLandscape: ArticleContent = {
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['gaap', 'bakong', 'nbc'],
-  lead: 'Cambodia\'s FinTech sector has transformed from an early-stage frontier market into one of Southeast Asia\'s most dynamic digital finance ecosystems. Anchored by the National Bank of Cambodia\'s forward-thinking regulatory framework and the Bakong CBDC, the Kingdom now has 28 payment service institutions on the NBC register (as at 31 May 2026), processes billions of dollars in mobile payments annually, and attracts growing venture capital interest. With a population where the median age is 26 and smartphone penetration exceeds 80%, Cambodia presents a structurally unique opportunity at the intersection of government-mandated digital infrastructure and a young, digitally native consumer base.',
+  lead: 'Cambodia\'s FinTech sector has transformed from an early-stage frontier market into one of Southeast Asia\'s most dynamic digital finance ecosystems. Anchored by the National Bank of Cambodia\'s forward-thinking regulatory framework and the Bakong CBDC, the Kingdom now has 28 payment service institutions on the NBC register (as at 31 May 2026), processes billions of dollars in mobile payments annually, and attracts growing venture capital interest. With a population where the median age is 26 and smartphone penetration exceeds 80%, Cambodia presents a structurally unique opportunity at the intersection of government-built digital infrastructure and a young, digitally native consumer base.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -36,7 +36,7 @@ export const cambodiaFintechLandscape: ArticleContent = {
   faqs: [
     { question: 'How big is Cambodia\'s FinTech market?', answer: 'Cambodia\'s FinTech market includes 28 payment service institutions on the NBC register, as at 31 May 2026. The National Bank of Cambodia reports that the number of digital payment transactions grew 78% during 2024 and their value grew 38%, with the total value equivalent to roughly 15 times GDP. The ecosystem includes payment service providers, microfinance institutions, e-money issuers, and emerging InsurTech and LendTech platforms, all operating under NBC regulatory oversight.' },
     { question: 'What are the biggest FinTech companies in Cambodia?', answer: 'The leading FinTech players include Wing (Cambodia) Limited with over 9 million users, ABA Bank (the largest digital banking platform), Pi Pay (now merged into Bakong ecosystem), TrueMoney Cambodia, and ACLEDA mobile. Each serves different market segments from rural mobile money to urban digital banking.' },
-    { question: 'Is Cambodia a good market for FinTech investment?', answer: 'Yes. Cambodia offers structural advantages including a young population (median age 26), high smartphone penetration (80%+), government-mandated digital infrastructure (Bakong, CamDigiKey, CamInvoice), and a regulatory sandbox for innovation. The combination of rapid digital adoption and underserved financial segments creates significant opportunity.' },
+    { question: 'Is Cambodia a good market for FinTech investment?', answer: 'Yes. Cambodia offers structural advantages including a young population (median age 26), high smartphone penetration (80%+), government-built digital infrastructure (Bakong, CamDigiKey, CamInvoice), and a regulatory sandbox for innovation. The combination of rapid digital adoption and underserved financial segments creates significant opportunity.' },
   ],
   sections: [
     {
@@ -48,20 +48,20 @@ export const cambodiaFintechLandscape: ArticleContent = {
       content: 'Cambodia\'s FinTech landscape is shaped by a diverse mix of mobile money operators, digital banks, and specialized platforms. Wing, Cambodia\'s pioneer mobile money operator, serves over 9 million users across 10,000+ agent locations. ABA Bank has become the country\'s dominant digital banking platform with over 5 million app users. TrueMoney Cambodia, backed by Thailand\'s Ascend Group, focuses on remittance and bill payments.\n\nNewer entrants include Chip Mong Bank\'s digital-first banking services, ACLEDA Unity\'s mobile wallet targeting rural populations, and several micro-lending apps leveraging alternative credit scoring. The competitive dynamic increasingly revolves around Bakong integration, as the NBC\'s KHQR standard compels interoperability across all licensed operators.',
       table: {
         caption: 'Major FinTech Players in Cambodia (2026)',
-        headers: ['Company', 'Category', 'Users (Est.)', 'Key Service', 'Bakong Connected'],
+        headers: ['Company', 'Category', 'Users (Est.)', 'Key Service'],
         rows: [
-          ['Wing', 'Mobile Money', '9M+', 'P2P Transfers, Bill Pay', 'Yes'],
-          ['ABA Bank', 'Digital Banking', '5M+', 'Full Banking, QR Pay', 'Yes'],
-          ['TrueMoney', 'E-Wallet', '3M+', 'Remittance, Top-ups', 'Yes'],
-          ['ACLEDA Unity', 'Mobile Wallet', '2.5M+', 'Rural Banking, Savings', 'Yes'],
-          ['Chip Mong Bank', 'Digital Banking', '1M+', 'SME Banking, Loans', 'Yes'],
-          ['Pi Pay', 'QR Payments', 'Merged', 'Merchant QR Payments', 'Integrated into Bakong'],
+          ['Wing', 'Mobile Money', '9M+', 'P2P Transfers, Bill Pay'],
+          ['ABA Bank', 'Digital Banking', '5M+', 'Full Banking, QR Pay'],
+          ['TrueMoney', 'E-Wallet', '3M+', 'Remittance, Top-ups'],
+          ['ACLEDA Unity', 'Mobile Wallet', '2.5M+', 'Rural Banking, Savings'],
+          ['Chip Mong Bank', 'Digital Banking', '1M+', 'SME Banking, Loans'],
+          ['Pi Pay', 'QR Payments', 'Merged', 'Merchant QR Payments'],
         ],
       },
     },
     {
       heading: 'Mobile Money and Financial Inclusion',
-      content: 'Mobile money has been the primary driver of Cambodia\'s financial inclusion story. The World Bank\'s Global Findex data shows formal financial account ownership rising from 59% to 78% of adults between 2017 and 2024, with mobile money accounts representing the majority of new inclusions. In rural areas, where traditional bank branches are sparse, mobile money agents serve as the de facto financial services distribution network.\n\nWing alone operates over 10,000 agent locations nationwide, providing cash-in/cash-out services that bridge the gap between the digital and cash economies. The NBC\'s 2023 mandate requiring all licensed payment institutions to connect to Bakong via KHQR has further accelerated financial inclusion by enabling any consumer to pay any merchant through a single interoperable standard, regardless of which institution holds their account.',
+      content: 'Mobile money has been the primary driver of Cambodia\'s financial inclusion story. The World Bank\'s Global Findex data shows formal financial account ownership rising from 59% to 78% of adults between 2017 and 2024, with mobile money accounts representing the majority of new inclusions. In rural areas, where traditional bank branches are sparse, mobile money agents serve as the de facto financial services distribution network.\n\nWing alone operates over 10,000 agent locations nationwide, providing cash-in/cash-out services that bridge the gap between the digital and cash economies. The KHQR standard, set by NBC Prakas in June 2020, gives consumers and merchants a single interoperable way to pay across participating institutions.',
     },
     {
       heading: 'Bakong\'s Transformative Impact',

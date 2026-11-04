@@ -12,7 +12,7 @@ export const howToAcceptKHQR: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['khqr', 'bakong', 'nbc'],
   relatedInstruments: ['prakas-b14-017-161'],
-  lead: 'KHQR (Khmer QR) is Cambodia\'s national standardized QR code payment protocol, mandated by the National Bank of Cambodia (NBC) to enable interoperable instant payments across all Bakong-connected financial institutions. Any customer with any participating bank or wallet app can pay any KHQR merchant through a single QR code scan. For businesses operating in Cambodia, accepting KHQR is no longer optional but a commercial necessity: over 400,000 merchants are registered, and consumer preference has shifted decisively toward QR-based payments. This guide covers the complete process from merchant registration to production integration.',
+  lead: 'KHQR (Khmer QR) is Cambodia\'s national standardized QR code payment protocol, set by National Bank of Cambodia (NBC) Prakas F14-020-351 for banks and financial institutions that use QR codes for payments. Any customer with any participating bank or wallet app can pay any KHQR merchant through a single QR code scan. For businesses operating in Cambodia, accepting KHQR is no longer optional but a commercial necessity: over 400,000 merchants are registered, and consumer preference has shifted decisively toward QR-based payments. This guide covers the complete process from merchant registration to production integration.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -22,6 +22,7 @@ export const howToAcceptKHQR: ArticleContent = {
   // and record where it was read. See vault ADR-007.
   claims: [],
   sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Bakong, official site (home page)', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
   ],
   sourcesAsAt: '2026-11-04',

@@ -7,11 +7,11 @@ export const bakongTechnicalIntegration: ArticleContent = {
   type: 'knowledge',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 10,
   schema: 'TechArticle',
   relatedSlugs: ['bakong', 'khqr', 'how-bakong-works'],
-  lead: 'Integrating with Cambodia\'s Bakong payment system is a mandatory requirement for any enterprise operating digital payment services in the Kingdom. The National Bank of Cambodia (NBC) operates Bakong as the sole authorized real-time gross settlement (RTGS) infrastructure for retail and wholesale payments, connecting over 60 financial institutions through a permissioned Hyperledger Iroha blockchain network. For enterprise developers, integration means engaging with a tiered API architecture where access levels, capabilities, and authentication requirements vary based on institutional licensing. This guide provides a comprehensive technical reference covering the Bakong Open API specification, KHQR QR code generation, payment lifecycle management, webhook-based settlement notifications, error handling patterns, reconciliation workflows, and cross-border corridor integration. Whether you are building a merchant payment acceptance system, an enterprise treasury platform, or a cross-border remittance service, this article provides the technical foundation for production-grade Bakong integration.',
+  lead: 'Integrating with Cambodia\'s Bakong payment system is a central question for any enterprise operating digital payment services in the Kingdom. Bakong members must follow its rules under NBC Prakas F14-020-349. The National Bank of Cambodia (NBC) operates Bakong as the sole authorized real-time gross settlement (RTGS) infrastructure for retail and wholesale payments, connecting over 60 financial institutions through a permissioned Hyperledger Iroha blockchain network. For enterprise developers, integration means engaging with a tiered API architecture where access levels, capabilities, and authentication requirements vary based on institutional licensing. This guide provides a comprehensive technical reference covering the Bakong Open API specification, KHQR QR code generation, payment lifecycle management, webhook-based settlement notifications, error handling patterns, reconciliation workflows, and cross-border corridor integration. Whether you are building a merchant payment acceptance system, an enterprise treasury platform, or a cross-border remittance service, this article provides the technical foundation for production-grade Bakong integration.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -20,6 +20,11 @@ export const bakongTechnicalIntegration: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-349 on the Bakong system rules and procedures, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-349-PR_Rule_and_Procedure.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'Can enterprises connect directly to the Bakong API?', answer: 'No. Direct Bakong API access (Tier 2 and Tier 3) is restricted to NBC-licensed financial institutions and payment service providers. Enterprises operate at Tier 4, accessing Bakong through their bank partner\'s API gateway. The bank handles authentication with the Bakong switch, settlement on the Iroha ledger, and regulatory reporting. Enterprises initiate payments, receive settlement confirmations, and reconcile transactions through the bank\'s API layer. Bank partner selection should weigh API maturity, settlement speed, and pricing together rather than optimising for any one.' },
     { question: 'What is the difference between static and dynamic KHQR codes?', answer: 'Static KHQR codes contain a fixed merchant identifier and are printed at point-of-sale locations. The customer enters the payment amount on their banking app after scanning. Dynamic KHQR codes are generated per transaction, embedding the exact amount, invoice reference, and expiration time. Dynamic codes are preferred for e-commerce, invoicing, and any scenario requiring exact amount matching and automated reconciliation. The KHQR specification supports both modes as defined in the EMVCo QR Code Specification for Payment Systems.' },

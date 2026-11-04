@@ -64,7 +64,7 @@ export const nbc: ArticleContent = {
     },
     {
       heading: 'Regulatory Approval-Navigation with CamFinTech',
-      content: 'CamFinTech provides fee-only regulatory approval-navigation for enterprises working through NBC requirements. Our services include license strategy assessment, the compliance architecture that the application must satisfy, sandbox application preparation, and ongoing programme delivery for regulatory reporting once approved.\n\nFor banks and financial institutions, we scope what NBC prudential reporting, Bakong integration mandates, and AML/CFT standards require — and coordinate the technical build with accredited Service Providers. For fintech firms, we navigate the path from sandbox application through full license acquisition; the licence itself is always held by the client, never by CamFinTech. We never hold client funds and never operate a regulated rail.',
+      content: 'CamFinTech provides fee-only regulatory approval-navigation for enterprises working through NBC requirements. Our services include license strategy assessment, the compliance architecture that the application must satisfy, sandbox application preparation, and ongoing programme delivery for regulatory reporting once approved.\n\nFor banks and financial institutions, we scope what NBC prudential reporting, Bakong rules, and AML/CFT standards require — and coordinate the technical build with accredited Service Providers. For fintech firms, we navigate the path from sandbox application through full license acquisition; the licence itself is always held by the client, never by CamFinTech. We never hold client funds and never operate a regulated rail.',
     },
   ],
 };

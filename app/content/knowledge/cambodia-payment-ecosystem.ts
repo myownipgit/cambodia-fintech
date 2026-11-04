@@ -26,6 +26,8 @@ export const cambodiaPaymentEcosystem: ArticleContent = {
     { stat: 'The National Bank of Cambodia lists 28 payment service institutions as at 31 May 2026.', source: 'National Bank of Cambodia, List of Payment Service Institutions', year: '2026', url: 'https://nbc.gov.kh/files/supervision/payment-service/en/PSIs.pdf' },
   ],
   sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-349 on the Bakong system rules and procedures, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-349-PR_Rule_and_Procedure.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'List of Commercial Banks, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/commercial-banks/en/Commercial_Banks.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'List of Specialized Banks, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/specialized-banks/en/Specialized_Banks.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'List of Microfinance Deposit-Taking Institutions, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/microfinance-deposit-taking-institutions/en/MDIs.pdf', tier: 'primary' },
@@ -41,15 +43,15 @@ export const cambodiaPaymentEcosystem: ArticleContent = {
   sections: [
     {
       heading: 'Ecosystem Architecture and Participants',
-      content: 'Cambodia\'s payment ecosystem operates through a layered architecture with the NBC at the apex, operating both the Bakong RTGS infrastructure and the regulatory framework that governs all participants. Below the central infrastructure layer, the ecosystem comprises four participant categories: commercial banks, specialized banks and microfinance institutions (MFIs), licensed payment service providers (PSPs), and unlicensed but tolerated participants (primarily informal money transfer agents).\n\nThe NBC\'s regulatory approach has been to consolidate the payment landscape around Bakong infrastructure, requiring all licensed participants to connect to the Bakong switch for interbank transfers and KHQR transactions. This mandatory interconnection creates a single, interoperable payment network rather than the fragmented landscape of proprietary payment silos common in other developing markets. The result is that a customer of any Bakong-connected institution can pay any KHQR-registered merchant, regardless of which institution either party uses.\n\nThe ecosystem also includes supporting infrastructure providers: payment gateway companies that facilitate e-commerce transactions, card acquirers and processors, ATM network operators, and technology vendors providing core banking systems, fraud detection platforms, and compliance solutions. Mapping this ecosystem is the first step in identifying integration partners and an entry strategy.',
+      content: 'Cambodia\'s payment ecosystem operates through a layered architecture with the NBC at the apex, operating both the Bakong RTGS infrastructure and the regulatory framework that governs all participants. Below the central infrastructure layer, the ecosystem comprises four participant categories: commercial banks, specialized banks and microfinance institutions (MFIs), licensed payment service providers (PSPs), and unlicensed but tolerated participants (primarily informal money transfer agents).\n\nThe NBC\'s regulatory approach has been to consolidate the payment landscape around Bakong infrastructure. Bakong members must follow its rules under NBC Prakas F14-020-349, and banks and financial institutions that use QR codes for payments must follow the KHQR standard under Prakas F14-020-351. This common standard supports an interoperable payment network rather than the fragmented landscape of proprietary payment silos common in other developing markets. The result is that a customer of any Bakong-connected institution can pay any KHQR-registered merchant, regardless of which institution either party uses.\n\nThe ecosystem also includes supporting infrastructure providers: payment gateway companies that facilitate e-commerce transactions, card acquirers and processors, ATM network operators, and technology vendors providing core banking systems, fraud detection platforms, and compliance solutions. Mapping this ecosystem is the first step in identifying integration partners and an entry strategy.',
       table: {
         caption: 'Cambodia Payment Ecosystem Participant Categories',
-        headers: ['Category', 'Count', 'Regulator', 'Key Players', 'Primary Services', 'Bakong Connected'],
+        headers: ['Category', 'Count', 'Regulator', 'Key Players', 'Primary Services'],
         rows: [
-          ['Commercial Banks', '58 (as at 31 May 2026)', 'NBC', 'ACLEDA, ABA, Canadia, BRED, Phillip', 'Full banking, payments, lending', 'Yes (mandatory)'],
-          ['Specialized Banks', '7 (as at 31 May 2026)', 'NBC', 'AEON, KB Daehan, Southern Capital', 'Niche banking services', 'Yes (mandatory)'],
-          ['Microfinance Institutions', '88 (as at 31 May 2026)', 'NBC', 'LOLC, Amret, Mohanokor (deposit-taking)', 'Micro-lending, savings, payments', 'Not confirmed'],
-          ['Payment Service Providers', '28 (as at 31 May 2026)', 'NBC', 'TrueMoney, Pi Pay, Ly Hour Pay Pro', 'E-wallets, remittance, merchant services', 'Yes (mandatory)'],
+          ['Commercial Banks', '58 (as at 31 May 2026)', 'NBC', 'ACLEDA, ABA, Canadia, BRED, Phillip', 'Full banking, payments, lending'],
+          ['Specialized Banks', '7 (as at 31 May 2026)', 'NBC', 'AEON, KB Daehan, Southern Capital', 'Niche banking services'],
+          ['Microfinance Institutions', '88 (as at 31 May 2026)', 'NBC', 'LOLC, Amret, Mohanokor (deposit-taking)', 'Micro-lending, savings, payments'],
+          ['Payment Service Providers', '28 (as at 31 May 2026)', 'NBC', 'TrueMoney, Pi Pay, Ly Hour Pay Pro', 'E-wallets, remittance, merchant services'],
         ],
       },
     },
@@ -65,15 +67,15 @@ export const cambodiaPaymentEcosystem: ArticleContent = {
     },
     {
       heading: 'Mobile Wallets and Payment Service Providers',
-      content: 'The NBC\'s register lists 28 payment service institutions as at 31 May 2026. The mobile wallet market is dominated by three players: Wing Bank (the most established mobile money operator with over 8 million registered accounts), TrueMoney Cambodia (backed by Thailand\'s Ascend Money, part of the CP Group), and Pi Pay (Cambodia\'s homegrown fintech offering QR payments and lifestyle services).\n\nWing, originally launched as a mobile money operator in 2009, is now on the NBC register as a commercial bank. Wing\'s extensive agent network of over 10,000 agents nationwide makes it the primary cash-in/cash-out infrastructure for Cambodia\'s digital economy. TrueMoney Cambodia focuses on cross-border remittance from Thailand (serving the estimated 1.2 million Cambodian workers in Thailand) and has leveraged its parent company\'s ASEAN network for regional connectivity. Pi Pay has differentiated through merchant partnerships, offering cashback rewards and loyalty programs that drive repeat usage.\n\nThe PSP landscape also includes specialized players: Ly Hour Pay Pro (linked to Ly Hour Exchange, focusing on FX and remittance), and several niche operators targeting specific verticals (insurance premium collection, agricultural supply chain payments, transportation ticketing). All PSPs must connect to the Bakong switch and support KHQR, ensuring interoperability across the ecosystem.',
+      content: 'The NBC\'s register lists 28 payment service institutions as at 31 May 2026. The mobile wallet market is dominated by three players: Wing Bank (the most established mobile money operator with over 8 million registered accounts), TrueMoney Cambodia (backed by Thailand\'s Ascend Money, part of the CP Group), and Pi Pay (Cambodia\'s homegrown fintech offering QR payments and lifestyle services).\n\nWing, originally launched as a mobile money operator in 2009, is now on the NBC register as a commercial bank. Wing\'s extensive agent network of over 10,000 agents nationwide makes it the primary cash-in/cash-out infrastructure for Cambodia\'s digital economy. TrueMoney Cambodia focuses on cross-border remittance from Thailand (serving the estimated 1.2 million Cambodian workers in Thailand) and has leveraged its parent company\'s ASEAN network for regional connectivity. Pi Pay has differentiated through merchant partnerships, offering cashback rewards and loyalty programs that drive repeat usage.\n\nThe PSP landscape also includes specialized players: Ly Hour Pay Pro (linked to Ly Hour Exchange, focusing on FX and remittance), and several niche operators targeting specific verticals (insurance premium collection, agricultural supply chain payments, transportation ticketing).',
       table: {
         caption: 'Leading Mobile Wallets and PSPs in Cambodia (2025)',
-        headers: ['Provider', 'License Type', 'Registered Users', 'Agent Network', 'Key Differentiator', 'Bakong Connected'],
+        headers: ['Provider', 'License Type', 'Registered Users', 'Agent Network', 'Key Differentiator'],
         rows: [
-          ['Wing Bank', 'Commercial Bank', '8.0M', '10,000+', 'Largest agent network, rural coverage', 'Yes'],
-          ['TrueMoney Cambodia', 'PSP', '3.5M', '4,500', 'Cross-border (Thailand), CP Group backing', 'Yes'],
-          ['Pi Pay', 'PSP', '2.8M', 'Digital-only', 'Merchant rewards, lifestyle services', 'Yes'],
-          ['Ly Hour Pay Pro', 'PSP', '0.6M', '350', 'FX services, remittance', 'Yes'],
+          ['Wing Bank', 'Commercial Bank', '8.0M', '10,000+', 'Largest agent network, rural coverage'],
+          ['TrueMoney Cambodia', 'PSP', '3.5M', '4,500', 'Cross-border (Thailand), CP Group backing'],
+          ['Pi Pay', 'PSP', '2.8M', 'Digital-only', 'Merchant rewards, lifestyle services'],
+          ['Ly Hour Pay Pro', 'PSP', '0.6M', '350', 'FX services, remittance'],
         ],
       },
     },

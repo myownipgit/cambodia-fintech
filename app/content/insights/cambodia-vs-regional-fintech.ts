@@ -7,7 +7,7 @@ export const cambodiaVsRegionalFintech: ArticleContent = {
   type: 'insights',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
+  updatedAt: '2026-11-04',
   readingTime: 8,
   schema: 'Article',
   relatedSlugs: ['gaap', 'asean-digital-economy-comparison', 'cambodia-fintech-landscape'],
@@ -45,7 +45,7 @@ export const cambodiaVsRegionalFintech: ArticleContent = {
     },
     {
       heading: 'Payment Infrastructure Architecture Comparison',
-      content: 'The architectural differences between the three payment systems reflect fundamentally different design philosophies. Thailand\'s PromptPay, launched in 2017, is a fast payment overlay built on top of the existing banking infrastructure. It uses the National ITMX (Interbank Transaction Management and Exchange) as a central switch, with proxy-based addressing (national ID or mobile number). PromptPay is fast, reliable, and deeply integrated with Thai banking, but it is not a CBDC and does not operate on distributed ledger technology.\n\nVietnam\'s NAPAS (National Payment Corporation of Vietnam), established in 2004 and modernized continuously, operates as an interbank clearing and switching center. Vietnam relies heavily on private-sector innovation: MoMo, ZaloPay, VNPay, and ShopeePay have built consumer-facing payment layers on top of NAPAS infrastructure. The result is a vibrant but fragmented ecosystem where QR code interoperability was only achieved in 2024.\n\nCambodia\'s Bakong, launched in 2020, is architecturally the most advanced: a genuine retail CBDC built on Hyperledger Iroha blockchain, with KHQR interoperability mandated from launch. The trade-off is that Bakong\'s government-controlled architecture offers less room for private-sector payment infrastructure innovation.',
+      content: 'The architectural differences between the three payment systems reflect fundamentally different design philosophies. Thailand\'s PromptPay, launched in 2017, is a fast payment overlay built on top of the existing banking infrastructure. It uses the National ITMX (Interbank Transaction Management and Exchange) as a central switch, with proxy-based addressing (national ID or mobile number). PromptPay is fast, reliable, and deeply integrated with Thai banking, but it is not a CBDC and does not operate on distributed ledger technology.\n\nVietnam\'s NAPAS (National Payment Corporation of Vietnam), established in 2004 and modernized continuously, operates as an interbank clearing and switching center. Vietnam relies heavily on private-sector innovation: MoMo, ZaloPay, VNPay, and ShopeePay have built consumer-facing payment layers on top of NAPAS infrastructure. The result is a vibrant but fragmented ecosystem where QR code interoperability was only achieved in 2024.\n\nCambodia\'s Bakong, launched in 2020, is architecturally the most advanced: a genuine retail CBDC built on Hyperledger Iroha blockchain, with the KHQR standard set by NBC Prakas in June 2020. The trade-off is that Bakong\'s government-controlled architecture offers less room for private-sector payment infrastructure innovation.',
     },
     {
       heading: 'Digital Payment Adoption Metrics',
