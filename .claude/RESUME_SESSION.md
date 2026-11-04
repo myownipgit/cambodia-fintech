@@ -7,10 +7,11 @@ This file tracks the current session state to enable seamless recovery between s
 **2026-11-04 — CORRECTIONS PASS. Entries below this one contain errors listed here (ADR-011).**
 
 - `sheets-llm` key `662dd13d…` is **disabled, not deleted**. Delete it and `~/Downloads/key.json` after a week or two if nothing breaks. Project contents unconfirmed.
-- Prakas B14-017-161 has no licence categories; capital is in Art. 13. Labels removed. **Open: publish the figure after checking amendments.**
-- Both NBC PDF links in the registry return 404 (`law-on-banking`, `prakas-b14-017-161`, `prakas-b7-024-735`).
+- Prakas B14-017-161 has no licence categories. Art. 13 (KHR 8,000,000,000 in cash) is published with source and check date; limits of the amendment check are in ADR-011.
+- NBC links repointed. SCF circular paragraph removed.
+- **Open:** PayGo and Chhip Pay are not on the NBC register as at 31 May 2026; the page's 37 licensed PSPs vs 28 on the register.
 - Corrected below: "three phantoms", "byte-identical", "17 URLs confirmed as documents", "330% is Bakong alone", "no English edition".
-- Unfixed and on live sites: placeholder bio on `insights.camfintech.com/press`, "Bio coming shortly" on riel.report, and the unverified SCF circular.
+- Left alone on Bill's instruction: placeholder bio on `insights.camfintech.com/press`. Also unfixed: "Bio coming shortly" on riel.report.
 
 **2026-11-04 — camfintech.com is NOT on the HSTS preload list, and cannot be submitted as
 it stands.** No change made; this is a finding.

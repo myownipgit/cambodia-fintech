@@ -51,7 +51,7 @@ export const prakasB7024735: RegulatoryInstrument = {
     {
       publisher: 'National Bank of Cambodia',
       label: 'Prakas on Transaction Related to Cryptoassets — official English translation (PDF)',
-      url: 'https://www.nbc.gov.kh/download_files/legislation/prakas_eng/20241226_PrakasonCryptoassetactivities-Eng.pdf',
+      url: 'https://nbc.gov.kh/files/legislation/prakas/latest/en/20241226_PrakasonCryptoassetactivities-Eng.pdf',
       tier: 'primary',
     },
     {

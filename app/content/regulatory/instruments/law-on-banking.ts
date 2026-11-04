@@ -41,7 +41,7 @@ export const lawOnBanking: RegulatoryInstrument = {
       publisher: 'National Bank of Cambodia',
       label:
         'Cited by number and date in the preamble to Prakas B7-024-735 (official English translation, PDF)',
-      url: 'https://www.nbc.gov.kh/download_files/legislation/prakas_eng/20241226_PrakasonCryptoassetactivities-Eng.pdf',
+      url: 'https://nbc.gov.kh/files/legislation/prakas/latest/en/20241226_PrakasonCryptoassetactivities-Eng.pdf',
       tier: 'primary',
     },
   ],

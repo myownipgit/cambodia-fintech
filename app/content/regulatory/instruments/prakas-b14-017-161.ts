@@ -13,8 +13,13 @@ import { RegulatoryInstrument } from '../types';
  *
  * Contents are stated conservatively: the NBC publishes only a Khmer text at
  * this number, so what appears below is what the National Trade Repository's
- * English record states. Capital tiers are deliberately absent — the figures in
- * circulation trace to an industry tracker, not to the instrument.
+ * English record states. The capital figure was read in both that record and the
+ * NBC's signed Khmer text (Article 13, p. 9) on 2026-11-04. The Prakas has no
+ * licence tiers. The NBC's list of Prakas and circulars showed no amendment that
+ * day, and Prakas B7-024-735 cited this one without amendment in December 2024.
+ * That is evidence, not proof: most of the NBC's PDFs are scans, and titles were
+ * what could be checked. The NBC list dates this Prakas 20 June 2017; the NBC's own
+ * citation of it says 14 June 2017, which is used here.
  */
 export const prakasB14017161: RegulatoryInstrument = {
   slug: 'prakas-b14-017-161',
@@ -35,6 +40,7 @@ export const prakasB14017161: RegulatoryInstrument = {
     'Legal persons intending to provide payment services in Cambodia. Any such person must hold an NBC licence.',
   requires: [
     'A licence from the National Bank of Cambodia before conducting payment services in Cambodia.',
+    'Minimum capital of not less than KHR 8,000,000,000, in cash (Article 13). The NBC may change the requirement.',
     'Covers services enabling deposit and withdrawal of money in payment accounts; carrying out payment transactions including transfers of funds; issuing payment instruments including electronic money; domestic and overseas transfers; and other payment services as the NBC defines.',
     'Stated purposes are the safety and reliability of payment services, fair competition and innovation, and public confidence in payment services.',
   ],
@@ -44,12 +50,12 @@ export const prakasB14017161: RegulatoryInstrument = {
     'Digital assets held for investment. That is SERC territory under Prakas 093.',
     'E-commerce permits and licences, which are a Ministry of Commerce matter under Sub-Decree 134 and Prakas 290 and are commercial rather than financial.',
   ],
-  asAt: '2026-08-31',
+  asAt: '2026-11-04',
   sources: [
     {
       publisher: 'National Bank of Cambodia',
       label: 'Prakas NBC14-017-161 on Payment Service Institutions — Khmer text (PDF)',
-      url: 'https://www.nbc.gov.kh/download_files/legislation/prakas_kh/Prakas_NBC14_017_161_Payment-Service-Provider_Khmer.pdf',
+      url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_NBC14_017_161_Payment-Service-Provider_Khmer.pdf',
       tier: 'primary',
     },
     {
@@ -62,7 +68,7 @@ export const prakasB14017161: RegulatoryInstrument = {
       publisher: 'National Bank of Cambodia',
       label:
         'Cited by number and title in the preamble to Prakas B7-024-735 (official English translation, PDF)',
-      url: 'https://www.nbc.gov.kh/download_files/legislation/prakas_eng/20241226_PrakasonCryptoassetactivities-Eng.pdf',
+      url: 'https://nbc.gov.kh/files/legislation/prakas/latest/en/20241226_PrakasonCryptoassetactivities-Eng.pdf',
       tier: 'primary',
     },
   ],

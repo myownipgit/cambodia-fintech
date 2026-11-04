@@ -12,7 +12,7 @@ export const fintechLicenseCambodia: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['nbc', 'gdt', 'gaap'],
   relatedInstruments: ['law-on-banking', 'prakas-b14-017-161', 'law-on-nbfsa', 'prakas-093'],
-  lead: 'Obtaining a FinTech license in Cambodia requires navigating the National Bank of Cambodia\'s (NBC) multi-tiered licensing framework, which categorizes financial technology operators by activity type, risk profile, and capital adequacy. The NBC oversees all payment service providers, e-money issuers, and technology-driven financial institutions through a regulatory architecture designed to promote innovation while maintaining financial system stability. With the National Bank of Cambodia reporting that the number of digital payment transactions grew 78% in 2024 and the regulatory sandbox attracting international entrants, understanding the licensing pathway is essential for any firm planning to operate in the Kingdom\'s FinTech sector.',
+  lead: 'Obtaining a FinTech license in Cambodia requires navigating the National Bank of Cambodia\'s (NBC) licensing framework. The NBC oversees all payment service providers, e-money issuers, and technology-driven financial institutions through a regulatory architecture designed to promote innovation while maintaining financial system stability. With the National Bank of Cambodia reporting that the number of digital payment transactions grew 78% in 2024 and the regulatory sandbox attracting international entrants, understanding the licensing pathway is essential for any firm planning to operate in the Kingdom\'s FinTech sector.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -36,6 +36,7 @@ export const fintechLicenseCambodia: ArticleContent = {
   // A search of three guessed NBC paths found no English edition, which is not proof
   // that none exists.
   claims: [
+    { stat: 'A payment service institution must have minimum capital of not less than KHR 8,000,000,000, in cash. The NBC may change the requirement. The NBC list of Prakas and circulars showed no amendment to this Prakas when checked on 4 November 2026; confirm the current figure with the NBC or Cambodian counsel before relying on it.', source: 'National Bank of Cambodia, Prakas B14-017-161 P.K, Article 13, National Trade Repository record', year: '2017', url: 'https://cambodiantr.gov.kh/en/document/?title=prakas-on-the-management-of-payment-service-institution' },
     { stat: 'The number of digital payment transactions in Cambodia grew 78% during 2024 and their value grew 38%, both measured against 2023. The National Bank of Cambodia puts the total value at approximately 15 times gross domestic product.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i (Open Development Cambodia copy)', year: '2024', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf' },
   ],
   sources: [
@@ -45,14 +46,14 @@ export const fintechLicenseCambodia: ArticleContent = {
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [
-    { question: 'What types of FinTech licenses does Cambodia offer?', answer: 'Cambodia offers several FinTech-related license types through the NBC: Payment Service Provider (PSP) licenses for payment processing and transfer services, E-Money Issuer licenses for digital wallet operators, Microfinance Institution (MFI) licenses for digital lending, and Banking licenses for full-service digital banks. The regulatory sandbox also provides a temporary testing framework for innovative FinTech models that do not fit existing categories.' },
+    { question: 'What types of FinTech licenses does Cambodia offer?', answer: 'Cambodia offers several FinTech-related license types through the NBC: Payment Service Institution licenses for payment services, including issuing electronic money, Microfinance Institution (MFI) licenses for digital lending, and Banking licenses for full-service digital banks. The regulatory sandbox also provides a temporary testing framework for innovative FinTech models that do not fit existing categories.' },
     { question: 'Can foreigners own a FinTech company in Cambodia?', answer: 'Yes. Cambodia allows 100% foreign ownership of payment service providers and e-money issuers, subject to NBC approval. Foreign-owned FinTech firms must comply with the Law on Foreign Exchange, maintain minimum capital requirements in Cambodia, and appoint at least one local director. This open ownership framework has attracted FinTech firms from Singapore, Thailand, Japan, and China.' },
-    { question: 'How long does it take to get a FinTech license in Cambodia?', answer: 'The standard licensing timeline is 6-12 months from initial application to license issuance for payment service providers. E-money issuer licenses typically take 9-15 months due to additional capital and technology requirements. Firms entering through the regulatory sandbox can expect 12-18 months before full license graduation. Complete documentation at first filing is the main lever on approval timelines.' },
+    { question: 'How long does it take to get a FinTech license in Cambodia?', answer: 'The standard licensing timeline is 6-12 months from initial application to license issuance for payment service providers. Firms entering through the regulatory sandbox can expect 12-18 months before full license graduation. Complete documentation at first filing is the main lever on approval timelines.' },
   ],
   sections: [
     {
       heading: 'NBC Licensing Categories for FinTech',
-      content: 'The National Bank of Cambodia classifies FinTech operators into distinct licensing categories based on the financial services they provide. The primary categories relevant to FinTech firms are Payment Service Providers (PSPs), E-Money Issuers, Microfinance Institutions (MFIs), and Banking Institutions. Each category carries different capital requirements, operational mandates, and reporting obligations.\n\nThe NBC\'s regulatory philosophy emphasizes activity-based regulation: the license type is determined by what a firm does, not what it calls itself. A technology company that facilitates payments requires a PSP license. A platform that issues stored-value digital tokens needs an e-money license. A firm that extends credit digitally must obtain an MFI or banking license. This approach ensures regulatory coverage regardless of the business model\'s novelty.',
+      content: 'The National Bank of Cambodia classifies FinTech operators into distinct licensing categories based on the financial services they provide. The primary categories relevant to FinTech firms are Payment Service Institutions (including electronic money issuers), Microfinance Institutions (MFIs), and Banking Institutions, which are licensed under different instruments.\n\nThe NBC\'s regulatory philosophy emphasizes activity-based regulation: the license type is determined by what a firm does, not what it calls itself. A technology company that facilitates payments requires a PSP license. A platform that issues electronic money needs a payment service institution license that covers it. A firm that extends credit digitally must obtain an MFI or banking license. This approach ensures regulatory coverage regardless of the business model\'s novelty.',
       // Capital thresholds removed 2026-11-04. The site carried mutually
       // contradictory sets of NBC minimum-capital figures (PSP variously $500,000,
       // $1,000,000 and ~USD 250,000), none traceable to a fetched source. CLAUDE.md
@@ -64,8 +65,7 @@ export const fintechLicenseCambodia: ArticleContent = {
         caption: 'NBC FinTech License Categories and Requirements',
         headers: ['License Type', 'Key Activities Covered', 'Regulatory Burden', 'Foreign Ownership'],
         rows: [
-          ['Payment Service Provider', 'Payment processing, transfers, KHQR', 'Medium', '100% allowed'],
-          ['E-Money Issuer', 'Digital wallets, stored value, top-ups', 'High', '100% allowed'],
+          ['Payment Service Institution', 'Payment processing, transfers, KHQR, electronic money', 'Medium to high', '100% allowed'],
           ['Microfinance Institution', 'Digital lending, micro-credit', 'High', '100% allowed'],
           ['Specialized Bank', 'Deposits, lending, full digital banking', 'Very High', '100% allowed'],
           ['Commercial Bank', 'Full banking services', 'Maximum', '100% allowed'],
@@ -79,7 +79,7 @@ export const fintechLicenseCambodia: ArticleContent = {
     },
     {
       heading: 'Capital Requirements and Financial Conditions',
-      content: 'Capital is a condition of the licence rather than a formality. Under Prakas B14-017-161 a payment service institution must hold its minimum capital in cash, its net worth may not fall below its initial capital, and the NBC may review the requirement from time to time. Read the current figure from the instrument or confirm it with Cambodian counsel before relying on it for a capital plan. This page does not state figures for other licence types, because they have not been checked against their own instruments.\n\nThe same Prakas requires a licensed institution to place a capital guarantee in an account at the NBC, and to safeguard funds received from payment service users, either in a separate trust account at a commercial bank or in secure, liquid, low-risk assets as the NBC defines them.',
+      content: 'Capital is a condition of the licence rather than a formality. Under Article 13 of Prakas B14-017-161 a payment service institution must have minimum capital of not less than KHR 8,000,000,000, in cash, and its net worth may not fall below that amount. The NBC may change the requirement, so confirm the current figure with the NBC or Cambodian counsel before relying on it for a capital plan. This page does not state figures for other licence types, because they have not been checked against their own instruments.\n\nThe same Prakas requires a licensed institution to place a capital guarantee in an account at the NBC, and to safeguard funds received from payment service users, either in a separate trust account at a commercial bank or in secure, liquid, low-risk assets as the NBC defines them.',
     },
     {
       heading: 'The Regulatory Sandbox Pathway',
