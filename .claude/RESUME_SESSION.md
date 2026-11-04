@@ -4,6 +4,53 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 (later still) — THE $78 BILLION FIGURE WAS A GROWTH RATE. Corrected and deployed.**
+`main` and `feature/update-homepage` level; production `dpl_F7BoWn8hVRgHVVkgu982Pia5HQk2`.
+
+### What the primary said
+
+`/learn/fintech-license-cambodia` opened with *"Cambodia's digital payment volumes exceeding
+$78 billion in 2024"*. `/learn/cambodia-fintech-landscape` carried the same number **twice**,
+plus a derived *"up from approximately $40 billion in 2022"* — a sixth file in this class.
+
+The NBC's own **Annual Report on the Payment System in Cambodia 2024** states on its foreword
+page (printed p. i, PDF p. 2), in Khmer numerals: the **number** of digital payment
+transactions and their **value** rose **78% and 38%** respectively against 2023, with the
+value equivalent to roughly **15 times GDP**. The "$78 billion" was that **78% growth rate
+transcribed as a currency total**. The 2022 figure had no source at all and is gone.
+
+**Fetch note — record this.** NBC's own copy
+(`nbc.gov.kh/download_files/publication/pay_sys_annual_rep_kh/PSD Annual Book 2024.pdf`)
+**301s then 404s**. The working source is the Open Development Cambodia mirror:
+`https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf`
+(4,402,760 bytes, 90 pages, Khmer). It will not resume a partial download — no byte-range
+support — so fetch it in one pass with a generous timeout. **The PDF uses Khmer numerals
+(០-៩)**; `pdftotext -layout` extracts them as Khmer, so a grep for "78" finds nothing until
+you translate the digits.
+
+**There is no English edition.** `pay_sys_annual_rep_en`, `_eng` and `annual_report_en` all 404.
+
+### First restoration to a `claims` array since the 153 were stripped
+
+Both pages now carry:
+`{ stat: '...grew 78%... value grew 38%... approximately 15 times GDP', source: 'National Bank
+of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i',
+year: '2024' }`
+
+It meets the bar the 2026-08-31 strip set: read in a fetched primary, with where it was read
+recorded in-file. `fintech-license-cambodia.ts` carries the full provenance comment including
+the mirror URL.
+
+**A caution on the GDP multiple**: the NBC says ~15x GDP for *digital payments*. Press
+reporting of *"330% of GDP"* is **Bakong alone**, a narrower measure. Do not reconcile them —
+they count different things.
+
+### Still unverified on those two pages (untouched)
+
+"over 30 licensed operators" · "compound annual growth exceeding 35% since 2020" · "GDP growth
+of 5.8% in 2025" · "approximately 15 firms currently operating in the sandbox" · "shut down
+over 15 unauthorized payment platforms since 2022".
+
 **2026-11-04 (final) — DOCUMENTATION AND VAULT UPDATED; `main` FAST-FORWARDED.**
 `main` and `feature/update-homepage` both at `eddd4ad`, zero divergence; production
 `dpl_5hXeZ2DE8w5pzXkKNmqbQZbCSgr8`.
