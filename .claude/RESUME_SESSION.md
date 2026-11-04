@@ -4,6 +4,67 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 (later) — UNSOURCED CAPITAL THRESHOLDS REMOVED SITE-WIDE. Deployed.**
+`feature/update-homepage` at `57f19ac`; production `dpl_6Vh2jUFp5hvMYXZAoghLQ1EsJ14Y`.
+
+### C1 closed — the capital-threshold class
+
+Long-standing item C1 (open since the 2026-10-18 GEO audit) was larger than recorded. The
+site published **three mutually contradictory sets** of NBC minimum-capital figures, plus a
+fourth in an ASEAN comparison table:
+
+| Licence | learn/fintech-license | glossary/nbc | knowledge/cambodia-fintech-regulation | asean comparison |
+|---|---|---|---|---|
+| PSP | $500,000 | $1,000,000 | ~USD 250,000 (KHR 1bn) | USD 250K-500K |
+| E-money | $1,500,000 | $1,500,000 | ~USD 500,000 (KHR 2bn) | — |
+| MFI (deposit-taking) | $7,500,000 | $2,500,000 | — | — |
+
+**Five files edited** — the four above plus `knowledge/cambodia-scf-opportunity.ts` (an
+SCF licence/capital matrix, KHR 10-30 billion). Removed, not corrected: there is no basis
+for choosing between the sets, and the right figure may be a fourth number. Also removed
+in the same class: a 15% CAR, a six-months-opex capital floor, an annual renewal fee range
+of KHR 10-50 million, a 5% SCF guarantee-fund figure, and the ASEAN capital column for six
+other markets.
+
+**Structural claims kept** — capital fully paid up and held in a Cambodian bank before
+issuance, e-money float segregated at 1:1, threshold rising steeply with category. Each
+site now points at the current instrument or Cambodian counsel for the number, which is
+the pattern `regulatory/instruments/law-on-trust.ts` already uses.
+
+**The phantom Prakas is gone.** `knowledge/cambodia-fintech-regulation.ts` cited the
+three-category structure to "Prakas on Payment Service Providers (B7-019-344)" — not in
+the verified registry, and the third variant of this shape after `B7-017-282`. Citation
+removed rather than corrected; the structure has not been read in a primary. **Category
+1/2/3 labels were deliberately KEPT** — they classify named licensees across four content
+files (`cambodia-payment-ecosystem.ts` labels TrueMoney, Pi Pay, PayGo, Chhip Pay and
+Ly Hour Pay Pro by category), so stripping them is a far larger rewrite than the evidence
+problem warrants. Flagged as still-unverified.
+
+Every edited file carries an **in-file note** recording what was removed and the bar for
+restoring it, so a later pass does not "restore" the numbers.
+
+Gates: `tsc --noEmit` clean, `check:llms` passed, lint 0 errors / 3 pre-existing warnings,
+build succeeded. Verified live on all five pages — zero occurrences of any removed figure,
+zero `B7-019-344`. The two surviving "minimum capital requirements" strings are the bare
+phrase with no number attached, which is correct. The `llms*.txt` surfaces never carried
+these figures.
+
+### Still open in the neighbouring class (NOT touched)
+
+- `/learn/fintech-license-cambodia` lede asserts **"digital payment volumes exceeding $78
+  billion in 2024"**, unsourced. Out of the prohibited class; same species of defect.
+- Same page: "approximately 15 firms are currently operating in the sandbox".
+- `cambodia-fintech-regulation.ts` reserve-requirement table (12.5% USD / 7.0% KHR) and
+  FX reporting thresholds — prudential figures, unsourced, out of the capital/fee class.
+- `cambodia-scf-opportunity.ts` cites an **"NBC Circular on Supply Chain Finance
+  Guidelines, late 2024"** that is not in the verified registry. Same shape as B7-019-344.
+  Worth checking before the SCF page is promoted anywhere.
+- `glossary/nbc.ts` has a "Regulatory Approval-Navigation with CamFinTech" section saying
+  the firm will "navigate the path from sandbox application through full license
+  acquisition". Hedged in the next clause, but close to the ADR-006 line on claiming
+  agency over an approval. Bill flagged, not changed.
+- The wider count: ~1,300 quantified figures across 40 of 59 content files, unsourced.
+
 **2026-11-04 — FOUNDER HEADSHOT REPLACED AND RENAMED, DEPLOYED.** `feature/update-homepage`
 at `7d438ad`, pushed. Production is `dpl_5U41vNZt4C8sVykpeBx3w5tHSgoJ`. `main` is still deliberately behind at `4d1bb79` — Bill declined the fast-forward
 on 2026-08-23 and it has not been revisited.
