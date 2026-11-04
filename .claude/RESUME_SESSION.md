@@ -4,6 +4,8 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 — RENDER CHECK, headless Chrome (extension not connected).** 12 pages measured at 390px and 1440px: no page overflow, no broken images, no CSP violations; DASP FAQ accordion works. Five renders viewed. Open: homepage H1 at desktop has 40px line height on 44px type; empty grey block beside SRV-10; a table on the Insights home runs past the phone viewport (not viewed); hamburger has no aria-expanded. riel.report subscribe form not submitted, so its POST under the CSP is untested.
+
 **2026-11-04 — BAKONG CONNECTION CLAIMS CORRECTED AND DEPLOYED.** Against the undated member list on bakong.nbc.gov.kh and NBC registers as at 31 May 2026: about 45 of 58 commercial banks, 1 of 7 specialised banks, about 10-11 of 28 PSIs, and the 3 deposit-taking MFIs match. The list is stale (still shows Prince Bank), so this neither proves nor disproves connection. No "mandatory connection" rule found: Prakas F14-020-351 (June 2020) requires institutions using QR payments to follow KHQR by end-2020; Prakas F14-020-349 (June 2020) binds Bakong members. The annex to F14-020-349 was not in the PDF read. The site's "2023 mandate" is unsupported, and "KHQR introduced 2022" sits oddly with the 2020 Prakas. Corrected across 13 content files; the Bakong Connected column is removed.
 
 **2026-11-04 — CORRECTIONS PASS. Entries below this one contain errors listed here (ADR-011).**
