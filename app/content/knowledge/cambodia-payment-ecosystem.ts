@@ -41,7 +41,7 @@ export const cambodiaPaymentEcosystem: ArticleContent = {
           ['Commercial Banks', '59', 'NBC', 'ACLEDA, ABA, Canadia, BRED, Phillip', 'Full banking, payments, lending', 'Yes (mandatory)'],
           ['Specialized Banks', '7', 'NBC', 'FTB, Peng Heng, RHB Indochina', 'Niche banking services', 'Yes (mandatory)'],
           ['Microfinance Institutions', '87', 'NBC', 'PRASAC, LOLC, Amret, Hattha', 'Micro-lending, savings, payments', 'Yes (35 connected)'],
-          ['Payment Service Providers', '28', 'NBC', 'Wing, TrueMoney, Pi Pay, Chhip Pay', 'E-wallets, remittance, merchant services', 'Yes (mandatory)'],
+          ['Payment Service Providers', '28 (as at 31 May 2026)', 'NBC', 'TrueMoney, Pi Pay, Ly Hour Pay Pro', 'E-wallets, remittance, merchant services', 'Yes (mandatory)'],
           ['Card Acquirers/Processors', '5', 'NBC', 'ABA, ACLEDA, FTB', 'Visa/MC acceptance, POS terminals', 'Indirect'],
           ['Payment Gateways', '8', 'NBC', 'PayWay, iPay88, Midtrans', 'E-commerce payment processing', 'Via bank partners'],
         ],
