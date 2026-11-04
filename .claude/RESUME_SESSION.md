@@ -4,6 +4,73 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
+**2026-11-04 — GEO CITATION SWEEP SHIPPED (standing H1). 22 pages → 2 unsourced.**
+Production `dpl_2HuiAbL9uwtfBWPffGj4eyuLaz7j`.
+
+### The audit itself needed auditing first
+
+`GEO-Audit-2026-11-04.md` (DeepSeek, run `0402377e`, generated 03:13Z). Scored 75/100.
+**Three of its findings did not survive verification** — worth doing every time, per ADR-002 D1:
+
+| Finding | Audit | Verified |
+|---|---|---|
+| HIGH-2/H1 zero outbound citations | present | **TRUE** — 22/22 pages, zero |
+| **M2 no `Article` schema on explainers** | present | **FALSE, 4th recurrence.** `/learn/*` emit `"@type":"Article"`; 22 files declare it, 8 declare `TechArticle`. Glossary pages correctly emit `DefinedTerm` + `DefinedTermSet`, which is *better* than Article for a glossary. **The audit's own Appendix contradicts its finding.** Would have cost a 16-page Week 4. |
+| L1 stale GitHub README | present | **Was true at 03:13Z; closed since** — by the `main` fast-forward, which shipped `572a210`. KHNSIC-codes half still open. |
+| M1 siblings unwired | present | TRUE on `llms.txt` (both 404). **Overstated on robots** — both serve `Allow: /`, so nothing is blocked. |
+| L4 no FAQ/HowTo on `/products/dasp` | present | TRUE — `Service` + `Audience` only |
+
+**A GEO audit does not check truth.** It scored `/learn/fintech-license-cambodia` **0 issues**
+at 03:13Z while that page was publishing contradictory capital thresholds. Machine-readability
+and accuracy are different axes; do not read a good GEO score as content assurance.
+
+### What shipped
+
+New optional `sources: ArticleSource[]` + `sourcesAsAt` on `ArticleMeta`, rendered by
+`app/components/SourceList.tsx` **above** the Regulatory instruments block — above, because an
+instrument link is *internal* (it goes to our page about a rule, not the rule). Mirrors
+`app/content/regulatory/types.ts` `InstrumentSource` deliberately, `tier` included.
+
+**20 of 22 pages wired, 17 distinct URLs, every one fetched and confirmed 200 before shipping.**
+
+**Two pages deliberately ship no block**: `/glossary/supply-chain-finance` and
+`/learn/supply-chain-finance-cambodia`. No Cambodian primary genuinely covers them, and the
+"NBC Circular on Supply Chain Finance Guidelines, late 2024" that the SCF article cites is
+itself unverified (standing NEW-H3). Padding them would have scored better and meant less.
+
+### New instrument found — worth adding to /regulatory
+
+Opened and read during the sweep: **Sub-Decree No. 164 S.E, "On Data Exchange through Cambodia
+Data Exchange (CamDX)"** — not in the 17-entry registry. English unofficial translation and
+Khmer original both live on `camdx.gov.kh`, alongside the **28 July 2022 Decision appointing
+Techo Startup Center as CamDX operator**. Both are primary, both fetch cleanly. That is an R2-
+grade instrument entry sitting ready.
+
+### Verified source pool (all 200 on 2026-11-04)
+
+`bakong.nbc.gov.kh` + its **Bakong White Paper PDF** · `camdx.gov.kh` + sub-decree (EN/KH),
+TSC operator decision, User Guide EN, eKYC Open API · `camdigikey.gov.kh` · `nbc.gov.kh` ·
+`tax.gov.kh/en` + `/kh/prakas` · `cafiu.gov.kh/law-regulation` · `irc.gov.kh/en` ·
+`fintech.fsa.gov.kh` policy · `cambodiantr.gov.kh/en` · `digitaleconomy.gov.kh/en` ·
+NBC PSD Annual Book 2024 (OD Cambodia mirror).
+
+**Dead, do not retry**: `nbc.gov.kh/english/payment_systems/bakong.php`, `khqr.com.kh`,
+`nbfsa.org`, `nbfsa.gov.kh`, `gdt.gov.kh`, `e-invoice.gov.kh`, `einvoice.gdt.gov.kh`,
+`caminvoice.gdt.gov.kh`, `bakong.nbc.gov.kh/en/khqr`, `techostartup.center/en`.
+`bakong_user_manual.html` returns 200 but is a 111-byte stub — not a source.
+
+### Remaining from the audit
+
+**Bill only (off-site)**: HIGH-1 LinkedIn "Experience" text describing Corporate Venture
+Building — the audit's best catch, and the single most damaging entity-resolution
+contradiction · L2 "Founder & CEO" vs "Founder & Managing Director" · M3 company page ·
+M4 platform presence.
+
+**Mine, not yet done**: L4 `FAQPage`/`HowTo` on `/products/dasp` (~1h) · L1 remainder, KHNSIC
+codes in README (~10min) · M1 sibling `llms.txt` (separate repos).
+
+**Skip M2 entirely.** Log the false positive against the producer — fourth occurrence.
+
 **2026-11-04 (later still) — THE $78 BILLION FIGURE WAS A GROWTH RATE. Corrected and deployed.**
 `main` and `feature/update-homepage` level; production `dpl_F7BoWn8hVRgHVVkgu982Pia5HQk2`.
 
