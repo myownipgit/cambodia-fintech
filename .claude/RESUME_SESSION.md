@@ -4,15 +4,15 @@ This file tracks the current session state to enable seamless recovery between s
 
 ## Last Updated
 
-**2026-11-04 — FOUNDER HEADSHOT REPLACED, COMMITTED AND DEPLOYED.** `feature/update-homepage`
-at `0d375ba`, pushed. Production is `dpl_6uAbppDTmrMXckc5kCwJKDuR5pWY`, serving the new
-headshot. `main` is still deliberately behind at `4d1bb79` — Bill declined the fast-forward
+**2026-11-04 — FOUNDER HEADSHOT REPLACED AND RENAMED, DEPLOYED.** `feature/update-homepage`
+at `7d438ad`, pushed. Production is `dpl_5U41vNZt4C8sVykpeBx3w5tHSgoJ`. `main` is still deliberately behind at `4d1bb79` — Bill declined the fast-forward
 on 2026-08-23 and it has not been revisited.
 
 ### Headshot swap
 
 `/images/founder-william-mallett.png` (397x500 RGBA, 253 KB, in place since 2026-08-04)
-is **deleted** and replaced by `/images/William_Mallett_Chief_Executive_CAMFINTECH_CO_LTD.jpg`
+is **deleted** and replaced by
+`/images/William_Mallett_Founder_and_Managing_Director_CAMFINTECH_CO_LTD.jpg`
 (1000x1000, 153 KB). Bill supplied a 1254x1254 / 2.16 MB PNG; it was resized and converted
 to JPEG q88 because both render sites use a raw `<img>` (no `next/image`, so the file ships
 byte-for-byte). The untouched original is **not** in the repo.
@@ -38,8 +38,18 @@ markup and served HTML, not rendered.
 The first `vercel --prod` attempt died with `fetch failed` (network, not the build); the
 immediate retry succeeded.
 
-Open: the filename says "Chief Executive" while the site's published title everywhere is
-"Founder & Managing Director". Flagged to Bill; not changed.
+### Filename now matches the published title (`7d438ad`)
+
+The file Bill supplied was named `..._Chief_Executive_...`, which contradicted the
+"Founder & Managing Director" title used in `AboutContent`, the homepage byline, the
+`Person` JSON-LD and `CLAUDE.md`. A public image URL is a crawled surface, so it shipped
+as a visible contradiction in `0d375ba` and was renamed on Bill's instruction minutes
+later. Same five references repointed; gates re-run green.
+
+**Three image URLs now 404** and will until crawlers re-fetch: the 2026-08-04
+`founder-william-mallett.png` (live 3 months — the one that matters, for LinkedIn previews
+and any GSC image record) and the `..._Chief_Executive_...` URL from `0d375ba` (live about
+ten minutes, negligible).
 
 **2026-11-02 — GOOGLE ANALYTICS CONNECTED; FIRST TRAFFIC READ. No code changes.** Repo clean
 on `feature/update-homepage` at `9224db9`; production unchanged.
