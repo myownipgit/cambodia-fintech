@@ -27,11 +27,18 @@ npm run build        # Build for production
 npm start            # Start production server
 npm run lint         # eslint .  — `next lint` was REMOVED in Next 16
 npm run check:llms   # guards public/llms*.txt against content-inventory drift
+npm run check:memory # guards the persistent-memory corpus against silent truncation
 ```
 
 **Run `npm run check:llms` after any content change.** `public/llms.txt` and `public/llms-full.txt` are hand-maintained, have no build step, and drifted twice: they spent a day telling AI systems that restored content was "superseded", and the canonical page index listed two of five content sections while giving `/learn` as 6 articles when it held 12. The check verifies every section appears in both files, that published counts match the registries, that no content file is orphaned from its registry, and that the exact superseded wording has not returned. It exits non-zero — it is not advisory.
 
 A generator was considered and rejected: it would move ~340 lines of carefully-worded prose into template literals, and the worse of the two drifts was *prose*, which a generator would have reproduced faithfully. The failure was that nothing noticed.
+
+**Run `npm run check:memory` after any memory edit.** On 2026-11-06 the session-start harness reported *"MEMORY.md is 27.5KB (limit: 24.4KB) — 17 of 185 lines were cut off"*. Nothing errored; that session simply began with less project knowledge than the files held, and no way to tell. Same shape as the llms.txt drift — the content was wrong and **nothing noticed**.
+
+The check fails (non-zero) when `MEMORY.md` exceeds a 22,000-byte budget set below the ~24,400-byte load limit, when an index entry points at a topic file that does not exist, or when `.claude/RESUME_SESSION.md` has no `## Start here` block or that block exceeds the 30 lines the file sets for itself. It resolves the memory dir from `CLAUDE_CONFIG_DIR` and **skips cleanly** when absent, so it does not break on another machine.
+
+Deliberately not checked: total size of `RESUME_SESSION.md` (it is a bounded Start-here block plus unbounded history, and the history is only read on purpose), and per-line length in `MEMORY.md` (bytes are what truncate; a check that fires on correct prose trains you to ignore it). All five failure modes were negative-tested against a fixture before this shipped.
 
 **Linting changed in Next 16.** `next build` no longer runs ESLint, so a green build does NOT imply a clean lint — run `npm run lint` deliberately before committing. `eslint.config.mjs` is native flat config: do **not** reintroduce the `@eslint/eslintrc` FlatCompat wrapper, which throws `Converting circular structure to JSON` against `eslint-config-next@16`. Note `eslint .` also lints the repo root (`next.config.js`, `tailwind.config.ts`), which `next lint` never did.
 
