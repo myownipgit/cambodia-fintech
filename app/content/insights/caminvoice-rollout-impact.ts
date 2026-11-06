@@ -1,107 +1,131 @@
 import { ArticleContent } from '../types';
 
+/*
+ * Rewritten 2026-11-07 (unsourced-figures pass, same bar as
+ * sme-digital-readiness.ts and app/content/regulatory).
+ *
+ * The previous version carried roughly 120 quantified figures and four tables.
+ * None had a fetched source. Everything was removed, not hedged. What the
+ * checks found, so nobody restores these from git:
+ *
+ * - "CamInvoice ... operated by the General Department of Taxation (GDT)" is
+ *   FALSE. MEF Prakas 075 of 22 January 2025, Article 4, makes the General
+ *   Department of Digital Economy (GDDE) of the Ministry of Economy and Finance
+ *   the secretariat that manages, operates and monitors the system, and
+ *   Circulars 003, 012 and 017 each name the GDDE as its operator. The GDT does
+ *   not appear in any of the four documents. (learn/what-is-caminvoice.ts
+ *   carries the same error, plus "the GDT clearance platform".)
+ * - "Phase 1 targeted ~3,500 large taxpayers with turnover above KHR 2 billion
+ *   ... beginning in 2024" is FALSE as to scope. Phase 1, as the MEF's own
+ *   circulars define it, is business-to-government: invoices from suppliers to
+ *   the budget entities of named ministries, beginning in fiscal year 2025.
+ *   No turnover threshold, taxpayer count or private-sector B2B date appears in
+ *   any document read. The "Phase 2: turnover above KHR 700 million, 12,000
+ *   businesses, rolling out through 2025" paragraph and the Phase 3/4 bands in
+ *   the cost table are untraceable and conflict with learn/what-is-caminvoice.ts
+ *   (which has KHR 500 million and different years). Neither page is sourced.
+ * - "Launched in phases beginning in 2024" — the system was officially launched
+ *   on 22 January 2025 (Circular 012, opening paragraph).
+ * - Every "Phase 1 result" — 78% compliance within six months, 22% receiving
+ *   enforcement notices, a 12% rise in declared revenue, USD 45-60m of extra
+ *   VAT, a 28% faster VAT refund, a 42% Phase 2 readiness rate, an extended
+ *   12-month soft-enforcement period, GDT "accrediting" compliance providers —
+ *   was attributed to the GDT with no source, and describes a large-taxpayer
+ *   phase that the primaries do not contain. Treated as invented.
+ * - The 2019-2024 tax revenue / VAT / tax-to-GDP table, and "the IMF's 2024
+ *   Article IV attributed ~1.5 pp of the tax-to-GDP increase to digitization" —
+ *   unsourced. Restore only from the MEF/GDT revenue outturn or the IMF text.
+ * - "World Bank estimates Cambodia's VAT gap at 35-40%", the USD 19bn
+ *   consumption base, the USD 650-750m uncollected VAT, and the international
+ *   VAT-gap table (Brazil, Mexico, Chile, Italy, Vietnam) — unsourced.
+ * - "8,200 businesses registered in the first nine months of Phase 1 ... GDT
+ *   estimates ~30% registered because of CamInvoice" and the registration-
+ *   trends table — unsourced, and puts unpublished numbers in the GDT's mouth.
+ * - Compliance cost bands (USD 5,000-15,000, 1,000-5,000, 50-100/month, % of
+ *   revenue) — unsourced.
+ * - "CamFinTech models three scenarios ... USD 150/280/400 million" and
+ *   "CamFinTech estimates USD 250-400 million" — first-person modelling the
+ *   firm never did. Removed as a first-person evidence claim.
+ * - "USD 2.8 billion SME financing gap" (ADB) — no ADB figure found (see
+ *   sme-digital-readiness.ts). "ADB estimates each dollar of SME credit
+ *   generates USD 2.50-3.00 in output" — unsourced. "55-65% of commercial
+ *   transactions escaped formal documentation" — unsourced.
+ * - ASEAN comparison dates (e-Faktur 2016, Vietnam 2022) — unsourced here.
+ *
+ * Sources read for this version (all Khmer, scanned; MEF documents via the
+ * Open Development Cambodia mirror, fetched 2026-11-06): MEF Prakas 075 on the
+ * launch of the Cambodia E-Invoicing System; MEF Circulars 003, 012 and 017 on
+ * mandatory e-invoicing, Phase 1 Steps 1-3. gdde.mef.gov.kh and e-invoice.gov.kh
+ * returned 403 / a bot challenge. tax.gov.kh's Prakas, notice and instruction
+ * lists were searched for e-invoicing instruments and hold none.
+ *
+ * Bar for restoring a figure, threshold or date: read in a fetched primary
+ * (MEF, GDDE, GDT, IMF/World Bank text), recorded in `claims` with where it was
+ * read. Vendor and e-invoicing software pages do not clear it.
+ */
 export const caminvoiceRolloutImpact: ArticleContent = {
   slug: 'caminvoice-rollout-impact',
-  title: 'CamInvoice Rollout Impact: Tax Revenue, SME Compliance, and Digital Transformation',
-  description: 'Analysis of CamInvoice\'s phased rollout impact on Cambodia\'s tax revenue collection, SME compliance rates, VAT gap reduction, and broader digital transformation effects, with data from the General Department of Taxation, IMF, and World Bank.',
+  title: 'CamInvoice Rollout Impact: Scope, Phasing and What It Means for Business',
+  description: 'What the Ministry of Economy and Finance has put in place for the Cambodia E-Invoicing System (CamInvoice): its legal basis, the government-procurement first phase, what it means for suppliers and smaller businesses, and what remains to be announced.',
   type: 'insights',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
-  readingTime: 7,
+  updatedAt: '2026-11-07',
+  readingTime: 5,
   schema: 'Article',
   relatedSlugs: ['caminvoice', 'gdt', 'what-is-caminvoice'],
-  lead: 'Analysis published March 2026. Figures are as at their cited source year — mostly 2024 and 2025 — and are not restated here; check the source for anything more recent. CamInvoice, Cambodia\'s mandatory electronic invoicing system operated by the General Department of Taxation (GDT), represents one of the most ambitious tax digitization initiatives in Southeast Asia. Launched in phases beginning in 2024, CamInvoice aims to bring the estimated 55-65% of commercial transactions that previously escaped formal documentation into a structured digital record. The system\'s impact extends far beyond tax collection: by creating a comprehensive digital paper trail, CamInvoice enables data-driven credit scoring, supply chain transparency, and integration with Bakong payment infrastructure. This analysis examines the quantifiable impact of CamInvoice\'s rollout across tax revenue, compliance rates, SME digitization, and broader economic transformation.',
-  // Claims removed 2026-08-31. This array previously carried figures attributed
-  // to named institutional reports with no URL, access date or page reference.
-  // A verified sample was wrong more often than not — including a Cambodian FATF
-  // mutual evaluation that never took place, and citations to bodies that do not
-  // exist under the names given. Restore an entry only when its figure has been
-  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
-  // and record where it was read. See vault ADR-007.
-  claims: [],
+  lead: 'The Cambodia E-Invoicing System, known as CamInvoice, is a state platform for exchanging invoices electronically between sellers and buyers. The Ministry of Economy and Finance (MEF) launched it officially on 22 January 2025 by Prakas, and its General Department of Digital Economy (GDDE) operates it. The rollout is phased and began with government procurement: suppliers invoicing the budget entities of designated ministries must do so through the system, ministry by ministry. This article sets out what the MEF\'s own documents establish, what that means for suppliers and for smaller businesses, and where the published record stops. It carries no revenue, compliance or cost estimates. Those that appeared in an earlier version could not be traced to a primary source and have been removed.',
+  claims: [
+    { stat: 'The Cambodia E-Invoicing System was officially launched on 22 January 2025, with mandatory use beginning at the Ministry of Economy and Finance and the Ministry of Environment.', source: 'Ministry of Economy and Finance, Circular 012 on mandatory e-invoicing via the Cambodia E-Invoicing System, Phase 1, Step 2 (Khmer), opening paragraph, page 1', year: '2025', url: 'https://data.opendevelopmentcambodia.net/en/dataset/bce86ad2-6baf-456a-b49f-90c0b7b61f26/resource/e8c6b0ce-8f79-427e-a7e2-56f87c89ed1e/download/1756437973985-20250714_circular_to_6_lms_in_q3_2025.pdf' },
+    { stat: 'The General Department of Digital Economy of the MEF is the secretariat that manages, operates and monitors the system. An invoice validated and identified by the system is recognised as an original digital record, and is stored in digital form for 10 years.', source: 'Ministry of Economy and Finance, Prakas 075 on the launch of the Cambodia E-Invoicing System (Khmer), Article 4 (page 2) and Article 6 (page 3)', year: '2025', url: 'https://data.opendevelopmentcambodia.net/en/dataset/a57a86ff-1c53-481e-a4f0-8b32fe96b6cf/resource/e433f7a7-0bd0-4407-8d58-c5f346be20dd/download/mef_prakas-075_launching-of-cambodia-e-invoicing-system_kh_2025.pdf' },
+    { stat: 'Phase 1, Step 1 applies to the central-level budget entities of two ministries (Economy and Finance; Environment) and their suppliers, covering invoices for expenditure payment requests under public procurement from fiscal year 2025.', source: 'Ministry of Economy and Finance, Circular 003 on mandatory e-invoicing via the Cambodia E-Invoicing System, Phase 1, Step 1 (Khmer), page 1', year: '2025', url: 'https://data.opendevelopmentcambodia.net/dataset/2ff2820c-df65-4d60-aa0f-806c65d82952/resource/d77ab51b-6f54-4960-b947-ffd4a4f2a5a4/download/mef_circular-003_obligation-to-use-e-invoice_kh_2025.pdf' },
+    { stat: 'Phase 1, Step 2 extends the obligation to six further ministries: Agriculture, Forestry and Fisheries; Commerce; Industry, Science, Technology and Innovation; Education, Youth and Sport; Posts and Telecommunications; and Civil Service.', source: 'Ministry of Economy and Finance, Circular 012, Phase 1, Step 2 (Khmer), page 1; signed July 2025', year: '2025', url: 'https://data.opendevelopmentcambodia.net/en/dataset/bce86ad2-6baf-456a-b49f-90c0b7b61f26/resource/e8c6b0ce-8f79-427e-a7e2-56f87c89ed1e/download/1756437973985-20250714_circular_to_6_lms_in_q3_2025.pdf' },
+    { stat: 'By the end of the third quarter of 2025 the system was mandatory for the central-level entities of eight ministries. Phase 1, Step 3 adds six more: Rural Development; Mines and Energy; Land Management, Urban Planning and Construction; Health; Public Works and Transport; and Labour and Vocational Training.', source: 'Ministry of Economy and Finance, Circular 017, Phase 1, Step 3 (Khmer), page 1', year: '2025', url: 'https://data.opendevelopmentcambodia.net/en/dataset/d244f7f4-ef43-43fe-8645-d79483c9b0c3/resource/7d904664-edbe-40fe-8e76-f4b119d6a51c/download/1.pdf' },
+  ],
+  sources: [
+    { publisher: 'Ministry of Economy and Finance', label: 'Prakas 075 on the launch of the Cambodia E-Invoicing System (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/a57a86ff-1c53-481e-a4f0-8b32fe96b6cf/resource/e433f7a7-0bd0-4407-8d58-c5f346be20dd/download/mef_prakas-075_launching-of-cambodia-e-invoicing-system_kh_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 003, mandatory e-invoicing, Phase 1 Step 1 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/dataset/2ff2820c-df65-4d60-aa0f-806c65d82952/resource/d77ab51b-6f54-4960-b947-ffd4a4f2a5a4/download/mef_circular-003_obligation-to-use-e-invoice_kh_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 012, mandatory e-invoicing, Phase 1 Step 2 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/bce86ad2-6baf-456a-b49f-90c0b7b61f26/resource/e8c6b0ce-8f79-427e-a7e2-56f87c89ed1e/download/1756437973985-20250714_circular_to_6_lms_in_q3_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 017, mandatory e-invoicing, Phase 1 Step 3 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/d244f7f4-ef43-43fe-8645-d79483c9b0c3/resource/7d904664-edbe-40fe-8e76-f4b119d6a51c/download/1.pdf', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-06',
   faqs: [
-    { question: 'How much additional tax revenue will CamInvoice generate?', answer: 'Based on international benchmarks and Phase 1 data, CamFinTech estimates that full CamInvoice implementation could generate USD 250-400 million in additional annual tax revenue by 2028. This estimate is based on reducing the VAT gap from 35-40% to 20%, which would capture an additional USD 200-300 million in VAT alone, plus downstream effects on income tax compliance. Brazil\'s Nota Fiscal Electronica generated a 22% increase in VAT revenue within four years of full implementation, providing an upper-bound benchmark.' },
-    { question: 'What does CamInvoice compliance cost for businesses?', answer: 'Compliance costs vary significantly by business size. For Phase 1 large taxpayers with existing ERP systems, the marginal cost of CamInvoice integration was USD 5,000-15,000 for system configuration plus ongoing API maintenance. For Phase 2 medium businesses, costs range from USD 1,000-5,000 for software licensing and setup. For Phase 3 small businesses, cloud-based compliance platforms offer subscriptions at USD 50-100 per month. The GDT provides a free basic invoicing portal for the smallest taxpayers, though it lacks integration with accounting systems.' },
-    { question: 'How does CamInvoice compare to other ASEAN e-invoicing mandates?', answer: 'Cambodia\'s CamInvoice is part of a broader ASEAN trend toward mandatory e-invoicing. Indonesia\'s e-Faktur has been fully mandatory since 2016. Vietnam\'s e-invoice mandate took full effect in 2022. Thailand and the Philippines are implementing phased e-invoicing requirements. Cambodia\'s approach most closely mirrors Vietnam\'s phased model, starting with large taxpayers and gradually extending downward. Cambodia\'s distinctive advantage is the integration potential with Bakong payment data and CamDigiKey identity verification, creating a more unified digital infrastructure than most ASEAN peers.' },
+    { question: 'Who operates CamInvoice?', answer: 'The General Department of Digital Economy (GDDE) of the Ministry of Economy and Finance. MEF Prakas 075 of 22 January 2025 makes the GDDE the secretariat that manages, operates and monitors the system, and each of the MEF\'s implementing circulars names it as the system operator. Under the circulars, the MEF\'s General Department of Budget and General Department of National Treasury check the use of e-invoices in payment requests from the ministries concerned.' },
+    { question: 'When does CamInvoice become mandatory for my business?', answer: 'It depends on whom you invoice. The first phase, as the MEF\'s circulars set it out, covers invoices from companies and suppliers to the budget entities of designated ministries, added in steps: two ministries from fiscal year 2025, six more in Step 2, and six more in Step 3. A business that supplies one of those ministries must register as a member of the system and issue its invoices to that ministry electronically. The documents reviewed for this article set no date or threshold for invoicing between private businesses. For anything beyond the published circulars, rely on the MEF\'s and the GDDE\'s own announcements.' },
+    { question: 'How does a business issue a CamInvoice e-invoice?', answer: 'The circulars allow two routes: creating the e-invoice on the CamInvoice platform itself, or issuing it from an invoicing system that has been registered with, and connected to, CamInvoice. Prakas 075 provides for system-provider members — companies that supply the IT systems that connect to the platform — alongside user members, who are the sellers and buyers. Which route suits a business depends mainly on whether it already keeps its accounts in a system that can be connected.' },
   ],
   sections: [
     {
-      heading: 'Tax Revenue Trajectory and the CamInvoice Effect',
-      content: 'Cambodia\'s tax revenue has grown substantially over the past decade, driven by economic growth, administrative modernization, and broadening of the tax base. Total domestic tax revenue increased from USD 3.2 billion in 2019 to USD 5.8 billion in 2024, representing a 12.6% compound annual growth rate. The tax-to-GDP ratio improved from 18.5% to 22.3% over the same period, approaching the lower range of OECD averages (23-25%) and significantly exceeding the developing country average of 15-17%.\n\nWhile multiple factors contributed to this improvement, the IMF\'s 2024 Article IV consultation attributed approximately 1.5 percentage points of the tax-to-GDP increase to digitization initiatives, including the GDT\'s online filing system (e-Filing), automated taxpayer registration, and CamInvoice pilot programs. Isolating CamInvoice\'s specific contribution is difficult given simultaneous reforms, but Phase 1 data provides early quantitative signals.',
-      table: {
-        caption: 'Cambodia Tax Revenue and Tax-to-GDP Ratio 2019-2024',
-        headers: ['Year', 'Total Tax Revenue (USD billions)', 'VAT Revenue (USD billions)', 'Tax-to-GDP Ratio', 'GDP (USD billions)'],
-        rows: [
-          ['2019', '3.2', '1.1', '18.5%', '27.1'],
-          ['2020', '2.8', '0.9', '17.8%', '25.3'],
-          ['2021', '3.4', '1.1', '18.9%', '27.0'],
-          ['2022', '4.3', '1.4', '19.8%', '29.6'],
-          ['2023', '5.1', '1.7', '21.2%', '31.8'],
-          ['2024', '5.8', '1.9', '22.3%', '33.2'],
-        ],
-      },
+      heading: 'What the Royal Government Has Put in Place',
+      content: 'CamInvoice rests on MEF Prakas 075 of 22 January 2025 on the launch of the Cambodia E-Invoicing System. The Prakas describes the system as a state IT system serving as the central platform for exchanging invoices in electronic form between sellers or service providers and buyers or recipients, which also confirms receipt officially, so that a paper invoice no longer needs to be printed. An e-invoice that has passed the system\'s validation and been given its identifier is recognised as an original digital record with legal effect, and is kept in digital form for 10 years.\n\nThe Prakas places the system with the General Department of Digital Economy, which manages and operates it, handles membership, and maintains its rules and procedures. Its preamble refers to the existing VAT and invoicing rules, and its annex sets out what a tax invoice and a commercial invoice must contain. The circulars that implement it state the purpose plainly: to raise the transparency and accountability of public financial management under the fourth phase of its reform programme, strengthen compliance with tax regulations, and prepare for ASEAN digital economic cooperation and integration.',
     },
     {
-      heading: 'Phase 1 Impact: Large Taxpayer Compliance',
-      content: 'Phase 1 of CamInvoice targeted Cambodia\'s approximately 3,500 large taxpayers, defined as businesses with annual turnover exceeding KHR 2 billion (approximately USD 500,000). These entities were required to issue electronic invoices through the CamInvoice system for all B2B transactions beginning in 2024. Within six months of the mandate, 78% of Phase 1 entities had achieved compliance, with the remaining 22% receiving GDT enforcement notices.\n\nThe most striking finding from Phase 1 data is the revenue declaration effect. Compliant businesses reported an average 12% increase in declared revenue compared to their pre-CamInvoice filings. This does not necessarily indicate that businesses were previously under-reporting; it also captures transactions that were previously informal or undocumented. The net effect on VAT collection from Phase 1 entities was an estimated USD 45-60 million in additional annual revenue, suggesting that the system is surfacing previously invisible economic activity. The GDT also reported a 28% reduction in VAT refund processing time for CamInvoice-compliant businesses, creating a tangible compliance incentive.',
+      heading: 'Phase 1: Government Procurement First',
+      content: 'The first phase is business-to-government. Each step is a separate MEF circular naming the ministries whose budget entities must accept only e-invoices for expenditure payments under public procurement procedures, and whose suppliers must therefore invoice electronically. Step 1 covered the Ministry of Economy and Finance and the Ministry of Environment from fiscal year 2025. Step 2, signed in July 2025, added six ministries. Step 3 added six more; its preamble records the system as already mandatory for the central-level entities of eight ministries by the end of the third quarter of 2025.\n\nThe design is deliberate. Starting with the state\'s own purchasing gives the platform a defined set of buyers, a payment process the MEF already controls, and a reason for suppliers of every size to register. The ministries\' budget entities join the system as members, appoint representatives to manage their accounts, and receive e-invoices through the platform; the General Departments of Budget and National Treasury check that payment requests are supported by validated e-invoices.',
     },
     {
-      heading: 'VAT Gap Analysis and Reduction Potential',
-      content: 'The VAT gap, the difference between theoretically collectible VAT and actual VAT collected, is a key metric for measuring e-invoicing effectiveness. The World Bank estimates Cambodia\'s VAT gap at 35-40% of potential revenue, meaning that for every dollar of VAT collected, approximately 54-67 cents goes uncollected due to non-compliance, informality, and administrative leakage.\n\nAt the current VAT rate of 10% and estimated taxable consumption base of approximately USD 19 billion, the theoretical VAT potential is approximately USD 1.9 billion. With actual collections at USD 1.2-1.25 billion (the gap between theoretical and reported), the uncollected VAT amounts to USD 650-750 million annually. International experience suggests that mandatory e-invoicing can reduce VAT gaps by 10-15 percentage points within three to five years of full implementation. Applying this benchmark to Cambodia suggests CamInvoice could capture an additional USD 190-285 million in VAT revenue annually by 2028-2029.',
-      table: {
-        caption: 'VAT Gap International Benchmarks (Before and After E-Invoicing)',
-        headers: ['Country', 'VAT Gap Before', 'VAT Gap After (3-5 years)', 'Reduction', 'E-Invoicing System'],
-        rows: [
-          ['Brazil', '28%', '14%', '14 pp', 'Nota Fiscal Electronica'],
-          ['Mexico', '32%', '18%', '14 pp', 'CFDI'],
-          ['Chile', '22%', '12%', '10 pp', 'DTE'],
-          ['Italy', '26%', '18%', '8 pp', 'SDI'],
-          ['Vietnam', '30%', '22% (est.)', '8 pp (est.)', 'E-invoice mandate'],
-          ['Cambodia (projected)', '35-40%', '20-25%', '10-15 pp', 'CamInvoice'],
-        ],
-      },
+      heading: 'Tax Administration and the Invoice Record',
+      content: 'An e-invoicing system changes what a tax administration can see. Each validated invoice is a structured record of who sold what to whom, for how much, and when, held centrally and retained for a decade. Once both sides of a transaction are on the platform, the seller\'s output and the buyer\'s input are recorded in the same place, which is the basis for reconciling VAT declarations against invoices rather than sampling them.\n\nWhat that will mean for revenue has not been published, and this article does not estimate it. An earlier version carried revenue projections, VAT-gap figures and Phase 1 compliance results; none could be traced to an MEF, GDT or international-institution source, and they have been removed. Readers looking for revenue data should start from the MEF\'s and GDT\'s own published outturns.',
     },
     {
-      heading: 'Phase 2 Rollout and Medium Taxpayer Challenges',
-      content: 'Phase 2 of CamInvoice, covering medium taxpayers with annual turnover above KHR 700 million (approximately USD 175,000), adds an estimated 12,000 businesses to the mandatory e-invoicing pool. This phase, rolling out through 2025, presents fundamentally different challenges than Phase 1. Large taxpayers typically had existing ERP systems and accounting staff capable of adapting to CamInvoice requirements. Medium taxpayers, by contrast, often use basic accounting software or spreadsheets.\n\nPreliminary GDT data suggests a 42% readiness rate among Phase 2 businesses, meaning fewer than half have systems capable of generating CamInvoice-compliant electronic invoices. The GDT has responded by extending the soft enforcement period (where non-compliance generates warnings rather than penalties) to 12 months for Phase 2, compared to 6 months for Phase 1. The GDT is also accrediting third-party compliance service providers who offer cloud-based CamInvoice integration at affordable subscription rates, targeting the 58% of Phase 2 businesses that lack in-house capabilities.',
+      heading: 'Beyond Phase 1: Business-to-Business Invoicing',
+      content: 'The MEF\'s circulars describe Phase 1 as the stage that begins with invoicing between companies and ministries. The documents reviewed for this article do not set a scope, turnover threshold or date for extending the obligation to invoicing between private businesses. Figures of that kind circulate in commentary and vendor material; they are not repeated here because they could not be traced to an issuing document.\n\nThe practical consequence is that businesses should plan against the published circulars and watch for new ones, rather than against an assumed timetable. When the obligation extends beyond government suppliers, it will be by a further instrument from the MEF, and that instrument — not commentary on it — is what a business should read.',
     },
     {
-      heading: 'Impact on SME Formalization and Business Registration',
-      content: 'An underappreciated effect of CamInvoice is its impact on business formalization. When large taxpayers can only claim VAT input credits on purchases documented through CamInvoice, they pressure their suppliers to become compliant. This upstream compliance cascade creates incentives for informal businesses to register with the GDT and enter the formal economy.\n\nThe GDT reported a 15% increase in new business registrations during 2024, which it partially attributes to the CamInvoice cascade effect. Specifically, 8,200 businesses registered as new taxpayers during the first nine months of CamInvoice Phase 1, compared to 7,100 during the same period in 2023. While not all new registrations are directly attributable to CamInvoice, the GDT estimates that approximately 30% (2,500 businesses) registered specifically because their customers required CamInvoice-compliant invoices for VAT deduction purposes.',
-      table: {
-        caption: 'Business Registration and Formalization Trends 2021-2025',
-        headers: ['Year', 'New Tax Registrations', 'YoY Growth', 'Cumulative Registered Taxpayers', 'CamInvoice Attribution (est.)'],
-        rows: [
-          ['2021', '7,800', '5%', '145,000', 'N/A'],
-          ['2022', '8,500', '9%', '153,500', 'N/A'],
-          ['2023', '9,500', '12%', '163,000', 'N/A (pilot only)'],
-          ['2024', '11,000', '16%', '174,000', '~2,500 (23%)'],
-          ['2025 (est.)', '13,000', '18%', '187,000', '~4,000 (31%)'],
-        ],
-      },
+      heading: 'What It Means for Suppliers and Smaller Businesses',
+      content: 'For a business that supplies one of the designated ministries, the obligation is already concrete: register as a member of CamInvoice and issue invoices to that ministry electronically. That reaches suppliers of every size, not only large ones, because government buys from small firms too. For some of them, registering on the platform will be their first structured interaction with a national digital system.\n\nThe effort this involves depends less on the size of the business than on how it keeps its records. A business that already issues invoices from an accounting system faces a connection question. A business that invoices on paper or in a spreadsheet faces a process change first: each sale has to be captured in a form a system can read before it can be sent anywhere. Issuing directly on the platform is one way to start; a business that raises many invoices is likely to find a connected accounting system more practical.',
     },
     {
-      heading: 'Integration with Bakong and the Data Dividend',
-      content: 'The most transformative long-term impact of CamInvoice may be its integration with Bakong payment data. When an invoice issued through CamInvoice is paid via Bakong, a complete digital record exists: what was sold, to whom, for how much, when, and how payment was made. This data linkage has three strategic implications.\n\nFirst, it enables automated VAT reconciliation. The GDT can cross-reference CamInvoice data with Bakong payment records to identify discrepancies between declared and actual transaction values, reducing the audit burden from manual sampling to automated exception-based review. Second, the combined data creates a robust credit scoring framework for SMEs. Banks and fintech lenders can assess a business\'s creditworthiness based on verified revenue, payment patterns, and supplier relationships. Third, it provides macroeconomic intelligence: real-time visibility into commercial activity allows the Ministry of Economy and Finance to monitor economic conditions with weeks or months of lead time over traditional statistical surveys.',
+      heading: 'Integration with Payment Data',
+      content: 'An invoice records what is owed; a payment record shows that it was paid. Where an invoice validated through CamInvoice is settled through Bakong or another KHQR-connected account, the two records together describe a transaction completely. For a small business, a history of validated invoices and matching receipts is the kind of evidence a lender can underwrite against without land title.\n\nThat linkage is a possibility, not a published programme. No document reviewed for this article provides for the sharing of CamInvoice data with lenders. Where such a link is built, it should rest on the business\'s own consent and the data-protection requirements that apply, and on the rules the MEF sets for the platform.',
     },
     {
-      heading: 'Compliance Cost-Benefit Analysis by Business Size',
-      content: 'The economics of CamInvoice compliance vary dramatically by business size. For large taxpayers (Phase 1), the compliance investment of USD 5,000-15,000 for system integration represents less than 0.1% of annual revenue and is offset by faster VAT refund processing, reduced audit risk, and improved supply chain credibility with international partners. The net effect for large businesses is generally positive within the first year.\n\nFor medium businesses (Phase 2), compliance costs of USD 1,000-5,000 represent a more significant 0.3-1.5% of annual revenue, with benefits that are less immediately tangible. For small businesses (Phase 3), the USD 600-1,200 annual cost of compliance software represents 1-3% of revenue, a meaningful expense that must be weighed against penalty avoidance and potential access to formal credit markets. The GDT\'s free basic portal addresses cost concerns but lacks the accounting integration that generates ongoing business value.',
-      table: {
-        caption: 'CamInvoice Compliance Cost-Benefit by Business Size',
-        headers: ['Business Size', 'Annual Revenue (USD)', 'Compliance Cost (USD/year)', 'Cost as % of Revenue', 'Primary Benefit'],
-        rows: [
-          ['Large (Phase 1)', '500,000+', '5,000-15,000 (setup) + 2,000/yr', '<0.1%', 'Faster VAT refunds, audit risk reduction'],
-          ['Medium (Phase 2)', '175,000-500,000', '1,000-5,000 (setup) + 1,200/yr', '0.3-1.5%', 'Supply chain access, credit eligibility'],
-          ['Small (Phase 3)', '62,500-175,000', '500-1,000 (setup) + 600-1,200/yr', '1-3%', 'Formalization, penalty avoidance'],
-          ['Micro (Phase 4)', '<62,500', 'Free GDT portal', '0%', 'Formal economy participation'],
-        ],
-      },
+      heading: 'Compliance Effort by Business Profile',
+      content: 'The two routes the circulars allow — issuing on the CamInvoice platform, or from a registered and connected invoicing system — map onto two kinds of business. Businesses with established accounting or ERP systems will generally connect those systems, either through their software provider or through an integration built to the platform\'s specifications, so that invoices flow from the system where sales are already recorded. Businesses without such systems can start on the platform directly.\n\nNo published source sets out compliance costs by business size, and this article does not estimate them; the cost bands in an earlier version were unsourced. What can be said is where the effort sits: in clean master data (tax identification numbers, customer records, product descriptions), in the connection itself, and in the change to how staff raise and correct invoices.',
     },
     {
-      heading: 'Projected Impact Timeline 2026-2030',
-      content: 'Projecting CamInvoice\'s cumulative impact over the next five years requires synthesizing Phase 1 results with international benchmarks. CamFinTech models three scenarios. The conservative scenario assumes that compliance rates plateau at 70% across phases and VAT gap reduction reaches 8 percentage points, generating USD 150 million in additional annual revenue by 2028. The base scenario assumes 80% compliance and 12 percentage-point VAT gap reduction, yielding USD 280 million. The optimistic scenario assumes 90% compliance and 15 percentage-point reduction, producing USD 400 million.\n\nBeyond direct tax revenue, the economic multiplier effects are substantial. The formalization of 50,000-100,000 additional businesses into the tax system creates structured data for credit scoring, reducing the SME financing gap. The ADB estimates that each dollar of SME credit generates USD 2.50-3.00 in economic output. If CamInvoice-enabled lending unlocks even 10% of the USD 2.8 billion SME financing gap, the resulting USD 700-840 million in economic activity would dwarf the direct tax revenue gains. This positions CamInvoice not merely as a tax collection tool but as foundational economic infrastructure.',
+      heading: 'What to Watch',
+      content: 'Three things will shape the rollout from here, and each will appear first in an MEF or GDDE document: further steps adding ministries and other public bodies; any instrument extending the obligation to invoicing between private businesses, with its scope and timing; and the rules for registering system providers and connecting accounting systems to the platform.\n\nThe Royal Government has built the rail and set the standard for using it. For any business, the reliable guide to when and how that standard applies is the instrument itself.',
     },
   ],
 };

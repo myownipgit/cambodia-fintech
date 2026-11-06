@@ -1,112 +1,148 @@
 import { ArticleContent } from '../types';
 
+/*
+ * Figures removed 2026-11-07 (unsourced-figures pass, same bar as
+ * insights/sme-digital-readiness.ts).
+ *
+ * This article carried roughly 120 quantified figures and four tables. What
+ * survives is in `claims` below: World Bank population, GDP and Global Findex
+ * figures read from the World Bank Data API, two Bank of Thailand releases,
+ * and the NBC's Bakong white paper. Everything else was removed, not hedged.
+ * What the checks found, so nobody restores these from git:
+ *
+ * - "Cambodia's internet economy reached USD 3.1 billion" (attributed to
+ *   e-Conomy SEA 2024) is a false citation. The 2024 report covered six
+ *   markets (ID, MY, PH, SG, TH, VN), not Cambodia. The derived "9.4% of GDP"
+ *   and the "20% YoY growth" fall with it, as do the Thai and Vietnamese
+ *   internet-economy figures in the same table (unsourced).
+ * - The macro table was wrong against the World Bank for Cambodia: GDP "USD
+ *   33bn" (World Bank, 2024: USD 46.35bn), GDP per capita "2,060" (2024:
+ *   2,628), population "16 million" (2024: 17.64m). Vietnam's GDP "USD 411bn"
+ *   is the 2022 value, not 2024 (476.32bn). The "184 million consumers" across
+ *   the three countries matches no World Bank year shown (2024 sum: ~190m).
+ * - The digital-payment adoption table is contradicted by Global Findex. It
+ *   gave Cambodia 73% (2024) and 36% (2017); Findex gives 32.3% (2024) and
+ *   15.6% (2017) for "made or received a digital payment". Thailand 92% vs
+ *   82.8%; Vietnam 78% vs 62.4%. The "2028 projected" row was a projection with
+ *   no source. Do not restore any row of it.
+ * - The financial-inclusion table is contradicted by Global Findex: Cambodia
+ *   "any financial account 78%" vs 39.0% (2024, account ownership including
+ *   mobile money); "mobile money account 61%" unsourced and inconsistent with
+ *   that total. Savings, credit-card, insurance-penetration and microfinance
+ *   borrower figures had no source.
+ * - "Bakong-PromptPay corridor, operational since 2023" misdates it. The Bank
+ *   of Thailand's release No. 9/2020 records the launch of the Cambodia-
+ *   Thailand interoperable QR linkage on 18 February 2020. The "USD 850
+ *   million in annual remittances" through it had no source.
+ * - "Thailand and Vietnam have a PromptPay-NAPAS linkage in development" is
+ *   contradicted by the Bank of Thailand's cross-border payments page, which
+ *   describes a live Thailand-Vietnam QR linkage (Thai QR Payment / VietQR).
+ * - "A genuine retail CBDC" overstates the NBC's own description. The Bakong
+ *   white paper describes a payment system upgraded with a permissioned
+ *   Hyperledger Iroha network and calls this "a rather conservative use of
+ *   blockchain technology"; it says the project targets infrastructure
+ *   modernisation rather than the macroeconomic policy of a CBDC.
+ * - "KHQR standard set by NBC Prakas in June 2020" — the instrument is not in
+ *   app/content/regulatory/instruments/, so no Prakas is cited here.
+ * - The claim that Thailand and Vietnam "lack" government identity and data-
+ *   exchange layers was unsourced and is doubtful; removed rather than
+ *   replaced with an equally unsourced comparison.
+ * - The investment table (USD 918m / 432m / 38m, company counts, average
+ *   revenue per fintech, VC deal counts, named funding rounds) had no source.
+ *   Sandbox years and digital-bank licence counts for Thailand and Vietnam
+ *   had no source either. Median-age and smartphone-penetration figures:
+ *   unsourced.
+ * - The regulatory section characterised the Bank of Thailand as "slow", the
+ *   State Bank of Vietnam as "cautious" and "catching up", and described an
+ *   NBC "informal sandbox" with "speed advantages for well-connected
+ *   applicants". All removed: commentary on a regulator's conduct, and the last
+ *   is an access claim. Do not restore.
+ * - "CamFinTech advises a build-in-Cambodia, scale-to-ASEAN strategy" was a
+ *   firm recommendation resting on no analysis the firm has run. Removed.
+ *
+ * Bar for restoring a figure: read in a fetched primary, recorded in `claims`
+ * or `sources` with where it was read — the same bar as app/content/regulatory.
+ */
 export const cambodiaVsRegionalFintech: ArticleContent = {
   slug: 'cambodia-vs-regional-fintech',
   title: 'Cambodia vs Vietnam vs Thailand: FinTech Ecosystem Comparison',
-  description: 'Three-way comparison of Cambodia, Vietnam, and Thailand fintech ecosystems across digital payment infrastructure, regulatory frameworks, investment activity, financial inclusion metrics, and growth projections using data from NBC, SBV, BOT, World Bank, and e-Conomy SEA reports.',
+  description: 'A comparison of how Cambodia, Vietnam and Thailand have structured their digital financial infrastructure — national QR payments, account ownership and digital-payment use, and cross-border linkages — using World Bank, Global Findex, Bank of Thailand and National Bank of Cambodia sources.',
   type: 'insights',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
-  readingTime: 8,
+  updatedAt: '2026-11-07',
+  readingTime: 5,
   schema: 'Article',
   relatedSlugs: ['gaap', 'asean-digital-economy-comparison', 'cambodia-fintech-landscape'],
-  lead: 'Analysis published March 2026. Figures are as at their cited source year — mostly 2024 and 2025 — and are not restated here; check the source for anything more recent. Cambodia, Vietnam, and Thailand represent three distinct models of fintech ecosystem development in mainland Southeast Asia. Thailand has pursued a bank-led modernization strategy, building PromptPay on top of established banking infrastructure. Vietnam has followed a market-driven approach, with private fintech companies like MoMo and ZaloPay driving digital payment adoption ahead of regulatory frameworks. Cambodia has taken the most distinctive path: a government-as-a-platform (GaaP) model where the central bank builds the core digital infrastructure (Bakong, KHQR, CamDigiKey) and private companies build applications on top. This comparative analysis examines how these three models have performed across payment adoption, financial inclusion, investment attraction, and regulatory innovation, with implications for investors and enterprises choosing where to allocate resources in mainland ASEAN.',
-  // Claims removed 2026-08-31. This array previously carried figures attributed
-  // to named institutional reports with no URL, access date or page reference.
-  // A verified sample was wrong more often than not — including a Cambodian FATF
-  // mutual evaluation that never took place, and citations to bodies that do not
-  // exist under the names given. Restore an entry only when its figure has been
-  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
-  // and record where it was read. See vault ADR-007.
-  claims: [],
+  lead: 'Cambodia, Vietnam and Thailand are neighbours at very different scales. On World Bank figures for 2024, Cambodia\'s GDP was US$46.35 billion against Thailand\'s US$529.39 billion and Vietnam\'s US$476.32 billion, and the share of adults with an account differed sharply: 91.8% in Thailand, 70.6% in Vietnam and 39.0% in Cambodia (Global Findex). What distinguishes Cambodia is less its scale than the way its infrastructure was assembled. The National Bank of Cambodia (NBC) developed Bakong as the national payment system, and the Royal Government has built shared identity and data-exchange layers that private institutions connect to. This comparison sets out what can be compared from published sources — size, account ownership, digital-payment use and cross-border linkages — and describes structure qualitatively elsewhere. It carries no estimates of its own, and figures that could not be traced to a primary source have been left out.',
+  claims: [
+    { stat: 'GDP in 2024 (current US$): Cambodia US$46.35 billion, Thailand US$529.39 billion, Viet Nam US$476.32 billion. GDP per capita in 2024 (current US$): Cambodia 2,628, Thailand 7,387, Viet Nam 4,717.', source: 'World Bank, World Development Indicators, indicators NY.GDP.MKTP.CD and NY.GDP.PCAP.CD (World Bank Data API, last updated 8 October 2026)', year: '2024', url: 'https://api.worldbank.org/v2/country/KHM;THA;VNM/indicator/NY.GDP.MKTP.CD?format=json&date=2024' },
+    { stat: 'Population in 2024: Cambodia 17,638,801; Thailand 71,668,011; Viet Nam 100,987,686.', source: 'World Bank, World Development Indicators, indicator SP.POP.TOTL (World Bank Data API, last updated 8 October 2026)', year: '2024', url: 'https://api.worldbank.org/v2/country/KHM;THA;VNM/indicator/SP.POP.TOTL?format=json&date=2024' },
+    { stat: 'Account ownership at a financial institution or with a mobile-money-service provider, % of population aged 15+, 2024: Cambodia 39.0%, Thailand 91.8%, Viet Nam 70.6%. Cambodia was 21.7% in 2017 and 33.4% in 2021.', source: 'World Bank, Global Findex Database, indicator account.t.d (World Bank Data API)', year: '2024', url: 'https://api.worldbank.org/v2/country/KHM;THA;VNM/indicator/account.t.d?format=json&source=28' },
+    { stat: 'Made or received a digital payment, % of population aged 15+, 2024: Cambodia 32.3%, Thailand 82.8%, Viet Nam 62.4%. Viet Nam was 22.7% in 2017 and 46.0% in 2022.', source: 'World Bank, Global Findex Database, indicator g20.any (World Bank Data API)', year: '2024', url: 'https://api.worldbank.org/v2/country/KHM;THA;VNM/indicator/g20.any?format=json&source=28' },
+    { stat: 'The interoperable QR payment linkage between Cambodia and Thailand was launched by the governors of the two central banks, with Cambodian tourists able to scan Thai QR codes from 18 February 2020. The governors had signed an MOU on cooperation in financial innovation and payment systems in February 2019.', source: 'Bank of Thailand, Press Release No. 9/2020, "The Launch of Interoperable QR Payment Linkage between Cambodia and Thailand", 18 February 2020, page 1', year: '2020', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news-pdf/2020/n0963e.pdf' },
+    { stat: 'The National Bank of Cambodia joined the Regional Payment Connectivity initiative on 8 April 2025, bringing the signatories to nine ASEAN central banks. The initiative was established in 2022 by Indonesia, Malaysia, the Philippines, Singapore and Thailand; Vietnam joined in August 2023.', source: 'Joint press release of nine ASEAN central banks, "The National Bank of Cambodia Formally Joins the Regional Payment Connectivity Initiative", 8 April 2025, page 1 (Bank of Thailand copy)', year: '2025', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news/2025/news-20250408.pdf' },
+    { stat: 'Bakong preserves the features of the existing FAST payment system and upgrades it with Hyperledger Iroha, a permissioned blockchain network, as its core system — described by the NBC as "a rather conservative use of blockchain technology".', source: 'National Bank of Cambodia, "Project Bakong: Next Generation Payment System" white paper, section 3.2 Design Features, page 22', year: '2020', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf' },
+  ],
+  sources: [
+    { publisher: 'World Bank', label: 'World Development Indicators via the World Bank Data API: GDP, GDP per capita, population (Cambodia, Thailand, Viet Nam)', url: 'https://api.worldbank.org/v2/country/KHM;THA;VNM/indicator/NY.GDP.MKTP.CD?format=json&date=2024', tier: 'primary' },
+    { publisher: 'World Bank', label: 'Global Findex Database via the World Bank Data API: account ownership and digital payments (Cambodia, Thailand, Viet Nam)', url: 'https://api.worldbank.org/v2/country/KHM;THA;VNM/indicator/account.t.d?format=json&source=28', tier: 'primary' },
+    { publisher: 'Bank of Thailand', label: 'Press Release No. 9/2020: The Launch of Interoperable QR Payment Linkage between Cambodia and Thailand (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news-pdf/2020/n0963e.pdf', tier: 'primary' },
+    { publisher: 'Bank of Thailand', label: 'Joint press release: The National Bank of Cambodia formally joins the Regional Payment Connectivity initiative, 8 April 2025 (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news/2025/news-20250408.pdf', tier: 'primary' },
+    { publisher: 'Bank of Thailand', label: 'Cross-border Payment Linkages (web page)', url: 'https://www.bot.or.th/en/financial-innovation/digital-finance/digital-payment/cross-border-payment.html', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Project Bakong: Next Generation Payment System, white paper, June 2020 (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-06',
   faqs: [
-    { question: 'Which country has the best fintech infrastructure?', answer: 'It depends on the metric. Thailand has the most mature infrastructure by transaction volume and value, with PromptPay processing over USD 1.1 trillion annually. Cambodia has the most architecturally advanced infrastructure, with a genuine CBDC (Bakong) rather than a fast payment overlay, plus government-built identity (CamDigiKey) and data exchange (CamDX) layers that Thailand and Vietnam lack. Vietnam has the most vibrant private-sector fintech ecosystem, with more funded startups and higher VC investment. For enterprises seeking to build fintech applications, Cambodia\'s GaaP model offers the lowest infrastructure cost, while Thailand offers the deepest market and Vietnam offers the fastest growth.' },
-    { question: 'Is Cambodia a better fintech investment than Vietnam or Thailand?', answer: 'Cambodia offers a different risk-return profile rather than being categorically better or worse. Cambodia\'s advantages include lower competition, government-built infrastructure that reduces startup costs, and mandatory compliance requirements (CamInvoice) that create guaranteed demand. The disadvantages include smaller market size (16 million population vs. 72 million in Thailand and 100 million in Vietnam), a less developed VC ecosystem, and higher per-capita operational costs for rural distribution. The optimal strategy may be building and proving fintech models in Cambodia\'s open infrastructure environment, then scaling to Vietnam and Thailand.' },
-    { question: 'How are the three countries connected for cross-border payments?', answer: 'Thailand and Cambodia are connected through the Bakong-PromptPay QR payment corridor, operational since 2023, which processes an estimated USD 850 million in annual remittances. Thailand and Vietnam have a PromptPay-NAPAS linkage in development. Cambodia and Vietnam are building a Bakong-NAPAS corridor expected in 2026. Once all three bilateral corridors are operational, mainland ASEAN will have a triangular real-time payment network enabling instant cross-border transfers between 184 million consumers, creating significant opportunities for cross-border commerce and financial services.' },
+    { question: 'Which country has the most developed fintech infrastructure?', answer: 'It depends on what is measured. On usage, Thailand is furthest ahead: in the World Bank\'s Global Findex data for 2024, 91.8% of Thai adults had an account and 82.8% had made or received a digital payment, against 70.6% and 62.4% in Vietnam and 39.0% and 32.3% in Cambodia. On architecture, Cambodia is distinctive rather than ahead: the National Bank of Cambodia developed the national payment system, Bakong, and the Royal Government has built shared identity and data-exchange layers that institutions connect to. The two measures answer different questions, and neither settles the other.' },
+    { question: 'How should an enterprise compare the three markets?', answer: 'By fit with its own strategy rather than by a single ranking. The markets differ in scale — in 2024 Vietnam had about 101.0 million people, Thailand about 71.7 million and Cambodia about 17.6 million (World Bank) — in how widely adults already hold and use accounts, and in how infrastructure is provided. In Cambodia, much of the core infrastructure is built by the state and connected to rather than built privately, which changes what a new entrant needs to build. This article does not rank the markets as investments; no sourced analysis here supports a ranking.' },
+    { question: 'How are the three countries connected for cross-border payments?', answer: 'Through bilateral QR payment linkages and a regional initiative. The Cambodia–Thailand interoperable QR linkage was launched by the two central banks in February 2020 (Bank of Thailand, Press Release No. 9/2020). The Bank of Thailand also describes a Thailand–Vietnam QR linkage between Thai QR Payment and VietQR. All three central banks are now signatories to the Regional Payment Connectivity initiative: Thailand among its founders in 2022, Vietnam from August 2023, and the National Bank of Cambodia from 8 April 2025. For current participants, limits and services, rely on the central banks\' own publications.' },
   ],
   sections: [
     {
-      heading: 'Macro-Economic Context and Digital Economy Size',
-      content: 'The three economies operate at vastly different scales, which shapes their fintech ecosystems fundamentally. Thailand\'s GDP of USD 534 billion supports a mature financial sector with bank account penetration of 82% and credit card penetration of 10%. Vietnam\'s GDP of USD 411 billion powers a rapidly industrializing economy with bank account penetration at 69% and one of the fastest-growing internet economies in the world. Cambodia\'s GDP of USD 33 billion makes it the smallest of the three by a factor of 12-16x, yet its internet economy growth rate of 20% year-over-year rivals Vietnam\'s 22%.\n\nThe digital economy size comparison is instructive. Thailand\'s internet economy reached USD 28 billion in 2024, Vietnam\'s hit USD 36 billion (reflecting its larger population and faster e-commerce growth), and Cambodia\'s reached USD 3.1 billion. However, when measured as a percentage of GDP, Cambodia\'s internet economy (9.4% of GDP) actually exceeds Thailand\'s (5.2%) and approaches Vietnam\'s (8.8%), suggesting higher digital intensity relative to economic size.',
+      heading: 'Macro-Economic Context',
+      content: 'The three economies differ in scale by an order of magnitude, and that shapes their financial sectors. On World Bank figures for 2024, Thailand\'s GDP was US$529.39 billion and Vietnam\'s US$476.32 billion, against Cambodia\'s US$46.35 billion. Income levels differ too: GDP per capita was US$7,387 in Thailand, US$4,717 in Vietnam and US$2,628 in Cambodia. Population ranks differently from income — Vietnam is the largest market by people, Thailand the richest per head, and Cambodia the smallest on both measures.\n\nScale is not the whole comparison. A smaller market can be a practical place to build and test a product connected to national infrastructure, and a larger one rewards distribution. This article does not attempt to size the digital economy of any of the three: the internet-economy figures previously given here could not be traced to a source, and one of them — a Cambodia estimate attributed to a report that did not cover Cambodia — was a false citation.',
       table: {
-        caption: 'Macro-Economic and Digital Economy Comparison (2024)',
+        caption: 'Scale and income, 2024 (World Bank, World Development Indicators)',
         headers: ['Metric', 'Thailand', 'Vietnam', 'Cambodia'],
         rows: [
-          ['Population (millions)', '72', '100', '16'],
-          ['GDP (USD billions)', '534', '411', '33'],
-          ['GDP per capita (USD)', '7,400', '4,110', '2,060'],
-          ['Internet economy (USD billions)', '28', '36', '3.1'],
-          ['Internet economy as % of GDP', '5.2%', '8.8%', '9.4%'],
-          ['Internet economy YoY growth', '15%', '22%', '20%'],
-          ['Smartphone penetration', '78%', '72%', '68%'],
+          ['Population', '71,668,011', '100,987,686', '17,638,801'],
+          ['GDP (current US$, billions)', '529.39', '476.32', '46.35'],
+          ['GDP per capita (current US$)', '7,387', '4,717', '2,628'],
         ],
       },
     },
     {
-      heading: 'Payment Infrastructure Architecture Comparison',
-      content: 'The architectural differences between the three payment systems reflect fundamentally different design philosophies. Thailand\'s PromptPay, launched in 2017, is a fast payment overlay built on top of the existing banking infrastructure. It uses the National ITMX (Interbank Transaction Management and Exchange) as a central switch, with proxy-based addressing (national ID or mobile number). PromptPay is fast, reliable, and deeply integrated with Thai banking, but it is not a CBDC and does not operate on distributed ledger technology.\n\nVietnam\'s NAPAS (National Payment Corporation of Vietnam), established in 2004 and modernized continuously, operates as an interbank clearing and switching center. Vietnam relies heavily on private-sector innovation: MoMo, ZaloPay, VNPay, and ShopeePay have built consumer-facing payment layers on top of NAPAS infrastructure. The result is a vibrant but fragmented ecosystem where QR code interoperability was only achieved in 2024.\n\nCambodia\'s Bakong, launched in 2020, is architecturally the most advanced: a genuine retail CBDC built on Hyperledger Iroha blockchain, with the KHQR standard set by NBC Prakas in June 2020. The trade-off is that Bakong\'s government-controlled architecture offers less room for private-sector payment infrastructure innovation.',
+      heading: 'Payment Infrastructure Architecture',
+      content: 'All three countries have a national QR payment standard and real-time retail payments, and all three central banks oversee the national payment system. The difference lies in who built the core layer and what sits on it.\n\nIn Cambodia, the National Bank of Cambodia developed Bakong itself. Its white paper describes a system that preserves the features of the earlier FAST payment system and replaces its relational database with a permissioned Hyperledger Iroha blockchain network — in the NBC\'s own words, "a rather conservative use of blockchain technology", largely invisible to end users. KHQR is the national QR standard that lets a customer of one participating institution pay a merchant served by another.\n\nThailand\'s PromptPay and Vietnam\'s NAPAS-based switching follow a more conventional pattern, with banks and licensed payment providers building customer-facing services on an interbank switch. The comparison is of design, not of quality: each model reflects the starting point of its banking system.',
     },
     {
-      heading: 'Digital Payment Adoption Metrics',
-      content: 'Comparing adoption metrics requires normalizing for population and economic development. Thailand leads in absolute digital payment penetration at 92% of adults having made or received a digital payment in 2024, reflecting its higher income level and established banking system. Vietnam follows at 78%, with rapid gains driven by MoMo\'s expansion into Tier 2 and Tier 3 cities. Cambodia reaches 73%, a remarkable figure given its lower per-capita income.\n\nThe growth rate comparison is more revealing. Between 2017 and 2024, Cambodia achieved a 37-percentage-point increase in digital payment adoption, compared to Vietnam\'s 28 points (from 50% to 78%) and Thailand\'s 18 points (from 74% to 92%). Cambodia\'s growth rate implies it is converging rapidly on its wealthier neighbors, driven by the KHQR standardization and Bakong infrastructure. At current trajectories, Cambodia could reach 85% digital payment penetration by 2028, narrowing the gap with Thailand to under 10 percentage points.',
+      heading: 'Account Ownership and Digital Payment Use',
+      content: 'The World Bank\'s Global Findex survey is the one source that measures the three countries on the same basis. In 2024, 91.8% of adults in Thailand had an account at a financial institution or with a mobile-money provider, 70.6% in Vietnam and 39.0% in Cambodia. The share who had made or received a digital payment was 82.8%, 62.4% and 32.3% respectively.\n\nCambodia\'s figure has risen — account ownership was 21.7% in 2017 and 33.4% in 2021 — and it remains below its neighbours\'. Two cautions apply. Findex is a household survey of adults aged 15 and over, so it measures individual use, not transaction volume or merchant acceptance. And a figure for one year should be read against the survey\'s own definitions before it is compared with numbers from other sources.',
       table: {
-        caption: 'Digital Payment Adoption Trajectory 2017-2024',
-        headers: ['Year', 'Thailand', 'Vietnam', 'Cambodia', 'Cambodia Gap to Thailand'],
-        rows: [
-          ['2017', '74%', '50%', '36%', '38 pp'],
-          ['2019', '81%', '58%', '45%', '36 pp'],
-          ['2021', '87%', '68%', '55%', '32 pp'],
-          ['2023', '90%', '74%', '68%', '22 pp'],
-          ['2024', '92%', '78%', '73%', '19 pp'],
-          ['2028 (projected)', '96%', '88%', '85%', '11 pp'],
-        ],
-      },
-    },
-    {
-      heading: 'Financial Inclusion Depth Comparison',
-      content: 'Payment adoption is a surface metric; financial inclusion depth measures whether digital access translates into meaningful financial engagement. On this dimension, the three countries show more differentiated performance. Thailand leads with 82% bank account ownership, 10% credit card penetration, and 48% of adults having formal savings products. Vietnam shows 69% bank account ownership, 5% credit card penetration, and 35% formal savings. Cambodia lags with 42% bank account ownership, 2% credit card penetration, and 18% formal savings.\n\nHowever, Cambodia\'s mobile money and microfinance sectors partially compensate for low banking penetration. When mobile money accounts are included, Cambodia\'s financial access rate reaches 78%, comparable to Vietnam\'s. The microfinance sector, with over 2.6 million active borrowers and a total loan portfolio of USD 12.7 billion, provides credit access that bypasses traditional banking. Cambodia\'s challenge is graduating from mobile money and microfinance access to full-service digital financial engagement, including savings, insurance, and investment products.',
-      table: {
-        caption: 'Financial Inclusion Depth Indicators (2024)',
+        caption: 'Account ownership and digital payments, % of adults aged 15+, 2024 (World Bank, Global Findex Database)',
         headers: ['Indicator', 'Thailand', 'Vietnam', 'Cambodia'],
         rows: [
-          ['Bank account ownership', '82%', '69%', '42%'],
-          ['Mobile money account', '15%', '25%', '61%'],
-          ['Any financial account', '88%', '82%', '78%'],
-          ['Credit card penetration', '10%', '5%', '2%'],
-          ['Formal savings product', '48%', '35%', '18%'],
-          ['Insurance penetration (% GDP)', '5.4%', '2.8%', '1.2%'],
-          ['Microfinance active borrowers (millions)', '2.1', '3.8', '2.6'],
+          ['Account at a financial institution or mobile-money provider', '91.8%', '70.6%', '39.0%'],
+          ['Made or received a digital payment', '82.8%', '62.4%', '32.3%'],
         ],
       },
     },
     {
-      heading: 'Regulatory Framework and Innovation Openness',
-      content: 'Regulatory philosophy differs significantly across the three countries. Thailand\'s Bank of Thailand (BOT) follows a consultative, standards-based approach. The BOT issues detailed regulatory frameworks, operates a formal regulatory sandbox (launched 2017), and has issued three digital banking license categories. The approach is thorough but can be slow, with average sandbox-to-market timelines of 18-24 months.\n\nVietnam\'s State Bank of Vietnam (SBV) has historically taken a cautious approach, only launching a formal fintech sandbox in 2024 after years of informal regulatory tolerance. Vietnam\'s fintech growth has occurred partly in regulatory grey areas, with companies like MoMo operating at scale before comprehensive licensing frameworks existed. The SBV is now catching up with retrospective regulation, creating compliance costs for established players.\n\nCambodia\'s NBC takes the most interventionist approach, directly building infrastructure and mandating adoption. This model reduces regulatory uncertainty for private companies (the rules are clear: build on government rails) but concentrates strategic control in the central bank. The NBC\'s informal sandbox model allows direct engagement without formal application processes, offering speed advantages for well-connected applicants.',
+      heading: 'Regulatory Frameworks',
+      content: 'In each country the central bank — the Bank of Thailand, the State Bank of Vietnam and the National Bank of Cambodia — is the principal regulator of payments and banking, and each publishes its own framework for licensing and for testing new services. Those frameworks change, and the authoritative statement of any of them is the regulator\'s own current text; this article does not summarise or characterise them.\n\nThe structural point that bears on market entry in Cambodia is that the state provides much of the shared infrastructure. A firm entering Cambodia connects to Bakong and KHQR, to CamDigiKey for digital identity and to CamDX for data exchange, rather than building equivalents. That shifts the work towards integrating correctly with national systems and meeting the standards that come with them. For the Cambodian instruments themselves, see the regulatory index.',
     },
     {
-      heading: 'Fintech Investment and Startup Ecosystem',
-      content: 'The fintech investment landscape reflects each country\'s ecosystem maturity. Vietnam leads in investment momentum, attracting USD 918 million between 2020 and 2024 with standout rounds including MoMo\'s USD 250 million Series E and VNPay\'s USD 200 million strategic investment. Thailand attracted USD 432 million, led by Ascend Money\'s USD 110 million round and SCB 10X\'s portfolio investments. Cambodia\'s USD 38 million reflects its earlier-stage ecosystem.\n\nThe startup density comparison adds context. Vietnam has approximately 180-200 active fintech companies, Thailand has 250-280 (including many Singapore-based companies with Thai operations), and Cambodia has 35-40. The revenue per fintech startup, however, tells a different story: Thai fintechs average USD 1.2-1.8 million in annual revenue, Vietnamese fintechs average USD 0.8-1.2 million, and Cambodian fintechs average USD 0.5-0.9 million, but the gap is narrowing as CamInvoice-driven compliance creates new revenue streams.',
-      table: {
-        caption: 'Fintech Ecosystem Metrics Comparison (2024)',
-        headers: ['Metric', 'Thailand', 'Vietnam', 'Cambodia'],
-        rows: [
-          ['Fintech investment 2020-2024 (USD millions)', '432', '918', '38'],
-          ['Active fintech companies', '250-280', '180-200', '35-40'],
-          ['Avg revenue per fintech (USD millions)', '1.2-1.8', '0.8-1.2', '0.5-0.9'],
-          ['Regulatory sandbox', 'Formal (2017)', 'Formal (2024)', 'Informal'],
-          ['Digital banking licenses issued', '3', '2 (pending)', '0 (guidelines issued)'],
-          ['Fintech VC deals (2024)', '28', '42', '6'],
-        ],
-      },
+      heading: 'Fintech Investment and the Startup Ecosystem',
+      content: 'Vietnam and Thailand have larger and longer-established fintech and venture ecosystems than Cambodia, which follows from the difference in market size. This section previously gave investment totals, company counts, deal counts and revenue averages for each country; none could be traced to a source, and they have been removed rather than replaced.\n\nAnyone comparing investment activity across the three should work from a dataset whose method is published and which treats the three countries on the same basis, and should note that regional fintechs headquartered elsewhere — Singapore especially — complicate any country-level count.',
     },
     {
-      heading: 'Cross-Border Integration and the ASEAN Payment Network',
-      content: 'Cross-border payment connectivity is where the three countries\' fintech ecosystems are beginning to converge. The Bakong-PromptPay corridor between Cambodia and Thailand has been operational since 2023, enabling QR-based real-time payments between the two countries. Thailand is also developing PromptPay linkages with Vietnam (NAPAS), Singapore (PayNow), Malaysia (DuitNow), and Indonesia (QRIS).\n\nThe strategic implication is that mainland ASEAN is building a triangular real-time payment network. Once the Cambodia-Vietnam corridor launches (expected 2026), any of the 184 million consumers across the three countries will be able to make instant cross-border payments via QR scan. This creates enormous opportunities for cross-border e-commerce, remittance services, and financial products. Businesses operating across all three markets will be able to settle transactions in real time without SWIFT, correspondent banking, or multi-day clearing cycles, fundamentally changing the economics of mainland ASEAN trade.',
+      heading: 'Cross-Border Integration',
+      content: 'Cross-border payment connectivity is where the three systems meet. The Cambodia–Thailand interoperable QR linkage was launched by the governors of the two central banks in February 2020, following an MOU signed in February 2019; according to the Bank of Thailand, it lets Cambodian visitors scan Thai QR codes and Thai visitors scan KHQR codes with their own banks\' apps. The Bank of Thailand also describes a Thailand–Vietnam linkage between Thai QR Payment and VietQR.\n\nAt regional level, the Regional Payment Connectivity initiative, established in 2022 by five ASEAN central banks, now has nine signatories: Vietnam joined in August 2023 and the National Bank of Cambodia on 8 April 2025. The initiative\'s stated aim is faster, cheaper, more transparent and more inclusive cross-border payments, through QR-code and fast-payment linkages. For businesses that trade across the three markets, these linkages matter most for retail and tourism payments today; what they will support beyond that depends on arrangements the central banks announce, and is best followed in their own releases.',
     },
     {
-      heading: 'Strategic Positioning for Enterprises and Investors',
-      content: 'Each market offers distinct advantages for different strategies. Thailand is optimal for enterprises seeking mature market scale, established regulatory clarity, and access to high-value consumer segments. The PromptPay ecosystem is proven and reliable, and the Thai consumer\'s higher purchasing power supports premium fintech products. The drawback is intense competition and higher customer acquisition costs.\n\nVietnam is optimal for high-growth strategies where speed of user acquisition matters most. The market\'s scale (100 million people), young demographics (median age 32), and rapid smartphone adoption create massive addressable markets. The regulatory environment is improving but still carries transition risk. Cambodia is optimal for capital-efficient, infrastructure-leveraged strategies. The GaaP model reduces the cost of building fintech applications, mandatory compliance requirements (CamInvoice) create guaranteed demand, and the smaller market allows for faster iteration and proof of concept before scaling regionally. CamFinTech advises a "build in Cambodia, validate in Cambodia, scale to ASEAN" strategy for early-stage fintech ventures.',
+      heading: 'Considerations for Enterprises and Investors',
+      content: 'The three markets suit different strategies. Thailand offers the highest incomes and the widest existing use of accounts and digital payments, with a correspondingly established competitive field. Vietnam offers the largest population and a fast-rising share of adults using digital payments. Cambodia offers a smaller market in which the core rails, identity and data-exchange layers are provided by the state, so a new service is built on national infrastructure rather than alongside it — and much of the adult population is not yet reached by formal accounts.\n\nWhich of these matters most depends on the product, its distribution model and its tolerance for scale. This article does not recommend one market over another or size the opportunity in any of them; the figures that previously supported such conclusions could not be sourced.',
     },
   ],
 };
