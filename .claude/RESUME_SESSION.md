@@ -5,9 +5,9 @@ This file tracks the current session state to enable seamless recovery between s
 ## Start here
 _Rewrite this block at the end of every session. Keep it under 30 lines. History is below._
 
-**As of 2026-11-06, end of session.** Production `dpl_B5iVBy9v2fXEbasEULrwqZQ5Hc9q`; `main` and `feature/update-homepage` level at the latest commit. Deploy with `vercel --prod` (a push does not publish).
+**As of 2026-11-06, late session.** Production `dpl_9YD2ajF5bgztnAeZybZAT3EWxBPZ`; `main` and `feature/update-homepage` both at `a524a6e`. Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
 
-**Just shipped:** registration details (ADR-012), regulator-staff claims removed, Insights demoted, headshot redirect, register-based counts, Bakong and KHQR wording, capital figure from Prakas B14-017-161 Art. 13 (ADR-011).
+**Just shipped (late session):** the 2026-11-06 daily scan's 7 npm advisories patched and deployed (`e197a57`) — 1 critical + 6 high to zero via plain `npm update`, all inside existing semver ranges so `package.json` is unchanged; 75/75 routes still static. Then `npm run check:memory` (`a524a6e`): fails when MEMORY.md exceeds its 22KB load budget, an index entry links a missing topic file, or this Start here block is absent or over 30 lines. All five failure modes negative-tested against a fixture. **Run `check:llms` AND `check:memory` after any edit.**
 
 **Waiting on Bill:**
 - Submit riel.report's subscribe form once (only untested use of the new security headers).
@@ -19,9 +19,11 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 
 **Agreed next (fresh session):** add sources to `/products/dasp`; then work through the ~1,300 unsourced figures, busiest pages first.
 
+**Also open (none started):** `.github/` is empty — no dependabot, so nothing automates the advisory class patched today. The security sensor reports npm severity with no deployment context (it called a Windows-only RCE "critical" on a Linux-hosted static site) — `security-posture` board work. `~/.geo-prospects` still has no git remote. GEO H1: 32 of 40 content pages carry no `relatedInstruments`.
+
 **Open, needs a decision:** riel.report source repo location (personal Vercel); whether Insights becomes a subscriber feature (option B).
 
-**Memory restructured 2026-11-06:** `MEMORY.md` cut from 28.6KB (truncated) to 9.8KB; detail moved into four topic files (website operations, legal entity and founder, sibling sites, infrastructure and repo); stale facts corrected. Backup: `memory/.MEMORY.md.bak-20261106-121546`.
+**Memory restructured 2026-11-06:** `MEMORY.md` cut 28.6KB (truncated, 17 lines silently lost) to 9.8KB, detail moved into topic files — now guarded by `check:memory` so a future overrun fails loudly instead of loading short.
 
 **Loose ends:** untracked `2026-11-06-daily.md` in the repo root was not created by this session (probably Hermes); leave it unless Bill says otherwise. A local preview server may still be running on port 3101.
 
