@@ -21,7 +21,9 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 
 **Agreed next (fresh session):** work through the ~1,300 unsourced figures, busiest pages first.
 
-**Also open (none started):** `.github/` is empty — no dependabot, so nothing automates the advisory class patched today. The security sensor reports npm severity with no deployment context (it called a Windows-only RCE "critical" on a Linux-hosted static site) — `security-posture` board work. `~/.geo-prospects` still has no git remote. GEO H1: 32 of 40 content pages carry no `relatedInstruments`.
+**Dependabot live 2026-11-07 (`e87d45b`, on main too):** weekly Mon 09:00 ICT, minor+patch grouped, target `feature/update-homepage`; repo alerts + security updates switched on (were off). Security PRs open against main — rebase before merging. Merging never deploys. Alert #1 open: minimatch 10.2.6 via typescript-eslint (lint only, fix is a major, waits on upstream); GitHub calls it 'runtime' because `eslint-config-next` sits in `dependencies`.
+
+**Also open (none started):** The security sensor reports npm severity with no deployment context (it called a Windows-only RCE "critical" on a Linux-hosted static site) — `security-posture` board work. `~/.geo-prospects` still has no git remote. GEO H1: 32 of 40 content pages carry no `relatedInstruments`.
 
 **Open, needs a decision:** riel.report source repo location (personal Vercel); whether Insights becomes a subscriber feature (option B).
 
