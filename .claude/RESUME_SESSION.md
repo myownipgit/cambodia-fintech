@@ -2,6 +2,27 @@
 
 This file tracks the current session state to enable seamless recovery between sessions or after a crash. Update after every material change.
 
+## Start here
+_Rewrite this block at the end of every session. Keep it under 30 lines. History is below._
+
+**As of 2026-11-06.** Production `dpl_B5iVBy9v2fXEbasEULrwqZQ5Hc9q`; `main` and `feature/update-homepage` level at the latest commit. Deploy with `vercel --prod` (a push does not publish).
+
+**Just shipped:** registration details (ADR-012), regulator-staff claims removed, Insights demoted, headshot redirect, register-based counts, Bakong and KHQR wording, capital figure from Prakas B14-017-161 Art. 13 (ADR-011).
+
+**Waiting on Bill:**
+- Submit riel.report's subscribe form once (only untested use of the new security headers).
+- Look at the site on a real phone and in Safari.
+- From about 2026-11-11: say whether to delete disabled key `662dd13d…` and `~/Downloads/key.json`.
+- Rewrite the LinkedIn "Experience" text and headline (highest-value item left).
+- Get a Khmer reader to check the Terms and Privacy Khmer text.
+- Optional: submit riel.report at hstspreload.org.
+
+**Agreed next (fresh session):** add sources to `/products/dasp`; then work through the ~1,300 unsourced figures, busiest pages first.
+
+**Open, needs a decision:** riel.report source repo location (personal Vercel); whether Insights becomes a subscriber feature (option B).
+
+**Do not:** publish a figure without a fetched primary source; `sed -i` a single-file Docker bind mount; trust a GEO score or the Bakong member list as current; add HowTo or Article schema the audit asks for.
+
 ## Last Updated
 
 **2026-11-06 — REGISTRATION DETAILS PUBLISHED (ADR-012), Bill approved the preview.** Footer, /about registration table, Terms and Privacy name CAMFINTECH CO., LTD.; regulator-staff claims removed; founder line is now "ASEAN FinTech experience"; hiring line reworded; homepage datePublished 2025-11-24; old headshot URL redirects to the new image; Insights removed from JSON-LD sameAs and the llms files, and its "weekday mornings" claim replaced. Khmer text in Terms and Privacy still needs a Khmer reader.
