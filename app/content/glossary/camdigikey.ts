@@ -1,5 +1,18 @@
 import { ArticleContent } from '../types';
 
+/*
+ * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences only; the
+ * rest of this page is left for the general unsourced-figures pass).
+ * - The FAQ said CamDigiKey is required for businesses interacting with
+ *   CamInvoice. No source was found for it (the four MEF CamInvoice documents
+ *   are Khmer scans with no usable text layer and were not checked page by page
+ *   for it); CamInvoice removed from that list. Restore only from a fetched
+ *   MEF/GDDE text that states it.
+ * CamInvoice is an MEF system operated by the General Department of Digital
+ * Economy (Prakas 075, 22 January 2025, Art. 4); its Phase 1 is business-to-
+ * government. Bar for restoring: read in a fetched MEF/GDDE primary.
+ */
+
 export const camdigikey: ArticleContent = {
   slug: 'camdigikey',
   title: 'What is CamDigiKey?',
@@ -7,7 +20,7 @@ export const camdigikey: ArticleContent = {
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
+  updatedAt: '2026-11-07',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'camdx', 'gaap'],
@@ -28,7 +41,7 @@ export const camdigikey: ArticleContent = {
   sourcesAsAt: '2026-11-04',
   faqs: [
     { question: 'What is CamDigiKey and how does it work?', answer: 'CamDigiKey is Cambodia\'s national digital identity system operated by the Ministry of Economy and Finance. It works by registering citizens\' biometric data (facial recognition and fingerprints) linked to their national ID. Users can then authenticate their identity digitally for government services, banking, and commercial transactions through the CamDigiKey mobile app or integrated third-party applications.' },
-    { question: 'Is CamDigiKey mandatory for businesses in Cambodia?', answer: 'CamDigiKey integration is increasingly required for businesses interacting with government platforms including CamDX, CamInvoice, and certain NBC-regulated financial services. While not yet mandatory for all private sector activities, businesses that process government transactions or provide regulated financial services must support CamDigiKey authentication.' },
+    { question: 'Is CamDigiKey mandatory for businesses in Cambodia?', answer: 'CamDigiKey integration is increasingly required for businesses interacting with government platforms including CamDX, and certain NBC-regulated financial services. While not yet mandatory for all private sector activities, businesses that process government transactions or provide regulated financial services must support CamDigiKey authentication.' },
     { question: 'How can enterprises integrate with CamDigiKey?', answer: 'Enterprises integrate with CamDigiKey through the CamDX data exchange platform, which provides standardized APIs for identity verification. CamFinTech navigates the approval to integrate with CamDigiKey and coordinates the technical build (eKYC workflow design, API implementation, compliance architecture) with accredited Service Providers — we never operate the identity rail or hold customer data.' },
   ],
   sections: [

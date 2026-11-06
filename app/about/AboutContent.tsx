@@ -50,7 +50,7 @@ export default function AboutContent() {
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-navy mb-3">About the practice</h2>
           <p className="text-navy/85 leading-relaxed">
-            <strong>CamFinTech is a fee-only regulatory and compliance practice</strong> based in Phnom Penh. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia&apos;s national rails — Bakong/KHQR (payments, NBC), CamDX/CamDigiKey (identity and data exchange, TSC), CamInvoice (e-invoicing, GDT) — and run the AML/CFT and governance programmes that hold afterwards. Trading as CamFinTech (legal entity CAMFINTECH CO., LTD, registered with the Ministry of Commerce, company no. 1000648818, 9 October 2026).
+            <strong>CamFinTech is a fee-only regulatory and compliance practice</strong> based in Phnom Penh. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia&apos;s national rails — Bakong/KHQR (payments, NBC), CamDX/CamDigiKey (identity and data exchange, TSC), CamInvoice (e-invoicing, MEF) — and run the AML/CFT and governance programmes that hold afterwards. Trading as CamFinTech (legal entity CAMFINTECH CO., LTD, registered with the Ministry of Commerce, company no. 1000648818, 9 October 2026).
           </p>
           <p className="text-navy/85 leading-relaxed mt-4">
             We&apos;re structurally different from the firms most prospects compare us against:
@@ -145,7 +145,7 @@ export default function AboutContent() {
             <li><strong>Voluntary TCRMG alignment.</strong> Described below.</li>
           </ul>
           <p className="text-navy/85 leading-relaxed mt-4 text-sm">
-            Two further standing notes. <strong>Pricing is indicative</strong> — every figure in the firm&apos;s materials is a planning estimate, validated by quote at scoping. <strong>Some mandates are anticipatory</strong>: the CamInvoice business-to-business mandate is phased and not yet gazetted, and the Personal Data Protection Law is not yet promulgated. The firm helps clients prepare ahead of both, and does not suggest that anyone is already in breach.
+            Two further standing notes. <strong>Pricing is indicative</strong> — every figure in the firm&apos;s materials is a planning estimate, validated by quote at scoping. <strong>Some obligations are anticipatory</strong>: the published phases of CamInvoice so far cover invoices issued to government ministries, and the Personal Data Protection Law is not yet promulgated. Where a client prepares beyond what is in force, the firm says so, and does not suggest that anyone is already in breach.
           </p>
         </section>
 

@@ -1,5 +1,39 @@
 import { ArticleContent } from '../types';
 
+/*
+ * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences, rows and
+ * FAQ answers only). Found false or untraceable, removed, not hedged:
+ * - CamInvoice attributed to the General Department of Taxation as operator —
+ *   FALSE. MEF Prakas 075 (22 January 2025), Art. 4: the MEF's General
+ *   Department of Digital Economy (GDDE) manages and operates the system. The
+ *   GDT appears in none of the four MEF documents read (Prakas 075; Circulars
+ *   003, 012, 017).
+ * - "UBL XML", "UBL 2.1", "clearance model", "tax clearance" — no technical
+ *   primary could be read (e-invoice.gov.kh and gdde.mef.gov.kh returned 403 on
+ *   2026-11-06). Replaced with what Prakas 075 says the system is.
+ * - "mandatory CamInvoice compliance for all taxpayers" (as a Digital Government
+ *   Policy Phase 2 target) — universality claim with no primary; removed. Phase 1
+ *   is business-to-government (suppliers to the budget entities of named
+ *   ministries).
+ * - "Each repayment generates a CamInvoice receipt" in the MFI example — no
+ *   primary puts loan repayments in scope; rescoped.
+ * - The E-Invoicing comparison row ("CamInvoice (2025)" / Estonia "E-invoice
+ *   mandate (2019)" / Singapore "InvoiceNow (2019)") — the Estonia and Singapore
+ *   dates are unsourced; row removed. CamInvoice's launch (22 January 2025) is
+ *   stated in the layers section instead.
+ * Bar for restoring: read in a fetched primary, recorded in `claims`.
+ *
+ * Updated 2026-11-07: MEF Circular 007 (signed 2026, read from the Khmer
+ * original) adds Phase 1, Step 4 - 14 further ministries and institutions.
+ * Phase 1 is no longer 'three steps'; do not reintroduce a fixed count.
+ * Also later on 2026-11-07: CamInvoice's own developer documentation WAS read,
+ * from Internet Archive snapshots (see knowledge/caminvoice-technical-compliance.ts
+ * for URLs), so any '403 / no technical primary' note above is superseded. It
+ * supports XML e-invoices in UBL format (no version stated), OAuth 2.0, and the
+ * INVOICE / CREDIT_NOTE / DEBIT_NOTE types. It does NOT support 'UBL 2.1',
+ * a 'clearance model', a 'digital tax stamp' or the GDT operating the system.
+ */
+
 export const whatIsCambodiaGaaP: ArticleContent = {
   slug: 'what-is-cambodia-gaap',
   title: 'What is Cambodia\'s Government-as-a-Platform Model?',
@@ -7,7 +41,7 @@ export const whatIsCambodiaGaaP: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
+  updatedAt: '2026-11-07',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['gaap', 'bakong', 'camdigikey', 'camdx', 'caminvoice'],
@@ -24,12 +58,17 @@ export const whatIsCambodiaGaaP: ArticleContent = {
     { publisher: 'Digital Economy and Business Committee', label: 'Official site (home page)', url: 'https://digitaleconomy.gov.kh/en', tier: 'primary' },
     { publisher: 'CamDX', label: 'Cambodia Data Exchange, official site (home page)', url: 'https://camdx.gov.kh', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Bakong, official site (home page)', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Prakas 075 on the launch of the Cambodia E-Invoicing System (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/a57a86ff-1c53-481e-a4f0-8b32fe96b6cf/resource/e433f7a7-0bd0-4407-8d58-c5f346be20dd/download/mef_prakas-075_launching-of-cambodia-e-invoicing-system_kh_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 003, mandatory e-invoicing, Phase 1 Step 1 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/dataset/2ff2820c-df65-4d60-aa0f-806c65d82952/resource/d77ab51b-6f54-4960-b947-ffd4a4f2a5a4/download/mef_circular-003_obligation-to-use-e-invoice_kh_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 012, mandatory e-invoicing, Phase 1 Step 2 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/bce86ad2-6baf-456a-b49f-90c0b7b61f26/resource/e8c6b0ce-8f79-427e-a7e2-56f87c89ed1e/download/1756437973985-20250714_circular_to_6_lms_in_q3_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 017, mandatory e-invoicing, Phase 1 Step 3 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/d244f7f4-ef43-43fe-8645-d79483c9b0c3/resource/7d904664-edbe-40fe-8e76-f4b119d6a51c/download/1.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 007, mandatory e-invoicing, Phase 1 Step 4 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/9bdb6142-b119-41c4-b2ae-5bdde281a8f6/resource/549d6645-3232-4fa3-8715-a8f61c79b1f9/download/1.pdf', tier: 'primary' },
   ],
-  sourcesAsAt: '2026-11-04',
+  sourcesAsAt: '2026-11-06',
   faqs: [
     { question: 'What makes Cambodia\'s digital infrastructure different from other ASEAN countries?', answer: 'Most ASEAN countries built digital payment systems, identity platforms, and data exchanges independently over decades. Cambodia designed all four layers simultaneously as a unified stack under the Digital Government Policy 2022-2035. This deliberate architecture means the layers are interoperable by design, not retrofitted. A CamDigiKey identity verification can trigger a CamDX data query and initiate a Bakong payment in a single workflow.' },
     { question: 'Is Cambodia\'s GaaP model based on Estonia\'s?', answer: 'Yes, directly. Cambodia adopted Estonia\'s X-Road technology for CamDX and studied Estonia\'s digital identity and e-governance architecture extensively. However, Cambodia adapted the model for its dual-currency economy, mobile-first population, and specific regulatory requirements. The Bakong CBDC layer has no direct Estonian equivalent, as Estonia uses the euro.' },
-    { question: 'How does GaaP affect foreign investment in Cambodia?', answer: 'GaaP creates both opportunities and obligations. Foreign enterprises benefit from instant digital onboarding (CamDigiKey), real-time regulatory compliance (CamDX), low-cost payments (Bakong), and automated tax compliance (CamInvoice). However, integration with these platforms is increasingly mandatory, not optional. CamFinTech navigates the approval for foreign investors to integrate with these platforms and runs the compliance programme that keeps them approved — the technical build is coordinated with accredited Service Providers.' },
+    { question: 'How does GaaP affect foreign investment in Cambodia?', answer: 'GaaP creates both opportunities and obligations. Foreign enterprises benefit from instant digital onboarding (CamDigiKey), real-time regulatory compliance (CamDX), low-cost payments (Bakong), and electronic invoicing (CamInvoice). However, integration with these platforms is increasingly mandatory, not optional. CamFinTech navigates the approval for foreign investors to integrate with these platforms and runs the compliance programme that keeps them approved — the technical build is coordinated with accredited Service Providers.' },
   ],
   sections: [
     {
@@ -38,7 +77,7 @@ export const whatIsCambodiaGaaP: ArticleContent = {
     },
     {
       heading: 'The Four Platform Layers',
-      content: 'Cambodia\'s GaaP model operates as four distinct but interconnected infrastructure layers. Each layer addresses a specific function of digital governance and commerce, and each provides APIs that the other layers consume. The identity layer (CamDigiKey) answers "who are you?" The payment layer (Bakong) answers "how do you transact?" The data exchange layer (CamDX) answers "what is your verified status?" And the invoicing layer (CamInvoice) answers "what did you buy and sell?"\n\nTogether, these four layers create a complete digital operating system for Cambodia\'s economy. A single commercial transaction can touch all four: the buyer authenticates with CamDigiKey, the payment settles on Bakong, the seller\'s compliance status is verified via CamDX, and the invoice is cleared through CamInvoice.',
+      content: 'Cambodia\'s GaaP model operates as four distinct but interconnected infrastructure layers. Each layer addresses a specific function of digital governance and commerce, and each provides APIs that the other layers consume. The identity layer (CamDigiKey) answers "who are you?" The payment layer (Bakong) answers "how do you transact?" The data exchange layer (CamDX) answers "what is your verified status?" And the invoicing layer (CamInvoice) answers "what did you buy and sell?"\n\nTogether, these four layers create a complete digital operating system for Cambodia\'s economy. A single commercial transaction can touch all four: the buyer authenticates with CamDigiKey, the payment settles on Bakong, the seller\'s compliance status is verified via CamDX, and the invoice is validated by CamInvoice.',
       table: {
         caption: 'Cambodia\'s Four GaaP Infrastructure Layers',
         headers: ['Layer', 'Platform', 'Function', 'Operator', 'Technology Foundation'],
@@ -46,17 +85,17 @@ export const whatIsCambodiaGaaP: ArticleContent = {
           ['Identity', 'CamDigiKey', 'Digital identity and eKYC', 'Ministry of Post and Telecommunications', 'Biometric AI, OAuth 2.0'],
           ['Payments', 'Bakong', 'CBDC and real-time settlement', 'National Bank of Cambodia', 'Hyperledger Iroha blockchain'],
           ['Data Exchange', 'CamDX', 'Secure inter-agency data sharing', 'Digital Government Committee', 'X-Road (Estonia)'],
-          ['Invoicing', 'CamInvoice', 'Mandatory e-invoicing and tax clearance', 'General Department of Taxation', 'UBL 2.1 XML, clearance model'],
+          ['Invoicing', 'CamInvoice', 'E-invoicing, mandatory in phases from 2025', 'Ministry of Economy and Finance (General Department of Digital Economy)', 'State e-invoice exchange platform (Prakas 075, 2025)'],
         ],
       },
     },
     {
       heading: 'Digital Government Policy 2022-2035',
-      content: 'The Royal Government of Cambodia\'s Digital Government Policy 2022-2035 is the master plan that governs the GaaP architecture. The policy sets specific targets for digital identity coverage, payment system adoption, data exchange connectivity, and e-invoicing compliance over a 13-year horizon, divided into three phases.\n\nPhase 1 (2022-2025) focuses on building and launching the four core platforms. Phase 2 (2025-2030) targets universal adoption, with 70% digital identity penetration, full KHQR merchant coverage, and mandatory CamInvoice compliance for all taxpayers. Phase 3 (2030-2035) aims for an AI-driven digital government with predictive services, automated compliance, and full ASEAN digital integration. The policy is backed by over USD 300 million in combined public and development partner funding.',
+      content: 'The Royal Government of Cambodia\'s Digital Government Policy 2022-2035 is the master plan that governs the GaaP architecture. The policy sets specific targets for digital identity coverage, payment system adoption, data exchange connectivity, and e-invoicing compliance over a 13-year horizon, divided into three phases.\n\nPhase 1 (2022-2025) focuses on building and launching the four core platforms. Phase 2 (2025-2030) targets universal adoption, with 70% digital identity penetration, and full KHQR merchant coverage. Phase 3 (2030-2035) aims for an AI-driven digital government with predictive services, automated compliance, and full ASEAN digital integration. The policy is backed by over USD 300 million in combined public and development partner funding.',
     },
     {
       heading: 'How the Layers Interact',
-      content: 'The power of Cambodia\'s GaaP model lies in layer interaction. Consider a practical example: a microfinance institution onboarding a new borrower. The borrower authenticates via CamDigiKey (identity layer). The MFI queries CamDX to verify tax registration and check for existing obligations (data layer). The loan is disbursed via Bakong (payment layer). Repayments are collected via KHQR standing orders. Each repayment generates a CamInvoice receipt (invoicing layer).\n\nThis entire workflow, which traditionally involved branch visits, paper documents, and manual processing over days or weeks, executes digitally in minutes. Each layer provides verified, auditable data to the next. No manual re-entry, no document scanning, no reconciliation gaps. This is the compounding efficiency that deliberate platform architecture creates.',
+      content: 'The power of Cambodia\'s GaaP model lies in layer interaction. Consider a practical example: a microfinance institution onboarding a new borrower. The borrower authenticates via CamDigiKey (identity layer). The MFI queries CamDX to verify tax registration and check for existing obligations (data layer). The loan is disbursed via Bakong (payment layer). Repayments are collected via KHQR standing orders. Where the lender falls within CamInvoice\'s scope, its invoices pass through the invoicing layer.\n\nThis entire workflow, which traditionally involved branch visits, paper documents, and manual processing over days or weeks, executes digitally in minutes. Each layer provides verified, auditable data to the next. No manual re-entry, no document scanning, no reconciliation gaps. This is the compounding efficiency that deliberate platform architecture creates.',
     },
     {
       heading: 'Comparison with Estonia and Singapore',
@@ -68,7 +107,6 @@ export const whatIsCambodiaGaaP: ArticleContent = {
           ['Identity Platform', 'CamDigiKey (2023)', 'e-ID / Mobile-ID (2002)', 'SingPass (2003)'],
           ['Payment Layer', 'Bakong CBDC (2020)', 'Euro (ECB)', 'PayNow (2017)'],
           ['Data Exchange', 'CamDX / X-Road (2023)', 'X-Road (2001)', 'APEX (2017)'],
-          ['E-Invoicing', 'CamInvoice (2025)', 'E-invoice mandate (2019)', 'InvoiceNow (2019)'],
           ['Architecture Approach', 'Simultaneous design', 'Sequential over 20 years', 'Sequential over 15 years'],
           ['GDP per capita (2024)', '~USD 1,900', '~USD 30,000', '~USD 65,000'],
         ],
@@ -76,7 +114,7 @@ export const whatIsCambodiaGaaP: ArticleContent = {
     },
     {
       heading: 'Investment Opportunities at Layer Intersections',
-      content: 'The most valuable business opportunities in Cambodia\'s digital economy exist at the intersections between GaaP layers, not within any single layer. Supply chain finance sits at the intersection of CamInvoice (verified invoices) and Bakong (instant settlement): verified e-invoices become bankable assets that can be discounted in real time. Compliance-as-a-service sits at the intersection of CamDigiKey (identity) and CamDX (data verification): automated KYC and ongoing monitoring become API-first products.\n\nEmbedded insurance sits at the intersection of Bakong (payment triggers) and CamDX (risk data): insurance can be attached to transactions at the point of payment with instant underwriting. These cross-layer opportunities are structurally unique to Cambodia\'s deliberate architecture. In markets with fragmented infrastructure, building these products requires stitching together multiple proprietary APIs. In Cambodia, the government has built the connective tissue.',
+      content: 'The most valuable business opportunities in Cambodia\'s digital economy exist at the intersections between GaaP layers, not within any single layer. Supply chain finance sits at the intersection of CamInvoice (verified invoices) and Bakong (instant settlement): an invoice validated by CamInvoice is recognised as an original digital record and kept for 10 years, which is the property invoice discounting needs. Its reach is set by the system\'s scope, which in its first phase covers suppliers to designated ministries. Compliance-as-a-service sits at the intersection of CamDigiKey (identity) and CamDX (data verification): automated KYC and ongoing monitoring become API-first products.\n\nEmbedded insurance sits at the intersection of Bakong (payment triggers) and CamDX (risk data): insurance can be attached to transactions at the point of payment with instant underwriting. These cross-layer opportunities are structurally unique to Cambodia\'s deliberate architecture. In markets with fragmented infrastructure, building these products requires stitching together multiple proprietary APIs. In Cambodia, the government has built the connective tissue.',
     },
     {
       heading: 'Implications for Enterprise Strategy',

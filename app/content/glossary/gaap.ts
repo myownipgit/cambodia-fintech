@@ -1,5 +1,32 @@
 import { ArticleContent } from '../types';
 
+/*
+ * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences and rows
+ * only). Found false or untraceable, removed, not hedged:
+ * - CamInvoice attributed to the General Department of Taxation as operator —
+ *   FALSE. MEF Prakas 075 (22 January 2025), Art. 4: the MEF's General
+ *   Department of Digital Economy (GDDE) manages and operates the system. The
+ *   GDT appears in none of the four MEF documents read (Prakas 075; Circulars
+ *   003, 012, 017).
+ * - "UBL XML", "UBL 2.1", "clearance model", "tax clearance" — no technical
+ *   primary could be read (e-invoice.gov.kh and gdde.mef.gov.kh returned 403 on
+ *   2026-11-06). Replaced with what Prakas 075 says the system is.
+ * - "creating verified, tamper-proof records of business transactions" —
+ *   overstated; replaced with Prakas 075 Art. 6 (validated invoice = original
+ *   digital record, kept 10 years).
+ * Bar for restoring: read in a fetched MEF/GDDE primary.
+ *
+ * Updated 2026-11-07: MEF Circular 007 (signed 2026, read from the Khmer
+ * original) adds Phase 1, Step 4 - 14 further ministries and institutions.
+ * Phase 1 is no longer 'three steps'; do not reintroduce a fixed count.
+ * Also later on 2026-11-07: CamInvoice's own developer documentation WAS read,
+ * from Internet Archive snapshots (see knowledge/caminvoice-technical-compliance.ts
+ * for URLs), so any '403 / no technical primary' note above is superseded. It
+ * supports XML e-invoices in UBL format (no version stated), OAuth 2.0, and the
+ * INVOICE / CREDIT_NOTE / DEBIT_NOTE types. It does NOT support 'UBL 2.1',
+ * a 'clearance model', a 'digital tax stamp' or the GDT operating the system.
+ */
+
 export const gaap: ArticleContent = {
   slug: 'gaap',
   title: 'What is Government-as-a-Platform in Cambodia?',
@@ -7,7 +34,7 @@ export const gaap: ArticleContent = {
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
+  updatedAt: '2026-11-07',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'camdigikey', 'camdx', 'caminvoice'],
@@ -24,8 +51,13 @@ export const gaap: ArticleContent = {
     { publisher: 'Digital Economy and Business Committee', label: 'Official site (home page)', url: 'https://digitaleconomy.gov.kh/en', tier: 'primary' },
     { publisher: 'CamDX', label: 'Cambodia Data Exchange, official site (home page)', url: 'https://camdx.gov.kh', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Bakong, official site (home page)', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Prakas 075 on the launch of the Cambodia E-Invoicing System (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/a57a86ff-1c53-481e-a4f0-8b32fe96b6cf/resource/e433f7a7-0bd0-4407-8d58-c5f346be20dd/download/mef_prakas-075_launching-of-cambodia-e-invoicing-system_kh_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 003, mandatory e-invoicing, Phase 1 Step 1 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/dataset/2ff2820c-df65-4d60-aa0f-806c65d82952/resource/d77ab51b-6f54-4960-b947-ffd4a4f2a5a4/download/mef_circular-003_obligation-to-use-e-invoice_kh_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 012, mandatory e-invoicing, Phase 1 Step 2 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/bce86ad2-6baf-456a-b49f-90c0b7b61f26/resource/e8c6b0ce-8f79-427e-a7e2-56f87c89ed1e/download/1756437973985-20250714_circular_to_6_lms_in_q3_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 017, mandatory e-invoicing, Phase 1 Step 3 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/d244f7f4-ef43-43fe-8645-d79483c9b0c3/resource/7d904664-edbe-40fe-8e76-f4b119d6a51c/download/1.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 007, mandatory e-invoicing, Phase 1 Step 4 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/9bdb6142-b119-41c4-b2ae-5bdde281a8f6/resource/549d6645-3232-4fa3-8715-a8f61c79b1f9/download/1.pdf', tier: 'primary' },
   ],
-  sourcesAsAt: '2026-11-04',
+  sourcesAsAt: '2026-11-06',
   faqs: [
     { question: 'What is Government-as-a-Platform in the Cambodia context?', answer: 'Government-as-a-Platform (GaaP) in Cambodia refers to the deliberate strategy of building interconnected government digital infrastructure that functions as a platform for private sector innovation. Rather than each ministry building isolated IT systems, Cambodia has created four foundational layers: CamDigiKey for identity, Bakong for payments, CamDX for data exchange, and CamInvoice for invoicing. Private businesses build products and services on top of these government-provided platforms.' },
     { question: 'How is Cambodia\'s GaaP approach different from other countries?', answer: 'Cambodia\'s GaaP model is distinctive because the infrastructure was designed as an integrated stack from the outset rather than evolving organically. CamDigiKey, Bakong, CamDX, and CamInvoice were planned to interoperate. This contrasts with countries where digital identity, payments, and data exchange evolved separately and require complex retrofitting to work together. Cambodia\'s deliberate approach creates compounding network effects.' },
@@ -34,7 +66,7 @@ export const gaap: ArticleContent = {
   sections: [
     {
       heading: 'The Four Platform Layers',
-      content: 'Cambodia\'s GaaP architecture consists of four interconnected platforms, each serving a distinct function in the digital economy stack. CamDigiKey provides the identity layer, enabling verified digital authentication for citizens and businesses. Bakong provides the payment layer, enabling real-time settlement in both KHR and USD via the KHQR protocol.\n\nCamDX provides the data exchange layer, enabling secure information sharing between government and private sector through X-Road technology. CamInvoice provides the commercial documentation layer, creating verified, tamper-proof records of business transactions. Together, these four platforms create a comprehensive digital infrastructure where identity, payments, data, and commerce are natively integrated.',
+      content: 'Cambodia\'s GaaP architecture consists of four interconnected platforms, each serving a distinct function in the digital economy stack. CamDigiKey provides the identity layer, enabling verified digital authentication for citizens and businesses. Bakong provides the payment layer, enabling real-time settlement in both KHR and USD via the KHQR protocol.\n\nCamDX provides the data exchange layer, enabling secure information sharing between government and private sector through X-Road technology. CamInvoice, operated by the Ministry of Economy and Finance, provides the commercial documentation layer: an invoice it has validated is recognised as an original digital record and kept for 10 years. Together, these four platforms create a comprehensive digital infrastructure where identity, payments, data, and commerce are natively integrated.',
       table: {
         caption: 'Cambodia\'s Government-as-a-Platform Stack',
         headers: ['Platform', 'Function', 'Operator', 'Technology Base'],
@@ -42,7 +74,7 @@ export const gaap: ArticleContent = {
           ['CamDigiKey', 'Digital Identity & eKYC', 'Ministry of Economy and Finance', 'Biometric Verification'],
           ['Bakong', 'Instant Payments & CBDC', 'National Bank of Cambodia', 'Hyperledger Iroha'],
           ['CamDX', 'Data Exchange', 'Ministry of Economy and Finance', 'Estonia X-Road'],
-          ['CamInvoice', 'E-Invoicing & Tax', 'General Department of Taxation', 'UBL XML Clearance'],
+          ['CamInvoice', 'E-Invoicing', 'Ministry of Economy and Finance (General Department of Digital Economy)', 'State e-invoice exchange platform'],
         ],
       },
     },

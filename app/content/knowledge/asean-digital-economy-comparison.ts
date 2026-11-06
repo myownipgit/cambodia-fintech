@@ -1,5 +1,17 @@
 import { ArticleContent } from '../types';
 
+/*
+ * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences only; the
+ * rest of this page is left for the general unsourced-figures pass).
+ * - "has implemented mandatory electronic invoicing (CamInvoice) ahead of larger
+ *   ASEAN peers" — unsourced comparison; replaced with the launch date.
+ * - "as CamInvoice achieves Phase 3 universal compliance" — FALSE: no primary
+ *   defines a universal phase; Phase 1 Step 3 adds six ministries.
+ * CamInvoice is an MEF system operated by the General Department of Digital
+ * Economy (Prakas 075, 22 January 2025, Art. 4); its Phase 1 is business-to-
+ * government. Bar for restoring: read in a fetched MEF/GDDE primary.
+ */
+
 export const aseanDigitalEconomyComparison: ArticleContent = {
   slug: 'asean-digital-economy-comparison',
   title: 'ASEAN Digital Economy Comparison: Where Cambodia Stands in 2026',
@@ -7,11 +19,11 @@ export const aseanDigitalEconomyComparison: ArticleContent = {
   type: 'knowledge',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
+  updatedAt: '2026-11-07',
   readingTime: 10,
   schema: 'TechArticle',
   relatedSlugs: ['gaap', 'cambodia-fintech-landscape', 'cross-border-payments-bakong'],
-  lead: 'The ASEAN digital economy reached an estimated USD 330 billion in gross merchandise value (GMV) in 2025, more than tripling from USD 100 billion in 2019, according to the Google-Temasek-Bain e-Conomy SEA report. Within this rapidly expanding regional landscape, each of the 10 ASEAN member states has carved a distinct digital economy profile shaped by population size, regulatory philosophy, infrastructure investment, and strategic priorities. Cambodia, often overlooked in regional digital economy analyses due to its relatively small GDP (USD 33.5 billion in 2025), punches significantly above its weight in several critical dimensions: it operates one of only five fully functional retail CBDCs globally (Bakong), has implemented mandatory electronic invoicing (CamInvoice) ahead of larger ASEAN peers, and has deployed a comprehensive Government-as-a-Platform (GaaP) architecture that many regional observers consider among the most structurally coherent in the region. This article provides a data-driven comparison across all 10 ASEAN member states, examining digital infrastructure maturity, fintech investment flows, payment system development, regulatory approaches, digital identity coverage, and e-commerce penetration to identify where Cambodia stands and where its strategic advantages lie.',
+  lead: 'The ASEAN digital economy reached an estimated USD 330 billion in gross merchandise value (GMV) in 2025, more than tripling from USD 100 billion in 2019, according to the Google-Temasek-Bain e-Conomy SEA report. Within this rapidly expanding regional landscape, each of the 10 ASEAN member states has carved a distinct digital economy profile shaped by population size, regulatory philosophy, infrastructure investment, and strategic priorities. Cambodia, often overlooked in regional digital economy analyses due to its relatively small GDP (USD 33.5 billion in 2025), punches significantly above its weight in several critical dimensions: it operates one of only five fully functional retail CBDCs globally (Bakong), has launched a national electronic invoicing system (CamInvoice, January 2025), and has deployed a comprehensive Government-as-a-Platform (GaaP) architecture that many regional observers consider among the most structurally coherent in the region. This article provides a data-driven comparison across all 10 ASEAN member states, examining digital infrastructure maturity, fintech investment flows, payment system development, regulatory approaches, digital identity coverage, and e-commerce penetration to identify where Cambodia stands and where its strategic advantages lie.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -143,7 +155,7 @@ export const aseanDigitalEconomyComparison: ArticleContent = {
     },
     {
       heading: 'Future Outlook: ASEAN 2030',
-      content: 'Projecting to 2030, the ASEAN digital economy is expected to exceed USD 600 billion in GMV, with several structural shifts reshaping the competitive landscape. The ASEAN Digital Economy Framework Agreement will drive progressive harmonization of regulations, data flows, and payment systems, reducing barriers to cross-border digital commerce. AI adoption will accelerate across all sectors, with AI-powered financial services (credit scoring, fraud detection, customer service) becoming standard rather than differentiated.\n\nFor Cambodia specifically, the trajectory points toward a digital economy contributing 15-20% of GDP by 2030 (up from approximately 8% in 2025), driven by three growth vectors. First, GaaP maturation: as CamInvoice achieves Phase 3 universal compliance and CamDigiKey reaches 75% enrollment, the comprehensive digital audit trail will enable new financial products (credit scoring, insurance underwriting, government-to-person payments) that were previously impossible. Second, manufacturing digitization: Cambodia\'s industrial sector, which contributes 38% of GDP, will increasingly adopt Industry 4.0 technologies, creating demand for IoT-integrated payment systems, automated supply chain finance, and digital trade documentation.\n\nThird, regional connectivity: as Bakong\'s cross-border corridors expand to all 10 ASEAN member states and join the multilateral Nexus platform, Cambodia will transition from a domestic payment market to a regional payment node. This evolution creates opportunities for cross-border e-commerce enablement, regional trade finance, and ASEAN-wide financial service distribution using Cambodia as a cost-competitive operational hub.\n\nPositioning for Cambodia\'s 2030 digital economy takes both local regulatory depth and a regional ASEAN perspective.',
+      content: 'Projecting to 2030, the ASEAN digital economy is expected to exceed USD 600 billion in GMV, with several structural shifts reshaping the competitive landscape. The ASEAN Digital Economy Framework Agreement will drive progressive harmonization of regulations, data flows, and payment systems, reducing barriers to cross-border digital commerce. AI adoption will accelerate across all sectors, with AI-powered financial services (credit scoring, fraud detection, customer service) becoming standard rather than differentiated.\n\nFor Cambodia specifically, the trajectory points toward a digital economy contributing 15-20% of GDP by 2030 (up from approximately 8% in 2025), driven by three growth vectors. First, GaaP maturation: as CamInvoice\'s validated invoice records accumulate and CamDigiKey reaches 75% enrollment, the comprehensive digital audit trail will enable new financial products (credit scoring, insurance underwriting, government-to-person payments) that were previously impossible. Second, manufacturing digitization: Cambodia\'s industrial sector, which contributes 38% of GDP, will increasingly adopt Industry 4.0 technologies, creating demand for IoT-integrated payment systems, automated supply chain finance, and digital trade documentation.\n\nThird, regional connectivity: as Bakong\'s cross-border corridors expand to all 10 ASEAN member states and join the multilateral Nexus platform, Cambodia will transition from a domestic payment market to a regional payment node. This evolution creates opportunities for cross-border e-commerce enablement, regional trade finance, and ASEAN-wide financial service distribution using Cambodia as a cost-competitive operational hub.\n\nPositioning for Cambodia\'s 2030 digital economy takes both local regulatory depth and a regional ASEAN perspective.',
     },
   ],
 };

@@ -1,128 +1,175 @@
 import { ArticleContent } from '../types';
 
+/*
+ * Rewritten 2026-11-07 (CamInvoice correction pass; same bar as
+ * insights/caminvoice-rollout-impact.ts and app/content/regulatory).
+ *
+ * The previous version was a detailed technical reference, and almost none of
+ * it could be traced to a source. Removed, not hedged. What the checks found:
+ *
+ * - "CamInvoice is the General Department of Taxation's mandatory electronic
+ *   invoicing system" and every sentence giving the GDT the platform, the
+ *   database, the stamp or the signing certificate — FALSE. MEF Prakas 075 of
+ *   22 January 2025, Art. 4, makes the MEF's General Department of Digital
+ *   Economy (GDDE) the secretariat that manages, operates and monitors it.
+ * - "requires all businesses", "every B2B transaction", "fully replace paper
+ *   tax invoices for all business-to-business transactions" — not supported.
+ *   Phase 1, per Circulars 003/012/017, is business-to-government.
+ * - The phase table and its prose: Phase 1 Jan 2025 > KHR 1bn, ~12,000
+ *   businesses, 85% compliance, a 3-month grace period; Phase 2 Jan 2026 KHR
+ *   250m-1bn, ~35,000; Phase 3 Jan 2027, ~470,000, a "mobile app and USSD"
+ *   interface, MFI partnerships — no primary. Conflicts with the thresholds on
+ *   other CamInvoice pages, which were equally unsourced.
+ * - Penalties FAQ (25% of undeclared tax, CIT non-deductibility, VAT input
+ *   denial, criminal referral) — no primary. Removed.
+ * - "UBL 2.1" — the developer documentation read (below) says UBL and gives
+ *   UBL element names, but no page read states a UBL version. Restore "2.1"
+ *   only from a page that says it.
+ * - A "REST API accepting JSON-encoded UBL 2.1", "v2.1", "12 months of backward
+ *   compatibility", 3-second sync response, 1,000-invoice batches, 30-minute
+ *   batch results, a daily 06:00 ICT registry extract — not in any page read.
+ *   The documentation describes XML e-invoices and /api/v1/ paths.
+ * - The architecture-layers table (99.2/99.5/99.9% SLAs, 150 TPS, TLS 1.2+,
+ *   7-year retention) — no source. Prakas 075 Art. 6 says 10 years.
+ * - The mandatory-fields table (9-digit TINs, "max 7 days prior", "KHR or USD
+ *   only", VAT rates "0, 10 or exempt", HS codes mandatory), the "Cambodian
+ *   UBL Profile" with custom extensions (Bakong payment code, sector code) —
+ *   no source. The field NAMES now on the page come from the documentation's
+ *   own navigation; no cardinality or validation rule is asserted.
+ * - The error-code table (V-1001 … V-4002) with Q1 2025 rejection frequencies,
+ *   "over 120 business rules" — no source; treated as invented.
+ * - The "digital tax stamp": a 20-character CIRN, SHA-256 + "GDT RSA-2048
+ *   signature", a GDT certificate on a "developer portal", offline verification
+ *   — none of it appears in the pages read. The June 2024 documentation says
+ *   validated invoices are attested and stored on blockchain via CamDL; that,
+ *   dated, is what the page now says.
+ * - Self-billing invoices (type code 389), reason-code enumerations, the GDT
+ *   checking credit-note amounts — no source. The documentation lists three
+ *   document types: INVOICE, CREDIT_NOTE, DEBIT_NOTE.
+ * - VAT cross-matching engine, "automated inquiries", "formal GDT audit if
+ *   unresolved within 30 days" — no source; it also put conduct in the GDT's
+ *   mouth. Removed.
+ * - The ERP table (SAP "certified SP connector", NetSuite SuiteApp, Dynamics
+ *   via Power Automate, 2-12 week timelines) and "reduce integration time from
+ *   8-12 weeks to 2-4 weeks" — unsourced product and outcome claims.
+ * - Retry tuning (5 s / 5 min / 10 retries), "98% first-pass acceptance" —
+ *   presented as system facts with no source. Generic guidance kept, unnumbered.
+ *
+ * Sources read for this version:
+ * - MEF Prakas 075 and Circulars 003, 012, 017 (Khmer scans, Open Development
+ *   Cambodia mirror, fetched 2026-11-06).
+ * - The CamInvoice developer documentation at developer.e-invoice.gov.kh, read
+ *   from Internet Archive snapshots (the live site returns a Cloudflare
+ *   challenge, 403, to every non-browser client): the Introduction page of
+ *   18 June 2024, and the Getting Started, Get New Access Token, Document Type,
+ *   Document Status, Http Status code, Download Document Xml and Update
+ *   Document Status pages of 22 December 2025. Everything technical on this
+ *   page traces to those pages. Snapshots can lag the live documentation; the
+ *   page says so.
+ *
+ * Bar for restoring a specific (version, limit, rate, code, field rule, SLA):
+ * read on a fetched page of the operator's own documentation or an MEF/GDDE
+ * instrument, recorded in `claims` with the page and snapshot date. Vendor and
+ * e-invoicing software pages do not clear it.
+ *
+ * Updated 2026-11-07: MEF Circular 007 (signed 2026, read from the Khmer
+ * original) adds Phase 1, Step 4 - 14 further ministries and institutions.
+ * Phase 1 is no longer 'three steps'; do not reintroduce a fixed count.
+ */
 export const caminvoiceTechnicalCompliance: ArticleContent = {
   slug: 'caminvoice-technical-compliance',
   title: 'CamInvoice Technical Compliance: API Integration and Data Specifications',
-  description: 'Complete technical reference for CamInvoice API integration covering UBL 2.1 data schemas, invoice submission workflows, validation rules, error handling, digital tax stamps, compliance timelines, and enterprise integration architecture patterns.',
+  description: 'What the CamInvoice developer documentation and the Ministry of Economy and Finance\'s instruments establish about integrating with the Cambodia E-Invoicing System: who operates it, the XML/UBL document structure, OAuth 2.0 authentication, document types and statuses, webhooks and polling, and how to approach an integration.',
   type: 'knowledge',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
-  readingTime: 9,
+  updatedAt: '2026-11-07',
+  readingTime: 6,
   schema: 'TechArticle',
   relatedSlugs: ['caminvoice', 'gdt', 'what-is-caminvoice'],
-  lead: 'CamInvoice is the General Department of Taxation\'s mandatory electronic invoicing system that requires all businesses operating in Cambodia to generate, transmit, and archive commercial invoices through a centralized government platform. Built on the Universal Business Language (UBL) 2.1 international standard, CamInvoice transforms tax compliance from a periodic filing exercise into a continuous, real-time data stream between businesses and the GDT. The system validates every invoice against a comprehensive set of business rules, applies a unique digital tax stamp confirming government registration, and stores the invoice in the national tax database for audit and analytics purposes. As of January 2025, large enterprises with annual revenue above KHR 1 billion (approximately USD 250,000) are required to comply, with medium enterprises following by January 2026 and all remaining registered businesses by January 2027. This article provides the complete technical reference for enterprise developers integrating their billing, ERP, and accounting systems with the CamInvoice API.',
-  // Claims removed 2026-08-31. This array previously carried figures attributed
-  // to named institutional reports with no URL, access date or page reference.
-  // A verified sample was wrong more often than not — including a Cambodian FATF
-  // mutual evaluation that never took place, and citations to bodies that do not
-  // exist under the names given. Restore an entry only when its figure has been
-  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
-  // and record where it was read. See vault ADR-007.
-  claims: [],
+  lead: 'CamInvoice, the Cambodia E-Invoicing System, is operated by the General Department of Digital Economy (GDDE) of the Ministry of Economy and Finance (MEF), which launched it officially on 22 January 2025. Its first phase applies to suppliers invoicing the budget entities of designated ministries. For developers, the system publishes its own technical documentation: invoices are XML documents structured on the Universal Business Language (UBL), submitted through an API that uses OAuth 2.0 credentials, validated, and then notified to both parties by webhook or polling. This article sets out what that documentation and the MEF\'s instruments state, and how to approach an integration around them. It does not reproduce limits, error codes or field-level rules that the documentation read for it does not state. An earlier version did, and those specifics could not be traced to any source.',
+  claims: [
+    { stat: 'The General Department of Digital Economy of the MEF is the secretariat that manages, operates and monitors the Cambodia E-Invoicing System. An invoice validated and identified by the system is recognised as an original digital record, and is stored in digital form for 10 years.', source: 'Ministry of Economy and Finance, Prakas 075 on the launch of the Cambodia E-Invoicing System (Khmer), Article 4 (page 2) and Article 6 (page 3)', year: '2025', url: 'https://data.opendevelopmentcambodia.net/en/dataset/a57a86ff-1c53-481e-a4f0-8b32fe96b6cf/resource/e433f7a7-0bd0-4407-8d58-c5f346be20dd/download/mef_prakas-075_launching-of-cambodia-e-invoicing-system_kh_2025.pdf' },
+    { stat: 'Phase 1, Step 1 applies to the central-level budget entities of two ministries (Economy and Finance; Environment) and their suppliers, covering invoices for expenditure payment requests under public procurement from fiscal year 2025.', source: 'Ministry of Economy and Finance, Circular 003 on mandatory e-invoicing via the Cambodia E-Invoicing System, Phase 1, Step 1 (Khmer), page 1', year: '2025', url: 'https://data.opendevelopmentcambodia.net/dataset/2ff2820c-df65-4d60-aa0f-806c65d82952/resource/d77ab51b-6f54-4960-b947-ffd4a4f2a5a4/download/mef_circular-003_obligation-to-use-e-invoice_kh_2025.pdf' },
+    { stat: 'A CamInvoice user generates an XML e-invoice in its own system or in the free Merchant Portal and sends it to CamInvoice via the API. CamInvoice validates it through checks including XML structure validation, UBL field validation, General Department of Taxation rules validation and e-KYB validation; a validated invoice is attested and stored on blockchain via CamDL, and a webhook notification goes to both the sender\'s and the receiver\'s systems.', source: 'CamInvoice developer documentation, Introduction, "How it works" (developer.e-invoice.gov.kh, Internet Archive snapshot of 18 June 2024)', year: '2024', url: 'https://web.archive.org/web/20240618030344/https://developer.e-invoice.gov.kh/' },
+    { stat: 'API credentials (a client ID and secret) are obtained from CamInvoice support; authentication is OAuth 2.0. An access token is obtained by POST to {BaseURL}/api/v1/auth/token with the client ID and secret as HTTP Basic credentials and a refresh token, is used as a Bearer token on later requests, and expires after 900 seconds (15 minutes).', source: 'CamInvoice developer documentation, Getting Started and API Reference: Get New Access Token (developer.e-invoice.gov.kh, Internet Archive snapshots of 22 December 2025)', year: '2025', url: 'https://web.archive.org/web/20251222130429/https://developer.e-invoice.gov.kh/api-reference/authentication' },
+    { stat: 'CamInvoice supports three document types: INVOICE, CREDIT_NOTE and DEBIT_NOTE.', source: 'CamInvoice developer documentation, Data Types: Document Type (developer.e-invoice.gov.kh, Internet Archive snapshot of 22 December 2025)', year: '2025', url: 'https://web.archive.org/web/20251222104318/https://developer.e-invoice.gov.kh/data-type/document-type' },
+    { stat: 'Document statuses: VALID, DELIVERED, ACKNOWLEDGED, IN_PROCESS, UNDER_QUERY, CONDITIONALLY_ACCEPTED, ACCEPTED, REJECTED and PAID.', source: 'CamInvoice developer documentation, Data Types: Document Status (developer.e-invoice.gov.kh, Internet Archive snapshot of 22 December 2025)', year: '2025', url: 'https://web.archive.org/web/20251222104629/https://developer.e-invoice.gov.kh/data-type/document-status' },
+    { stat: 'A document\'s XML can be downloaded in UBL format by GET to {BaseURL}/api/v1/document/{document_id}/xml with a Bearer token.', source: 'CamInvoice developer documentation, API Reference: Download Document Xml (developer.e-invoice.gov.kh, Internet Archive snapshot of 22 December 2025)', year: '2025', url: 'https://web.archive.org/web/20251222110321/https://developer.e-invoice.gov.kh/api-reference/download-document-XML' },
+  ],
+  sources: [
+    { publisher: 'Ministry of Economy and Finance', label: 'Prakas 075 on the launch of the Cambodia E-Invoicing System (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/a57a86ff-1c53-481e-a4f0-8b32fe96b6cf/resource/e433f7a7-0bd0-4407-8d58-c5f346be20dd/download/mef_prakas-075_launching-of-cambodia-e-invoicing-system_kh_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 003, mandatory e-invoicing, Phase 1 Step 1 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/dataset/2ff2820c-df65-4d60-aa0f-806c65d82952/resource/d77ab51b-6f54-4960-b947-ffd4a4f2a5a4/download/mef_circular-003_obligation-to-use-e-invoice_kh_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 012, mandatory e-invoicing, Phase 1 Step 2 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/bce86ad2-6baf-456a-b49f-90c0b7b61f26/resource/e8c6b0ce-8f79-427e-a7e2-56f87c89ed1e/download/1756437973985-20250714_circular_to_6_lms_in_q3_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 017, mandatory e-invoicing, Phase 1 Step 3 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/d244f7f4-ef43-43fe-8645-d79483c9b0c3/resource/7d904664-edbe-40fe-8e76-f4b119d6a51c/download/1.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 007, mandatory e-invoicing, Phase 1 Step 4 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/9bdb6142-b119-41c4-b2ae-5bdde281a8f6/resource/549d6645-3232-4fa3-8715-a8f61c79b1f9/download/1.pdf', tier: 'primary' },
+    { publisher: 'CamInvoice', label: 'Developer documentation, Introduction (Internet Archive snapshot, 18 June 2024)', url: 'https://web.archive.org/web/20240618030344/https://developer.e-invoice.gov.kh/', tier: 'primary' },
+    { publisher: 'CamInvoice', label: 'Developer documentation, Getting Started (Internet Archive snapshot, 22 December 2025)', url: 'https://web.archive.org/web/20251222220905/https://developer.e-invoice.gov.kh/getting-started/overview', tier: 'primary' },
+    { publisher: 'CamInvoice', label: 'Developer documentation, Get New Access Token (Internet Archive snapshot, 22 December 2025)', url: 'https://web.archive.org/web/20251222130429/https://developer.e-invoice.gov.kh/api-reference/authentication', tier: 'primary' },
+    { publisher: 'CamInvoice', label: 'Developer documentation, Document Status (Internet Archive snapshot, 22 December 2025)', url: 'https://web.archive.org/web/20251222104629/https://developer.e-invoice.gov.kh/data-type/document-status', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-06',
   faqs: [
-    { question: 'What happens if my business misses the CamInvoice compliance deadline?', answer: 'Businesses that fail to comply with CamInvoice by their phase deadline face multiple consequences. First, invoices issued without valid CamInvoice digital stamps are not deductible for the buyer\'s corporate income tax, creating pressure from business partners to comply. Second, the GDT imposes penalties of up to 25% of undeclared tax amounts for non-compliant invoicing. Third, the GDT may deny VAT input tax credits for purchases not supported by CamInvoice-registered invoices. Fourth, persistent non-compliance can trigger a full GDT audit and potential criminal referral for tax evasion. Businesses approaching a phase deadline should scope the integration against the mandate date, not the fiscal year.' },
-    { question: 'Can CamInvoice handle invoices in both KHR and USD?', answer: 'Yes. CamInvoice supports invoices denominated in both Khmer Riel (KHR) and US Dollars (USD), reflecting Cambodia\'s dual-currency economy. The invoice currency is specified in the UBL 2.1 DocumentCurrencyCode field using ISO 4217 codes (KHR or USD). For VAT calculation purposes, USD-denominated invoices are converted to KHR at the NBC official exchange rate on the invoice date. The GDT publishes the applicable exchange rate daily. CamInvoice also supports multi-currency invoices where line items are priced in different currencies, though this is uncommon in practice.' },
-    { question: 'Does CamInvoice replace paper invoices entirely?', answer: 'The GDT intends CamInvoice to fully replace paper tax invoices for all business-to-business transactions. Once a business is enrolled in CamInvoice, paper invoices issued by that business are no longer valid for tax purposes. However, businesses may still issue printed copies of electronic invoices for customer convenience, provided the printed copy includes the CamInvoice digital stamp (QR code and reference number) that enables verification against the GDT database. Business-to-consumer receipts below the VAT threshold (KHR 200,000 / approximately USD 50) are currently exempt from CamInvoice but may be included in future phases.' },
+    { question: 'Who operates CamInvoice?', answer: 'The General Department of Digital Economy (GDDE) of the Ministry of Economy and Finance. MEF Prakas 075 of 22 January 2025 makes the GDDE the secretariat that manages, operates and monitors the Cambodia E-Invoicing System.' },
+    { question: 'What format does a CamInvoice e-invoice use?', answer: 'According to CamInvoice\'s developer documentation, an e-invoice is an XML document structured on the Universal Business Language (UBL), and the documentation specifies the structure of three document types: invoices, credit notes and debit notes. Submitted documents are checked for XML structure, UBL fields, tax rules and e-KYB before they are accepted. The pages read for this article do not state a UBL version; take that, and every field rule, from the current documentation supplied with your credentials.' },
+    { question: 'How does a business system authenticate to the CamInvoice API?', answer: 'The developer documentation describes OAuth 2.0. A business obtains a client ID and secret from CamInvoice support, exchanges them for an access token at the token endpoint, and sends that token as a Bearer token on later requests. The December 2025 version of the documentation states that tokens expire after 900 seconds (15 minutes), so an integration needs to renew them rather than store one.' },
   ],
   sections: [
     {
-      heading: 'CamInvoice System Architecture',
-      content: 'The CamInvoice system operates as a centralized clearinghouse model where all electronic invoices pass through the GDT\'s platform for validation, registration, and storage before being delivered to the buyer. This differs from the distributed model used in some European countries where invoices are exchanged directly between trading partners via certified access points. The centralized model gives the GDT real-time visibility into all commercial transactions, enabling automated VAT cross-matching, fraud detection, and fiscal analytics.\n\nThe architecture comprises three layers: the Submission Layer (REST API and web portal for invoice submission), the Validation and Processing Layer (business rules engine, VAT calculation verification, digital stamp generation), and the Storage and Analytics Layer (invoice archive, audit trail, reporting dashboard). Businesses interact with the Submission Layer through either the CamInvoice API (recommended for high-volume enterprises) or the CamInvoice web portal (suitable for low-volume businesses).\n\nThe CamInvoice API is a RESTful service accepting JSON-encoded UBL 2.1 invoice documents. The API supports synchronous validation (response within 3 seconds) and asynchronous batch submission (for bulk upload of up to 1,000 invoices per batch). Authentication uses API keys issued during business registration, combined with digital certificates for invoice signing. The API is versioned, with the current production version being v2.1, and the GDT commits to 12 months of backward compatibility for deprecated versions.',
+      heading: 'Who Operates the System and Whom It Applies To',
+      content: 'The Cambodia E-Invoicing System was launched by MEF Prakas 075 of 22 January 2025. Article 4 makes the MEF\'s General Department of Digital Economy (GDDE) the secretariat that manages, operates, supervises and monitors it. Article 6 gives an invoice validated and identified by the system the status of an original digital record, stored in digital form for 10 years.\n\nThe first phase is business-to-government. Under MEF Circular 003 (Step 1), suppliers invoicing the central-level budget entities of the Ministry of Economy and Finance and the Ministry of Environment, for expenditure payment requests under public procurement, do so through the system from fiscal year 2025. Circular 012 (Step 2) adds six ministries, Circular 017 (Step 3) adds six more, and Circular 007 (Step 4, 2026) adds 14 further ministries and institutions. For any obligation beyond these, the reader should check the MEF\'s current circulars rather than rely on secondary summaries.\n\nThe practical consequence for an integration: whether a business must connect at all, and from when, follows from whom it invoices. That question comes before any of the technical work below.',
+    },
+    {
+      heading: 'How the System Works, per Its Developer Documentation',
+      content: 'CamInvoice publishes technical documentation for integrators at developer.e-invoice.gov.kh. It is written on the assumption that the reader has already contacted CamInvoice and received credentials. The live site currently returns a bot challenge to automated clients, so this article reads it from Internet Archive snapshots of June 2024 and December 2025. Snapshots can lag the live documentation. Treat what follows as an orientation, and the documentation supplied with your credentials as the reference.\n\nThe Introduction page (June 2024) describes the flow. A CamInvoice user generates an XML e-invoice, either in its own system or in CamInvoice\'s free Merchant Portal, and sends it to CamInvoice via the API. CamInvoice validates it through several checks, including XML structure, UBL fields, General Department of Taxation rules, and e-KYB (electronic know-your-business). An invoice that passes is attested and stored on blockchain via CamDL. CamInvoice then notifies both the sender\'s and the receiver\'s systems by webhook.\n\nThe December 2025 version organises the documentation into Getting Started (an overview and an OAuth 2.0 integration guide), an API Reference, Receive Update Events (webhooks, including setting up and unsetting a webhook, and a polling alternative), the Invoice Structure for invoices, credit notes and debit notes, and Data Types (document status, document type, event type, HTTP status codes, tax category and tax scheme).',
+    },
+    {
+      heading: 'Document Types and Data Structure',
+      content: 'The documentation defines three document types. An INVOICE is issued by a seller to a buyer, indicating products, quantities and agreed prices. A CREDIT_NOTE records a credit given to the buyer, typically for returned goods or overpayment. A DEBIT_NOTE records additional charges or an increase in the amount owed.\n\nThe Invoice Structure section specifies each document element by element, using UBL element names. The top-level elements of an invoice, as the documentation lists them, are shown in the table. Credit and debit notes follow the same pattern, with credit-note and debit-note lines in place of invoice lines and a BillingReference to the original invoice\'s document reference. A debit note carries a RequestedMonetaryTotal rather than a LegalMonetaryTotal. Each party block includes an endpoint ID, name, postal address, tax scheme (company ID), legal entity (company ID and registration name) and contact.\n\nThe pages read for this article list these elements; they do not state field lengths, cardinality, code lists or validation rules. Those belong in the element-level pages of the current documentation, and an integration should be built against them rather than against an assumed UBL profile.',
       table: {
-        caption: 'CamInvoice System Architecture Layers',
-        headers: ['Layer', 'Components', 'Interface', 'Availability SLA', 'Key Metrics'],
+        caption: 'Top-level elements of a CamInvoice invoice, as listed in the developer documentation (December 2025 snapshot)',
+        headers: ['Element', 'What it holds'],
         rows: [
-          ['Submission', 'REST API, Web Portal, Batch Upload', 'HTTPS (TLS 1.2+)', '99.2% uptime', '< 3 second response (sync)'],
-          ['Validation', 'Rules Engine, VAT Calculator, Stamp Generator', 'Internal', '99.5% uptime', '150 TPS peak throughput'],
-          ['Storage', 'Invoice Archive, Audit Trail, Analytics DB', 'Internal + Reporting API', '99.9% uptime', '7-year retention'],
+          ['ID, IssueDate, DueDate', 'Invoice identifier and dates'],
+          ['InvoiceTypeCode, DocumentCurrencyCode', 'Document type code and currency code'],
+          ['AdditionalDocumentReference', 'Referenced or attached documents (embedded binary object or external URI)'],
+          ['AccountingSupplierParty', 'The seller'],
+          ['AccountingCustomerParty', 'The buyer'],
+          ['PaymentTerms', 'Payment terms note'],
+          ['AllowanceCharge', 'Document-level allowances or charges'],
+          ['TaxExchangeRate', 'Source and target currency and the rate applied'],
+          ['TaxTotal', 'Tax amount, with subtotals by tax category and scheme'],
+          ['LegalMonetaryTotal', 'Line total, tax-exclusive and tax-inclusive amounts, allowances, charges, prepaid and payable amounts'],
+          ['InvoiceLine', 'Each line: quantity, amount, allowances, tax, item and price'],
         ],
       },
     },
     {
-      heading: 'UBL 2.1 Invoice Data Schema',
-      content: 'CamInvoice adopts the OASIS Universal Business Language (UBL) 2.1 standard for its invoice data schema, ensuring interoperability with international e-invoicing systems and alignment with ASEAN\'s emerging e-invoicing framework. The UBL 2.1 Invoice document type defines a comprehensive set of fields covering document metadata, seller and buyer identification, line item details, tax calculations, payment terms, and supplementary references.\n\nThe GDT has published a Cambodian UBL Profile that specifies which UBL fields are mandatory, optional, and prohibited in the Cambodian context. Key mandatory fields include: the seller\'s TIN (cac:AccountingSupplierParty/cac:PartyTaxScheme/cbc:CompanyID), buyer\'s TIN (cac:AccountingCustomerParty/cac:PartyTaxScheme/cbc:CompanyID), invoice date (cbc:IssueDate), currency code (cbc:DocumentCurrencyCode), line item descriptions with HS codes for goods (cac:Item/cac:CommodityClassification), individual line amounts (cbc:LineExtensionAmount), VAT category and rate (cac:TaxCategory/cbc:Percent), and total payable amount (cac:LegalMonetaryTotal/cbc:PayableAmount).\n\nThe Cambodian profile adds several custom extensions to standard UBL 2.1: a CamInvoice document type code (distinguishing standard invoices, credit notes, debit notes, and self-billing invoices), a payment method code indicating whether payment is via Bakong, bank transfer, cash, or credit terms, and a business sector code aligned with the GDT\'s industry classification system.',
+      heading: 'Authentication and the API',
+      content: 'Getting Started sets out the prerequisites. Contact CamInvoice support to obtain API credentials, a client ID and secret. Use the base URL you are given for all API requests. Implement OAuth 2.0 authentication.\n\nAn access token is obtained by POST to {BaseURL}/api/v1/auth/token. The client ID and secret are sent base64-encoded as HTTP Basic credentials, and the body carries a refresh token, which the documentation says is given when the system is first connected. The response returns a token, its type (usually Bearer) and its lifetime in seconds. The documentation states that tokens expire after 900 seconds (15 minutes). The token is then sent as a Bearer token on every request that needs authentication.\n\nThe API Reference (December 2025) has endpoints to list CamInvoice members and get a member\'s details, validate a business (taxpayer), submit and send documents, list documents and get a document\'s details, accept or reject documents, update document status, revoke a connected member, and download a document as PDF or as XML. The XML download returns the document in UBL format, from {BaseURL}/api/v1/document/{document_id}/xml. The documentation\'s HTTP status code page lists 200, 401, 403, 422 and 500.',
+    },
+    {
+      heading: 'Document Status and Update Events',
+      content: 'After submission, a document moves through statuses that both parties can see. The documentation lists the statuses below. A status update is made by PUT to {BaseURL}/api/v1/document/status with a list of document IDs and the new status. The response separates the documents that were updated from those that failed, with a message for each failure; its own example rejects a change from PAID to ACCEPTED. An integration should therefore handle partial success, and should not assume every transition is allowed.\n\nChanges reach a connected system in one of two ways: a webhook it registers (and can unset), or polling. Either way, an integration that only sends documents is half built: the documentation also provides for receiving, accepting and rejecting them.',
       table: {
-        caption: 'CamInvoice Mandatory UBL 2.1 Fields',
-        headers: ['UBL Element', 'Field Name', 'Data Type', 'Required', 'Validation Rule'],
+        caption: 'CamInvoice document statuses (developer documentation, December 2025 snapshot)',
+        headers: ['Status', 'Meaning, as documented'],
         rows: [
-          ['cbc:ID', 'Invoice Number', 'String (max 50)', 'Yes', 'Unique per seller per fiscal year'],
-          ['cbc:IssueDate', 'Invoice Date', 'Date (YYYY-MM-DD)', 'Yes', 'Cannot be future date, max 7 days prior'],
-          ['cbc:InvoiceTypeCode', 'Document Type', 'Code (3 digits)', 'Yes', '380=Invoice, 381=Credit Note, 383=Debit Note'],
-          ['cbc:DocumentCurrencyCode', 'Currency', 'ISO 4217 (3 char)', 'Yes', 'KHR or USD only'],
-          ['Supplier/cbc:CompanyID', 'Seller TIN', 'String (9 digits)', 'Yes', 'Must match active GDT registration'],
-          ['Customer/cbc:CompanyID', 'Buyer TIN', 'String (9 digits)', 'Yes', 'Must match active GDT registration'],
-          ['cac:TaxCategory/cbc:Percent', 'VAT Rate', 'Decimal', 'Yes', '0, 10 (standard), or exempt code'],
-          ['cbc:PayableAmount', 'Total Payable', 'Decimal (2 dp)', 'Yes', 'Must equal sum of lines + VAT'],
+          ['VALID', 'Validated by CamInvoice'],
+          ['DELIVERED', 'Sent to the customer on the e-invoicing network'],
+          ['ACKNOWLEDGED', 'Acknowledged but not yet processed'],
+          ['IN_PROCESS', 'Being processed'],
+          ['UNDER_QUERY', 'Has issues or queries and is being reviewed'],
+          ['CONDITIONALLY_ACCEPTED', 'Accepted with conditions to be fulfilled'],
+          ['ACCEPTED', 'Fully accepted and awaiting payment'],
+          ['REJECTED', 'Rejected and will not be processed further'],
+          ['PAID', 'Paid in full'],
         ],
       },
     },
     {
-      heading: 'Invoice Submission Workflow',
-      content: 'The CamInvoice submission workflow follows a defined sequence with clear state transitions at each stage. The process begins when the enterprise\'s billing system generates an invoice and formats it as a UBL 2.1 JSON document conforming to the Cambodian profile. The system signs the invoice using the enterprise\'s registered digital certificate, then submits it to the CamInvoice API endpoint.\n\nUpon receipt, the CamInvoice Validation Engine performs a multi-step verification process. Schema validation confirms the JSON document conforms to the UBL 2.1 schema. Business rule validation checks mandatory fields, TIN validity, date constraints, and mathematical accuracy (line totals, VAT calculations, document total). Cross-reference validation queries the GDT database to confirm that both seller and buyer TINs are active and that the seller is registered for CamInvoice. Duplicate detection checks whether an invoice with the same seller TIN, invoice number, and date has been previously submitted.\n\nIf all validations pass, the system assigns a unique CamInvoice Reference Number (CIRN), generates a digital tax stamp containing the CIRN, timestamp, and GDT digital signature, and returns the stamped invoice to the submitter. The invoice status transitions to REGISTERED. If any validation fails, the system returns a detailed error response with specific error codes and field-level error messages, and the invoice status remains REJECTED. The enterprise must correct the errors and resubmit.\n\nThe entire synchronous workflow completes within 3 seconds for individual invoices. Batch submissions of up to 1,000 invoices are processed asynchronously, with results available via a polling endpoint or webhook notification within 30 minutes.',
-    },
-    {
-      heading: 'Validation Rules and Error Codes',
-      content: 'The CamInvoice Validation Engine applies over 120 business rules organized into five categories: structural rules (schema compliance), identification rules (TIN verification), calculation rules (mathematical accuracy), temporal rules (date constraints), and cross-reference rules (duplicate detection, prior invoice amendments). Understanding these rules is essential for building a submission system that achieves a high first-pass acceptance rate.\n\nThe most common rejection reasons in the first quarter of mandatory operation were: incorrect VAT calculation (32% of rejections), where the document total did not match the sum of line items plus VAT; invalid buyer TIN (24%), where the buyer\'s TIN was either unregistered, inactive, or miskeyed; duplicate invoice number (18%), where the seller reused an invoice number from the same fiscal year; missing HS code (12%), where goods items lacked the mandatory commodity classification; and invalid date (8%), where the invoice date was more than 7 days in the past or in the future.\n\nEnterprise developers should implement client-side pre-validation that checks all 120 rules before submitting to the CamInvoice API. This reduces API round trips, improves user experience, and avoids the operational overhead of handling rejected invoices. Validating locally before submission is the practical approach: a library implementing the complete CamInvoice business rule set, integrated into the ERP or billing platform, catches schema errors before they become rejections.',
-      table: {
-        caption: 'CamInvoice Error Codes and Frequencies',
-        headers: ['Error Code', 'Category', 'Description', 'Frequency (Q1 2025)', 'Resolution'],
-        rows: [
-          ['V-1001', 'Calculation', 'VAT amount mismatch', '32%', 'Recalculate VAT per line item and total'],
-          ['V-2001', 'Identification', 'Buyer TIN invalid or inactive', '24%', 'Verify TIN against GDT registry'],
-          ['V-3001', 'Cross-reference', 'Duplicate invoice number', '18%', 'Use unique sequential numbering per fiscal year'],
-          ['V-4001', 'Structural', 'Missing HS code for goods', '12%', 'Add 6-digit HS code for all goods line items'],
-          ['V-5001', 'Temporal', 'Invoice date out of range', '8%', 'Issue date must be within 7 days prior to today'],
-          ['V-2002', 'Identification', 'Seller TIN not CamInvoice registered', '3%', 'Complete CamInvoice registration first'],
-          ['V-1002', 'Calculation', 'Line item total mismatch', '2%', 'Verify quantity x unit price = line total'],
-          ['V-4002', 'Structural', 'Schema validation failure', '1%', 'Validate JSON against UBL 2.1 schema'],
-        ],
-      },
-    },
-    {
-      heading: 'Digital Tax Stamp and Verification',
-      content: 'The CamInvoice digital tax stamp is the cornerstone of the system\'s integrity, providing cryptographic proof that an invoice has been validated and registered by the GDT. The stamp contains four elements: the CamInvoice Reference Number (CIRN), a 20-character alphanumeric code uniquely identifying the registered invoice; the registration timestamp in ISO 8601 format; a SHA-256 hash of the invoice content; and the GDT\'s RSA-2048 digital signature over the combined CIRN, timestamp, and content hash.\n\nThe digital stamp is returned to the submitter in the API response and can be rendered as a QR code on printed invoice copies. The QR code encodes a URL to the CamInvoice verification portal, allowing any party (buyer, auditor, tax inspector) to scan the code and verify the invoice\'s authenticity and content against the GDT database. This verification mechanism is critical for supply chain finance applications, where financiers need to confirm that an invoice is genuine and has not been previously pledged as collateral.\n\nThe GDT\'s digital certificate used for signing tax stamps is published on the CamInvoice developer portal, enabling offline verification by extracting the signature from the stamp and validating it against the GDT\'s public key. This offline verification capability is important for enterprise systems that need to verify large volumes of received invoices without making individual API calls to the CamInvoice verification endpoint.\n\nEnterprise systems should store the complete digital stamp data alongside each invoice record and implement automated verification of received invoices (from suppliers and vendors) to ensure they are genuine CamInvoice-registered documents before claiming VAT input tax credits.',
-    },
-    {
-      heading: 'Credit Notes and Invoice Amendments',
-      content: 'CamInvoice supports invoice modifications through credit notes and debit notes, following the UBL 2.1 standard for adjustment documents. A registered invoice cannot be deleted or directly modified in the CamInvoice system. Instead, corrections are made by issuing a credit note (to reduce the original amount) or a debit note (to increase the original amount) that references the original invoice\'s CIRN.\n\nCredit notes (InvoiceTypeCode 381) must include the original invoice\'s CIRN in the BillingReference field, specify the negative adjustment amount, and provide a reason code from the GDT\'s enumerated list (pricing error, quantity adjustment, returned goods, discount applied, etc.). The GDT validates that the credit note amount does not exceed the original invoice amount and that the referenced invoice exists and belongs to the same seller TIN. Full cancellation of an invoice requires a credit note for the entire amount.\n\nDebit notes (InvoiceTypeCode 383) follow the same referencing pattern but increase the original amount, typically used for additional charges, late payment fees, or underestimated quantities. Self-billing invoices (InvoiceTypeCode 389) are used when the buyer issues the invoice on behalf of the supplier, common in agriculture and construction where suppliers lack invoicing systems.\n\nEnterprise ERP systems should implement automated credit note generation for common scenarios (returns processing, pricing adjustments, volume discount reconciliation) and ensure that the credit note workflow includes the original CIRN reference required by CamInvoice.',
-    },
-    {
-      heading: 'Enterprise Integration Architecture',
-      content: 'Integrating CamInvoice with enterprise ERP and billing systems requires careful architecture design to handle the real-time submission requirement, manage validation errors gracefully, and maintain consistency between internal records and the CamInvoice registry. A middleware architecture is recommended that decouples the ERP system from the CamInvoice API, providing buffering, retry logic, and reconciliation capabilities.\n\nThe recommended architecture comprises three components: an Invoice Gateway service that receives invoices from the ERP system, validates them against the CamInvoice business rules locally, and queues them for submission; a Submission Engine that processes the queue, submits invoices to the CamInvoice API, handles retries for transient failures, and stores the digital stamp response; and a Reconciliation Service that periodically compares internal invoice records against CamInvoice registry data to detect and resolve discrepancies.\n\nFor enterprises using popular ERP platforms (SAP, Oracle, Microsoft Dynamics), Connectors for these platforms follow a common shape: extract invoice data from the ERP, transform it to UBL 2.1 format, submit it through the middleware architecture, and write back the CIRN and digital stamp to the ERP invoice record. These connectors reduce integration time from 8-12 weeks of custom development to 2-4 weeks of configuration and testing.',
-      table: {
-        caption: 'ERP Integration Approaches and Timelines',
-        headers: ['ERP Platform', 'Integration Method', 'Development Effort', 'Timeline', 'Maintenance'],
-        rows: [
-          ['SAP S/4HANA', 'Certified SP connector', 'Configuration', '2-3 weeks', 'Annual update'],
-          ['Oracle NetSuite', 'SuiteApp integration', 'Configuration + customization', '3-4 weeks', 'Annual update'],
-          ['Microsoft Dynamics', 'Power Automate flow', 'Configuration', '2-3 weeks', 'Annual update'],
-          ['QuickBooks', 'API middleware', 'Light development', '3-4 weeks', 'Quarterly update'],
-          ['Custom ERP', 'Direct API integration', 'Full development', '8-12 weeks', 'Ongoing'],
-          ['No ERP (manual)', 'CamInvoice web portal', 'Training only', '1 week', 'N/A'],
-        ],
-      },
-    },
-    {
-      heading: 'Compliance Timeline and Phased Mandate',
-      content: 'The GDT\'s phased CamInvoice mandate is structured to bring all registered businesses into compliance over a three-year period (2025-2027), starting with the largest enterprises and progressively including smaller businesses. Each phase defines the business size threshold, compliance deadline, and transitional provisions for businesses that are actively integrating but have not completed technical implementation.\n\nPhase 1, effective January 2025, covers large enterprises with annual revenue above KHR 1 billion (approximately USD 250,000). Approximately 12,000 businesses fall into this category, with 10,200 (85%) achieving compliance by the deadline. The GDT extended a 3-month grace period for remaining Phase 1 businesses that demonstrated active integration efforts. Phase 2, effective January 2026, covers medium enterprises with annual revenue between KHR 250 million and KHR 1 billion (approximately USD 62,500 to USD 250,000). This phase encompasses approximately 35,000 businesses and represents the most challenging compliance wave due to the lower technical maturity of mid-market enterprises.\n\nPhase 3, effective January 2027, covers all remaining registered businesses regardless of revenue. This phase includes approximately 470,000 micro and small businesses, many of which lack formal accounting systems. The GDT is developing a simplified CamInvoice interface (mobile app and USSD-based) for this segment, and is partnering with MFIs and accounting firms to provide free training and integration support.',
-      table: {
-        caption: 'CamInvoice Compliance Phases',
-        headers: ['Phase', 'Effective Date', 'Revenue Threshold', 'Est. Businesses', 'Compliance Rate', 'Key Challenge'],
-        rows: [
-          ['Phase 1', 'January 2025', '> KHR 1 billion (> USD 250K)', '~12,000', '85% (Q1 2025)', 'ERP integration complexity'],
-          ['Phase 2', 'January 2026', 'KHR 250M - 1B (USD 62.5K - 250K)', '~35,000', 'Target: 75%', 'Limited IT resources'],
-          ['Phase 3', 'January 2027', 'All registered businesses', '~470,000', 'Target: 60%', 'No formal accounting systems'],
-        ],
-      },
-    },
-    {
-      heading: 'VAT Cross-Matching and Audit Implications',
-      content: 'One of the GDT\'s primary motivations for CamInvoice is automated VAT cross-matching, which compares the output VAT declared by sellers against the input VAT claimed by buyers. Before CamInvoice, this cross-matching was performed manually on a sample basis during GDT audits. CamInvoice enables real-time, comprehensive cross-matching across all registered invoices, dramatically increasing the GDT\'s ability to detect VAT fraud, underreporting, and ghost invoices (fabricated invoices used to inflate input VAT deductions).\n\nThe automated cross-matching engine flags discrepancies in three categories: missing invoices (buyer claims input VAT for an invoice that the seller never submitted to CamInvoice), amount mismatches (buyer\'s claimed input VAT differs from the seller\'s registered output VAT), and timing mismatches (buyer claims input VAT in a different period than the seller reported the sale). Flagged discrepancies trigger automated inquiries to both parties and may escalate to formal GDT audit if unresolved within 30 days.\n\nFor enterprises, the audit implications of CamInvoice are significant. Every invoice is now permanently recorded in the GDT database with full line-item detail, creating a comprehensive audit trail that the GDT can query at any time. Enterprise tax departments should implement internal controls to ensure that all VAT input claims are supported by valid CamInvoice-registered documents and that output VAT is correctly calculated and submitted for every issued invoice. A pre-emptive gap audit against the GDT\'s published rules is cheaper than remediation under scrutiny.',
-    },
-    {
-      heading: 'Performance Optimization and Best Practices',
-      content: 'Enterprise systems submitting high volumes of invoices to CamInvoice should implement performance optimizations to minimize API latency, reduce rejection rates, and ensure reliable delivery. The following best practices apply to Phase 1 enterprise integrations.\n\nFor throughput optimization, use the batch submission endpoint for volumes exceeding 100 invoices per hour. Batch submissions accept up to 1,000 invoices in a single API call and process them asynchronously, reducing network overhead and enabling the GDT to optimize server-side processing. Implement client-side pre-validation to catch errors before API submission, targeting a first-pass acceptance rate above 98%. Use connection pooling and HTTP keep-alive to minimize TLS handshake overhead for sequential submissions.\n\nFor reliability, implement an outbox pattern where invoices are written to a local database table before API submission, ensuring that no invoice is lost if the CamInvoice API is temporarily unavailable. Use exponential backoff with jitter for retry logic (initial delay 5 seconds, maximum delay 5 minutes, maximum 10 retries). Implement circuit breaker patterns that stop submission attempts during prolonged CamInvoice outages and alert operations teams for manual intervention.\n\nFor reconciliation, download the daily CamInvoice registry extract (available via the Reporting API at 06:00 ICT) and compare against internal records to detect any invoices that were submitted but not registered, or registered but not recorded internally. Maintain a reconciliation dashboard with key metrics: total submitted, total registered, rejection rate, average processing time, and outstanding discrepancies. Submission success rate, rejection reasons, and queue depth are the metrics worth alerting on in any observability platform.',
+      heading: 'Approaching an Integration',
+      content: 'The documentation gives two ways in: CamInvoice\'s own Merchant Portal, or a business system connected through the API. A business that issues few invoices to a covered ministry may need nothing more than the portal. One that already keeps its accounts in an ERP or billing system will usually want that system to issue the invoice, so that its records and CamInvoice\'s agree without re-keying.\n\nFor a connected system, the work is ordinary integration engineering, shaped by what the documentation specifies:\n\n- Map the ERP\'s invoice, credit-note and debit-note data to the documented element structure, field by field, against the current element-level pages.\n- Check documents locally against the same structure before submission, so that a malformed document is caught in your system and not returned by the platform.\n- Manage tokens: obtain, cache for less than their stated lifetime, and renew.\n- Submit through a durable queue, so that no invoice is lost if a call fails, and retry transient failures with backoff.\n- Store the document identifier CamInvoice returns against the internal invoice record, and track status from webhooks or polling.\n- Handle the buyer side: documents received from suppliers, and the accept, reject and status actions on them.\n- Reconcile internal records against CamInvoice\'s document list periodically.\n\nTest against whatever non-production environment CamInvoice provides with your credentials before going live. Treat the documentation, not this article, as authoritative on every specific.',
     },
   ],
 };

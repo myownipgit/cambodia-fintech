@@ -1,5 +1,20 @@
 import { ArticleContent } from '../types';
 
+/*
+ * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences only; the
+ * rest of this page is left for the general unsourced-figures pass).
+ * - "driven by the General Department of Taxation's CamInvoice mandate which
+ *   creates a compliance incentive for merchant digitization" — FALSE: the GDT
+ *   does not operate CamInvoice, and Phase 1 covers suppliers to ministries,
+ *   not merchants. Clause removed.
+ * - "the integration of CamInvoice with Bakong payment data will create a
+ *   unified commercial transaction record" — no primary for any such
+ *   integration; rephrased as conditional reasoning.
+ * CamInvoice is an MEF system operated by the General Department of Digital
+ * Economy (Prakas 075, 22 January 2025, Art. 4); its Phase 1 is business-to-
+ * government. Bar for restoring: read in a fetched MEF/GDDE primary.
+ */
+
 export const cambodiaDigitalPaymentGrowth: ArticleContent = {
   slug: 'cambodia-digital-payment-growth',
   title: 'Cambodia Digital Payment Growth 2020-2026: Bakong, KHQR, and Mobile Money Trends',
@@ -7,7 +22,7 @@ export const cambodiaDigitalPaymentGrowth: ArticleContent = {
   type: 'insights',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
+  updatedAt: '2026-11-07',
   readingTime: 8,
   schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'cambodia-payment-ecosystem'],
@@ -112,7 +127,7 @@ export const cambodiaDigitalPaymentGrowth: ArticleContent = {
     },
     {
       heading: 'Growth Projections and Strategic Outlook 2026',
-      content: 'Based on current trajectory data and NBC policy signals, CamFinTech projects that Cambodia\'s digital payment ecosystem will reach several critical milestones by end of 2026. Bakong transaction volumes are expected to exceed 30 million annually, with total value surpassing USD 38 billion. KHQR merchant registrations should approach the NBC\'s target of 600,000, driven by the General Department of Taxation\'s CamInvoice mandate which creates a compliance incentive for merchant digitization.\n\nThree structural shifts will shape the 2026 landscape. First, the completion of ASEAN cross-border QR payment linkages will enable five or more bilateral corridors, transforming Cambodia from a remittance-receiving economy to a regional payment hub. Second, the integration of CamInvoice with Bakong payment data will create a unified commercial transaction record, enabling new credit scoring models for SME lending. Third, the entry of regional super-apps and digital banks, attracted by Cambodia\'s open infrastructure, will intensify competition and accelerate innovation in embedded finance, insurance, and credit products.',
+      content: 'Based on current trajectory data and NBC policy signals, CamFinTech projects that Cambodia\'s digital payment ecosystem will reach several critical milestones by end of 2026. Bakong transaction volumes are expected to exceed 30 million annually, with total value surpassing USD 38 billion. KHQR merchant registrations should approach the NBC\'s target of 600,000.\n\nThree structural shifts will shape the 2026 landscape. First, the completion of ASEAN cross-border QR payment linkages will enable five or more bilateral corridors, transforming Cambodia from a remittance-receiving economy to a regional payment hub. Second, invoices validated by CamInvoice, read alongside Bakong payment data where a business has both, could support new credit scoring models for SME lending. Third, the entry of regional super-apps and digital banks, attracted by Cambodia\'s open infrastructure, will intensify competition and accelerate innovation in embedded finance, insurance, and credit products.',
     },
   ],
 };

@@ -93,10 +93,10 @@ const homepageSchema = {
         },
         {
           "@type": "Question",
-          "name": "Is the CamInvoice B2B mandate in force?",
+          "name": "Who must use CamInvoice?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The business-to-government mandate is active. The business-to-business mandate is announced and phased but not yet gazetted, so the firm helps clients prepare ahead of it and does not suggest that anyone is already in breach.",
+            "text": "CamInvoice, the Cambodia E-Invoicing System, is operated by the General Department of Digital Economy of the Ministry of Economy and Finance and was launched on 22 January 2025. Its first phase is business-to-government: the Ministry's circulars make it mandatory, ministry by ministry, for invoices that suppliers issue to government budget entities under public procurement. The firm works from the published instruments and does not suggest that anyone outside their scope is already in breach.",
           },
         },
       ],
@@ -107,7 +107,7 @@ const homepageSchema = {
 const RAILS = [
   { rail: "Bakong · KHQR", authority: "National Bank of Cambodia" },
   { rail: "CamDX · CamDigiKey", authority: "Techo Startup Center" },
-  { rail: "CamInvoice", authority: "General Department of Taxation" },
+  { rail: "CamInvoice", authority: "Ministry of Economy and Finance" },
   { rail: "Digital assets · Prakas 093", authority: "SERC" },
 ];
 
@@ -117,7 +117,7 @@ const PRACTICE = [
     items: [
       { ref: "SRV-01", name: "CamDX and CamDigiKey enablement", body: "Approval to connect to the national data-exchange and digital-identity systems, and the client-side integration that follows." },
       { ref: "SRV-02", name: "Bakong and KHQR integration", body: "Payment Service Institution licensing or member-bank sponsorship, and connectivity to the national payment rails." },
-      { ref: "SRV-03", name: "CamInvoice readiness", body: "Gap assessment and a costed plan against the General Department of Taxation's requirements, ahead of the phased business-to-business mandate." },
+      { ref: "SRV-03", name: "CamInvoice readiness", body: "Gap assessment and a costed plan against the Ministry of Economy and Finance's published e-invoicing instruments, for suppliers already in scope and for businesses preparing ahead of them." },
       { ref: "SRV-04", name: "CamInvoice service-provider enablement", body: "Connection of a client's ERP to the e-invoicing rail, delivered with an accredited Service Provider where platform depth is the better fit." },
     ],
   },

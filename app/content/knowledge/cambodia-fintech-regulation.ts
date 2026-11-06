@@ -1,5 +1,34 @@
 import { ArticleContent } from '../types';
 
+/*
+ * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences only).
+ * Found false or untraceable, removed, not hedged:
+ * - "The GDT ... oversees ... CamInvoice compliance", the GDT row's
+ *   "e-invoicing" / "CamInvoice Prakas", "validates each invoice against GDT
+ *   business rules" — FALSE as to operator. MEF Prakas 075 (22 January 2025),
+ *   Art. 4: the MEF's General Department of Digital Economy (GDDE) operates
+ *   CamInvoice. The GDT appears in none of the four MEF documents read.
+ * - "All invoices issued by fintech companies to merchants, banks, or
+ *   enterprises must be submitted to CamInvoice in real-time UBL 2.1 format",
+ *   "any other B2B charges" — FALSE as to scope: Phase 1 is business-to-
+ *   government (suppliers to the budget entities of named ministries).
+ *   UBL 2.1 and the "digital tax stamp" — no technical primary could be read
+ *   (e-invoice.gov.kh and gdde.mef.gov.kh returned 403 on 2026-11-06).
+ * - "Invoices without valid CamInvoice stamps are not deductible for the
+ *   buyer's corporate income tax" — no primary.
+ * Bar for restoring: read in a fetched MEF/GDDE/GDT primary, recorded in `claims`.
+ *
+ * Updated 2026-11-07: MEF Circular 007 (signed 2026, read from the Khmer
+ * original) adds Phase 1, Step 4 - 14 further ministries and institutions.
+ * Phase 1 is no longer 'three steps'; do not reintroduce a fixed count.
+ * Also later on 2026-11-07: CamInvoice's own developer documentation WAS read,
+ * from Internet Archive snapshots (see knowledge/caminvoice-technical-compliance.ts
+ * for URLs), so any '403 / no technical primary' note above is superseded. It
+ * supports XML e-invoices in UBL format (no version stated), OAuth 2.0, and the
+ * INVOICE / CREDIT_NOTE / DEBIT_NOTE types. It does NOT support 'UBL 2.1',
+ * a 'clearance model', a 'digital tax stamp' or the GDT operating the system.
+ */
+
 export const cambodiaFintechRegulation: ArticleContent = {
   slug: 'cambodia-fintech-regulation',
   title: 'Cambodia FinTech Regulation: Complete Licensing and Compliance Framework',
@@ -7,7 +36,7 @@ export const cambodiaFintechRegulation: ArticleContent = {
   type: 'knowledge',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
+  updatedAt: '2026-11-07',
   readingTime: 10,
   schema: 'TechArticle',
   relatedSlugs: ['nbc', 'gdt', 'fintech-license-cambodia', 'cambodia-aml-requirements'],
@@ -25,6 +54,14 @@ export const cambodiaFintechRegulation: ArticleContent = {
     // Follow-Up Report states in terms that the MER was adopted in July 2017.
     { stat: 'Cambodia\'s mutual evaluation report was adopted by the Asia/Pacific Group on Money Laundering in July 2017. The country has since been in enhanced follow-up, receiving technical-compliance re-ratings where progress has been demonstrated; its fifth-round mutual evaluation is scheduled for the 2029 plenary year.', source: 'APG, 2nd Enhanced Follow-Up Report and Global Fifth Round Mutual Evaluation Schedule', year: '2019' },
   ],
+  sources: [
+    { publisher: 'Ministry of Economy and Finance', label: 'Prakas 075 on the launch of the Cambodia E-Invoicing System (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/a57a86ff-1c53-481e-a4f0-8b32fe96b6cf/resource/e433f7a7-0bd0-4407-8d58-c5f346be20dd/download/mef_prakas-075_launching-of-cambodia-e-invoicing-system_kh_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 003, mandatory e-invoicing, Phase 1 Step 1 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/dataset/2ff2820c-df65-4d60-aa0f-806c65d82952/resource/d77ab51b-6f54-4960-b947-ffd4a4f2a5a4/download/mef_circular-003_obligation-to-use-e-invoice_kh_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 012, mandatory e-invoicing, Phase 1 Step 2 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/bce86ad2-6baf-456a-b49f-90c0b7b61f26/resource/e8c6b0ce-8f79-427e-a7e2-56f87c89ed1e/download/1756437973985-20250714_circular_to_6_lms_in_q3_2025.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 017, mandatory e-invoicing, Phase 1 Step 3 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/d244f7f4-ef43-43fe-8645-d79483c9b0c3/resource/7d904664-edbe-40fe-8e76-f4b119d6a51c/download/1.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Circular 007, mandatory e-invoicing, Phase 1 Step 4 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/9bdb6142-b119-41c4-b2ae-5bdde281a8f6/resource/549d6645-3232-4fa3-8715-a8f61c79b1f9/download/1.pdf', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-06',
   faqs: [
     { question: 'Can a foreign company obtain a fintech license in Cambodia?', answer: 'Yes. The NBC allows 100% foreign ownership of payment service provider companies. Foreign applicants must incorporate a Cambodian legal entity (typically a limited liability company registered with the Ministry of Commerce), meet minimum capital requirements, appoint at least one resident director, and establish a physical office in Cambodia. The licensing process typically takes 6-12 months from application submission to license issuance. The licensing path runs through company incorporation, capital structuring, and NBC application preparation.' },
     { question: 'What are the penalties for operating a fintech service without a license?', answer: 'Operating payment services, e-money issuance, or digital lending without NBC authorization is a criminal offense under the Banking and Financial Institutions Law. Penalties include fines up to KHR 200 million (approximately USD 50,000), imprisonment of responsible officers for up to 5 years, asset seizure, and permanent disqualification from financial services. The NBC actively monitors unlicensed operations and has shut down over 15 unauthorized payment platforms since 2022.' },
@@ -33,13 +70,13 @@ export const cambodiaFintechRegulation: ArticleContent = {
   sections: [
     {
       heading: 'Regulatory Architecture Overview',
-      content: 'Cambodia\'s financial regulatory architecture is anchored by the National Bank of Cambodia (NBC), which serves as both the central bank and the primary prudential regulator for banks, microfinance institutions, and payment service providers. The NBC\'s regulatory authority derives from the Law on the Organization and Conduct of the National Bank of Cambodia (1996, amended 2023) and the Banking and Financial Institutions Law (1999, amended 2023). For fintech companies, the most relevant regulatory instruments are Prakas (ministerial orders) issued by the NBC Governor.\n\nBeyond the NBC, fintech companies must engage with multiple regulatory bodies depending on their activities. The General Department of Taxation (GDT) under the Ministry of Economy and Finance oversees tax registration, CamInvoice compliance, and withholding tax obligations. The Securities and Exchange Regulator of Cambodia (SERC) regulates securities-related fintech activities including equity crowdfunding and digital asset trading. The Insurance Regulator of Cambodia (IRC) supervises insurtech companies offering digital insurance products. The Cambodia Financial Intelligence Unit (CAFIU) under the NBC receives and analyzes suspicious transaction reports.',
+      content: 'Cambodia\'s financial regulatory architecture is anchored by the National Bank of Cambodia (NBC), which serves as both the central bank and the primary prudential regulator for banks, microfinance institutions, and payment service providers. The NBC\'s regulatory authority derives from the Law on the Organization and Conduct of the National Bank of Cambodia (1996, amended 2023) and the Banking and Financial Institutions Law (1999, amended 2023). For fintech companies, the most relevant regulatory instruments are Prakas (ministerial orders) issued by the NBC Governor.\n\nBeyond the NBC, fintech companies must engage with multiple regulatory bodies depending on their activities. The General Department of Taxation (GDT) under the Ministry of Economy and Finance oversees tax registration and withholding tax obligations. CamInvoice, the Cambodia E-Invoicing System, is a separate MEF system, operated by the ministry\'s General Department of Digital Economy. The Securities and Exchange Regulator of Cambodia (SERC) regulates securities-related fintech activities including equity crowdfunding and digital asset trading. The Insurance Regulator of Cambodia (IRC) supervises insurtech companies offering digital insurance products. The Cambodia Financial Intelligence Unit (CAFIU) under the NBC receives and analyzes suspicious transaction reports.',
       table: {
         caption: 'Cambodia Financial Regulatory Bodies and Fintech Jurisdiction',
         headers: ['Regulator', 'Parent Ministry', 'Fintech Activities Supervised', 'Key Legislation', 'Website'],
         rows: [
           ['NBC', 'Independent', 'Payments, e-money, digital lending, CBDC', 'Banking & FI Law, Prakas on PSPs', 'nbc.gov.kh'],
-          ['GDT', 'Ministry of Economy & Finance', 'Tax compliance, e-invoicing', 'Tax Law, CamInvoice Prakas', 'tax.gov.kh'],
+          ['GDT', 'Ministry of Economy & Finance', 'Tax compliance', 'Tax Law', 'tax.gov.kh'],
           ['SERC', 'Ministry of Economy & Finance', 'Equity crowdfunding, digital securities', 'Securities Law', 'serc.gov.kh'],
           ['IRC', 'Ministry of Economy & Finance', 'Insurtech, digital insurance distribution', 'Insurance Law', 'irc.gov.kh'],
           ['CAFIU', 'NBC', 'AML/CFT compliance, STR filing', 'AML/CFT Law', 'cafiu.gov.kh'],
@@ -79,7 +116,7 @@ export const cambodiaFintechRegulation: ArticleContent = {
     },
     {
       heading: 'Tax Compliance and CamInvoice Integration',
-      content: 'All NBC-licensed fintech companies must register with the GDT and comply with Cambodia\'s tax obligations, including corporate income tax (standard rate 20%), value-added tax (10% on taxable supplies), withholding taxes on payments to non-residents (14% on services, 4% on interest), and monthly tax on salaries. Financial services are generally exempt from VAT, but payment processing fees, technology service charges, and consulting fees are taxable.\n\nThe mandatory CamInvoice e-invoicing system adds a significant compliance layer. All invoices issued by fintech companies to merchants, banks, or enterprises must be submitted to CamInvoice in real-time UBL 2.1 format. This includes service fee invoices, technology licensing fees, and any other B2B charges. The CamInvoice API validates each invoice against GDT business rules and returns a digital tax stamp confirming registration. Invoices without valid CamInvoice stamps are not deductible for the buyer\'s corporate income tax purposes, creating strong economic incentives for compliance.\n\nThe GDT has allocated specific Taxpayer Identification Number (TIN) ranges for NBC-licensed PSPs, enabling automated cross-referencing between NBC licensing records and GDT tax filings. Tax compliance, CamInvoice billing integration, and GDT audit readiness are best scoped as one programme.',
+      content: 'All NBC-licensed fintech companies must register with the GDT and comply with Cambodia\'s tax obligations, including corporate income tax (standard rate 20%), value-added tax (10% on taxable supplies), withholding taxes on payments to non-residents (14% on services, 4% on interest), and monthly tax on salaries. Financial services are generally exempt from VAT, but payment processing fees, technology service charges, and consulting fees are taxable.\n\nCamInvoice, the Ministry of Economy and Finance\'s e-invoicing system, launched on 22 January 2025, adds a further layer for some firms. Its first phase is business-to-government: a business that invoices the budget entities of one of the designated ministries for public procurement must issue those invoices through the system, either on the CamInvoice platform or from an invoicing system registered with and connected to it. An invoice the system has validated is recognised as an original digital record and kept for 10 years. A fintech company that does not supply those ministries should check the MEF\'s current circulars for any extension of scope.\n\nThe GDT has allocated specific Taxpayer Identification Number (TIN) ranges for NBC-licensed PSPs, enabling automated cross-referencing between NBC licensing records and GDT tax filings. Tax compliance, CamInvoice billing integration, and GDT audit readiness are best scoped as one programme.',
       table: {
         caption: 'Tax Obligations for Fintech Companies in Cambodia',
         headers: ['Tax Type', 'Rate', 'Frequency', 'Due Date', 'Applicable To'],
@@ -124,7 +161,7 @@ export const cambodiaFintechRegulation: ArticleContent = {
     },
     {
       heading: 'Compliance Roadmap for Market Entry',
-      content: 'For fintech companies planning to enter the Cambodian market, a structured compliance roadmap is advisable that sequences regulatory approvals to minimize time-to-market while ensuring full legal compliance. The roadmap typically spans 9-18 months from initial planning to first customer transaction.\n\nPhase 1 (Months 1-3) covers market assessment and regulatory strategy, including determination of the appropriate license category, capital structuring, and engagement with NBC for preliminary consultations. Phase 2 (Months 3-6) involves company incorporation with the Ministry of Commerce, GDT tax registration, capital injection, office establishment, and key personnel recruitment (including mandatory positions such as compliance officer and CISO). Phase 3 (Months 6-12) covers NBC license application submission, technology infrastructure deployment in Cambodia, AML/CFT policy development, and sandbox participation if applicable. Phase 4 (Months 12-15) addresses NBC on-site inspection, remediation of any findings, and final license approval. Phase 5 (Months 15-18) covers Bakong integration, KHQR merchant onboarding, CamInvoice integration, and commercial launch.\n\nSequencing the five phases correctly is the single largest determinant of total approval time. The avoidable delays are nearly always the same two: submitting before the application is genuinely complete, and treating AML/CFT policy as a document to be produced at the end rather than a programme that has to exist and be evidenced. Both are within the applicant\'s control, and both are cheaper to get right in Phase 2 than to remediate in Phase 4.',
+      content: 'For fintech companies planning to enter the Cambodian market, a structured compliance roadmap is advisable that sequences regulatory approvals to minimize time-to-market while ensuring full legal compliance. The roadmap typically spans 9-18 months from initial planning to first customer transaction.\n\nPhase 1 (Months 1-3) covers market assessment and regulatory strategy, including determination of the appropriate license category, capital structuring, and engagement with NBC for preliminary consultations. Phase 2 (Months 3-6) involves company incorporation with the Ministry of Commerce, GDT tax registration, capital injection, office establishment, and key personnel recruitment (including mandatory positions such as compliance officer and CISO). Phase 3 (Months 6-12) covers NBC license application submission, technology infrastructure deployment in Cambodia, AML/CFT policy development, and sandbox participation if applicable. Phase 4 (Months 12-15) addresses NBC on-site inspection, remediation of any findings, and final license approval. Phase 5 (Months 15-18) covers Bakong integration, KHQR merchant onboarding, CamInvoice integration where the firm is within its scope, and commercial launch.\n\nSequencing the five phases correctly is the single largest determinant of total approval time. The avoidable delays are nearly always the same two: submitting before the application is genuinely complete, and treating AML/CFT policy as a document to be produced at the end rather than a programme that has to exist and be evidenced. Both are within the applicant\'s control, and both are cheaper to get right in Phase 2 than to remediate in Phase 4.',
     },
   ],
 };
