@@ -21,6 +21,8 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 
 **Open, needs a decision:** riel.report source repo location (personal Vercel); whether Insights becomes a subscriber feature (option B).
 
+**Memory restructured 2026-11-06:** `MEMORY.md` cut from 28.6KB (truncated) to 9.8KB; detail moved into four topic files (website operations, legal entity and founder, sibling sites, infrastructure and repo); stale facts corrected. Backup: `memory/.MEMORY.md.bak-20261106-121546`.
+
 **Loose ends:** untracked `2026-11-06-daily.md` in the repo root was not created by this session (probably Hermes); leave it unless Bill says otherwise. A local preview server may still be running on port 3101.
 
 **Do not:** publish a figure without a fetched primary source; `sed -i` a single-file Docker bind mount; trust a GEO score or the Bakong member list as current; add HowTo or Article schema the audit asks for.
