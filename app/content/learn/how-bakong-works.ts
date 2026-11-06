@@ -1,5 +1,22 @@
 import { ArticleContent } from '../types';
 
+/*
+ * Corrected 2026-11-07 against fetched primaries — do not restore from git:
+ * - "Bakong is a central bank digital currency (CBDC)", "1:1 peg", "sets Bakong
+ *   apart from most CBDC implementations": the NBC white paper presents Bakong
+ *   as a next-generation payment system (FAST upgraded onto Hyperledger Iroha,
+ *   "a rather conservative use of blockchain technology", p. 23) and does not
+ *   describe it as a CBDC.
+ * - "Bakong-PromptPay corridor operational in 2023 … migrant remittances … ADB:
+ *   USD 1.5bn": BOT Press Release 9/2020 shows a QR *payment* linkage launched
+ *   February 2020. The remittance and ADB figures are unsourced.
+ * - "Vietnam and Laos in advanced development": the NBC 2024 payment-system
+ *   report (Foreword, p. i) already lists QR links with both.
+ * - KHQR Adoption Milestones table: unsourced, and its "2023 interoperability
+ *   mandate" was already found unsupported on 2026-11-04.
+ * Remaining prose figures (e.g. institution and merchant counts) are still
+ * unsourced and await the busiest-page-first pass.
+ */
 export const howBakongWorks: ArticleContent = {
   slug: 'how-bakong-works',
   title: 'How Does Bakong Work in Cambodia?',
@@ -7,12 +24,12 @@ export const howBakongWorks: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
+  updatedAt: '2026-11-07',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'nbc'],
   relatedInstruments: ['prakas-b14-017-161'],
-  lead: 'Bakong is far more than a mobile wallet. It is a central bank digital currency (CBDC) and real-time gross settlement system built on Hyperledger Iroha blockchain technology, operated by the National Bank of Cambodia (NBC). Since its public launch in October 2020, Bakong has grown into the payment backbone of the Cambodian economy, connecting over 60 financial institutions, enabling dual-currency settlement in both Khmer Riel (KHR) and US Dollars (USD), and powering the KHQR standardized QR code protocol that has become ubiquitous in Cambodian commerce.',
+  lead: 'Bakong is far more than a mobile wallet. It is the national payment system of the National Bank of Cambodia (NBC), which the NBC\'s own white paper describes as a next-generation payment system built on Hyperledger Iroha blockchain technology. Since its public launch in October 2020, Bakong has grown into the payment backbone of the Cambodian economy, connecting over 60 financial institutions, enabling dual-currency settlement in both Khmer Riel (KHR) and US Dollars (USD), and powering the KHQR standardized QR code protocol that has become ubiquitous in Cambodian commerce.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -26,11 +43,13 @@ export const howBakongWorks: ArticleContent = {
     { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Project Bakong: Next Generation Payment System, white paper, June 2020 (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
+    { publisher: 'Bank of Thailand', label: 'Press Release No. 9/2020: The Launch of Interoperable QR Payment Linkage between Cambodia and Thailand (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news-pdf/2020/n0963e.pdf', tier: 'primary' },
+    { publisher: 'Nine ASEAN central banks (Bank of Thailand copy)', label: 'Joint press release: The National Bank of Cambodia formally joins the Regional Payment Connectivity initiative, 8 April 2025 (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news/2025/news-20250408.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Bakong, official site (home page)', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
   ],
-  sourcesAsAt: '2026-11-04',
+  sourcesAsAt: '2026-11-06',
   faqs: [
-    { question: 'Is Bakong a cryptocurrency?', answer: 'No. Bakong is a central bank digital currency (CBDC), not a cryptocurrency. It is issued and fully backed by the National Bank of Cambodia, operates on a permissioned Hyperledger Iroha blockchain, and maintains a stable 1:1 peg to fiat KHR and USD. Unlike cryptocurrencies, Bakong has no speculative value and is designed purely for payment settlement.' },
+    { question: 'Is Bakong a cryptocurrency?', answer: 'No. Bakong is the National Bank of Cambodia\'s payment system, not a cryptocurrency. The NBC\'s white paper describes it as the earlier FAST payment system enhanced by replacing its relational database with a permissioned Hyperledger Iroha blockchain network — in the NBC\'s words, "a rather conservative use of blockchain technology", mainly a change to back-end infrastructure that is invisible in many uses. It has no speculative value; it exists to settle payments.' },
     { question: 'Do I need a bank account to use Bakong?', answer: 'No. Bakong supports both bank-linked wallets and standalone e-wallets. Users can open a Bakong wallet by completing KYC through a participating institution. This design deliberately targets financial inclusion for Cambodia\'s unbanked population, which the World Bank estimates at approximately 27% of adults.' },
     { question: 'Can foreign businesses accept Bakong payments?', answer: 'Yes. Any business registered in Cambodia can accept Bakong payments through a participating bank. Foreign enterprises should engage a licensed payment service provider or directly integrate with the Bakong Open API via their bank partner. CamFinTech navigates the approval for enterprises to accept Bakong and coordinates the technical build with accredited Service Providers — we never operate the rail or hold client funds.' },
   ],
@@ -41,7 +60,7 @@ export const howBakongWorks: ArticleContent = {
     },
     {
       heading: 'Dual-Currency Settlement Architecture',
-      content: 'Cambodia operates a de facto dual-currency economy where both Khmer Riel (KHR) and US Dollars (USD) circulate freely. Bakong was engineered to handle both currencies natively. When a user initiates a payment, the system identifies the currency, routes the transaction to the appropriate ledger, and settles in real time.\n\nCross-currency transactions are also supported. If a payer sends KHR and the merchant accepts only USD, the participating bank performs an FX conversion at the prevailing NBC reference rate. This dual-currency capability is a distinguishing feature that sets Bakong apart from most CBDC implementations globally, which typically support only the domestic currency.',
+      content: 'Cambodia operates a de facto dual-currency economy where both Khmer Riel (KHR) and US Dollars (USD) circulate freely. Bakong was engineered to handle both currencies natively. When a user initiates a payment, the system identifies the currency, routes the transaction to the appropriate ledger, and settles in real time.\n\nCross-currency transactions are also supported. If a payer sends KHR and the merchant accepts only USD, the participating bank performs an FX conversion at the prevailing NBC reference rate.',
       table: {
         caption: 'Bakong Dual-Currency Transaction Flows',
         headers: ['Scenario', 'Payer Currency', 'Merchant Currency', 'Settlement', 'FX Required'],
@@ -61,20 +80,10 @@ export const howBakongWorks: ArticleContent = {
     {
       heading: 'KHQR Integration and Merchant Acceptance',
       content: 'KHQR (Khmer QR) is the standardized QR code protocol set by the NBC that runs on top of Bakong infrastructure. Based on the EMVCo QR Code Specification, KHQR assigns each merchant a unique identifier embedded in the QR code. Any customer using any Bakong-connected bank app can scan a single KHQR code to pay.\n\nBefore KHQR, merchants needed separate QR codes for each bank or wallet. KHQR interoperability eliminated this fragmentation. By early 2025, over 400,000 merchant KHQR codes had been registered across Cambodia. The protocol supports both static QR codes printed at point-of-sale locations and dynamic QR codes generated per transaction for e-commerce and invoicing scenarios.',
-      table: {
-        caption: 'KHQR Adoption Milestones',
-        headers: ['Year', 'Registered Merchants', 'Monthly Transactions', 'Key Development'],
-        rows: [
-          ['2022', '~50,000', '~500,000', 'KHQR acceptance expanding'],
-          ['2023', '~180,000', '~2.5 million', 'Interoperability mandate enforced'],
-          ['2024', '~350,000', '~6 million', 'Tourist acceptance expanded'],
-          ['2025', '~400,000+', '~8 million+', 'Dynamic QR for e-commerce scaling'],
-        ],
-      },
     },
     {
       heading: 'Cross-Border Payment Corridors',
-      content: 'The NBC has aggressively pursued bilateral payment linkages with neighboring countries. The Bakong-PromptPay corridor with Thailand became operational in 2023, enabling migrant workers to send remittances home for a fraction of traditional wire transfer costs. The ADB estimates that Thailand-Cambodia remittance corridor handles over USD 1.5 billion annually.\n\nSimilar linkages with Malaysia\'s DuitNow and China\'s Alipay are operational, while corridors with Vietnam\'s NAPAS and Laos\'s LAPNet are in advanced development. These cross-border connections position Cambodia as an ASEAN payment hub and reduce friction for regional trade. For enterprises, cross-border Bakong corridors enable real-time supplier payments across Southeast Asia without relying on SWIFT or correspondent banking.',
+      content: 'The NBC has pursued bilateral payment linkages with neighbouring countries. The Cambodia–Thailand interoperable QR payment linkage was launched by the governors of the two central banks in February 2020, following an MOU signed in February 2019. It lets Cambodian visitors to Thailand pay Thai merchants by scanning Thai QR codes with their own banking apps, and Thai users pay KHQR merchants in Cambodia (Bank of Thailand, Press Release No. 9/2020).\n\nThe NBC\'s 2024 payment-system report records cross-border QR links with Thailand, Laos, Vietnam, Malaysia and South Korea, and with UnionPay International and Alipay. The second phase of the Malaysia–Cambodia QR linkage was launched on 8 April 2025, the day the NBC joined the Regional Payment Connectivity initiative of ASEAN central banks. These are QR payment linkages for retail payments; for what each currently supports, rely on the NBC\'s own announcements.',
     },
     {
       heading: 'Developer APIs and Integration Patterns',
