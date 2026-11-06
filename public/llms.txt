@@ -51,7 +51,7 @@ Full product detail: https://www.camfintech.com/products/dasp
 - **The approval decision** — the regulator's, entirely. The client is the applicant of record; we prepare the work rather than press the case.
 - **Reserved professional work** — legal opinions to Bar-admitted counsel, tax filings to licensed agents, penetration testing to accredited firms. Coordinated, never marked up.
 - **Any share of transaction value** — fees are for professional work only.
-- Operate as a named MLRO (must be a board-appointed individual of the licensed entity)
+- Operate as a named MLRO (the licensed entity's own appointment)
 - File submissions on the client's behalf (the licensed operator is the applicant of record)
 
 ## The Cambodian DPI rails CamFinTech navigates
@@ -80,7 +80,7 @@ Full product detail: https://www.camfintech.com/products/dasp
 - **Some mandates are anticipatory.** CamInvoice B2B is phased (~2026–2027, announced but not gazetted) and the Personal Data Protection Law is not yet promulgated. We help clients get *ahead* of these; we never claim they're already in breach.
 - **No unevidenced claims.** The practice is newly established and has no client engagements to report. What it offers instead: founder track record, methodology walk-throughs, a published regulatory reference, and conspicuously-labelled illustrative scenarios. A real engagement is published only if it exists and the client has consented.
 - **Every regulatory claim graded [S] sourced / [A] assumption / [V] verify** internally.
-- **No grace window claimed for Prakas 093.** No published grace period exists; we will not manufacture urgency.
+- **No grace window claimed for Prakas 093.** We have found no published grace period; we will not manufacture urgency.
 
 ## About William Mallett
 

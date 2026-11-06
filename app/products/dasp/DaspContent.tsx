@@ -3,6 +3,15 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import FAQSection from "../../components/FAQSection";
 import type { FAQ } from "@/app/content/types";
+import { getRelatedInstruments } from "@/app/content/regulatory/registry";
+
+/**
+ * The sources this page's regulatory statements rest on, read from the
+ * instrument registry rather than restated here, so the list cannot drift from
+ * /regulatory. If a statement on this page is not supported by one of these,
+ * it belongs in the "not yet verified" note, not in the prose.
+ */
+const DASP_SOURCE_INSTRUMENTS = getRelatedInstruments(["prakas-093", "notification-083-25"]);
 
 /**
  * Every answer below restates something already on this page — the Prakas 093
@@ -19,12 +28,12 @@ const DASP_FAQS: FAQ[] = [
   {
     question: "Who needs a DASP licence in Cambodia?",
     answer:
-      "SERC's Prakas 093 entered into force on 30 December 2025. Cambodia's digital-asset operators — crypto exchanges, OTC desks, custody providers, and payment-on-rails firms with token components — need DASP licensing from SERC to operate legally. Whether a particular business model falls inside the regime is a question for the instrument and for counsel; the Prakas 093 page states what the instrument covers and what it does not.",
+      "Prakas 093 entered into force on 30 December 2025. Businesses providing digital-asset services in Cambodia for investment purposes — trading platforms and brokers, wallet and custody providers, borrowing and lending, and asset management — need a DASP licence from SERC. The Prakas expressly excludes payment transactions involving digital assets. Whether a particular business model falls inside the regime is a question for the instrument and for counsel; the Prakas 093 page states what the instrument covers and what it does not.",
   },
   {
     question: "Is there a grace period for Prakas 093?",
     answer:
-      "There is no published grace window. Several commentaries refer to one; we checked, and it does not appear in the gazetted instrument. We will not manufacture urgency by quoting a deadline that does not exist — but the regulation is in force now, and the readiness work takes four to eight months to do properly.",
+      "We have found no published grace window. None of the three law-firm analyses of the Prakas we have read (DFDL, Rajah & Tann, HBS Law) mentions a grace or transition period. The NBFSA has not published an English text, so we have not read the instrument itself. We will not manufacture urgency by quoting a deadline that does not exist — but the regulation is in force now, and the readiness work takes four to eight months to do properly.",
   },
   {
     question: "How long does DASP approval-readiness take?",
@@ -39,7 +48,7 @@ const DASP_FAQS: FAQ[] = [
   {
     question: "Can CamFinTech act as our MLRO?",
     answer:
-      "No. The named MLRO must be a board-appointed senior-management individual of the licensed entity, notified to CAFIU. That role stays client-side. CamFinTech designs the function around your named officer and can train the team through DASP-TRAIN.",
+      "No. The MLRO is the licensed entity's own appointment, and that role stays client-side. CamFinTech designs the function around your named officer and can train the team through DASP-TRAIN.",
   },
   {
     question: "What is the five-test integrity STOP-gate?",
@@ -98,13 +107,13 @@ export default function DaspContent() {
             <h2 className="text-2xl font-bold mb-4">Why now</h2>
             <div className="rounded-xl border-2 border-teal/30 bg-teal/5 p-6">
               <p className="text-base text-navy/85 leading-relaxed mb-3">
-                <strong>Prakas 093 entered into force on 30 December 2025.</strong> Cambodia&apos;s digital-asset operators — crypto exchanges, OTC desks, custody providers, payment-on-rails firms with token components — now need DASP licensing from SERC to operate legally.
+                <strong>Prakas 093 entered into force on 30 December 2025.</strong> Businesses providing digital-asset services in Cambodia for investment purposes — trading, wallet and custody, borrowing and lending, asset management — now need a DASP licence from SERC. Payment uses of digital assets are expressly outside the Prakas.
               </p>
               <p className="text-base text-navy/85 leading-relaxed mb-3">
-                The requirements are prudential rather than technical. The AML/CFT and governance build — FATF Travel Rule, MLRO function, sandbox readiness, fit-and-proper assessments — is the substantial work; the technology is the smaller half.
+                The requirements are prudential rather than technical. The Prakas requires AML/CFT compliance, a defined management structure, and successful testing in SERC&apos;s regulatory sandbox before an application; that build is the substantial work, and the technology is the smaller half.
               </p>
               <p className="text-base text-navy/85 leading-relaxed">
-                <strong>Honesty discipline:</strong> there is <em>no published grace window</em>. We will not manufacture urgency by claiming one. The regulation is in force; the readiness work takes 4–8 months to do properly. The cost of starting late is missing the early-mover window.
+                <strong>Honesty discipline:</strong> we have found <em>no published grace window</em>. We will not manufacture urgency by claiming one. The regulation is in force; the readiness work takes 4–8 months to do properly. The cost of starting late is missing the early-mover window.
               </p>
             </div>
             <p className="mt-4 text-sm text-navy/75 leading-relaxed">
@@ -194,7 +203,7 @@ export default function DaspContent() {
               <div className="rounded-xl border-2 border-navy/15 bg-card/50 p-6">
                 <h3 className="font-bold mb-3 text-navy/70">Bright lines — out of scope</h3>
                 <ul className="space-y-2 text-sm text-navy/75">
-                  <li><strong>Named MLRO</strong> stays client-side — must be a board-appointed, senior-management, CAFIU-notified individual of the licensed entity (not outsourceable to us)</li>
+                  <li><strong>Named MLRO</strong> stays client-side — the licensed entity&apos;s own appointment, not ours</li>
                   <li><strong>Custody, filing, operating the rail</strong> stays with the licensed DASP — we never hold assets, never file submissions on your behalf, never operate</li>
                   <li><strong>Reserved legal opinion</strong> routes to a Bar lawyer we coordinate — never CamFinTech-stamped</li>
                   <li><strong>External audit</strong> routes to an audit firm — never CamFinTech-stamped</li>
@@ -213,16 +222,47 @@ export default function DaspContent() {
                   <strong>15% SERC guarantee deposit:</strong> single-sourced to a DFDL alert; failed our cross-source check. We will not quote a deposit figure until counsel confirms. Treat secondary-source numbers with caution.
                 </li>
                 <li>
-                  <strong>No grace / no application window:</strong> several commentaries refer to a &quot;grace period.&quot; We checked — it doesn&apos;t appear in the gazetted instrument. We will not manufacture urgency by quoting one.
+                  <strong>No grace / no application window:</strong> some commentaries refer to a &quot;grace period.&quot; None of the three law-firm analyses we rely on mentions one, and we have not read the primary text, which is not published in English. We will not manufacture urgency by quoting one.
                 </li>
                 <li>
-                  <strong>Sandbox sequencing, application fee schedule, fit-and-proper test specifics, and the Cambodian Travel Rule instrument:</strong> all currently graded [V] — to be verified with counsel during DX. We won&apos;t pretend they&apos;re settled.
+                  <strong>Sandbox sequencing is settled:</strong> under SERC Notification 083/25, only graduates of the SERC FinTech Regulatory Sandbox may apply for a licence.
+                </li>
+                <li>
+                  <strong>Application fee schedule, fit-and-proper test specifics, MLRO appointment requirements, and the Cambodian Travel Rule instrument:</strong> not yet verified against a source — to be verified with counsel during DX. We won&apos;t pretend they&apos;re settled.
                 </li>
                 <li>
                   <strong>Pricing is indicative.</strong> All figures on this page are planning estimates. Final pricing is engagement-specific and validated by quote during DX.
                 </li>
               </ul>
             </div>
+          </section>
+
+          {/* Sources — rendered from the registry; see DASP_SOURCE_INSTRUMENTS. */}
+          <section className="mb-16">
+            <h2 className="text-2xl font-bold mb-4">Sources</h2>
+            <p className="text-sm text-navy/75 leading-relaxed mb-4">
+              No English text of Prakas 093 has been published, so the statements on this page rest on law-firm analyses of it. Each source is listed against the instrument it describes, with the date it was last checked.
+            </p>
+            <ul className="space-y-4 text-sm text-navy/85 leading-relaxed">
+              {DASP_SOURCE_INSTRUMENTS.map((inst) => (
+                <li key={inst.slug}>
+                  <Link href={`/regulatory/${inst.slug}`} className="font-bold text-navy hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4">
+                    {inst.title}
+                  </Link>
+                  <span className="text-navy/60"> · checked {inst.asAt}</span>
+                  <ul className="mt-1 space-y-1 pl-4">
+                    {inst.sources.map((src) => (
+                      <li key={src.url}>
+                        <a href={src.url} rel="noopener" className="text-navy hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4">
+                          {src.publisher} — {src.label}
+                        </a>
+                        <span className="text-navy/60"> ({src.tier})</span>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
           </section>
 
           {/* FAQ — renders the visible accordion and the FAQPage JSON-LD from

@@ -102,14 +102,15 @@ Readiness for SERC's Prakas 093 digital-asset licensing regime, **in force 30 De
 DX fee is non-refundable on STOP-gate failure — it's the work done.
 
 ### DASP bright lines (out of scope)
-- **Named MLRO** stays client-side — board-appointed individual of the licensed entity.
+- **Named MLRO** stays client-side — the licensed entity's own appointment.
 - **Custody, filing, operating the rail** stays with the licensed DASP — CamFinTech never holds assets, never files submissions, never operates.
 - **Reserved legal opinion** routes to a Bar lawyer.
 - **External audit** routes to an audit firm.
 
 ### DASP honesty corrections
 - 15% SERC guarantee deposit: single-sourced; failed cross-source. CamFinTech will not quote a deposit figure until counsel confirms.
-- No grace / no application window for Prakas 093 — none gazetted; CamFinTech will not manufacture urgency.
+- No grace / no application window for Prakas 093 — none mentioned in the three law-firm analyses relied on (the primary text is not published in English); CamFinTech will not manufacture urgency.
+- Sandbox sequencing is settled: under SERC Notification 083/25 only sandbox graduates may apply.
 
 ## What CamFinTech does NOT do
 - Hold client funds or operate any rail.

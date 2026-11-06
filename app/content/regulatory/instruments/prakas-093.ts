@@ -5,8 +5,12 @@ import { RegulatoryInstrument } from '../types';
  * Tann and HBS Law — which agree on every material fact below. No primary text
  * was located; the NBFSA does not appear to publish an English translation.
  * Statements are therefore confined to what at least one of the three states
- * expressly, and the governance-role list and the 15% guarantee deposit that
- * circulate elsewhere are omitted because none of the three carried them.
+ * expressly. The governance-role list and the 15% guarantee deposit are omitted:
+ * DFDL states both (a deposit of 15% of minimum capital paid to SERC, and a
+ * named-role roster for activities 1, 3 and 4), but Rajah & Tann and HBS do not,
+ * so each rests on a single source. Corrected 2026-11-06 — this comment had said
+ * none of the three carried them. Re-read all three that day: none mentions a
+ * grace or transition period, and SERC's English Prakas list still has no text.
  */
 export const prakas093: RegulatoryInstrument = {
   slug: 'prakas-093',

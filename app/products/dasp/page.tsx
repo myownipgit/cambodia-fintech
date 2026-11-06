@@ -49,7 +49,7 @@ const daspSchema = {
       "serviceType": "Regulatory Approval Navigation and AML/CFT Programme Build",
       "audience": {
         "@type": "Audience",
-        "audienceType": "Crypto exchanges, OTC desks, custody providers, payment-on-rails firms seeking DASP licensing under SERC Prakas 093",
+        "audienceType": "Digital-asset trading, wallet and custody, borrowing and lending, and asset-management businesses seeking DASP licensing under SERC Prakas 093",
       },
     },
     {
