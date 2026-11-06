@@ -21,7 +21,7 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 
 **Agreed next (fresh session):** work through the ~1,300 unsourced figures, busiest pages first.
 
-**2026-11-07:** Dependabot live (`e87d45b`; security PRs open against main — rebase first; merging never deploys). Three insights pages sourced (`7ebba60`, committed, NOT deployed). **CamInvoice is an MEF/GDDE system and Phase 1 is government procurement** (Prakas 075 Art. 4, Circulars 003/012/017) — ~20 files still say GDT/large taxpayers; see memory `project_corpus_evidence_bar`. `sme-digital-readiness.ts` is another session's uncommitted rewrite and repeats the GDT framing.
+**2026-11-07:** Dependabot live (`e87d45b`; security PRs open against main — rebase first; merging never deploys). Three insights pages sourced (`7ebba60`) + two Bakong learn pages corrected (`81d003b`) — committed, NOT deployed. Bakong is not a CBDC per the NBC white paper; ~12 files still say so (Bill to decide). **CamInvoice is an MEF/GDDE system and Phase 1 is government procurement** (Prakas 075 Art. 4, Circulars 003/012/017) — ~20 files still say GDT/large taxpayers; see memory `project_corpus_evidence_bar`. `sme-digital-readiness.ts` is another session's uncommitted rewrite and repeats the GDT framing.
 
 **Also open (none started):** The security sensor reports npm severity with no deployment context (it called a Windows-only RCE "critical" on a Linux-hosted static site) — `security-posture` board work. `~/.geo-prospects` still has no git remote. GEO H1: 32 of 40 content pages carry no `relatedInstruments`.
 
