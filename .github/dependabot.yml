@@ -1,0 +1,32 @@
+# Dependabot — added 2026-11-07 after the 2026-11-06 daily scan found 7 npm
+# advisories (1 critical, 6 high) that nothing automated had flagged.
+#
+# Version-update PRs target feature/update-homepage, not main: main is only
+# ever fast-forwarded from the working branch, and a merge landing on main
+# directly would break that --ff-only step.
+#
+# Security-update PRs ignore target-branch and always open against main
+# (GitHub behaviour). Rebase them onto feature/update-homepage before merging.
+#
+# Merging a Dependabot PR does NOT deploy — deploys are `vercel --prod` from a
+# local checkout (see CLAUDE.md). Pull, `npm run build`, then deploy.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    target-branch: feature/update-homepage
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Asia/Phnom_Penh
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    groups:
+      # One PR for everything inside existing semver ranges — the same class
+      # `npm update` fixed on 2026-11-06.
+      minor-and-patch:
+        update-types: [minor, patch]
+    # Majors still arrive, one PR each, so a Next/React/ESLint major is
+    # reviewed on its own (Next 16 broke FlatCompat — see project memory).
