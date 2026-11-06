@@ -43,7 +43,7 @@ const homepageSchema = {
       "name": "CamFinTech — Regulatory and Compliance Advisers, Phnom Penh",
       "isPartOf": { "@id": "https://www.camfintech.com/#website" },
       "about": { "@id": "https://www.camfintech.com/#organization" },
-      "datePublished": "2024-11-25",
+      "datePublished": "2025-11-24",
       "dateModified": "2026-08-31",
       "inLanguage": "en",
       "speakable": {
@@ -213,7 +213,7 @@ export default function Home() {
                   Meeting that standard is mostly not an engineering exercise. The requirements are prudential — AML and CFT programme design, governance, capital planning, documentation — assessed by more than one authority and often alongside a sponsoring member bank. Most financial technology firms are engineering organisations and hold no risk or compliance function, so the work falls to people trained for something else.
                 </p>
                 <p className="leading-relaxed text-navy/85">
-                  This practice supplies that function, and hands it over. Our people have worked inside the regulators, and we would rather leave the competence inside a client&apos;s team than remain necessary to it. Compliance capability held in Cambodia is worth more to this market than compliance capability flown in.
+                  This practice supplies that function, and hands it over. We would rather leave the competence inside a client&apos;s team than remain necessary to it. Compliance capability held in Cambodia is worth more to this market than compliance capability flown in.
                 </p>
                 <div className="mt-2 border-l-2 border-teal pl-5">
                   <p className="font-display text-sm font-bold text-navy">William Mallett</p>
@@ -452,8 +452,9 @@ export default function Home() {
               <div>
                 <h3 className="font-display text-xs font-bold uppercase tracking-[0.14em] text-slate">Office</h3>
                 <address className="mt-3 text-sm not-italic leading-relaxed text-navy">
-                  30 Preah Norodom Boulevard<br />
-                  Sangkat Phsar Thmey 3<br />
+                  Room 203, 2nd Floor, BRED Bank Building<br />
+                  No. 30 Preah Norodom Boulevard<br />
+                  Village 9, Sangkat Phsar Thmey 3<br />
                   Khan Daun Penh<br />
                   Phnom Penh 12210<br />
                   Kingdom of Cambodia

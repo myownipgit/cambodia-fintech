@@ -68,7 +68,6 @@ export const metadata: Metadata = {
     "Phnom Penh",
     "fee-only regulatory firm",
     "Cambodia compliance-as-a-service",
-    "ex-regulator advisory",
   ],
   authors: [{ name: "CamFinTech" }],
   alternates: {

@@ -20,7 +20,7 @@ export default function JsonLd() {
           "height": 300,
         },
         "description":
-          "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, established 2024; incorporated as CAMFINTECH CO., LTD. on 9 October 2026 (MoC 1000648818). It prepares Cambodian and foreign institutions to meet the standard for connecting to the Kingdom of Cambodia's national digital infrastructure — Bakong and KHQR, CamDX and CamDigiKey, and CamInvoice — runs the AML/CFT and governance programmes that hold afterwards, and builds the client-side integration, or directs an accredited Service Provider as a disclosed sub-contract. The firm holds no client funds and operates no rail. The approval decision rests with the regulator and the client is the applicant of record. The practice is staffed by people who have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT.",
+          "CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh, established 2024; incorporated as CAMFINTECH CO., LTD. on 9 October 2026 (MoC 1000648818). It prepares Cambodian and foreign institutions to meet the standard for connecting to the Kingdom of Cambodia's national digital infrastructure — Bakong and KHQR, CamDX and CamDigiKey, and CamInvoice — runs the AML/CFT and governance programmes that hold afterwards, and builds the client-side integration, or directs an accredited Service Provider as a disclosed sub-contract. The firm holds no client funds and operates no rail. The approval decision rests with the regulator and the client is the applicant of record.",
         "foundingDate": "2026-10-09",
         "areaServed": {
           "@type": "Country",
@@ -90,7 +90,7 @@ export default function JsonLd() {
         // and the NAP must sit on the same node for entity resolution to work.
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "No. 30 Preah Norodom Boulevard, 2nd Floor, Room 203, BRED Bank Building, Phsar Thmei Ti Bei (Village 9), Khan Daun Penh",
+          "streetAddress": "Room 203, 2nd Floor, BRED Bank Building, No. 30 Preah Norodom Boulevard, Village 9, Sangkat Phsar Thmey 3, Khan Daun Penh",
           "addressLocality": "Phnom Penh",
           "addressRegion": "Phnom Penh",
           "postalCode": "12210",
@@ -101,11 +101,10 @@ export default function JsonLd() {
         "sameAs": [
           "https://www.linkedin.com/company/118224010/",
           "https://github.com/myownipgit/cambodia-fintech",
-          // Owned sibling properties. Declaring them here is what lets a crawler
-          // resolve camfintech.com, riel.report and insights.camfintech.com as one
-          // entity rather than three unrelated domains.
+          // Owned sibling property, so a crawler resolves camfintech.com and
+          // riel.report as one entity. insights.camfintech.com was removed on
+          // 2026-11-06: it updates irregularly, and Bill chose to lower its profile.
           "https://riel.report",
-          "https://insights.camfintech.com",
           "https://techindex.law.stanford.edu/companies/camfintech",
         ],
       },
@@ -143,12 +142,11 @@ export default function JsonLd() {
           "https://www.linkedin.com/company/118224010/",
           "https://github.com/myownipgit/cambodia-fintech",
           "https://riel.report",
-          "https://insights.camfintech.com",
           "https://techindex.law.stanford.edu/companies/camfintech",
         ],
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "No. 30 Preah Norodom Boulevard, 2nd Floor, Room 203, BRED Bank Building, Phsar Thmei Ti Bei (Village 9), Khan Daun Penh",
+          "streetAddress": "Room 203, 2nd Floor, BRED Bank Building, No. 30 Preah Norodom Boulevard, Village 9, Sangkat Phsar Thmey 3, Khan Daun Penh",
           "addressLocality": "Phnom Penh",
           "addressRegion": "Phnom Penh",
           "postalCode": "12210",

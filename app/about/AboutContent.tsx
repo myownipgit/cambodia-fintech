@@ -65,13 +65,47 @@ export default function AboutContent() {
           </p>
         </section>
 
-        <section className="mb-10">
-          <h2 className="text-xl font-semibold text-navy mb-3">Where the practice sits — regulator-side experience</h2>
+        <section className="mb-10" id="company-registration">
+          <h2 className="text-xl font-semibold text-navy mb-3">Company registration</h2>
           <p className="text-navy/85 leading-relaxed">
-            CamFinTech&apos;s defensible space is the layer between &quot;the regulator&quot; and &quot;the build.&quot; Applications fail on AML/CFT, governance, capital planning, and documentation — not code. Most FinTechs put engineers on regulatory problems they were never trained for. The fix isn&apos;t more engineering — it&apos;s people who&apos;ve worked the regulator&apos;s side of the desk.
+            <strong>CAMFINTECH CO., LTD.</strong> (ខេមហ្វីនថេក ឯ.ក) is a Private Limited Company in the Kingdom of Cambodia, trading as CamFinTech. Registered office: Room 203, 2nd Floor, BRED Bank Building, No. 30 Preah Norodom Boulevard, Village 9, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210. Established 2024; incorporated 9 October 2026.
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full text-sm">
+              <tbody>
+                <tr className="border-t border-line">
+                  <th scope="row" className="py-2 pr-4 text-left align-top font-semibold text-navy">Ministry of Commerce</th>
+                  <td className="py-2 text-navy/85">Registration no. 1000648818; certificate MOC-01140028; incorporated 9 October 2026</td>
+                </tr>
+                <tr className="border-t border-line">
+                  <th scope="row" className="py-2 pr-4 text-left align-top font-semibold text-navy">General Department of Taxation</th>
+                  <td className="py-2 text-navy/85">VAT TIN K003-902604575; certificate VATM26102085805; valid from 20 October 2026</td>
+                </tr>
+                <tr className="border-t border-line">
+                  <th scope="row" className="py-2 pr-4 text-left align-top font-semibold text-navy">Ministry of Labour and Vocational Training</th>
+                  <td className="py-2 text-navy/85">Declaration of Opening L20266200253; dated 22 October 2026</td>
+                </tr>
+                <tr className="border-t border-line">
+                  <th scope="row" className="py-2 pr-4 text-left align-top font-semibold text-navy">National Social Security Fund</th>
+                  <td className="py-2 text-navy/85">Enterprise ID 1089962-9; registered 1 November 2026</td>
+                </tr>
+                <tr className="border-t border-line">
+                  <th scope="row" className="py-2 pr-4 text-left align-top font-semibold text-navy">Director</th>
+                  <td className="py-2 text-navy/85">William Mallett</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-sm text-navy/85">Certificates available on request for procurement and due diligence.</p>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-navy mb-3">Where the practice sits</h2>
+          <p className="text-navy/85 leading-relaxed">
+            CamFinTech&apos;s defensible space is the layer between &quot;the regulator&quot; and &quot;the build.&quot; Applications fail on AML/CFT, governance, capital planning, and documentation — not code. Most FinTechs put engineers on regulatory problems they were never trained for. The fix isn&apos;t more engineering — it&apos;s compliance capability built to the standard the regulator sets.
           </p>
           <p className="text-navy/85 leading-relaxed mt-3">
-            Our people have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT, and the NBFSA&apos;s own 2024&ndash;2028 FinTech plan makes developing this competency locally a national priority. We hire from the regulated-private side (mid-tier banks, MFIs, PSPs, accredited SPs) and from former-regulator advisers after a self-imposed cooling-off period; we do not engage serving officials.
+            The NBFSA&apos;s own 2024&ndash;2028 FinTech plan makes developing this competency locally a national priority. If the practice hires, it will look to the regulated private side, and to former-regulator advisers only after a self-imposed cooling-off period. It does not engage serving officials.
           </p>
         </section>
 
@@ -105,7 +139,7 @@ export default function AboutContent() {
             What is available to a procurement or third-party-risk reader today:
           </p>
           <ul className="mt-3 space-y-2 text-navy/85 text-sm leading-relaxed">
-            <li><strong>Founder track record.</strong> Regulator-side and ASEAN FinTech experience, open to interrogation in a call and set out on LinkedIn.</li>
+            <li><strong>Founder track record.</strong> ASEAN FinTech experience, open to interrogation in a call and set out on LinkedIn.</li>
             <li><strong>Methodology walk-throughs.</strong> The onboarding architecture, the integrity screen applied before an engagement is accepted, and the build-then-retainer structure — explained against a specific rail and use case.</li>
             <li><strong>The published reference.</strong> Seventeen regulatory instrument entries, each recording the source read and the date it was read, alongside the knowledge base, explainers and engagement scenarios. It is the most direct evidence of how the practice works.</li>
             <li><strong>Voluntary TCRMG alignment.</strong> Described below.</li>

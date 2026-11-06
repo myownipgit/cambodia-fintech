@@ -35,8 +35,8 @@ const SECTIONS: Section[] = [
       km: "២. យើងជានរណា",
     },
     body: {
-      en: "\"CamFinTech\" is a trading name used by the operators of camfintech.com to deliver advisory and technical consulting services. We are not a bank, payment service provider, or licensed financial institution. We do not hold customer funds, hold banking credentials, or process payments on behalf of third parties.\n\nThe data controller for personal information collected through this website is the operator of CamFinTech, contactable at " + CONTACT_EMAIL + ".",
-      km: "\"CamFinTech\" គឺជាឈ្មោះពាណិជ្ជកម្មដែលប្រើដោយប្រតិបត្តិករនៃ camfintech.com ដើម្បីផ្តល់សេវាប្រឹក្សា និងសេវាប្រឹក្សាបច្ចេកទេស។ យើងមិនមែនជាធនាគារ អ្នកផ្តល់សេវាបង់ប្រាក់ ឬគ្រឹះស្ថានហិរញ្ញវត្ថុដែលមានអាជ្ញាប័ណ្ណទេ។ យើងមិនកាន់កាប់ប្រាក់របស់អតិថិជន មិនកាន់កាប់ព័ត៌មានសម្ងាត់ធនាគារ ឬដំណើរការទូទាត់ប្រាក់ជំនួសភាគីទីបីឡើយ។\n\nអ្នកគ្រប់គ្រងទិន្នន័យសម្រាប់ព័ត៌មានផ្ទាល់ខ្លួនដែលប្រមូលបានតាមរយៈគេហទំព័រនេះ គឺជាប្រតិបត្តិករនៃ CamFinTech ដែលអាចទាក់ទងបានតាមរយៈ " + CONTACT_EMAIL + "។",
+      en: "\"CamFinTech\" is the trading name of CAMFINTECH CO., LTD., used to deliver advisory and technical consulting services. We are not a bank, payment service provider, or licensed financial institution. We do not hold customer funds, hold banking credentials, or process payments on behalf of third parties.\n\nThe data controller for personal information collected through this website is CAMFINTECH CO., LTD., Room 203, 2nd Floor, BRED Bank Building, No. 30 Preah Norodom Boulevard, Village 9, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Kingdom of Cambodia, contactable at " + CONTACT_EMAIL + ".",
+      km: "\"CamFinTech\" គឺជាឈ្មោះពាណិជ្ជកម្មដែលប្រើដោយប្រតិបត្តិករនៃ camfintech.com ដើម្បីផ្តល់សេវាប្រឹក្សា និងសេវាប្រឹក្សាបច្ចេកទេស។ យើងមិនមែនជាធនាគារ អ្នកផ្តល់សេវាបង់ប្រាក់ ឬគ្រឹះស្ថានហិរញ្ញវត្ថុដែលមានអាជ្ញាប័ណ្ណទេ។ យើងមិនកាន់កាប់ប្រាក់របស់អតិថិជន មិនកាន់កាប់ព័ត៌មានសម្ងាត់ធនាគារ ឬដំណើរការទូទាត់ប្រាក់ជំនួសភាគីទីបីឡើយ។\n\nអ្នកគ្រប់គ្រងទិន្នន័យសម្រាប់ព័ត៌មានផ្ទាល់ខ្លួនដែលប្រមូលបានតាមរយៈគេហទំព័រនេះ គឺជា CAMFINTECH CO., LTD. (ខេមហ្វីនថេក ឯ.ក) ដែលអាចទាក់ទងបានតាមរយៈ " + CONTACT_EMAIL + "។",
     },
   },
   {
@@ -167,8 +167,8 @@ const SECTIONS: Section[] = [
       km: "១៤. ទំនាក់ទំនង",
     },
     body: {
-      en: "Privacy questions, requests, and complaints can be sent to:\n\nCamFinTech\nEmail: " + CONTACT_EMAIL + "\nAddress: 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia\n\nIf you are not satisfied with our response, you may have the right to complain to a data-protection authority in your country of residence.",
-      km: "សំណួរ សំណើ និងការត្អូញត្អែរអំពីឯកជនភាពអាចត្រូវបានផ្ញើទៅ៖\n\nCamFinTech\nអ៊ីមែល៖ " + CONTACT_EMAIL + "\nអាសយដ្ឋាន៖ ផ្លូវព្រះនរោត្តម លេខ៣០, ខណ្ឌដូនពេញ, ភ្នំពេញ, ព្រះរាជាណាចក្រកម្ពុជា\n\nប្រសិនបើអ្នកមិនពេញចិត្តនឹងការឆ្លើយតបរបស់យើង អ្នកអាចមានសិទ្ធិដាក់ការត្អូញត្អែរទៅអាជ្ញាធរការពារទិន្នន័យនៅក្នុងប្រទេសដែលអ្នករស់នៅ។",
+      en: "Privacy questions, requests, and complaints can be sent to:\n\nCAMFINTECH CO., LTD.\nEmail: " + CONTACT_EMAIL + "\nRegistered office: Room 203, 2nd Floor, BRED Bank Building, No. 30 Preah Norodom Boulevard, Village 9, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Kingdom of Cambodia\n\nIf you are not satisfied with our response, you may have the right to complain to a data-protection authority in your country of residence.",
+      km: "សំណួរ សំណើ និងការត្អូញត្អែរអំពីឯកជនភាពអាចត្រូវបានផ្ញើទៅ៖\n\nCAMFINTECH CO., LTD. (ខេមហ្វីនថេក ឯ.ក)\nអ៊ីមែល៖ " + CONTACT_EMAIL + "\nអាសយដ្ឋាន៖ ផ្ទះលេខ/អគារ BRED Bank ផ្ទះលេខ 30 ជាន់ទី2 បន្ទប់លេខ203 , ផ្លូវ មហាវិថីព្រះនរោត្តម , ៩ , ផ្សារថ្មីទី ៣ , ដូនពេញ , ភ្នំពេញ , កម្ពុជា\n\nប្រសិនបើអ្នកមិនពេញចិត្តនឹងការឆ្លើយតបរបស់យើង អ្នកអាចមានសិទ្ធិដាក់ការត្អូញត្អែរទៅអាជ្ញាធរការពារទិន្នន័យនៅក្នុងប្រទេសដែលអ្នករស់នៅ។",
     },
   },
 ];

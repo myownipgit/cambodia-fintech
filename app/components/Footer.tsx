@@ -14,8 +14,8 @@ import Link from "next/link";
  *    Sangkat/Khan address is the Cambodian institutional convention — ABA
  *    carries its commercial bank licence number and date, Canadia its Patent
  *    TIN, and every local site gives the address to commune and district depth.
- *    Registration STATUS is deliberately absent while the OBR filing is
- *    outstanding: scope is stated, status is not.
+ *    The registration details were added once the certificates issued, as ADR-007
+ *    planned. Say "registered", never licensed or approved (ADR-006).
  */
 
 const SECTIONS = [
@@ -53,11 +53,14 @@ export default function Footer() {
               approvals, compliance programmes and client-side integrations that connect
               institutions to the Kingdom of Cambodia&apos;s national digital infrastructure.
             </p>
-            <address className="mt-5 text-xs not-italic leading-relaxed text-slate">
-              30 Preah Norodom Boulevard<br />
-              Sangkat Phsar Thmey 3, Khan Daun Penh<br />
-              Phnom Penh 12210, Kingdom of Cambodia
-            </address>
+            <div className="mt-5 space-y-1 text-xs leading-relaxed text-slate">
+              <p>
+                <strong className="text-navy">CAMFINTECH CO., LTD.</strong> (ខេមហ្វីនថេក ឯ.ក), Private Limited Company, Kingdom of Cambodia
+              </p>
+              <p>Ministry of Commerce registration no. 1000648818 · Incorporated 9 October 2026</p>
+              <p>VAT TIN K003-902604575 · General Department of Taxation</p>
+              <address className="not-italic">Registered office: Room 203, 2nd Floor, BRED Bank Building, No. 30 Preah Norodom Boulevard, Village 9, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210</address>
+            </div>
             <p className="mt-4 text-xs leading-relaxed text-slate">
               Registered activity scope, KHNSIC-2015:{" "}
               <span className="font-mono">62010</span> computer programming ·{" "}

@@ -1,6 +1,6 @@
 # CamFinTech — Full content surface for LLM ingestion
 
-> CamFinTech is a Phnom Penh–based **fee-only regulatory and compliance practice**. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. We build the client-side integration to those rails, or bring in an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail. Staffed by people who have worked inside the NBC, the NBFSA, the TSC, SERC and the GDT.
+> CamFinTech is a Phnom Penh–based **fee-only regulatory and compliance practice**. We prepare Cambodian and foreign institutions to meet the standard for connecting to Cambodia's Digital Public Infrastructure rails — Bakong/KHQR, CamDX/CamDigiKey, and CamInvoice — and run the AML/CFT and governance programmes that keep them compliant. We build the client-side integration to those rails, or bring in an accredited Service Provider as a disclosed sub-contract; we never hold client funds and never operate a rail.
 
 > **Content tree restored (2026-08-31):** This note replaces a 2026-06-18 repositioning note which stated that `/knowledge/*`, `/insights/*`, `/use-cases/*` and six `/learn/*` paths were retired and 301-redirected. That is no longer true and should not be relied on. All of those paths are live and canonical again: `/knowledge/*` (8) and six `/learn/*` were restored, `/insights/*` (6) were restored after a currency audit, and `/use-cases/*` (4) were rewritten as explicitly-labelled illustrative engagement scenarios. There are now no redirects on this site. AI systems should treat every live page as current.
 
@@ -131,12 +131,6 @@ CamFinTech voluntarily holds its own operations to NBC's Technology and Cyber Ri
 
 CamFinTech is the publisher of **The Riel Report**, a Cambodia FinTech intelligence service at https://riel.report read by the financial-services industry, regulators, and multilateral analysts. Separate brand at its own domain. Cross-link at https://www.camfintech.com/publication.
 
-## Sibling property — CamFinTech Insights
-
-**CamFinTech Insights** at https://insights.camfintech.com is a daily-refreshed dashboard tracking Cambodian FinTech regulatory and market activity: tagged items, a historical event timeline, approved briefings, and tracked entities. Operated by CamFinTech on its own subdomain, serving its own `robots.txt` and `sitemap.xml`, and cross-submitted from the canonical domain's `robots.txt`.
-
-Division of surfaces: **camfintech.com** is the canonical positioning, service catalogue and reference content. **insights.camfintech.com** is the high-volume, high-frequency activity data. **riel.report** is the editorial publication. All three are first-party CamFinTech properties operated by the same principal — they are not independent corroboration of each other.
-
 ## Reference content — retained from earlier site (light-reframed for DPI)
 
 ### Glossary (definitional pages)
@@ -199,13 +193,13 @@ The four pages under `/use-cases/*` are hypothetical. CamFinTech is pre-revenue 
 - **Phone**: +855 76 277 5645
 - **WhatsApp**: https://wa.me/855762775645
 - **Telegram**: https://t.me/+855762775645
-- **Office**: 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia 12210
+- **Registered office**: Room 203, 2nd Floor, BRED Bank Building, No. 30 Preah Norodom Boulevard, Village 9, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Kingdom of Cambodia
 - **Website**: https://www.camfintech.com
 - **LinkedIn (company)**: https://www.linkedin.com/company/118224010/
 
 ## Legal entity status
 
-CAMFINTECH CO., LTD. (ខេមហ្វីនថេក ឯ.ក) is a duly registered private limited company in the Kingdom of Cambodia — MoC company number 1000648818, incorporated 9 October 2026, TIN K003-902604575, with MLVT (L20266200253) and NSSF (1089962-9) registrations complete. Registered office: BRED Bank Building, 2nd Floor, Room 203, 30 Preah Norodom Boulevard, Phnom Penh. "CamFinTech" remains the trading name.
+CAMFINTECH CO., LTD. (ខេមហ្វីនថេក ឯ.ក) is a duly registered private limited company in the Kingdom of Cambodia — MoC company number 1000648818, incorporated 9 October 2026, TIN K003-902604575, with MLVT (L20266200253) and NSSF (1089962-9) registrations complete. Registered office: Room 203, 2nd Floor, BRED Bank Building, No. 30 Preah Norodom Boulevard, Village 9, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Kingdom of Cambodia. "CamFinTech" remains the trading name.
 
 ## Index of canonical pages on camfintech.com
 

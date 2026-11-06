@@ -50,7 +50,8 @@ const nextConfig = {
     ];
   },
 
-  // No redirects. This list is deliberately empty as of 2026-08-31.
+  // No page redirects. This list was deliberately emptied on 2026-08-31; its one
+  // entry since is an image replacement, explained below.
   //
   // History, because the empty array is the end of an argument rather than an
   // absence of one. The June 2026 content decommission (c5b5201) retired 24
@@ -67,7 +68,16 @@ const nextConfig = {
   // If you are about to add a redirect to `/` here, restore or write the page
   // instead — that is the whole lesson of the preceding two months.
   async redirects() {
-    return [];
+    return [
+      // A replacement, not a soft 404: the old founder photo URL goes to the new
+      // photo of the same person, so links saved before 2026-11-04 keep working.
+      // This does not reopen the rule above against sending topical pages elsewhere.
+      {
+        source: '/images/founder-william-mallett.png',
+        destination: '/images/William_Mallett_Founder_and_Managing_Director_CAMFINTECH_CO_LTD.jpg',
+        permanent: true,
+      },
+    ];
   },
 };
 

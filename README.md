@@ -19,7 +19,7 @@ pairs. **Do not machine-translate the corpus.**
 | **Founder & Managing Director** | William Mallett ([LinkedIn](https://www.linkedin.com/in/william-mall/)) |
 | **Trading name** | CamFinTech |
 | **Legal entity** | CAMFINTECH CO., LTD (registered — MoC 1000648818, 9 Oct 2026) |
-| **Corporate HQ** | 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia |
+| **Registered office** | Room 203, 2nd Floor, BRED Bank Building, No. 30 Preah Norodom Boulevard, Village 9, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Kingdom of Cambodia |
 | **Contact** | info@camfintech.com · +855 76 277 5645 |
 | **LinkedIn (company)** | https://www.linkedin.com/company/118224010/ |
 | **Registered activity scope** | KHNSIC-2015 codes 62010 · 62020 · 62090 · 70200 · 85499 |

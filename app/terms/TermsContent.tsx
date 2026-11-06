@@ -35,7 +35,7 @@ const SECTIONS: Section[] = [
       km: "២. អំពី CamFinTech",
     },
     body: {
-      en: "\"CamFinTech\" is a trading name used to publish research, analysis, and consulting services focused on Cambodia's digital financial infrastructure — Bakong, CamDigiKey, CamDX, CamInvoice, KHQR, and the broader Government-as-a-Platform (GaaP) model. We are an independent consulting practice. We are not a bank, payment service provider, broker-dealer, investment adviser, or licensed financial institution, and these Terms do not create any such relationship.",
+      en: "\"CamFinTech\" is the trading name of CAMFINTECH CO., LTD., a private limited company registered in the Kingdom of Cambodia (Ministry of Commerce registration no. 1000648818). These Terms are between you and CAMFINTECH CO., LTD.. It publishes research, analysis, and consulting services focused on Cambodia's digital financial infrastructure — Bakong, CamDigiKey, CamDX, CamInvoice, KHQR, and the broader Government-as-a-Platform (GaaP) model. We are an independent consulting practice. We are not a bank, payment service provider, broker-dealer, investment adviser, or licensed financial institution, and these Terms do not create any such relationship.",
       km: "\"CamFinTech\" គឺជាឈ្មោះពាណិជ្ជកម្មដែលប្រើដើម្បីបោះពុម្ពផ្សាយការស្រាវជ្រាវ ការវិភាគ និងសេវាប្រឹក្សាដែលផ្តោតលើហេដ្ឋារចនាសម្ព័ន្ធហិរញ្ញវត្ថុឌីជីថលរបស់កម្ពុជា — បាគង, CamDigiKey, CamDX, CamInvoice, KHQR, និងគំរូ Government-as-a-Platform (GaaP) ដ៏ទូលំទូលាយ។ យើងគឺជាក្រុមហ៊ុនប្រឹក្សាឯករាជ្យ។ យើងមិនមែនជាធនាគារ អ្នកផ្តល់សេវាបង់ប្រាក់ ឈ្មួញកណ្តាល ទីប្រឹក្សាវិនិយោគ ឬគ្រឹះស្ថានហិរញ្ញវត្ថុដែលមានអាជ្ញាប័ណ្ណឡើយ ហើយលក្ខខណ្ឌទាំងនេះមិនបង្កើតទំនាក់ទំនងបែបនោះឡើយ។",
     },
   },
@@ -156,8 +156,8 @@ const SECTIONS: Section[] = [
       km: "១៣. ទំនាក់ទំនង",
     },
     body: {
-      en: "Questions about these Terms can be sent to:\n\nCamFinTech\nEmail: " + CONTACT_EMAIL + "\nAddress: 30 Preah Norodom Boulevard, Khan Daun Penh, Phnom Penh, Kingdom of Cambodia\n\nFor information on how we handle personal data, see our Privacy Statement at /privacy.",
-      km: "សំណួរអំពីលក្ខខណ្ឌទាំងនេះអាចត្រូវបានផ្ញើទៅ៖\n\nCamFinTech\nអ៊ីមែល៖ " + CONTACT_EMAIL + "\nអាសយដ្ឋាន៖ ផ្លូវព្រះនរោត្តម លេខ៣០, ខណ្ឌដូនពេញ, ភ្នំពេញ, ព្រះរាជាណាចក្រកម្ពុជា\n\nសម្រាប់ព័ត៌មានអំពីរបៀបដែលយើងគ្រប់គ្រងទិន្នន័យផ្ទាល់ខ្លួន សូមមើលសេចក្តីប្រកាសឯកជនភាពរបស់យើងនៅ /privacy។",
+      en: "Questions about these Terms can be sent to:\n\nCAMFINTECH CO., LTD.\nEmail: " + CONTACT_EMAIL + "\nRegistered office: Room 203, 2nd Floor, BRED Bank Building, No. 30 Preah Norodom Boulevard, Village 9, Sangkat Phsar Thmey 3, Khan Daun Penh, Phnom Penh 12210, Kingdom of Cambodia\n\nFor information on how we handle personal data, see our Privacy Statement at /privacy.",
+      km: "សំណួរអំពីលក្ខខណ្ឌទាំងនេះអាចត្រូវបានផ្ញើទៅ៖\n\nCAMFINTECH CO., LTD. (ខេមហ្វីនថេក ឯ.ក)\nអ៊ីមែល៖ " + CONTACT_EMAIL + "\nអាសយដ្ឋាន៖ ផ្ទះលេខ/អគារ BRED Bank ផ្ទះលេខ 30 ជាន់ទី2 បន្ទប់លេខ203 , ផ្លូវ មហាវិថីព្រះនរោត្តម , ៩ , ផ្សារថ្មីទី ៣ , ដូនពេញ , ភ្នំពេញ , កម្ពុជា\n\nសម្រាប់ព័ត៌មានអំពីរបៀបដែលយើងគ្រប់គ្រងទិន្នន័យផ្ទាល់ខ្លួន សូមមើលសេចក្តីប្រកាសឯកជនភាពរបស់យើងនៅ /privacy។",
     },
   },
 ];
