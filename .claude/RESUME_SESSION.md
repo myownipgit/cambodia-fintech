@@ -5,7 +5,7 @@ This file tracks the current session state to enable seamless recovery between s
 ## Start here
 _Rewrite this block at the end of every session. Keep it under 30 lines. History is below._
 
-**As of 2026-11-06.** Production `dpl_B5iVBy9v2fXEbasEULrwqZQ5Hc9q`; `main` and `feature/update-homepage` level at the latest commit. Deploy with `vercel --prod` (a push does not publish).
+**As of 2026-11-06, end of session.** Production `dpl_B5iVBy9v2fXEbasEULrwqZQ5Hc9q`; `main` and `feature/update-homepage` level at the latest commit. Deploy with `vercel --prod` (a push does not publish).
 
 **Just shipped:** registration details (ADR-012), regulator-staff claims removed, Insights demoted, headshot redirect, register-based counts, Bakong and KHQR wording, capital figure from Prakas B14-017-161 Art. 13 (ADR-011).
 
@@ -20,6 +20,8 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 **Agreed next (fresh session):** add sources to `/products/dasp`; then work through the ~1,300 unsourced figures, busiest pages first.
 
 **Open, needs a decision:** riel.report source repo location (personal Vercel); whether Insights becomes a subscriber feature (option B).
+
+**Loose ends:** untracked `2026-11-06-daily.md` in the repo root was not created by this session (probably Hermes); leave it unless Bill says otherwise. A local preview server may still be running on port 3101.
 
 **Do not:** publish a figure without a fetched primary source; `sed -i` a single-file Docker bind mount; trust a GEO score or the Bakong member list as current; add HowTo or Article schema the audit asks for.
 
