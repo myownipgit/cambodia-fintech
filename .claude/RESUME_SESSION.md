@@ -21,7 +21,7 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 
 **Agreed next (fresh session):** work through the ~1,300 unsourced figures, busiest pages first.
 
-**Dependabot live 2026-11-07 (`e87d45b`, on main too):** weekly Mon 09:00 ICT, minor+patch grouped, target `feature/update-homepage`; repo alerts + security updates switched on (were off). Security PRs open against main — rebase before merging. Merging never deploys. Alert #1 open: minimatch 10.2.6 via typescript-eslint (lint only, fix is a major, waits on upstream); GitHub calls it 'runtime' because `eslint-config-next` sits in `dependencies`.
+**2026-11-07:** Dependabot live (`e87d45b`; security PRs open against main — rebase first; merging never deploys). Three insights pages sourced (`7ebba60`, committed, NOT deployed). **CamInvoice is an MEF/GDDE system and Phase 1 is government procurement** (Prakas 075 Art. 4, Circulars 003/012/017) — ~20 files still say GDT/large taxpayers; see memory `project_corpus_evidence_bar`. `sme-digital-readiness.ts` is another session's uncommitted rewrite and repeats the GDT framing.
 
 **Also open (none started):** The security sensor reports npm severity with no deployment context (it called a Windows-only RCE "critical" on a Linux-hosted static site) — `security-posture` board work. `~/.geo-prospects` still has no git remote. GEO H1: 32 of 40 content pages carry no `relatedInstruments`.
 
