@@ -5,9 +5,11 @@ This file tracks the current session state to enable seamless recovery between s
 ## Start here
 _Rewrite this block at the end of every session. Keep it under 30 lines. History is below._
 
-**As of 2026-11-06, late session.** Production `dpl_9YD2ajF5bgztnAeZybZAT3EWxBPZ`; `main` and `feature/update-homepage` both at `a524a6e`. Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
+**As of 2026-11-06, late session.** Production `dpl_DZrqJv9gRLLVuPs9NAbL23E9Qe1j` (includes `b6bad03`). Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
 
 **Just shipped (late session):** the 2026-11-06 daily scan's 7 npm advisories patched and deployed (`e197a57`) — 1 critical + 6 high to zero via plain `npm update`, all inside existing semver ranges so `package.json` is unchanged; 75/75 routes still static. Then `npm run check:memory` (`a524a6e`): fails when MEMORY.md exceeds its 22KB load budget, an index entry links a missing topic file, or this Start here block is absent or over 30 lines. All five failure modes negative-tested against a fixture. **Run `check:llms` AND `check:memory` after any edit.**
+
+**Also shipped (parallel session):** `/products/dasp` sourcing pass (`b6bad03`) — payment firms out of scope (Prakas excludes payments), false "checked the gazetted instrument" grace claim fixed, unsourced MLRO/CAFIU specifics cut, sandbox sequencing settled (083/25), registry-driven Sources section. DFDL *does* carry the 15% deposit (single-sourced, still unpublished). Open: MLRO rule unproved (2020 AML/CFT Law is a Khmer-only scan, needs a Khmer reader); ADR-006/007 tone pass deferred by Bill (refusal lines, DASP-DX SKUs, CTAs, also in `llms-full.txt`).
 
 **Waiting on Bill:**
 - Submit riel.report's subscribe form once (only untested use of the new security headers).
@@ -17,7 +19,7 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 - Get a Khmer reader to check the Terms and Privacy Khmer text.
 - Optional: submit riel.report at hstspreload.org.
 
-**Agreed next (fresh session):** add sources to `/products/dasp`; then work through the ~1,300 unsourced figures, busiest pages first.
+**Agreed next (fresh session):** work through the ~1,300 unsourced figures, busiest pages first.
 
 **Also open (none started):** `.github/` is empty — no dependabot, so nothing automates the advisory class patched today. The security sensor reports npm severity with no deployment context (it called a Windows-only RCE "critical" on a Linux-hosted static site) — `security-posture` board work. `~/.geo-prospects` still has no git remote. GEO H1: 32 of 40 content pages carry no `relatedInstruments`.
 
