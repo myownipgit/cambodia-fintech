@@ -1,18 +1,56 @@
 import { ArticleContent } from '../types';
 
+/*
+ * Figure pass 2026-11-07 (busiest-page-first, GA4 rank 4). Read in full that
+ * day: the National Trade Repository's English record (unofficial translation)
+ * of Prakas B14-017-161, Articles 1-36. What the page now says about process,
+ * licence term and ongoing obligations is taken from that record and cites the
+ * article. Removed, not hedged, so nobody restores these from git:
+ *
+ * - "The NBC's regulatory sandbox, launched in 2023", customer caps of
+ *   2,000-5,000, a 6-12 month testing period, "approximately 15 firms" and the
+ *   five-phase sandbox table. No instrument in app/content/regulatory
+ *   establishes an NBC sandbox; the only sandbox read in a primary is SERC's
+ *   (Notification 083/25), for digital-asset businesses. Non-existence of an
+ *   NBC sandbox is NOT proved; the page simply does not describe one.
+ * - "6-12 months" standard timeline and "12-18 months" sandbox graduation.
+ *   Replaced by Article 11: written decision within six months of receipt,
+ *   extendable by the NBC.
+ * - 100% foreign ownership of PSPs, e-money issuers and banks, "the Council for
+ *   the Development of Cambodia allows", the resident-director requirement,
+ *   free repatriation under the Law on Foreign Exchange, and the list of
+ *   source countries. No primary read. The licence-category table (with its
+ *   "Foreign Ownership" and subjective "Regulatory Burden" columns and an
+ *   unverified "Specialized Bank" row) went with them.
+ * - NBC "Financial Technology and Innovation Department", a 2-4 week
+ *   pre-consultation phase, quarterly reporting contents, "NBC-approved
+ *   auditor", independent penetration testing. Not in the Prakas.
+ * - "Common Pitfalls": reasons for rejection, "the NBC has become increasingly
+ *   rigorous", and conditional approvals "extending timelines by 6-12 months".
+ *   Unsourced, and commentary on a regulator's process (ADR-006). Rewritten
+ *   as what Article 9 requires an application to contain.
+ * - "the regulatory sandbox attracting international entrants" (lead).
+ *
+ * Deliberately NOT published although the record states them: the Article 10
+ * fees, the Article 15 capital-guarantee percentage, and the daily fines in
+ * Articles 12, 29 and 33. The English record is an unofficial translation with
+ * a damaged text layer in places, and these have not been checked against the
+ * NBC's Khmer text, as Article 13 was. Bar for restoring any figure: read in
+ * the issuer's text, recorded in `claims` with the article.
+ */
 export const fintechLicenseCambodia: ArticleContent = {
   slug: 'fintech-license-cambodia',
   title: 'How to Get a FinTech License in Cambodia',
-  description: 'A comprehensive guide to obtaining a FinTech license in Cambodia, covering NBC licensing categories, payment service and e-money licenses, application process, capital requirements, the regulatory sandbox, compliance timelines, and foreign ownership rules.',
+  description: 'How a payment or e-money business is licensed in Cambodia under NBC Prakas B14-017-161: who needs a licence, what the application must contain, the minimum capital, the six-month decision window, and the obligations that follow.',
   type: 'learn',
   cluster: 'compliance',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
+  updatedAt: '2026-11-07',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['nbc', 'gdt', 'gaap'],
-  relatedInstruments: ['law-on-banking', 'prakas-b14-017-161', 'law-on-nbfsa', 'prakas-093'],
-  lead: 'Obtaining a FinTech license in Cambodia requires navigating the National Bank of Cambodia\'s (NBC) licensing framework. The NBC oversees all payment service providers, e-money issuers, and technology-driven financial institutions through a regulatory architecture designed to promote innovation while maintaining financial system stability. With the National Bank of Cambodia reporting that the number of digital payment transactions grew 78% in 2024 and the regulatory sandbox attracting international entrants, understanding the licensing pathway is essential for any firm planning to operate in the Kingdom\'s FinTech sector.',
+  relatedInstruments: ['law-on-banking', 'prakas-b14-017-161', 'law-on-nbfsa', 'prakas-093', 'notification-083-25'],
+  lead: 'A business that provides payment services in Cambodia, including issuing electronic money, must hold a licence from the National Bank of Cambodia (NBC) under Prakas B14-017-161 on the Management of Payment Service Institutions. The Prakas sets out who needs a licence, what an application must contain, the minimum capital, how long the NBC has to decide, and the obligations that follow. With the National Bank of Cambodia reporting that the number of digital payment transactions grew 78% in 2024, it is the instrument most FinTech firms entering the payments market will be licensed under. This page sets out what the Prakas says, cites the article for each point, and says where its record stops.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -38,6 +76,8 @@ export const fintechLicenseCambodia: ArticleContent = {
   claims: [
     { stat: 'A payment service institution must have minimum capital of not less than KHR 8,000,000,000, in cash. The NBC may change the requirement. The NBC list of Prakas and circulars showed no amendment to this Prakas when checked on 4 November 2026; confirm the current figure with the NBC or Cambodian counsel before relying on it.', source: 'National Bank of Cambodia, Prakas B14-017-161 P.K, Article 13, National Trade Repository record', year: '2017', url: 'https://cambodiantr.gov.kh/en/document/?title=prakas-on-the-management-of-payment-service-institution' },
     { stat: 'The number of digital payment transactions in Cambodia grew 78% during 2024 and their value grew 38%, both measured against 2023. The National Bank of Cambodia puts the total value at approximately 15 times gross domestic product.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i (Open Development Cambodia copy)', year: '2024', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf' },
+    { stat: 'The NBC notifies its decision on a payment service institution licence application in writing within six months of receiving it, and may extend the review where necessary. It first grants approval in principle with conditions and a timeline; the licence is granted once those conditions are met. A licence is valid for six years, and renewal must be applied for at least three months before expiry.', source: 'National Bank of Cambodia, Prakas B14-017-161 P.K, Articles 11 and 12, National Trade Repository record (unofficial English translation)', year: '2017', url: 'https://cambodiantr.gov.kh/en/document/?title=prakas-on-the-management-of-payment-service-institution' },
+
   ],
   sources: [
     { publisher: 'Cambodia National Trade Repository', label: 'Prakas on the Management of Payment Service Institution, official record', url: 'https://cambodiantr.gov.kh/en/document/?title=prakas-on-the-management-of-payment-service-institution', tier: 'primary' },
@@ -46,67 +86,30 @@ export const fintechLicenseCambodia: ArticleContent = {
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [
-    { question: 'What types of FinTech licenses does Cambodia offer?', answer: 'Cambodia offers several FinTech-related license types through the NBC: Payment Service Institution licenses for payment services, including issuing electronic money, Microfinance Institution (MFI) licenses for digital lending, and Banking licenses for full-service digital banks. The regulatory sandbox also provides a temporary testing framework for innovative FinTech models that do not fit existing categories.' },
-    { question: 'Can foreigners own a FinTech company in Cambodia?', answer: 'Yes. Cambodia allows 100% foreign ownership of payment service providers and e-money issuers, subject to NBC approval. Foreign-owned FinTech firms must comply with the Law on Foreign Exchange, maintain minimum capital requirements in Cambodia, and appoint at least one local director. This open ownership framework has attracted FinTech firms from Singapore, Thailand, Japan, and China.' },
-    { question: 'How long does it take to get a FinTech license in Cambodia?', answer: 'The standard licensing timeline is 6-12 months from initial application to license issuance for payment service providers. Firms entering through the regulatory sandbox can expect 12-18 months before full license graduation. Complete documentation at first filing is the main lever on approval timelines.' },
+    { question: 'What types of FinTech licenses does Cambodia offer?', answer: 'For payments, one: the payment service institution licence under NBC Prakas B14-017-161, which covers payment accounts, transfers, remittance, payment initiation and issuing payment instruments including electronic money. The Prakas has no licence categories or tiers; an electronic money issuer is a payment service institution licensed to issue electronic money. Deposit-taking and lending sit under the banking and microfinance regimes, and digital assets held for investment under SERC Prakas 093, where completing SERC\'s FinTech Regulatory Sandbox is a precondition to applying (Notification 083/25).' },
+    { question: 'Can foreigners own a FinTech company in Cambodia?', answer: 'This page has not verified a foreign-ownership rule for payment service institutions, so it does not state one. What the Prakas does require is NBC approval before any change in the structure of capital contributors or management (Article 25). Ownership limits, where they apply, come from investment and sector rules outside this Prakas; confirm the position for a specific structure with Cambodian counsel.' },
+    { question: 'How long does it take to get a FinTech license in Cambodia?', answer: 'Under Article 11 of Prakas B14-017-161 the NBC notifies its decision in writing within six months of receiving an application, and may extend the review where necessary. Approval comes first in principle, with conditions and a timeline; the licence is granted once those conditions are met, and lapses if they are not met in time without an approved extension. The licence then runs for six years (Article 12).' },
   ],
   sections: [
     {
-      heading: 'NBC Licensing Categories for FinTech',
-      content: 'The National Bank of Cambodia classifies FinTech operators into distinct licensing categories based on the financial services they provide. The primary categories relevant to FinTech firms are Payment Service Institutions (including electronic money issuers), Microfinance Institutions (MFIs), and Banking Institutions, which are licensed under different instruments.\n\nThe NBC\'s regulatory philosophy emphasizes activity-based regulation: the license type is determined by what a firm does, not what it calls itself. A technology company that facilitates payments requires a PSP license. A platform that issues electronic money needs a payment service institution license that covers it. A firm that extends credit digitally must obtain an MFI or banking license. This approach ensures regulatory coverage regardless of the business model\'s novelty.',
-      // Capital thresholds removed 2026-11-04. The site carried mutually
-      // contradictory sets of NBC minimum-capital figures (PSP variously $500,000,
-      // $1,000,000 and ~USD 250,000), none traceable to a fetched source. CLAUDE.md
-      // excludes capital thresholds, licence tiers and fees from a secondary
-      // aggregator site-wide. Restore a figure only when it has been read in an
-      // issuer's instrument or stated by a law firm, on the app/content/regulatory
-      // evidence bar, and record where it was read.
-      table: {
-        caption: 'NBC FinTech License Categories and Requirements',
-        headers: ['License Type', 'Key Activities Covered', 'Regulatory Burden', 'Foreign Ownership'],
-        rows: [
-          ['Payment Service Institution', 'Payment processing, transfers, KHQR, electronic money', 'Medium to high', '100% allowed'],
-          ['Microfinance Institution', 'Digital lending, micro-credit', 'High', '100% allowed'],
-          ['Specialized Bank', 'Deposits, lending, full digital banking', 'Very High', '100% allowed'],
-          ['Commercial Bank', 'Full banking services', 'Maximum', '100% allowed'],
-          ['Sandbox Participant', 'Testing innovative FinTech models', 'Low (supervised)', 'Case by case'],
-        ],
-      },
+      heading: 'Who Needs a Licence',
+      content: 'Article 8 of Prakas B14-017-161 requires any legal person that intends to provide payment services in Cambodia to obtain a licence from the NBC; banks and financial institutions that intend to provide payment services seek the NBC\'s initial approval instead. Article 6 defines payment services: placing cash on and withdrawing it from payment accounts, executing payment transactions and credit transfers, issuing payment instruments, money remittance, payment initiation, and other services the NBC defines. Issuing electronic money is reserved to banks, financial institutions and licensed payment service institutions (Article 20).\n\nArticle 4 places some activity outside the Prakas, including the provision of information-technology systems that support payment services without possessing the funds. The test is what a firm does, and in particular whether it holds payment-service users\' money, not what it calls itself.\n\nOther FinTech activity is licensed elsewhere. Deposit-taking and lending sit under the banking and microfinance regimes of the NBC. Digital assets held for investment are a securities matter for SERC under Prakas 093, and only graduates of SERC\'s FinTech Regulatory Sandbox may apply for that licence (Notification 083/25). Cryptoasset services under the NBC were added separately by Prakas B7-024-735.',
     },
     {
-      heading: 'The Application Process Step by Step',
-      content: 'The NBC license application follows a structured multi-phase process. Phase one involves pre-consultation, where the applicant meets with NBC\'s Financial Technology and Innovation Department to discuss the proposed business model and determine the appropriate license category. This informal phase typically takes 2-4 weeks and is strongly recommended before formal submission.\n\nPhase two is formal application, requiring submission of a comprehensive documentation package including business plan, financial projections, technology architecture documentation, AML/CFT policies, corporate governance structure, shareholder background checks, and proof of capital. Phase three is the NBC\'s due diligence review, during which the regulator evaluates the application, requests clarifications, and may conduct on-site inspections of technology infrastructure. Phase four is conditional approval, where the NBC issues approval subject to meeting specific pre-launch conditions. Phase five is license issuance upon satisfying all conditions.',
+      heading: 'What the Application Must Contain',
+      content: 'Article 9 lists the conditions an applicant must meet and the material it must file. They include a business plan with a forecast budget for the first three financial years; evidence of adequate capital; a description of how users\' funds will be safeguarded; governance arrangements and internal controls, including risk-management and accounting procedures; incident monitoring and reporting; control of access to sensitive data; business-continuity arrangements; security controls and mitigation measures; the identity of directors and of the persons responsible for management, with evidence of their fitness and experience; the identity of the statutory auditors; the articles of association and other legal documents; and the head-office address.\n\nMost of that list is operational rather than legal. A payments business is, in large part, an engineering organisation, and the Article 9 file asks it to show in writing how its systems protect users\' money and data. Preparing that file completely is the applicant\'s work; the decision is the NBC\'s.',
+    },
+    {
+      heading: 'Decision, Approval in Principle and Licence Term',
+      content: 'Under Article 11 the NBC notifies its decision in writing within six months of receiving an application, and may extend the review where necessary. A positive decision is first an approval in principle, with specific conditions and a timeline for meeting them. If the applicant does not meet them in time, and no extension has been requested and approved, the approval in principle lapses. The licence is granted once the NBC is satisfied that every condition has been met.\n\nA licence is valid for six years (Article 12). Renewal must be applied for at least three months before expiry, and is available only if the institution\'s activities comply with the applicable law and any infractions have been remedied. A renewal that adds new services, or substantially different ways of providing the same services, is treated as a new application. The NBC may suspend or revoke a licence that is not used within six months of being granted, among other grounds (Article 32).',
     },
     {
       heading: 'Capital Requirements and Financial Conditions',
-      content: 'Capital is a condition of the licence rather than a formality. Under Article 13 of Prakas B14-017-161 a payment service institution must have minimum capital of not less than KHR 8,000,000,000, in cash, and its net worth may not fall below that amount. The NBC may change the requirement, so confirm the current figure with the NBC or Cambodian counsel before relying on it for a capital plan. This page does not state figures for other licence types, because they have not been checked against their own instruments.\n\nThe same Prakas requires a licensed institution to place a capital guarantee in an account at the NBC, and to safeguard funds received from payment service users, either in a separate trust account at a commercial bank or in secure, liquid, low-risk assets as the NBC defines them.',
+      content: 'Capital is a condition of the licence rather than a formality. Under Article 13 of Prakas B14-017-161 a payment service institution must have minimum capital of not less than KHR 8,000,000,000, in cash, and its net worth may not fall below that amount (Article 14). The NBC may change the requirement, so confirm the current figure with the NBC or Cambodian counsel before relying on it for a capital plan. This page does not state figures for other licence types, because they have not been checked against their own instruments.\n\nThe same Prakas requires a licensed institution to place a capital guarantee in an account at the NBC (Article 15), and to safeguard funds received from payment service users, either in a separate trust account at a commercial bank or in secure, liquid, low-risk assets as the NBC defines them (Article 16). Funds held in trust do not belong to the institution, and on insolvency they are frozen for return to users.',
     },
     {
-      heading: 'The Regulatory Sandbox Pathway',
-      content: 'The NBC\'s regulatory sandbox, launched in 2023, offers an alternative pathway for FinTech firms with innovative business models that do not fit neatly into existing license categories. The sandbox allows firms to operate with real customers under relaxed regulatory requirements for a defined testing period, while the NBC observes the business model and develops appropriate regulations.\n\nSandbox entry requires a separate application demonstrating genuine innovation, consumer benefit, and risk mitigation plans. Approved firms operate under a tailored regulatory framework with limitations on customer numbers (typically 2,000-5,000), transaction volumes, and geographic scope. The sandbox period lasts 6-12 months with possible extension. Upon successful completion, the firm either graduates to a full license under existing or newly created categories, or exits if the model proves unviable. Approximately 15 firms are currently operating in the sandbox across AI credit scoring, blockchain remittance, and embedded finance verticals.',
-      table: {
-        caption: 'Regulatory Sandbox Process Phases',
-        headers: ['Phase', 'Duration', 'Key Activities', 'NBC Oversight Level'],
-        rows: [
-          ['Application', '2-3 months', 'Documentation, innovation assessment', 'Review and approval'],
-          ['Onboarding', '1-2 months', 'Technical setup, compliance framework', 'Close supervision'],
-          ['Testing', '6-12 months', 'Live operations with limited customers', 'Regular reporting, on-site visits'],
-          ['Evaluation', '2-3 months', 'Performance review, regulation drafting', 'Full assessment'],
-          ['Graduation/Exit', '1-3 months', 'Full license issuance or orderly wind-down', 'Transition oversight'],
-        ],
-      },
+      heading: 'Ongoing Obligations',
+      content: 'The obligations that follow the licence are set out in the same Prakas. A licensed institution submits a supervisory return to the NBC by the 10th of the following month, on the NBC\'s templates (Article 29), and keeps its records for at least five years (Article 30). The NBC conducts an annual examination of the institution and its agents on 15 days\' notice, and may examine without notice where it has reason to believe the Prakas is being breached (Article 27).\n\nFor AML/CFT, the institution must maintain an internal system to detect and monitor cash and suspicious transactions, identify users and carry out customer due diligence, report suspicious transactions to the relevant authority, and appoint a compliance officer for AML/CFT (Article 23). It must also maintain security, contingency and fraud-detection systems (Article 21) and disclose fees, terms and a dispute-resolution route to users (Article 22). Using agents, outsourcing operational functions, and changing capital contributors, management or operating procedures each require notice to or approval from the NBC (Articles 17, 18 and 25).',
     },
-    {
-      heading: 'Compliance Timeline and Ongoing Obligations',
-      content: 'Receiving the license is only the beginning. Licensed FinTech firms face extensive ongoing compliance obligations that require dedicated resources and systems. Monthly reporting to the NBC includes transaction volume data, customer complaint summaries, AML/CFT suspicious activity reports, and capital adequacy calculations. Quarterly reports cover financial statements, risk assessments, and technology incident logs.\n\nAnnual obligations include audited financial statements by an NBC-approved auditor, a comprehensive AML/CFT risk assessment, technology security penetration testing by an independent firm, and business continuity plan updates. The NBC conducts on-site examinations at least annually, reviewing compliance with all regulatory conditions. Non-compliance can result in fines, operational restrictions, or license revocation. Building robust compliance infrastructure from day one is not optional -- it is a prerequisite for sustainable operation in Cambodia\'s regulated FinTech market.',
-    },
-    {
-      heading: 'Foreign Ownership and Market Entry Rules',
-      content: 'Cambodia maintains one of ASEAN\'s most open foreign investment regimes for financial technology. The Council for the Development of Cambodia allows 100% foreign ownership of PSPs, e-money issuers, and banking institutions without requiring local joint venture partners. This has attracted FinTech firms from Singapore, Thailand, Japan, China, and South Korea to the Cambodian market.\n\nPractical requirements for foreign-owned FinTech firms include registering a Cambodia-domiciled legal entity with the Ministry of Commerce, maintaining a physical office presence in Phnom Penh, appointing at least one director resident in Cambodia, obtaining a tax identification number from the GDT, and registering for patent tax and VAT. Foreign exchange controls are minimal -- profits and capital can be repatriated freely under the Law on Foreign Exchange. The primary consideration for foreign entrants is ensuring that their corporate structure and capitalization meet NBC requirements before beginning the license application.',
-    },
-    {
-      heading: 'Common Pitfalls and Application Challenges',
-      content: 'The most common reasons for license application delays or rejections include insufficient technology documentation, incomplete AML/CFT policy frameworks, unclear corporate governance structures, and inadequate capital planning. The NBC has become increasingly rigorous in evaluating technology architecture, requiring detailed documentation of system security, data protection measures, disaster recovery plans, and API integration specifications for Bakong and KHQR connectivity.\n\nAnother frequent challenge is underestimating the compliance infrastructure needed before launch. The NBC expects licensed firms to have fully operational compliance management systems, trained compliance officers, automated transaction monitoring tools, and customer due diligence workflows before processing a single transaction. Firms that treat compliance as a post-launch activity face significant delays and conditional approval requirements that can extend timelines by 6-12 months beyond initial projections.',
-    },
-],
+  ],
 };
