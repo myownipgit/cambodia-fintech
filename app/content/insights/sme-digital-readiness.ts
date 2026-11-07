@@ -1,114 +1,111 @@
 import { ArticleContent } from '../types';
 
+/*
+ * Figures removed 2026-11-06 (busiest-page-first pass over unsourced figures).
+ *
+ * This article carried 153 quantified figures and five tables. One survived,
+ * because it was read in a fetched primary: the MISTI census figures in
+ * `claims` below. Everything else was removed, not hedged. What the checks
+ * found, so nobody restores these from git:
+ *
+ * - "e-Conomy SEA 2024 estimates Cambodia's internet economy at USD 3.1bn"
+ *   is a false citation. The 2024 report covered six markets (ID, MY, PH,
+ *   SG, TH, VN); Cambodia was first included in the 2025 edition.
+ * - "The ADB estimates Cambodia's SME credit gap at USD 2.8 billion" — no ADB
+ *   figure was found. The nearest is an undated USD 3.7bn from AVPN, which is
+ *   not an ADB number.
+ * - "World Bank 2023 Enterprise Survey: 12% of SMEs use accounting software"
+ *   — the survey exists (519 firms, fielded Apr–Oct 2023) but that indicator
+ *   is not among its published results. Untraceable.
+ * - "99.8% of all businesses ... 58% of GDP" was close but misstated: the
+ *   primary says 99.8% of non-agricultural economic entities are MSMEs. It is
+ *   restated correctly below. The size table ("~520,000 registered
+ *   businesses, 97% micro") conflicts with the same primary, which says only
+ *   6.5% of micro enterprises are formally registered.
+ * - "Global Innovation Index digital skills sub-index, 108th" — the GII has no
+ *   such sub-index.
+ * - FAQ answers asserting readiness rates "based on our assessment framework"
+ *   described an assessment the firm has never run. Removed as a first-person
+ *   evidence claim, not merely as an unsourced figure.
+ * - Named-bank credit-scoring pilot results, a named local accounting product,
+ *   a named ministry training programme with a funding figure, and a
+ *   three-segment market sizing attributed to CamFinTech — all unsourced.
+ * - CamInvoice phase thresholds and dates (large/medium/small taxpayer tiers).
+ *   No primary sets any B2B scope, turnover threshold, tier or SME date.
+ *
+ * Corrected again 2026-11-07, after the site-wide CamInvoice pass (cc9fa22):
+ * this file's first rewrite still named the GDT as CamInvoice's operator and
+ * phased it by taxpayer size ("began with large taxpayers", "the GDT's rollout
+ * is phased", "sending it to the GDT", the "Readiness by Compliance Tier"
+ * section). All FALSE or unsupported. CamInvoice is an MEF system operated by
+ * its General Department of Digital Economy (Prakas 075, 22 January 2025,
+ * Art. 4); Phase 1 is business-to-government, ministry by ministry, in steps
+ * set by MEF circulars. Do not state a fixed step count. The size-tier section
+ * was rewritten as readiness by business size with no mandate timetable. The
+ * Prakas 075 source below was fetched and read by the parallel CamInvoice pass
+ * on 2026-11-06 (see learn/what-is-caminvoice.ts, which carries the full MEF
+ * source set); this file relies on it only for the operator and launch date.
+ * The GDT is still named where the subject is tax registration.
+ *
+ * Bar for restoring a figure: read in a fetched primary, recorded in `claims`
+ * or `sources` with where it was read — the same bar as app/content/regulatory.
+ */
 export const smeDigitalReadiness: ArticleContent = {
   slug: 'sme-digital-readiness',
   title: 'Cambodia SME Digital Readiness Assessment: Gaps and Opportunities',
-  description: 'Data-driven assessment of Cambodia\'s SME digital readiness across payment adoption, accounting software usage, e-commerce participation, and CamInvoice compliance preparedness, with analysis from World Bank, ADB, and Ministry of Economy data.',
+  description: 'An assessment of Cambodia\'s SME digital readiness across payment acceptance, accounting and invoicing, social and platform commerce, access to credit, and workforce skills — and what each gap would mean as CamInvoice, now required of suppliers to government ministries, is adopted more widely.',
   type: 'insights',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-08-31',
-  readingTime: 8,
+  updatedAt: '2026-11-07',
+  readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['caminvoice', 'supply-chain-finance', 'compliance-as-a-service'],
-  lead: 'Analysis published March 2026. Figures are as at their cited source year — mostly 2024 and 2025 — and are not restated here; check the source for anything more recent. Small and medium enterprises (SMEs) account for 99.8% of all businesses in Cambodia and contribute approximately 58% of GDP, yet their digital readiness varies dramatically. While urban SMEs in Phnom Penh increasingly accept KHQR payments and use social media for commerce, the vast majority still rely on paper-based accounting, cash transactions, and informal bookkeeping. As the General Department of Taxation (GDT) rolls out CamInvoice to mandatory compliance tiers and digital payment infrastructure matures, the gap between digitally prepared and unprepared SMEs is becoming a defining competitive divide. This analysis quantifies that gap across five dimensions: payment digitization, accounting and invoicing systems, e-commerce participation, access to digital credit, and workforce digital skills.',
-  // Claims removed 2026-08-31. This array previously carried figures attributed
-  // to named institutional reports with no URL, access date or page reference.
-  // A verified sample was wrong more often than not — including a Cambodian FATF
-  // mutual evaluation that never took place, and citations to bodies that do not
-  // exist under the names given. Restore an entry only when its figure has been
-  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
-  // and record where it was read. See vault ADR-007.
-  claims: [],
+  lead: 'Micro, small and medium enterprises are most of Cambodia\'s economy. The Ministry of Industry, Science, Technology and Innovation (MISTI), drawing on the 2022 Economic Census, classifies 99.8% of the country\'s non-agricultural economic entities as MSMEs, accounting for 58% of employment and 58% of GDP — and notes that only a small fraction of micro enterprises are formally registered. Their digital readiness is uneven. Payment acceptance has moved fastest, carried by KHQR; accounting, invoicing and credit have moved much more slowly. CamInvoice, the e-invoicing system the Ministry of Economy and Finance (MEF) launched in January 2025, is so far required only of businesses invoicing designated government ministries. As it is adopted more widely and the payment rails mature, the distance between businesses that are digitally prepared and those that are not becomes a practical question rather than a statistical one. This assessment looks at that distance across five dimensions: payment acceptance, accounting and invoicing, commerce channels, access to credit, and workforce skills. It deliberately carries no survey figures of its own: published, Cambodia-specific measures of most of these dimensions are scarce, and where a figure could not be traced to a primary source it has been left out.',
+  claims: [
+    { stat: 'The 2022 Cambodia Economic Census recorded 753,670 non-agricultural economic entities, of which 99.8% are MSMEs. MSMEs account for 58% of employment and 58% of GDP. Only 6.5% of micro enterprises are formally registered.', source: 'Ministry of Industry, Science, Technology and Innovation (MISTI), General Department of SME and Handicraft, "The Current Situation of SMEs in Cambodia", slide 4 (presentation dated 2 December 2024, published by UN DESA)', year: '2022', url: 'https://sdgs.un.org/sites/default/files/2024-12/Session%206%20Vanthou%20Presentation.pdf' },
+  ],
+  sources: [
+    { publisher: 'Ministry of Industry, Science, Technology and Innovation (MISTI)', label: '"The Current Situation of SMEs in Cambodia" (PDF presentation, 2 December 2024, UN DESA copy)', url: 'https://sdgs.un.org/sites/default/files/2024-12/Session%206%20Vanthou%20Presentation.pdf', tier: 'primary' },
+    { publisher: 'Ministry of Economy and Finance', label: 'Prakas 075 on the launch of the Cambodia E-Invoicing System (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/a57a86ff-1c53-481e-a4f0-8b32fe96b6cf/resource/e433f7a7-0bd0-4407-8d58-c5f346be20dd/download/mef_prakas-075_launching-of-cambodia-e-invoicing-system_kh_2025.pdf', tier: 'primary' },
+  ],
   faqs: [
-    { question: 'What percentage of Cambodian SMEs are digitally ready for CamInvoice?', answer: 'Based on our assessment framework, approximately 15-18% of Cambodian SMEs currently have the digital infrastructure needed for CamInvoice compliance, including accounting software, internet connectivity, and staff capable of operating electronic invoicing systems. This figure rises to approximately 35% in Phnom Penh but drops to under 8% in rural provinces. The GDT\'s phased rollout strategy, starting with large taxpayers and gradually extending to smaller businesses, is designed to allow time for this readiness gap to close.' },
-    { question: 'What are the biggest barriers to SME digitization in Cambodia?', answer: 'Three barriers dominate: (1) Digital literacy, with only 23% of SME owners or managers reporting confidence in using business software beyond basic social media; (2) Cost of technology, with SMEs citing USD 50-150 monthly for software subscriptions as prohibitive when average monthly profit margins are USD 500-2,000; and (3) Perceived lack of immediate benefit, with 62% of survey respondents stating they do not see clear ROI from digitization. Infrastructure barriers such as internet access have largely been resolved, with 4G coverage reaching 95% of the population.' },
-    { question: 'What investment opportunities exist in Cambodia\'s SME digitization gap?', answer: 'The SME digital readiness gap creates three primary investment opportunities: (1) Compliance-as-a-service platforms that bundle CamInvoice integration, basic accounting, and tax filing into affordable monthly subscriptions (addressable market estimated at USD 45-65 million annually); (2) Supply chain finance platforms that use digital payment and invoicing data to underwrite SME credit, targeting the USD 2.8 billion financing gap; and (3) Digital skills training and SaaS localization, adapting business software for Khmer language and Cambodian business practices.' },
+    { question: 'How ready are Cambodian SMEs for CamInvoice?', answer: 'Readiness varies with size. The first phase of CamInvoice, as the MEF\'s circulars set it out, covers suppliers invoicing designated government ministries, added ministry by ministry; the documents published so far set no date or threshold for invoicing between private businesses. For a business preparing anyway, the obstacle is rarely the e-invoicing interface but what sits behind it: many micro and small enterprises keep paper or informal records, so readiness means changing how transactions are recorded, not only installing software. No published survey measures CamInvoice readiness across the SME population, so this assessment does not put a number on it.' },
+    { question: 'What are the biggest barriers to SME digitization in Cambodia?', answer: 'Three recur: digital skills beyond social media and messaging; the cost of business software relative to small-business margins; and an unclear return on the effort, especially where customers still pay in cash. Most SMEs are micro enterprises, and most micro enterprises are not formally registered (MISTI, 2022 Economic Census), so for many the first step is formalisation rather than technology.' },
+    { question: 'Where does the SME digitization gap create opportunities?', answer: 'Three areas follow from the gaps: services that combine CamInvoice integration with basic accounting and tax filing for businesses too small to build their own; lending that uses invoice and payment data rather than land title as the basis for credit; and Khmer-language business software and training. This assessment does not size these markets — no sourced figure supports a number.' },
   ],
   sections: [
     {
       heading: 'SME Landscape by Size and Sector',
-      content: 'Cambodia\'s SME landscape is heavily skewed toward micro-enterprises. Of the approximately 520,000 registered businesses, 97% are classified as micro (fewer than 10 employees), 2.3% as small (10-50 employees), and 0.5% as medium (51-100 employees). Only approximately 1,200 businesses have more than 100 employees. This distribution matters because digital readiness correlates strongly with enterprise size.\n\nThe sector composition further shapes the digital readiness picture. Wholesale and retail trade accounts for 52% of all SMEs, followed by food and accommodation at 18%, manufacturing at 11%, and services at 19%. Trade and food-service SMEs have the highest KHQR adoption rates (driven by consumer demand), while manufacturing SMEs lead in accounting software adoption (driven by supply chain requirements from international buyers). Agriculture-linked businesses, despite representing a significant GDP share, have the lowest digital tool adoption across all categories.',
-      table: {
-        caption: 'Cambodia SME Distribution by Size Category (2024)',
-        headers: ['Category', 'Employee Count', 'Number of Enterprises', 'Share of Total', 'Avg Annual Revenue (USD)'],
-        rows: [
-          ['Micro', '1-9', '~504,000', '97.0%', '5,000-25,000'],
-          ['Small', '10-50', '~12,000', '2.3%', '50,000-250,000'],
-          ['Medium', '51-100', '~2,800', '0.5%', '250,000-2,000,000'],
-          ['Large', '100+', '~1,200', '0.2%', '2,000,000+'],
-        ],
-      },
+      content: 'Cambodia\'s enterprise base is dominated by micro enterprises. MISTI\'s reading of the 2022 Economic Census counts 753,670 non-agricultural economic entities, 99.8% of them MSMEs, and notes that only 6.5% of micro enterprises are formally registered. Most are in services rather than industry. That shape matters for everything below: digital readiness tracks enterprise size and formality closely, and a policy or product designed for registered, medium-sized firms reaches only a small part of the base.\n\nSector shapes readiness too. Trade and food service face customers who increasingly expect to pay by QR code, so payment acceptance moves first there. Manufacturers that supply international buyers are pushed towards structured accounting by their customers\' requirements. Agriculture-linked businesses, though economically significant, sit furthest from digital tools of every kind.',
     },
     {
       heading: 'Payment Digitization Readiness',
-      content: 'Payment acceptance is the most advanced dimension of SME digital readiness, largely thanks to the KHQR rollout. Among urban SMEs in Phnom Penh, KHQR acceptance reached 64% by end of 2024, up from 22% in 2022. However, this figure drops sharply outside the capital: 38% in secondary cities (Siem Reap, Battambang, Sihanoukville) and just 14% in rural market towns.\n\nThe data reveals a critical insight: KHQR acceptance does not equal payment digitization. Of the SMEs that accept KHQR payments, only 41% report that digital payments represent more than 25% of their total revenue. The remaining 59% still conduct the majority of transactions in cash, using KHQR primarily for larger purchases or when customers specifically request digital payment. True payment digitization, where digital channels account for more than 50% of revenue, applies to only 18% of Cambodian SMEs nationally. This suggests that KHQR infrastructure is necessary but insufficient; behavioral change and incentive design are equally important.',
-      table: {
-        caption: 'SME Digital Payment Adoption by Location (2024)',
-        headers: ['Location', 'KHQR Acceptance Rate', 'Digital > 25% Revenue', 'Digital > 50% Revenue', 'Cash-Only'],
-        rows: [
-          ['Phnom Penh', '64%', '48%', '27%', '36%'],
-          ['Secondary cities', '38%', '24%', '12%', '62%'],
-          ['Rural market towns', '14%', '8%', '3%', '86%'],
-          ['National average', '34%', '23%', '18%', '66%'],
-        ],
-      },
+      content: 'Payment acceptance is the most advanced dimension, largely because of KHQR: a single national QR standard means a small merchant can accept payment from customers of any participating institution with a printed code. Adoption is visibly highest in Phnom Penh and lower in secondary cities and rural market towns.\n\nAccepting KHQR is not the same as being digitized. Many merchants that display a QR code still take most of their revenue in cash, using digital payment when a customer asks for it. Acceptance infrastructure is therefore necessary but not sufficient; the shift in how a business actually runs depends on customer behaviour and on whether digital receipts feed into anything the merchant uses — bookkeeping, credit, or tax.',
     },
     {
       heading: 'Accounting and Invoicing System Adoption',
-      content: 'Accounting software adoption represents the most critical gap for CamInvoice readiness. The World Bank\'s 2023 Cambodia Enterprise Survey found that only 12% of SMEs use any accounting software, while 14% use spreadsheets (primarily Excel or Google Sheets), and 74% rely entirely on paper-based records or no formal records at all. Among the 12% using software, QuickBooks, Xero, and locally developed solutions like KhmerBooks dominate.\n\nThe invoicing dimension is even starker. Before CamInvoice, an estimated 85% of B2B transactions among SMEs involved either informal receipts, handwritten invoices, or no documentation at all. Only large enterprises with international supply chain relationships consistently issued structured invoices. This means that for most SMEs, CamInvoice compliance requires not just software adoption but a fundamental process change in how transactions are documented and reported to the GDT.',
+      content: 'Accounting is the critical gap for CamInvoice. Large enterprises, especially those in international supply chains, generally keep structured books and issue structured invoices. Below that tier, spreadsheets, paper records and informal receipts are common, and many transactions between small businesses carry little documentation at all.\n\nThat is why CamInvoice readiness is a process change before it is a software change. A business that records sales in a notebook must first capture each transaction in a form a system can read; only then does submitting it to CamInvoice become a technical question. Readiness programmes that start with the e-invoicing interface, rather than the record-keeping behind it, tend to underestimate the work.',
     },
     {
       heading: 'E-Commerce Participation and Social Commerce',
-      content: 'Cambodia\'s e-commerce landscape is shaped by a distinctive social commerce phenomenon. While formal e-commerce platform participation (through services like Nham24, Smile Shop, or cross-border platforms like Shopee and Lazada) reached only 18% of SMEs in 2024, an additional 43% of SMEs report selling through Facebook, Telegram, or Instagram. This social commerce layer is often invisible in official statistics but represents a significant share of digital commercial activity.\n\nThe Google/Temasek/Bain e-Conomy SEA 2024 report estimates Cambodia\'s internet economy at USD 3.1 billion, with e-commerce contributing USD 1.4 billion. Importantly, only 35% of this e-commerce value flows through formal platforms; the remaining 65% occurs through social media channels where payment is typically settled via Bakong/KHQR transfer or cash on delivery. This social commerce segment represents both a challenge (informal, hard to tax, limited consumer protection) and an opportunity (large user base ready for platform migration).',
-      table: {
-        caption: 'Cambodia E-Commerce and Social Commerce Metrics (2024)',
-        headers: ['Channel', 'SME Participation', 'Est. Annual GMV (USD millions)', 'Primary Payment Method', 'Growth Rate YoY'],
-        rows: [
-          ['Facebook/Instagram selling', '43%', '910', 'Bakong/KHQR transfer, COD', '22%'],
-          ['Telegram commerce', '18%', '280', 'Bakong/KHQR transfer', '35%'],
-          ['Formal e-commerce platforms', '18%', '490', 'Card, e-wallet, COD', '28%'],
-          ['Cross-border platforms (Shopee, Lazada)', '8%', '320', 'Card, e-wallet', '18%'],
-          ['Own website/app', '4%', '110', 'Payment gateway', '15%'],
-        ],
-      },
+      content: 'Much of Cambodia\'s online selling happens on social channels — Facebook, Telegram and Instagram — rather than on formal marketplaces, with payment settled by KHQR transfer or cash on delivery. This layer is largely invisible in official statistics, but it is where many small merchants first sell digitally.\n\nIt is both a challenge and an opening. It is informal, hard to tax and offers limited consumer protection; it is also a large population of merchants already comfortable with digital payment, for whom a move to structured invoicing and platform tools is a shorter step than for a cash-only shop.',
     },
     {
       heading: 'Access to Digital Credit and the Financing Gap',
-      content: 'The SME financing gap is both a consequence and a cause of low digital readiness. The ADB estimates Cambodia\'s SME credit gap at USD 2.8 billion annually, meaning that qualified SMEs are unable to access the financing they need from formal institutions. Only 28% of SMEs have received any formal bank credit, with microfinance institutions (MFIs) serving an additional 35% but typically at interest rates of 18-36% annually.\n\nDigital payment and invoicing data could transform SME lending, but the infrastructure linkage is not yet in place. Currently, banks rely on collateral-based lending (primarily land titles) for 82% of SME loans. The introduction of CamInvoice, combined with Bakong transaction history, could enable cash-flow-based lending models that assess creditworthiness from actual revenue data. Early pilot programs by ACLEDA Bank and ABA Bank using digital transaction data for credit scoring have shown default rates 2.3 percentage points lower than traditional collateral-based lending, suggesting significant potential.',
-      table: {
-        caption: 'Cambodia SME Financing Landscape (2024)',
-        headers: ['Finance Source', 'SMEs Served', 'Avg Loan Size (USD)', 'Avg Interest Rate', 'Primary Collateral'],
-        rows: [
-          ['Commercial banks', '28%', '25,000-150,000', '8-14%', 'Land title (82%)'],
-          ['Microfinance institutions', '35%', '2,000-15,000', '18-36%', 'Land title, guarantor'],
-          ['Informal lenders', '22%', '500-5,000', '36-72%', 'Social trust, assets'],
-          ['Fintech / digital lenders', '3%', '500-10,000', '15-24%', 'Digital data, scoring'],
-          ['No external financing', '32%', 'N/A', 'N/A', 'N/A'],
-        ],
-      },
+      content: 'Low digital readiness and limited access to credit reinforce each other. Formal lending to small businesses in Cambodia has traditionally been secured on collateral, typically land title, and microfinance institutions serve much of the segment that banks do not reach. A business without collateral and without a documented trading history has little to show a lender.\n\nInvoice and payment data could change that. A merchant whose sales run through KHQR and whose invoices are recorded in CamInvoice has, for the first time, a verifiable revenue history — the raw material for cash-flow-based lending. The linkage between those data and lenders\' credit decisions is not yet in place at scale; where it is built, it should be built with the merchant\'s consent and inside the data-protection requirements that apply.',
     },
     {
       heading: 'Digital Skills and Workforce Readiness',
-      content: 'Workforce digital skills represent a binding constraint on SME digitization. Cambodia ranked 108th out of 132 countries in the Global Innovation Index 2024 digital skills sub-index. A 2024 survey by the Cambodia Development Resource Institute (CDRI) found that only 23% of SME owners or managers reported confidence in using business software beyond basic social media and messaging apps.\n\nThe skills gap manifests differently across age cohorts. SME owners under 35 (approximately 38% of the total) show significantly higher digital readiness, with 52% using at least one business software tool compared to 11% among owners over 50. This generational divide suggests that time alone will partially close the gap, but targeted training programs are needed for the current generation. The Ministry of Education\'s Digital Skills for SMEs program, launched in 2024 with ADB funding of USD 12 million, targets 50,000 SME operators by 2027 but faces challenges in curriculum relevance and rural reach.',
+      content: 'Skills are a binding constraint. Using a smartphone for social media and messaging does not translate directly into confidence with accounting or invoicing software, and the gap is widest among older owners of long-established micro businesses. Younger owners adopt business tools more readily, so time will narrow the gap — but not on the schedule a compliance mandate sets.\n\nTraining is most effective when it is tied to a concrete task the business must perform, such as issuing a compliant invoice or reconciling digital receipts, and delivered in Khmer. Capability that stays with the business after the trainer leaves is the measure that matters.',
     },
     {
-      heading: 'CamInvoice Readiness by Compliance Tier',
-      content: 'The GDT\'s phased CamInvoice rollout creates distinct readiness challenges at each tier. Phase 1 (2024) covered large taxpayers with annual turnover above KHR 2 billion (approximately USD 500,000), encompassing roughly 3,500 businesses. Phase 2 (2025) extends to medium taxpayers with turnover above KHR 700 million (approximately USD 175,000), adding approximately 12,000 businesses. Phase 3 (planned 2026-2027) will reach small taxpayers with turnover above KHR 250 million (approximately USD 62,500), adding an estimated 35,000-45,000 businesses.\n\nReadiness assessment at each tier reveals a widening gap. Among Phase 1 businesses, approximately 78% had accounting software and were able to comply within the initial timeline. Among Phase 2 businesses, preliminary GDT data suggests only 42% currently have systems capable of issuing CamInvoice-compliant electronic invoices. For Phase 3, the readiness rate drops to an estimated 15-20%, creating a massive market opportunity for compliance technology providers.',
-      table: {
-        caption: 'CamInvoice Compliance Readiness by Phase',
-        headers: ['Phase', 'Turnover Threshold', 'Businesses Covered', 'Est. Readiness Rate', 'Compliance Deadline'],
-        rows: [
-          ['Phase 1', '> KHR 2B (~USD 500K)', '~3,500', '78%', '2024'],
-          ['Phase 2', '> KHR 700M (~USD 175K)', '~12,000', '42%', '2025'],
-          ['Phase 3', '> KHR 250M (~USD 62.5K)', '~35,000-45,000', '15-20%', '2026-2027'],
-          ['Phase 4 (projected)', 'All registered taxpayers', '~520,000', '<10%', '2028+'],
-        ],
-      },
+      heading: 'CamInvoice Readiness by Business Size',
+      content: 'CamInvoice is operated by the MEF\'s General Department of Digital Economy. Its first phase is business-to-government: suppliers invoicing designated ministries, brought in ministry by ministry. Whatever the scope becomes, the readiness problem differs by business size. Large enterprises mostly need an integration between existing accounting systems and CamInvoice. Medium-sized businesses more often need the accounting system as well. For small and micro businesses, the precondition is usually formal record-keeping itself.\n\nThe readiness gap therefore widens down the size distribution, and the support each size of business needs changes in kind, not only in volume. This is a description of preparation, not of an existing obligation. For current scope, rely on the MEF\'s published circulars; see the CamInvoice explainer for what they establish.',
     },
     {
-      heading: 'Investment Opportunity Sizing',
-      content: 'The convergence of low digital readiness, mandatory compliance requirements, and maturing payment infrastructure creates a quantifiable investment opportunity. CamFinTech sizes three primary segments. First, compliance-as-a-service platforms targeting CamInvoice readiness represent a USD 45-65 million annual market, assuming 50,000 SMEs paying USD 75-100 per month for bundled invoicing, accounting, and tax filing services by 2028.\n\nSecond, supply chain finance platforms leveraging CamInvoice and Bakong data to underwrite SME receivables represent a USD 150-300 million opportunity based on capturing 5-10% of the USD 2.8 billion financing gap with digital lending models. Third, digital skills training and SaaS localization represent a USD 20-30 million market, encompassing Khmer-language business software, training programs, and implementation services. The total addressable market across these three segments is approximately USD 215-395 million annually by 2028, positioning Cambodia\'s SME digitization gap as one of the most compelling fintech investment themes in frontier Southeast Asia.',
+      heading: 'Where the Opportunities Sit',
+      content: 'Three opportunities follow from the gaps above. First, services that combine CamInvoice integration, basic accounting and tax filing for businesses too small to build any of these themselves. Second, credit products that underwrite small businesses on invoice and payment data rather than land title — supply chain finance is the most developed form. Third, Khmer-language business software and the training that goes with it.\n\nNone of these is sized here. The figures that previously appeared in this section could not be traced to a source, and an opportunity estimate built on untraceable inputs is not one a reader should act on. Anyone sizing these markets should start from the census and tax-registration data published by MISTI, the National Institute of Statistics and the GDT.',
     },
   ],
 };
