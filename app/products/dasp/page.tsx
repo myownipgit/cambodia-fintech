@@ -46,7 +46,7 @@ const daspSchema = {
         "End-to-end regulatory approval-readiness for SERC's Prakas 093 digital-asset licensing regime. CamFinTech navigates the application + AML/CFT programme build + governance + sandbox-to-full readiness; the licensed DASP operator (the client) submits and operates. Reserved legal opinion routes to a Bar lawyer.",
       "provider": { "@id": "https://www.camfintech.com/#organization" },
       "areaServed": { "@type": "Country", "name": "Cambodia" },
-      "serviceType": "Regulatory Approval Navigation and AML/CFT Programme Build",
+      "serviceType": "DASP Licensing Readiness and AML/CFT Programme Build",
       "audience": {
         "@type": "Audience",
         "audienceType": "Digital-asset trading, wallet and custody, borrowing and lending, and asset-management businesses seeking DASP licensing under SERC Prakas 093",

@@ -27,6 +27,16 @@ import { ArticleContent } from '../types';
  * a 'clearance model', a 'digital tax stamp' or the GDT operating the system.
  */
 
+/*
+ * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
+ * here said CamFinTech "navigates the approval", "keeps them approved",
+ * provides "approval-navigation", and that the build "is coordinated with
+ * accredited Service Providers"; some also claimed NBC liaison, regulatory
+ * goodwill, banking partners or partnership facilitation. Removed: the
+ * approval decision is the operator's or regulator's, the client is the
+ * applicant of record, the firm builds the client side itself (ADR-005), and
+ * no partner relationship exists. Do not reintroduce any of these phrasings.
+ */
 export const gaap: ArticleContent = {
   slug: 'gaap',
   title: 'What is Government-as-a-Platform in Cambodia?',
@@ -87,8 +97,8 @@ export const gaap: ArticleContent = {
       content: 'The most valuable opportunities in Cambodia\'s digital economy emerge at the intersections of GaaP platforms rather than within any single layer. Supply chain finance becomes viable when CamInvoice provides verified receivables data and Bakong enables instant disbursement. Embedded insurance becomes distributable when KHQR provides the payment touchpoint and CamDigiKey provides the identity verification.\n\nCompliance-as-a-service platforms emerge when CamDX connects tax data, identity records, and business registrations into automated compliance workflows. For strategic investors, understanding these platform intersections is essential to identifying the highest-value opportunities in Cambodia\'s rapidly maturing digital economy.',
     },
     {
-      heading: 'Approval-Navigation and Compliance with CamFinTech',
-      content: 'CamFinTech is Cambodia\'s fee-only regulatory approval-navigation and compliance firm for enterprises and investors operating across the GaaP ecosystem. Our services span three domains: approval-navigation for enterprises seeking to integrate with GaaP platforms, strategic advisory for investors evaluating digital economy opportunities, and compliance programme delivery for regulated businesses meeting NBC and GDT requirements.\n\nCamFinTech builds the client-side integration, or brings in an accredited Service Provider as a disclosed sub-contract. CamFinTech never operates a rail, never, never operates a rail, and never holds client funds. Our value is process competence — understanding how the four GaaP layers interact, where the approval pathways live, and how to keep an operator compliant once live — not access to the rails.',
+      heading: 'Where CamFinTech\'s Work Sits',
+      content: 'CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh. It prepares institutions to meet the standard for connecting to the rails (the readiness assessment, the application work, and the compliance programme that holds afterwards) and builds the client side of the integration, or engages a platform specialist as a disclosed sub-contract.\n\nApproval decisions belong to each rail\'s operator and regulator, and the client is the applicant of record. CamFinTech does not host or transmit client transaction traffic, operates no rail and holds no client funds. Its value is process competence, not access.',
     },
   ],
 };

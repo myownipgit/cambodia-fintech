@@ -1,5 +1,15 @@
 import { ArticleContent } from '../types';
 
+/*
+ * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
+ * here said CamFinTech "navigates the approval", "keeps them approved",
+ * provides "approval-navigation", and that the build "is coordinated with
+ * accredited Service Providers"; some also claimed NBC liaison, regulatory
+ * goodwill, banking partners or partnership facilitation. Removed: the
+ * approval decision is the operator's or regulator's, the client is the
+ * applicant of record, the firm builds the client side itself (ADR-005), and
+ * no partner relationship exists. Do not reintroduce any of these phrasings.
+ */
 export const howToAcceptKHQR: ArticleContent = {
   slug: 'how-to-accept-khqr',
   title: 'How to Accept KHQR Payments in Cambodia',
@@ -90,11 +100,11 @@ export const howToAcceptKHQR: ArticleContent = {
     },
     {
       heading: 'Tourist Acceptance via Cross-Border Corridors',
-      content: 'KHQR\'s cross-border corridors with Thailand\'s PromptPay, Malaysia\'s DuitNow, and China\'s Alipay mean that tourists from these countries can pay at any KHQR merchant using their home country banking apps. The tourist scans the same KHQR code that domestic customers use. The Bakong system identifies the foreign payment source, routes it through the bilateral corridor, performs currency conversion, and settles in the merchant\'s local currency.\n\nFor tourism-dependent businesses in Siem Reap, Phnom Penh, and Sihanoukville, this capability eliminates the need for separate Alipay or WeChat Pay merchant registrations. A single KHQR code handles both domestic and tourist payments. CamFinTech navigates the approval and configuration steps for hospitality and retail businesses optimizing their KHQR setup for multi-corridor acceptance.',
+      content: 'KHQR\'s cross-border corridors with Thailand\'s PromptPay, Malaysia\'s DuitNow, and China\'s Alipay mean that tourists from these countries can pay at any KHQR merchant using their home country banking apps. The tourist scans the same KHQR code that domestic customers use. The Bakong system identifies the foreign payment source, routes it through the bilateral corridor, performs currency conversion, and settles in the merchant\'s local currency.\n\nFor tourism-dependent businesses in Siem Reap, Phnom Penh, and Sihanoukville, this capability eliminates the need for separate Alipay or WeChat Pay merchant registrations. A single KHQR code handles both domestic and tourist payments.',
     },
     {
-      heading: 'Getting Started with CamFinTech',
-      content: 'CamFinTech navigates the approval for businesses to accept KHQR — tailored to your business type and scale. For small merchants, we facilitate rapid registration through our banking partners and provide staff training on payment acceptance. For medium and large enterprises, we scope the integration architecture across POS systems, e-commerce platforms, and back-office reconciliation, then coordinate the build with accredited Service Providers.\n\nAPI integration, webhook configuration, error handling, and testing against the Bakong sandbox are delivered by our accredited partners. CamFinTech runs the compliance programme that keeps your KHQR acceptance approved as the NBC introduces new features and cross-border corridors. We are fee-only, never operate the rail, and never hold client funds — whether you are a single-location restaurant or a multi-branch retail chain.',
+      heading: 'Where CamFinTech\'s Work Sits',
+      content: 'For a business preparing to accept KHQR, CamFinTech scopes the integration across POS, e-commerce and back-office reconciliation, builds the client side of it, and prepares the compliance work the acquiring bank or payment service provider will ask for. It is charged as a fee and handed over, with documentation, and the client operates it.\n\nMerchant onboarding is the acquiring institution\'s decision, and the client is the applicant. CamFinTech does not host or transmit payment traffic, operates no rail and holds no client funds.',
     },
   ],
 };

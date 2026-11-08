@@ -12,5 +12,5 @@ export const ogImage = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: "CamFinTech — Cambodia DPI Approval-Navigation & Compliance. Fee-only. Never hold client funds. Never operate a rail.",
+  alt: "CamFinTech — Regulatory and Compliance Advisers, Phnom Penh. Fee-only. Never hold client funds. Never operate a rail.",
 };

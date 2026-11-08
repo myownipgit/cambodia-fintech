@@ -17,6 +17,16 @@ import { ArticleContent } from '../types';
  * Remaining prose figures (e.g. institution and merchant counts) are still
  * unsourced and await the busiest-page-first pass.
  */
+/*
+ * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
+ * here said CamFinTech "navigates the approval", "keeps them approved",
+ * provides "approval-navigation", and that the build "is coordinated with
+ * accredited Service Providers"; some also claimed NBC liaison, regulatory
+ * goodwill, banking partners or partnership facilitation. Removed: the
+ * approval decision is the operator's or regulator's, the client is the
+ * applicant of record, the firm builds the client side itself (ADR-005), and
+ * no partner relationship exists. Do not reintroduce any of these phrasings.
+ */
 export const howBakongWorks: ArticleContent = {
   slug: 'how-bakong-works',
   title: 'How Does Bakong Work in Cambodia?',
@@ -51,7 +61,7 @@ export const howBakongWorks: ArticleContent = {
   faqs: [
     { question: 'Is Bakong a cryptocurrency?', answer: 'No. Bakong is the National Bank of Cambodia\'s payment system, not a cryptocurrency. The NBC\'s white paper describes it as the earlier FAST payment system enhanced by replacing its relational database with a permissioned Hyperledger Iroha blockchain network — in the NBC\'s words, "a rather conservative use of blockchain technology", mainly a change to back-end infrastructure that is invisible in many uses. It has no speculative value; it exists to settle payments.' },
     { question: 'Do I need a bank account to use Bakong?', answer: 'No. Bakong supports both bank-linked wallets and standalone e-wallets. Users can open a Bakong wallet by completing KYC through a participating institution. This design deliberately targets financial inclusion for Cambodia\'s unbanked population, which the World Bank estimates at approximately 27% of adults.' },
-    { question: 'Can foreign businesses accept Bakong payments?', answer: 'Yes. Any business registered in Cambodia can accept Bakong payments through a participating bank. Foreign enterprises should engage a licensed payment service provider or directly integrate with the Bakong Open API via their bank partner. CamFinTech navigates the approval for enterprises to accept Bakong and coordinates the technical build with accredited Service Providers — we never operate the rail or hold client funds.' },
+    { question: 'Can foreign businesses accept Bakong payments?', answer: 'Yes. Any business registered in Cambodia can accept Bakong payments through a participating bank. Foreign enterprises should engage a licensed payment service provider or directly integrate with the Bakong Open API via their bank partner. CamFinTech prepares the compliance work and builds the client side of the integration; it operates no rail and holds no client funds.' },
   ],
   sections: [
     {
@@ -105,7 +115,7 @@ export const howBakongWorks: ArticleContent = {
     },
     {
       heading: 'Strategic Implications for Enterprise FinTech',
-      content: 'For enterprises evaluating Cambodia\'s digital payment landscape, Bakong is central infrastructure, and its members must follow its rules under NBC Prakas F14-020-349. The NBC\'s strategy is to route all domestic retail payments through Bakong rails over time, making direct integration a strategic imperative.\n\nCamFinTech navigates the approval for businesses to integrate with Bakong across three horizons: immediate KHQR acceptance for retail operations, medium-term API integration for automated B2B payments and reconciliation, and long-term positioning for cross-border payment corridors as ASEAN linkages mature. The technical build is coordinated with accredited Service Providers; CamFinTech is fee-only, never operates the rail, and never holds client funds.',
+      content: 'For enterprises evaluating Cambodia\'s digital payment landscape, Bakong is central infrastructure, and its members must follow its rules under NBC Prakas F14-020-349. The NBC\'s strategy is to route all domestic retail payments through Bakong rails over time, making direct integration a strategic imperative.\n\nA business typically meets Bakong in stages: KHQR acceptance for retail operations first, then API integration for automated payments and reconciliation, and later cross-border payment links where they apply. CamFinTech builds the client side of those integrations for a fee and hands them over; it operates no rail and holds no client funds.',
     },
   ],
 };

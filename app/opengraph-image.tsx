@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "CamFinTech — Cambodia DPI Approval-Navigation & Compliance. Fee-only. Never hold client funds. Never operate a rail.";
+  "CamFinTech — Regulatory and Compliance Advisers, Phnom Penh. Fee-only. Never hold client funds. Never operate a rail.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

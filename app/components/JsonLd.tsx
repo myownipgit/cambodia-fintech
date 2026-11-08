@@ -28,7 +28,7 @@ export default function JsonLd() {
           "sameAs": "https://en.wikipedia.org/wiki/Cambodia",
         },
         "knowsAbout": [
-          "Regulatory approval navigation Cambodia",
+          "Regulatory approval readiness Cambodia",
           "AML/CFT programme design Cambodia",
           "MLRO support Cambodia",
           "DASP licensing (SERC Prakas 093)",
@@ -177,7 +177,7 @@ export default function JsonLd() {
           "closes": "18:00",
         },
         "serviceType": [
-          "Regulatory approval navigation",
+          "Regulatory approval readiness",
           "AML/CFT programme design",
           "MLRO support",
           "DASP licensing readiness",

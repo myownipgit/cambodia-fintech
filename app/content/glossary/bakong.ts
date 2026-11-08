@@ -1,5 +1,15 @@
 import { ArticleContent } from '../types';
 
+/*
+ * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
+ * here said CamFinTech "navigates the approval", "keeps them approved",
+ * provides "approval-navigation", and that the build "is coordinated with
+ * accredited Service Providers"; some also claimed NBC liaison, regulatory
+ * goodwill, banking partners or partnership facilitation. Removed: the
+ * approval decision is the operator's or regulator's, the client is the
+ * applicant of record, the firm builds the client side itself (ADR-005), and
+ * no partner relationship exists. Do not reintroduce any of these phrasings.
+ */
 export const bakong: ArticleContent = {
   slug: 'bakong',
   title: 'What is Bakong?',
@@ -29,7 +39,7 @@ export const bakong: ArticleContent = {
   faqs: [
     { question: 'What is Bakong in Cambodia?', answer: 'Bakong is Cambodia\'s national digital currency and instant payment system operated by the National Bank of Cambodia (NBC). It is a blockchain-based CBDC (Central Bank Digital Currency) that enables real-time settlement of both Khmer Riel and US Dollar transactions through the KHQR QR code standard.' },
     { question: 'How does Bakong differ from mobile money services like Wing or ABA Pay?', answer: 'Unlike commercial mobile wallets, Bakong is a central bank-operated settlement rail. Wing, ABA Pay, and other mobile wallets connect TO Bakong as participant institutions. Bakong provides the underlying interbank settlement infrastructure, while commercial apps provide the consumer interface.' },
-    { question: 'Can foreign businesses integrate with Bakong?', answer: 'Yes. Foreign enterprises operating in Cambodia can integrate with Bakong through participant banks. CamFinTech navigates the approval to integrate with Bakong and coordinates the technical build with accredited Service Providers — we never operate the rail or hold client funds.' },
+    { question: 'Can foreign businesses integrate with Bakong?', answer: 'Yes. Foreign enterprises operating in Cambodia can integrate with Bakong through participant banks. CamFinTech prepares the compliance work and builds the client side of the integration; it operates no rail and holds no client funds.' },
   ],
   sections: [
     {
@@ -38,7 +48,7 @@ export const bakong: ArticleContent = {
     },
     {
       heading: 'KHQR Integration',
-      content: 'KHQR (Khmer QR) is the standardized QR code payment protocol that operates on top of Bakong. KHQR, set as a standard by NBC Prakas in June 2020, enables any merchant to accept payments from any Bakong-connected bank or wallet through a single QR code.\n\nFor merchants and enterprises, this eliminates the need to support multiple payment app QR codes. A single KHQR code works across all participating institutions. CamFinTech helps businesses navigate the approval to accept KHQR and coordinates the technical build (point-of-sale integration, e-commerce gateway) with accredited Service Providers.',
+      content: 'KHQR (Khmer QR) is the standardized QR code payment protocol that operates on top of Bakong. KHQR, set as a standard by NBC Prakas in June 2020, enables any merchant to accept payments from any Bakong-connected bank or wallet through a single QR code.\n\nFor merchants and enterprises, this eliminates the need to support multiple payment app QR codes. A single KHQR code works across all participating institutions. CamFinTech builds the client side of a KHQR integration, such as point-of-sale or e-commerce checkout, for a fee and hands it over.',
     },
     {
       heading: 'Cross-Border Capabilities',
@@ -56,8 +66,8 @@ export const bakong: ArticleContent = {
       },
     },
     {
-      heading: 'Enterprise Approval-Navigation with CamFinTech',
-      content: 'CamFinTech navigates the approval for businesses to integrate with Bakong, and runs the compliance programme that keeps them approved. This includes regulatory readiness assessment, NBC liaison, KHQR merchant-onboarding sequencing, and the compliance architecture that ERP, payment-gateway, and reconciliation builds must satisfy.\n\nThe technical build itself — API connectivity to the Bakong Open API, payment-gateway development, reconciliation pipelines — is coordinated with accredited Service Providers. CamFinTech is fee-only and never operates the rail or holds client funds.',
+      heading: 'Where CamFinTech\'s Work Sits',
+      content: 'For a business connecting to Bakong, CamFinTech prepares the regulatory readiness and compliance work the connection requires, and builds the client side of the integration: the link from the client\'s ERP, payment or reconciliation systems. It is charged as a fee and handed over, and the client operates it in its own environment.\n\nParticipation decisions rest with the National Bank of Cambodia and the participating institution, and the client is the applicant of record. CamFinTech does not host or transmit payment traffic, operates no rail and holds no client funds.',
     },
   ],
 };

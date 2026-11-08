@@ -13,6 +13,16 @@ import { ArticleContent } from '../types';
  * government. Bar for restoring: read in a fetched MEF/GDDE primary.
  */
 
+/*
+ * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
+ * here said CamFinTech "navigates the approval", "keeps them approved",
+ * provides "approval-navigation", and that the build "is coordinated with
+ * accredited Service Providers"; some also claimed NBC liaison, regulatory
+ * goodwill, banking partners or partnership facilitation. Removed: the
+ * approval decision is the operator's or regulator's, the client is the
+ * applicant of record, the firm builds the client side itself (ADR-005), and
+ * no partner relationship exists. Do not reintroduce any of these phrasings.
+ */
 export const camdigikey: ArticleContent = {
   slug: 'camdigikey',
   title: 'What is CamDigiKey?',
@@ -42,7 +52,7 @@ export const camdigikey: ArticleContent = {
   faqs: [
     { question: 'What is CamDigiKey and how does it work?', answer: 'CamDigiKey is Cambodia\'s national digital identity system operated by the Ministry of Economy and Finance. It works by registering citizens\' biometric data (facial recognition and fingerprints) linked to their national ID. Users can then authenticate their identity digitally for government services, banking, and commercial transactions through the CamDigiKey mobile app or integrated third-party applications.' },
     { question: 'Is CamDigiKey mandatory for businesses in Cambodia?', answer: 'CamDigiKey integration is increasingly required for businesses interacting with government platforms including CamDX, and certain NBC-regulated financial services. While not yet mandatory for all private sector activities, businesses that process government transactions or provide regulated financial services must support CamDigiKey authentication.' },
-    { question: 'How can enterprises integrate with CamDigiKey?', answer: 'Enterprises integrate with CamDigiKey through the CamDX data exchange platform, which provides standardized APIs for identity verification. CamFinTech navigates the approval to integrate with CamDigiKey and coordinates the technical build (eKYC workflow design, API implementation, compliance architecture) with accredited Service Providers — we never operate the identity rail or hold customer data.' },
+    { question: 'How can enterprises integrate with CamDigiKey?', answer: 'Enterprises integrate with CamDigiKey through the CamDX data exchange platform, which provides standardized APIs for identity verification. CamFinTech designs the eKYC workflow and compliance architecture and builds the client side of the integration; it operates no identity rail and holds no customer data.' },
   ],
   sections: [
     {
@@ -68,8 +78,8 @@ export const camdigikey: ArticleContent = {
       },
     },
     {
-      heading: 'Enterprise Approval-Navigation with CamFinTech',
-      content: 'CamFinTech navigates the approval for enterprises to integrate with CamDigiKey, and runs the compliance programme that keeps them approved. Our work covers the full readiness lifecycle: regulatory requirement assessment, the compliance architecture that eKYC workflows must satisfy under NBC AML rules, and ongoing programme delivery once live.\n\nThe technical build itself — API architecture, authentication flows, production deployment — is coordinated with accredited Service Providers. CamFinTech is fee-only, never operates the identity rail, and never holds client funds. Our value is process competence across the four-layer GaaP stack (CamDigiKey, Bakong, CamDX, CamInvoice), not access to it.',
+      heading: 'Where CamFinTech\'s Work Sits',
+      content: 'For an enterprise adding CamDigiKey to its customer onboarding, CamFinTech prepares the compliance work the identity flow must satisfy, including the customer due diligence a regulated institution\'s AML/CFT programme requires, and builds the client side of the integration. It is charged as a fee and handed over. The client operates it and holds its own customer data.\n\nOnboarding to CamDigiKey is decided by its operator under its own requirements, and the client is the applicant of record. CamFinTech does not host identity traffic or hold customer data.',
     },
   ],
 };

@@ -43,7 +43,7 @@ export default function AboutContent() {
             </div>
           </div>
           <p className="mt-6 text-lg text-navy/85 leading-relaxed">
-            {FOUNDER_NAME} founded CamFinTech to do the regulatory approval-navigation and compliance work that getting onto Cambodia&apos;s Digital Public Infrastructure rails actually requires — the layer that&apos;s unowned by law firms, system integrators, and the rails&apos; own DIY channels.
+            {FOUNDER_NAME} founded CamFinTech to do the regulatory and compliance work that connecting to Cambodia&apos;s Digital Public Infrastructure rails requires, and to build the client side of those connections.
           </p>
         </header>
 

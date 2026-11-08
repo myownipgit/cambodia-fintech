@@ -37,6 +37,16 @@ import { ArticleContent } from '../types';
  * a 'clearance model', a 'digital tax stamp' or the GDT operating the system.
  */
 
+/*
+ * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
+ * here said CamFinTech "navigates the approval", "keeps them approved",
+ * provides "approval-navigation", and that the build "is coordinated with
+ * accredited Service Providers"; some also claimed NBC liaison, regulatory
+ * goodwill, banking partners or partnership facilitation. Removed: the
+ * approval decision is the operator's or regulator's, the client is the
+ * applicant of record, the firm builds the client side itself (ADR-005), and
+ * no partner relationship exists. Do not reintroduce any of these phrasings.
+ */
 export const supplyChainFinance: ArticleContent = {
   slug: 'supply-chain-finance',
   title: 'What is Supply Chain Finance in Cambodia?',
@@ -68,7 +78,7 @@ export const supplyChainFinance: ArticleContent = {
   faqs: [
     { question: 'What is supply chain finance and how does it work in Cambodia?', answer: 'Supply chain finance is a set of financing techniques that optimize cash flow within supply chains. In Cambodia, where an invoice falls within CamInvoice\'s scope — in its first phase, invoices from suppliers to designated government ministries — the supplier issues it through the system, and a financial institution can advance payment to the supplier at a discount against it. Under Ministry of Economy and Finance Prakas 075, an invoice the system has validated is recognised as an original digital record and kept for 10 years, which gives the financier a firmer basis for confirming that the receivable is genuine. When the buyer pays at invoice maturity, the financial institution collects the full amount.' },
     { question: 'Why does CamInvoice make supply chain finance viable in Cambodia?', answer: 'Invoice-based financing depends on a lender being able to rely on three things: that the invoice is genuine, that it has not been altered, and that it is not already pledged to another lender. CamInvoice bears on the first two. Each invoice it validates is given an identifier and, under Ministry of Economy and Finance Prakas 075, recognised as an original digital record with legal effect, kept in digital form for 10 years. The MEF documents reviewed do not describe a register of pledged invoices, so checking for duplicate financing remains the financier\'s own work. In its first phase the system covers invoices from suppliers to designated government ministries, so the receivables it validates today are receivables from the state.' },
-    { question: 'What returns can investors expect from Cambodia supply chain finance?', answer: 'Supply chain finance in Cambodia offers attractive risk-adjusted returns due to the combination of high SME financing demand, relatively high interest rate environment (12-18% for SME lending), and the firmer documentary basis that CamInvoice-validated invoices give where they are available. Early movers building platforms at the intersection of CamInvoice data and Bakong settlement infrastructure are positioned to capture significant market share. CamFinTech provides fee-only investor advisory on market sizing, risk analysis, and the regulatory approval-navigation a platform operator faces — we never operate a lending rail or hold client funds.' },
+    { question: 'What returns can investors expect from Cambodia supply chain finance?', answer: 'Supply chain finance in Cambodia offers attractive risk-adjusted returns due to the combination of high SME financing demand, relatively high interest rate environment (12-18% for SME lending), and the firmer documentary basis that CamInvoice-validated invoices give where they are available. Early movers building platforms at the intersection of CamInvoice data and Bakong settlement infrastructure are positioned to capture significant market share. CamFinTech provides fee-only market and regulatory assessment for investors; it operates no lending rail and holds no client funds.' },
   ],
   sections: [
     {
@@ -94,8 +104,8 @@ export const supplyChainFinance: ArticleContent = {
       content: 'The supply chain finance opportunity in Cambodia is driven by a convergence of structural factors: a large SME financing gap estimated at over $3 billion annually, a formalizing economy in which CamInvoice, phased in from government procurement, is creating validated invoice records, and modern payment rails via Bakong that enable instant disbursement and collection. These factors create conditions for SCF platform growth that does not exist in markets without integrated digital infrastructure.\n\nThe garment sector alone, which accounts for approximately 30% of Cambodia\'s exports, generates billions in annual invoiced trade between factories, material suppliers, and international buyers.',
     },
     {
-      heading: 'Strategic Advisory with CamFinTech',
-      content: 'CamFinTech provides fee-only strategic advisory for investors and financial institutions entering Cambodia\'s supply chain finance market. Our services include market sizing and opportunity assessment, regulatory approval-navigation for NBC lending licence requirements, the compliance architecture that an SCF programme must satisfy, and partnership facilitation with Cambodian banks and anchor buyers.\n\nFor existing financial institutions, we scope SCF programme design that draws on CamInvoice-validated receivables and Bakong settlement, and coordinate the technical build with accredited Service Providers. For technology investors, we provide due diligence on SCF platform opportunities. CamFinTech never operates a lending rail, never holds client funds, and never advances credit on our own balance sheet.',
+      heading: 'Where CamFinTech\'s Work Sits',
+      content: 'For investors and financial institutions looking at supply chain finance in Cambodia, CamFinTech provides fee-only market and regulatory assessment, and due diligence on platform opportunities. For an institution designing a programme, it prepares the compliance architecture the programme must satisfy and builds the client side of the CamInvoice and Bakong integrations the programme draws on.\n\nThe licensing decision for any lending activity rests with the regulator, and the licence is the client\'s. CamFinTech operates no lending rail, holds no client funds and advances no credit.',
     },
   ],
 };

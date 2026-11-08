@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   keywords: [
     "Cambodia DPI",
     "DPI Integration",
-    "regulatory approval navigation",
+    "regulatory approval readiness",
     "AML/CFT programme design",
     "MLRO support Cambodia",
     "DASP licensing Cambodia",

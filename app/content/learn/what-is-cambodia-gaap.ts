@@ -34,6 +34,16 @@ import { ArticleContent } from '../types';
  * a 'clearance model', a 'digital tax stamp' or the GDT operating the system.
  */
 
+/*
+ * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
+ * here said CamFinTech "navigates the approval", "keeps them approved",
+ * provides "approval-navigation", and that the build "is coordinated with
+ * accredited Service Providers"; some also claimed NBC liaison, regulatory
+ * goodwill, banking partners or partnership facilitation. Removed: the
+ * approval decision is the operator's or regulator's, the client is the
+ * applicant of record, the firm builds the client side itself (ADR-005), and
+ * no partner relationship exists. Do not reintroduce any of these phrasings.
+ */
 export const whatIsCambodiaGaaP: ArticleContent = {
   slug: 'what-is-cambodia-gaap',
   title: 'What is Cambodia\'s Government-as-a-Platform Model?',
@@ -68,7 +78,7 @@ export const whatIsCambodiaGaaP: ArticleContent = {
   faqs: [
     { question: 'What makes Cambodia\'s digital infrastructure different from other ASEAN countries?', answer: 'Most ASEAN countries built digital payment systems, identity platforms, and data exchanges independently over decades. Cambodia designed all four layers simultaneously as a unified stack under the Digital Government Policy 2022-2035. This deliberate architecture means the layers are interoperable by design, not retrofitted. A CamDigiKey identity verification can trigger a CamDX data query and initiate a Bakong payment in a single workflow.' },
     { question: 'Is Cambodia\'s GaaP model based on Estonia\'s?', answer: 'Yes, directly. Cambodia adopted Estonia\'s X-Road technology for CamDX and studied Estonia\'s digital identity and e-governance architecture extensively. However, Cambodia adapted the model for its dual-currency economy, mobile-first population, and specific regulatory requirements. The Bakong CBDC layer has no direct Estonian equivalent, as Estonia uses the euro.' },
-    { question: 'How does GaaP affect foreign investment in Cambodia?', answer: 'GaaP creates both opportunities and obligations. Foreign enterprises benefit from instant digital onboarding (CamDigiKey), real-time regulatory compliance (CamDX), low-cost payments (Bakong), and electronic invoicing (CamInvoice). However, integration with these platforms is increasingly mandatory, not optional. CamFinTech navigates the approval for foreign investors to integrate with these platforms and runs the compliance programme that keeps them approved — the technical build is coordinated with accredited Service Providers.' },
+    { question: 'How does GaaP affect foreign investment in Cambodia?', answer: 'GaaP creates both opportunities and obligations. Foreign enterprises benefit from instant digital onboarding (CamDigiKey), real-time regulatory compliance (CamDX), low-cost payments (Bakong), and electronic invoicing (CamInvoice). However, integration with these platforms is increasingly mandatory, not optional. CamFinTech prepares the readiness and compliance work for these connections and builds the client side of the integration; the approval decisions rest with each platform\'s operator and regulator.' },
   ],
   sections: [
     {
@@ -118,11 +128,11 @@ export const whatIsCambodiaGaaP: ArticleContent = {
     },
     {
       heading: 'Implications for Enterprise Strategy',
-      content: 'For enterprises operating or investing in Cambodia, the GaaP model demands a platform-native strategy. Companies that treat CamDigiKey, Bakong, CamDX, and CamInvoice as optional add-ons will face increasing friction. Companies that orient their operations around these platforms will benefit from lower costs, faster onboarding, and regulatory alignment.\n\nThe strategic question is not whether to integrate, but how deeply and how quickly. Early movers gain advantages in customer experience, operational efficiency, and regulatory goodwill. CamFinTech navigates a phased approval-and-compliance roadmap that prioritizes high-impact platform connections first and builds toward full GaaP integration as each layer matures.',
+      content: 'For enterprises operating or investing in Cambodia, the GaaP model demands a platform-native strategy. Companies that treat CamDigiKey, Bakong, CamDX, and CamInvoice as optional add-ons will face increasing friction. Companies that orient their operations around these platforms will benefit from lower costs, faster onboarding, and regulatory alignment.\n\nThe strategic question is not whether to integrate, but how deeply and how quickly. A phased plan, taking the highest-impact platform connections first and adding others as each layer matures, is usually more practical than integrating everything at once.',
     },
     {
-      heading: 'CamFinTech\'s GaaP Approval-Navigation Practice',
-      content: 'CamFinTech is Cambodia\'s fee-only regulatory approval-navigation and compliance firm for financial services and technology enterprises working across the GaaP stack. We have process knowledge of all four infrastructure layers and of the published requirements each regulator applies.\n\nOur practice covers three service areas: regulatory navigation (compliance mapping, licence advisory, application preparation), compliance programme delivery (the architecture and ongoing work that keeps a client approved), and strategic advisory (market opportunity analysis, approval roadmap development, investment due diligence). The technical build itself — API design, security-server deployment, webhook configuration — is delivered by CamFinTech or by an accredited Service Provider brought in as a disclosed sub-contract. CamFinTech never operates a rail and never holds client funds. Our value is process competence, not access.',
+      heading: 'Where CamFinTech\'s Work Sits',
+      content: 'CamFinTech is a fee-only regulatory and compliance practice in Phnom Penh. It prepares institutions to meet the standard for connecting to the rails (the readiness assessment, the application work, and the compliance programme that holds afterwards) and builds the client side of the integration, or engages a platform specialist as a disclosed sub-contract.\n\nApproval decisions belong to each rail\'s operator and regulator, and the client is the applicant of record. CamFinTech does not host or transmit client transaction traffic, operates no rail and holds no client funds. Its value is process competence, not access.',
     },
   ],
 };

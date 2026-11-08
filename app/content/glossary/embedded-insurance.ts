@@ -1,5 +1,15 @@
 import { ArticleContent } from '../types';
 
+/*
+ * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
+ * here said CamFinTech "navigates the approval", "keeps them approved",
+ * provides "approval-navigation", and that the build "is coordinated with
+ * accredited Service Providers"; some also claimed NBC liaison, regulatory
+ * goodwill, banking partners or partnership facilitation. Removed: the
+ * approval decision is the operator's or regulator's, the client is the
+ * applicant of record, the firm builds the client side itself (ADR-005), and
+ * no partner relationship exists. Do not reintroduce any of these phrasings.
+ */
 export const embeddedInsurance: ArticleContent = {
   slug: 'embedded-insurance',
   title: 'What is Embedded Insurance in Cambodia?',
@@ -54,8 +64,8 @@ export const embeddedInsurance: ArticleContent = {
       content: 'The embedded insurance opportunity in Cambodia is driven by a unique convergence: extremely low current penetration (below 2%), high unmet demand for protection products, a young digitally-connected population, and government-built digital infrastructure that solves distribution and payment challenges. This combination does not exist in most other developing markets, where digital infrastructure is fragmented or absent.\n\nConservative estimates suggest embedded insurance could reach $100-200 million in annual gross written premiums within five years of scaled deployment, representing 20-40% of Cambodia\'s current total insurance market. First movers who build distribution partnerships with KHQR-enabled platforms and secure Insurance Authority of Cambodia (IAC) regulatory approval will capture disproportionate market share.',
     },
     {
-      heading: 'Insurance Approval-Navigation with CamFinTech',
-      content: 'CamFinTech provides fee-only approval-navigation and compliance programme delivery for insurers, insurtechs, and distribution partners developing embedded insurance products for Cambodia. Our services span market opportunity assessment, product-design scoping around KHQR and CamDigiKey touchpoints, IAC licensing strategy, and the compliance architecture that an embedded-insurance programme must satisfy.\n\nFor international insurers, we navigate market entry — partner identification, regulatory requirements, product localization. For distribution platforms (e-commerce, ride-hailing, banking apps), we scope the integration requirements and coordinate the technical build with accredited Service Providers. CamFinTech is fee-only and never holds premiums, claims funds, or any client funds.',
+      heading: 'Where CamFinTech\'s Work Sits',
+      content: 'For an insurer, insurtech or distribution partner designing an embedded-insurance product for Cambodia, CamFinTech prepares the regulatory assessment and compliance architecture the programme needs, and builds the client side of any rail integration it uses, such as KHQR payment or CamDigiKey identity touchpoints. It is charged as a fee and handed over.\n\nLicensing decisions rest with the insurance regulator, and the licence is the client\'s. CamFinTech holds no premiums, claims funds or other client funds.',
     },
   ],
 };

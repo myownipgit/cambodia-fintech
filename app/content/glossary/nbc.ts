@@ -1,5 +1,15 @@
 import { ArticleContent } from '../types';
 
+/*
+ * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
+ * here said CamFinTech "navigates the approval", "keeps them approved",
+ * provides "approval-navigation", and that the build "is coordinated with
+ * accredited Service Providers"; some also claimed NBC liaison, regulatory
+ * goodwill, banking partners or partnership facilitation. Removed: the
+ * approval decision is the operator's or regulator's, the client is the
+ * applicant of record, the firm builds the client side itself (ADR-005), and
+ * no partner relationship exists. Do not reintroduce any of these phrasings.
+ */
 export const nbc: ArticleContent = {
   slug: 'nbc',
   title: 'What is the National Bank of Cambodia?',
@@ -63,8 +73,8 @@ export const nbc: ArticleContent = {
       content: 'The NBC FinTech Regulatory Sandbox represents Cambodia\'s commitment to balancing innovation with financial stability. Launched to provide a structured pathway for new financial technologies, the sandbox allows companies to operate under tailored regulatory conditions for a defined testing period, typically 12 to 24 months.\n\nSandbox participants benefit from direct NBC mentorship, reduced initial capital requirements, and flexibility on certain regulatory provisions. In return, they must provide detailed reporting on operations, consumer outcomes, and risk metrics. Successful sandbox graduates receive expedited consideration for full licensing. The sandbox has been particularly active in evaluating digital lending platforms, cross-border payment solutions, and insurtech products.',
     },
     {
-      heading: 'Regulatory Approval-Navigation with CamFinTech',
-      content: 'CamFinTech provides fee-only regulatory approval-navigation for enterprises working through NBC requirements. Our services include license strategy assessment, the compliance architecture that the application must satisfy, sandbox application preparation, and ongoing programme delivery for regulatory reporting once approved.\n\nFor banks and financial institutions, we scope what NBC prudential reporting, Bakong rules, and AML/CFT standards require — and coordinate the technical build with accredited Service Providers. For fintech firms, we navigate the path from sandbox application through full license acquisition; the licence itself is always held by the client, never by CamFinTech. We never hold client funds and never operate a regulated rail.',
+      heading: 'Where CamFinTech\'s Work Sits',
+      content: 'For a business preparing an application under National Bank of Cambodia requirements, CamFinTech prepares the work the application rests on: the assessment against the applicable Prakas, the compliance architecture, and the reporting and AML/CFT programme that applies once licensed. It also builds the client side of any rail integration the business needs.\n\nThe licensing decision is the National Bank of Cambodia\'s, the licence is held by the client, and reserved legal work belongs with the client\'s Cambodian counsel. CamFinTech holds no client funds and operates no rail.',
     },
   ],
 };

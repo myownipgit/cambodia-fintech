@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Publication — The Riel Report | CamFinTech",
     description:
-      "The Riel Report is published by CamFinTech, a Phnom Penh regulatory approval-navigation and compliance firm. Cambodia FinTech intelligence at riel.report.",
+      "The Riel Report is published by CamFinTech, a Phnom Penh regulatory and compliance practice. Cambodia FinTech intelligence at riel.report.",
     url: "https://www.camfintech.com/publication",
     type: "website",
     images: [ogImage],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Publication — The Riel Report | CamFinTech",
     description:
-      "The Riel Report is published by CamFinTech, a Phnom Penh regulatory approval-navigation and compliance firm.",
+      "The Riel Report is published by CamFinTech, a Phnom Penh regulatory and compliance practice.",
     images: [ogImage],
   },
 };
@@ -95,7 +95,7 @@ export default function PublicationPage() {
                 CamFinTech is the publisher of <strong>The Riel Report</strong> — Cambodia&apos;s independent FinTech intelligence service. The publication covers Cambodia&apos;s financial-services market, the Digital Public Infrastructure stack (Bakong, KHQR, CamDigiKey, CamDX, CamInvoice, CamDL), the regulatory environment (NBC, MEF, SERC, NBFSA, GDT, MPTC, TRC), and Cambodia&apos;s place in regional and global FinTech trends.
               </p>
               <p className="text-base text-navy/85 leading-relaxed mb-4">
-                The Riel Report is a <strong>separate brand at its own domain</strong>. The two brands run on the same operational platform but speak in different voices to different audiences: CamFinTech.com serves commercial clients needing approval-navigation and compliance; The Riel Report serves the industry, regulator, and multilateral audience with editorial-voice analysis. The publication&apos;s credibility depends on it <em>not</em> being a sales channel — there are no CamFinTech commercial CTAs on Riel Report surfaces, and there&apos;s no replicated content here.
+                The Riel Report is a <strong>separate brand at its own domain</strong>. The two brands run on the same operational platform but speak in different voices to different audiences: CamFinTech.com serves clients needing regulatory, compliance and integration work; The Riel Report serves the industry, regulator, and multilateral audience with editorial-voice analysis. The publication&apos;s credibility depends on it <em>not</em> being a sales channel — there are no CamFinTech commercial CTAs on Riel Report surfaces, and there&apos;s no replicated content here.
               </p>
               <p className="text-base text-navy/85 leading-relaxed">
                 Visit the publication directly to read briefings, subscribe, or access the public dashboard.

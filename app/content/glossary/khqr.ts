@@ -1,5 +1,15 @@
 import { ArticleContent } from '../types';
 
+/*
+ * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
+ * here said CamFinTech "navigates the approval", "keeps them approved",
+ * provides "approval-navigation", and that the build "is coordinated with
+ * accredited Service Providers"; some also claimed NBC liaison, regulatory
+ * goodwill, banking partners or partnership facilitation. Removed: the
+ * approval decision is the operator's or regulator's, the client is the
+ * applicant of record, the firm builds the client side itself (ADR-005), and
+ * no partner relationship exists. Do not reintroduce any of these phrasings.
+ */
 export const khqr: ArticleContent = {
   slug: 'khqr',
   title: 'What is KHQR?',
@@ -54,8 +64,8 @@ export const khqr: ArticleContent = {
       content: 'Beyond basic payments, KHQR is emerging as a distribution channel for embedded financial products. The ubiquity of KHQR acceptance creates an infrastructure layer through which insurance products, lending offers, loyalty rewards, and other financial services can be delivered at the moment of transaction.\n\nFor example, a micro-insurance product could be offered at KHQR checkout, or a merchant financing offer triggered based on KHQR transaction volume. This positions KHQR not just as a payment tool but as a platform for financial product distribution in a market where traditional distribution channels remain limited.',
     },
     {
-      heading: 'Enterprise Approval-Navigation with CamFinTech',
-      content: 'CamFinTech navigates the approval for businesses to accept KHQR and runs the compliance programme that keeps them approved. For merchants, that means coordinating onboarding through a participant bank or PSP; for financial institutions, it means scoping the regulatory readiness for KHQR-based product launches and merchant-acquiring programmes.\n\nThe technical build itself — POS terminal integration, e-commerce gateways, self-service kiosks, embedded product distribution flows, cross-border QR acceptance, merchant analytics — is coordinated with accredited Service Providers. CamFinTech is fee-only, never operates the rail, and never holds client funds.',
+      heading: 'Where CamFinTech\'s Work Sits',
+      content: 'For a business preparing to accept KHQR, CamFinTech prepares the compliance work the acquiring bank or payment service provider will ask for, and builds the client side of the integration where one is needed: the connection from the client\'s checkout, POS or reconciliation system. It is charged as a fee and handed over. The client operates it, and payments run between the client and its acquiring institution.\n\nMerchant onboarding is the acquiring institution\'s decision under its own rules, and the client is the applicant. CamFinTech does not host or transmit payment traffic, operates no rail and holds no client funds.',
     },
   ],
 };

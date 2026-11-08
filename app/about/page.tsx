@@ -5,7 +5,7 @@ import { ogImage } from "@/app/og";
 export const metadata: Metadata = {
   title: "About — William Mallett, Founder & Managing Director, CamFinTech",
   description:
-    "William Mallett founded CamFinTech to do the regulatory approval-navigation and compliance work that getting onto Cambodia's Digital Public Infrastructure rails actually requires — Bakong/KHQR, CamDX/CamDigiKey, CamInvoice. Fee-only. Never holds client funds. Never operates a rail.",
+    "William Mallett founded CamFinTech to do the regulatory and compliance work that connecting to Cambodia's Digital Public Infrastructure rails requires — Bakong/KHQR, CamDX/CamDigiKey, CamInvoice. Fee-only. Never holds client funds. Never operates a rail.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About — William Mallett, Founder & Managing Director, CamFinTech",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     images: [ogImage],
     title: "About William Mallett — CamFinTech",
     description:
-      "Founder & Managing Director, CamFinTech. Phnom Penh. Cambodia DPI approval-navigation & compliance.",
+      "Founder & Managing Director, CamFinTech. Phnom Penh. Cambodia DPI regulatory and compliance practice.",
   },
 };
 
