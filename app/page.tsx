@@ -294,8 +294,14 @@ export default function Home() {
                   </li>
                 ))}
               </ol>
+              {/* 2026-11-08: seven named providers removed (BanhJi, Innolab/Odoo, MAQSU,
+                  SAP/Crimson, KOSIGN, Metfone, GK-Smart). No agreement exists with any of
+                  them, and vault 40_CamInvoice_Mandate_and_SP_Strategy.md does not support
+                  "accredited" for most. Name a provider only once an agreement exists AND its
+                  CamInvoice membership is confirmed from a primary source. "System-provider
+                  member" is the Prakas 075 Art. 7 term. */}
               <p className="mt-5 max-w-3xl text-sm leading-relaxed text-slate">
-                Where an accredited Service Provider is the better fit for a build — BanhJi, Innolab and Odoo, MAQSU, SAP and Crimson, KOSIGN, Metfone, GK-Smart — the firm engages them as a disclosed sub-contract and remains accountable for the programme. Their work is never marked up, and the firm does not compete for their clients. Pricing is indicative until validated by quote.
+                Where a CamInvoice system-provider member or another platform specialist is the better fit for a build, the firm engages one as a disclosed sub-contract and remains accountable for the programme. Their work is never marked up, and the firm does not compete for their clients. Pricing is indicative until validated by quote.
               </p>
             </div>
           </section>

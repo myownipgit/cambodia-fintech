@@ -57,7 +57,7 @@ export default function AboutContent() {
           </p>
           <ul className="mt-3 space-y-2 text-navy/85 text-sm leading-relaxed">
             <li><strong>We are not a law firm.</strong> Reserved legal work (opinions, regulator representation) routes to a Bar lawyer we coordinate; we run the surrounding programme.</li>
-            <li><strong>We are not a rail operator.</strong> We build the client side of an integration and own the regulatory approval; we never host or transmit your transaction traffic. Where a platform specialist fits better we bring in an accredited Service Provider (BanhJi, Innolab/Odoo, MAQSU, SAP/Crimson, KOSIGN, Metfone, GK-Smart) as a disclosed sub-contract.</li>
+            <li><strong>We are not a rail operator.</strong> We build the client side of an integration and prepare the approval work around it; the approval decision is the regulator&apos;s, and we never host or transmit your transaction traffic. Where a platform specialist fits better, such as a CamInvoice system-provider member, we engage one as a disclosed sub-contract.</li>
             <li><strong>We are not a licensed financial operator.</strong> Fee-only. We never hold client funds and never operate a rail.</li>
           </ul>
           <p className="text-navy/85 leading-relaxed mt-4">

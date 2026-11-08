@@ -122,8 +122,8 @@ DX fee is non-refundable on STOP-gate failure — it's the work done.
 - File submissions on the client's behalf.
 - Engage current or freshly-departed regulators (integrity gate; former-regulator advisors only after self-imposed cooling-off).
 
-## Accredited Service Provider partners (technical build delivery)
-BanhJi · Innolab / Odoo · MAQSU · SAP / Crimson · KOSIGN · Metfone · GK-Smart.
+## Technical build delivery
+CamFinTech builds the client side of an integration itself. Where a platform specialist is the better fit, such as a CamInvoice system-provider member (Prakas 075, Art. 7), the firm engages one as a disclosed sub-contract, does not mark up its work, and remains accountable for the programme. No specific provider is named.
 
 ## Voluntary TCRMG-2026 compliance posture
 CamFinTech voluntarily holds its own operations to NBC's Technology and Cyber Risk Management Guidelines (TCRMG 2026) standards — even as a non-BFI. Posture documentation set (7 documents) available on request for BFI procurement conversations.
