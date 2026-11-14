@@ -1,5 +1,26 @@
 import { ArticleContent } from '../types';
 
+/*
+ * Corridor correction, 2026-11-14 (targeted: the cross-border section only;
+ * the rest of this page is unsourced and due a full figure pass). The section
+ * was contradicted by the NBC Annual Report on the Payment System 2024, ch. 6
+ * (Khmer, printed pp. 46-51; memory: project_corpus_evidence_bar):
+ * - "Thailand-Cambodia corridor, operational since mid-2023": the QR link
+ *   launched 18 February 2020 (also Bank of Thailand Press Release 9/2020);
+ *   phase 2 was 6 June 2023.
+ * - The outlook's "Vietnam and Laos corridors expected to add 1.5-2 million
+ *   monthly transactions within their first year": both launched in 2023.
+ * - "Corridors with Vietnam (NAPAS) and Laos (LAPNet) were slated for
+ *   mid-2026" / "Planned 2026": both launched in 2023.
+ * - "remittances", "USD 850m / 280m / 120m", "57% / 35% of formal corridor",
+ *   "average USD 195 / 220 / 85", "cost savings 30-60%", Thai paydays: these
+ *   are QR payment links, not remittance corridors, and no figure was read in
+ *   a primary.
+ * Also untrue as written, and left for the full pass: the description's
+ * "sourced from NBC reports and BIS CBDC data", and the CBDC framing
+ * throughout (the NBC white paper does not call Bakong a CBDC).
+ */
+
 export const bakongAdoptionMetrics: ArticleContent = {
   slug: 'bakong-adoption-metrics',
   title: 'Bakong Adoption Metrics: Transaction Volume, User Growth, and Market Impact',
@@ -7,7 +28,7 @@ export const bakongAdoptionMetrics: ArticleContent = {
   type: 'insights',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
+  updatedAt: '2026-11-14',
   readingTime: 8,
   schema: 'Article',
   relatedSlugs: ['bakong', 'how-bakong-works', 'nbc'],
@@ -20,6 +41,11 @@ export const bakongAdoptionMetrics: ArticleContent = {
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
   claims: [],
+  sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
+    { publisher: 'Bank of Thailand', label: 'Press Release No. 9/2020: The Launch of Interoperable QR Payment Linkage between Cambodia and Thailand (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news-pdf/2020/n0963e.pdf', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-14',
   faqs: [
     { question: 'How many people use Bakong in Cambodia?', answer: 'As of end 2025, Bakong has over 10 million registered wallets. However, the monthly active user count of 3.8 million is a more accurate measure of genuine usage. Given Cambodia\'s adult population of approximately 11 million, this means roughly 35% of adults actively use Bakong at least once per month. This figure rises to approximately 55% in urban areas and drops to 20% in rural provinces. When including users who transact via Bakong rails through their bank\'s app without a dedicated Bakong wallet, the effective reach is estimated at 50-60% of adults.' },
     { question: 'How does Bakong compare to other CBDCs globally?', answer: 'By adoption metrics, Bakong is one of the top-performing retail CBDCs globally. The Bahamas\' Sand Dollar has approximately 180,000 wallets (out of 400,000 population), Nigeria\'s eNaira has 13 million wallets but a monthly active rate below 5%, and Jamaica\'s JAM-DEX has approximately 200,000 users. Bakong\'s combination of 10 million wallets, 38% monthly active rate, and USD 30 billion annual throughput places it in a category of its own among retail CBDCs. The key differentiator is Bakong\'s integration with the existing banking system rather than operating as a standalone product.' },
@@ -94,17 +120,19 @@ export const bakongAdoptionMetrics: ArticleContent = {
       },
     },
     {
-      heading: 'Cross-Border Corridor Performance Metrics',
-      content: 'Bakong\'s cross-border corridors represent a major growth vector. The Thailand-Cambodia (Bakong-PromptPay) corridor, operational since mid-2023, processed an estimated USD 850 million in remittances during 2025, capturing approximately 57% of the total Thailand-Cambodia formal remittance market estimated at USD 1.5 billion. The average remittance size is USD 195, with peak volumes on Friday evenings and Thai paydays (25th and last day of each month).\n\nThe Malaysia-Cambodia (DuitNow-Bakong) corridor, launched in 2024, processed approximately USD 280 million in its first full year, with average transaction sizes of USD 220 reflecting the slightly higher earnings of Cambodian workers in Malaysia. The China-Cambodia Alipay+ corridor handles primarily tourist spending rather than remittances, processing an estimated USD 120 million in 2025. Corridors with Vietnam (NAPAS) and Laos (LAPNet) were slated for mid-2026, potentially adding USD 200-300 million in annual cross-border transaction value.',
+      heading: 'Cross-Border QR Payment Links',
+      content: 'Bakong\'s links abroad are QR payment links, not remittance corridors: they let a customer pay a merchant across the border by scanning a QR code. Thailand was first, launched in February 2020 and announced by the Bank of Thailand. The NBC\'s 2024 payment-system report records the links that followed, with Laos and Vietnam in 2023, South Korea and Malaysia in 2024, and the UnionPay and Alipay+ networks. Volume, value and market-share figures for individual links are not given here; none was read in a primary source.',
       table: {
-        caption: 'Bakong Cross-Border Corridor Metrics (2025)',
-        headers: ['Corridor', 'Annual Volume (USD millions)', 'Avg Transaction (USD)', 'Cost Savings vs Traditional', 'Market Share'],
+        caption: 'Bakong QR payment links recorded by the NBC (Annual Report on the Payment System 2024, ch. 6)',
+        headers: ['Counterpart', 'Launch recorded', 'Later phase'],
         rows: [
-          ['Thailand (PromptPay)', '850', '195', '50-60%', '57% of formal corridor'],
-          ['Malaysia (DuitNow)', '280', '220', '40-50%', '35% of formal corridor'],
-          ['China (Alipay+)', '120', '85', '30-40%', 'Tourist spending only'],
-          ['Vietnam (NAPAS)', 'Planned 2026', 'N/A', 'Est. 40-50%', 'N/A'],
-          ['Laos (LAPNet)', 'Planned 2026', 'N/A', 'Est. 45-55%', 'N/A'],
+          ['Thailand', '18 February 2020', 'Phase 2, 6 June 2023'],
+          ['Laos', '18 August 2023', '—'],
+          ['Vietnam', '3 December 2023', '—'],
+          ['UnionPay network', '22 December 2023', '—'],
+          ['South Korea', '29 August 2024', '—'],
+          ['Malaysia', '19 September 2024 (QR)', 'Phase 2, 8 April 2025'],
+          ['Alipay+ network', '14 October 2024', '—'],
         ],
       },
     },
@@ -114,7 +142,7 @@ export const bakongAdoptionMetrics: ArticleContent = {
     },
     {
       heading: 'Forward Metrics and 2026 Projections',
-      content: 'Based on current trajectory analysis, CamFinTech projects the following Bakong metrics for end of 2026: registered wallets reaching 12-13 million (with multi-wallet ownership becoming more common), MAU growing to 4.5-5.0 million (a 20-30% increase), and annual transaction value approaching USD 38-42 billion. The key growth driver will be cross-border corridor expansion, with Vietnam and Laos corridors expected to add 1.5-2 million monthly transactions within their first year.\n\nThree metrics to watch in 2026: (1) the B2B settlement share of transaction value, which if it exceeds 40%, would indicate Bakong is evolving from a retail payment system into a full-spectrum settlement platform; (2) the KHR transaction share, where exceeding 40% of value would mark a significant de-dollarization milestone for the NBC; and (3) the cross-border transaction share, where exceeding 20% of value would validate Cambodia\'s positioning as an ASEAN payment hub. These metrics have direct implications for fintech companies building on Bakong infrastructure, as each shift creates distinct product opportunities.',
+      content: 'Based on current trajectory analysis, CamFinTech projects the following Bakong metrics for end of 2026: registered wallets reaching 12-13 million (with multi-wallet ownership becoming more common), MAU growing to 4.5-5.0 million (a 20-30% increase), and annual transaction value approaching USD 38-42 billion.\n\nThree metrics to watch in 2026: (1) the B2B settlement share of transaction value, which if it exceeds 40%, would indicate Bakong is evolving from a retail payment system into a full-spectrum settlement platform; (2) the KHR transaction share, where exceeding 40% of value would mark a significant de-dollarization milestone for the NBC; and (3) the cross-border transaction share, where exceeding 20% of value would validate Cambodia\'s positioning as an ASEAN payment hub. These metrics have direct implications for fintech companies building on Bakong infrastructure, as each shift creates distinct product opportunities.',
     },
   ],
 };

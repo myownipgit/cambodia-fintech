@@ -13,8 +13,8 @@ import { ArticleContent } from '../types';
  * Removed, not hedged, so nobody restores these from git:
  * - Operators: CamDigiKey "MPTC" and "developed ... with KOICA"; CamDX "MEF /
  *   MPTC". Sub-Decree 164 Art. 7 makes the MEF the body that leads and manages
- *   CamDX, with transactions governed by a CamDX Operator (Art. 8). No
- *   primary read names CamDigiKey's operator, so none is stated.
+ *   CamDX, with transactions governed by a CamDX Operator (Art. 8). Sub-Decree 207 (read 2026-11-14) makes the MEF
+ *   CamDigiKey's lead too (Art. 4), with the CamDX operator operating it (Art. 5).
  * - Mandates: "Financial institutions must implement CamDigiKey-based eKYC by
  *   mid-2026" (four places). The registry entry for Sub-Decree 207 records
  *   that it creates no obligation on private businesses to adopt CamDigiKey.
@@ -112,7 +112,7 @@ export const cambodiaGaapArchitecture: ArticleContent = {
   schema: 'TechArticle',
   relatedSlugs: ['gaap', 'bakong', 'camdigikey', 'camdx', 'caminvoice'],
   relatedInstruments: ['sub-decree-207-camdigikey'],
-  lead: 'Cambodia\'s Government-as-a-Platform model rests on four national systems: CamDigiKey for digital identity, Bakong for payments, CamDX for data exchange between information systems, and CamInvoice for electronic invoicing. Each has its own legal basis and its own lead institution. CamDigiKey is governed by Sub-Decree 207 of 2023. Bakong is the National Bank of Cambodia\'s payment system. CamDX is led and managed by the Ministry of Economy and Finance under Sub-Decree 164 of 2021. CamInvoice was launched by MEF Prakas 075 in January 2025 and is operated by the MEF\'s General Department of Digital Economy. This article sets out what each instrument and operator document establishes about how a business connects, and where that record stops.',
+  lead: 'Cambodia\'s Government-as-a-Platform model rests on four national systems: CamDigiKey for digital identity, Bakong for payments, CamDX for data exchange between information systems, and CamInvoice for electronic invoicing. Each has its own legal basis. CamDigiKey is governed by Sub-Decree 207 of 2023, which gives the MEF the lead and the CamDX operator the operation. Bakong is the National Bank of Cambodia\'s payment system. CamDX is led and managed by the Ministry of Economy and Finance under Sub-Decree 164 of 2021. CamInvoice was launched by MEF Prakas 075 in January 2025 and is operated by the MEF\'s General Department of Digital Economy. This article sets out what each instrument and operator document establishes about how a business connects, and where that record stops.',
   // Claims removed 2026-08-31. Restore an entry only when its figure has been
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read.
@@ -142,12 +142,12 @@ export const cambodiaGaapArchitecture: ArticleContent = {
   sections: [
     {
       heading: 'Four Systems, Four Legal Bases',
-      content: 'The four systems were not created by one instrument, and they do not share one operator. Each rests on its own legal basis, issued at a different time by a different authority, and each sets its own terms for who may connect and how. What makes them a platform is that each is national: there is one identity system, one payment system, one data exchange and one invoicing system, and a business connects to each once rather than negotiating with competing providers.\n\nFor an architect, that has a practical consequence. Integration is four separate projects with four sets of credentials, membership rules and operators, and the design should keep them separable.',
+      content: 'The four systems were not created by one instrument. Each rests on its own legal basis, issued at a different time, and each sets its own terms for who may connect and how. They are not run by one body either: the NBC runs Bakong, while the MEF leads the other three, through the CamDX operator for CamDX and CamDigiKey and through its General Department of Digital Economy for CamInvoice. What makes them a platform is that each is national: there is one identity system, one payment system, one data exchange and one invoicing system, and a business connects to each once rather than negotiating with competing providers.\n\nFor an architect, that has a practical consequence. Integration is several separate projects with their own credentials and membership rules, and the design should keep them separable. The one built-in dependency is that CamDigiKey eKYC is reached through CamDX membership (Sub-Decree 207, Article 15).',
       table: {
         caption: 'Cambodia\'s four national systems and their legal basis',
         headers: ['Layer', 'System', 'Lead institution or operator', 'Legal basis'],
         rows: [
-          ['Identity', 'CamDigiKey', 'Set by Sub-Decree 207; integration terms set by the platform operator', 'Sub-Decree 207, 26 July 2023'],
+          ['Identity', 'CamDigiKey', 'Ministry of Economy and Finance (lead); the CamDX operator operates it on the MEF\'s behalf', 'Sub-Decree 207, 26 July 2023'],
           ['Payments', 'Bakong', 'National Bank of Cambodia', 'NBC; white paper, June 2020; KHQR Prakas F14-020-351'],
           ['Data exchange', 'CamDX', 'Ministry of Economy and Finance (lead); CamDX Operator (transactions)', 'Sub-Decree 164, 24 August 2021'],
           ['Invoicing', 'CamInvoice', 'MEF General Department of Digital Economy', 'MEF Prakas 075, 22 January 2025'],
@@ -156,7 +156,7 @@ export const cambodiaGaapArchitecture: ArticleContent = {
     },
     {
       heading: 'CamDigiKey: The Identity Layer',
-      content: 'CamDigiKey is Cambodia\'s national digital identity platform. Sub-Decree 207 of 26 July 2023 sets out the mechanisms, principles and procedures for managing it, framed around security, accountability and transparency.\n\nTwo limits matter to a business. The Sub-Decree does not itself require a private business to adopt CamDigiKey: where a firm uses it, it is usually to meet identity-verification duties that arise elsewhere, chiefly under AML/CFT obligations. And the technical integration terms are set by the platform operator, not by the Sub-Decree, so they should be taken from the operator\'s current documentation rather than from a summary.',
+      content: 'CamDigiKey is Cambodia\'s national digital identity platform. Sub-Decree 207 of 26 July 2023 sets out the mechanisms, principles and procedures for managing it, framed around security, accountability and transparency. The MEF leads and manages it (Article 4), the CamDX operator operates it on the MEF\'s behalf (Article 5), and the Ministry of Interior supplies the identification data used to verify new accounts (Article 6). A business that wants to use CamDigiKey eKYC must be a CamDX member and ask the CamDX operator for permission (Articles 15 and 16), and the account owner must consent each time the data is used (Article 18).\n\nTwo limits matter to a business. The Sub-Decree does not itself require a private business to adopt CamDigiKey: where a firm uses it, it is usually to meet identity-verification duties that arise elsewhere, chiefly under AML/CFT obligations. And the technical integration terms are set by the platform operator, not by the Sub-Decree, so they should be taken from the operator\'s current documentation rather than from a summary.',
     },
     {
       heading: 'Bakong: The Payment Layer',

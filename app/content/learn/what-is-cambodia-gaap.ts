@@ -1,6 +1,22 @@
 import { ArticleContent } from '../types';
 
 /*
+ * CamDigiKey operator and mandate correction, 2026-11-14 (targeted: the layers
+ * table operator cells and one FAQ). Read Sub-Decree 207 (26 July 2023, Open Development
+ * Cambodia English text): the MEF leads and manages CamDigiKey (Art. 4), the
+ * CamDX operator operates it on the MEF's behalf (Art. 5), and the Ministry of
+ * Interior supplies identification data (Art. 6). A private business that uses
+ * CamDigiKey eKYC must be a CamDX member and ask the CamDX operator for
+ * permission (Arts. 15-16); the account owner consents each time (Art. 18).
+ * Removed, not hedged: "operated by the Ministry of Post and
+ * Telecommunications", "under the Digital Government Committee", and any NBC
+ * mandate requiring CamDigiKey eKYC ("progressively mandating", "phased
+ * mandate ... by 2027", "rapidly becoming the mandatory gateway"). No
+ * instrument read creates one. Still unsourced and left for the general pass:
+ * X-Road as CamDX's technology (stated in neither Sub-Decree 164 nor the CamDX
+ * guidebook), the Digital Government Policy 2022-2035 and its targets, and
+ * "OAuth 2.0 single sign-on".
+ *
  * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences, rows and
  * FAQ answers only). Found false or untraceable, removed, not hedged:
  * - CamInvoice attributed to the General Department of Taxation as operator —
@@ -51,7 +67,7 @@ export const whatIsCambodiaGaaP: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-08',
+  updatedAt: '2026-11-14',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['gaap', 'bakong', 'camdigikey', 'camdx', 'caminvoice'],
@@ -78,7 +94,7 @@ export const whatIsCambodiaGaaP: ArticleContent = {
   faqs: [
     { question: 'What makes Cambodia\'s digital infrastructure different from other ASEAN countries?', answer: 'Most ASEAN countries built digital payment systems, identity platforms, and data exchanges independently over decades. Cambodia designed all four layers simultaneously as a unified stack under the Digital Government Policy 2022-2035. This deliberate architecture means the layers are interoperable by design, not retrofitted. A CamDigiKey identity verification can trigger a CamDX data query and initiate a Bakong payment in a single workflow.' },
     { question: 'Is Cambodia\'s GaaP model based on Estonia\'s?', answer: 'Yes, directly. Cambodia adopted Estonia\'s X-Road technology for CamDX and studied Estonia\'s digital identity and e-governance architecture extensively. However, Cambodia adapted the model for its dual-currency economy, mobile-first population, and specific regulatory requirements. The Bakong CBDC layer has no direct Estonian equivalent, as Estonia uses the euro.' },
-    { question: 'How does GaaP affect foreign investment in Cambodia?', answer: 'GaaP creates both opportunities and obligations. Foreign enterprises benefit from instant digital onboarding (CamDigiKey), real-time regulatory compliance (CamDX), low-cost payments (Bakong), and electronic invoicing (CamInvoice). However, integration with these platforms is increasingly mandatory, not optional. CamFinTech prepares the readiness and compliance work for these connections and builds the client side of the integration; the approval decisions rest with each platform\'s operator and regulator.' },
+    { question: 'How does GaaP affect foreign investment in Cambodia?', answer: 'GaaP creates both opportunities and obligations. Foreign enterprises benefit from instant digital onboarding (CamDigiKey), real-time regulatory compliance (CamDX), low-cost payments (Bakong), and electronic invoicing (CamInvoice). Which connections are obligatory differs by platform: CamInvoice is mandatory in phases for suppliers to designated ministries, CamDX membership is by application for private businesses, and using CamDigiKey eKYC requires CamDX membership and the operator\'s permission. CamFinTech prepares the readiness and compliance work for these connections and builds the client side of the integration; the approval decisions rest with each platform\'s operator and regulator.' },
   ],
   sections: [
     {
@@ -92,9 +108,9 @@ export const whatIsCambodiaGaaP: ArticleContent = {
         caption: 'Cambodia\'s Four GaaP Infrastructure Layers',
         headers: ['Layer', 'Platform', 'Function', 'Operator', 'Technology Foundation'],
         rows: [
-          ['Identity', 'CamDigiKey', 'Digital identity and eKYC', 'Ministry of Post and Telecommunications', 'Biometric AI, OAuth 2.0'],
+          ['Identity', 'CamDigiKey', 'Digital identity and eKYC', 'Ministry of Economy and Finance; operated by the CamDX operator (Sub-Decree 207)', 'Biometric AI, OAuth 2.0'],
           ['Payments', 'Bakong', 'CBDC and real-time settlement', 'National Bank of Cambodia', 'Hyperledger Iroha blockchain'],
-          ['Data Exchange', 'CamDX', 'Secure inter-agency data sharing', 'Digital Government Committee', 'X-Road (Estonia)'],
+          ['Data Exchange', 'CamDX', 'Secure inter-agency data sharing', 'Ministry of Economy and Finance; CamDX Operator (Sub-Decree 164)', 'X-Road (Estonia)'],
           ['Invoicing', 'CamInvoice', 'E-invoicing, mandatory in phases from 2025', 'Ministry of Economy and Finance (General Department of Digital Economy)', 'State e-invoice exchange platform (Prakas 075, 2025)'],
         ],
       },

@@ -1,6 +1,22 @@
 import { ArticleContent } from '../types';
 
 /*
+ * CamDigiKey operator and mandate correction, 2026-11-14 (targeted: these
+ * sentences only). Read Sub-Decree 207 (26 July 2023, Open Development
+ * Cambodia English text): the MEF leads and manages CamDigiKey (Art. 4), the
+ * CamDX operator operates it on the MEF's behalf (Art. 5), and the Ministry of
+ * Interior supplies identification data (Art. 6). A private business that uses
+ * CamDigiKey eKYC must be a CamDX member and ask the CamDX operator for
+ * permission (Arts. 15-16); the account owner consents each time (Art. 18).
+ * Removed, not hedged: "operated by the Ministry of Post and
+ * Telecommunications", "under the Digital Government Committee", and any NBC
+ * mandate requiring CamDigiKey eKYC ("progressively mandating", "phased
+ * mandate ... by 2027", "rapidly becoming the mandatory gateway"). No
+ * instrument read creates one. Still unsourced and left for the general pass:
+ * X-Road as CamDX's technology (stated in neither Sub-Decree 164 nor the CamDX
+ * guidebook), the Digital Government Policy 2022-2035 and its targets, and
+ * "OAuth 2.0 single sign-on".
+ *
  * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
  * here said CamFinTech "navigates the approval", "keeps them approved",
  * provides "approval-navigation", and that the build "is coordinated with
@@ -17,12 +33,12 @@ export const whatIsCamDigiKey: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-08',
+  updatedAt: '2026-11-14',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['camdigikey', 'camdx', 'gaap'],
   relatedInstruments: ['sub-decree-207-camdigikey'],
-  lead: 'CamDigiKey is Cambodia\'s national digital identity and electronic Know Your Customer (eKYC) platform, operated by the Ministry of Post and Telecommunications under the Digital Government Committee. Launched as part of Cambodia\'s Digital Government Policy 2022-2035, CamDigiKey provides citizens and residents with a single, government-verified digital identity that can be used for financial account opening, government service access, and private-sector authentication via OAuth 2.0 single sign-on. For FinTech companies operating in Cambodia, CamDigiKey is rapidly becoming the mandatory gateway for customer onboarding.',
+  lead: 'CamDigiKey is Cambodia\'s national digital identity and electronic Know Your Customer (eKYC) platform. Under Sub-Decree 207 of July 2023, the Ministry of Economy and Finance leads and manages it, and the operator of CamDX, the national data exchange, operates it on the Ministry\'s behalf. CamDigiKey provides a single, government-verified digital identity that can be used for government services and, with the account owner\'s consent each time, for identity verification by businesses. A FinTech company that wants to use CamDigiKey eKYC must be a CamDX member and ask the CamDX operator for permission; the Sub-Decree governs how the platform is run and does not itself oblige a business to adopt it.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -37,7 +53,7 @@ export const whatIsCamDigiKey: ArticleContent = {
   ],
   sourcesAsAt: '2026-11-04',
   faqs: [
-    { question: 'Is CamDigiKey mandatory for opening a bank account in Cambodia?', answer: 'Not yet universally, but the NBC is progressively mandating eKYC through CamDigiKey for new financial account openings. Several banks and all licensed payment service providers are already required to support CamDigiKey verification. The phased mandate is expected to cover all regulated financial institutions by 2027.' },
+    { question: 'Is CamDigiKey mandatory for opening a bank account in Cambodia?', answer: 'No instrument read for this page requires it. Sub-Decree 207 governs how CamDigiKey is managed and sets the terms on which a business may use its eKYC: membership of CamDX, the CamDX operator\'s permission, and the account owner\'s consent each time the data is used. A bank\'s or payment service institution\'s identity-verification duties come from AML/CFT law and NBC rules, and CamDigiKey is one way of meeting them. Check the current NBC instruments for any requirement specific to CamDigiKey.' },
     { question: 'How does CamDigiKey protect user privacy?', answer: 'CamDigiKey follows a consent-based data sharing model. When a FinTech company requests identity verification, the user must explicitly approve each data field shared. Biometric data is stored encrypted on government servers and never shared with third parties. The system complies with Cambodia\'s draft Personal Data Protection Law.' },
     { question: 'Can foreign nationals use CamDigiKey?', answer: 'Yes. Foreign nationals with valid Cambodian work permits or long-term visas can register for CamDigiKey using their passport and residency documents. The platform supports both Khmer national ID cards and foreign passports as source identity documents.' },
   ],
