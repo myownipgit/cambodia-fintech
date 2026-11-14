@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "node scripts/check-llms.mjs && next build && node scripts/check-nav.mjs",    "start": "next start",
     "lint": "eslint .",
     "check:llms": "node scripts/check-llms.mjs",
     "check:memory": "node scripts/check-memory.mjs",

@@ -20,11 +20,11 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 
 **Next in the figure pass:** `insights/cambodia-vs-regional-fintech` (its header says figures already removed 11-07 — check before redoing), `knowledge/cambodia-scf-opportunity` (cites an unfound NBC SCF circular). Also unsourced: "Digital Government Policy 2022-2035" targets on CamDX/GaaP learn pages.
 
-**Deploy method (unchanged):** clean worktree at the commit → copy node_modules + `.vercel/project.json` → `npm run build && npm run -s check:nav && npm run -s check:llms && vercel --prod --yes` — **never pipe a gate before `&&`** (a piped check let a failed gate deploy on 11-15). Re-date `updatedAt` if commits cross midnight.
+**Deploy method:** clean worktree at the commit → copy node_modules + `.vercel/project.json` → `npm run build && vercel --prod --yes`. `npm run build` now RUNS check:llms + check:nav itself (option C, 11-15, proven on Vercel); still run `npm run check:llms` locally — its updatedAt check skips on Vercel. If the CLI says `fetch failed`, `vercel inspect <url> --wait` before redeploying.
 
 **Loose ends:** untracked `2026-11-06-daily.md`, `2026-11-08-weekly.md`, `camfintech-sonnet-2026-11-08.md` (not this session's) and the GSC export `https___www.camfintech.com_-Performance-on-Search-2026-11-14.xlsx` in the repo root — leave unless Bill says otherwise. GSC weekly: first run 11-15 07:30 ICT; gcloud login expires ~fortnightly.
 
-**Git integration DOES deploy now:** every `git push origin main` creates a production deploy (`vercel ls --prod --meta githubCommitRef=main`: 5 on 11-15). CLAUDE.md says pushes no-op — wrong; Bill to decide (update doc, or disconnect). Until then: push `main` only after gates pass.
+**Pushing `main` deploys to production** (Git integration). Bill chose option C 11-15: checks live in `npm run build`, CLAUDE.md corrected. Fast-forward `main` only after the CLI deploy of that commit succeeds.
 
 **IRC data:** irc.gov.kh is a JS app; PDFs at `object.irc.gov.kh/irc-public/upload/...`, article JSON in `/en/article?post=<id>` `__NEXT_DATA__`. Don't query its GraphQL gateway (blocked as unauthorised).
 

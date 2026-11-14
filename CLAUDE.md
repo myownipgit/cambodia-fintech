@@ -23,13 +23,15 @@ This is a bilingual (English/Khmer) FinTech consulting website for Cambodia, bui
 ```bash
 npm install          # Install dependencies
 npm run dev          # Start development server on http://localhost:3000
-npm run build        # Build for production
+npm run build        # check:llms → next build → check:nav; fails if either check fails (also on Vercel)
 npm start            # Start production server
 npm run lint         # eslint .  — `next lint` was REMOVED in Next 16
 npm run check:llms   # guards public/llms*.txt against content-inventory drift
 npm run check:memory # guards the persistent-memory corpus against silent truncation
 npm run check:nav    # AFTER a build: every page has one header, one footer, links to every section
 ```
+
+**Since 2026-11-15 the build runs both site checks** — `"build"` in `package.json` is `check-llms → next build → check-nav`, so no deploy can ship with either failing, whether it comes from the CLI or a Git push (see Deploy method). Proven on Vercel's builder with a deliberately broken preview (footer removed → `Error`). Do not move the checks back out of `build`, and do not add a `next build`-only script as an escape hatch. Two caveats: the `updatedAt`-vs-git check inside `check:llms` needs full git history, so it runs **only locally** (it prints a skip notice on Vercel, where there is no `.git` or only a shallow clone) — run `npm run check:llms` before committing content; and on Vercel the prerendered HTML lands in `.next/server/route-cache/APP_PAGE/<hash>/$/`, not `.next/server/app/`, which `check-nav.mjs` reads both of.
 
 **Run `npm run check:llms` after any content change.** `public/llms.txt` and `public/llms-full.txt` are hand-maintained, have no build step, and drifted twice: they spent a day telling AI systems that restored content was "superseded", and the canonical page index listed two of five content sections while giving `/learn` as 6 articles when it held 12. The check verifies every section appears in both files, that published counts match the registries, that no content file is orphaned from its registry, and that the exact superseded wording has not returned. It exits non-zero — it is not advisory.
 
@@ -220,9 +222,13 @@ That is not hypothetical. The research this was built from asserted the 5%/3% CE
 
 It was **never chosen**. `.vercel/project.json` is in the initial commit (`d0f9e90`, 2025-11-24) — it arrived as the Next.js vendor default, and the question *"why Vercel"* had no recorded answer until 2026-10-18. It is now **ratified** on measured grounds (full static prerender on all 69 pages, `sin1` edge at 0.16–0.56 s TTFB, platform-served security headers, no recurring charge on Hobby) with the two workflow defects below recorded as accepted costs. Vault `Firm Operations/02_Decision_Log.md` → **ADR-008** carries the options, the revisit triggers and the consequences. **Do not migrate or upgrade without one of those triggers.**
 
-### Deploy method: `vercel --prod` CLI (not Git auto-deploy)
+### Deploy method: `vercel --prod` CLI — and pushing `main` ALSO deploys
 
-The Vercel Git integration is configured against `main` and theoretically deploys on push. **In practice, the Hobby plan blocks deploys when the commit author isn't a team member** — and the linked GitHub account (`myownipgit`) shows up as a non-team author, so pushes silently no-op for deploys. The CLI deploy bypasses this because it uses the local Vercel OAuth token as the identity, not the git commit author.
+**Corrected 2026-11-15.** This section used to say Git pushes silently no-op for deploys because the Hobby plan blocked non-team commit authors. **That is no longer true: every `git push origin main` creates a production deployment** (`vercel ls --prod --meta githubCommitRef=main` listed five on 2026-11-15, each a few seconds after a push). Pushes to `feature/update-homepage` produced no production deploy.
+
+Bill chose to keep the integration and **enforce the checks in the build instead** (option C, 2026-11-15): since `npm run build` runs `check:llms` and `check:nav`, a Git-triggered deploy that fails a check errors out and does not ship. The CLI deploy remains the primary method — it deploys a known working tree and its log shows the result. **Consequence for workflow: pushing `main` is a deploy.** Fast-forward `main` only to a commit you would deploy.
+
+`vercel --prod` and the CLI can drop their connection mid-build (`Error: fetch failed`) while the build carries on remotely. Check `vercel ls --prod` and wait with `vercel inspect <url> --wait` before re-deploying, or you deploy twice.
 
 There was historically a Vercel deploy webhook documented here — it is dead and has been removed from this doc. Do not attempt to use webhook-based deploys.
 
@@ -231,7 +237,7 @@ There was historically a Vercel deploy webhook documented here — it is dead an
 ```bash
 # 1. Make your code changes
 
-# 2. Verify the build before deploying
+# 2. Verify the build before deploying (runs check:llms and check:nav too)
 npm run build
 
 # 3. Commit (on whichever branch you are working — main or feature/update-homepage)
@@ -247,7 +253,8 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 EOF
 )"
 
-# 4. Push (history hygiene — does NOT trigger a deploy)
+# 4. Push. A push to feature/update-homepage does not deploy;
+#    a push to main DOES deploy to production (see above)
 git push origin <current-branch>
 
 # 5. Deploy from the local working directory
@@ -258,7 +265,7 @@ vercel --prod --yes
 
 ### Working branch → main hygiene
 
-When working on `feature/update-homepage`, periodically fast-forward `main` so the GitHub default branch reflects what's deployed:
+When working on `feature/update-homepage`, periodically fast-forward `main` so the GitHub default branch reflects what's deployed. **This push deploys** — do it after the CLI deploy of the same commit has succeeded, so it republishes what is already live:
 
 ```bash
 git checkout main

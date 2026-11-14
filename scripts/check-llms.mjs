@@ -159,7 +159,28 @@ const lastContentEdit = (file) => {
   return null;
 };
 
-for (const type of contentTypes) {
+// This sub-check needs full git history. Since 2026-11-15 the whole script also
+// runs inside `npm run build` on Vercel, where a CLI deploy uploads no .git and
+// a Git-integration build may clone shallow: with no repo `git log` throws, and
+// in a shallow clone every file appears last edited in the newest commit, which
+// would fail every page with an older date. So it runs only where the history
+// is complete (a local checkout) and says so when it skips. The rest of this
+// script does not depend on git and runs everywhere.
+const fullHistory = (() => {
+  try {
+    return execFileSync(
+      'git', ['rev-parse', '--is-shallow-repository'],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+    ).trim() === 'false';
+  } catch {
+    return false;
+  }
+})();
+if (!fullHistory) {
+  console.warn('llms check: no full git history here, so the updatedAt-vs-last-edit check is skipped (run `npm run check:llms` locally to include it)');
+}
+
+for (const type of fullHistory ? contentTypes : []) {
   const dir = join(articleDir, type);
   for (const file of readdirSync(dir).filter((f) => f.endsWith('.ts'))) {
     const abs = join(dir, file);
