@@ -1,131 +1,152 @@
 import { ArticleContent } from '../types';
 
+/*
+ * Figure pass, 2026-11-15. Rebuilt from the NBC registers as at 31 May 2026
+ * (read 2026-11-04), the NBC Annual Report on the Payment System 2024 (Khmer;
+ * foreword p. i; ch. 2 pp. 8-11 and the summary pp. ix-xi read 2026-11-15; ch. 6
+ * for the QR links), the NBC Bakong white paper, and the NBC's KHQR developer
+ * documents (read for learn/how-to-accept-khqr.ts). About 63 figures removed.
+ *
+ * Removed, not hedged, so nobody restores these from git:
+ * - Bakong as "a central bank digital currency (CBDC)" and "the real-time gross
+ *   settlement (RTGS) backbone connecting over 60 financial institutions". The
+ *   NBC white paper does not call Bakong a CBDC; the 2024 report gives 69
+ *   members, 60 live.
+ * - "over 400,000 registered merchant codes" (twice). The 2024 report's KHQR
+ *   merchant figure reads 4.5 or 8.5 million (Khmer 4/8 ambiguous); none stated.
+ * - "12 million digital payment users"; the payment-mix FAQ (cash 48%, KHQR
+ *   35%, transfers 12%, cards 5%, "NBC targeting 70% by 2028"); banking-sector
+ *   assets, deposits and loans; MFI borrowers, loans and "18% per annum"; the
+ *   wallet table (Wing 8.0M / 10,000+ agents, TrueMoney 3.5M, Pi Pay 2.8M, Ly
+ *   Hour 0.6M); "1.2 million Cambodian workers in Thailand", "400,000 in
+ *   Malaysia"; KHQR acceptance rates by city and sector; card and POS counts,
+ *   MDRs and the card-vs-KHQR table; the corridor volumes (USD 1.5bn / 800m /
+ *   500m), "ADB USD 3.5bn remittances", hawala costs; the e-commerce market,
+ *   PayWay "45%", the gateway paragraph and the payment-mix table; BNPL
+ *   "three licensed providers" and "NBC guidance ... 12 months". None read in
+ *   a primary.
+ * - "Future corridors under development include Vietnam, Laos, South Korea
+ *   and Japan" and "all 10 ASEAN member states by 2028". Laos and Vietnam
+ *   launched in 2023 and South Korea in 2024 (NBC 2024 report ch. 6); the
+ *   rest is unsourced. These are QR payment links, not remittance corridors.
+ * - Rankings and characterisations of named institutions: "ABA ... most
+ *   digitally advanced", "highest KHQR volumes", "ACLEDA ... largest", "Canadia
+ *   ... strongest corporate franchise", "TrueMoney ... CP Group", the "best
+ *   bank" FAQ, the "Key Players" column. Unsourced claims about named
+ *   institutions (ADR-006 register).
+ * - "The NBC has responded with interest rate caps ...", "The NBC has not
+ *   prioritized card payment expansion", "The NBC has launched targeted
+ *   campaigns ... subsidized smartphone programs". Unsourced statements about
+ *   a regulator's conduct.
+ * - Bakong smart-contract "pilot", bank "biometric payment pilots", G2P/IDPoor
+ *   on Bakong. Unsourced. The NBC's own 2024 developments are stated instead.
+ * - Closing lines "regulatory navigation" and "annual review of positioning".
+ *
+ * Kept from the 2026-11-04 register pass: 28 payment service institutions;
+ * PayGo and Chhip Pay are not on the register, which does not establish their
+ * status either way.
+ *
+ * Bar for restoring: read in a fetched NBC publication or register, recorded
+ * here with the page.
+ */
+
 export const cambodiaPaymentEcosystem: ArticleContent = {
   slug: 'cambodia-payment-ecosystem',
   title: 'Cambodia Payment Ecosystem Map: Banks, Wallets, and Infrastructure',
-  description: 'Comprehensive mapping of Cambodia\'s payment ecosystem covering commercial banks, microfinance institutions, mobile wallets, payment service providers, Bakong CBDC infrastructure, KHQR merchant acceptance, cross-border corridors, and emerging payment trends.',
+  description: 'A map of Cambodia\'s payment ecosystem from the National Bank of Cambodia\'s own registers and 2024 payment-system report: the licensed institutions, Bakong and KHQR, how payments move between institutions, the cross-border QR links, and what the NBC added in 2024.',
   type: 'knowledge',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
-  readingTime: 10,
+  updatedAt: '2026-11-15',
+  readingTime: 7,
   schema: 'TechArticle',
   relatedSlugs: ['bakong', 'khqr', 'nbc', 'how-to-accept-khqr'],
-  lead: 'Cambodia\'s payment ecosystem has undergone a remarkable transformation in the past five years, evolving from a predominantly cash-based economy into one of Southeast Asia\'s most digitally advanced payment landscapes. At the center of this transformation is the National Bank of Cambodia\'s (NBC) Bakong system, a central bank digital currency (CBDC) built on Hyperledger Iroha blockchain technology that serves as the real-time gross settlement (RTGS) backbone connecting over 60 financial institutions. The KHQR standardized QR code protocol has achieved ubiquitous merchant acceptance, with over 400,000 registered merchant codes nationwide. Around this core infrastructure, a diverse ecosystem of commercial banks, microfinance institutions (MFIs), mobile wallet operators, payment aggregators, and fintech startups has emerged, collectively serving over 12 million digital payment users. This article provides a comprehensive map of Cambodia\'s payment ecosystem, analyzing the role, capabilities, and market position of each participant category, and identifying the strategic opportunities and gaps that define the competitive landscape.',
-  // Claims removed 2026-08-31. This array previously carried figures attributed
-  // to named institutional reports with no URL, access date or page reference.
-  // A verified sample was wrong more often than not — including a Cambodian FATF
-  // mutual evaluation that never took place, and citations to bodies that do not
-  // exist under the names given. Restore an entry only when its figure has been
+  relatedInstruments: ['prakas-b14-017-161'],
+  lead: 'Cambodia\'s payment ecosystem is organised around shared national infrastructure. The National Bank of Cambodia (NBC) licenses the institutions, runs Bakong, the national payment system that moves riel and US dollar payments between them, and sets KHQR, the single QR code standard every participating bank and wallet accepts. The NBC\'s registers list 58 commercial banks, 7 specialized banks, 88 microfinance institutions and 28 payment service institutions as at 31 May 2026. Its 2024 payment-system report records 60 institutions live on Bakong, about 30 million accounts able to pay through it, and digital payment transactions up 78% in number on 2023. This article maps who does what in that system, using the NBC\'s own figures.',
+  // Claims removed 2026-08-31. Restore an entry only when its figure has been
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
-  // and record where it was read. See vault ADR-007.
-  // Added 2026-11-04 from the NBC register. This page previously said 37 licensed PSPs
-  // and labelled PayGo and Chhip Pay as PSPs; neither name is on the register, which
-  // does not establish their status either way. Their rows and mentions were removed.
+  // and record where it was read. Added 2026-11-04 from the NBC register; added
+  // 2026-11-15 from the NBC 2024 payment-system report.
   claims: [
-    { stat: 'The National Bank of Cambodia lists 28 payment service institutions as at 31 May 2026.', source: 'National Bank of Cambodia, List of Payment Service Institutions', year: '2026', url: 'https://nbc.gov.kh/files/supervision/payment-service/en/PSIs.pdf' },
+    { stat: 'The National Bank of Cambodia lists 58 commercial banks, 7 specialized banks, 88 microfinance institutions (3 deposit-taking and 85 non-deposit-taking) and 28 payment service institutions, as at 31 May 2026.', source: 'National Bank of Cambodia, Lists of Commercial Banks, Specialized Banks, Microfinance Deposit-Taking Institutions, Microfinance Institutions and Payment Service Institutions', year: '2026', url: 'https://nbc.gov.kh/files/supervision/payment-service/en/PSIs.pdf' },
+    { stat: 'The number of digital payment transactions in Cambodia grew 78% during 2024 and their value grew 38%, both measured against 2023. The National Bank of Cambodia puts the total value at approximately 15 times gross domestic product.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i', year: '2024', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf' },
+    { stat: 'By the end of 2024 Bakong had 69 member institutions, 60 of them live, and about 30 million accounts at member institutions could transact through it; it carried more than 600 million transactions in 2024, with a total value equal to 327% of GDP.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), ch. 2.1, printed pp. 8-9', year: '2024', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf' },
   ],
   sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Project Bakong: Next Generation Payment System, white paper, June 2020 (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-349 on the Bakong system rules and procedures, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-349-PR_Rule_and_Procedure.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'KHQR Content Guideline v1.3, November 2020 (PDF)', url: 'https://bakong.nbc.gov.kh/download/KHQR/integration/KHQR%20Content%20Guideline%20v.1.3.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'List of Commercial Banks, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/commercial-banks/en/Commercial_Banks.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'List of Specialized Banks, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/specialized-banks/en/Specialized_Banks.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'List of Microfinance Deposit-Taking Institutions, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/microfinance-deposit-taking-institutions/en/MDIs.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'List of Microfinance Institutions, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/microfinance-non-deposit-taking-institutions/en/MFIs.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'List of Payment Service Institutions, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/payment-service/en/PSIs.pdf', tier: 'primary' },
+    { publisher: 'Bank of Thailand', label: 'Press Release No. 9/2020: The Launch of Interoperable QR Payment Linkage between Cambodia and Thailand (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news-pdf/2020/n0963e.pdf', tier: 'primary' },
   ],
-  sourcesAsAt: '2026-11-04',
+  sourcesAsAt: '2026-11-15',
   faqs: [
-    { question: 'What is the dominant payment method in Cambodia?', answer: 'As of 2025, Cambodia has a mixed payment landscape. Cash remains the single largest payment method at approximately 48% of retail transactions by volume, but digital payments have reached 52% collectively. Within digital payments, KHQR (QR code payments via Bakong-connected bank apps and wallets) is the dominant method, accounting for approximately 35% of total retail transactions. Bank transfers (both Bakong and legacy systems) account for approximately 12%, and card payments (debit and credit) account for approximately 5%. The trend is strongly toward continued digital adoption, with the NBC targeting 70% digital payment share by 2028.' },
-    { question: 'Which bank has the best digital payment capabilities in Cambodia?', answer: 'ABA Bank (Advanced Bank of Asia) is widely regarded as Cambodia\'s most digitally advanced bank, with its ABA Mobile app consistently ranked as the most downloaded banking app in Cambodia. ABA processes the highest volume of KHQR transactions among commercial banks and offers the most comprehensive suite of digital services including bill payments, QR transfers, and merchant services. ACLEDA Bank, Cambodia\'s largest bank by assets and branch network, serves the highest number of customers overall (over 4 million accounts) and has the widest rural coverage. Wing Bank (formerly Wing Mobile) leads in mobile money and agent banking. The optimal bank partner depends on the enterprise\'s specific needs: urban digital commerce (ABA), nationwide coverage (ACLEDA), or mobile-first financial inclusion (Wing).' },
-    { question: 'Can foreign payment methods be used in Cambodia?', answer: 'International payment methods have limited acceptance in Cambodia outside of major hotels, airlines, and tourist-oriented businesses. Visa and Mastercard are accepted at approximately 15,000 POS terminals nationwide, primarily in Phnom Penh and Siem Reap. Alipay and WeChat Pay have merchant acceptance through the Bakong-Alipay corridor, primarily serving Chinese tourists. UnionPay has growing acceptance. However, the dominant payment method for everyday commerce is KHQR, which requires a Bakong-connected bank account at a Cambodian financial institution. Foreign visitors are encouraged to open a basic Bakong wallet through a participating bank or use card payments at accepting merchants.' },
+    { question: 'How many payment and banking institutions are licensed in Cambodia?', answer: 'The National Bank of Cambodia\'s registers list 58 commercial banks, 7 specialized banks, 88 microfinance institutions (3 deposit-taking and 85 non-deposit-taking) and 28 payment service institutions, as at 31 May 2026. The registers are updated over time, so check the NBC\'s current lists before relying on any count or on whether a particular firm is licensed.' },
+    { question: 'Is Bakong a central bank digital currency?', answer: 'Not on the NBC\'s own account. Its white paper of June 2020 describes Bakong as a next-generation payment system built on Hyperledger Iroha, and does not describe it as a central bank digital currency. Bakong moves riel and US dollar payments between the accounts and wallets of its member institutions, of which 60 were live at the end of 2024.' },
+    { question: 'Can foreign visitors pay in Cambodia with their own apps?', answer: 'Some can. The NBC\'s 2024 payment-system report records QR payment links with Thailand, Laos, Vietnam, Malaysia and South Korea, and with the UnionPay and Alipay+ networks, which let a visitor pay a Cambodian KHQR merchant from a home-country app. Which apps work at a given merchant, and how currency conversion is handled, depends on the link and on the merchant\'s acquiring institution.' },
   ],
   sections: [
     {
-      heading: 'Ecosystem Architecture and Participants',
-      content: 'Cambodia\'s payment ecosystem operates through a layered architecture with the NBC at the apex, operating both the Bakong RTGS infrastructure and the regulatory framework that governs all participants. Below the central infrastructure layer, the ecosystem comprises four participant categories: commercial banks, specialized banks and microfinance institutions (MFIs), licensed payment service providers (PSPs), and unlicensed but tolerated participants (primarily informal money transfer agents).\n\nThe NBC\'s regulatory approach has been to consolidate the payment landscape around Bakong infrastructure. Bakong members must follow its rules under NBC Prakas F14-020-349, and banks and financial institutions that use QR codes for payments must follow the KHQR standard under Prakas F14-020-351. This common standard supports an interoperable payment network rather than the fragmented landscape of proprietary payment silos common in other developing markets. The result is that a customer of any Bakong-connected institution can pay any KHQR-registered merchant, regardless of which institution either party uses.\n\nThe ecosystem also includes supporting infrastructure providers: payment gateway companies that facilitate e-commerce transactions, card acquirers and processors, ATM network operators, and technology vendors providing core banking systems, fraud detection platforms, and compliance solutions. Mapping this ecosystem is the first step in identifying integration partners and an entry strategy.',
+      heading: 'How the Ecosystem Is Organised',
+      content: 'The NBC sits at the centre in two roles. It licenses and supervises banks, microfinance institutions and payment service institutions, and it runs the shared infrastructure they use: Bakong for moving payments between institutions, under Prakas F14-020-349 of June 2020, and the KHQR standard for QR payments, under Prakas F14-020-351 of the same month. Its 2024 report lists the national payment systems it operates, among them the National Clearing System, the FAST payment system, the Online Banking System, Bakong, Retail Pay and the Cambodian Shared Switch.\n\nThe effect of a single QR standard and a shared payment system is interoperability by design. A customer of any participating institution can pay any KHQR merchant, whichever institution either side uses, rather than each bank or wallet running its own closed network.',
       table: {
-        caption: 'Cambodia Payment Ecosystem Participant Categories',
-        headers: ['Category', 'Count', 'Regulator', 'Key Players', 'Primary Services'],
+        caption: 'Licensed institutions on the NBC registers, as at 31 May 2026',
+        headers: ['Category', 'Count', 'Register'],
         rows: [
-          ['Commercial Banks', '58 (as at 31 May 2026)', 'NBC', 'ACLEDA, ABA, Canadia, BRED, Phillip', 'Full banking, payments, lending'],
-          ['Specialized Banks', '7 (as at 31 May 2026)', 'NBC', 'AEON, KB Daehan, Southern Capital', 'Niche banking services'],
-          ['Microfinance Institutions', '88 (as at 31 May 2026)', 'NBC', 'LOLC, Amret, Mohanokor (deposit-taking)', 'Micro-lending, savings, payments'],
-          ['Payment Service Providers', '28 (as at 31 May 2026)', 'NBC', 'TrueMoney, Pi Pay, Ly Hour Pay Pro', 'E-wallets, remittance, merchant services'],
+          ['Commercial banks', '58', 'NBC List of Commercial Banks'],
+          ['Specialized banks', '7', 'NBC List of Specialized Banks'],
+          ['Microfinance institutions, deposit-taking', '3', 'NBC List of Microfinance Deposit-Taking Institutions'],
+          ['Microfinance institutions, non-deposit-taking', '85', 'NBC List of Microfinance Institutions'],
+          ['Payment service institutions', '28', 'NBC List of Payment Service Institutions'],
         ],
       },
     },
     {
-      heading: 'Commercial Banking Landscape',
-      content: 'Cambodia\'s commercial banking sector comprises 58 licensed banks (as at 31 May 2026) ranging from large domestic institutions with nationwide branch networks to small foreign bank subsidiaries serving niche markets. The sector has consolidated significantly since 2020, with several smaller banks acquired by larger players or voluntarily surrendering their licenses. Total banking sector assets reached USD 72.3 billion in 2024, with deposits of USD 38.5 billion and outstanding loans of USD 45.2 billion.\n\nEstablished banks include ACLEDA, ABA, Canadia, BRED, and Phillip Bank. ACLEDA Bank was originally a microfinance institution and converted to a commercial bank in 2003. ABA Bank, majority-owned by National Bank of Canada, leads in digital banking with the most active mobile app and highest KHQR transaction volumes. Canadia Bank, locally owned, has the strongest corporate banking franchise. BRED Bank Cambodia, a subsidiary of France\'s Groupe BPCE, serves the upper retail and SME segments.\n\nFor enterprise payment integration, the choice of banking partner is critical as it determines the quality of Bakong API access, KHQR merchant onboarding support, and treasury management capabilities. A bank capabilities matrix, scored against the specific requirements of the integration, is worth assembling before partner selection.',
-      // Top-10 bank table removed 2026-11-04. Its figures were unsourced and it listed
-      // Prince Bank, which is not on the NBC register. Restore only from published accounts.
+      heading: 'Banks, Microfinance Institutions and Payment Service Institutions',
+      content: 'Commercial banks provide accounts, lending and payment services, and can sign up KHQR merchants. Specialized banks are a separate licence category on the NBC register. Microfinance institutions lend, and the deposit-taking ones also take savings. Payment service institutions are licensed under NBC Prakas B14-017-161 to provide payment services; the Prakas provides for a single payment service institution licence rather than categories. The 2024 report\'s panel of Bakong\'s 60 live members includes banks, microfinance institutions and payment service institutions.\n\nThe registers name each licensed institution, and they are the right place to confirm a counterparty. Some well-known brands are licensed in a different category from the one their history suggests: Wing, which began as a mobile money operator, now appears on the register as a commercial bank. A firm that is not on any register may be unlicensed, may operate under another regulator, or may have changed its name; the register alone does not say which.',
     },
     {
-      heading: 'Microfinance and Financial Inclusion',
-      content: 'Cambodia\'s microfinance sector is one of the largest and most mature in Asia, with 88 MFIs on the NBC register (3 deposit-taking and 85 non-deposit-taking, as at 31 May 2026) collectively serving over 2.5 million borrowers with outstanding loans of USD 12.8 billion. The sector has been a critical driver of financial inclusion, extending financial services to rural populations and informal sector workers who cannot access commercial banking.\n\nMFIs play a dual role in Cambodia\'s payment ecosystem. First, they serve as Bakong access points for customers in areas where commercial bank branches are sparse. Second, MFI agent networks provide cash-in and cash-out services for digital wallets, functioning as the bridge between the cash economy and the digital payment ecosystem.\n\nHowever, the MFI sector has faced scrutiny over high interest rates (average 18% per annum for secured microloans), aggressive lending practices, and borrower over-indebtedness. The NBC has responded with interest rate caps, enhanced consumer protection requirements, and mandatory credit bureau reporting. For fintech companies, MFIs represent both distribution partners (through agent networks and customer relationships) and competitive targets (through lower-cost digital lending models).\n\nMFI partnerships take three common shapes: agent network sharing, co-lending, and technology licensing.',
+      heading: 'Bakong: The Shared Payment System',
+      content: 'Bakong, launched on 28 October 2020, is the NBC\'s national payment system. The NBC\'s white paper describes it as a next-generation payment system built on Hyperledger Iroha, not a central bank digital currency. It connects the payment services of its members so that a customer of one bank or wallet can pay a customer of another.\n\nAt the end of 2024, 60 institutions were live on Bakong and nine more were integrating. About 30 million accounts at member institutions could transact through it, more than Cambodia\'s population, although only 642,500 accounts were registered on the Bakong app itself: most people use Bakong through their own bank\'s or wallet\'s app. Bakong carried more than 600 million transactions in 2024, with a total value equal to 327% of GDP. Riel transactions were 49% of the number and 30% of the value.',
     },
     {
-      heading: 'Mobile Wallets and Payment Service Providers',
-      content: 'The NBC\'s register lists 28 payment service institutions as at 31 May 2026. The mobile wallet market is dominated by three players: Wing Bank (the most established mobile money operator with over 8 million registered accounts), TrueMoney Cambodia (backed by Thailand\'s Ascend Money, part of the CP Group), and Pi Pay (Cambodia\'s homegrown fintech offering QR payments and lifestyle services).\n\nWing, originally launched as a mobile money operator in 2009, is now on the NBC register as a commercial bank. Wing\'s extensive agent network of over 10,000 agents nationwide makes it the primary cash-in/cash-out infrastructure for Cambodia\'s digital economy. TrueMoney Cambodia focuses on cross-border remittance from Thailand (serving the estimated 1.2 million Cambodian workers in Thailand) and has leveraged its parent company\'s ASEAN network for regional connectivity. Pi Pay has differentiated through merchant partnerships, offering cashback rewards and loyalty programs that drive repeat usage.\n\nThe PSP landscape also includes specialized players: Ly Hour Pay Pro (linked to Ly Hour Exchange, focusing on FX and remittance), and several niche operators targeting specific verticals (insurance premium collection, agricultural supply chain payments, transportation ticketing).',
+      heading: 'KHQR: One Standard for QR Payments',
+      content: 'KHQR is the national QR code standard, set by Prakas F14-020-351. It follows the EMVCo format for merchant-presented QR codes, and the NBC\'s KHQR Content Guideline sets out the Cambodian content: a static code, printed once and used with an amount the customer enters, and a dynamic code, generated for each transaction with the amount built in. Every participating bank and wallet app can pay any KHQR code.\n\nA merchant accepts KHQR through a bank or payment service institution that is a Bakong member, which decides on the application and sets its own fees. The NBC publishes an SDK for generating codes and an API for checking payment status, so a merchant with a till system or online checkout can generate dynamic codes and confirm payment automatically.',
+    },
+    {
+      heading: 'Digital Payment Growth',
+      content: 'The NBC\'s 2024 payment-system report records the number of digital payment transactions in Cambodia growing 78% on 2023 and their value 38%, with total value approximately 15 times GDP. Within Bakong, riel use grew fastest: the number of riel transactions more than quadrupled on 2023, against a 132% rise for dollar transactions.\n\nThese are usage measures, and they say nothing about how much of all retail spending has moved off cash; the report read for this page gives no such share. Figures that circulate for cash versus digital shares of retail payments should be traced to their source before they are relied on.',
+    },
+    {
+      heading: 'Cross-Border QR Payment Links',
+      content: 'Bakong\'s links abroad are QR payment links: they let a customer pay a merchant across the border by scanning a QR code. They are not remittance services. Thailand was first, launched in February 2020 and announced by the Bank of Thailand. The NBC\'s 2024 report records the links that followed.',
       table: {
-        caption: 'Leading Mobile Wallets and PSPs in Cambodia (2025)',
-        headers: ['Provider', 'License Type', 'Registered Users', 'Agent Network', 'Key Differentiator'],
+        caption: 'Bakong QR payment links recorded by the NBC (Annual Report on the Payment System 2024, ch. 6)',
+        headers: ['Counterpart', 'Launch recorded', 'Later phase'],
         rows: [
-          ['Wing Bank', 'Commercial Bank', '8.0M', '10,000+', 'Largest agent network, rural coverage'],
-          ['TrueMoney Cambodia', 'PSP', '3.5M', '4,500', 'Cross-border (Thailand), CP Group backing'],
-          ['Pi Pay', 'PSP', '2.8M', 'Digital-only', 'Merchant rewards, lifestyle services'],
-          ['Ly Hour Pay Pro', 'PSP', '0.6M', '350', 'FX services, remittance'],
+          ['Thailand', '18 February 2020', 'Phase 2, 6 June 2023'],
+          ['Laos', '18 August 2023', '—'],
+          ['Vietnam', '3 December 2023', '—'],
+          ['UnionPay network', '22 December 2023', '—'],
+          ['South Korea', '29 August 2024', '—'],
+          ['Malaysia', '19 September 2024 (QR)', 'Phase 2, 8 April 2025'],
+          ['Alipay+ network', '14 October 2024', '—'],
         ],
       },
     },
     {
-      heading: 'KHQR Merchant Acceptance Landscape',
-      content: 'KHQR has achieved remarkable merchant acceptance since its launch, with over 400,000 registered merchant codes by Q1 2025. The NBC\'s strategy of setting a single QR standard — rather than allowing competing proprietary QR codes — eliminated the fragmentation problem that plagued other markets. In Thailand, for example, merchants needed separate QR codes for PromptPay, TrueMoney, LINE Pay, and each bank\'s proprietary system before standardization efforts took effect.\n\nMerchant KHQR adoption follows a clear geographic and sector pattern. In Phnom Penh and Siem Reap, KHQR acceptance exceeds 80% of formal retail establishments, including restaurants, convenience stores, pharmacies, and service providers. In secondary cities (Battambang, Sihanoukville, Kampong Cham), acceptance is approximately 50-60%. In rural areas, acceptance drops to 20-30%, primarily at mobile network agent shops, larger marketplaces, and government offices.\n\nBy sector, the highest KHQR penetration is in food and beverage (restaurants, cafes, street food vendors), retail (convenience stores, supermarkets, fashion), and services (salons, repair shops, healthcare clinics). The lowest penetration is in wet markets (traditional open-air markets where cash culture remains strong), transportation (tuk-tuks, taxis, bus operators), and informal sector businesses. The NBC has launched targeted campaigns to increase KHQR adoption among market vendors and transportation providers, including subsidized smartphone programs and simplified merchant registration processes.',
+      heading: 'What the NBC Added in 2024',
+      content: 'The 2024 report describes several developments that shape where the ecosystem is heading. Electronic customer registration (eKYC) through Bakong, built with the Techo Startup Center on identity data from the Ministry of Interior, is meant to make customer onboarding at member institutions easier. Account linking lets a customer connect a bank account to the Bakong app: 23 institutions had completed it by the end of 2024 and 33 more were working on it. On 19 March 2024 the NBC issued guidance to banks, microfinance institutions and payment service institutions on promoting the use of riel in payment services. And after Bakong\'s retail payments, the NBC piloted Bakong for large-value payments, using distributed ledger technology.',
     },
     {
-      heading: 'Card Payments and POS Infrastructure',
-      content: 'Card-based payments (debit and credit cards) represent a small but growing segment of Cambodia\'s payment ecosystem, accounting for approximately 5% of retail transaction volume. Cambodia has approximately 2.8 million debit cards and 350,000 credit cards in circulation, primarily issued by commercial banks. Visa and Mastercard are the dominant card networks, with JCB and UnionPay having smaller but growing acceptance.\n\nThe POS terminal infrastructure comprises approximately 15,000 terminals nationwide, concentrated in Phnom Penh (60%), Siem Reap (15%), and Sihanoukville (8%). Terminal deployment is handled by acquiring banks, primarily ABA Bank, ACLEDA Bank, and Foreign Trade Bank. The typical merchant discount rate (MDR) ranges from 1.5-3.0% for card transactions, significantly higher than the near-zero cost of KHQR payments, which has limited card adoption at smaller merchants.\n\nThe NBC has not prioritized card payment expansion, viewing KHQR and Bakong as the preferred digital payment channels. This creates an interesting market dynamic where Cambodia may effectively skip the card era and transition directly from cash to QR-based digital payments, similar to China\'s experience with Alipay and WeChat Pay. For enterprises, this means that card payment acceptance is necessary primarily for international customer segments (tourists, expat communities) while domestic payment strategy should center on KHQR.',
-      table: {
-        caption: 'Card vs. KHQR Payment Economics for Merchants',
-        headers: ['Metric', 'Card Payment (Visa/MC)', 'KHQR Payment', 'Cash', 'Impact on Merchant'],
-        rows: [
-          ['Merchant Discount Rate', '1.5-3.0%', '0.0-0.3%', '0%', 'KHQR 80-100% cheaper than cards'],
-          ['Settlement Time', 'T+1 to T+3', 'Instant (< 2 seconds)', 'Immediate', 'KHQR matches cash immediacy'],
-          ['Equipment Cost', 'USD 150-400 (POS terminal)', 'USD 0 (printed QR)', 'USD 0', 'KHQR eliminates hardware cost'],
-          ['Chargeback Risk', 'Yes (90-day window)', 'No (settlement is final)', 'No', 'KHQR eliminates chargeback risk'],
-          ['Reconciliation', 'Manual (daily batch file)', 'Automated (real-time webhook)', 'Manual counting', 'KHQR automates reconciliation'],
-          ['International Acceptance', 'Yes (global cards)', 'No (Cambodian banks only)', 'Yes (universal)', 'Cards needed for foreign customers'],
-        ],
-      },
-    },
-    {
-      heading: 'Cross-Border Payment Corridors',
-      content: 'Cambodia\'s cross-border payment infrastructure has expanded rapidly through Bakong\'s bilateral linkages with regional payment systems. The primary corridors serve two flows: inbound remittances from Cambodian migrant workers abroad (primarily Thailand, Malaysia, South Korea, and Japan) and outbound trade payments to supplier countries (China, Thailand, Vietnam). The ADB estimates total cross-border remittance flows to Cambodia at approximately USD 3.5 billion annually, representing over 10% of GDP.\n\nThe Bakong-PromptPay corridor with Thailand is the most active, processing over USD 1.5 billion annually. This corridor directly serves the estimated 1.2 million Cambodian workers in Thailand, who previously relied on informal money transfer agents (hawala networks) charging 5-10% of transaction value. The Bakong-PromptPay linkage reduced costs to under 5% and improved speed from 1-3 days to real-time. The Bakong-DuitNow corridor with Malaysia serves approximately 400,000 Cambodian workers and processes approximately USD 800 million annually.\n\nThe Bakong-Alipay corridor with China operates differently, primarily serving Chinese tourists and businesses in Cambodia rather than remittance flows. Chinese visitors can pay at Cambodian KHQR merchants using their Alipay app, with FX conversion handled at the PBOC midpoint rate. This corridor processed approximately USD 500 million in 2024, driven by the recovery of Chinese tourism to Cambodia.\n\nFuture corridors under development include Vietnam (NAPAS), Laos (LAPNet), South Korea (Bank of Korea instant payment system), and Japan (Zengin System). The NBC\'s stated goal is to have bilateral payment linkages with all 10 ASEAN member states by 2028.',
-    },
-    {
-      heading: 'E-Commerce Payment Infrastructure',
-      content: 'Cambodia\'s e-commerce market, valued at approximately USD 1.2 billion in 2024, is growing at 25% annually and driving demand for online payment infrastructure. The e-commerce payment landscape differs significantly from in-store payments, with payment gateways, aggregators, and buy-now-pay-later (BNPL) providers playing central roles.\n\nPayWay, operated by ABA Bank, is Cambodia\'s leading payment gateway, processing approximately 45% of online payment transactions. PayWay supports KHQR (the most popular online payment method), card payments (Visa, Mastercard, JCB), and ABA-specific payment methods. iPay88, a regional payment aggregator backed by South Korea\'s NHN, provides multi-bank KHQR integration for merchants that want to accept payments from all Bakong-connected institutions without individual bank integrations. Midtrans (Stripe-owned) offers international payment acceptance with local Cambodian payment method support.\n\nBuy-now-pay-later (BNPL) services have emerged as a fast-growing segment, with three licensed providers offering installment payment options for e-commerce purchases. The NBC has issued specific guidance on BNPL operations, requiring transparent fee disclosure, maximum installment periods of 12 months, and mandatory credit bureau reporting for delinquent accounts.\n\nFor enterprises building e-commerce operations in Cambodia, prioritise KHQR as the primary payment method (accounting for 55-60% of online payment volume), supplementing with card payments for international customers, and evaluating BNPL integration for high-value consumer goods categories.',
-      table: {
-        caption: 'Cambodia E-Commerce Payment Method Market Share (2024)',
-        headers: ['Payment Method', 'Market Share', 'Avg. Transaction Value', 'Conversion Rate', 'Settlement Speed', 'Best For'],
-        rows: [
-          ['KHQR (via gateway)', '55%', 'USD 18', '92%', 'Instant', 'Domestic customers, all price points'],
-          ['Bank Transfer (Bakong)', '15%', 'USD 45', '85%', 'Instant', 'High-value purchases'],
-          ['Visa/Mastercard', '12%', 'USD 65', '78%', 'T+1 to T+3', 'International customers, subscriptions'],
-          ['Cash on Delivery', '10%', 'USD 22', '65%', 'Upon delivery', 'First-time buyers, rural areas'],
-          ['BNPL', '5%', 'USD 120', '88%', 'Instant (to merchant)', 'Electronics, furniture, fashion'],
-          ['Other (JCB, UnionPay)', '3%', 'USD 55', '75%', 'T+1 to T+3', 'Japanese, Chinese customers'],
-        ],
-      },
-    },
-    {
-      heading: 'Emerging Payment Trends and Opportunities',
-      content: 'Several emerging trends are reshaping Cambodia\'s payment ecosystem and creating opportunities for fintech innovation. First, embedded payments are gaining traction as non-financial platforms (food delivery, ride-hailing, e-commerce marketplaces) integrate Bakong payment capabilities directly into their user experience, eliminating the need to switch between apps. Second, subscription billing and recurring payments are growing as Cambodian consumers adopt streaming services, SaaS products, and insurance with monthly premiums, creating demand for automated payment scheduling on Bakong rails.\n\nThird, programmable payments leveraging Bakong\'s smart contract capabilities (currently in pilot phase) will enable conditional payment execution — for example, releasing escrow funds upon delivery confirmation, splitting payments between suppliers automatically, or executing supply chain financing disbursements triggered by verified CamInvoice submissions. Fourth, biometric payments are being piloted by several banks, allowing customers to authenticate KHQR payments using facial recognition through the bank app, eliminating the need to enter PINs for low-value transactions.\n\nFifth, government-to-person (G2P) payments are migrating to Bakong rails. The Cambodian government\'s social protection programs, including the IDPoor cash transfer program and COVID-era emergency assistance, have adopted Bakong for direct disbursement to beneficiary accounts. This creates a reliable income stream for Bakong wallet holders and reinforces digital payment adoption among the rural poor.\n\nConsumer behaviour and infrastructure capability are both moving quickly enough to warrant an annual review of positioning.',
-    },
-    {
-      heading: 'Strategic Gaps and Investment Opportunities',
-      content: 'Despite Cambodia\'s rapid payment digitization, several strategic gaps present opportunities for fintech investors and operators. The merchant services gap is the most prominent: while KHQR merchant acceptance is widespread, the value-added services layer (inventory management, CRM, analytics, loyalty programs integrated with payment acceptance) remains underdeveloped. Merchants who accept KHQR lack the tools to analyze payment data, segment customers, or run targeted promotions — capabilities that Square, Toast, and Grab have built in other markets.\n\nThe B2B payments gap is significant. While retail KHQR payments are well-established, business-to-business payment automation remains primitive. Most Cambodian enterprises manage supplier payments through manual bank transfers, with limited integration between accounting systems and payment infrastructure. The opportunity for automated B2B payment platforms that integrate CamInvoice (invoice data), Bakong (settlement), and ERP systems (accounting) is substantial.\n\nThe insurance premium collection gap exists because Cambodia\'s insurance penetration is among the lowest in ASEAN (approximately 1% of GDP), partly due to the difficulty of collecting premiums from customers without bank accounts. Digital payment rails now enable micro-premium collection from mobile wallets, unlocking the mass-market insurance opportunity.\n\nThe cross-border e-commerce payment gap reflects Cambodia\'s growing middle class purchasing from regional e-commerce platforms (Shopee, Lazada, Temu) but lacking convenient payment options. Local payment gateways that bridge Cambodian KHQR with regional e-commerce platforms represent an underserved market.\n\nActing on these opportunities requires market analysis, regulatory navigation, and technical integration in combination.',
+      heading: 'Where the Opportunities Lie',
+      content: 'The shared infrastructure changes where a new entrant can add value. Moving money between institutions, and a QR standard every app accepts, are already provided. What sits on top of them is less developed: merchant tools that use payment data, reconciliation between payments and accounting systems, and business-to-business payment flows that connect invoices, including those issued through CamInvoice, to settlement on Bakong.\n\nAny of these starts from the same two decisions: which licensed institution to work with, since a non-bank reaches Bakong through a member, and whether the activity itself needs a licence, such as a payment service institution licence under Prakas B14-017-161. Both are matters to settle with the institution and, for the licensing question, with Cambodian counsel, before the build.',
     },
   ],
 };
