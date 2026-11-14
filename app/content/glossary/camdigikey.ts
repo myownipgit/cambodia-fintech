@@ -30,7 +30,7 @@ export const camdigikey: ArticleContent = {
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-07',
+  updatedAt: '2026-11-08',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'camdx', 'gaap'],

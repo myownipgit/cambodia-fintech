@@ -17,7 +17,7 @@ export const howToAcceptKHQR: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
+  updatedAt: '2026-11-08',
   readingTime: 5,
   schema: 'Article',
   relatedSlugs: ['khqr', 'bakong', 'nbc'],
