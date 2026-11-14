@@ -5,9 +5,9 @@ This file tracks the current session state to enable seamless recovery between s
 ## Start here
 _Rewrite this block at the end of every session. Keep it under 30 lines. History is below._
 
-**As of 2026-11-15 (session closed).** Production `dpl_7Yb29KfW6Zch5RLBc2gR1Mg45RFU` = `3a508f3`, `main` fast-forwarded to it. Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
+**As of 2026-11-15 (session closed).** Production `dpl_73NQJDnZnyKVPXi5QRQP7sCekYvm` = `e7a00a4`, `main` fast-forwarded to it. Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
 
-**This session (2026-11-14/15), all DEPLOYED:** GEO sensor gained a weekly Search Console sub-sensor (Hermes `6dd4a27b5782`, Sun 07:30 ICT). Header/Footer moved into `app/layout.tsx` + `npm run check:nav` (only 3 of 69 pages had them; 23/69 URLs unindexed). Figure pass, rebuilt from fetched primaries: ASEAN comparison, compliance-as-a-service, GaaP architecture, digital identity, Bakong metrics, AML requirements, how-to-accept-KHQR, payment ecosystem, Bakong technical integration, how-bakong-works, glossary/bakong, insights/cambodia-digital-payment-growth (`3a508f3`: NBC + Global Findex; the page's 73% digital-payment use is 32.3%); X-Road sourced on 6 pages; MPTC/mid-2026 claims corrected; 4 surviving approval-agency lines removed. Detail in the session log below.
+**This session (2026-11-14/15), all DEPLOYED:** GEO sensor gained a weekly Search Console sub-sensor (Hermes `6dd4a27b5782`, Sun 07:30 ICT). Header/Footer moved into `app/layout.tsx` + `npm run check:nav` (only 3 of 69 pages had them; 23/69 URLs unindexed). Figure pass, rebuilt from fetched primaries: ASEAN comparison, compliance-as-a-service, GaaP architecture, digital identity, Bakong metrics, AML requirements, how-to-accept-KHQR, payment ecosystem, Bakong technical integration, how-bakong-works, glossary/bakong, insights/cambodia-digital-payment-growth (`3a508f3`: NBC + Global Findex; 73% digital-payment use is really 32.3%), glossary/embedded-insurance (`e7a00a4`: IRC market data, premiums USD 367.0m 2025 ≈0.8% of GDP not 1.5%; IRC insurtech sandbox); X-Road sourced on 6 pages; MPTC/mid-2026 claims corrected; 4 surviving approval-agency lines removed. Detail in the session log below.
 
 **Key facts established (memory: `project_corpus_evidence_bar`):** MEF leads CamDigiKey AND CamDX; the CamDX operator (Techo Startup Center) runs both (Sub-Decrees 207, 164). X-Road sourced (camdx.gov.kh + NIIS). Bakong 2024 metrics (NBC report ch. 2, Khmer 4/8 caveat). AML/CFT Law 2020 English text (Bun & Associates PDF). NBC's English KHQR/Open API developer docs on bakong.nbc.gov.kh — the real Open API has no webhooks; error codes are 1-10.
 
@@ -18,11 +18,15 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 - Request Indexing in Search Console for `/regulatory`, `/insights`, instrument pages, and the 3 crawled-not-indexed pages (rewritten 11-07, crawled before).
 - Older: riel.report subscribe form test; real phone + Safari check; disabled key `662dd13d…` / `~/Downloads/key.json`; LinkedIn text; Khmer reader for Terms/Privacy; Traefik v3.7 migration.
 
-**Next in the figure pass:** `glossary/embedded-insurance` (~20 figures, register fixed only), `learn/supply-chain-finance-cambodia`, `insights/cambodia-vs-regional-fintech` (its header says figures already removed 11-07 — check before redoing), `knowledge/cambodia-scf-opportunity` (cites an unfound NBC SCF circular). Also unsourced: "Digital Government Policy 2022-2035" targets on CamDX/GaaP learn pages.
+**Next in the figure pass:** `learn/supply-chain-finance-cambodia`, `insights/cambodia-vs-regional-fintech` (its header says figures already removed 11-07 — check before redoing), `knowledge/cambodia-scf-opportunity` (cites an unfound NBC SCF circular). Also unsourced: "Digital Government Policy 2022-2035" targets on CamDX/GaaP learn pages.
 
 **Deploy method (unchanged):** clean worktree at the commit → copy node_modules + `.vercel/project.json` → `npm run build && npm run -s check:nav && npm run -s check:llms && vercel --prod --yes` — **never pipe a gate before `&&`** (a piped check let a failed gate deploy on 11-15). Re-date `updatedAt` if commits cross midnight.
 
 **Loose ends:** untracked `2026-11-06-daily.md`, `2026-11-08-weekly.md`, `camfintech-sonnet-2026-11-08.md` (not this session's) and the GSC export `https___www.camfintech.com_-Performance-on-Search-2026-11-14.xlsx` in the repo root — leave unless Bill says otherwise. GSC weekly: first run 11-15 07:30 ICT; gcloud login expires ~fortnightly.
+
+**Unexplained prod deploys 11-15:** `473cc3g83` (~01:18 ICT), `pneivh940` + `llkkc7yoj` (01:34) — not this session's; ask Bill (another session? Git integration now firing?).
+
+**IRC data:** irc.gov.kh is a JS app; PDFs at `object.irc.gov.kh/irc-public/upload/...`, article JSON in `/en/article?post=<id>` `__NEXT_DATA__`. Don't query its GraphQL gateway (blocked as unauthorised).
 
 **Findex:** `api.worldbank.org` hung on every call 11-15; the Data360 API answers in ~2 s — `data360api.worldbank.org/data360/data?DATABASE_ID=WB_FINDEX&REF_AREA=KHM` (2,785 rows; filter SEX/URBANISATION/COMP_BREAKDOWN_*=`_T`).
 
@@ -46,6 +50,7 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 | `a8de562` | Bakong technical integration: invented API replaced with NBC Open API |
 | `d2e4c98`, `dc8e4df` | how-bakong-works and glossary/bakong to white-paper wording |
 | `3a508f3` | cambodia-digital-payment-growth rebuilt on NBC 2024 + Global Findex (Data360) |
+| `e7a00a4` | glossary/embedded-insurance rebuilt on IRC market data 2024/2025 + insurtech sandbox; NBFSA/SD-207 back-links |
 
 ## Last Updated
 
