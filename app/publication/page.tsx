@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { ogImage } from "@/app/og";
 
 export const metadata: Metadata = {
@@ -69,8 +67,7 @@ export default function PublicationPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(publicationSchema) }}
       />
-      <div className="relative flex min-h-screen w-full flex-col">
-        <Header />
+      <div className="relative flex w-full flex-1 flex-col">
 
         <main className="flex-1">
           <div className="mx-auto flex max-w-3xl flex-col px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
@@ -143,8 +140,6 @@ export default function PublicationPage() {
             </div>
           </div>
         </main>
-
-        <Footer />
       </div>
     </>
   );

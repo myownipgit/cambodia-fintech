@@ -28,6 +28,7 @@ npm start            # Start production server
 npm run lint         # eslint .  — `next lint` was REMOVED in Next 16
 npm run check:llms   # guards public/llms*.txt against content-inventory drift
 npm run check:memory # guards the persistent-memory corpus against silent truncation
+npm run check:nav    # AFTER a build: every page has one header, one footer, links to every section
 ```
 
 **Run `npm run check:llms` after any content change.** `public/llms.txt` and `public/llms-full.txt` are hand-maintained, have no build step, and drifted twice: they spent a day telling AI systems that restored content was "superseded", and the canonical page index listed two of five content sections while giving `/learn` as 6 articles when it held 12. The check verifies every section appears in both files, that published counts match the registries, that no content file is orphaned from its registry, and that the exact superseded wording has not returned. It exits non-zero — it is not advisory.
@@ -353,14 +354,14 @@ A session state file is maintained at `.claude/RESUME_SESSION.md` to enable seam
 ## Important Notes
 
 - The homepage is a single page with anchor navigation (`#practice`, `#publications`, `#contact`). It is **structured to a Cambodian institutional convention, not a marketing convention** — see ADR-007 and the header comment in `app/page.tsx` before restructuring it. Three things there are load-bearing: the hero is an identity statement with the institution as grammatical subject; there is **no CTA button anywhere** (zero of 22 Cambodian institutional sites had one); and the published-corpus section is the credibility section, standing in for the client list the firm does not have.
-- **A content section is not shipped until it is reachable.** The footer `SECTIONS` array in `Footer.tsx` is the inbound link for every content index. `/learn`, `/knowledge`, `/insights` and `/use-cases` — 30 pages — shipped with no nav or footer entry and were reachable only from the sitemap; that was the third occurrence. Add a new section to that array in the same commit that creates it.
+- **A content section is not shipped until it is reachable.** The footer `SECTIONS` array in `Footer.tsx` is the inbound link for every content index. `/learn`, `/knowledge`, `/insights` and `/use-cases` — 30 pages — shipped with no nav or footer entry and were reachable only from the sitemap; that was the third occurrence. Add a new section to that array in the same commit that creates it. **Until 2026-11-14 the footer rendered on only 3 of 69 pages** (home, `/publication`, `/products/dasp`), so this rule held almost nowhere. Search Console found 23 of 69 sitemap URLs not indexed and 19 never crawled. `Header` and `Footer` now render from `app/layout.tsx` only, and `npm run check:nav` fails the build output if any page lacks them or a section link. Never import either into a page.
 - TypeScript is in strict mode
 - The project uses the Next.js 16 App Router (not Pages Router) — upgraded 14 → 15 → 16 across 2026-08-12/16
 - ServiceCard and UseCaseCard are now in separate files under `app/components/`
 - Types are centralized in `app/types/index.ts`
 - **Dark mode was removed 2026-08-31** — see the Styling System section above
 - Mobile hamburger menu is implemented in Header.tsx
-- The header logo is `public/brand/lockup-bilingual-navybg.svg` at `h-12`. The `-navybg` variants bake clearspace into the panel, so the drawn mark is only ~56% of panel height — below `h-12` the symbol falls under the brand guide's own 24px minimum. `app/loading.tsx`'s skeleton must track this height or the sticky bar jumps on every page load.
+- The header logo is `public/brand/lockup-bilingual-navybg.svg` at `h-12`. The `-navybg` variants bake clearspace into the panel, so the drawn mark is only ~56% of panel height — below `h-12` the symbol falls under the brand guide's own 24px minimum. `app/loading.tsx` no longer draws a header skeleton, because the real header renders from the layout and stays on screen while a route loads. Do not add one back, or a second bar appears.
 - The bilingual lockup embeds **`ឯ.ក`** (Co., Ltd. equivalent). This is a **recorded deviation** from the public-vs-legal name rule below — see vault `Firm Operations/02_Decision_Log.md` ADR-004. Fallback if OBR approval proves outstanding: swap to `lockup-latin-navybg.svg`, already in `public/brand/`.
 
 <!-- BEGIN:nextjs-agent-rules -->

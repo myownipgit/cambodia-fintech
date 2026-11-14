@@ -206,7 +206,7 @@ export default function PrivacyContent() {
   const isKm = lang === "km";
 
   return (
-    <div className="min-h-screen bg-cloud">
+    <div className="bg-cloud">
       <Script
         id="privacy-schema"
         type="application/ld+json"

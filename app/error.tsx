@@ -8,7 +8,7 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4">
+    <div className="flex flex-1 flex-col items-center justify-center py-24 px-4">
       <div className="text-center">
         <div className="mb-6 text-6xl text-navy">!</div>
         <h1 className="mb-4 text-3xl font-bold">Something went wrong</h1>

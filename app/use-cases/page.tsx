@@ -16,7 +16,7 @@ export default function UseCasesIndex() {
   const articles = getArticlesByType('use-cases');
 
   return (
-    <div className="min-h-screen bg-cloud">
+    <div className="bg-cloud">
       <nav className="max-w-3xl mx-auto px-4 pt-6 text-sm text-navy/60">
         <Link href="/" className="hover:underline hover:decoration-teal hover:decoration-2 hover:underline-offset-4">CamFinTech</Link> / Engagement Scenarios
       </nav>

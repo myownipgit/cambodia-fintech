@@ -20,7 +20,7 @@ function FounderAvatar() {
 
 export default function AboutContent() {
   return (
-    <div className="min-h-screen bg-cloud">
+    <div className="bg-cloud">
       {/* Breadcrumb */}
       <div className="max-w-3xl mx-auto px-4 pt-6 flex items-center justify-between text-sm text-navy/60">
         <nav>

@@ -157,7 +157,7 @@ export default async function InstrumentPage({ params }: Props) {
     .filter((a): a is NonNullable<typeof a> => Boolean(a));
 
   return (
-    <div className="min-h-screen bg-cloud">
+    <div className="bg-cloud">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildSchema(instrument)) }}

@@ -31,7 +31,7 @@ export default function LearnIndex() {
   );
 
   return (
-    <div className="min-h-screen bg-cloud">
+    <div className="bg-cloud">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}

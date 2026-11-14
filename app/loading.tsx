@@ -1,20 +1,9 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-cloud">
-      {/* Header Skeleton */}
-      <div className="sticky top-0 z-50 w-full border-b border-line bg-cloud/80">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          {/* Must track the Header lockup exactly (h-12, 946:300 => 151px wide)
-              or the skeleton-to-content swap visibly jumps the sticky bar. */}
-          <div className="h-12 w-[151px] animate-pulse rounded bg-teal/20" />
-          <div className="hidden gap-8 md:flex">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-4 w-16 animate-pulse rounded bg-teal/20" />
-            ))}
-          </div>
-          <div className="h-10 w-24 animate-pulse rounded-lg bg-teal/20" />
-        </div>
-      </div>
+    <div className="bg-cloud">
+      {/* No header skeleton. The real Header renders from app/layout.tsx and
+          stays on screen while a route loads (since 2026-11-14), so a skeleton
+          bar here would show as a second header. */}
 
       {/* Main Content Skeleton */}
       <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">

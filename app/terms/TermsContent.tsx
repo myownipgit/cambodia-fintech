@@ -199,7 +199,7 @@ export default function TermsContent() {
   const isKm = lang === "km";
 
   return (
-    <div className="min-h-screen bg-cloud">
+    <div className="bg-cloud">
       <Script
         id="terms-schema"
         type="application/ld+json"

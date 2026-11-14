@@ -3,6 +3,8 @@ import { Poppins, Manrope, Kantumruy_Pro, IBM_Plex_Mono } from "next/font/google
 import Script from "next/script";
 import JsonLd from "./components/JsonLd";
 import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // Brand type system — locked August 2026. See brand/README.txt.
 // Poppins = Latin display/wordmark · Manrope = body · Kantumruy Pro = Khmer
@@ -149,7 +151,22 @@ export default function RootLayout({
             gtag('config', 'G-QDZ83JQWVC');
           `}
         </Script>
-        {children}
+        {/*
+          Header and Footer live here, on every page, since 2026-11-14. Before
+          that only /, /publication and /products/dasp rendered them, so about 66
+          of 69 pages had no site navigation, only a breadcrumb. The footer is
+          the inbound link for every section index (see Footer.tsx). In practice
+          that held on three pages: /regulatory had 20 inbound links, and each
+          instrument page 3–4. Search Console then showed 23 of 69 sitemap URLs
+          not indexed and 19 never crawled. `npm run check:nav` now fails if a
+          built page lacks the footer's section links. Do not move these back
+          into individual pages.
+        */}
+        <div className="relative flex min-h-screen w-full flex-col">
+          <Header />
+          <div className="flex flex-1 flex-col">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );

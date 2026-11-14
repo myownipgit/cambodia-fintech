@@ -63,7 +63,7 @@ export default function RegulatoryIndex() {
   const total = getAllInstruments().length;
 
   return (
-    <div className="min-h-screen bg-cloud">
+    <div className="bg-cloud">
       <nav className="max-w-4xl mx-auto px-4 pt-6 text-sm text-navy/60">
         <Link
           href="/"

@@ -1,6 +1,4 @@
 import Link from "next/link";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import FAQSection from "../../components/FAQSection";
 import type { FAQ } from "@/app/content/types";
 import { getRelatedInstruments } from "@/app/content/regulatory/registry";
@@ -64,8 +62,7 @@ const DASP_FAQS: FAQ[] = [
 
 export default function DaspContent() {
   return (
-    <div className="relative flex min-h-screen w-full flex-col">
-      <Header />
+    <div className="relative flex w-full flex-1 flex-col">
 
       <main className="flex-1">
         <div className="mx-auto flex max-w-5xl flex-col px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
@@ -299,8 +296,6 @@ export default function DaspContent() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }
