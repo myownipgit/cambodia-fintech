@@ -107,7 +107,7 @@ export const cambodiaGaapArchitecture: ArticleContent = {
   type: 'knowledge',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-14',
+  updatedAt: '2026-11-15',
   readingTime: 8,
   schema: 'TechArticle',
   relatedSlugs: ['gaap', 'bakong', 'camdigikey', 'camdx', 'caminvoice'],

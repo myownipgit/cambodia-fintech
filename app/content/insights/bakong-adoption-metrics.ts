@@ -28,7 +28,7 @@ export const bakongAdoptionMetrics: ArticleContent = {
   type: 'insights',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-14',
+  updatedAt: '2026-11-15',
   readingTime: 8,
   schema: 'Article',
   relatedSlugs: ['bakong', 'how-bakong-works', 'nbc'],
