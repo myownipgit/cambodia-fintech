@@ -1,6 +1,60 @@
 import { ArticleContent } from '../types';
 
 /*
+ * Figure pass, 2026-11-14. Rebuilt around what each system's own instrument or
+ * document says. Read for this pass: CamDX Sub-Decree No. 164 S.E of 24 August
+ * 2021 (unofficial English translation, camdx.gov.kh) and the CamDX Membership
+ * User Guidebook (Techo Startup Center, 2023); the NBC's Bakong white paper
+ * (June 2020). Reused: Sub-Decree 207 (registry entry, verified 2026-08-31),
+ * MEF Prakas 075 and Circulars (2026-11-07 note below), CamInvoice developer
+ * documentation (knowledge/caminvoice-technical-compliance.ts), KHQR Prakas
+ * F14-020-351.
+ *
+ * Removed, not hedged, so nobody restores these from git:
+ * - Operators: CamDigiKey "MPTC" and "developed ... with KOICA"; CamDX "MEF /
+ *   MPTC". Sub-Decree 164 Art. 7 makes the MEF the body that leads and manages
+ *   CamDX, with transactions governed by a CamDX Operator (Art. 8). No
+ *   primary read names CamDigiKey's operator, so none is stated.
+ * - Mandates: "Financial institutions must implement CamDigiKey-based eKYC by
+ *   mid-2026" (four places). The registry entry for Sub-Decree 207 records
+ *   that it creates no obligation on private businesses to adopt CamDigiKey.
+ *   Also "All businesses accepting digital payments must support KHQR" and
+ *   "Mandatory for government services" without the Article. Art. 12 of
+ *   Sub-Decree 164 is stated instead.
+ * - CamDX "modeled on Estonia's X-Road", "Estonian e-Governance Academy",
+ *   "SOAP and REST", "mTLS with X.509", "CamDX Certificate Authority", "12
+ *   million transactions", "14 days to under 48 hours", the per-agency volume
+ *   table, "logs retained for seven years". Neither the Sub-Decree nor the
+ *   guidebook states any of them.
+ * - Bakong: "real-time settlement (RTGS)", "over 60 financial institutions",
+ *   "Tier 2 / Tier 4", "Bakong Open API" endpoints, "OAuth 2.0 with mutual
+ *   TLS", "21 million transactions worth USD 26 billion", the 2020-2025 growth
+ *   table, "400,000 KHQR merchants", "(CBDC)" in the comparison table.
+ * - CamDigiKey "4 million identities", OIDC with PKCE, biometric/PIN factors,
+ *   "ID tokens and access tokens". No primary read describes the protocol.
+ * - "Data residency rules", "Personal Data Protection Law ... expected to pass
+ *   in 2026", the cross-border-transfer approval provision, "broad government
+ *   access ... for law enforcement". Unsourced statements about a law's content
+ *   and status, and the last comments on Government conduct (ADR-006).
+ * - The reliability table and paragraph (uptime, SLAs, latency, TPS, disaster
+ *   recovery, "4G reaches 85%"): unsourced, and a public assessment of
+ *   government systems' performance (ADR-006).
+ * - The "Digital Economy Framework 2035" roadmap (Phase 2 CamHealth / CamEdu,
+ *   Phase 3 smart-contract government) and "SNEC with World Bank and ADB
+ *   assistance". The Policy Framework itself exists (named in Sub-Decree 164,
+ *   Art. 7); none of its content was read.
+ * - The international comparison table and India Stack FAQ ("1.4 billion",
+ *   "15 years", "17 million", "years to scale", approach labels), and
+ *   "uniquely aggressive in mandating private sector adoption" (comment on
+ *   Government conduct, ADR-006).
+ * - Sales lines: "Reference architecture patterns exist ... materially
+ *   shortens implementation", "best solved once, centrally", "rewards a staged
+ *   roadmap".
+ *
+ * Bar for restoring: read in a fetched primary, recorded in `claims` or here.
+ *
+ * Earlier note, 2026-11-07 (CamInvoice correction), kept for its record:
+ *
  * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences, rows and
  * FAQ answers only; the rest of this page is unsourced and left for the general
  * pass). Found false or untraceable, removed, not hedged:
@@ -49,150 +103,92 @@ import { ArticleContent } from '../types';
 export const cambodiaGaapArchitecture: ArticleContent = {
   slug: 'cambodia-gaap-architecture',
   title: 'Cambodia\'s Government-as-a-Platform Architecture: A Technical Deep Dive',
-  description: 'Comprehensive technical analysis of Cambodia\'s Government-as-a-Platform (GaaP) architecture, covering CamDigiKey, Bakong, CamDX, and CamInvoice integration layers, API design patterns, and strategic implications for enterprise digital transformation.',
+  description: 'How Cambodia\'s four national digital systems, CamDigiKey, Bakong, CamDX and CamInvoice, are constituted, who leads each, what each requires of a business that connects, and where the published record stops.',
   type: 'knowledge',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-07',
-  readingTime: 10,
+  updatedAt: '2026-11-14',
+  readingTime: 8,
   schema: 'TechArticle',
   relatedSlugs: ['gaap', 'bakong', 'camdigikey', 'camdx', 'caminvoice'],
-  lead: 'Cambodia\'s Government-as-a-Platform (GaaP) architecture represents one of the most deliberate and structurally coherent digital infrastructure programs in Southeast Asia. Unlike organic fintech ecosystems that emerged from market competition in Singapore, Indonesia, or Vietnam, Cambodia\'s stack was designed top-down by the Royal Government of Cambodia in partnership with the National Bank of Cambodia and the Ministry of Economy and Finance. The result is a unified, interoperable platform comprising four foundational layers: CamDigiKey for digital identity, Bakong for real-time payments, CamDX for government data exchange, and CamInvoice for electronic invoicing. Together, these layers form an integration surface that enterprises operating in Cambodia increasingly engage with, and in places are required to. This article provides a technical deep dive into the architecture, protocols, data flows, and strategic implications of Cambodia\'s GaaP model.',
-  // Claims removed 2026-08-31. This array previously carried figures attributed
-  // to named institutional reports with no URL, access date or page reference.
-  // A verified sample was wrong more often than not — including a Cambodian FATF
-  // mutual evaluation that never took place, and citations to bodies that do not
-  // exist under the names given. Restore an entry only when its figure has been
+  relatedInstruments: ['sub-decree-207-camdigikey'],
+  lead: 'Cambodia\'s Government-as-a-Platform model rests on four national systems: CamDigiKey for digital identity, Bakong for payments, CamDX for data exchange between information systems, and CamInvoice for electronic invoicing. Each has its own legal basis and its own lead institution. CamDigiKey is governed by Sub-Decree 207 of 2023. Bakong is the National Bank of Cambodia\'s payment system. CamDX is led and managed by the Ministry of Economy and Finance under Sub-Decree 164 of 2021. CamInvoice was launched by MEF Prakas 075 in January 2025 and is operated by the MEF\'s General Department of Digital Economy. This article sets out what each instrument and operator document establishes about how a business connects, and where that record stops.',
+  // Claims removed 2026-08-31. Restore an entry only when its figure has been
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
-  // and record where it was read. See vault ADR-007.
-  claims: [],
+  // and record where it was read.
+  claims: [
+    { stat: 'CamDX is the Royal Government of Cambodia\'s information technology platform for secure data exchange by API between information systems, within the public sector and with private-sector members. Exchanges are encrypted, digitally signed and timestamped, and data is not stored in CamDX\'s own system. The Ministry of Economy and Finance leads and manages CamDX; transactions are governed by the CamDX Operator.', source: 'Sub-Decree No. 164 S.E on Data Exchange through CamDX, 24 August 2021, Articles 4 to 8 (unofficial English translation)', year: '2021', url: 'https://camdx.gov.kh/documents/files/Unofficial%20Translation%20of%20CamDX%20Subdecree.pdf' },
+    { stat: 'The NBC selected Hyperledger Iroha as the platform for Bakong, and undertook the project in collaboration with SORAMITSU Co., Ltd.', source: 'National Bank of Cambodia, Project Bakong: Next Generation Payment System, white paper, June 2020', year: '2020', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf' },
+  ],
   sources: [
     { publisher: 'Ministry of Economy and Finance', label: 'Prakas 075 on the launch of the Cambodia E-Invoicing System (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/a57a86ff-1c53-481e-a4f0-8b32fe96b6cf/resource/e433f7a7-0bd0-4407-8d58-c5f346be20dd/download/mef_prakas-075_launching-of-cambodia-e-invoicing-system_kh_2025.pdf', tier: 'primary' },
     { publisher: 'Ministry of Economy and Finance', label: 'Circular 003, mandatory e-invoicing, Phase 1 Step 1 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/dataset/2ff2820c-df65-4d60-aa0f-806c65d82952/resource/d77ab51b-6f54-4960-b947-ffd4a4f2a5a4/download/mef_circular-003_obligation-to-use-e-invoice_kh_2025.pdf', tier: 'primary' },
     { publisher: 'Ministry of Economy and Finance', label: 'Circular 012, mandatory e-invoicing, Phase 1 Step 2 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/bce86ad2-6baf-456a-b49f-90c0b7b61f26/resource/e8c6b0ce-8f79-427e-a7e2-56f87c89ed1e/download/1756437973985-20250714_circular_to_6_lms_in_q3_2025.pdf', tier: 'primary' },
     { publisher: 'Ministry of Economy and Finance', label: 'Circular 017, mandatory e-invoicing, Phase 1 Step 3 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/d244f7f4-ef43-43fe-8645-d79483c9b0c3/resource/7d904664-edbe-40fe-8e76-f4b119d6a51c/download/1.pdf', tier: 'primary' },
     { publisher: 'Ministry of Economy and Finance', label: 'Circular 007, mandatory e-invoicing, Phase 1 Step 4 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/9bdb6142-b119-41c4-b2ae-5bdde281a8f6/resource/549d6645-3232-4fa3-8715-a8f61c79b1f9/download/1.pdf', tier: 'primary' },
+    { publisher: 'Royal Government of Cambodia', label: 'Sub-Decree No. 164 S.E on Data Exchange through CamDX, 24 August 2021, unofficial English translation (PDF)', url: 'https://camdx.gov.kh/documents/files/Unofficial%20Translation%20of%20CamDX%20Subdecree.pdf', tier: 'primary' },
+    { publisher: 'CamDX (Techo Startup Center)', label: 'CamDX Membership User Guidebook, 2023 (PDF)', url: 'https://camdx.gov.kh/documents/files/CamDX%20User%20Guide%20Book%20English.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Project Bakong: Next Generation Payment System, white paper, June 2020 (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
+    { publisher: 'CamInvoice', label: 'Developer documentation, Introduction (Internet Archive snapshot, 18 June 2024)', url: 'https://web.archive.org/web/20240618030344/https://developer.e-invoice.gov.kh/', tier: 'primary' },
+    { publisher: 'CamInvoice', label: 'Developer documentation, Get New Access Token (Internet Archive snapshot, 22 December 2025)', url: 'https://web.archive.org/web/20251222130429/https://developer.e-invoice.gov.kh/api-reference/authentication', tier: 'primary' },
   ],
-  sourcesAsAt: '2026-11-06',
+  sourcesAsAt: '2026-11-14',
   faqs: [
-    { question: 'What is Government-as-a-Platform (GaaP) and how does Cambodia implement it?', answer: 'Government-as-a-Platform (GaaP) is a digital governance model where the government provides shared infrastructure layers — identity, payments, data exchange, and compliance — as reusable platform services that private sector enterprises integrate with via standardized APIs. Cambodia implements GaaP through four core systems: CamDigiKey (digital identity and eKYC), Bakong (real-time payment settlement), CamDX (secure government data exchange), and CamInvoice (electronic invoicing, being made mandatory in phases). Unlike traditional e-government portals, GaaP treats government services as programmable infrastructure that enterprises embed directly into their business processes.' },
-    { question: 'Is GaaP integration mandatory for businesses in Cambodia?', answer: 'In part, and the obligations differ by platform. CamInvoice is mandatory in phases set by Ministry of Economy and Finance circulars: the first phase covers suppliers invoicing the budget entities of designated ministries, added in steps from fiscal year 2025, and the circulars reviewed set no date for invoicing between private businesses. All businesses accepting digital payments must support KHQR on Bakong rails. Financial institutions must implement CamDigiKey-based eKYC by mid-2026.' },
-    { question: 'How does Cambodia\'s GaaP compare to India\'s India Stack?', answer: 'Cambodia\'s GaaP and India Stack share the same architectural philosophy — layered digital public infrastructure with identity, payments, and data exchange — but differ in scale and approach. India Stack (Aadhaar + UPI + DigiLocker) serves 1.4 billion people and evolved over 15 years. Cambodia\'s GaaP serves 17 million people and was designed as a cohesive system from inception. Cambodia\'s advantage is tighter integration between layers and mandatory compliance, while India\'s advantage is ecosystem maturity and private sector innovation depth.' },
-    { question: 'What technical skills are needed to integrate with Cambodia\'s GaaP?', answer: 'Enterprise developers need proficiency in RESTful API integration (JSON/XML), OAuth 2.0 and mutual TLS authentication, webhook-based event handling for real-time notifications, X.509 certificate management for CamDX, and KHQR (EMVCo) QR code generation. Familiarity with Hyperledger Iroha is helpful but not required for most integrations, as banks abstract the blockchain layer through their API gateways. Each of the four GaaP layers has its own integration model and failure modes.' },
+    { question: 'What is Government-as-a-Platform (GaaP) and how does Cambodia implement it?', answer: 'Government-as-a-Platform is a model in which the state provides shared systems, such as identity, payments, data exchange and invoicing, that other public bodies and private businesses connect to rather than each building their own. In Cambodia the four systems are CamDigiKey (digital identity, Sub-Decree 207 of 2023), Bakong (the National Bank of Cambodia\'s payment system), CamDX (data exchange between information systems, Sub-Decree 164 of 2021) and CamInvoice (electronic invoicing, MEF Prakas 075 of 2025).' },
+    { question: 'Is connecting to these systems mandatory for businesses in Cambodia?', answer: 'It depends on the system. CamInvoice is mandatory in phases set by Ministry of Economy and Finance circulars: the first phase covers suppliers invoicing the budget entities of designated ministries, added in steps from fiscal year 2025, and the circulars reviewed set no date for invoicing between private businesses. CamDX membership is automatic for the public sector, which must exchange base-registry data through CamDX only, and by application for private businesses (Sub-Decree 164, Articles 10 and 12). Sub-Decree 207 governs the management of CamDigiKey and does not itself oblige a private business to adopt it.' },
+    { question: 'What does a business need in order to connect?', answer: 'It differs by system. A private CamDX member applies to the CamDX Operator, must be able to install a security server in its own systems, keeps its own audit log, bears its own connection costs and reports any irregularity within 24 hours (Sub-Decree 164, Articles 11, 15, 16 and 19). A CamInvoice-connected system sends XML e-invoices through the CamInvoice API using OAuth 2.0 credentials obtained from CamInvoice support. Bakong is reached through a participating licensed institution, and QR payments follow the KHQR specification. CamDigiKey\'s technical integration terms are set by its operator.' },
   ],
   sections: [
     {
-      heading: 'The GaaP Design Philosophy',
-      content: 'Cambodia\'s GaaP architecture emerged from the Cambodia Digital Economy and Society Policy Framework 2021-2035, a strategic document developed by the Supreme National Economic Council (SNEC) with technical assistance from the World Bank and the Asian Development Bank. The framework explicitly rejects the organic, market-driven approach to digital infrastructure that characterizes most developing economies. Instead, it prescribes a deliberate, government-mandated platform model where critical infrastructure layers are built once, operated centrally, and consumed by all market participants through standardized interfaces.\n\nThe philosophical foundation draws from three international precedents: Estonia\'s X-Road data exchange architecture, India\'s India Stack (Aadhaar, UPI, DigiLocker), and Singapore\'s National Digital Identity framework. However, Cambodia\'s implementation is uniquely aggressive in mandating private sector adoption through regulatory enforcement rather than relying on voluntary uptake. The NBC and the Ministry of Economy and Finance each set the rules for the platform layers they operate, creating a coordinated regulatory surface that makes GaaP integration effectively unavoidable for any enterprise of meaningful scale.',
-    },
-    {
-      heading: 'Architectural Layer Overview',
-      content: 'The GaaP stack comprises four foundational layers, each serving a distinct function but designed to interoperate through shared data schemas and cross-platform authentication. CamDigiKey sits at the base as the identity layer, providing verified digital identities and eKYC services. Bakong operates as the payment settlement layer, enabling real-time fund transfers across all financial institutions. CamDX functions as the data exchange layer, allowing secure government-to-government and government-to-business API transactions. CamInvoice serves as the invoicing layer: a state platform for exchanging invoices electronically between sellers and buyers, on which a validated invoice is recognised as an original digital record.\n\nThe layers are designed with loose coupling but strong coherence. A single commercial transaction might touch all four layers: the buyer authenticates via CamDigiKey, pays via Bakong, the invoice is recorded on CamInvoice, and the business license verification occurs through CamDX. This end-to-end digitization eliminates paper-based processes and creates a comprehensive digital audit trail for regulators.',
+      heading: 'Four Systems, Four Legal Bases',
+      content: 'The four systems were not created by one instrument, and they do not share one operator. Each rests on its own legal basis, issued at a different time by a different authority, and each sets its own terms for who may connect and how. What makes them a platform is that each is national: there is one identity system, one payment system, one data exchange and one invoicing system, and a business connects to each once rather than negotiating with competing providers.\n\nFor an architect, that has a practical consequence. Integration is four separate projects with four sets of credentials, membership rules and operators, and the design should keep them separable.',
       table: {
-        caption: 'Cambodia GaaP Architecture: Four Foundational Layers',
-        headers: ['Layer', 'System', 'Operator', 'Core Function', 'Protocol', 'Mandate Status'],
+        caption: 'Cambodia\'s four national systems and their legal basis',
+        headers: ['Layer', 'System', 'Lead institution or operator', 'Legal basis'],
         rows: [
-          ['Identity', 'CamDigiKey', 'MPTC', 'Digital identity and eKYC', 'OAuth 2.0 / OpenID Connect', 'Mandatory for FIs by mid-2026'],
-          ['Payments', 'Bakong', 'NBC', 'Real-time settlement (RTGS)', 'REST API / Hyperledger Iroha', 'NBC-operated payment system'],
-          ['Data Exchange', 'CamDX', 'MEF / MPTC', 'Secure inter-agency data sharing', 'REST + X.509 mTLS', 'Mandatory for government services'],
-          ['Invoicing', 'CamInvoice', 'MEF (General Department of Digital Economy)', 'Electronic invoicing', 'Set by the operator', 'Phase 1 (suppliers to designated ministries) from FY2025'],
+          ['Identity', 'CamDigiKey', 'Set by Sub-Decree 207; integration terms set by the platform operator', 'Sub-Decree 207, 26 July 2023'],
+          ['Payments', 'Bakong', 'National Bank of Cambodia', 'NBC; white paper, June 2020; KHQR Prakas F14-020-351'],
+          ['Data exchange', 'CamDX', 'Ministry of Economy and Finance (lead); CamDX Operator (transactions)', 'Sub-Decree 164, 24 August 2021'],
+          ['Invoicing', 'CamInvoice', 'MEF General Department of Digital Economy', 'MEF Prakas 075, 22 January 2025'],
         ],
       },
     },
     {
-      heading: 'CamDigiKey: The Identity Foundation',
-      content: 'CamDigiKey is Cambodia\'s national digital identity system, developed by the Ministry of Post and Telecommunications (MPTC) with technical support from the Korean International Cooperation Agency (KOICA). It provides a mobile-first digital identity credential linked to the national ID card (Khmer ID) that enables remote identity verification, electronic signatures, and single sign-on for government and private sector services.\n\nThe system implements a federated identity model based on OpenID Connect (OIDC) standards. Service providers (banks, telcos, government agencies) integrate as Relying Parties, redirecting users to the CamDigiKey authentication portal for identity verification. The authentication flow supports multiple factors: biometric (facial recognition matched against the national ID photo), PIN-based, and device-bound authentication using the CamDigiKey mobile app. The system issues digitally signed identity assertions (ID tokens and access tokens) that Relying Parties can validate without storing raw biometric data, addressing privacy concerns while maintaining strong identity assurance.\n\nAs of Q4 2025, CamDigiKey has enrolled over 4 million verified digital identities, with the NBC mandating all financial institutions to implement CamDigiKey-based eKYC by mid-2026. This mandate transforms CamDigiKey from an optional convenience into a foundational infrastructure layer that every financial services enterprise must integrate with.',
+      heading: 'CamDigiKey: The Identity Layer',
+      content: 'CamDigiKey is Cambodia\'s national digital identity platform. Sub-Decree 207 of 26 July 2023 sets out the mechanisms, principles and procedures for managing it, framed around security, accountability and transparency.\n\nTwo limits matter to a business. The Sub-Decree does not itself require a private business to adopt CamDigiKey: where a firm uses it, it is usually to meet identity-verification duties that arise elsewhere, chiefly under AML/CFT obligations. And the technical integration terms are set by the platform operator, not by the Sub-Decree, so they should be taken from the operator\'s current documentation rather than from a summary.',
     },
     {
-      heading: 'Bakong: The Payment Settlement Engine',
-      content: 'Bakong is the NBC\'s blockchain-based real-time payment and settlement system, built on Hyperledger Iroha by Japanese technology partner Soramitsu. Unlike traditional RTGS systems that operate on batch processing cycles, Bakong provides instant, final settlement for both retail and wholesale transactions in dual currencies (KHR and USD). The system connects over 60 financial institutions through a permissioned blockchain network where only NBC-authorized validator nodes participate in consensus.\n\nThe Bakong Open API provides RESTful endpoints for payment initiation, account lookup, transaction status queries, and settlement confirmation webhooks. Financial institutions connect at Tier 2 (direct API access), while enterprises access Bakong through their bank\'s API gateway at Tier 4. The KHQR (Khmer QR) protocol, built on EMVCo specifications, standardizes merchant payment acceptance across all participating institutions. By 2024, Bakong processed over 21 million transactions worth USD 26 billion, and KHQR had been adopted by over 400,000 registered merchants nationwide.',
-      table: {
-        caption: 'Bakong Transaction Volume Growth (2020-2025)',
-        headers: ['Year', 'Transactions (millions)', 'Value (USD billions)', 'Participating FIs', 'KHQR Merchants'],
-        rows: [
-          ['2020', '0.8', '1.2', '18', 'N/A (pre-KHQR)'],
-          ['2021', '3.5', '5.1', '28', '~10,000'],
-          ['2022', '7.2', '10.8', '38', '~50,000'],
-          ['2023', '11.8', '17.4', '48', '~180,000'],
-          ['2024', '21.0', '26.0', '60+', '~400,000'],
-          ['2025 (Q1 est.)', '7.5', '9.8', '63', '~450,000'],
-        ],
-      },
+      heading: 'Bakong: The Payment Layer',
+      content: 'Bakong is the National Bank of Cambodia\'s national payment system. The NBC\'s white paper of June 2020 describes it as a next-generation payment system; the NBC selected Hyperledger Iroha as its platform and undertook the project with SORAMITSU Co., Ltd. It handles payments in both Khmer riel and US dollars between the apps of participating banks and payment service institutions, and one of its stated aims is to promote financial inclusion and make riel payments easier. The white paper does not describe Bakong as a central bank digital currency.\n\nA business does not connect to Bakong directly. It reaches Bakong through a participating licensed institution, and accepts QR payments under the KHQR standard set by NBC Prakas F14-020-351 of June 2020. Integration work is therefore with that institution, and is as much about reconciliation and settlement design as about connectivity.',
     },
     {
-      heading: 'CamDX: The Data Exchange Backbone',
-      content: 'Cambodia Data Exchange (CamDX) is the national secure data exchange platform modeled on Estonia\'s X-Road. Developed with technical assistance from the Estonian e-Governance Academy, CamDX enables standardized, encrypted, and authenticated API communication between government agencies and between government and private sector entities. Every data exchange transaction is logged, timestamped, and cryptographically signed, creating a comprehensive audit trail.\n\nCamDX implements mutual TLS (mTLS) with X.509 certificates for transport security and uses SOAP and REST API protocols for data exchange. Each participating organization operates a Security Server that handles authentication, authorization, encryption, and logging. The central CamDX registry maintains a catalog of available services and manages certificate lifecycle. In 2024, CamDX processed over 12 million government-to-government API transactions, reducing average document processing time from 14 days to under 48 hours for inter-agency requests.\n\nFor enterprises, CamDX integration is relevant in several scenarios: business registration and licensing verification, tax clearance certificate requests, land title verification, customs declaration processing, and regulatory compliance reporting. Banks and financial institutions are increasingly required to query CamDX for real-time AML/KYC data enrichment rather than relying on batch file transfers from government databases.',
+      heading: 'CamDX: The Data Exchange Layer',
+      content: 'Sub-Decree 164 of 24 August 2021 defines CamDX as the Royal Government\'s information technology platform for secure data exchange by API between information systems, within the public sector and with private-sector members. Exchanges are encrypted, digitally signed and timestamped (Article 5), and CamDX does not store the data that passes through it, or pass it on without the consent of the original data owner (Article 6). The MEF leads and manages CamDX in line with the Cambodia Digital Economy and Society Policy Framework (Article 7), and transactions are governed by the CamDX Operator under the MEF\'s technical and financial guidance (Article 8).\n\nMembership comes in two kinds. Public bodies are members automatically and must exchange base-registry data through CamDX only. Private businesses legally registered in Cambodia join on application (Articles 10 and 12). Each member can be a data consumer, a data provider, or both. The CamDX Membership User Guidebook, published by the Techo Startup Center in 2023 and prepared by the CamDX operator, sets out the application process.',
       table: {
-        caption: 'CamDX Connected Government Agencies and Services',
-        headers: ['Agency', 'Services Available', 'Transaction Volume (2024)', 'Enterprise Relevance'],
+        caption: 'What Sub-Decree 164 requires of a private CamDX member',
+        headers: ['Requirement', 'Article'],
         rows: [
-          ['Ministry of Commerce', 'Business registration, licensing verification', '2.1 million', 'High — onboarding, compliance'],
-          ['General Department of Taxation', 'Tax clearance, TIN verification', '3.4 million', 'High — tax reporting'],
-          ['Ministry of Interior', 'Civil registry, ID verification', '1.8 million', 'High — KYC, identity'],
-          ['Ministry of Land Management', 'Land title verification, cadastral data', '0.9 million', 'Medium — real estate, collateral'],
-          ['General Department of Customs', 'Import/export declarations, tariff data', '2.3 million', 'High — trade finance, logistics'],
-          ['NBC', 'Financial institution registry, license status', '1.5 million', 'High — partner due diligence'],
+          ['Apply on the CamDX Operator\'s form, be legally registered in Cambodia, and pay the application fee', '15'],
+          ['Be able to install a security server in its own information systems', '16'],
+          ['Guarantee the quality and security of its system, and cooperate on cyber-security incidents', '16'],
+          ['Exchange and use data under applicable law or an MOU with the MEF or the CamDX Operator', '11'],
+          ['Keep its own audit log, and report any irregularity within 24 hours', '11'],
+          ['Bear its own connection costs; data owners may set a fee per query', '19, 20'],
         ],
       },
     },
     {
       heading: 'CamInvoice: The Invoicing Layer',
-      content: 'CamInvoice, the Cambodia E-Invoicing System, rests on Ministry of Economy and Finance Prakas 075 of 22 January 2025, the date of its official launch. The Prakas describes it as a state IT system serving as the central platform for exchanging invoices in electronic form between sellers and buyers, which also confirms receipt officially. The MEF\'s General Department of Digital Economy is its secretariat: it manages and operates the system, handles membership, and maintains its rules and procedures.\n\nAn invoice that has passed the system\'s validation and been given its identifier is recognised as an original digital record with legal effect, and is kept in digital form for 10 years. The Prakas provides for two kinds of member: user members, who are the sellers and buyers, and system-provider members, who supply the IT systems that connect to the platform. Under the implementing circulars, a business can issue an e-invoice on the CamInvoice platform itself or from an invoicing system registered with and connected to it. The technical interface is set by the operator and is not restated here.\n\nThe mandate is phased. Its first phase is business-to-government: suppliers invoicing the central-level budget entities of designated ministries for public procurement. Step 1 covered the MEF and the Ministry of Environment from fiscal year 2025; Step 2 added six ministries; Step 3 six more; Step 4 (2026) 14 further ministries and institutions. For any extension beyond government procurement, the MEF\'s current circulars are the place to check.',
+      content: 'CamInvoice, the Cambodia E-Invoicing System, rests on Ministry of Economy and Finance Prakas 075 of 22 January 2025, the date of its official launch. The Prakas describes it as a state IT system serving as the central platform for exchanging invoices in electronic form between sellers and buyers, which also confirms receipt officially. The MEF\'s General Department of Digital Economy is its secretariat: it manages and operates the system, handles membership, and maintains its rules and procedures.\n\nAn invoice that has passed the system\'s validation and been given its identifier is recognised as an original digital record with legal effect, and is kept in digital form for 10 years. The Prakas provides for two kinds of member: user members, who are the sellers and buyers, and system-provider members, who supply the IT systems that connect to the platform. Under the implementing circulars, a business can issue an e-invoice on the CamInvoice platform itself or from an invoicing system registered with and connected to it. CamInvoice\'s developer documentation describes XML e-invoices in UBL format sent through its API and validated by the system, three document types (invoice, credit note and debit note), and OAuth 2.0 authentication with access tokens that expire after 900 seconds.\n\nThe mandate is phased. Its first phase is business-to-government: suppliers invoicing the central-level budget entities of designated ministries for public procurement. Step 1 covered the MEF and the Ministry of Environment from fiscal year 2025; Step 2 added six ministries; Step 3 six more; Step 4 (2026) 14 further ministries and institutions. For any extension beyond government procurement, the MEF\'s current circulars are the place to check.',
     },
     {
-      heading: 'Cross-Layer Integration Patterns',
-      content: 'The true power of Cambodia\'s GaaP architecture emerges when the four layers are integrated in end-to-end business workflows. Consider how a B2B transaction could run where every layer is used: a supplier issues an electronic invoice through CamInvoice, the buyer authenticates via CamDigiKey to approve the payment, the payment settles on Bakong rails, and the buyer\'s bank verifies the supplier\'s business license through CamDX before releasing funds. A workflow that has traditionally involved paper invoices, manual bank transfers and multi-day clearing then leaves a digital audit trail at each step.\n\nEnterprise architects designing for Cambodia\'s market must plan for these cross-layer integration patterns. The recommended approach is an event-driven architecture where each GaaP layer interaction triggers downstream workflows. For example, a CamInvoice submission event triggers a Bakong payment initiation, which triggers a settlement confirmation webhook, which triggers an accounting system update. Reference architecture patterns exist for the most common cross-layer scenarios, and reusing one materially shortens implementation.',
-      table: {
-        caption: 'Cross-Layer Integration Scenarios and Technical Requirements',
-        headers: ['Scenario', 'Layers Involved', 'Data Flow', 'Authentication', 'Typical Latency'],
-        rows: [
-          ['B2B Invoice Payment', 'CamInvoice + Bakong', 'Invoice -> Payment -> Settlement', 'CamDigiKey OAuth', '—'],
-          ['Customer Onboarding', 'CamDigiKey + CamDX', 'Identity -> Verification -> Account', 'Biometric + PIN', '< 30 seconds'],
-          ['Trade Finance', 'CamDX + CamInvoice + Bakong', 'Customs -> Invoice -> Payment', 'mTLS + OAuth', '—'],
-          ['Regulatory Reporting', 'CamDX + CamInvoice', 'Transaction data -> Compliance report', 'X.509 certificate', 'Batch (daily)'],
-        ],
-      },
+      heading: 'Designing Across the Layers',
+      content: 'A workflow can touch more than one layer: a supplier to a designated ministry issues its invoice through CamInvoice, is paid through the banking system on Bakong rails, and may verify a counterparty\'s registration through a CamDX service where one is available to it. Each step has its own membership, credentials and failure modes, and none of them guarantees the others.\n\nThe architecture that follows from this is modular. Keep each integration behind its own interface, so that a change in one operator\'s terms does not ripple through the rest. Carry each system\'s identifiers through the workflow, such as the CamInvoice document identifier and the payment reference, so that records can be reconciled across layers. Treat each system\'s access credentials as a separate lifecycle: CamInvoice\'s access tokens expire after 900 seconds, and a CamDX member\'s security server is its own piece of infrastructure to maintain.',
     },
     {
-      heading: 'API Design Patterns and Authentication',
-      content: 'Cambodia\'s GaaP layers use consistent API design patterns that simplify multi-layer integration. CamDigiKey, Bakong and CamDX expose RESTful APIs with JSON payloads, support OAuth 2.0 for authorization, and provide webhook endpoints for asynchronous event notification. However, each layer adds specific security requirements based on its sensitivity level.\n\nCamDigiKey uses OpenID Connect (OIDC) with PKCE for public client authentication and client credentials flow for server-to-server interactions. Bakong requires OAuth 2.0 with mutual TLS at the transport layer, ensuring that only registered financial institutions can initiate payments. CamDX mandates X.509 certificate-based mTLS for all data exchange, with certificates issued by the CamDX Certificate Authority. CamInvoice\'s connection requirements are set by its operator, the MEF\'s General Department of Digital Economy, for registered invoicing systems.\n\nEnterprise developers should implement a centralized credential management system to handle the multiple authentication mechanisms across GaaP layers. Hardware Security Modules (HSMs) are recommended for storing private keys used in CamDX mTLS. Unified credential management across the GaaP layers — token refresh, certificate rotation, key lifecycle — is best solved once, centrally.',
-    },
-    {
-      heading: 'International Comparisons and Benchmarks',
-      content: 'Cambodia\'s GaaP model is best understood in the context of similar digital public infrastructure programs globally. Estonia\'s X-Road, launched in 2001, pioneered the secure data exchange concept that CamDX directly emulates. India\'s India Stack, comprising Aadhaar (identity), UPI (payments), and DigiLocker (documents), serves as the most comprehensive international parallel. Singapore\'s National Digital Identity (Singpass), PayNow, and SGFinDex represent the ASEAN benchmark for digital public infrastructure.',
-      table: {
-        caption: 'Global Digital Public Infrastructure Comparison',
-        headers: ['Country', 'Identity System', 'Payment System', 'Data Exchange', 'Invoicing', 'Years to Scale', 'Approach'],
-        rows: [
-          ['Cambodia', 'CamDigiKey', 'Bakong (CBDC)', 'CamDX', 'CamInvoice', '5 (2021-2027)', 'Mandatory/top-down'],
-          ['India', 'Aadhaar', 'UPI', 'DigiLocker', 'GST e-Invoice', '15 (2009-2024)', 'Phased/incentivized'],
-          ['Estonia', 'e-ID', 'Bank-linked', 'X-Road', 'e-Invoice (EU)', '20+ (2001-present)', 'Organic/voluntary'],
-          ['Singapore', 'Singpass', 'PayNow', 'SGFinDex', 'InvoiceNow', '10 (2015-2025)', 'Hybrid/guided'],
-          ['Thailand', 'D.DOPA', 'PromptPay', 'GDX (planned)', 'e-Tax Invoice', '8 (2017-2025)', 'Incentivized'],
-          ['Indonesia', 'INA Digital', 'QRIS', 'SPBE', 'e-Faktur', '10 (2016-2026)', 'Market-driven'],
-        ],
-      },
-    },
-    {
-      heading: 'Data Governance and Privacy Framework',
-      content: 'Cambodia\'s GaaP architecture raises important questions about data governance, privacy, and surveillance that enterprises must navigate carefully. The Personal Data Protection Law, currently in advanced draft stage and expected to pass in 2026, will establish data protection principles including purpose limitation, data minimization, consent requirements, and breach notification obligations. However, the current regulatory environment provides broad government access to GaaP platform data for law enforcement and national security purposes.\n\nFor enterprises, the practical implications center on data residency and access controls. CamInvoice keeps each validated invoice in digital form for 10 years (Prakas 075, Article 6). Bakong transaction data resides on the NBC\'s Hyperledger Iroha nodes. CamDX transaction logs are retained for seven years. CamDigiKey identity data is maintained by the MPTC with strict access controls. Enterprises should implement data classification schemes that distinguish between GaaP-mandated data (which must be shared with government systems) and proprietary business data (which should be protected with additional encryption and access controls).\n\nInternational enterprises operating in Cambodia should also consider cross-border data transfer implications. The draft Personal Data Protection Law includes provisions requiring regulatory approval for transferring personal data outside Cambodia, similar to GDPR\'s adequacy framework. Multinational data architectures must satisfy Cambodian data residency rules and home-country data protection regulation simultaneously.',
-    },
-    {
-      heading: 'Infrastructure Maturity and Reliability',
-      content: 'Enterprise architects evaluating Cambodia\'s GaaP infrastructure need realistic assessments of system maturity, uptime, and failure modes. Bakong, as the most mature layer, reports 99.7% uptime over the past 12 months with sub-second transaction latency for domestic payments. CamDX maintains 99.5% availability but experiences higher latency (2-5 seconds) for complex multi-agency queries.\n\nCamDigiKey\'s availability is dependent on mobile network connectivity, which remains a challenge in rural Cambodia where 4G coverage reaches approximately 85% of the population. Enterprises should implement graceful degradation patterns that allow core business operations to continue during GaaP platform outages. Recommended patterns include local transaction queuing with automatic retry, offline KHQR payment acceptance with deferred settlement, and cached identity verification with periodic CamDigiKey re-authentication.',
-      table: {
-        caption: 'GaaP Platform Reliability Metrics (2024-2025)',
-        headers: ['Platform', 'Uptime SLA', 'Actual Uptime', 'Avg. Latency', 'Peak Throughput', 'Disaster Recovery'],
-        rows: [
-          ['Bakong', '99.5%', '99.7%', '< 2 seconds', '500 TPS', 'Multi-site active-active'],
-          ['CamDX', '99.0%', '99.5%', '2-5 seconds', '200 TPS', 'Active-passive failover'],
-          ['CamDigiKey', '99.0%', '99.3%', '3-8 seconds', '100 TPS', 'Cloud-based redundancy'],
-        ],
-      },
-    },
-    {
-      heading: 'Strategic Roadmap and Enterprise Implications',
-      content: 'The Royal Government of Cambodia\'s Digital Economy Framework 2035 outlines an ambitious expansion roadmap for GaaP infrastructure. Phase 2 (2026-2028) will introduce CamHealth (digital health records integrated with CamDigiKey), CamEdu (educational credential verification on CamDX), and enhanced cross-border payment corridors linking Bakong with all ten ASEAN member states. Phase 3 (2029-2035) envisions a fully programmable government where smart contracts on the Bakong blockchain automate regulatory compliance, tax collection, and social welfare distribution.\n\nFor enterprises, the strategic imperative is clear: Cambodia\'s GaaP is not a static compliance requirement but an evolving platform that will progressively digitize every government-business interaction. Companies that build GaaP-native architectures now — with modular integration layers, event-driven workflows, and centralized credential management — will be positioned to adopt future GaaP extensions with minimal additional investment. Those that treat GaaP integration as a one-time compliance checkbox will face repeated, costly integration projects as new mandatory layers are introduced.\n\nGaaP integration rewards a staged roadmap over a single large programme.',
+      heading: 'Data Held by the Platforms',
+      content: 'The instruments say different things about data, and an enterprise\'s design should follow each one rather than a single assumption. CamInvoice keeps each validated invoice in digital form for 10 years (Prakas 075). CamDX, by contrast, does not store the data exchanged through it (Sub-Decree 164, Article 6); the records a CamDX member must keep are its own audit log and its own reports on data exchange (Article 11).\n\nPersonal data protection more generally, including any rule on where data must be stored or when it may leave Cambodia, is a matter for current Cambodian law and counsel. This page does not state it.',
     },
   ],
 };
