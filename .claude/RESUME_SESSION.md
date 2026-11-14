@@ -5,33 +5,44 @@ This file tracks the current session state to enable seamless recovery between s
 ## Start here
 _Rewrite this block at the end of every session. Keep it under 30 lines. History is below._
 
-**As of 2026-11-08 (session closed 2026-11-10).** Production `dpl_DZrqJv9gRLLVuPs9NAbL23E9Qe1j` (includes `b6bad03`). Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
+**As of 2026-11-15 (session closed).** Production `dpl_DVbgFKo6Nn4C9P5gkHWC9M72snKJ` = `1a6bf07`, `main` fast-forwarded to it. Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
 
-**2026-11-14 — DEPLOYED `6538881` (`dpl_8Xhax3AsKEGRfrBuXTnkRfhTWuYz`, main ff; `c35b489`, `d893de8`, `158ef16`):** Header/Footer moved into `app/layout.tsx`. They had rendered on only 3 of 69 pages, and Search Console showed 23 of 69 sitemap URLs not indexed. New `npm run check:nav` runs after a build. Sitemap no longer gives build-time lastmod. 13 stale `updatedAt` from `e6bfa93` fixed, so check:llms passes again. GEO now has a weekly Search Console sub-sensor (Hermes `6dd4a27b5782`, Sun 07:30 ICT, geo-prospects `95687e0`). Its indexed count (46/69 on 11-14) is the measure for this fix. Bill: Request Indexing for `/regulatory`, `/insights` and the instrument pages. Figure pass: `knowledge/asean-digital-economy-comparison` rebuilt from RPC release + NBC primaries (`be7c73e`) — DEPLOYED (`e72622d`, `dpl_DjcDBcwR…`, main ff). `learn/compliance-as-a-service` DEPLOYED (`1d8b240`, main ff). `knowledge/cambodia-gaap-architecture` DEPLOYED (`3c29c3a`, main ff). MPTC/mid-2026 sweep from Sub-Decree 207 (`8c8e0b1`) + `knowledge/cambodia-digital-identity` rebuilt (`dd6b5bf`) — DEPLOYED with date fix (`2a27a78`, main ff). MEF leads CamDigiKey and CamDX, the CamDX operator runs both; no NBC eKYC mandate; bakong-adoption-metrics corridors fixed (Laos/Vietnam live 2023). `insights/bakong-adoption-metrics` rebuilt from NBC 2024 report ch. 2 — DEPLOYED (`44b7298`, main ff). X-Road now SOURCED (camdx.gov.kh + NIIS case study) and cited on 6 pages — DEPLOYED (`daa2c52`, main ff). `learn/cambodia-aml-requirements` (busiest by impressions) rebuilt against the 2020 statute — DEPLOYED (`b8bec02`). `learn/how-to-accept-khqr` rebuilt from NBC KHQR dev docs + 4 missed approval-agency lines fixed — DEPLOYED (`e2d7ec2`, main ff). `knowledge/cambodia-payment-ecosystem` rebuilt — DEPLOYED (`145f64a`, main ff). `knowledge/bakong-technical-integration` rebuilt from NBC Open API docs — DEPLOYED (`285d9f2`). `learn/how-bakong-works` corrected — DEPLOYED (`674f75d`). `glossary/bakong` corrected to NBC wording (`dc8e4df`) — committed, NOT deployed. Tier/68% table still on insights/cambodia-digital-payment-growth. Still live, Bill-deferred: `products/dasp` JSON-LD "navigates the application".
+**This session (2026-11-14/15), all DEPLOYED:** GEO sensor gained a weekly Search Console sub-sensor (Hermes `6dd4a27b5782`, Sun 07:30 ICT). Header/Footer moved into `app/layout.tsx` + `npm run check:nav` (only 3 of 69 pages had them; 23/69 URLs unindexed). Figure pass, rebuilt from fetched primaries: ASEAN comparison, compliance-as-a-service, GaaP architecture, digital identity, Bakong metrics, AML requirements, how-to-accept-KHQR, payment ecosystem, Bakong technical integration, how-bakong-works, glossary/bakong; X-Road sourced on 6 pages; MPTC/mid-2026 claims corrected; 4 surviving approval-agency lines removed. Detail in the session log below.
 
-**Also shipped (parallel session):** `/products/dasp` sourcing pass (`b6bad03`) — payment firms out of scope (Prakas excludes payments), false "checked the gazetted instrument" grace claim fixed, unsourced MLRO/CAFIU specifics cut, sandbox sequencing settled (083/25), registry-driven Sources section. DFDL *does* carry the 15% deposit (single-sourced, still unpublished). Open: MLRO rule unproved (2020 AML/CFT Law is a Khmer-only scan, needs a Khmer reader); ADR-006/007 tone pass deferred by Bill (refusal lines, DASP-DX SKUs, CTAs, also in `llms-full.txt`).
+**Key facts established (memory: `project_corpus_evidence_bar`):** MEF leads CamDigiKey AND CamDX; the CamDX operator (Techo Startup Center) runs both (Sub-Decrees 207, 164). X-Road sourced (camdx.gov.kh + NIIS). Bakong 2024 metrics (NBC report ch. 2, Khmer 4/8 caveat). AML/CFT Law 2020 English text (Bun & Associates PDF). NBC's English KHQR/Open API developer docs on bakong.nbc.gov.kh — the real Open API has no webhooks; error codes are 1-10.
 
-**Waiting on Bill:**
-- Submit riel.report's subscribe form once (only untested use of the new security headers).
-- Look at the site on a real phone and in Safari.
-- From about 2026-11-11: say whether to delete disabled key `662dd13d…` and `~/Downloads/key.json`.
-- Rewrite the LinkedIn "Experience" text and headline (highest-value item left).
-- Get a Khmer reader to check the Terms and Privacy Khmer text.
-- Optional: submit riel.report at hstspreload.org.
+**Waiting on Bill (decisions):**
+- "Bakong CBDC" in site-wide JSON-LD `knowsAbout` (every page). All pages touched now follow the NBC's "next-generation payment system".
+- `products/dasp` JSON-LD: "CamFinTech navigates the application" (DASP tone pass deferred, but it is approval-agency).
+- "accredited Service Provider" wording (homepage, JSON-LD, RelatedServices, llms; Prakas 075 term is "system-provider member"); llms.txt line 3 "keep them compliant".
+- Request Indexing in Search Console for `/regulatory`, `/insights`, instrument pages, and the 3 crawled-not-indexed pages (rewritten 11-07, crawled before).
+- Older: riel.report subscribe form test; real phone + Safari check; disabled key `662dd13d…` / `~/Downloads/key.json`; LinkedIn text; Khmer reader for Terms/Privacy; Traefik v3.7 migration.
 
-**Agreed next (fresh session):** work through the ~1,300 unsourced figures, busiest pages first.
-**2026-11-07:** Dependabot live (`e87d45b`; security PRs open against main — rebase first; merging never deploys). Three insights pages + two Bakong learn pages DEPLOYED 2026-11-06 (`3ee7bb4`, main fast-forwarded). Bakong is not a CBDC per the NBC white paper; ~12 files still say so (Bill to decide). **CamInvoice corrected site-wide — DEPLOYED 2026-11-07 (`cc9fa22`, main fast-forwarded to it)**: MEF/GDDE operator, B2G Phase 1 in 4 steps (Circular 007 = Step 4), no B2B mandate; see memory `project_corpus_evidence_bar`. Always deploy from a clean worktree — `vercel --prod` ships uncommitted files otherwise. SME insight sourced + MEF-aligned, DEPLOYED (`4bd7b33`, `dpl_9rGa1VVc…`, main ff). `learn/fintech-license-cambodia` rebuilt from PSI Prakas Arts 1-36, DEPLOYED (`fa7e1fc`, `dpl_4a7h93rm…`, main ff). `knowledge/cambodia-fintech-regulation` DEPLOYED (`7c0da54`, main ff). `learn/cambodia-fintech-landscape` rebuilt (CBDC framing, company user counts, sandbox, market figures out; NBC registers + 2024 report kept) — `ed083a1`, live via `e6bfa93`. Next in the figure pass: ASEAN comparison table; "data residency" on compliance-as-a-service + gaap-architecture.
-**2026-11-08:** DEPLOYED `e6bfa93` (main fast-forwarded; includes parallel session's landscape rebuild `ed083a1`). Sonnet GEO audit reviewed: its HIGH-1 rested on a stale "never builds" brief — FIXED in the Mac's `~/.geo-prospects/scripts` (`083a1d0`: ADR-005/006 context + a 3-claim source spot-check). Shipped from it: 7 named "accredited" SPs removed (no agreements; `c8b3ff8`) and the approval-navigation/agency sweep across ~20 surfaces (`e6bfa93`). Still open: "accredited Service Provider" term (SRV-04, JSON-LD, llms.txt), "Bakong CBDC" in JSON-LD knowsAbout + ~12 files, primary sources for Prakas 093 / NBFSA law, Person schema, sibling robots.txt.
+**Next in the figure pass:** `insights/cambodia-digital-payment-growth` (still has "Bakong Tier 2" + a 68%/22% table), `glossary/embedded-insurance` (~20 figures, register fixed only), `learn/supply-chain-finance-cambodia`, `insights/cambodia-vs-regional-fintech`, `knowledge/cambodia-scf-opportunity` (cites an unfound NBC SCF circular). Also unsourced: "Digital Government Policy 2022-2035" targets on CamDX/GaaP learn pages.
 
-**Also open (none started):** The security sensor reports npm severity with no deployment context (it called a Windows-only RCE "critical" on a Linux-hosted static site) — `security-posture` board work. `~/.geo-prospects` still has no git remote. GEO H1: 32 of 40 content pages carry no `relatedInstruments`.
+**Deploy method (unchanged):** clean worktree at the commit → copy node_modules + `.vercel/project.json` → `npm run build && npm run -s check:nav && npm run -s check:llms && vercel --prod --yes` — **never pipe a gate before `&&`** (a piped check let a failed gate deploy on 11-15). Re-date `updatedAt` if commits cross midnight.
 
-**2026-11-08 security weekly:** its 3 TLS findings were noise. Sensor retuned (geo-prospects `5c346a4`): thresholds 21/14/7, riel.report scanned, insights.camfintech.com excluded (disconnected from site). **Traefik v2.11 on the droplet lost security support 7 Sep 2026** — v3.7 migration needs scoping.
+**Loose ends:** untracked `2026-11-06-daily.md`, `2026-11-08-weekly.md`, `camfintech-sonnet-2026-11-08.md` (not this session's) and the GSC export `https___www.camfintech.com_-Performance-on-Search-2026-11-14.xlsx` in the repo root — leave unless Bill says otherwise. GSC weekly: first run 11-15 07:30 ICT; gcloud login expires ~fortnightly.
 
-**Open, needs a decision:** Traefik v3.7 migration (Bill); shut down insights' still-running containers/route or leave them unmonitored; riel.report source repo location (personal Vercel).
+**Do not:** publish a figure without a fetched primary; treat an instrument's silence as disproof (check the operator's own site); `sed -i` a single-file Docker bind mount; trust a GEO score as current.
 
-**Loose ends:** untracked `2026-11-06-daily.md` in the repo root was not created by this session (probably Hermes); leave it unless Bill says otherwise. A local preview server may still be running on port 3101.
+## Session log 2026-11-14/15 — figure pass, GSC sensor, nav fix
 
-**Do not:** publish a figure without a fetched primary source; `sed -i` a single-file Docker bind mount; trust a GEO score or the Bakong member list as current; add HowTo or Article schema the audit asks for.
+| Commit | What |
+|---|---|
+| geo-prospects `b5d7802`/`95687e0` | Weekly Search Console sub-sensor; 23/69 sitemap URLs not indexed on first run |
+| `158ef16`, `d893de8`, `c35b489` | Header/Footer in layout + check:nav; sitemap lastmod from content; 13 stale updatedAt |
+| `be7c73e` | ASEAN comparison rebuilt (RPC press release, NBC QR links) |
+| `bd928eb` | compliance-as-a-service: data-residency mandate and market sizing out |
+| `ab3047b` | GaaP architecture from Sub-Decree 164 + guidebook + white paper |
+| `8c8e0b1`, `dd6b5bf`, `2a27a78` | CamDigiKey operator (MEF/CamDX operator, not MPTC); digital-identity rebuild; date fix |
+| `fd00c43` | Bakong adoption metrics from NBC 2024 report ch. 2 |
+| `3b746af` | X-Road sourced and cited on 6 pages |
+| `3b49aa3` | AML requirements against the 2020 statute (page contradicted its own claims) |
+| `ea78764`, `b787399` | KHQR guide from NBC dev docs; 4 missed approval-agency lines |
+| `6a9c028` | Payment ecosystem map from NBC registers + 2024 report |
+| `a8de562` | Bakong technical integration: invented API replaced with NBC Open API |
+| `d2e4c98`, `dc8e4df` | how-bakong-works and glossary/bakong to white-paper wording |
 
 ## Last Updated
 
