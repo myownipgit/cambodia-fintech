@@ -1,139 +1,160 @@
 import { ArticleContent } from '../types';
 
+/*
+ * Figure pass, 2026-11-15. Rebuilt from the NBC's own English developer
+ * documents on bakong.nbc.gov.kh (read this day): Bakong Open API Document
+ * v1.0.2 (4 November 2021; endpoints p. 3, status and error codes p. 4, token
+ * flow pp. 5-11, deeplink pp. 11-13, status by MD5 pp. 13-15); QR Payment
+ * Integration v1.0.3 (6 August 2021); KHQR SDK Document v2.9 (May 2025); KHQR
+ * Content Guideline v1.3 (November 2020). Plus the NBC 2024 payment-system
+ * report (members) and the Bakong white paper.
+ *
+ * The previous version presented an invented API as a reference. Removed, not
+ * hedged, so nobody restores it from git:
+ * - "the sole authorized real-time gross settlement (RTGS) infrastructure ...
+ *   connecting over 60 financial institutions". Not the NBC's description;
+ *   the 2024 report gives 69 members, 60 live.
+ * - The four-tier access model ("Tier 1-4", "Commercial banks (30+)", "PSPs,
+ *   MFIs (30+)"), "dedicated VPN tunnels or MPLS circuits", "X.509
+ *   certificates issued by the NBC's Certificate Authority", "OAuth 2.0 +
+ *   mTLS", and NBC "minimum standards" (TLS 1.2, 90-day key rotation, IP
+ *   whitelists, HMAC-SHA256 webhooks, PCI DSS Level 2, SOC 2), "annual
+ *   security assessments", "remediation within 30 days". None is in an NBC
+ *   document read.
+ * - The transaction state machine (INITIATED, VALIDATED, SETTLED, TIMEOUT,
+ *   FX_PENDING ...), "acknowledge within 5 seconds", "30-second timeout",
+ *   "idempotency keys" in the Bakong switch, "AML/CFT screening" at validation.
+ * - The webhook model, event types, payload fields, HMAC signatures and retry
+ *   schedule (5s/15s/45s/135s). The NBC Open API has no webhooks; payment
+ *   status is polled.
+ * - The error-code table (1001, 2001, 2003 ... 5001) and "maintenance on the
+ *   first Sunday of each month 02:00-06:00 ICT". The real error codes are
+ *   1-10 and are stated below.
+ * - "NBC requires all participating institutions to reconcile within T+1",
+ *   "settlement files by 06:00 ICT", "settlement day ends 23:59:59 ICT".
+ * - Corridor specifications (PromptPay/DuitNow/Alipay limits in THB, MYR,
+ *   CNY; "15-minute batches 08:00-20:00 MYT"; FX providers; "Vietnam pilot",
+ *   "Laos planned Q3 2026"). Laos and Vietnam launched in 2023 (NBC 2024
+ *   report ch. 6); the links are QR payment links; no specification was read.
+ * - "The NBC mandates ... sandbox ... before production access", "200 test
+ *   transactions", "8-12 weeks", "NBC technical review", "500 TPS", "NBC
+ *   publishes monthly peak transaction periods". Unsourced.
+ * - Sales lines: bank "comparison matrix", "reference state machine",
+ *   "dedicated project management and independent technical QA".
+ *
+ * Bar for restoring: read in an NBC document or a member institution's
+ * published API documentation, recorded here with version and page.
+ */
+
 export const bakongTechnicalIntegration: ArticleContent = {
   slug: 'bakong-technical-integration',
   title: 'Bakong Technical Integration Guide for Enterprise Developers',
-  description: 'Complete technical reference for enterprise Bakong API integration covering authentication, payment initiation, KHQR generation, webhook handling, settlement reconciliation, error codes, and cross-border corridor APIs.',
+  description: 'What the National Bank of Cambodia publishes for developers integrating with Bakong: the KHQR payload, the KHQR SDK, the Bakong Open API\'s token flow, endpoints and error codes, deeplinks and payment-status checks, and what the NBC documents leave to member institutions.',
   type: 'knowledge',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-04',
-  readingTime: 10,
+  updatedAt: '2026-11-15',
+  readingTime: 8,
   schema: 'TechArticle',
   relatedSlugs: ['bakong', 'khqr', 'how-bakong-works'],
-  lead: 'Integrating with Cambodia\'s Bakong payment system is a central question for any enterprise operating digital payment services in the Kingdom. Bakong members must follow its rules under NBC Prakas F14-020-349. The National Bank of Cambodia (NBC) operates Bakong as the sole authorized real-time gross settlement (RTGS) infrastructure for retail and wholesale payments, connecting over 60 financial institutions through a permissioned Hyperledger Iroha blockchain network. For enterprise developers, integration means engaging with a tiered API architecture where access levels, capabilities, and authentication requirements vary based on institutional licensing. This guide provides a comprehensive technical reference covering the Bakong Open API specification, KHQR QR code generation, payment lifecycle management, webhook-based settlement notifications, error handling patterns, reconciliation workflows, and cross-border corridor integration. Whether you are building a merchant payment acceptance system, an enterprise treasury platform, or a cross-border remittance service, this article provides the technical foundation for production-grade Bakong integration.',
-  // Claims removed 2026-08-31. This array previously carried figures attributed
-  // to named institutional reports with no URL, access date or page reference.
-  // A verified sample was wrong more often than not — including a Cambodian FATF
-  // mutual evaluation that never took place, and citations to bodies that do not
-  // exist under the names given. Restore an entry only when its figure has been
-  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
-  // and record where it was read. See vault ADR-007.
-  claims: [],
+  relatedInstruments: ['prakas-b14-017-161'],
+  lead: 'Bakong is the National Bank of Cambodia\'s national payment system, and its members are banks, microfinance institutions and payment service institutions: 69 at the end of 2024, 60 of them live. An enterprise that is not a member reaches Bakong in two ways. Payments themselves move through a member institution, under that institution\'s own API and terms. Alongside that, the NBC publishes a public developer toolkit for KHQR: a format guideline, an SDK for generating and verifying codes, and the Bakong Open API for checking whether a KHQR payment has been made. This guide sets out what those NBC documents specify, endpoint by endpoint, and is explicit about what they leave to the member institution.',
+  claims: [
+    { stat: 'The Bakong Open API provides eight calls: request token, verify token, renew token, generate deeplink by QR, check transaction status by MD5, by full hash or by short hash, and check a Bakong account, the last added in version 1.0.2. Responses carry a response code of 0 for success or 1 for failure and a numbered error code.', source: 'National Bank of Cambodia, Bakong Open API Document v1.0.2 (4 November 2021), pp. 2-4', year: '2021', url: 'https://bakong.nbc.gov.kh/download/KHQR/integration/Bakong%20Open%20API%20Document.pdf' },
+    { stat: 'In the NBC\'s dynamic KHQR flow, the merchant\'s back end generates a KHQR code with the NBC\'s KHQR SDK, following the EMVCo QR standard, and displays it with an expiration time; the merchant then checks the transaction status with Bakong at intervals, and Bakong responds with a status such as success or failed.', source: 'National Bank of Cambodia, QR Payment Integration, v1.0.3 (6 August 2021), product flow', year: '2021', url: 'https://bakong.nbc.gov.kh/download/KHQR/integration/QR%20Payment%20Integration.pdf' },
+  ],
   sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Bakong Open API Document, v1.0.2, November 2021 (PDF)', url: 'https://bakong.nbc.gov.kh/download/KHQR/integration/Bakong%20Open%20API%20Document.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'QR Payment Integration, v1.0.3, 6 August 2021 (PDF)', url: 'https://bakong.nbc.gov.kh/download/KHQR/integration/QR%20Payment%20Integration.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'KHQR SDK Document, v2.9, May 2025 (PDF)', url: 'https://bakong.nbc.gov.kh/download/KHQR/integration/KHQR%20SDK%20Document.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'KHQR Content Guideline v1.3, November 2020 (PDF)', url: 'https://bakong.nbc.gov.kh/download/KHQR/integration/KHQR%20Content%20Guideline%20v.1.3.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-349 on the Bakong system rules and procedures, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-349-PR_Rule_and_Procedure.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Project Bakong: Next Generation Payment System, white paper, June 2020 (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
   ],
-  sourcesAsAt: '2026-11-04',
+  sourcesAsAt: '2026-11-15',
   faqs: [
-    { question: 'Can enterprises connect directly to the Bakong API?', answer: 'No. Direct Bakong API access (Tier 2 and Tier 3) is restricted to NBC-licensed financial institutions and payment service providers. Enterprises operate at Tier 4, accessing Bakong through their bank partner\'s API gateway. The bank handles authentication with the Bakong switch, settlement on the Iroha ledger, and regulatory reporting. Enterprises initiate payments, receive settlement confirmations, and reconcile transactions through the bank\'s API layer. Bank partner selection should weigh API maturity, settlement speed, and pricing together rather than optimising for any one.' },
-    { question: 'What is the difference between static and dynamic KHQR codes?', answer: 'Static KHQR codes contain a fixed merchant identifier and are printed at point-of-sale locations. The customer enters the payment amount on their banking app after scanning. Dynamic KHQR codes are generated per transaction, embedding the exact amount, invoice reference, and expiration time. Dynamic codes are preferred for e-commerce, invoicing, and any scenario requiring exact amount matching and automated reconciliation. The KHQR specification supports both modes as defined in the EMVCo QR Code Specification for Payment Systems.' },
-    { question: 'How does Bakong handle failed or timed-out transactions?', answer: 'Bakong uses atomic transaction processing on the Hyperledger Iroha ledger, meaning transactions either complete fully or not at all — there are no partial settlements. If a transaction times out (typically after 30 seconds), the originating bank receives a timeout response code. The enterprise should query the transaction status endpoint to determine the final state before initiating a retry. Duplicate transaction detection is built into the Bakong switch using idempotency keys, preventing double-charging even if retry logic triggers multiple submissions.' },
+    { question: 'Can an enterprise connect directly to Bakong?', answer: 'Not as a payment participant: Bakong\'s members are licensed banks, microfinance institutions and payment service institutions, under the NBC\'s Bakong rules (Prakas F14-020-349), and an enterprise\'s payments move through a member. What an enterprise can use directly is the NBC\'s public Bakong Open API, which any integrator can register for with an email address, organisation and project name. It checks whether a KHQR payment has been made and generates payment deeplinks; it does not move money.' },
+    { question: 'What is the difference between static and dynamic KHQR codes?', answer: 'A static KHQR code (point-of-initiation value 11) is generated once and reused, and the customer enters the amount. A dynamic code (value 12) is generated per transaction with the amount built in and an expiry time set by the integrator. The Bakong Open API\'s status checks work for dynamic codes; its documentation lists "the system does not support static QR code" as error 2.' },
+    { question: 'How do I know whether a KHQR payment succeeded or failed?', answer: 'Poll the Bakong Open API. Send the MD5 hash of the KHQR string to the check-transaction-by-MD5 endpoint with your access token. A found transaction returns its hash, the from and to account identifiers, currency and amount; otherwise the response carries error 1 ("Transaction could not be found") or 3 ("Transaction failed"). The NBC\'s integration guide asks that checks complete within 10 seconds, with a manual check as the fallback.' },
   ],
   sections: [
     {
-      heading: 'Bakong API Architecture Overview',
-      content: 'The Bakong payment infrastructure operates as a four-tier architecture with distinct access levels, capabilities, and security requirements at each tier. The NBC operates Tier 1 with full administrative control over the Hyperledger Iroha ledger, including node management, consensus configuration, and system-wide policy enforcement. Tier 2 comprises licensed commercial banks that connect to the Bakong Open API gateway via dedicated network links with mutual TLS authentication. Tier 3 includes licensed payment service providers (PSPs) and microfinance institutions with restricted API access for e-wallet operations and merchant services. Tier 4 represents enterprises and merchants that access Bakong indirectly through their bank partner\'s API.\n\nFor enterprise developers, the practical integration surface is the bank partner\'s API, which wraps Bakong primitives in a bank-specific interface. While API specifications vary between banks, the NBC has published standardized message formats and error codes that banks must implement consistently. Bank API maturity varies widely, so it is worth building a comparison matrix across candidate partners before committing.',
+      heading: 'Two Ways In',
+      content: 'An enterprise integrating with Bakong works on two surfaces, and they should not be confused. The first is the member institution, the bank or payment service institution that holds the enterprise\'s account and moves its money. Its API, credentials, settlement terms, statements and any notifications are its own, and they are documented by that institution, not by the NBC. The second is the NBC\'s public KHQR toolkit: a format guideline, an SDK and the Bakong Open API. It lets the enterprise generate KHQR codes correctly and check whether they have been paid, but it does not initiate or settle payments.\n\nMost merchant and e-commerce integrations use both: the toolkit at the point of payment, and the member institution\'s statements for settlement and reconciliation. Bakong membership itself, for institutions, is governed by the NBC\'s Bakong rules in Prakas F14-020-349.',
+    },
+    {
+      heading: 'The KHQR Payload',
+      content: 'KHQR follows the EMVCo QR code standard for merchant-presented payments, with Cambodian content set by Prakas F14-020-351 and the KHQR Content Guideline. The payload is a series of tag-length-value fields: a two-digit tag, a two-digit length and the value. The Guideline\'s examples show the fields below; the point-of-initiation method distinguishes a static code (11) from a dynamic one (12), and the final field is a CRC checksum computed over everything before it.',
       table: {
-        caption: 'Bakong API Tier Architecture',
-        headers: ['Tier', 'Participants', 'Connection Method', 'Authentication', 'Key Capabilities'],
+        caption: 'KHQR fields in the NBC\'s examples (KHQR Content Guideline v1.3; Bakong Open API Document v1.0.2)',
+        headers: ['Tag', 'Field', 'Example from the NBC documents'],
         rows: [
-          ['Tier 1', 'NBC', 'Direct ledger access', 'HSM-based node keys', 'Full administration, consensus, policy'],
-          ['Tier 2', 'Commercial banks (30+)', 'Bakong Open API (dedicated link)', 'OAuth 2.0 + mTLS', 'Payment initiation, settlement, account services'],
-          ['Tier 3', 'PSPs, MFIs (30+)', 'Bakong Open API (restricted)', 'OAuth 2.0 + mTLS', 'E-wallet operations, KHQR merchant onboarding'],
-          ['Tier 4', 'Enterprises, merchants', 'Bank partner API', 'Bank-specific (API key / OAuth)', 'Payment acceptance, status queries, reconciliation'],
+          ['00', 'Payload format indicator', '000201 (version 01)'],
+          ['01', 'Point of initiation method', '010211 (static) / 010212 (dynamic)'],
+          ['29', 'Merchant account information (individual or solo merchant)', 'Bakong account information'],
+          ['53', 'Transaction currency', '5303116 (Khmer riel)'],
+          ['59', 'Merchant name', '5917Lucky Supermarket'],
+          ['60', 'Merchant city', '6010Phnom Penh'],
+          ['62', 'Additional data', 'Free-text reference, as in the Open API deeplink sample'],
+          ['63', 'CRC checksum', '6304 followed by four hexadecimal digits'],
         ],
       },
     },
     {
-      heading: 'Authentication and Security Requirements',
-      content: 'Bakong enforces layered security at every integration tier. At the network level, all Bakong API traffic traverses dedicated VPN tunnels or MPLS circuits between participating institutions and the NBC data center. At the transport level, mutual TLS (mTLS) with X.509 certificates issued by the NBC\'s Certificate Authority ensures both client and server authentication. At the application level, OAuth 2.0 with client credentials flow provides authorization tokens scoped to specific API operations.\n\nFor Tier 4 enterprises, security requirements are defined by the bank partner but must meet NBC minimum standards. These include: TLS 1.2 or higher for all API communication, API key rotation at minimum every 90 days, IP whitelist restrictions for production API access, webhook signature verification using HMAC-SHA256, and PCI DSS Level 2 or higher for merchants handling card-based payment data. Enterprise developers should implement a secrets management system (HashiCorp Vault, AWS Secrets Manager, or equivalent) to handle API keys, certificates, and webhook signing keys across development, staging, and production environments.\n\nThe NBC conducts annual security assessments of Tier 2 and Tier 3 participants and requires vulnerability remediation within 30 days of findings. Tier 4 enterprises are subject to their bank partner\'s security requirements, which typically include SOC 2 Type II compliance or equivalent for high-volume integrations.',
+      heading: 'Generating Codes with the KHQR SDK',
+      content: 'The NBC\'s KHQR SDK generates, decodes and verifies KHQR codes. Version 2.9 of its documentation, dated May 2025, gives examples for Java (via Maven or Gradle), iOS (Swift) and JavaScript. It distinguishes individual and merchant codes, supports an alternate-language merchant name and city in Khmer, and returns an MD5 hash with each generated code, which is the key used to check payment status.\n\nIn the NBC\'s integration flow, the merchant\'s back end generates the code with a unique transaction reference, returns it to the client with its expiry time, and the client displays it. Generating on the server keeps account information and references under the merchant\'s control, and lets the same service that issued a code also check it.',
     },
     {
-      heading: 'KHQR Code Generation and Payment Flow',
-      content: 'KHQR (Khmer QR) is the NBC-standardized QR code protocol built on the EMVCo QR Code Specification for Payment Systems (EMV QRCPS). Every KHQR code encodes a structured data payload using Tag-Length-Value (TLV) format, containing the merchant identifier, acquiring institution code, transaction amount (for dynamic codes), currency code, merchant name and city, and additional data fields for invoice references or loyalty program identifiers.\n\nThe payment flow for a KHQR transaction follows a defined sequence. The merchant system generates a KHQR code (static or dynamic) and displays it to the customer. The customer scans the code using any Bakong-connected banking app. The customer\'s banking app decodes the TLV payload, displays transaction details for confirmation, and upon user approval, submits the payment to the originating bank\'s core system. The bank forwards the transaction to the Bakong switch, which validates, debits the payer, credits the beneficiary, and records the settlement on the Iroha ledger. The beneficiary bank notifies the merchant system via webhook.\n\nDynamic KHQR codes include a transaction-specific reference number and expiration timestamp, enabling automated reconciliation. Dynamic codes are preferred for all e-commerce and invoicing scenarios, as they eliminate manual amount entry errors and enable real-time payment matching against accounting systems.',
+      heading: 'The Bakong Open API: Access and Endpoints',
+      content: 'Access to the Bakong Open API starts with registration. The integrator calls request-token with an email address (up to 30 characters), organisation name and project name; a 20-character verification code is sent to that email; and the verify call exchanges the code for an access token. When the token expires, renew-token issues a new one. Status checks send the token as a Bearer authorization header.\n\nEvery response carries a response code, 0 for success and 1 for failure, a numbered error code and a message. The API also returns standard HTTP codes, including 429 for too many requests, so a client should back off rather than retry immediately.',
       table: {
-        caption: 'KHQR TLV Data Fields (EMVCo Specification)',
-        headers: ['Tag ID', 'Field Name', 'Format', 'Required', 'Example Value'],
+        caption: 'Bakong Open API endpoints (Bakong Open API Document v1.0.2)',
+        headers: ['Call', 'Endpoint', 'Purpose'],
         rows: [
-          ['00', 'Payload Format Indicator', 'Numeric (2)', 'Yes', '01'],
-          ['01', 'Point of Initiation', 'Numeric (2)', 'Yes', '11 (static) / 12 (dynamic)'],
-          ['29', 'Merchant Account Info', 'Template', 'Yes', 'Bakong account identifier'],
-          ['52', 'Merchant Category Code', 'Numeric (4)', 'Yes', '5411 (grocery), 5812 (restaurant)'],
-          ['53', 'Transaction Currency', 'Numeric (3)', 'Yes', '116 (KHR) / 840 (USD)'],
-          ['54', 'Transaction Amount', 'Numeric (var)', 'Dynamic only', '25000 (KHR) / 15.50 (USD)'],
-          ['58', 'Country Code', 'Alpha (2)', 'Yes', 'KH'],
-          ['59', 'Merchant Name', 'Alpha-Num (25)', 'Yes', 'COFFEE SHOP PHNOM PENH'],
-          ['62', 'Additional Data', 'Template', 'Optional', 'Invoice ref, terminal ID'],
-          ['63', 'CRC Checksum', 'Hex (4)', 'Yes', 'CRC-16/CCITT'],
+          ['Request token', 'POST /v1/request_token', 'Register email, organisation and project; a verification code is emailed'],
+          ['Verify token', 'POST /v1/verify', 'Exchange the 20-character code for an access token'],
+          ['Renew token', 'POST /v1/renew_token', 'Issue a new token when the previous one expires'],
+          ['Generate deeplink', 'POST /v1/generate_deeplink_by_qr', 'Turn a KHQR string into a short link that opens a payment app'],
+          ['Check transaction by MD5', 'POST /v1/check_transaction_by_md5', 'Status of a payment by the MD5 hash of its KHQR string'],
+          ['Check transaction by full hash', 'POST /v1/check_transaction_by_hash', 'Status of a payment by its transaction hash'],
+          ['Check transaction by short hash', 'POST /v1/check_transaction_by_short_hash', 'Status of a payment by a shortened hash'],
+          ['Check Bakong account', 'Added in v1.0.2', 'Confirm a Bakong account'],
         ],
       },
     },
     {
-      heading: 'Payment Lifecycle and State Management',
-      content: 'Every Bakong transaction transitions through a defined set of states from initiation to final settlement. Understanding these states is critical for building robust payment systems that handle edge cases correctly. The lifecycle begins with INITIATED when the payer\'s banking app submits the payment request. The Bakong switch validates the request and transitions to VALIDATED, confirming that both accounts exist, the payer has sufficient funds, and the transaction passes AML/CFT screening rules.\n\nUpon successful validation, the system atomically debits the payer and credits the beneficiary, transitioning to SETTLED. This state is final and irrevocable for domestic transactions. The beneficiary bank receives a settlement notification and must acknowledge receipt within 5 seconds. If the bank fails to acknowledge, the transaction remains settled on the ledger but is flagged for operational follow-up.\n\nFailure states include REJECTED (validation failure, insufficient funds, blocked account), TIMEOUT (no response from beneficiary bank within 30 seconds), and ERROR (system-level failures). Enterprise systems should implement a state machine that handles all possible transitions and triggers appropriate business logic at each state change. A reference state machine covering all documented Bakong transaction states is the practical starting point, in Java or Node.js.\n\nFor cross-border transactions through bilateral corridors, additional states exist: FX_PENDING (awaiting foreign exchange rate confirmation), CORRIDOR_PROCESSING (transaction handed off to the foreign payment system), and CROSS_BORDER_SETTLED (final settlement confirmed by both systems).',
-    },
-    {
-      heading: 'Webhook Integration and Event Handling',
-      content: 'Bakong uses webhooks for asynchronous notification of transaction state changes. Bank partners expose webhook registration endpoints where enterprises configure callback URLs for different event types. The most critical webhook event is settlement confirmation, which notifies the merchant that payment has been received and funds are available.\n\nWebhook payloads are JSON-encoded and include the transaction reference, amount, currency, payer information (masked account number), settlement timestamp, and a digital signature for payload verification. The signature is computed as HMAC-SHA256 over the canonicalized payload using a shared secret established during webhook registration. Enterprises must verify the signature before processing any webhook to prevent spoofing attacks.\n\nEnterprise systems should implement idempotent webhook handlers, as Bakong may deliver duplicate notifications during network instability. The recommended pattern is to use the transaction reference as an idempotency key, checking whether the transaction has already been processed before executing business logic. Webhook endpoints must return HTTP 200 within 5 seconds; otherwise, the system retries with exponential backoff (5s, 15s, 45s, 135s) up to 5 attempts before marking the notification as failed and requiring manual reconciliation.\n\nImplement a webhook ingestion queue (using RabbitMQ, AWS SQS, or equivalent) that decouples receipt acknowledgment from business logic processing. This pattern ensures timely HTTP 200 responses while allowing complex downstream processing (accounting updates, inventory management, notification dispatch) to execute asynchronously.',
+      heading: 'Checking Payment Status and Handling Errors',
+      content: 'A successful MD5 check returns the transaction hash, the from and to account identifiers, the currency, the amount and an optional description. The integration guide asks that a status check complete within 10 seconds, with a manual check as the fallback, and leaves the code\'s expiry time to the integrator.\n\nThe error codes are few and specific, and each calls for a different response. Error 1 usually means the customer has not yet paid: keep polling until the code expires. Error 3 is a definite failure: tell the customer and offer a new code. Error 2 means a static code was sent to an endpoint that only handles dynamic ones. Errors 6 and 10 are credential problems, to fix rather than retry.',
       table: {
-        caption: 'Bakong Webhook Event Types',
-        headers: ['Event Type', 'Trigger', 'Payload Fields', 'Retry Policy', 'SLA'],
+        caption: 'Bakong Open API error codes (Bakong Open API Document v1.0.2, p. 4)',
+        headers: ['Code', 'Message'],
         rows: [
-          ['payment.settled', 'Transaction settled on ledger', 'txn_ref, amount, currency, payer, timestamp', '5 retries, exponential backoff', '< 5 seconds'],
-          ['payment.rejected', 'Validation failure', 'txn_ref, error_code, reason, timestamp', '3 retries', '< 10 seconds'],
-          ['payment.timeout', 'Settlement timeout', 'txn_ref, initiated_at, timeout_at', '3 retries', '< 30 seconds'],
-          ['refund.processed', 'Refund completed', 'original_txn_ref, refund_ref, amount', '5 retries', '< 5 seconds'],
-          ['reconciliation.daily', 'End-of-day summary', 'date, total_txns, total_value, net_settlement', '1 attempt', 'Daily at 23:59'],
+          ['1', 'Transaction could not be found. Please try again.'],
+          ['2', 'Sorry, the system does not support static QR code.'],
+          ['3', 'Transaction failed.'],
+          ['4', 'Error occurred on requesting deeplink from provider.'],
+          ['5', 'Missing required fields.'],
+          ['6', 'Unauthorized.'],
+          ['7', 'Email server has been down.'],
+          ['8', 'Email has been registered already.'],
+          ['9', 'Cannot connect to server. Please try again later.'],
+          ['10', 'Not registered yet.'],
         ],
       },
     },
     {
-      heading: 'Error Codes and Troubleshooting',
-      content: 'The Bakong system defines a standardized set of error codes that banks must propagate to Tier 4 enterprises. Error codes follow a hierarchical structure: 1xxx for authentication and authorization errors, 2xxx for validation errors, 3xxx for processing errors, 4xxx for system errors, and 5xxx for cross-border corridor errors. Understanding these codes is essential for building user-friendly error handling and for diagnosing integration issues during development and production.\n\nThe most common error encountered during integration is 2001 (Insufficient Funds), which requires clear user messaging and should not trigger automatic retries. Error 2003 (Invalid Account) typically indicates a mis-keyed account number or a closed account. Error 3001 (Transaction Timeout) requires a status query before retrying to prevent duplicate transactions. Error 4001 (System Unavailable) indicates Bakong maintenance windows, which are scheduled on the first Sunday of each month from 02:00-06:00 ICT.\n\nEnterprise developers should implement comprehensive error logging that captures the full request payload, error code, error message, timestamp, and correlation ID for every failed transaction. Integrate error logs with monitoring systems (Datadog, Grafana, or equivalent) with alerts configured for error rate thresholds: warning at 1% error rate, critical at 5% error rate.',
-      table: {
-        caption: 'Bakong Standard Error Codes',
-        headers: ['Code', 'Category', 'Description', 'Retryable', 'Recommended Action'],
-        rows: [
-          ['1001', 'Auth', 'Invalid API credentials', 'No', 'Check API key, contact bank partner'],
-          ['1002', 'Auth', 'Token expired', 'Yes', 'Refresh OAuth token and retry'],
-          ['2001', 'Validation', 'Insufficient funds', 'No', 'Notify payer, do not retry'],
-          ['2003', 'Validation', 'Invalid beneficiary account', 'No', 'Verify account number with payer'],
-          ['2005', 'Validation', 'Amount exceeds daily limit', 'No', 'Split transaction or increase limit'],
-          ['2007', 'Validation', 'Duplicate transaction reference', 'No', 'Query status of existing transaction'],
-          ['3001', 'Processing', 'Transaction timeout', 'Yes', 'Query status before retry'],
-          ['3003', 'Processing', 'FX rate unavailable', 'Yes', 'Retry after 60 seconds'],
-          ['4001', 'System', 'Bakong system maintenance', 'Yes', 'Queue and retry after maintenance window'],
-          ['5001', 'Cross-border', 'Corridor temporarily unavailable', 'Yes', 'Retry after 5 minutes'],
-        ],
-      },
+      heading: 'Deeplinks for Mobile Payments',
+      content: 'On a phone, a customer cannot scan a QR code displayed on the same screen. The generate-deeplink call solves this: it takes the KHQR string, plus the merchant app\'s name, icon and a callback deeplink to return to after payment, and returns a short link that opens the payment in a banking app. The documentation notes that the short link is different every time the call is made, so it should be generated per payment and not cached.',
     },
     {
-      heading: 'Reconciliation and Settlement Reporting',
-      content: 'Daily reconciliation between the enterprise accounting system and Bakong settlement records is a critical operational requirement. The NBC requires all participating institutions to reconcile within T+1, and enterprises should implement automated reconciliation to meet this timeline. The reconciliation process involves comparing the enterprise\'s internal transaction log against the bank partner\'s settlement report, identifying discrepancies, and resolving exceptions.\n\nBank partners provide daily settlement files in CSV or JSON format, typically available by 06:00 ICT for the previous day\'s transactions. The file includes every settled transaction with the Bakong transaction reference, amount, currency, counterparty details, settlement timestamp, and fees deducted. Enterprise reconciliation systems should match on the transaction reference number (not amount, as FX conversions may produce rounding differences) and flag any transactions present in one system but not the other.\n\nCommon reconciliation discrepancies include: timing differences for transactions initiated near midnight ICT (the Bakong settlement day ends at 23:59:59 ICT), FX rate differences between the enterprise\'s quoted rate and the actual NBC settlement rate, and webhook delivery failures where the enterprise system missed a settlement notification. A dedicated reconciliation component should handle these edge cases and emit exception reports for manual review.',
+      heading: 'Reconciliation',
+      content: 'The NBC toolkit gives each dynamic payment two identifiers: the merchant\'s own transaction reference, embedded when the code is generated, and the MD5 hash of the code, which the status check uses and which returns the Bakong transaction hash once paid. A sound design stores all three against the order, so that every order can be matched to exactly one payment.\n\nThe member institution\'s statements remain the settlement record. Daily reconciliation should match the merchant\'s orders, the statuses returned by the Open API, and the institution\'s statement, and flag anything that appears in one and not the others. The cut-off times, file formats and fee lines of those statements are set by the institution.',
     },
     {
-      heading: 'Cross-Border Corridor Integration',
-      content: 'Bakong\'s bilateral payment corridors with Thailand (PromptPay), Malaysia (DuitNow), and China (Alipay) each have unique technical characteristics that enterprise developers must account for. The Thailand-Cambodia corridor, the most mature, supports real-time settlement in both directions with FX conversion handled at the NBC reference rate. Maximum transaction amounts are limited to THB 50,000 (approximately USD 1,400) for person-to-person transfers and THB 200,000 (approximately USD 5,600) for business payments.\n\nThe Malaysia-Cambodia corridor operates through a store-and-forward model where transactions are batched and settled every 15 minutes during business hours (08:00-20:00 MYT). The China-Cambodia corridor integrates with Alipay\'s international payment infrastructure, primarily serving Chinese tourists and businesses in Cambodia, with settlement in USD.\n\nEnterprise developers integrating cross-border corridors must handle additional complexity: multi-currency FX management, corridor-specific transaction limits and operating hours, extended settlement states, and bilateral regulatory compliance requirements. The recommended integration pattern is to abstract corridor-specific logic behind a unified payment gateway interface, allowing the enterprise application to initiate cross-border payments through a consistent API regardless of the destination corridor.',
-      table: {
-        caption: 'Bakong Cross-Border Corridor Specifications',
-        headers: ['Corridor', 'Partner System', 'Settlement Model', 'Operating Hours', 'Max P2P Amount', 'Max B2B Amount', 'FX Provider'],
-        rows: [
-          ['Cambodia-Thailand', 'PromptPay (BOT)', 'Real-time bilateral', '24/7', 'THB 50,000', 'THB 200,000', 'NBC reference rate'],
-          ['Cambodia-Malaysia', 'DuitNow (BNM)', 'Batch (15-min cycles)', '08:00-20:00 MYT', 'MYR 5,000', 'MYR 25,000', 'BNM reference rate'],
-          ['Cambodia-China', 'Alipay (PBOC)', 'Real-time unilateral', '24/7', 'CNY 10,000', 'CNY 50,000', 'PBOC midpoint rate'],
-          ['Cambodia-Vietnam', 'NAPAS (SBV)', 'Pilot (limited)', 'Business hours', 'VND 10M', 'TBD', 'NBC/SBV negotiated'],
-          ['Cambodia-Laos', 'LAPNet (BOL)', 'Planned Q3 2026', 'TBD', 'TBD', 'TBD', 'TBD'],
-        ],
-      },
-    },
-    {
-      heading: 'Testing and Sandbox Environment',
-      content: 'The NBC mandates that all Bakong integrations undergo testing in a sandbox environment before receiving production access. The Bakong sandbox mirrors the production API with simulated financial institution endpoints, test accounts with pre-loaded balances, and the full range of transaction states and error codes. Bank partners provide sandbox credentials and documentation as part of the enterprise onboarding process.\n\nEffective sandbox testing should cover the complete payment lifecycle: successful payments in both KHR and USD, cross-currency transactions, all error codes (using test accounts configured to trigger specific errors), webhook delivery and signature verification, reconciliation file download and parsing, and idempotency handling for duplicate transaction submissions. Run a minimum of 200 test transactions across all scenarios before requesting production access.\n\nThe typical enterprise integration timeline from sandbox access to production deployment is 8-12 weeks. The first two weeks focus on API connectivity and authentication. Weeks 3-6 cover core payment flow implementation and testing. Weeks 7-10 address reconciliation, error handling, and edge case coverage. The final two weeks involve User Acceptance Testing (UAT) with the bank partner and NBC technical review. Dedicated project management and independent technical QA are what usually keep an integration inside this timeline.',
-    },
-    {
-      heading: 'Performance Optimization and Scalability',
-      content: 'Enterprise systems processing high volumes of Bakong transactions must be architected for performance and scalability. The Bakong switch processes up to 500 transactions per second (TPS) at peak, but individual bank partner APIs may have lower throughput limits. Enterprises should confirm their bank partner\'s API rate limits and implement client-side rate limiting to avoid HTTP 429 (Too Many Requests) responses.\n\nFor high-volume merchants (over 10,000 daily transactions), the following architectural patterns apply: connection pooling with keep-alive for persistent HTTP connections to the bank API, asynchronous payment submission using message queues to decouple user-facing transaction initiation from backend API calls, batch KHQR pre-generation for predictable transaction volumes (e.g., recurring invoice payments), and horizontally scaled webhook handlers behind a load balancer to absorb settlement notification bursts.\n\nDatabase design for transaction storage should use partitioning by settlement date to optimize reconciliation queries, composite indexes on transaction reference and status for status lookups, and separate read replicas for reporting queries to avoid impacting transaction processing performance. The NBC publishes monthly peak transaction periods (salary payment dates, public holidays, tax filing deadlines) that enterprises should factor into capacity planning.\n\nLoad testing against production-equivalent traffic patterns, derived from observed Bakong transaction distributions, should precede go-live.',
+      heading: 'What the NBC Documents Do Not Cover',
+      content: 'The NBC\'s public documents read for this guide do not specify webhooks or push notifications, a sandbox or test environment, service levels or maintenance windows, rate limits beyond the HTTP 429 response, settlement timing, or the transaction limits and operating hours of the cross-border QR links. Those are matters for the member institution\'s documentation and agreement, and an enterprise should obtain them in writing before designing around them.\n\nThe cross-border links themselves are recorded in the NBC\'s 2024 payment-system report: Thailand from February 2020, Laos and Vietnam from 2023, South Korea and Malaysia from 2024, and the UnionPay and Alipay+ networks. They are QR payment links, which let a visitor pay a Cambodian merchant from a home-country app, not remittance services.',
     },
   ],
 };
