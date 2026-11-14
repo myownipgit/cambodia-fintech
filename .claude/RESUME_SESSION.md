@@ -24,7 +24,7 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 
 **Loose ends:** untracked `2026-11-06-daily.md`, `2026-11-08-weekly.md`, `camfintech-sonnet-2026-11-08.md` (not this session's) and the GSC export `https___www.camfintech.com_-Performance-on-Search-2026-11-14.xlsx` in the repo root — leave unless Bill says otherwise. GSC weekly: first run 11-15 07:30 ICT; gcloud login expires ~fortnightly.
 
-**Pushing `main` deploys to production** (Git integration). Bill chose option C 11-15: checks live in `npm run build`, CLAUDE.md corrected. Fast-forward `main` only after the CLI deploy of that commit succeeds.
+**Pushing `main` deploys to production.** Option C (vault ADR-013): checks live in `npm run build`; `.vercelignore` is an allowlist. Fast-forward `main` only after the CLI deploy succeeds. **Open for Bill: the GitHub repo is PUBLIC** and tracks CLAUDE.md + this file (droplet IP, emails, TIN; no credentials found).
 
 **IRC data:** irc.gov.kh is a JS app; PDFs at `object.irc.gov.kh/irc-public/upload/...`, article JSON in `/en/article?post=<id>` `__NEXT_DATA__`. Don't query its GraphQL gateway (blocked as unauthorised).
 
@@ -54,6 +54,7 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 | `5516b40` | learn/supply-chain-finance-cambodia rebuilt around the Law on Secured Transactions + SETFO 2.0; CNSW from KPMG (commentary) |
 | `a8d0f9b` | glossary/supply-chain-finance: figures and pitch lines out, filing office in |
 | `d5f6e08` | Option C: check:llms + check:nav inside `npm run build`; proven on CLI, Git-push and broken-preview deploys |
+| `9b6ba9b` | Allowlist `.vercelignore`; vault ADR-013 written |
 
 ## Last Updated
 
