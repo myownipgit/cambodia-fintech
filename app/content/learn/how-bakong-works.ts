@@ -1,6 +1,11 @@
 import { ArticleContent } from '../types';
 
 /*
+ * Register fix, 2026-11-15 (ADR-005/006): "the integration architecture and
+ *   reconciliation pipelines themselves are coordinated with accredited Service
+ *   Providers" survived the 2026-11-08 sweep. No partner relationship exists;
+ *   the firm builds the client side itself. Rest of the page not re-checked.
+ *
  * Corrected 2026-11-07 against fetched primaries — do not restore from git:
  * - "Bakong is a central bank digital currency (CBDC)", "1:1 peg", "sets Bakong
  *   apart from most CBDC implementations": the NBC white paper presents Bakong
@@ -34,7 +39,7 @@ export const howBakongWorks: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-08',
+  updatedAt: '2026-11-15',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'nbc'],
@@ -97,7 +102,7 @@ export const howBakongWorks: ArticleContent = {
     },
     {
       heading: 'Developer APIs and Integration Patterns',
-      content: 'The Bakong Open API provides a RESTful interface for financial institutions and licensed fintech companies to integrate with the payment network. The API supports account lookup, payment initiation, transaction status queries, and webhook-based notifications for real-time settlement confirmation.\n\nIntegration follows a tiered model. Banks and licensed payment service providers connect directly to the Bakong API gateway. Merchants and enterprises access Bakong through their bank\'s API layer or through licensed payment aggregators. Authentication uses OAuth 2.0 with mutual TLS for transport security. CamFinTech helps enterprises scope their integration approach and map business workflows to Bakong API endpoints; the integration architecture and reconciliation pipelines themselves are coordinated with accredited Service Providers.',
+      content: 'The Bakong Open API provides a RESTful interface for financial institutions and licensed fintech companies to integrate with the payment network. The API supports account lookup, payment initiation, transaction status queries, and webhook-based notifications for real-time settlement confirmation.\n\nIntegration follows a tiered model. Banks and licensed payment service providers connect directly to the Bakong API gateway. Merchants and enterprises access Bakong through their bank\'s API layer or through licensed payment aggregators. Authentication uses OAuth 2.0 with mutual TLS for transport security. CamFinTech scopes the integration, maps business workflows to the API, and builds the client side of the integration and its reconciliation, which the client then operates.',
       table: {
         caption: 'Bakong API Integration Tiers',
         headers: ['Tier', 'Entity Type', 'Access Method', 'Capabilities'],

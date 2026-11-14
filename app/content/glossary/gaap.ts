@@ -1,6 +1,9 @@
 import { ArticleContent } from '../types';
 
 /*
+ * Register fix, 2026-11-15 (ADR-006): "CamFinTech navigates the regulatory
+ *   approvals" (agency over an approval) survived the 2026-11-08 sweep. Replaced.
+ *
  * X-Road, 2026-11-15: SOURCED, kept. camdx.gov.kh ("What is CamDX?") says CamDX
  * "adopts the model of X-Road of Estonia" and is "a distributed system with no
  * central database performing only data exchange"; the NIIS case study (19 April
@@ -82,7 +85,7 @@ export const gaap: ArticleContent = {
   faqs: [
     { question: 'What is Government-as-a-Platform in the Cambodia context?', answer: 'Government-as-a-Platform (GaaP) in Cambodia refers to the deliberate strategy of building interconnected government digital infrastructure that functions as a platform for private sector innovation. Rather than each ministry building isolated IT systems, Cambodia has created four foundational layers: CamDigiKey for identity, Bakong for payments, CamDX for data exchange, and CamInvoice for invoicing. Private businesses build products and services on top of these government-provided platforms.' },
     { question: 'How is Cambodia\'s GaaP approach different from other countries?', answer: 'Cambodia\'s GaaP model is distinctive because the infrastructure was designed as an integrated stack from the outset rather than evolving organically. CamDigiKey, Bakong, CamDX, and CamInvoice were planned to interoperate. This contrasts with countries where digital identity, payments, and data exchange evolved separately and require complex retrofitting to work together. Cambodia\'s deliberate approach creates compounding network effects.' },
-    { question: 'What investment opportunities does GaaP create?', answer: 'Cambodia\'s GaaP infrastructure creates three major investment categories: supply chain finance enabled by CamInvoice\'s verified trade data and Bakong settlement, compliance-as-a-service platforms built on CamDX and CamInvoice integration, and embedded financial products distributed through KHQR payment rails and authenticated via CamDigiKey. CamFinTech navigates the regulatory approvals and compliance programmes that let investors and operators participate in these opportunities — we never operate the rails or hold client funds.' },
+    { question: 'What investment opportunities does GaaP create?', answer: 'Cambodia\'s GaaP infrastructure creates three major investment categories: supply chain finance enabled by CamInvoice\'s verified trade data and Bakong settlement, compliance-as-a-service platforms built on CamDX and CamInvoice integration, and embedded financial products distributed through KHQR payment rails and authenticated via CamDigiKey. CamFinTech prepares the compliance programmes that investors and operators need to participate, and builds the client side of their integrations; approval decisions rest with each regulator and platform operator, and the firm never operates a rail or holds client funds.' },
   ],
   sections: [
     {

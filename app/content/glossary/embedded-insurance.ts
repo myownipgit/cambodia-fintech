@@ -1,6 +1,13 @@
 import { ArticleContent } from '../types';
 
 /*
+ * Register fix, 2026-11-15 (ADR-005/006): "CamFinTech navigates the IAC
+ *   approval" (agency over an approval) and "the build itself sits with
+ *   accredited Service Providers" (contradicts ADR-005) replaced. "Insurance
+ *   Authority of Cambodia (IAC)" does not exist under that name; the regulator
+ *   is the Insurance Regulator of Cambodia, IRC (memory:
+ *   project_corpus_evidence_bar). Figures on this page are NOT yet checked.
+ *
  * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
  * here said CamFinTech "navigates the approval", "keeps them approved",
  * provides "approval-navigation", and that the build "is coordinated with
@@ -17,7 +24,7 @@ export const embeddedInsurance: ArticleContent = {
   type: 'glossary',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-08',
+  updatedAt: '2026-11-15',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['khqr', 'camdigikey', 'supply-chain-finance'],
@@ -37,7 +44,7 @@ export const embeddedInsurance: ArticleContent = {
   faqs: [
     { question: 'What is embedded insurance and why is it relevant to Cambodia?', answer: 'Embedded insurance is the integration of insurance products into non-insurance platforms and transactions. Instead of buying insurance separately, customers receive offers at contextually relevant moments: travel insurance when booking a bus ticket, device insurance when purchasing a phone, or health insurance when making a healthcare payment. This model is particularly relevant to Cambodia because traditional insurance distribution (agents, brokers, branches) has failed to achieve meaningful penetration. Embedding insurance into existing KHQR payment flows and digital platforms removes the distribution barrier.' },
     { question: 'How does KHQR enable embedded insurance distribution?', answer: 'KHQR provides the payment rails that make micro-insurance economically viable. When a customer makes a KHQR payment, an insurance offer can be presented and the premium collected in the same transaction flow. Claims can be paid back instantly via Bakong. The low transaction costs of KHQR mean that even micro-premiums of $0.50-$2.00 per month are commercially sustainable, enabling products that serve Cambodia\'s mass market rather than only affluent consumers.' },
-    { question: 'What types of embedded insurance products work in Cambodia?', answer: 'The most promising embedded insurance products for Cambodia include personal accident micro-insurance embedded in ride-hailing and transport payments, hospital cash products triggered by KHQR healthcare payments, crop insurance for agricultural supply chain participants, device protection embedded in electronics purchases, and SME property insurance offered through business banking platforms. CamFinTech navigates the IAC approval and the distribution-partnership compliance programme that insurers and distribution partners need to launch these products — the build itself sits with accredited Service Providers.' },
+    { question: 'What types of embedded insurance products work in Cambodia?', answer: 'The most promising embedded insurance products for Cambodia include personal accident micro-insurance embedded in ride-hailing and transport payments, hospital cash products triggered by KHQR healthcare payments, crop insurance for agricultural supply chain participants, device protection embedded in electronics purchases, and SME property insurance offered through business banking platforms. CamFinTech prepares the compliance programme that insurers and their distribution partners need for these products and builds the client side of any integration; the approval decision is the Insurance Regulator of Cambodia\'s.' },
   ],
   sections: [
     {
@@ -61,7 +68,7 @@ export const embeddedInsurance: ArticleContent = {
     },
     {
       heading: 'Investment Thesis and Market Sizing',
-      content: 'The embedded insurance opportunity in Cambodia is driven by a unique convergence: extremely low current penetration (below 2%), high unmet demand for protection products, a young digitally-connected population, and government-built digital infrastructure that solves distribution and payment challenges. This combination does not exist in most other developing markets, where digital infrastructure is fragmented or absent.\n\nConservative estimates suggest embedded insurance could reach $100-200 million in annual gross written premiums within five years of scaled deployment, representing 20-40% of Cambodia\'s current total insurance market. First movers who build distribution partnerships with KHQR-enabled platforms and secure Insurance Authority of Cambodia (IAC) regulatory approval will capture disproportionate market share.',
+      content: 'The embedded insurance opportunity in Cambodia is driven by a unique convergence: extremely low current penetration (below 2%), high unmet demand for protection products, a young digitally-connected population, and government-built digital infrastructure that solves distribution and payment challenges. This combination does not exist in most other developing markets, where digital infrastructure is fragmented or absent.\n\nConservative estimates suggest embedded insurance could reach $100-200 million in annual gross written premiums within five years of scaled deployment, representing 20-40% of Cambodia\'s current total insurance market. First movers who build distribution partnerships with KHQR-enabled platforms and secure Insurance Regulator of Cambodia (IRC) regulatory approval will capture disproportionate market share.',
     },
     {
       heading: 'Where CamFinTech\'s Work Sits',
