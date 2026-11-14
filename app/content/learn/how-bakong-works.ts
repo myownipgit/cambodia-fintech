@@ -1,6 +1,27 @@
 import { ArticleContent } from '../types';
 
 /*
+ * Figure pass, 2026-11-15. Checked against the NBC white paper (ch. 3,
+ * "Project Bakong", pp. 21-24, read this day), the NBC's Bakong Open API
+ * Document v1.0.2 and KHQR documents (read for knowledge/bakong-technical-
+ * integration.ts) and the NBC 2024 payment-system report.
+ * Kept because the white paper states it: real-time settlement with finality,
+ * a design target under 5 seconds, debit and credit in one operation, BFT
+ * consensus on NBC-run validating nodes, separate KHR and USD accounts with no
+ * conversion on the system (banks provide FX), KYC by participating
+ * institutions, Iroha and SORAMITSU.
+ * Removed, not hedged: "over 60 financial institutions" (69 members, 60 live,
+ * 2024 report); "one to two seconds"; "real-time gross settlement (RTGS)";
+ * "routes the transaction to the appropriate ledger" and FX "at the prevailing
+ * NBC reference rate" and the currency-flow table; "over 400,000 merchant
+ * KHQR codes"; "unbanked ... approximately 27% of adults" (World Bank, no
+ * reference); the Developer APIs section's "payment initiation", "webhook-
+ * based notifications", "tiered model", "OAuth 2.0 with mutual TLS" and the
+ * Tier 1-4 table (the NBC Open API has none of these); "TLS 1.3", "the NBC ...
+ * can freeze accounts or reverse transactions", "NBC conducts regular audits";
+ * "The NBC's strategy is to route all domestic retail payments through Bakong
+ * rails". None read in a primary.
+ *
  * Register fix, 2026-11-15 (ADR-005/006): "the integration architecture and
  *   reconciliation pipelines themselves are coordinated with accredited Service
  *   Providers" survived the 2026-11-08 sweep. No partner relationship exists;
@@ -44,7 +65,7 @@ export const howBakongWorks: ArticleContent = {
   schema: 'Article',
   relatedSlugs: ['bakong', 'khqr', 'nbc'],
   relatedInstruments: ['prakas-b14-017-161'],
-  lead: 'Bakong is far more than a mobile wallet. It is the national payment system of the National Bank of Cambodia (NBC), which the NBC\'s own white paper describes as a next-generation payment system built on Hyperledger Iroha blockchain technology. Since its public launch in October 2020, Bakong has grown into the payment backbone of the Cambodian economy, connecting over 60 financial institutions, enabling dual-currency settlement in both Khmer Riel (KHR) and US Dollars (USD), and powering the KHQR standardized QR code protocol that has become ubiquitous in Cambodian commerce.',
+  lead: 'Bakong is far more than a mobile wallet. It is the national payment system of the National Bank of Cambodia (NBC), which the NBC\'s own white paper describes as a next-generation payment system built on Hyperledger Iroha blockchain technology. Launched on 28 October 2020, it moves payments between banks, microfinance institutions and payment service institutions in both Khmer riel (KHR) and US dollars (USD), and carries KHQR, the national QR code standard. At the end of 2024 it had 69 member institutions, 60 of them live, and about 30 million accounts could pay through it.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -52,7 +73,9 @@ export const howBakongWorks: ArticleContent = {
   // exist under the names given. Restore an entry only when its figure has been
   // read in a fetched primary, on the same evidence bar as app/content/regulatory,
   // and record where it was read. See vault ADR-007.
-  claims: [],
+  claims: [
+    { stat: 'Bakong payments are initiated and settled in real time with settlement finality, with a design target of under 5 seconds; transactions are validated by a Byzantine Fault Tolerant consensus algorithm on nodes run by the NBC, and each end user has separate KHR and USD accounts, with no currency conversion on the system itself.', source: 'National Bank of Cambodia, Project Bakong: Next Generation Payment System, white paper (June 2020), ch. 3, pp. 21-24', year: '2020', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf' },
+  ],
   sources: [
     { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-349 on the Bakong system rules and procedures, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-349-PR_Rule_and_Procedure.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
@@ -61,66 +84,46 @@ export const howBakongWorks: ArticleContent = {
     { publisher: 'Bank of Thailand', label: 'Press Release No. 9/2020: The Launch of Interoperable QR Payment Linkage between Cambodia and Thailand (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news-pdf/2020/n0963e.pdf', tier: 'primary' },
     { publisher: 'Nine ASEAN central banks (Bank of Thailand copy)', label: 'Joint press release: The National Bank of Cambodia formally joins the Regional Payment Connectivity initiative, 8 April 2025 (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news/2025/news-20250408.pdf', tier: 'primary' },
     { publisher: 'National Bank of Cambodia', label: 'Bakong, official site (home page)', url: 'https://bakong.nbc.gov.kh', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Bakong Open API Document, v1.0.2, November 2021 (PDF)', url: 'https://bakong.nbc.gov.kh/download/KHQR/integration/Bakong%20Open%20API%20Document.pdf', tier: 'primary' },
   ],
-  sourcesAsAt: '2026-11-06',
+  sourcesAsAt: '2026-11-15',
   faqs: [
     { question: 'Is Bakong a cryptocurrency?', answer: 'No. Bakong is the National Bank of Cambodia\'s payment system, not a cryptocurrency. The NBC\'s white paper describes it as the earlier FAST payment system enhanced by replacing its relational database with a permissioned Hyperledger Iroha blockchain network — in the NBC\'s words, "a rather conservative use of blockchain technology", mainly a change to back-end infrastructure that is invisible in many uses. It has no speculative value; it exists to settle payments.' },
-    { question: 'Do I need a bank account to use Bakong?', answer: 'No. Bakong supports both bank-linked wallets and standalone e-wallets. Users can open a Bakong wallet by completing KYC through a participating institution. This design deliberately targets financial inclusion for Cambodia\'s unbanked population, which the World Bank estimates at approximately 27% of adults.' },
-    { question: 'Can foreign businesses accept Bakong payments?', answer: 'Yes. Any business registered in Cambodia can accept Bakong payments through a participating bank. Foreign enterprises should engage a licensed payment service provider or directly integrate with the Bakong Open API via their bank partner. CamFinTech prepares the compliance work and builds the client side of the integration; it operates no rail and holds no client funds.' },
+    { question: 'Do I need a bank account to use Bakong?', answer: 'Not necessarily. The NBC white paper describes Bakong accounts held through participating institutions, which carry out customer identification (KYC), and a Bakong app that can be linked to a bank account so funds move in both directions. Expanding access for people without bank accounts is one of Bakong\'s stated aims. Most people, though, use Bakong through their own bank\'s or wallet\'s app: only 642,500 accounts were registered on the Bakong app itself in 2024.' },
+    { question: 'Can foreign businesses accept Bakong payments?', answer: 'Yes. Any business registered in Cambodia can accept Bakong payments through a participating bank. Payments move through a participating bank or payment service institution; the NBC\'s public Bakong Open API adds KHQR payment-status checks and deeplinks, but does not move money. CamFinTech prepares the compliance work and builds the client side of the integration; it operates no rail and holds no client funds.' },
   ],
   sections: [
     {
       heading: 'The Hyperledger Iroha Foundation',
-      content: 'Bakong is built on Hyperledger Iroha, an open-source distributed ledger framework originally developed by Soramitsu, a Japanese blockchain company. Unlike public blockchains such as Bitcoin or Ethereum, Hyperledger Iroha is a permissioned network where only authorized validator nodes operated by the NBC participate in consensus.\n\nThe consensus mechanism uses a variant of Byzantine Fault Tolerant (BFT) ordering, which means the network can process transactions within one to two seconds even if some validator nodes fail. This architecture gives Bakong the speed of centralized payment systems while retaining the auditability and resilience of distributed ledger technology. Each transaction is cryptographically signed and immutably recorded, providing a tamper-proof audit trail for regulators.',
+      content: 'Bakong is built on Hyperledger Iroha, an open-source distributed ledger framework originally developed by Soramitsu, a Japanese blockchain company. Unlike public blockchains such as Bitcoin or Ethereum, Hyperledger Iroha is a permissioned network where only authorized validator nodes operated by the NBC participate in consensus.\n\nTransactions are validated by a Byzantine Fault Tolerant (BFT) consensus algorithm, under which agreement needs 2n+1 of 3n+1 nodes, and the validating nodes are run by the NBC at its own premises. The white paper calls the result "a rather conservative use of blockchain technology": the earlier FAST system\'s database replaced by a permissioned ledger, giving consistency across nodes and an immutable record without opening the network to outside validators.',
     },
     {
       heading: 'Dual-Currency Settlement Architecture',
-      content: 'Cambodia operates a de facto dual-currency economy where both Khmer Riel (KHR) and US Dollars (USD) circulate freely. Bakong was engineered to handle both currencies natively. When a user initiates a payment, the system identifies the currency, routes the transaction to the appropriate ledger, and settles in real time.\n\nCross-currency transactions are also supported. If a payer sends KHR and the merchant accepts only USD, the participating bank performs an FX conversion at the prevailing NBC reference rate.',
-      table: {
-        caption: 'Bakong Dual-Currency Transaction Flows',
-        headers: ['Scenario', 'Payer Currency', 'Merchant Currency', 'Settlement', 'FX Required'],
-        rows: [
-          ['Domestic KHR', 'KHR', 'KHR', 'Instant on KHR ledger', 'No'],
-          ['Domestic USD', 'USD', 'USD', 'Instant on USD ledger', 'No'],
-          ['Cross-currency', 'KHR', 'USD', 'Bank FX at NBC rate', 'Yes'],
-          ['Cross-currency', 'USD', 'KHR', 'Bank FX at NBC rate', 'Yes'],
-          ['Cross-border', 'Foreign currency', 'KHR or USD', 'Corridor-specific', 'Yes'],
-        ],
-      },
+      content: 'Cambodia operates a de facto dual-currency economy where both Khmer Riel (KHR) and US Dollars (USD) circulate freely. Bakong handles both. Under the white paper\'s design, each end user has two separate accounts, one in KHR and one in USD, and a payment is made in the currency of the account it comes from.\n\nBakong itself does not convert between currencies: a conversion or transfer from one currency to the other is not possible on the system. Participating banks can provide foreign exchange to their customers, at their own rates and terms.',
     },
     {
       heading: 'The Settlement Process Step by Step',
-      content: 'A Bakong transaction follows a precise flow. First, the payer initiates payment through their bank or wallet app. The app sends an API request to the originating institution\'s core banking system, which forwards it to the Bakong switch. The Bakong switch validates the transaction, checks account balances, debits the payer, and credits the beneficiary in a single atomic operation.\n\nSettlement is final and irrevocable once confirmed on the Iroha ledger, typically within one to two seconds. There is no batch processing, no end-of-day netting, and no multi-day clearing cycle. This real-time gross settlement (RTGS) model eliminates counterparty risk between participating institutions and provides immediate liquidity to merchants, a critical advantage for small businesses managing daily cash flow.',
+      content: 'A Bakong transaction follows a precise flow. First, the payer initiates payment through their bank or wallet app. The app sends an API request to the originating institution\'s core banking system, which forwards it to the Bakong switch. The Bakong switch validates the transaction, checks account balances, debits the payer, and credits the beneficiary in a single atomic operation.\n\nThe white paper describes payments initiated and settled in real time with settlement finality, a design target of under 5 seconds per transaction, and the sender\'s debit and the receiver\'s credit made in a single, automatically executed operation. Bakong balances are treated as cash equivalent and recorded in each participant\'s Bakong settlement account at the NBC. When funds reach a merchant\'s own account, and on what terms, is set by the merchant\'s institution.',
     },
     {
       heading: 'KHQR Integration and Merchant Acceptance',
-      content: 'KHQR (Khmer QR) is the standardized QR code protocol set by the NBC that runs on top of Bakong infrastructure. Based on the EMVCo QR Code Specification, KHQR assigns each merchant a unique identifier embedded in the QR code. Any customer using any Bakong-connected bank app can scan a single KHQR code to pay.\n\nBefore KHQR, merchants needed separate QR codes for each bank or wallet. KHQR interoperability eliminated this fragmentation. By early 2025, over 400,000 merchant KHQR codes had been registered across Cambodia. The protocol supports both static QR codes printed at point-of-sale locations and dynamic QR codes generated per transaction for e-commerce and invoicing scenarios.',
+      content: 'KHQR (Khmer QR) is the standardized QR code protocol set by the NBC that runs on top of Bakong infrastructure. Based on the EMVCo QR code standard, KHQR embeds the merchant\'s account information in the code, so any customer using any participating bank or wallet app can scan a single KHQR code to pay. It supports static codes, printed once and used with an amount the customer enters, and dynamic codes generated per transaction with the amount built in; the NBC publishes a content guideline and an SDK for both.',
     },
     {
       heading: 'Cross-Border Payment Corridors',
-      content: 'The NBC has pursued bilateral payment linkages with neighbouring countries. The Cambodia–Thailand interoperable QR payment linkage was launched by the governors of the two central banks in February 2020, following an MOU signed in February 2019. It lets Cambodian visitors to Thailand pay Thai merchants by scanning Thai QR codes with their own banking apps, and Thai users pay KHQR merchants in Cambodia (Bank of Thailand, Press Release No. 9/2020).\n\nThe NBC\'s 2024 payment-system report records cross-border QR links with Thailand, Laos, Vietnam, Malaysia and South Korea, and with UnionPay International and Alipay. The second phase of the Malaysia–Cambodia QR linkage was launched on 8 April 2025, the day the NBC joined the Regional Payment Connectivity initiative of ASEAN central banks. These are QR payment linkages for retail payments; for what each currently supports, rely on the NBC\'s own announcements.',
+      content: 'The NBC has pursued bilateral payment linkages with neighbouring countries. The Cambodia–Thailand interoperable QR payment linkage was launched by the governors of the two central banks in February 2020, following an MOU signed in February 2019. It lets Cambodian visitors to Thailand pay Thai merchants by scanning Thai QR codes with their own banking apps, and Thai users pay KHQR merchants in Cambodia (Bank of Thailand, Press Release No. 9/2020).\n\nThe NBC\'s 2024 payment-system report records cross-border QR links with Thailand, Laos, Vietnam, Malaysia and South Korea, and with the UnionPay and Alipay+ networks. The second phase of the Malaysia–Cambodia QR linkage was launched on 8 April 2025, the day the NBC joined the Regional Payment Connectivity initiative of ASEAN central banks. These are QR payment linkages for retail payments; for what each currently supports, rely on the NBC\'s own announcements.',
     },
     {
-      heading: 'Developer APIs and Integration Patterns',
-      content: 'The Bakong Open API provides a RESTful interface for financial institutions and licensed fintech companies to integrate with the payment network. The API supports account lookup, payment initiation, transaction status queries, and webhook-based notifications for real-time settlement confirmation.\n\nIntegration follows a tiered model. Banks and licensed payment service providers connect directly to the Bakong API gateway. Merchants and enterprises access Bakong through their bank\'s API layer or through licensed payment aggregators. Authentication uses OAuth 2.0 with mutual TLS for transport security. CamFinTech scopes the integration, maps business workflows to the API, and builds the client side of the integration and its reconciliation, which the client then operates.',
-      table: {
-        caption: 'Bakong API Integration Tiers',
-        headers: ['Tier', 'Entity Type', 'Access Method', 'Capabilities'],
-        rows: [
-          ['Tier 1', 'NBC', 'Direct ledger access', 'Full system administration'],
-          ['Tier 2', 'Licensed banks', 'Bakong Open API', 'Payment initiation, settlement, account services'],
-          ['Tier 3', 'Payment service providers', 'Bakong Open API (restricted)', 'E-wallet operations, merchant services'],
-          ['Tier 4', 'Enterprises / merchants', 'Bank partner API', 'Payment acceptance, status queries, reconciliation'],
-        ],
-      },
+      heading: 'Developer APIs',
+      content: 'The NBC publishes a small public developer toolkit for KHQR. The Bakong Open API (version 1.0.2, November 2021) lets an integrator register with an email address, organisation and project name, obtain an access token, generate a deeplink that opens a KHQR payment in a banking app, check a payment\'s status by the MD5 hash of its KHQR string or by its transaction hash, and check a Bakong account. It returns ten numbered error codes. It does not initiate or settle payments, and it has no webhooks: payment status is checked by polling.\n\nPayments themselves move through a participating bank or payment service institution, under that institution\'s own API and terms. The guide on this site to Bakong technical integration sets out the NBC\'s toolkit endpoint by endpoint. CamFinTech scopes the integration, maps business workflows to it, and builds the client side of the integration and its reconciliation, which the client then operates.',
     },
     {
       heading: 'Security and Regulatory Safeguards',
-      content: 'Bakong implements multiple layers of security mandated by the NBC. All data in transit is encrypted with TLS 1.3, and all data at rest on the Iroha ledger is cryptographically hashed. The permissioned blockchain design means that only NBC-authorized nodes can validate transactions, eliminating the 51% attack vectors present in public blockchains.\n\nOn the regulatory side, all Bakong participants must comply with NBC Prakas (regulations) on anti-money laundering (AML) and combating the financing of terrorism (CFT). Transaction monitoring systems flag suspicious patterns in real time. The NBC conducts regular audits of participant institutions and can freeze accounts or reverse transactions when fraud is detected, a capability that decentralized cryptocurrencies fundamentally lack.',
+      content: 'Bakong\'s ledger is permissioned: only nodes run by the NBC validate transactions, and the white paper notes that transactions are visible to validating nodes without disclosing the identity of the parties. Identity sits with the participating institutions, which are responsible for KYC on their own customers.\n\nThose institutions are reporting entities under Cambodia\'s AML/CFT law. They must identify and verify customers, keep records for at least five years, and report suspicious transactions to the Cambodia Financial Intelligence Unit within 24 hours.',
     },
     {
       heading: 'Strategic Implications for Enterprise FinTech',
-      content: 'For enterprises evaluating Cambodia\'s digital payment landscape, Bakong is central infrastructure, and its members must follow its rules under NBC Prakas F14-020-349. The NBC\'s strategy is to route all domestic retail payments through Bakong rails over time, making direct integration a strategic imperative.\n\nA business typically meets Bakong in stages: KHQR acceptance for retail operations first, then API integration for automated payments and reconciliation, and later cross-border payment links where they apply. CamFinTech builds the client side of those integrations for a fee and hands them over; it operates no rail and holds no client funds.',
+      content: 'For enterprises evaluating Cambodia\'s digital payment landscape, Bakong is central infrastructure, and its members must follow its rules under NBC Prakas F14-020-349. A business that is not a member reaches it through one that is.\n\nA business typically meets Bakong in stages: KHQR acceptance for retail operations first, then API integration for automated payments and reconciliation, and later cross-border payment links where they apply. CamFinTech builds the client side of those integrations for a fee and hands them over; it operates no rail and holds no client funds.',
     },
   ],
 };
