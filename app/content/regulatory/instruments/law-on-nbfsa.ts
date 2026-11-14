@@ -36,5 +36,5 @@ export const lawOnNbfsa: RegulatoryInstrument = {
     },
   ],
   relatedInstruments: ['prakas-093', 'law-on-trust', 'law-on-banking'],
-  relatedContent: ['cambodia-fintech-regulation'],
+  relatedContent: ['cambodia-fintech-regulation', 'embedded-insurance'],
 };

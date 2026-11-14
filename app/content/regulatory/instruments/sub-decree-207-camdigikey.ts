@@ -54,5 +54,5 @@ export const subDecree207CamDigiKey: RegulatoryInstrument = {
     },
   ],
   relatedInstruments: [],
-  relatedContent: ['what-is-camdigikey', 'camdigikey', 'cambodia-digital-identity'],
+  relatedContent: ['what-is-camdigikey', 'camdigikey', 'cambodia-digital-identity', 'embedded-insurance'],
 };

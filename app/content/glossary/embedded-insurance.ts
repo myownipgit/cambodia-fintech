@@ -1,74 +1,113 @@
 import { ArticleContent } from '../types';
 
 /*
- * Register fix, 2026-11-15 (ADR-005/006): "CamFinTech navigates the IAC
- *   approval" (agency over an approval) and "the build itself sits with
- *   accredited Service Providers" (contradicts ADR-005) replaced. "Insurance
- *   Authority of Cambodia (IAC)" does not exist under that name; the regulator
- *   is the Insurance Regulator of Cambodia, IRC (memory:
- *   project_corpus_evidence_bar). Figures on this page are NOT yet checked.
+ * Figure pass, 2026-11-15. Rebuilt from Insurance Regulator of Cambodia (IRC)
+ * primaries, read this day:
+ * - "Cambodia Insurance Market Data 2025" (English, one-page PDF, published
+ *   19 May 2026) and the 2024 edition. Gross premium 2025: life
+ *   USD 204,216,341, general 162,832,564, total 367,048,904; 2024 total
+ *   357,073,078. Gross claims incurred 2025: USD 95,829,039. The IRC notes
+ *   that micro insurers are included in the general insurance figures.
+ * - The IRC's insurance technology sandbox register (irc.gov.kh/en/article/
+ *   sandbox, public page) and entry for Phillip Bank Plc.: institution type
+ *   commercial bank, insurance technology "Phillip Mobile", sandbox period
+ *   15 March 2024 - 14 March 2025, customers to access the company's services
+ *   and products through the mobile application. Other completed entries
+ *   include insurers and a third-party administrator.
+ * - IRC Guideline on the Insurance Technology Sandbox Environment (Khmer, 12
+ *   pp.), p. 1 read at 220 dpi. Its preamble cites Royal Kram NS/RKM/0814/021
+ *   of 4 August 2014 (Law on Insurance), a 2021 sub-decree on insurance, a
+ *   2024 sub-decree on micro-insurance, and a 2023 NBFSA Prakas on a fintech
+ *   sandbox for the non-bank financial sector. Sub-decree and Prakas numbers
+ *   and days are NOT published: some Khmer digits (4/8) are ambiguous.
+ * - "About 0.8% of GDP" is a calculation, stated as one: IRC 2024 gross
+ *   premium / World Bank 2024 GDP of USD 46.35 bn (as read for
+ *   insights/cambodia-vs-regional-fintech.ts) = 0.77%.
+ * - CamDigiKey statements follow Sub-Decree 207 (registry entry).
  *
- * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
- * here said CamFinTech "navigates the approval", "keeps them approved",
- * provides "approval-navigation", and that the build "is coordinated with
- * accredited Service Providers"; some also claimed NBC liaison, regulatory
- * goodwill, banking partners or partnership facilitation. Removed: the
- * approval decision is the operator's or regulator's, the client is the
- * applicant of record, the firm builds the client side itself (ADR-005), and
- * no partner relationship exists. Do not reintroduce any of these phrasings.
+ * Removed, not hedged:
+ * - "insurance penetration of approximately 1.5% of GDP" / "below 2%" in the
+ *   description, lead and thesis. The IRC and World Bank figures give ~0.8%.
+ * - The premium-range table ($0.50-$20.00) and "micro-premiums of $0.50-$2.00
+ *   per month are commercially sustainable". No source; product design.
+ * - "$100-200 million in annual GWP within five years ... 20-40% of the
+ *   current market" (which also implied a ~USD 500m market; the IRC records
+ *   USD 367m) and "first movers ... will capture disproportionate share".
+ * - "near-zero cost", "claims paid back instantly via Bakong", "instant
+ *   policyholder identification without paper-based KYC". Unsourced, and
+ *   Sub-Decree 207 makes eKYC through CamDigiKey no substitute for an ID card
+ *   or passport and requires CamDX membership, operator permission and the
+ *   owner's consent for each use.
+ * - CamInvoice as rails for crop and device insurance: CamInvoice Phase 1 is
+ *   business-to-government (Prakas 075; memory project_corpus_evidence_bar).
+ * - "Traditional insurance has failed", "catastrophic financial shocks",
+ *   "this combination does not exist in most other developing markets".
+ *   Unsourced characterisations.
+ *
+ * Earlier register fixes (2026-11-08, 2026-11-15, ADR-005/006): approval
+ * agency ("navigates the IAC approval", "keeps them approved"), "accredited
+ * Service Providers", NBC liaison and partnership claims, and the non-existent
+ * "Insurance Authority of Cambodia" were removed. Do not reintroduce any.
+ *
+ * Bar for restoring a figure: read in a fetched IRC, NBFSA or other issuer
+ * primary, recorded here.
  */
 export const embeddedInsurance: ArticleContent = {
   slug: 'embedded-insurance',
   title: 'What is Embedded Insurance in Cambodia?',
-  description: 'Embedded insurance in Cambodia leverages KHQR payment rails and CamDigiKey identity verification to distribute micro-insurance products in a market with under 2% penetration.',
+  description: 'Embedded insurance is cover offered inside another product or payment, such as a banking app or a purchase. In Cambodia, gross premiums were USD 367 million in 2025, and the Insurance Regulator of Cambodia runs an insurance technology sandbox.',
   type: 'glossary',
   cluster: 'investment',
   publishedAt: '2026-03-25',
   updatedAt: '2026-11-15',
-  readingTime: 3,
+  readingTime: 4,
   schema: 'DefinedTerm',
   relatedSlugs: ['khqr', 'camdigikey', 'supply-chain-finance'],
-  lead: 'Embedded insurance in Cambodia refers to the distribution of insurance products directly within non-insurance digital transactions, leveraging KHQR payment rails for premium collection and claims payment, and CamDigiKey for instant policyholder identity verification, targeting a market with insurance penetration below 2%.',
-  // Claims removed 2026-08-31. This array previously carried figures attributed
-  // to named institutional reports with no URL, access date or page reference.
-  // A verified sample was wrong more often than not — including a Cambodian FATF
-  // mutual evaluation that never took place, and citations to bodies that do not
-  // exist under the names given. Restore an entry only when its figure has been
-  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
-  // and record where it was read. See vault ADR-007.
-  claims: [],
-  sources: [
-    { publisher: 'Insurance Regulator of Cambodia', label: 'Official site (home page)', url: 'https://www.irc.gov.kh/en', tier: 'primary' },
+  relatedInstruments: ['law-on-nbfsa', 'sub-decree-207-camdigikey'],
+  lead: 'Embedded insurance is insurance offered inside another product or transaction, such as a banking app, a ticket purchase or a loan, rather than sold on its own through an agent or branch. In Cambodia it is a small part of a small market: the Insurance Regulator of Cambodia (IRC) records gross premiums of USD 367.0 million in 2025, which in 2024 was equal to about 0.8% of GDP. The IRC runs an insurance technology sandbox, and its register lists a commercial bank\'s mobile app among the technologies tested.',
+  claims: [
+    { stat: 'Gross insurance premiums in Cambodia were USD 367,048,904 in 2025 (life USD 204,216,341; general USD 162,832,564), up 3% on USD 357,073,078 in 2024. Micro insurers are included in the general insurance figures.', source: 'Insurance Regulator of Cambodia, Cambodia Insurance Market Data 2025 (PDF), published 19 May 2026', year: '2025', url: 'https://object.irc.gov.kh/irc-public/upload/2026/5f3b6b8d-7a81-468c-94d4-c9a9d8a25f23.pdf' },
+    { stat: 'A commercial bank, Phillip Bank Plc., took part in the IRC\'s insurance technology sandbox from 15 March 2024 to 14 March 2025 with its mobile application, through which its customers were to access the company\'s services and products.', source: 'Insurance Regulator of Cambodia, insurance regulatory sandbox register (completed entries)', year: '2025', url: 'https://www.irc.gov.kh/en/article/sandbox' },
   ],
-  sourcesAsAt: '2026-11-04',
+  sources: [
+    { publisher: 'Insurance Regulator of Cambodia', label: 'Cambodia Insurance Market Data 2025 (PDF, one page)', url: 'https://object.irc.gov.kh/irc-public/upload/2026/5f3b6b8d-7a81-468c-94d4-c9a9d8a25f23.pdf', tier: 'primary' },
+    { publisher: 'Insurance Regulator of Cambodia', label: 'Cambodia Insurance Market Data 2024 (PDF, one page)', url: 'https://object.irc.gov.kh/irc-public/upload/2025/e48f036e-b7fd-4c25-81ae-c833190b37d8.pdf', tier: 'primary' },
+    { publisher: 'Insurance Regulator of Cambodia', label: 'Insurance regulatory sandbox register (web page)', url: 'https://www.irc.gov.kh/en/article/sandbox', tier: 'primary' },
+    { publisher: 'Insurance Regulator of Cambodia', label: 'Guideline on the Insurance Technology Sandbox Environment (Khmer, PDF)', url: 'https://object.irc.gov.kh/irc-public/upload/2026/f8913159-3327-458a-9c67-c46183a9641b.pdf', tier: 'primary' },
+    { publisher: 'World Bank', label: 'World Development Indicators via the World Bank Data API: GDP, 2024 (Cambodia, Thailand, Viet Nam)', url: 'https://api.worldbank.org/v2/country/KHM;THA;VNM/indicator/NY.GDP.MKTP.CD?format=json&date=2024', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-15',
   faqs: [
-    { question: 'What is embedded insurance and why is it relevant to Cambodia?', answer: 'Embedded insurance is the integration of insurance products into non-insurance platforms and transactions. Instead of buying insurance separately, customers receive offers at contextually relevant moments: travel insurance when booking a bus ticket, device insurance when purchasing a phone, or health insurance when making a healthcare payment. This model is particularly relevant to Cambodia because traditional insurance distribution (agents, brokers, branches) has failed to achieve meaningful penetration. Embedding insurance into existing KHQR payment flows and digital platforms removes the distribution barrier.' },
-    { question: 'How does KHQR enable embedded insurance distribution?', answer: 'KHQR provides the payment rails that make micro-insurance economically viable. When a customer makes a KHQR payment, an insurance offer can be presented and the premium collected in the same transaction flow. Claims can be paid back instantly via Bakong. The low transaction costs of KHQR mean that even micro-premiums of $0.50-$2.00 per month are commercially sustainable, enabling products that serve Cambodia\'s mass market rather than only affluent consumers.' },
-    { question: 'What types of embedded insurance products work in Cambodia?', answer: 'The most promising embedded insurance products for Cambodia include personal accident micro-insurance embedded in ride-hailing and transport payments, hospital cash products triggered by KHQR healthcare payments, crop insurance for agricultural supply chain participants, device protection embedded in electronics purchases, and SME property insurance offered through business banking platforms. CamFinTech prepares the compliance programme that insurers and their distribution partners need for these products and builds the client side of any integration; the approval decision is the Insurance Regulator of Cambodia\'s.' },
+    { question: 'What is embedded insurance?', answer: 'Embedded insurance is cover offered at the point where a customer is already doing something else: buying a ticket, taking a loan, buying a device or using a banking app. The customer does not seek out an insurer separately; the offer and the premium payment sit inside the other transaction. The insurance is still underwritten by a licensed insurer, and the platform that presents it is a distribution channel.' },
+    { question: 'How large is Cambodia\'s insurance market?', answer: 'The Insurance Regulator of Cambodia records gross premiums of USD 367.0 million in 2025: USD 204.2 million in life insurance and USD 162.8 million in general insurance, which includes micro insurers. That was up 3% on 2024. Set against the World Bank\'s figure for Cambodia\'s 2024 GDP, 2024 premiums were equal to about 0.8% of GDP.' },
+    { question: 'Can CamDigiKey and KHQR be used for embedded insurance?', answer: 'They can support parts of it, within their rules. KHQR is the NBC\'s standard for QR payments, so a premium can be paid by scanning a code. CamDigiKey can verify a customer\'s identity data, but under Sub-Decree 207 a business needs CamDX membership and the operator\'s permission, the account owner must consent to each use, and eKYC through CamDigiKey is not a substitute for an identity card or passport. Neither changes what the insurance rules require of the insurer.' },
   ],
   sections: [
     {
-      heading: 'Why Traditional Insurance Fails in Cambodia',
-      content: 'Cambodia\'s insurance penetration of approximately 1.5% of GDP is not due to lack of demand but rather a failure of distribution and product design. Traditional insurance relies on agent networks, branch offices, and complex paper-based application processes that are fundamentally mismatched with Cambodia\'s market characteristics: a young, mobile-first population, limited physical infrastructure outside Phnom Penh, and average incomes that make conventional premium levels unaffordable.\n\nThe result is a massive protection gap where Cambodian households and businesses bear risks that insurance could efficiently transfer. Health emergencies, crop failures, property damage, and personal accidents impose catastrophic financial shocks on families with no safety net. Embedded insurance, distributed through existing digital touchpoints, directly addresses every barrier that has prevented traditional insurance adoption.',
+      heading: 'Definition',
+      content: 'Embedded insurance places an insurance offer inside a non-insurance product or transaction. Common forms elsewhere include travel cover sold with a ticket, credit life cover sold with a loan, device cover sold with a phone, and cover offered inside a bank\'s or wallet\'s app. Three parties are usually involved: the licensed insurer that underwrites the risk, the platform that presents the offer, and the customer. Which of them needs which licence or registration is set by the insurance rules, not by the technology.',
     },
     {
-      heading: 'KHQR and CamDigiKey as Insurance Infrastructure',
-      content: 'Cambodia\'s GaaP infrastructure provides the missing components for scalable insurance distribution. KHQR solves the premium collection and claims payment challenge by enabling micro-transactions at near-zero cost. CamDigiKey solves the identity verification challenge by providing instant, verified policyholder identification without paper-based KYC processes.\n\nTogether, these platforms enable a fully digital insurance lifecycle: identity verification via CamDigiKey at product enrollment, premium collection via KHQR at the point of transaction, policy management through mobile interfaces, and instant claims payment via Bakong settlement. This digital-native approach reduces the cost-to-serve to levels that make micro-insurance products with premiums as low as $0.50 per month commercially viable.',
+      heading: 'The Cambodian Insurance Market',
+      content: 'The Insurance Regulator of Cambodia publishes an annual one-page summary of the market. Its figures for 2025 show gross premiums of USD 367.0 million, up 3% on 2024, with life insurance slightly larger than general insurance. Micro insurers are counted within general insurance. Against the World Bank\'s figure for Cambodia\'s 2024 GDP, USD 46.35 billion, 2024 premiums of USD 357.1 million were equal to about 0.8% of GDP; that ratio is a calculation from the two sources, not a figure either publishes.',
       table: {
-        caption: 'Embedded Insurance Distribution Opportunities in Cambodia',
-        headers: ['Product Type', 'Distribution Channel', 'Premium Range', 'GaaP Infrastructure Used'],
+        caption: 'Cambodia insurance market, USD (IRC, Cambodia Insurance Market Data 2025)',
+        headers: ['Measure', '2025', '2024', 'Change'],
         rows: [
-          ['Personal Accident', 'Ride-hailing, Transport Apps', '$0.50 - $2.00/month', 'KHQR + CamDigiKey'],
-          ['Hospital Cash', 'Healthcare Payments, Pharmacies', '$1.00 - $3.00/month', 'KHQR + CamDigiKey'],
-          ['Crop Insurance', 'Agricultural Input Purchases', '$2.00 - $5.00/season', 'KHQR + CamInvoice'],
-          ['Device Protection', 'Electronics Retailers', '$1.00 - $4.00/month', 'KHQR + CamInvoice'],
-          ['SME Property', 'Business Banking Platforms', '$5.00 - $20.00/month', 'Bakong + CamDigiKey'],
+          ['Gross premium: life', '204,216,341', '200,407,724', '+2%'],
+          ['Gross premium: general (incl. micro insurers)', '162,832,564', '156,665,354', '+4%'],
+          ['Gross premium: total', '367,048,904', '357,073,078', '+3%'],
+          ['Gross claims incurred: total', '95,829,039', '101,780,882', '-6%'],
         ],
       },
     },
     {
-      heading: 'Investment Thesis and Market Sizing',
-      content: 'The embedded insurance opportunity in Cambodia is driven by a unique convergence: extremely low current penetration (below 2%), high unmet demand for protection products, a young digitally-connected population, and government-built digital infrastructure that solves distribution and payment challenges. This combination does not exist in most other developing markets, where digital infrastructure is fragmented or absent.\n\nConservative estimates suggest embedded insurance could reach $100-200 million in annual gross written premiums within five years of scaled deployment, representing 20-40% of Cambodia\'s current total insurance market. First movers who build distribution partnerships with KHQR-enabled platforms and secure Insurance Regulator of Cambodia (IRC) regulatory approval will capture disproportionate market share.',
+      heading: 'The Regulatory Frame',
+      content: 'Insurance in Cambodia is supervised by the Insurance Regulator of Cambodia, one of the regulators under the Non-Bank Financial Services Authority. The IRC\'s guideline on its insurance technology sandbox cites the instruments it rests on: the Law on Insurance of 2014, a 2021 sub-decree on insurance, a 2024 sub-decree on micro-insurance, and a 2023 Prakas of the Non-Bank Financial Services Authority on a financial technology sandbox for the non-bank sector. The guideline is addressed to insurers, insurance intermediaries and technology firms.\n\nThe IRC publishes a register of firms that have completed the sandbox. It includes life and general insurers, a third-party administrator with a health claims platform, and a commercial bank, Phillip Bank, whose mobile application, Phillip Mobile, is listed as the insurance technology it tested between March 2024 and March 2025. A bank\'s app tested as an insurance channel is the pattern embedded insurance describes.',
+    },
+    {
+      heading: 'The Digital Rails',
+      content: 'Two pieces of Cambodia\'s public digital infrastructure are relevant. KHQR, the NBC\'s QR payment standard, lets a premium be paid by scanning a code from any participating bank or wallet app. CamDigiKey, the government\'s digital identity platform, can verify a customer\'s identity data for a business that is a CamDX member and has the operator\'s permission, with the account owner\'s consent for each use. Sub-Decree 207 states that eKYC through CamDigiKey does not replace an identity card or passport.\n\nNeither rail changes the insurance rules. An embedded product still needs a licensed insurer, product terms the regulator accepts, and whatever arrangement the rules require for the platform that presents it.',
     },
     {
       heading: 'Where CamFinTech\'s Work Sits',
