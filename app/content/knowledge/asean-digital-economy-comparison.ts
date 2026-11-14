@@ -1,161 +1,148 @@
 import { ArticleContent } from '../types';
 
 /*
- * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences only; the
- * rest of this page is left for the general unsourced-figures pass).
- * - "has implemented mandatory electronic invoicing (CamInvoice) ahead of larger
- *   ASEAN peers" — unsourced comparison; replaced with the launch date.
- * - "as CamInvoice achieves Phase 3 universal compliance" — FALSE: no primary
- *   defines a universal phase; Phase 1 Step 3 adds six ministries.
- * CamInvoice is an MEF system operated by the General Department of Digital
- * Economy (Prakas 075, 22 January 2025, Art. 4); its Phase 1 is business-to-
- * government. Bar for restoring: read in a fetched MEF/GDDE primary.
+ * Figure pass, 2026-11-14. Rebuilt from primaries; the page had about 200
+ * figures across ten countries with no source. Search Console: 8 impressions,
+ * 0 clicks in the 3 months to 11 Nov 2026, so the page was cut to what a
+ * fetched record supports rather than researched country by country.
+ *
+ * Kept, each read in a primary:
+ * - RPC membership and dates: joint press release of nine ASEAN central banks,
+ *   8 April 2025 (Bank of Thailand copy), read 2026-11-14.
+ * - Cambodia's QR payment link dates: NBC Annual Report on the Payment System
+ *   2024, ch. 6, printed pp. 46-51, Khmer, read by eye (memory:
+ *   project_corpus_evidence_bar, 2026-11-07); Thailand launch also BOT 9/2020.
+ * - Bakong as a next-generation payment system, not a CBDC: NBC white paper.
+ * - KHQR (Prakas F14-020-351), CamDigiKey (Sub-Decree 207), CamDX (Sub-Decree
+ *   164), CamInvoice (MEF Prakas 075, Art. 4), PSI licence (Prakas
+ *   B14-017-161), digital assets (Prakas 093, Notification 083/25): registry
+ *   entries and the pages that cite them.
+ *
+ * Removed, not hedged, so nobody restores these from git:
+ * - "one of only five fully functional retail CBDCs" and "combines CBDC
+ *   issuance". The NBC does not describe Bakong as a CBDC.
+ * - All ten-country tables: population, GDP, GDP per capita, internet
+ *   penetration, digital-economy GMV and share of GDP; payment-system launch
+ *   years, technology, cross-border link counts and daily volumes (Bakong
+ *   "0.06M/day", "3 links (TH, MY, CN)"); fintech investment 2022-2024 with
+ *   CAGRs and named "key players"; licence-type counts, foreign-ownership caps,
+ *   sandbox years and licensing timelines; the 1-10 "DPI maturity" scores,
+ *   which were the page's own invention presented as a comparison.
+ * - "USD 330bn GMV ... e-Conomy SEA" (that report's country coverage was not
+ *   checked; it was presented as covering all ten), Cambodia GDP USD 33.5bn and per capita USD 1,950, "USD 2.1bn GMV",
+ *   "8th largest", "USD 285m fintech investment, +42%, fastest-growing".
+ * - "NBC Regulatory Sandbox, launched in 2023" (no instrument read establishes
+ *   one) and "100% foreign ownership of fintech companies" (not read in a
+ *   primary).
+ * - "DEFA signed in 2024", Project Nexus membership and "NBC intends to join by
+ *   2028", "KHQR 400,000 merchants", "CamDigiKey 38% enrolment", "NBC eKYC
+ *   mandate by mid-2026", "INA Digital 1.3%", Singpass/ThaID/VNeID enrolment,
+ *   e-commerce GMV and social-commerce shares, median age, urbanisation, GDP
+ *   growth, "15-20% of GDP by 2030", "concept to prototype in 3-4 months".
+ *   None read in a primary; several are statements about named systems or
+ *   institutions.
+ * - The FAQ naming Vietnam and the Philippines as "competitive threats" and
+ *   comparing infrastructure "per dollar invested": investment framing with
+ *   no source.
+ * - Closing "regulatory navigation" line (ADR-006).
+ *
+ * Bar for restoring any of it: read in a fetched primary (the issuer, or the
+ * report itself), with the page or article recorded here.
+ *
+ * Earlier note, 2026-11-07, CamInvoice: "ahead of larger ASEAN peers" and
+ * "Phase 3 universal compliance" removed; CamInvoice is an MEF system run by
+ * the GDDE (Prakas 075, Art. 4) and its Phase 1 is business-to-government.
  */
 
 export const aseanDigitalEconomyComparison: ArticleContent = {
   slug: 'asean-digital-economy-comparison',
-  title: 'ASEAN Digital Economy Comparison: Where Cambodia Stands in 2026',
-  description: 'Data-driven comparison of digital economy development across all 10 ASEAN member states, analyzing digital infrastructure, fintech investment, payment systems, regulatory frameworks, digital identity, and e-commerce penetration to position Cambodia\'s unique strategic advantages.',
+  title: 'Cambodia in the ASEAN Digital Economy: Payment Connectivity and National Rails',
+  description: 'Where Cambodia sits in ASEAN\'s regional payment connectivity, which QR payment links reach across its borders, and the national systems a regional business connects to, set out from central bank and government primary sources.',
   type: 'knowledge',
   cluster: 'investment',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-07',
-  readingTime: 10,
+  updatedAt: '2026-11-14',
+  readingTime: 5,
   schema: 'TechArticle',
   relatedSlugs: ['gaap', 'cambodia-fintech-landscape', 'cross-border-payments-bakong'],
-  lead: 'The ASEAN digital economy reached an estimated USD 330 billion in gross merchandise value (GMV) in 2025, more than tripling from USD 100 billion in 2019, according to the Google-Temasek-Bain e-Conomy SEA report. Within this rapidly expanding regional landscape, each of the 10 ASEAN member states has carved a distinct digital economy profile shaped by population size, regulatory philosophy, infrastructure investment, and strategic priorities. Cambodia, often overlooked in regional digital economy analyses due to its relatively small GDP (USD 33.5 billion in 2025), punches significantly above its weight in several critical dimensions: it operates one of only five fully functional retail CBDCs globally (Bakong), has launched a national electronic invoicing system (CamInvoice, January 2025), and has deployed a comprehensive Government-as-a-Platform (GaaP) architecture that many regional observers consider among the most structurally coherent in the region. This article provides a data-driven comparison across all 10 ASEAN member states, examining digital infrastructure maturity, fintech investment flows, payment system development, regulatory approaches, digital identity coverage, and e-commerce penetration to identify where Cambodia stands and where its strategic advantages lie.',
-  // Claims removed 2026-08-31. This array previously carried figures attributed
-  // to named institutional reports with no URL, access date or page reference.
-  // A verified sample was wrong more often than not — including a Cambodian FATF
-  // mutual evaluation that never took place, and citations to bodies that do not
-  // exist under the names given. Restore an entry only when its figure has been
-  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
-  // and record where it was read. See vault ADR-007.
-  claims: [],
+  relatedInstruments: ['prakas-b14-017-161', 'sub-decree-207-camdigikey', 'prakas-093', 'notification-083-25'],
+  lead: 'ASEAN economies differ too much in size for a headline ranking to say much about Cambodia. The comparison worth making is structural: how a country\'s payment and digital government systems connect to its neighbours\', and what a business must connect to on arrival. On that measure the record is clear. The National Bank of Cambodia (NBC) became the ninth ASEAN central bank to sign the Regional Payment Connectivity (RPC) memorandum, on 8 April 2025. Bakong, the NBC\'s national payment system, has QR payment links with Thailand, Laos, Vietnam, Malaysia and South Korea, and with the UnionPay and Alipay+ networks. At home, one payment system, one QR standard, a national digital identity, a national data exchange and a national e-invoicing system each rest on a published legal instrument. This page sets out that record and nothing beyond it.',
+  claims: [
+    { stat: 'The National Bank of Cambodia joined the Regional Payment Connectivity initiative on 8 April 2025, bringing the signatories to nine ASEAN central banks. The initiative was established in 2022 by the central banks of Indonesia, Malaysia, the Philippines, Singapore and Thailand, and expanded to Vietnam in August 2023, Brunei Darussalam in February 2024 and Lao PDR in April 2024.', source: 'Joint press release of nine ASEAN central banks, "The National Bank of Cambodia formally joins the Regional Payment Connectivity initiative", 8 April 2025, p. 1 (Bank of Thailand copy)', year: '2025', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news/2025/news-20250408.pdf' },
+  ],
+  sources: [
+    { publisher: 'Nine ASEAN central banks (Bank of Thailand copy)', label: 'Joint press release: The National Bank of Cambodia formally joins the Regional Payment Connectivity initiative, 8 April 2025 (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news/2025/news-20250408.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
+    { publisher: 'Bank of Thailand', label: 'Press Release No. 9/2020: The Launch of Interoperable QR Payment Linkage between Cambodia and Thailand (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news-pdf/2020/n0963e.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Project Bakong: Next Generation Payment System, white paper, June 2020 (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
+    { publisher: 'Royal Government of Cambodia', label: 'Sub-Decree No. 164 on Data Exchange through CamDX, unofficial English translation (PDF)', url: 'https://camdx.gov.kh/documents/files/Unofficial%20Translation%20of%20CamDX%20Subdecree.pdf', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-14',
   faqs: [
-    { question: 'How does Cambodia\'s digital economy size compare to other ASEAN countries?', answer: 'Cambodia\'s digital economy GMV was estimated at USD 2.1 billion in 2025, making it the 8th largest among ASEAN\'s 10 member states. Indonesia leads at USD 110 billion, followed by Vietnam (USD 45 billion), Thailand (USD 36 billion), Philippines (USD 28 billion), Malaysia (USD 25 billion), Singapore (USD 22 billion), and Myanmar (USD 3.5 billion). However, when measured as digital economy GMV per capita or digital payment growth rate, Cambodia outperforms several larger economies. Cambodia\'s strength lies not in absolute size but in infrastructure architecture quality and the speed of digital adoption.' },
-    { question: 'Why is Cambodia\'s GaaP model considered advanced despite the country\'s lower GDP?', answer: 'Cambodia\'s GaaP architecture is considered advanced because of its structural coherence and integration depth, not its scale. While Singapore and Thailand have more mature individual systems, Cambodia is unique in having designed all four layers (identity, payments, data exchange, invoicing) as an integrated platform from inception. Most ASEAN countries built these systems independently over many years, resulting in interoperability challenges. Cambodia\'s late-mover advantage allowed it to learn from predecessors and design for integration. The mandatory compliance model also ensures rapid adoption, unlike the voluntary uptake approach used in most ASEAN peers.' },
-    { question: 'Which ASEAN countries are the biggest competitive threats to Cambodia\'s fintech sector?', answer: 'Vietnam and the Philippines are the most direct competitive threats to Cambodia\'s fintech sector, as they compete for similar investment capital, target similar market segments (financial inclusion, SME lending, digital payments), and have larger addressable markets. Vietnam\'s fintech investment exceeded USD 400 million in 2024, dwarfing Cambodia\'s USD 285 million. However, Cambodia\'s infrastructure advantages (Bakong, CamInvoice, CamDigiKey) provide a structural moat that is difficult to replicate quickly. For investors, Cambodia offers better infrastructure per dollar invested, while Vietnam and the Philippines offer larger scale opportunities.' },
+    { question: 'Is Cambodia part of ASEAN\'s regional payment connectivity initiative?', answer: 'Yes. The National Bank of Cambodia joined the Regional Payment Connectivity initiative on 8 April 2025, announcing it at the launch of the second phase of the Malaysia–Cambodia cross-border QR payment link, on the sidelines of the 12th ASEAN Finance Ministers\' and Central Bank Governors\' Meeting in Kuala Lumpur. That made nine ASEAN central bank signatories. The initiative aims at faster, cheaper, more transparent and more inclusive cross-border payments, chiefly through QR code and fast payment links.' },
+    { question: 'Which countries can a Cambodian QR payment reach?', answer: 'The NBC\'s 2024 payment-system report records Bakong QR payment links with Thailand (from February 2020), Vietnam (December 2023), Laos (August 2023), Malaysia (September 2024, with a second phase in April 2025) and South Korea (August 2024), and with the UnionPay (December 2023) and Alipay+ (October 2024) networks. These let a customer pay a merchant across the border by scanning a QR code. They are payment links, not remittance licences.' },
+    { question: 'Is Bakong a central bank digital currency?', answer: 'Not on the NBC\'s own account. The NBC\'s white paper of June 2020 describes Bakong as a next-generation payment system built on Hyperledger Iroha blockchain technology. It settles in Khmer riel and US dollars between the apps of participating banks and payment service institutions, and the white paper does not describe it as a central bank digital currency.' },
   ],
   sections: [
     {
-      heading: 'ASEAN Digital Economy Landscape Overview',
-      content: 'The Association of Southeast Asian Nations (ASEAN) comprises 10 member states with a combined population of 690 million, GDP of USD 3.8 trillion, and internet penetration of 78% as of 2025. The digital economy has become a central pillar of ASEAN\'s economic strategy, formalized through the ASEAN Digital Economy Framework Agreement (DEFA) signed in 2024. DEFA aims to create a seamless digital single market by harmonizing data governance, digital identity, digital trade, and cybersecurity standards across member states.\n\nHowever, the digital economy development levels across ASEAN span an enormous range. Singapore, with a per capita GDP of USD 82,000, operates the most sophisticated digital financial infrastructure in the world. Myanmar, with per capita GDP of USD 1,200, has digital economy development constrained by political instability and limited infrastructure. Between these extremes, the six "ASEAN-6" economies (Indonesia, Thailand, Vietnam, Malaysia, Philippines, Cambodia) each follow distinct digital economy strategies shaped by their unique conditions.\n\nCambodia\'s position in this landscape is paradoxical: it has the second-lowest GDP per capita among ASEAN member states (USD 1,950 in 2025) but ranks among the top four for digital public infrastructure maturity. This paradox reflects the Cambodian government\'s deliberate strategy of investing in digital infrastructure ahead of economic development, betting that a strong digital foundation will accelerate GDP growth rather than waiting for organic ecosystem development.',
+      heading: 'Regional Payment Connectivity: Nine Central Banks',
+      content: 'The Regional Payment Connectivity initiative is the ASEAN central banks\' own framework for linking national payment systems. Five central banks established it in 2022, and four more have joined since. Cambodia was the most recent, on 8 April 2025.\n\nThe initiative works through payment links between member countries, chiefly QR code and fast payment connections, rather than a single regional system. Membership is therefore a statement of direction, not a connection in itself: each link between two countries is still built and launched separately. The April 2025 release names nine signatories, and Myanmar\'s central bank is not among them.',
       table: {
-        caption: 'ASEAN Member States: Economic and Digital Overview (2025)',
-        headers: ['Country', 'Population (M)', 'GDP (USD B)', 'GDP/Capita (USD)', 'Internet Penetration', 'Digital Economy GMV (USD B)', 'Digital Economy % of GDP'],
+        caption: 'Signatories to the Regional Payment Connectivity memorandum (joint press release, 8 April 2025)',
+        headers: ['Central bank', 'Joined'],
         rows: [
-          ['Indonesia', '280', '1,420', '5,070', '77%', '110', '7.7%'],
-          ['Thailand', '72', '550', '7,640', '88%', '36', '6.5%'],
-          ['Vietnam', '100', '465', '4,650', '79%', '45', '9.7%'],
-          ['Philippines', '115', '440', '3,830', '73%', '28', '6.4%'],
-          ['Malaysia', '34', '430', '12,650', '93%', '25', '5.8%'],
-          ['Singapore', '6', '500', '82,000', '96%', '22', '4.4%'],
-          ['Myanmar', '55', '65', '1,200', '43%', '3.5', '5.4%'],
-          ['Cambodia', '17', '33.5', '1,950', '78%', '2.1', '6.3%'],
-          ['Laos', '7.5', '16', '2,130', '62%', '0.8', '5.0%'],
-          ['Brunei', '0.45', '15', '33,300', '95%', '0.4', '2.7%'],
+          ['Bank Indonesia', '2022 (founding)'],
+          ['Bank Negara Malaysia', '2022 (founding)'],
+          ['Bangko Sentral ng Pilipinas', '2022 (founding)'],
+          ['Monetary Authority of Singapore', '2022 (founding)'],
+          ['Bank of Thailand', '2022 (founding)'],
+          ['State Bank of Vietnam', 'August 2023'],
+          ['Brunei Darussalam Central Bank', 'February 2024'],
+          ['Bank of the Lao PDR', 'April 2024'],
+          ['National Bank of Cambodia', '8 April 2025'],
         ],
       },
     },
     {
-      heading: 'Digital Payment Infrastructure Comparison',
-      content: 'Digital payment systems are the most visible and measurable dimension of ASEAN\'s digital economy, and the landscape reveals striking differences in architecture, adoption, and sophistication. Singapore\'s PayNow and Thailand\'s PromptPay are the most mature real-time payment systems, both operational since 2017 and achieving near-universal adoption. Indonesia\'s QRIS (QR Indonesia Standard) has achieved the largest absolute QR payment merchant base at over 30 million, though adoption is driven by mandatory regulation rather than infrastructure quality.\n\nCambodia\'s Bakong occupies a unique position as the only ASEAN payment system that combines CBDC issuance with real-time settlement infrastructure. While Thailand\'s PromptPay and Singapore\'s PayNow operate on traditional central bank infrastructure, Bakong\'s Hyperledger Iroha blockchain architecture provides cryptographic auditability and the potential for programmable payments through smart contracts. This technical distinction is significant for supply chain finance, insurance, and other applications that benefit from conditional payment execution.\n\nThe KHQR standardized QR code protocol has achieved over 400,000 merchant registrations, the second-highest QR merchant density (QR merchants per 1,000 population) in ASEAN after Thailand. Vietnam\'s VietQR has grown rapidly since its 2022 launch but faces interoperability challenges between domestic banks. The Philippines\' InstaPay and PESONet systems provide real-time and batch settlement respectively but lack a standardized QR protocol, resulting in fragmented merchant acceptance.',
+      heading: 'Cambodia\'s Cross-Border QR Payment Links',
+      content: 'Cambodia\'s links are built on Bakong and the KHQR standard. Thailand was first: the Bank of Thailand announced the interoperable QR payment link with Cambodia in February 2020. The NBC\'s 2024 payment-system report records the links that followed, within ASEAN and with two international card and wallet networks.\n\nFor a business, a QR link matters at the point of sale. A visitor can pay a Cambodian merchant from a home-country app, and a Cambodian customer can pay abroad, without either side holding a foreign account. That is a different thing from sending money across a border, which these links do not license.',
       table: {
-        caption: 'ASEAN Real-Time Payment Systems Comparison',
-        headers: ['Country', 'System', 'Launch Year', 'Technology', 'QR Standard', 'Cross-Border Links', 'Daily Txn Volume (M)'],
+        caption: 'Bakong QR payment links recorded by the NBC (Annual Report on the Payment System 2024, ch. 6)',
+        headers: ['Counterpart', 'Launch recorded', 'Later phase'],
         rows: [
-          ['Singapore', 'PayNow', '2017', 'FAST (ABS infra)', 'SGQR (EMVCo)', '5 (MY, TH, IN, PH, KH)', '2.8'],
-          ['Thailand', 'PromptPay', '2017', 'BOT RTGS + switch', 'Thai QR (EMVCo)', '4 (KH, MY, SG, JP)', '45.0'],
-          ['Cambodia', 'Bakong', '2020', 'Hyperledger Iroha CBDC', 'KHQR (EMVCo)', '3 (TH, MY, CN)', '0.06'],
-          ['Indonesia', 'BI-FAST', '2021', 'ISO 20022 switch', 'QRIS (EMVCo)', '2 (TH, MY)', '12.5'],
-          ['Vietnam', 'NAPAS 247', '2020', 'NAPAS switch', 'VietQR (custom)', '1 (pilot with KH)', '8.3'],
-          ['Malaysia', 'DuitNow', '2018', 'PayNet switch', 'DuitNow QR (EMVCo)', '4 (SG, TH, ID, KH)', '5.2'],
-          ['Philippines', 'InstaPay', '2018', 'PESONet / InstaPay', 'QR Ph (limited)', '1 (SG pilot)', '3.1'],
-          ['Myanmar', 'CBM Net', '2016', 'Legacy switch', 'None standardized', '0', '0.2'],
+          ['Thailand', '18 February 2020', 'Phase 2, 6 June 2023'],
+          ['Laos', '18 August 2023', '—'],
+          ['Vietnam', '3 December 2023', '—'],
+          ['UnionPay network', '22 December 2023', '—'],
+          ['South Korea', '29 August 2024', '—'],
+          ['Malaysia', '19 September 2024 (QR)', 'Phase 2, 8 April 2025'],
+          ['Alipay+ network', '14 October 2024', '—'],
         ],
       },
     },
     {
-      heading: 'Fintech Investment and Startup Ecosystem',
-      content: 'ASEAN fintech investment reached USD 5.8 billion in 2024, recovering from a dip in 2023 caused by global venture capital contraction. Singapore continues to dominate, capturing 42% of total ASEAN fintech investment (USD 2.4 billion), driven by its position as the region\'s financial hub and regulatory sandbox pioneer. Indonesia ranked second with USD 1.6 billion (28%), concentrated in digital lending, payments, and wealth management. Vietnam captured USD 420 million (7.2%), with rapid growth in digital payments and embedded finance.\n\nCambodia\'s fintech investment reached USD 285 million in 2024, representing approximately 4.9% of total ASEAN fintech investment. While small in absolute terms, this figure represents a 42% increase over 2023 and positions Cambodia as the fastest-growing fintech investment destination in ASEAN by percentage growth. Investment has concentrated in three areas: payment services (45%), digital lending (30%), and insurtech (15%). The remaining 10% spans wealth management, remittance, and compliance technology.\n\nFor investors, Cambodia\'s fintech opportunity is defined by the infrastructure-to-product gap: the GaaP infrastructure (Bakong, CamInvoice, CamDigiKey, CamDX) is in place, but the product layer built on top of this infrastructure remains thin. In contrast, Singapore and Indonesia have mature product ecosystems but infrastructure is fragmented. Cambodia offers the rare combination of world-class infrastructure and greenfield product opportunity, making it attractive for investors seeking early-stage positioning in a market with clear structural tailwinds.',
+      heading: 'The National Rails a Regional Business Connects To',
+      content: 'A business arriving from elsewhere in ASEAN meets one national system for each layer, and each rests on a published instrument. That is the feature of Cambodia\'s architecture most worth comparing: interoperability is built into the national design rather than negotiated between competing networks.\n\nThe practical consequence is that integration work is predictable in shape. A payment flow reaches Bakong through a participating licensed institution, and a QR code follows the KHQR specification. Identity checks run through CamDigiKey, government data queries through CamDX, and invoices to designated ministries through CamInvoice.',
       table: {
-        caption: 'ASEAN Fintech Investment by Country (2022-2024, USD Millions)',
-        headers: ['Country', '2022', '2023', '2024', 'CAGR', 'Top Segment', 'Key Players'],
+        caption: 'Cambodia\'s national systems and their legal basis',
+        headers: ['Layer', 'System', 'Operator or legal basis'],
         rows: [
-          ['Singapore', '3,100', '2,000', '2,400', '-12%', 'Payments, Wealth', 'Grab, GXS, Endowus'],
-          ['Indonesia', '2,100', '1,350', '1,600', '-13%', 'Lending, Payments', 'GoTo, Dana, Akulaku'],
-          ['Vietnam', '350', '310', '420', '+10%', 'Payments, Lending', 'MoMo, VNPay, Timo'],
-          ['Thailand', '280', '250', '350', '+12%', 'Payments, InsurTech', 'Ascend, 2C2P, Finnomena'],
-          ['Philippines', '380', '290', '340', '-5%', 'Lending, Remittance', 'GCash, Maya, Tonik'],
-          ['Malaysia', '220', '200', '280', '+13%', 'Payments, Islamic', 'Boost, BigPay, Touch n Go'],
-          ['Cambodia', '180', '200', '285', '+26%', 'Payments, Lending', 'Pi Pay, Wing, Clik'],
-          ['Myanmar', '45', '20', '15', '-42%', 'Payments (limited)', 'Wave, KBZPay (restricted)'],
+          ['Payments', 'Bakong', 'National Bank of Cambodia; white paper, June 2020'],
+          ['QR standard', 'KHQR', 'NBC Prakas F14-020-351, June 2020'],
+          ['Digital identity', 'CamDigiKey', 'Sub-Decree 207, July 2023'],
+          ['Data exchange', 'CamDX', 'Sub-Decree No. 164 on data exchange through CamDX'],
+          ['E-invoicing', 'CamInvoice', 'MEF Prakas 075, 22 January 2025; operated by the MEF\'s General Department of Digital Economy'],
         ],
       },
     },
     {
-      heading: 'Digital Identity and eKYC Maturity',
-      content: 'Digital identity infrastructure is a critical enabler of fintech development, determining the cost and speed of customer onboarding, the reliability of identity verification, and the potential for cross-border service delivery. ASEAN member states vary significantly in digital identity maturity, from Singapore\'s world-class Singpass system to Myanmar\'s largely paper-based identity infrastructure.\n\nSingapore\'s Singpass serves as the regional benchmark, with 97% adult enrollment, comprehensive eKYC integration across financial services, and advanced features including MyInfo (verified personal data API), Singpass Face Verification, and cross-border recognition agreements with several countries. Thailand\'s D.DOPA (ThaID) has achieved 62% adult enrollment and is rapidly expanding eKYC use cases. Vietnam\'s VNeID has reached 70% enrollment through aggressive government campaigns tied to mandatory national database registration.\n\nCambodia\'s CamDigiKey, at 38% adult enrollment, is still in its growth phase but has several technical advantages that position it well for rapid expansion. Its OpenID Connect + FIDO2 architecture is more modern than several peer systems. The NBC\'s eKYC mandate (requiring all financial institutions to implement CamDigiKey by mid-2026) will drive enrollment acceleration. The integration with CamDX for data enrichment provides a richer identity dataset than standalone identity systems. Indonesia\'s INA Digital, by contrast, has struggled with enrollment despite the country\'s large population, reaching only 1.3% coverage due to fragmented implementation across government agencies.\n\nFor enterprises evaluating ASEAN market entry, digital identity maturity directly impacts customer acquisition cost. Markets with mature digital identity systems (Singapore, Thailand, Cambodia by 2027) enable remote, low-cost onboarding, while markets with nascent systems (Indonesia, Myanmar) require more expensive manual KYC processes.',
+      heading: 'How Market Entry Is Licensed',
+      content: 'Two instruments decide most FinTech entry. A business that provides payment services needs a payment service institution licence from the NBC under Prakas B14-017-161. A digital asset business is licensed under Prakas 093 of December 2025, and the Securities and Exchange Regulator of Cambodia\'s Notification 083/25 makes its sandbox the route to that licence: only sandbox graduates may apply.\n\nEach is linked below with its source and the date it was last checked. Questions of foreign ownership, capital and timing are matters for the current instrument and Cambodian counsel, and this page does not state them.',
     },
     {
-      heading: 'Regulatory Framework Comparison',
-      content: 'ASEAN fintech regulatory approaches span a spectrum from Singapore\'s innovation-focused licensing framework to Myanmar\'s restrictive and uncertain regulatory environment. Understanding regulatory philosophy is essential for fintech companies planning multi-market ASEAN strategies, as it determines licensing timelines, capital requirements, operational constraints, and the feasibility of cross-border service delivery.\n\nSingapore\'s Monetary Authority of Singapore (MAS) operates the most comprehensive fintech regulatory framework in ASEAN, with dedicated license types for payment services (Payment Services Act 2019), digital banking (Digital Bank Licenses), and capital markets (Securities and Futures Act). The MAS Regulatory Sandbox has admitted over 100 experiments since 2016. Thailand\'s Bank of Thailand has adopted a similarly progressive approach with the Regulatory Sandbox for Financial Innovation and dedicated licenses for e-wallets and lending platforms.\n\nCambodia\'s NBC framework, while newer, is notable for its clarity and speed of implementation. The payment service institution licensing framework provides a clear paths for different fintech models. The NBC\'s Regulatory Sandbox, launched in 2023, has a focused scope with clear graduation criteria. Importantly, Cambodia allows 100% foreign ownership of fintech companies, a significant advantage over markets like Vietnam (which caps foreign ownership in payment companies at 49%) and Indonesia (which requires local partners for certain financial services).',
-      // Capital thresholds removed 2026-11-04. The site carried three mutually
-      // contradictory sets of NBC minimum-capital figures (PSP variously $500,000,
-      // $1,000,000 and ~USD 250,000), none traceable to a fetched source. CLAUDE.md
-      // excludes capital thresholds, licence tiers and fees from a secondary
-      // aggregator site-wide. Restore a figure only when it has been read in an
-      // issuer's instrument or stated by a law firm, on the app/content/regulatory
-      // evidence bar, and record where it was read.
-      table: {
-        caption: 'ASEAN Fintech Regulatory Framework Comparison',
-        headers: ['Country', 'Primary Regulator', 'License Types', 'Foreign Ownership Cap', 'Sandbox Available', 'Licensing Timeline'],
-        rows: [
-          ['Singapore', 'MAS', '7+ license types', '100%', 'Yes (since 2016)', '6-12 months'],
-          ['Thailand', 'BOT / SEC', '5 license types', '49% (waivable)', 'Yes (since 2017)', '6-18 months'],
-          ['Cambodia', 'NBC', 'Payment service institution licence + sandbox', '100%', 'Yes (since 2023)', '6-12 months'],
-          ['Indonesia', 'OJK / BI', '4+ license types', '85% (varies)', 'Yes (since 2018)', '12-24 months'],
-          ['Vietnam', 'SBV', '2 license types', '49%', 'Pilot (2024)', '12-18 months'],
-          ['Malaysia', 'BNM / SC', '5 license types', '100% (digital banks)', 'Yes (since 2016)', '12-18 months'],
-          ['Philippines', 'BSP / SEC', '4 license types', '60% (banks)', 'Yes (since 2020)', '6-12 months'],
-          ['Myanmar', 'CBM', 'Limited', '35%', 'No', 'Uncertain'],
-        ],
-      },
-    },
-    {
-      heading: 'E-Commerce and Digital Trade',
-      content: 'E-commerce penetration varies dramatically across ASEAN, from Indonesia\'s USD 65 billion market (the largest in the region) to Laos\'s nascent sub-USD 100 million market. The e-commerce landscape is dominated by regional platforms (Shopee, Lazada, TikTok Shop) supplemented by domestic players and increasingly by cross-border direct-to-consumer brands. The competitive dynamics between these platforms, combined with evolving regulatory requirements around data localization, consumer protection, and digital taxation, create distinct e-commerce environments in each market.\n\nCambodia\'s e-commerce market, valued at approximately USD 2.1 billion GMV in 2025, is small but growing rapidly at 25% annually. Social commerce (buying and selling through Facebook, Instagram, and Telegram) accounts for approximately 40% of e-commerce GMV, significantly higher than the ASEAN average of 25%. This reflects Cambodia\'s high social media penetration (Facebook reaches 85% of internet users) and the relatively limited development of dedicated e-commerce platforms. Shopee Cambodia and NhamSeller are the leading marketplace platforms.\n\nFor fintech companies, Cambodia\'s e-commerce landscape presents opportunities in payment facilitation (bridging KHQR with platform checkout flows), logistics-fintech integration (cash-on-delivery digitization), and seller financing (using platform sales data to underwrite working capital loans). The high share of social commerce creates specific demand for lightweight payment solutions that work within messaging apps, an area where Cambodia\'s Bakong infrastructure provides enabling capabilities.',
-    },
-    {
-      heading: 'Digital Public Infrastructure Maturity',
-      content: 'The concept of Digital Public Infrastructure (DPI) — government-provided platforms for identity, payments, data exchange, and compliance — has emerged as a key differentiator among ASEAN digital economies. The G20, under India\'s 2023 presidency, elevated DPI to a global development priority, and ASEAN member states are at varying stages of building comprehensive DPI stacks.\n\nCambodia\'s GaaP architecture, comprising CamDigiKey (identity), Bakong (payments), CamDX (data exchange), and CamInvoice (compliance), represents one of the most complete DPI implementations in ASEAN. Only Singapore (Singpass + PayNow + SGFinDex + InvoiceNow) has a comparably integrated four-layer DPI stack. Thailand has strong payment (PromptPay) and identity (ThaID) layers but weaker data exchange and invoicing layers. Indonesia has QRIS for payments but fragmented identity and data exchange systems.\n\nThe significance of DPI maturity for fintech development cannot be overstated. In markets with mature DPI, fintech companies can build products faster and cheaper because the hard infrastructure problems (identity verification, payment settlement, government data access, tax compliance) are solved at the platform level. In markets without mature DPI, fintech companies must build or buy these capabilities privately, increasing costs, complexity, and time to market. Cambodia\'s DPI maturity means that a fintech company can go from concept to functioning prototype in 3-4 months, compared to 6-12 months in Indonesia or Vietnam where identity verification and payment integration must be negotiated with multiple private providers.',
-      table: {
-        caption: 'ASEAN Digital Public Infrastructure Maturity Matrix',
-        headers: ['Country', 'Identity Layer', 'Payment Layer', 'Data Exchange Layer', 'Compliance Layer', 'Overall DPI Score (1-10)'],
-        rows: [
-          ['Singapore', 'Singpass (10/10)', 'PayNow (9/10)', 'SGFinDex (8/10)', 'InvoiceNow (8/10)', '9'],
-          ['Cambodia', 'CamDigiKey (7/10)', 'Bakong (8/10)', 'CamDX (7/10)', 'CamInvoice (7/10)', '7'],
-          ['Thailand', 'ThaID (7/10)', 'PromptPay (9/10)', 'GDX pilot (4/10)', 'e-Tax Invoice (6/10)', '7'],
-          ['Malaysia', 'MyDigital ID (5/10)', 'DuitNow (7/10)', 'MyGDX pilot (3/10)', 'MyInvois (6/10)', '5'],
-          ['Vietnam', 'VNeID (6/10)', 'NAPAS 247 (6/10)', 'NGSP pilot (3/10)', 'e-Invoice (5/10)', '5'],
-          ['Indonesia', 'INA Digital (3/10)', 'QRIS/BI-FAST (7/10)', 'SPBE (3/10)', 'e-Faktur (5/10)', '5'],
-          ['Philippines', 'PhilSys (5/10)', 'InstaPay (5/10)', 'eGovPH (2/10)', 'e-Invoice (pilot)', '4'],
-          ['Myanmar', 'NRC digital (2/10)', 'CBM Net (3/10)', 'None (0/10)', 'None (0/10)', '1'],
-        ],
-      },
-    },
-    {
-      heading: 'Cross-Border Digital Economy Integration',
-      content: 'ASEAN\'s ambitious digital integration agenda, formalized through the ASEAN Digital Economy Framework Agreement (DEFA), aims to create seamless cross-border digital services including payments, identity recognition, data flows, and digital trade. The current state of cross-border integration reveals a patchwork of bilateral agreements rather than a unified regional framework.\n\nIn cross-border payments, the most advanced initiative is the multilateral real-time payment linkage connecting Singapore, Thailand, Malaysia, Indonesia, and the Philippines, built on the BIS Innovation Hub\'s Project Nexus architecture. Cambodia has bilateral linkages with Thailand (Bakong-PromptPay), Malaysia (Bakong-DuitNow), and China (Bakong-Alipay) but is not yet connected to the multilateral Nexus platform. The NBC has stated its intention to join by 2028.\n\nCross-border digital identity recognition remains nascent. The ASEAN Digital Identity Working Group has published a common trust framework but no bilateral mutual recognition agreements are operational. Cambodia\'s CamDigiKey, built on OpenID Connect standards, is technically compatible with the proposed ASEAN framework. Cross-border data flows are governed by each country\'s data protection law, with significant variation in data localization requirements.\n\nFor enterprises operating across multiple ASEAN markets, the current fragmented integration landscape requires country-by-country compliance strategies. Multinational enterprises need payment, identity, and compliance architectures that work within the current bilateral framework while remaining adaptable to future ASEAN-wide integration.',
-    },
-    {
-      heading: 'Cambodia\'s Competitive Positioning and Strategic Advantages',
-      content: 'Synthesizing the cross-dimensional analysis, Cambodia\'s competitive position in the ASEAN digital economy rests on four strategic advantages. First, infrastructure coherence: Cambodia\'s GaaP architecture is the only ASEAN DPI stack designed as an integrated system from inception, rather than assembled from independently developed components. This coherence reduces integration complexity and enables use cases (like CamInvoice-powered supply chain finance on Bakong rails) that require tight cross-layer coordination.\n\nSecond, regulatory accessibility: Cambodia\'s 100% foreign ownership allowance and published licensing framework make it one of the most accessible fintech markets in ASEAN for foreign entrants. The NBC\'s regulatory posture balances innovation encouragement with prudential oversight, avoiding both the over-regulation that delays market entry in some ASEAN countries and the under-regulation that creates systemic risks.\n\nThird, the greenfield product opportunity: while Cambodia\'s infrastructure is advanced, the product layer built on top of it is thin compared to Singapore, Indonesia, or Thailand. This infrastructure-to-product gap means that entrepreneurs and investors can build novel fintech products on world-class rails with limited competition. Supply chain finance, embedded insurance, B2B payment automation, and merchant value-added services are all underserved categories.\n\nFourth, demographic and economic tailwinds: Cambodia\'s population is young (median age 26.7 years), increasingly urban (28% urbanization rate, growing at 3.5% annually), digitally connected (78% internet penetration), and experiencing strong economic growth (6.1% GDP growth projected for 2026). These demographics drive organic digital economy growth independent of policy interventions.\n\nCapitalising on these advantages takes coordinated market entry, GaaP integration, and regulatory navigation.',
-    },
-    {
-      heading: 'Future Outlook: ASEAN 2030',
-      content: 'Projecting to 2030, the ASEAN digital economy is expected to exceed USD 600 billion in GMV, with several structural shifts reshaping the competitive landscape. The ASEAN Digital Economy Framework Agreement will drive progressive harmonization of regulations, data flows, and payment systems, reducing barriers to cross-border digital commerce. AI adoption will accelerate across all sectors, with AI-powered financial services (credit scoring, fraud detection, customer service) becoming standard rather than differentiated.\n\nFor Cambodia specifically, the trajectory points toward a digital economy contributing 15-20% of GDP by 2030 (up from approximately 8% in 2025), driven by three growth vectors. First, GaaP maturation: as CamInvoice\'s validated invoice records accumulate and CamDigiKey reaches 75% enrollment, the comprehensive digital audit trail will enable new financial products (credit scoring, insurance underwriting, government-to-person payments) that were previously impossible. Second, manufacturing digitization: Cambodia\'s industrial sector, which contributes 38% of GDP, will increasingly adopt Industry 4.0 technologies, creating demand for IoT-integrated payment systems, automated supply chain finance, and digital trade documentation.\n\nThird, regional connectivity: as Bakong\'s cross-border corridors expand to all 10 ASEAN member states and join the multilateral Nexus platform, Cambodia will transition from a domestic payment market to a regional payment node. This evolution creates opportunities for cross-border e-commerce enablement, regional trade finance, and ASEAN-wide financial service distribution using Cambodia as a cost-competitive operational hub.\n\nPositioning for Cambodia\'s 2030 digital economy takes both local regulatory depth and a regional ASEAN perspective.',
+      heading: 'Reading Regional Comparisons',
+      content: 'Regional scorecards that rank ASEAN members on digital-economy size, investment or "infrastructure maturity" circulate widely, and they rarely say where their figures come from. A reader comparing Cambodia with its neighbours is better served by the issuers\' own records: central bank releases on payment links, the instruments that establish each national system, and the regulators\' published lists of licensed firms. For a figure on market size or investment, go to the report that publishes it, and check which countries it actually covers before reading it as a regional comparison.',
     },
   ],
 };
