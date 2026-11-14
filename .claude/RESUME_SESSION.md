@@ -5,7 +5,7 @@ This file tracks the current session state to enable seamless recovery between s
 ## Start here
 _Rewrite this block at the end of every session. Keep it under 30 lines. History is below._
 
-**As of 2026-11-15 (session closed).** Production `dpl_F8KSezi2WVdRqnuAeuH3BH57NELw` = `a8d0f9b`, `main` fast-forwarded to it. Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
+**As of 2026-11-15 (session closed).** Production `dpl_AS7JopwV2FJLFmndpnmS4oBGXG3E` = `d5f6e08` (Git-triggered; CLI deploy of same commit `dpl_2gWn7gXTirMeWDgGzz17sRabgcqg`), `main` fast-forwarded to it. Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
 
 **This session (2026-11-14/15), all DEPLOYED:** GEO sensor gained a weekly Search Console sub-sensor (Hermes `6dd4a27b5782`, Sun 07:30 ICT). Header/Footer moved into `app/layout.tsx` + `npm run check:nav` (only 3 of 69 pages had them; 23/69 URLs unindexed). Figure pass, rebuilt from fetched primaries: ASEAN comparison, compliance-as-a-service, GaaP architecture, digital identity, Bakong metrics, AML requirements, how-to-accept-KHQR, payment ecosystem, Bakong technical integration, how-bakong-works, glossary/bakong, insights/cambodia-digital-payment-growth (`3a508f3`: NBC + Global Findex; 73% digital-payment use is really 32.3%), glossary/embedded-insurance (`e7a00a4`: IRC data, premiums ≈0.8% of GDP not 1.5%), learn/supply-chain-finance-cambodia (`5516b40`) + glossary/supply-chain-finance (`a8d0f9b`): Law on Secured Transactions 2007 + SETFO 2.0 answer double financing; $2.5bn/$3bn gaps, 12-18%, garment 30%/75% out; X-Road sourced on 6 pages; MPTC/mid-2026 claims corrected; 4 surviving approval-agency lines removed. Detail in the session log below.
 
@@ -53,6 +53,7 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 | `e7a00a4` | glossary/embedded-insurance rebuilt on IRC market data 2024/2025 + insurtech sandbox; NBFSA/SD-207 back-links |
 | `5516b40` | learn/supply-chain-finance-cambodia rebuilt around the Law on Secured Transactions + SETFO 2.0; CNSW from KPMG (commentary) |
 | `a8d0f9b` | glossary/supply-chain-finance: figures and pitch lines out, filing office in |
+| `d5f6e08` | Option C: check:llms + check:nav inside `npm run build`; proven on CLI, Git-push and broken-preview deploys |
 
 ## Last Updated
 
