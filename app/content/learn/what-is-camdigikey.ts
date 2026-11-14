@@ -1,6 +1,16 @@
 import { ArticleContent } from '../types';
 
 /*
+ * X-Road, 2026-11-15: SOURCED, kept. camdx.gov.kh ("What is CamDX?") says CamDX
+ * "adopts the model of X-Road of Estonia" and is "a distributed system with no
+ * central database performing only data exchange"; the NIIS case study (19 April
+ * 2024) says the Techo Startup Center, under the MEF, adopted X-Road after its
+ * director's training visit to Estonia in June 2019. Not supported, removed:
+ * "used by over 20 countries", "Estonia pioneered X-Road in 2001", "CamDX /
+ * X-Road (2023)", Finland's Suomi.fi as X-Road, and "TLS encryption ... immutable
+ * audit logs ... international data protection standards". NIIS confirms
+ * Iceland's Straumurinn and that its members include Estonia and Finland.
+ *
  * CamDigiKey operator and mandate correction, 2026-11-14 (targeted: these
  * sentences only). Read Sub-Decree 207 (26 July 2023, Open Development
  * Cambodia English text): the MEF leads and manages CamDigiKey (Art. 4), the
@@ -13,8 +23,8 @@ import { ArticleContent } from '../types';
  * mandate requiring CamDigiKey eKYC ("progressively mandating", "phased
  * mandate ... by 2027", "rapidly becoming the mandatory gateway"). No
  * instrument read creates one. Still unsourced and left for the general pass:
- * X-Road as CamDX's technology (stated in neither Sub-Decree 164 nor the CamDX
- * guidebook), the Digital Government Policy 2022-2035 and its targets, and
+ * X-Road as CamDX's technology [superseded 2026-11-15: sourced, see the note
+ * above], the Digital Government Policy 2022-2035 and its targets, and
  * "OAuth 2.0 single sign-on".
  *
  * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
@@ -50,8 +60,10 @@ export const whatIsCamDigiKey: ArticleContent = {
   sources: [
     { publisher: 'Open Development Cambodia', label: 'Sub-Decree No. 207 on the management of the CamDigiKey platform, legal record', url: 'https://data.opendevelopmentcambodia.net/en/laws_record/sub-decree-no-207-on-the-management-of-camdigikey-platform', tier: 'primary' },
     { publisher: 'CamDigiKey', label: 'Official site (home page)', url: 'https://www.camdigikey.gov.kh', tier: 'primary' },
+    { publisher: 'CamDX', label: 'Cambodia Data Exchange, official site (home page): "What is CamDX?" and design principles', url: 'https://camdx.gov.kh', tier: 'primary' },
+    { publisher: 'Nordic Institute for Interoperability Solutions (NIIS)', label: 'Case study: CamDX is Cambodia\'s national data exchange solution, and it\'s based on X-Road, 19 April 2024', url: 'https://x-road.global/xroad-case-studies-library/2024/10/21/camdx-is-cambodias-national-data-exchange-solution-and-its-based-on-x-road', tier: 'commentary' },
   ],
-  sourcesAsAt: '2026-11-04',
+  sourcesAsAt: '2026-11-15',
   faqs: [
     { question: 'Is CamDigiKey mandatory for opening a bank account in Cambodia?', answer: 'No instrument read for this page requires it. Sub-Decree 207 governs how CamDigiKey is managed and sets the terms on which a business may use its eKYC: membership of CamDX, the CamDX operator\'s permission, and the account owner\'s consent each time the data is used. A bank\'s or payment service institution\'s identity-verification duties come from AML/CFT law and NBC rules, and CamDigiKey is one way of meeting them. Check the current NBC instruments for any requirement specific to CamDigiKey.' },
     { question: 'How does CamDigiKey protect user privacy?', answer: 'CamDigiKey follows a consent-based data sharing model. When a FinTech company requests identity verification, the user must explicitly approve each data field shared. Biometric data is stored encrypted on government servers and never shared with third parties. The system complies with Cambodia\'s draft Personal Data Protection Law.' },

@@ -1,6 +1,16 @@
 import { ArticleContent } from '../types';
 
 /*
+ * X-Road, 2026-11-15: SOURCED, kept. camdx.gov.kh ("What is CamDX?") says CamDX
+ * "adopts the model of X-Road of Estonia" and is "a distributed system with no
+ * central database performing only data exchange"; the NIIS case study (19 April
+ * 2024) says the Techo Startup Center, under the MEF, adopted X-Road after its
+ * director's training visit to Estonia in June 2019. Not supported, removed:
+ * "used by over 20 countries", "Estonia pioneered X-Road in 2001", "CamDX /
+ * X-Road (2023)", Finland's Suomi.fi as X-Road, and "TLS encryption ... immutable
+ * audit logs ... international data protection standards". NIIS confirms
+ * Iceland's Straumurinn and that its members include Estonia and Finland.
+ *
  * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences and rows
  * only). Found false or untraceable, removed, not hedged:
  * - CamInvoice attributed to the General Department of Taxation as operator —
@@ -44,7 +54,7 @@ export const gaap: ArticleContent = {
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-08',
+  updatedAt: '2026-11-15',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['bakong', 'camdigikey', 'camdx', 'caminvoice'],
@@ -66,8 +76,9 @@ export const gaap: ArticleContent = {
     { publisher: 'Ministry of Economy and Finance', label: 'Circular 012, mandatory e-invoicing, Phase 1 Step 2 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/bce86ad2-6baf-456a-b49f-90c0b7b61f26/resource/e8c6b0ce-8f79-427e-a7e2-56f87c89ed1e/download/1756437973985-20250714_circular_to_6_lms_in_q3_2025.pdf', tier: 'primary' },
     { publisher: 'Ministry of Economy and Finance', label: 'Circular 017, mandatory e-invoicing, Phase 1 Step 3 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/d244f7f4-ef43-43fe-8645-d79483c9b0c3/resource/7d904664-edbe-40fe-8e76-f4b119d6a51c/download/1.pdf', tier: 'primary' },
     { publisher: 'Ministry of Economy and Finance', label: 'Circular 007, mandatory e-invoicing, Phase 1 Step 4 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/9bdb6142-b119-41c4-b2ae-5bdde281a8f6/resource/549d6645-3232-4fa3-8715-a8f61c79b1f9/download/1.pdf', tier: 'primary' },
+    { publisher: 'Nordic Institute for Interoperability Solutions (NIIS)', label: 'Case study: CamDX is Cambodia\'s national data exchange solution, and it\'s based on X-Road, 19 April 2024', url: 'https://x-road.global/xroad-case-studies-library/2024/10/21/camdx-is-cambodias-national-data-exchange-solution-and-its-based-on-x-road', tier: 'commentary' },
   ],
-  sourcesAsAt: '2026-11-06',
+  sourcesAsAt: '2026-11-15',
   faqs: [
     { question: 'What is Government-as-a-Platform in the Cambodia context?', answer: 'Government-as-a-Platform (GaaP) in Cambodia refers to the deliberate strategy of building interconnected government digital infrastructure that functions as a platform for private sector innovation. Rather than each ministry building isolated IT systems, Cambodia has created four foundational layers: CamDigiKey for identity, Bakong for payments, CamDX for data exchange, and CamInvoice for invoicing. Private businesses build products and services on top of these government-provided platforms.' },
     { question: 'How is Cambodia\'s GaaP approach different from other countries?', answer: 'Cambodia\'s GaaP model is distinctive because the infrastructure was designed as an integrated stack from the outset rather than evolving organically. CamDigiKey, Bakong, CamDX, and CamInvoice were planned to interoperate. This contrasts with countries where digital identity, payments, and data exchange evolved separately and require complex retrofitting to work together. Cambodia\'s deliberate approach creates compounding network effects.' },

@@ -1,6 +1,16 @@
 import { ArticleContent } from '../types';
 
 /*
+ * X-Road, 2026-11-15: SOURCED, kept. camdx.gov.kh ("What is CamDX?") says CamDX
+ * "adopts the model of X-Road of Estonia" and is "a distributed system with no
+ * central database performing only data exchange"; the NIIS case study (19 April
+ * 2024) says the Techo Startup Center, under the MEF, adopted X-Road after its
+ * director's training visit to Estonia in June 2019. Not supported, removed:
+ * "used by over 20 countries", "Estonia pioneered X-Road in 2001", "CamDX /
+ * X-Road (2023)", Finland's Suomi.fi as X-Road, and "TLS encryption ... immutable
+ * audit logs ... international data protection standards". NIIS confirms
+ * Iceland's Straumurinn and that its members include Estonia and Finland.
+ *
  * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
  * here said CamFinTech "navigates the approval", "keeps them approved",
  * provides "approval-navigation", and that the build "is coordinated with
@@ -17,11 +27,11 @@ export const camdx: ArticleContent = {
   type: 'glossary',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-08',
+  updatedAt: '2026-11-15',
   readingTime: 3,
   schema: 'DefinedTerm',
   relatedSlugs: ['camdigikey', 'gaap', 'caminvoice'],
-  lead: 'CamDX (Cambodia Data Exchange) is Cambodia\'s national data exchange platform built on Estonia\'s proven X-Road technology. Operated by the Ministry of Economy and Finance, CamDX provides a secure, standardized infrastructure for real-time data sharing between government agencies and authorized private sector participants.',
+  lead: 'CamDX (Cambodia Data Exchange) is Cambodia\'s national data exchange platform, adopting the model of Estonia\'s X-Road. Led by the Ministry of Economy and Finance and developed by its Techo Startup Center, CamDX provides a secure, standardized infrastructure for real-time data sharing between government agencies and authorized private sector participants.',
   // Claims removed 2026-08-31. This array previously carried figures attributed
   // to named institutional reports with no URL, access date or page reference.
   // A verified sample was wrong more often than not — including a Cambodian FATF
@@ -34,10 +44,11 @@ export const camdx: ArticleContent = {
     { publisher: 'Royal Government of Cambodia', label: 'Sub-Decree No. 164 on Data Exchange through CamDX, unofficial English translation (PDF)', url: 'https://camdx.gov.kh/documents/files/Unofficial%20Translation%20of%20CamDX%20Subdecree.pdf', tier: 'primary' },
     { publisher: 'Ministry of Economy and Finance', label: 'Decision authorising Techo Startup Center to operate CamDX (Khmer, PDF)', url: 'https://camdx.gov.kh/documents/files/20220728-Decision%20on%20TSC%20as%20operator%20of%20CamDX.pdf', tier: 'primary' },
     { publisher: 'CamDX', label: 'Cambodia Data Exchange, official site (home page)', url: 'https://camdx.gov.kh', tier: 'primary' },
+    { publisher: 'Nordic Institute for Interoperability Solutions (NIIS)', label: 'Case study: CamDX is Cambodia\'s national data exchange solution, and it\'s based on X-Road, 19 April 2024', url: 'https://x-road.global/xroad-case-studies-library/2024/10/21/camdx-is-cambodias-national-data-exchange-solution-and-its-based-on-x-road', tier: 'commentary' },
   ],
-  sourcesAsAt: '2026-11-04',
+  sourcesAsAt: '2026-11-15',
   faqs: [
-    { question: 'What is CamDX and what technology does it use?', answer: 'CamDX (Cambodia Data Exchange) is Cambodia\'s national data exchange platform that enables secure, real-time data sharing between government agencies and authorized private sector organizations. It is built on Estonia\'s X-Road technology, a proven open-source data exchange layer used by over 20 countries worldwide. X-Road ensures data integrity through cryptographic signatures and provides a complete audit trail of all data transactions.' },
+    { question: 'What is CamDX and what technology does it use?', answer: 'CamDX (Cambodia Data Exchange) is Cambodia\'s national data exchange platform that enables secure, real-time data sharing between government agencies and authorized private sector organizations. It adopts the model of Estonia\'s X-Road, the open-source data exchange layer developed by the Nordic Institute for Interoperability Solutions. Every exchange through CamDX is encrypted, digitally signed and timestamped (Sub-Decree 164, Article 5).' },
     { question: 'How does CamDX connect to other Cambodia digital infrastructure?', answer: 'CamDX serves as the data backbone connecting Cambodia\'s Government-as-a-Platform components. CamDigiKey identity verifications flow through CamDX. CamInvoice e-invoicing data is shared via CamDX. Bakong payment confirmations can be validated through CamDX connections. This interoperability creates a unified digital ecosystem where identity, payments, invoicing, and data exchange work together seamlessly.' },
     { question: 'Can private companies access CamDX?', answer: 'Yes. Authorized private sector organizations, particularly financial institutions and regulated businesses, can connect to CamDX to access government data services. This includes identity verification via CamDigiKey, business registration data, tax compliance status, and more. CamFinTech prepares the onboarding documentation and builds the client side of the connection; the onboarding decision rests with the system\'s operator.' },
   ],
@@ -63,7 +74,7 @@ export const camdx: ArticleContent = {
     },
     {
       heading: 'Security and Compliance Framework',
-      content: 'CamDX enforces strict security protocols inherited from the X-Road framework. All data exchanges use TLS encryption, and every transaction is signed with the sending organization\'s digital certificate. The platform maintains immutable audit logs that satisfy both domestic regulatory requirements and international data protection standards.\n\nAccess control operates on a consent and authorization model. Private sector participants must register with CamDX, demonstrate a legitimate business need, and receive explicit authorization for each data service they access. This ensures data minimization principles are upheld while still enabling the data fluidity that Cambodia\'s digital economy requires.',
+      content: 'CamDX\'s security follows the X-Road design and its legal basis. Under Sub-Decree 164, every exchange is encrypted, digitally signed and timestamped (Article 5), and CamDX does not store the data exchanged or pass it on without the original data owner\'s consent (Article 6). Each member keeps its own audit log for security inspection (Article 11).\n\nAccess control operates on a consent and authorization model. Private sector participants must register with CamDX, demonstrate a legitimate business need, and receive explicit authorization for each data service they access. This ensures data minimization principles are upheld while still enabling the data fluidity that Cambodia\'s digital economy requires.',
     },
     {
       heading: 'Where CamFinTech\'s Work Sits',

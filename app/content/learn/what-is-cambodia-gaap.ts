@@ -1,6 +1,16 @@
 import { ArticleContent } from '../types';
 
 /*
+ * X-Road, 2026-11-15: SOURCED, kept. camdx.gov.kh ("What is CamDX?") says CamDX
+ * "adopts the model of X-Road of Estonia" and is "a distributed system with no
+ * central database performing only data exchange"; the NIIS case study (19 April
+ * 2024) says the Techo Startup Center, under the MEF, adopted X-Road after its
+ * director's training visit to Estonia in June 2019. Not supported, removed:
+ * "used by over 20 countries", "Estonia pioneered X-Road in 2001", "CamDX /
+ * X-Road (2023)", Finland's Suomi.fi as X-Road, and "TLS encryption ... immutable
+ * audit logs ... international data protection standards". NIIS confirms
+ * Iceland's Straumurinn and that its members include Estonia and Finland.
+ *
  * CamDigiKey operator and mandate correction, 2026-11-14 (targeted: the layers
  * table operator cells and one FAQ). Read Sub-Decree 207 (26 July 2023, Open Development
  * Cambodia English text): the MEF leads and manages CamDigiKey (Art. 4), the
@@ -13,8 +23,8 @@ import { ArticleContent } from '../types';
  * mandate requiring CamDigiKey eKYC ("progressively mandating", "phased
  * mandate ... by 2027", "rapidly becoming the mandatory gateway"). No
  * instrument read creates one. Still unsourced and left for the general pass:
- * X-Road as CamDX's technology (stated in neither Sub-Decree 164 nor the CamDX
- * guidebook), the Digital Government Policy 2022-2035 and its targets, and
+ * X-Road as CamDX's technology [superseded 2026-11-15: sourced, see the note
+ * above], the Digital Government Policy 2022-2035 and its targets, and
  * "OAuth 2.0 single sign-on".
  *
  * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences, rows and
@@ -89,11 +99,12 @@ export const whatIsCambodiaGaaP: ArticleContent = {
     { publisher: 'Ministry of Economy and Finance', label: 'Circular 012, mandatory e-invoicing, Phase 1 Step 2 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/bce86ad2-6baf-456a-b49f-90c0b7b61f26/resource/e8c6b0ce-8f79-427e-a7e2-56f87c89ed1e/download/1756437973985-20250714_circular_to_6_lms_in_q3_2025.pdf', tier: 'primary' },
     { publisher: 'Ministry of Economy and Finance', label: 'Circular 017, mandatory e-invoicing, Phase 1 Step 3 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/d244f7f4-ef43-43fe-8645-d79483c9b0c3/resource/7d904664-edbe-40fe-8e76-f4b119d6a51c/download/1.pdf', tier: 'primary' },
     { publisher: 'Ministry of Economy and Finance', label: 'Circular 007, mandatory e-invoicing, Phase 1 Step 4 (PDF, Khmer, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/en/dataset/9bdb6142-b119-41c4-b2ae-5bdde281a8f6/resource/549d6645-3232-4fa3-8715-a8f61c79b1f9/download/1.pdf', tier: 'primary' },
+    { publisher: 'Nordic Institute for Interoperability Solutions (NIIS)', label: 'Case study: CamDX is Cambodia\'s national data exchange solution, and it\'s based on X-Road, 19 April 2024', url: 'https://x-road.global/xroad-case-studies-library/2024/10/21/camdx-is-cambodias-national-data-exchange-solution-and-its-based-on-x-road', tier: 'commentary' },
   ],
-  sourcesAsAt: '2026-11-06',
+  sourcesAsAt: '2026-11-15',
   faqs: [
     { question: 'What makes Cambodia\'s digital infrastructure different from other ASEAN countries?', answer: 'Most ASEAN countries built digital payment systems, identity platforms, and data exchanges independently over decades. Cambodia designed all four layers simultaneously as a unified stack under the Digital Government Policy 2022-2035. This deliberate architecture means the layers are interoperable by design, not retrofitted. A CamDigiKey identity verification can trigger a CamDX data query and initiate a Bakong payment in a single workflow.' },
-    { question: 'Is Cambodia\'s GaaP model based on Estonia\'s?', answer: 'Yes, directly. Cambodia adopted Estonia\'s X-Road technology for CamDX and studied Estonia\'s digital identity and e-governance architecture extensively. However, Cambodia adapted the model for its dual-currency economy, mobile-first population, and specific regulatory requirements. The Bakong CBDC layer has no direct Estonian equivalent, as Estonia uses the euro.' },
+    { question: 'Is Cambodia\'s GaaP model based on Estonia\'s?', answer: 'For data exchange, yes. CamDX adopts the model of Estonia\'s X-Road, and the Techo Startup Center chose X-Road after its director\'s training visit to Estonia in June 2019. Cambodia adapted the wider model to its own conditions, including a dual-currency economy, and Bakong has no direct Estonian equivalent because Estonia uses the euro.' },
     { question: 'How does GaaP affect foreign investment in Cambodia?', answer: 'GaaP creates both opportunities and obligations. Foreign enterprises benefit from instant digital onboarding (CamDigiKey), real-time regulatory compliance (CamDX), low-cost payments (Bakong), and electronic invoicing (CamInvoice). Which connections are obligatory differs by platform: CamInvoice is mandatory in phases for suppliers to designated ministries, CamDX membership is by application for private businesses, and using CamDigiKey eKYC requires CamDX membership and the operator\'s permission. CamFinTech prepares the readiness and compliance work for these connections and builds the client side of the integration; the approval decisions rest with each platform\'s operator and regulator.' },
   ],
   sections: [
@@ -125,14 +136,14 @@ export const whatIsCambodiaGaaP: ArticleContent = {
     },
     {
       heading: 'Comparison with Estonia and Singapore',
-      content: 'Cambodia\'s GaaP model draws most directly from Estonia, which pioneered X-Road in 2001 and built a comprehensive e-governance stack over two decades. Cambodia compressed this timeline by adopting X-Road technology directly for CamDX and learning from Estonia\'s implementation experience.\n\nSingapore offers a different comparison point. Singapore\'s GovTech agency built a platform stack including SingPass (identity), PayNow (payments), and APEX (data exchange), but these evolved semi-independently over many years. Cambodia\'s advantage is designing all layers simultaneously, but its challenge is deploying them in a developing economy with lower digital literacy. The table below summarizes key architectural differences.',
+      content: 'Cambodia\'s GaaP model draws most directly from Estonia for data exchange. CamDX adopts the model of Estonia\'s X-Road, a choice the Techo Startup Center made after its director\'s training visit to Estonia in June 2019, so Cambodia started from a proven design rather than building its own.\n\nSingapore offers a different comparison point. Singapore\'s GovTech agency built a platform stack including SingPass (identity), PayNow (payments), and APEX (data exchange), but these evolved semi-independently over many years. Cambodia\'s advantage is designing all layers simultaneously, but its challenge is deploying them in a developing economy with lower digital literacy. The table below summarizes key architectural differences.',
       table: {
         caption: 'GaaP Architecture Comparison: Cambodia vs Estonia vs Singapore',
         headers: ['Dimension', 'Cambodia', 'Estonia', 'Singapore'],
         rows: [
           ['Identity Platform', 'CamDigiKey (2023)', 'e-ID / Mobile-ID (2002)', 'SingPass (2003)'],
           ['Payment Layer', 'Bakong CBDC (2020)', 'Euro (ECB)', 'PayNow (2017)'],
-          ['Data Exchange', 'CamDX / X-Road (2023)', 'X-Road (2001)', 'APEX (2017)'],
+          ['Data Exchange', 'CamDX (X-Road model)', 'X-Road', 'APEX (2017)'],
           ['Architecture Approach', 'Simultaneous design', 'Sequential over 20 years', 'Sequential over 15 years'],
           ['GDP per capita (2024)', '~USD 1,900', '~USD 30,000', '~USD 65,000'],
         ],

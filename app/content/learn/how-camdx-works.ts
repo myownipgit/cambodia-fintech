@@ -1,6 +1,16 @@
 import { ArticleContent } from '../types';
 
 /*
+ * X-Road, 2026-11-15: SOURCED, kept. camdx.gov.kh ("What is CamDX?") says CamDX
+ * "adopts the model of X-Road of Estonia" and is "a distributed system with no
+ * central database performing only data exchange"; the NIIS case study (19 April
+ * 2024) says the Techo Startup Center, under the MEF, adopted X-Road after its
+ * director's training visit to Estonia in June 2019. Not supported, removed:
+ * "used by over 20 countries", "Estonia pioneered X-Road in 2001", "CamDX /
+ * X-Road (2023)", Finland's Suomi.fi as X-Road, and "TLS encryption ... immutable
+ * audit logs ... international data protection standards". NIIS confirms
+ * Iceland's Straumurinn and that its members include Estonia and Finland.
+ *
  * 2026-11-08 register sweep (ADR-005/006). The firm section and FAQ lines
  * here said CamFinTech "navigates the approval", "keeps them approved",
  * provides "approval-navigation", and that the build "is coordinated with
@@ -17,7 +27,7 @@ export const howCamDXWorks: ArticleContent = {
   type: 'learn',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-08',
+  updatedAt: '2026-11-15',
   readingTime: 6,
   schema: 'Article',
   relatedSlugs: ['camdx', 'camdigikey', 'gaap'],
@@ -34,8 +44,9 @@ export const howCamDXWorks: ArticleContent = {
     { publisher: 'Royal Government of Cambodia', label: 'Sub-Decree No. 164 on Data Exchange through CamDX, unofficial English translation (PDF)', url: 'https://camdx.gov.kh/documents/files/Unofficial%20Translation%20of%20CamDX%20Subdecree.pdf', tier: 'primary' },
     { publisher: 'CamDX', label: 'CamDX Membership User Guidebook (PDF)', url: 'https://camdx.gov.kh/documents/files/CamDX%20User%20Guide%20Book%20English.pdf', tier: 'primary' },
     { publisher: 'CamDX', label: 'Cambodia Data Exchange, official site (home page)', url: 'https://camdx.gov.kh', tier: 'primary' },
+    { publisher: 'Nordic Institute for Interoperability Solutions (NIIS)', label: 'Case study: CamDX is Cambodia\'s national data exchange solution, and it\'s based on X-Road, 19 April 2024', url: 'https://x-road.global/xroad-case-studies-library/2024/10/21/camdx-is-cambodias-national-data-exchange-solution-and-its-based-on-x-road', tier: 'commentary' },
   ],
-  sourcesAsAt: '2026-11-04',
+  sourcesAsAt: '2026-11-15',
   faqs: [
     { question: 'What is the difference between CamDX and CamDigiKey?', answer: 'CamDigiKey is the digital identity and eKYC platform. CamDX is the data exchange infrastructure. CamDigiKey verifies who a person is; CamDX enables authorized parties to query government databases about that person or entity. CamDigiKey is a data provider ON CamDX, meaning a KYC query flows through CamDX to reach CamDigiKey identity services.' },
     { question: 'Can private companies connect directly to CamDX?', answer: 'Licensed financial institutions and authorized private-sector entities can connect to CamDX through the official onboarding process. This requires registration with the Digital Government Committee, deployment of a CamDX security server, and compliance with the CamDX data governance framework. CamFinTech prepares the onboarding documentation and builds the client side of the connection; the onboarding decision rests with the system\'s operator.' },
@@ -101,7 +112,7 @@ export const howCamDXWorks: ArticleContent = {
     },
     {
       heading: 'Comparison with Regional Data Exchange Platforms',
-      content: 'Cambodia\'s decision to adopt X-Road places CamDX in the same technology family as Estonia\'s original X-Road, Finland\'s Suomi.fi, and Iceland\'s Straumurinn. Within ASEAN, Singapore\'s APEX (Application Programming Interface Exchange) serves a similar function, though it uses a centralized API gateway architecture rather than X-Road\'s federated model.\n\nThe federated approach has a key advantage: no single point of failure and no central repository of all citizens\' data. Each ministry retains control of its own data and decides how to expose it. CamDX simply provides the secure transport and access control layer. This architecture is particularly well-suited to Cambodia\'s governance structure, where ministries operate with significant autonomy.',
+      content: 'Cambodia\'s decision to adopt X-Road places CamDX in the same technology family as Estonia\'s original X-Road and Iceland\'s Straumurinn. X-Road is open source, developed by the Nordic Institute for Interoperability Solutions, whose members include Estonia and Finland. CamDX\'s own site describes it as a distributed system with no central database, performing only data exchange.\n\nThe federated approach has a key advantage: no single point of failure and no central repository of all citizens\' data. Each ministry retains control of its own data and decides how to expose it. CamDX simply provides the secure transport and access control layer. This architecture is particularly well-suited to Cambodia\'s governance structure, where ministries operate with significant autonomy.',
     },
     {
       heading: 'Where CamFinTech\'s Work Sits',
