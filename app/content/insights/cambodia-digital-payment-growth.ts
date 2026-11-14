@@ -1,133 +1,131 @@
 import { ArticleContent } from '../types';
 
 /*
- * CamInvoice correction, 2026-11-07 (targeted: CamInvoice sentences only; the
- * rest of this page is left for the general unsourced-figures pass).
- * - "driven by the General Department of Taxation's CamInvoice mandate which
- *   creates a compliance incentive for merchant digitization" — FALSE: the GDT
- *   does not operate CamInvoice, and Phase 1 covers suppliers to ministries,
- *   not merchants. Clause removed.
- * - "the integration of CamInvoice with Bakong payment data will create a
- *   unified commercial transaction record" — no primary for any such
- *   integration; rephrased as conditional reasoning.
- * CamInvoice is an MEF system operated by the General Department of Digital
- * Economy (Prakas 075, 22 January 2025, Art. 4); its Phase 1 is business-to-
- * government. Bar for restoring: read in a fetched MEF/GDDE primary.
+ * Rebuilt 2026-11-15 (figure pass). Sources, all fetched or read on the record:
+ * - World Bank Global Findex Database for Cambodia, read this day from the
+ *   World Bank Data360 API (DATABASE_ID=WB_FINDEX, REF_AREA=KHM; 2,785 rows).
+ *   Indicators used: ACCOUNT_T_D, MOBILEACCOUNT_T_D, G20_ANY (by sex and by
+ *   urban/rural), MERCHANT_PAY (2024 only). The 2017 and 2024 totals match the
+ *   values already read from the World Bank Data API for
+ *   insights/cambodia-vs-regional-fintech.ts (15.6%, 32.3%, 39.0%). The older
+ *   api.worldbank.org endpoint timed out on every call this day; Data360 did not.
+ * - NBC Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword
+ *   p. i and ch. 2 and ch. 6, read 2026-11-04/15 for other pages; figures here
+ *   are the ones already published with page references on
+ *   insights/bakong-adoption-metrics.ts and learn/fintech-license-cambodia.ts.
+ * - NBC registers as at 31 May 2026 (as on knowledge/cambodia-payment-ecosystem).
+ * - Prakas F14-020-351 (June 2020), KHQR, as on learn/how-to-accept-khqr.
+ *
+ * Removed, not hedged (the March 2026 page). Do not restore from git:
+ * - The Bakong annual table 2021-2025 (1.2m to 24m transactions, USD 2.1bn to
+ *   30bn, average sizes, YoY growth). Contradicted by the NBC: Bakong carried
+ *   more than 600 million transactions in 2024, not 21 million, and US dollar
+ *   value alone was USD 102.32bn, not a USD 26bn total. "78% growth in 2024"
+ *   is the NBC's figure for the whole payment system's transaction count, not
+ *   Bakong's. The "USD 30 billion annually by 2025" in the lead falls with it.
+ * - The Findex table: 73% / 55% / 36% digital payment use, 42% bank account,
+ *   61% mobile money account, 70% female, 65% rural, 6 pp gender gap, and the
+ *   "37-point increase". Findex gives 32.3% / 26.1% / 15.6%, 39.0% account
+ *   ownership (bank or mobile money), 16.9% mobile money, 29.8% women, 27.4%
+ *   rural. The FAQ comparison with Vietnam and the Philippines fell with it.
+ * - KHQR merchant counts (50k to 400k+), the province table, and an "NBC target
+ *   of 600,000 merchants". The NBC 2024 report gives a KHQR merchant-account
+ *   figure that reads as 4.5 or 8.5 million (Khmer 4/8); no count is stated.
+ * - The GSMA mobile money table (12.7m to 21.3m accounts, active rates, P2P /
+ *   merchant / bill shares). No GSMA source was read.
+ * - "Bakong-PromptPay linkage operational since mid-2023" (launched 18 Feb
+ *   2020), ADB corridor values, remittance costs and savings, "250,000 workers
+ *   in Malaysia", "USD 400 million". The links are QR payment links, not
+ *   remittance corridors; no volume figure was read.
+ * - "CamFinTech estimates the TAM at USD 180-220 million", MDR, gateway-fee and
+ *   FX-margin ranges, "USD 8-12 billion undigitised", and the "CamFinTech
+ *   projects" 2026 forecast. First-person estimates with no evidence (ADR-006).
+ * - The provider market-share table (68% / 22% / 10%), "Bakong Tier 2 access"
+ *   (Bakong has no participant tiers in the NBC documents read), "Wing, backed
+ *   by Cellcard", account counts for Wing and TrueMoney. Unsourced.
+ * - "Bakong CBDC" in the description and "CBDC experiment" in the lead. The
+ *   NBC's white paper calls Bakong a next-generation payment system.
+ *
+ * Bar for restoring any figure: read in a fetched primary, recorded here.
  */
 
 export const cambodiaDigitalPaymentGrowth: ArticleContent = {
   slug: 'cambodia-digital-payment-growth',
-  title: 'Cambodia Digital Payment Growth 2020-2026: Bakong, KHQR, and Mobile Money Trends',
-  description: 'Data-driven analysis of Cambodia\'s digital payment ecosystem growth from 2020 to 2026, covering Bakong CBDC transaction volumes, KHQR merchant adoption rates, mobile money penetration, and year-over-year comparisons sourced from NBC, World Bank, and BIS reports.',
+  title: 'Cambodia Digital Payment Growth: What the NBC and Global Findex Record',
+  description: 'Cambodia\'s digital payment growth measured two ways: the National Bank of Cambodia\'s payment-system statistics for 2024, and the World Bank Global Findex survey of how many adults actually pay digitally, 2017 to 2024.',
   type: 'insights',
   cluster: 'infrastructure',
   publishedAt: '2026-03-25',
-  updatedAt: '2026-11-07',
-  readingTime: 8,
+  updatedAt: '2026-11-15',
+  readingTime: 6,
   schema: 'Article',
-  relatedSlugs: ['bakong', 'khqr', 'cambodia-payment-ecosystem'],
-  lead: 'Analysis published March 2026. Figures are as at their cited source year — mostly 2024 and 2025 — and are not restated here; check the source for anything more recent. Cambodia\'s digital payment landscape has undergone a structural transformation since the National Bank of Cambodia (NBC) launched Bakong in October 2020. What began as a CBDC experiment has grown into a comprehensive payment infrastructure processing over USD 30 billion annually by 2025. This analysis examines the data behind Cambodia\'s digital payment acceleration, tracking transaction volumes, user adoption curves, merchant penetration, and mobile money trends across the 2020-2026 period. The findings reveal that Cambodia\'s government-led approach has produced adoption rates that rival or exceed those of wealthier ASEAN neighbors, driven by the KHQR standard and aggressive cross-border corridor development.',
-  // Claims removed 2026-08-31. This array previously carried figures attributed
-  // to named institutional reports with no URL, access date or page reference.
-  // A verified sample was wrong more often than not — including a Cambodian FATF
-  // mutual evaluation that never took place, and citations to bodies that do not
-  // exist under the names given. Restore an entry only when its figure has been
-  // read in a fetched primary, on the same evidence bar as app/content/regulatory,
-  // and record where it was read. See vault ADR-007.
-  claims: [],
+  relatedSlugs: ['bakong-adoption-metrics', 'bakong', 'khqr', 'cambodia-payment-ecosystem'],
+  lead: 'Two primary sources measure digital payments in Cambodia, and they measure different things. The National Bank of Cambodia (NBC) counts transactions: in 2024 the number of digital payment transactions grew 78% on 2023 and their value 38%, and Bakong, the NBC\'s national payment system, carried more than 600 million transactions. The World Bank\'s Global Findex survey counts people: in 2024, 32.3% of Cambodian adults had made or received a digital payment in the past year, up from 15.6% in 2017. Both show fast growth. Read together, they show transaction volumes rising much faster than the share of adults who pay digitally, and a wide gap between towns and the countryside. Figures are as at their source year.',
+  claims: [
+    { stat: 'The number of digital payment transactions in Cambodia grew 78% during 2024 and their value grew 38%, both measured against 2023. The National Bank of Cambodia puts the total value at approximately 15 times gross domestic product.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), foreword, p. i (Open Development Cambodia copy)', year: '2024', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf' },
+    { stat: 'Bakong carried more than 600 million transfer and payment transactions in 2024; US dollar transactions were worth about USD 102.32 billion, and total value equalled 327% of GDP.', source: 'National Bank of Cambodia, Annual Report on the Payment System in Cambodia 2024 (Khmer), ch. 2.1 and chart 4, printed pp. 9-10', year: '2024', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf' },
+    { stat: 'In 2024, 32.3% of adults in Cambodia had made or received a digital payment in the past year, up from 26.1% in 2021 and 15.6% in 2017. Account ownership, at a financial institution or with a mobile money provider, was 39.0%.', source: 'World Bank, Global Findex Database, Cambodia (indicators G20_ANY and ACCOUNT_T_D, adults aged 15+), via the World Bank Data360 API', year: '2024', url: 'https://data360api.worldbank.org/data360/data?DATABASE_ID=WB_FINDEX&REF_AREA=KHM' },
+    { stat: 'In 2024, 58.1% of urban adults and 27.4% of rural adults in Cambodia had made or received a digital payment; for women the figure was 29.8% and for men 35.1%.', source: 'World Bank, Global Findex Database, Cambodia (indicator G20_ANY by urbanisation and sex), via the World Bank Data360 API', year: '2024', url: 'https://data360api.worldbank.org/data360/data?DATABASE_ID=WB_FINDEX&REF_AREA=KHM' },
+  ],
+  sources: [
+    { publisher: 'National Bank of Cambodia', label: 'Annual Report on the Payment System in Cambodia 2024 (Khmer, PDF, Open Development Cambodia copy)', url: 'https://data.opendevelopmentcambodia.net/km/dataset/374d9edd-4808-4d3a-bf23-2a5088d581a2/resource/5d48e5f6-d625-47a0-a801-98e9a7dc3dea/download/psd-annual-book-2024.pdf', tier: 'primary' },
+    { publisher: 'World Bank', label: 'Global Findex Database, Cambodia, via the World Bank Data360 API (JSON)', url: 'https://data360api.worldbank.org/data360/data?DATABASE_ID=WB_FINDEX&REF_AREA=KHM', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Project Bakong: Next Generation Payment System, white paper, June 2020 (PDF)', url: 'https://bakong.nbc.gov.kh/download/NBC_BAKONG_White_Paper.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'Prakas F14-020-351 on the KHQR Code technical specification, June 2020 (Khmer, PDF)', url: 'https://nbc.gov.kh/files/legislation/prakas/latest/km/Prakas_F14-020-351-PR_KHQR_for_Payment_in_Cambodia_appendix.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'List of Commercial Banks, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/commercial-banks/en/Commercial_Banks.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'List of Specialized Banks, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/specialized-banks/en/Specialized_Banks.pdf', tier: 'primary' },
+    { publisher: 'National Bank of Cambodia', label: 'List of Payment Service Institutions, as at 31 May 2026 (PDF)', url: 'https://nbc.gov.kh/files/supervision/payment-service/en/PSIs.pdf', tier: 'primary' },
+    { publisher: 'Bank of Thailand', label: 'Press Release No. 9/2020: The Launch of Interoperable QR Payment Linkage between Cambodia and Thailand (PDF)', url: 'https://www.bot.or.th/content/dam/bot/documents/en/news-and-media/news-pdf/2020/n0963e.pdf', tier: 'primary' },
+  ],
+  sourcesAsAt: '2026-11-15',
   faqs: [
-    { question: 'How fast are digital payments growing in Cambodia?', answer: 'Cambodia\'s digital payment ecosystem has grown at a compound annual rate of approximately 65% in transaction volume between 2020 and 2025. Bakong transaction volumes increased from roughly 1.2 million transactions in its first full year (2021) to over 24 million in 2025. The total value processed through the system expanded from USD 2.1 billion in 2021 to approximately USD 30 billion in 2025. This growth rate significantly outpaces the ASEAN average of 25-30% annual digital payment growth.' },
-    { question: 'What is driving Cambodia\'s digital payment adoption?', answer: 'Three primary factors drive adoption: (1) the NBC\'s KHQR standard, which gave the market a single QR payment standard; (2) Bakong\'s dual-currency design supporting both KHR and USD, which mirrors Cambodia\'s dollarized economy; and (3) cross-border corridors with Thailand (PromptPay), Malaysia (DuitNow), and China (Alipay), which reduced remittance costs by 40-50%. The government\'s deliberate infrastructure-first approach, rather than leaving adoption to market forces, has been the key differentiator.' },
-    { question: 'How does Cambodia compare to other ASEAN countries in digital payments?', answer: 'By payment infrastructure sophistication, Cambodia now ranks alongside Thailand and Singapore as having a fully interoperable real-time payment system with QR standardization. In terms of adoption rate growth, Cambodia\'s 37-percentage-point increase in digital payment usage (from 36% to 73% between 2017 and 2024) exceeds Vietnam\'s 28-point gain and the Philippines\' 25-point gain over the same period. However, in absolute transaction value, Cambodia\'s market remains smaller due to GDP differences.' },
+    { question: 'How fast are digital payments growing in Cambodia?', answer: 'By the National Bank of Cambodia\'s count, the number of digital payment transactions grew 78% in 2024 and their value 38%, against 2023. Bakong alone carried more than 600 million transactions in 2024. By the World Bank\'s Global Findex survey, the share of adults who made or received a digital payment rose from 15.6% in 2017 to 26.1% in 2021 and 32.3% in 2024. Transaction volumes are growing much faster than the number of people paying digitally.' },
+    { question: 'What share of Cambodians use digital payments?', answer: 'In 2024, 32.3% of adults aged 15 and over had made or received a digital payment in the past year, according to the World Bank\'s Global Findex survey. The figure was 58.1% in urban areas and 27.4% in rural areas, and 35.1% for men against 29.8% for women. Account ownership, at a bank or similar institution or with a mobile money provider, was 39.0%.' },
+    { question: 'Why does Bakong reach 30 million accounts if only 39% of adults have one?', answer: 'The two figures count different things. The NBC\'s figure of about 30 million is bank and e-wallet accounts at member institutions that can transact through Bakong; one person can hold several accounts, and some accounts may be inactive. Findex is a survey of individuals, and asks whether each person has an account at all. Neither figure is a count of active users.' },
   ],
   sections: [
     {
-      heading: 'Bakong Transaction Volume Growth 2020-2025',
-      content: 'The trajectory of Bakong transaction volumes tells the story of Cambodia\'s payment transformation. In its first full year of operation (2021), Bakong processed approximately 1.2 million transactions worth USD 2.1 billion. By 2022, that figure had tripled to 3.8 million transactions as banks completed integration and KHQR gained traction. The inflection point came in 2023, with volumes reaching 11.8 million transactions worth USD 18.5 billion.\n\nThe 2024 figures showed continued acceleration: 21 million transactions worth USD 26 billion, representing a 78% year-over-year increase in volume. Preliminary 2025 data suggests the system is on track to exceed 24 million transactions and USD 30 billion in value. The average transaction size has decreased from USD 1,750 in 2021 to approximately USD 1,250 in 2025, indicating broader retail adoption beyond the initial corporate and high-value use cases.',
+      heading: 'Two Ways to Measure Growth',
+      content: 'Growth in digital payments can be measured by counting transactions or by counting people, and Cambodia\'s two primary sources do one each. The NBC\'s Annual Report on the Payment System counts transactions and their value across the payment system. The World Bank\'s Global Findex Database surveys adults about whether they hold an account and whether they have made or received a digital payment in the past year. The first shows how much the rails carry; the second shows how widely they are used. A page that quotes one as if it were the other will mislead.',
+    },
+    {
+      heading: 'Transactions: The NBC\'s 2024 Figures',
+      content: 'The NBC reports that the number of digital payment transactions in Cambodia grew 78% during 2024 and their value 38%, both against 2023, with total value equivalent to approximately 15 times GDP.\n\nBakong, the NBC\'s national payment system launched in October 2020, is part of that picture. It carried more than 600 million transfer and payment transactions in 2024, with total value equal to 327% of GDP; US dollar transactions alone were worth about USD 102.32 billion. Riel and dollar transactions were close to even by number, 49% and 51%, but dollars made up 70% of value. At the end of 2024, 60 institutions were live on Bakong and nine more were integrating. The detail is set out on the Bakong adoption metrics page.\n\nThe NBC\'s report is published in Khmer. Annual Bakong figures for earlier years are not given here, because none has yet been read in an NBC publication.',
+    },
+    {
+      heading: 'People: The Global Findex Survey',
+      content: 'The Global Findex survey shows steady but much slower growth in the share of adults paying digitally. In 2017, 15.6% of Cambodian adults had made or received a digital payment in the past year. That rose to 26.1% in 2021 and 32.3% in 2024. Account ownership, counting both financial institution and mobile money accounts, rose from 21.7% to 39.0% over the same period. Mobile money account ownership was 16.9% in 2024.\n\nIn 2024, 19.8% of adults had made a digital payment to a merchant, in a shop or online. That is the kind of payment KHQR, the national QR code standard the NBC set by Prakas in June 2020, is used for.',
       table: {
-        caption: 'Bakong Annual Transaction Metrics 2021-2025',
-        headers: ['Year', 'Transactions (millions)', 'Total Value (USD billions)', 'Avg Transaction Size (USD)', 'YoY Volume Growth'],
+        caption: 'Cambodia, adults aged 15+ (World Bank Global Findex Database)',
+        headers: ['Indicator', '2017', '2021', '2024'],
         rows: [
-          ['2021', '1.2', '2.1', '1,750', 'N/A (launch year)'],
-          ['2022', '3.8', '5.9', '1,553', '217%'],
-          ['2023', '11.8', '18.5', '1,568', '211%'],
-          ['2024', '21.0', '26.0', '1,238', '78%'],
-          ['2025 (est.)', '24.0+', '30.0+', '1,250', '14%+'],
+          ['Made or received a digital payment', '15.6%', '26.1%', '32.3%'],
+          ['Account (financial institution or mobile money)', '21.7%', '33.4%', '39.0%'],
+          ['Mobile money account', '5.7%', '6.6%', '16.9%'],
+          ['Made or received a digital payment: women', '15.1%', '23.9%', '29.8%'],
+          ['Made or received a digital payment: men', '16.1%', '28.6%', '35.1%'],
         ],
       },
     },
     {
-      heading: 'KHQR Merchant Adoption and Interoperability',
-      content: 'KHQR has been the critical demand-side driver of Cambodia\'s digital payment growth. Before KHQR standardization, merchants needed separate QR codes for each bank and wallet provider, creating confusion and friction. The NBC set the KHQR standard by Prakas in June 2020, requiring banks and financial institutions that use QR codes for payments to follow it by the end of 2020.\n\nMerchant registrations grew from 50,000 at launch to 180,000 by end of 2023, accelerating to 350,000 by end of 2024 and exceeding 400,000 by early 2025. The geographic distribution shows concentration in Phnom Penh (52% of registrations) and Siem Reap (14%), with secondary cities like Battambang, Kampong Cham, and Sihanoukville accounting for the remainder. The NBC has set a target of 600,000 registered merchants by end of 2026, with a specific focus on rural market vendors and micro-enterprises through simplified registration processes.',
-      table: {
-        caption: 'KHQR Merchant Registration by Province (2025)',
-        headers: ['Province/City', 'Registered Merchants', 'Share of Total', 'Primary Sectors'],
-        rows: [
-          ['Phnom Penh', '208,000', '52%', 'Retail, F&B, services'],
-          ['Siem Reap', '56,000', '14%', 'Tourism, hospitality'],
-          ['Battambang', '28,000', '7%', 'Agriculture, retail'],
-          ['Kampong Cham', '24,000', '6%', 'Agriculture, manufacturing'],
-          ['Sihanoukville', '20,000', '5%', 'Tourism, construction'],
-          ['Other provinces', '64,000', '16%', 'Mixed retail, agriculture'],
-        ],
-      },
+      heading: 'The Urban-Rural Gap',
+      content: 'The widest gap in the Findex data is between town and countryside. In 2024, 58.1% of urban adults had made or received a digital payment, against 27.4% of rural adults. Account ownership showed the same pattern: 65.2% urban, 34.0% rural. The gap between men and women was much smaller, at about five percentage points.\n\nThe national figure, 32.3%, sits much closer to the rural figure than the urban one, which reflects how much of the adult population is rural. Growth in the national share will therefore depend mostly on rural adoption.',
     },
     {
-      heading: 'Mobile Money Account Growth and Usage Patterns',
-      content: 'Cambodia\'s mobile money ecosystem predates Bakong, with providers like Wing (Cambodia) and TrueMoney establishing significant user bases before 2020. The GSMA reports that registered mobile money accounts in Cambodia reached 21.3 million by end of 2024, up from 12.7 million in 2020. Given Cambodia\'s adult population of approximately 11 million, this implies an average of nearly two accounts per adult, reflecting the multi-provider nature of the market.\n\nActive accounts (defined as at least one transaction per 90 days) tell a more nuanced story. The 90-day active rate improved from 31% in 2020 to 48% in 2024, meaning approximately 10.2 million accounts were actively used. The most common transaction types shifted dramatically: person-to-person (P2P) transfers dropped from 72% of transactions in 2020 to 45% in 2024, while merchant payments grew from 8% to 31%, reflecting the KHQR-driven shift toward commercial use cases.',
-      table: {
-        caption: 'Cambodia Mobile Money Key Metrics 2020-2024',
-        headers: ['Metric', '2020', '2021', '2022', '2023', '2024'],
-        rows: [
-          ['Registered accounts (millions)', '12.7', '14.5', '16.8', '19.1', '21.3'],
-          ['90-day active rate', '31%', '34%', '38%', '43%', '48%'],
-          ['Active accounts (millions)', '3.9', '4.9', '6.4', '8.2', '10.2'],
-          ['P2P share of transactions', '72%', '65%', '58%', '51%', '45%'],
-          ['Merchant payment share', '8%', '13%', '19%', '25%', '31%'],
-          ['Bill payment share', '12%', '14%', '15%', '16%', '17%'],
-        ],
-      },
+      heading: 'Reconciling the Two Pictures',
+      content: 'The NBC records about 30 million bank and e-wallet accounts that can transact through Bakong, more than the country\'s population. Findex finds that 39.0% of adults have an account. These are consistent once it is clear what each counts. The NBC counts accounts, and one person can hold several; Findex counts people. Findex is also a sample survey, so its figures carry sampling error that the NBC\'s administrative counts do not.\n\nTaken together, the two sources show transaction volumes growing far faster than the number of people transacting. That pattern fits more frequent use by existing users, especially in towns, more than a broad new wave of users, though neither source measures frequency of use per person directly.',
     },
     {
-      heading: 'Cross-Border Payment Corridor Expansion',
-      content: 'Cross-border payment corridors represent the next growth vector for Cambodia\'s digital payment infrastructure. The Bakong-PromptPay linkage with Thailand, operational since mid-2023, has been the most impactful. The ADB estimates that the Thailand-Cambodia remittance corridor handles over USD 1.5 billion annually, with approximately 1.2 million Cambodian migrant workers in Thailand sending regular remittances home.\n\nPrior to the Bakong-PromptPay link, the average cost of sending USD 200 from Thailand to Cambodia was approximately 10% of the transaction value through informal channels and 6-8% through licensed remittance agents. The bilateral QR linkage reduced this to under 5%, saving an estimated USD 75-100 million annually for migrant workers. The Malaysia-Cambodia DuitNow-Bakong corridor, launched in 2024, serves approximately 250,000 Cambodian workers in Malaysia and is expected to process USD 400 million in remittances annually.',
+      heading: 'Cross-Border QR Payment Links',
+      content: 'Bakong\'s links abroad are QR payment links: they let a customer pay a merchant across the border by scanning a QR code. Thailand was first, launched on 18 February 2020 and announced by the Bank of Thailand. The NBC\'s 2024 payment-system report records the links that followed, with Laos and Vietnam in 2023, South Korea and Malaysia in 2024, and the UnionPay and Alipay+ networks. No volume or value figure for an individual link has been read in a primary source, so none is given.',
     },
     {
-      heading: 'Financial Inclusion Impact Assessment',
-      content: 'The World Bank Global Findex data reveals the scale of Cambodia\'s financial inclusion gains. In 2017, only 36% of Cambodian adults had made or received a digital payment. By 2021, this figure reached 55%, and by 2024 it climbed to 73%. This 37-percentage-point increase over seven years represents one of the fastest financial inclusion trajectories in the developing world.\n\nThe gender gap in digital payment usage also narrowed significantly. In 2017, the gap between male and female digital payment usage stood at 14 percentage points (43% male vs. 29% female). By 2024, this had narrowed to 6 percentage points (76% male vs. 70% female), driven by mobile money agents in rural areas and simplified KYC processes. The rural-urban divide similarly compressed from 28 percentage points in 2017 to 12 percentage points in 2024, with rural adoption reaching 65% compared to 77% in urban areas.',
-      table: {
-        caption: 'Cambodia Financial Inclusion Indicators 2017-2024',
-        headers: ['Indicator', '2017', '2021', '2024', 'Change 2017-2024'],
-        rows: [
-          ['Adults with digital payment usage', '36%', '55%', '73%', '+37 pp'],
-          ['Adults with bank account', '22%', '33%', '42%', '+20 pp'],
-          ['Adults with mobile money account', '19%', '42%', '61%', '+42 pp'],
-          ['Female digital payment usage', '29%', '48%', '70%', '+41 pp'],
-          ['Rural digital payment usage', '21%', '39%', '65%', '+44 pp'],
-          ['Gender gap (male minus female)', '14 pp', '10 pp', '6 pp', '-8 pp'],
-        ],
-      },
+      heading: 'Who Provides Digital Payments',
+      content: 'Digital payment services in Cambodia are provided by institutions the NBC licenses and lists on its registers. As at 31 May 2026, those registers list 58 commercial banks, 7 specialised banks and 28 payment service institutions, alongside microfinance institutions. Many of them reach each other through Bakong, which had 69 member institutions at the end of 2024. No primary source breaks down transaction volume by type of provider, so no market-share figures are given here.',
     },
     {
-      heading: 'Digital Payment Revenue and Market Sizing',
-      content: 'The commercial opportunity embedded in Cambodia\'s digital payment growth is substantial. CamFinTech estimates the total addressable market for payment processing fees, value-added services, and related fintech solutions at approximately USD 180-220 million annually by 2025. This includes merchant discount rates averaging 0.5-1.0% on card and QR transactions, payment gateway fees for e-commerce integration, and cross-border transaction margins.\n\nThe payment revenue pool is growing faster than transaction volume because higher-margin segments are expanding. E-commerce payments, which carry gateway fees of 2.5-3.5%, grew from 3% of digital transactions in 2020 to an estimated 12% in 2025. Similarly, cross-border payments, which generate FX margins of 0.5-1.5%, expanded from 5% to 15% of Bakong value over the same period. The NBC\'s push to bring informal cash transactions into digital rails represents an additional addressable market estimated at USD 8-12 billion in currently undigitized retail payments.',
-    },
-    {
-      heading: 'Competitive Landscape: Banks vs. Fintechs vs. Telcos',
-      content: 'Cambodia\'s digital payment market features three distinct competitor categories, each with different strengths. Commercial banks, led by ACLEDA Bank, ABA Bank, and Canadia Bank, dominate the Bakong ecosystem with a combined 68% share of Bakong transaction volume. Their advantage lies in existing customer relationships, regulatory compliance infrastructure, and direct Bakong API access as Tier 2 participants.\n\nFintech companies, including payment aggregators and e-wallet providers, captured approximately 22% of transaction volume in 2024, up from 12% in 2022. Wing (Cambodia), backed by South Korea\'s Cellcard, remains the largest non-bank payment provider with over 8 million registered accounts. TrueMoney, backed by Thailand\'s Ascend Group, follows with 4.5 million accounts. Telecom-led mobile money services account for the remaining 10%, with Smart Axiata\'s SmartLuy being the most prominent. The trend favors fintech players gaining share, particularly in merchant acquisition and value-added services.',
-      table: {
-        caption: 'Cambodia Digital Payment Market Share by Provider Type (2024)',
-        headers: ['Provider Category', 'Transaction Volume Share', 'Key Players', 'Primary Advantage'],
-        rows: [
-          ['Commercial banks', '68%', 'ACLEDA, ABA, Canadia, Phillip', 'Bakong Tier 2 access, trust'],
-          ['Fintech / e-wallets', '22%', 'Wing, TrueMoney, Pi Pay', 'Agent networks, UX'],
-          ['Telecom-led', '10%', 'SmartLuy (Smart Axiata)', 'SIM-based reach, rural coverage'],
-        ],
-      },
-    },
-    {
-      heading: 'Growth Projections and Strategic Outlook 2026',
-      content: 'Based on current trajectory data and NBC policy signals, CamFinTech projects that Cambodia\'s digital payment ecosystem will reach several critical milestones by end of 2026. Bakong transaction volumes are expected to exceed 30 million annually, with total value surpassing USD 38 billion. KHQR merchant registrations should approach the NBC\'s target of 600,000.\n\nThree structural shifts will shape the 2026 landscape. First, the completion of ASEAN cross-border QR payment linkages will enable five or more bilateral corridors, transforming Cambodia from a remittance-receiving economy to a regional payment hub. Second, invoices validated by CamInvoice, read alongside Bakong payment data where a business has both, could support new credit scoring models for SME lending. Third, the entry of regional super-apps and digital banks, attracted by Cambodia\'s open infrastructure, will intensify competition and accelerate innovation in embedded finance, insurance, and credit products.',
+      heading: 'What the Data Does Not Show',
+      content: 'Several figures often quoted about Cambodian digital payments have not been found in a primary source: annual Bakong totals before 2024, the number of KHQR merchants, mobile money account totals by provider, market shares, remittance values through the cross-border links, and the size of the payments revenue pool. They are left out rather than estimated. Anyone relying on such a figure should ask for its source and page.',
     },
   ],
 };
