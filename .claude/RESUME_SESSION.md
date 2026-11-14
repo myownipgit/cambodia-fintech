@@ -5,9 +5,9 @@ This file tracks the current session state to enable seamless recovery between s
 ## Start here
 _Rewrite this block at the end of every session. Keep it under 30 lines. History is below._
 
-**As of 2026-11-15 (session closed).** Production `dpl_8mRY7odjs6TrjUgXXQacDfRZffFa` = `5516b40`, `main` fast-forwarded to it. Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
+**As of 2026-11-15 (session closed).** Production `dpl_F8KSezi2WVdRqnuAeuH3BH57NELw` = `a8d0f9b`, `main` fast-forwarded to it. Never trust a hash written here — check `git rev-parse --short HEAD` and `vercel ls --prod`.
 
-**This session (2026-11-14/15), all DEPLOYED:** GEO sensor gained a weekly Search Console sub-sensor (Hermes `6dd4a27b5782`, Sun 07:30 ICT). Header/Footer moved into `app/layout.tsx` + `npm run check:nav` (only 3 of 69 pages had them; 23/69 URLs unindexed). Figure pass, rebuilt from fetched primaries: ASEAN comparison, compliance-as-a-service, GaaP architecture, digital identity, Bakong metrics, AML requirements, how-to-accept-KHQR, payment ecosystem, Bakong technical integration, how-bakong-works, glossary/bakong, insights/cambodia-digital-payment-growth (`3a508f3`: NBC + Global Findex; 73% digital-payment use is really 32.3%), glossary/embedded-insurance (`e7a00a4`: IRC data, premiums ≈0.8% of GDP not 1.5%), learn/supply-chain-finance-cambodia (`5516b40`: Law on Secured Transactions 2007 + SETFO 2.0; ADB $2.5bn gap etc. out); X-Road sourced on 6 pages; MPTC/mid-2026 claims corrected; 4 surviving approval-agency lines removed. Detail in the session log below.
+**This session (2026-11-14/15), all DEPLOYED:** GEO sensor gained a weekly Search Console sub-sensor (Hermes `6dd4a27b5782`, Sun 07:30 ICT). Header/Footer moved into `app/layout.tsx` + `npm run check:nav` (only 3 of 69 pages had them; 23/69 URLs unindexed). Figure pass, rebuilt from fetched primaries: ASEAN comparison, compliance-as-a-service, GaaP architecture, digital identity, Bakong metrics, AML requirements, how-to-accept-KHQR, payment ecosystem, Bakong technical integration, how-bakong-works, glossary/bakong, insights/cambodia-digital-payment-growth (`3a508f3`: NBC + Global Findex; 73% digital-payment use is really 32.3%), glossary/embedded-insurance (`e7a00a4`: IRC data, premiums ≈0.8% of GDP not 1.5%), learn/supply-chain-finance-cambodia (`5516b40`) + glossary/supply-chain-finance (`a8d0f9b`): Law on Secured Transactions 2007 + SETFO 2.0 answer double financing; $2.5bn/$3bn gaps, 12-18%, garment 30%/75% out; X-Road sourced on 6 pages; MPTC/mid-2026 claims corrected; 4 surviving approval-agency lines removed. Detail in the session log below.
 
 **Key facts established (memory: `project_corpus_evidence_bar`):** MEF leads CamDigiKey AND CamDX; the CamDX operator (Techo Startup Center) runs both (Sub-Decrees 207, 164). X-Road sourced (camdx.gov.kh + NIIS). Bakong 2024 metrics (NBC report ch. 2, Khmer 4/8 caveat). AML/CFT Law 2020 English text (Bun & Associates PDF). NBC's English KHQR/Open API developer docs on bakong.nbc.gov.kh — the real Open API has no webhooks; error codes are 1-10.
 
@@ -18,7 +18,7 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 - Request Indexing in Search Console for `/regulatory`, `/insights`, instrument pages, and the 3 crawled-not-indexed pages (rewritten 11-07, crawled before).
 - Older: riel.report subscribe form test; real phone + Safari check; disabled key `662dd13d…` / `~/Downloads/key.json`; LinkedIn text; Khmer reader for Terms/Privacy; Traefik v3.7 migration.
 
-**Next in the figure pass:** `glossary/supply-chain-finance` ("over $3 billion" SME gap), `insights/cambodia-vs-regional-fintech` (its header says figures already removed 11-07 — check before redoing), `knowledge/cambodia-scf-opportunity` (cites an unfound NBC SCF circular). Also unsourced: "Digital Government Policy 2022-2035" targets on CamDX/GaaP learn pages.
+**Next in the figure pass:** `insights/cambodia-vs-regional-fintech` (its header says figures already removed 11-07 — check before redoing), `knowledge/cambodia-scf-opportunity` (cites an unfound NBC SCF circular). Also unsourced: "Digital Government Policy 2022-2035" targets on CamDX/GaaP learn pages.
 
 **Deploy method (unchanged):** clean worktree at the commit → copy node_modules + `.vercel/project.json` → `npm run build && npm run -s check:nav && npm run -s check:llms && vercel --prod --yes` — **never pipe a gate before `&&`** (a piped check let a failed gate deploy on 11-15). Re-date `updatedAt` if commits cross midnight.
 
@@ -52,6 +52,7 @@ _Rewrite this block at the end of every session. Keep it under 30 lines. History
 | `3a508f3` | cambodia-digital-payment-growth rebuilt on NBC 2024 + Global Findex (Data360) |
 | `e7a00a4` | glossary/embedded-insurance rebuilt on IRC market data 2024/2025 + insurtech sandbox; NBFSA/SD-207 back-links |
 | `5516b40` | learn/supply-chain-finance-cambodia rebuilt around the Law on Secured Transactions + SETFO 2.0; CNSW from KPMG (commentary) |
+| `a8d0f9b` | glossary/supply-chain-finance: figures and pitch lines out, filing office in |
 
 ## Last Updated
 
