@@ -228,6 +228,8 @@ It was **never chosen**. `.vercel/project.json` is in the initial commit (`d0f9e
 
 Bill chose to keep the integration and **enforce the checks in the build instead** (option C, 2026-11-15): since `npm run build` runs `check:llms` and `check:nav`, a Git-triggered deploy that fails a check errors out and does not ship. The CLI deploy remains the primary method — it deploys a known working tree and its log shows the result. **Consequence for workflow: pushing `main` is a deploy.** Fast-forward `main` only to a commit you would deploy.
 
+**`.vercelignore` is an allowlist** (2026-11-15): it ignores everything, then admits `app/`, `public/`, `scripts/` and the build config files. Before it, every CLI deploy uploaded `.claude/`, `CLAUDE.md`, the GEO audits, `docs/` and any untracked root file to Vercel's build machine. Verified with the deployment-files API on a preview deployed from the main checkout. If the build needs a new top-level file, add it there and prove it with a preview (`vercel --yes`).
+
 `vercel --prod` and the CLI can drop their connection mid-build (`Error: fetch failed`) while the build carries on remotely. Check `vercel ls --prod` and wait with `vercel inspect <url> --wait` before re-deploying, or you deploy twice.
 
 There was historically a Vercel deploy webhook documented here — it is dead and has been removed from this doc. Do not attempt to use webhook-based deploys.

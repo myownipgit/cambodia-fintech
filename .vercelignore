@@ -1,0 +1,24 @@
+# Allowlist, not a blocklist (2026-11-15, ADR-013 in the vault decision log).
+#
+# Without this file every `vercel --prod` uploaded the whole working directory
+# to Vercel's build machine: .claude/ (session handoff), CLAUDE.md, the GEO
+# audit reports, docs/, and any untracked file in the repo root (daily reports,
+# Search Console exports). None was served — only public/ is — but none needed
+# to leave the machine. Ignoring everything and admitting what the build reads
+# means a new stray file stays local by default.
+#
+# If the build starts needing a new top-level file, add it here. A preview
+# deploy (`vercel --yes`, no --prod) shows whether the build still passes.
+/*
+!/app
+!/public
+!/scripts
+!/package.json
+!/package-lock.json
+!/next.config.js
+!/next-env.d.ts
+!/tsconfig.json
+!/tailwind.config.ts
+!/postcss.config.js
+!/eslint.config.mjs
+!/vercel.json
